@@ -7,21 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189562"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
 Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
-
-> [!NOTE]
-> La fonctionnalité de table répliquée est actuellement disponible en préversion publique. Certains comportements sont susceptibles d’être modifiés.
-> 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,20 +42,13 @@ Le fonctionnement des tables répliquées est mieux adapté aux petites tables d
 Envisagez d’utiliser une table répliquée dans les cas suivants :
 
 - La taille de la table sur le disque est inférieure à 2 Go, quel que soit le nombre de lignes. Pour connaître la taille d’une table, vous pouvez utiliser la commande [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) : `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- La table est utilisée dans des jointures qui requièrent normalement un déplacement des données. Par exemple, une jointure sur des tables distribuées par hachage requiert le déplacement des données lorsque les colonnes de jointure ne correspondent pas à la colonne de distribution. Si l’une des tables distribuées par hachage est de petite taille, pensez à utiliser une table répliquée. Une jointure sur une table de distribution par tourniquet (round-robin) requiert le déplacement des données. Nous vous recommandons d’utiliser des tables répliquées au lieu de tables de distribution par tourniquet dans la plupart des cas. 
-
-
-Envisagez de convertir une table distribuée existante en table répliquée dans les cas suivants :
-
-- Les plans de requêtes utilisent des opérations de déplacement des données qui diffusent les données sur tous les nœuds de calcul. L’opération BroadcastMoveOperation est coûteuse et ralentit les performances de requête. Pour consulter les opérations de déplacement des données dans les plans de requêtes, utilisez [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- La table est utilisée dans des jointures qui requièrent normalement un déplacement des données. Quand vous joignez des tables qui ne sont pas distribuées sur la même colonne, telles qu’une table distribuée par hachage jointe à une table à distribution par tourniquet (round robin), un déplacement des données est nécessaire pour l’exécution de la requête.  Si l’une des tables est petite, pensez à utiliser une table répliquée. Nous vous recommandons d’utiliser des tables répliquées au lieu de tables de distribution par tourniquet dans la plupart des cas. Pour consulter les opérations de déplacement des données dans les plans de requêtes, utilisez [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  L’opération BroadcastMoveOperation est l’opération de déplacement de données qui peut généralement être supprimée à l’aide d’une table répliquée.  
  
 Les tables répliquées ne produisent sans doute pas les meilleurs résultats dans les cas suivants :
 
 - La table est l’objet d’opérations d’insertion, de mise à jour et de suppression fréquentes. Ces opérations DLM (langage de manipulation de données) nécessitent une regénération de la table répliquée. La reconstruction fréquente peut diminuer les performances.
 - L’entrepôt de données est souvent mis à l’échelle. La mise à l’échelle d’un entrepôt de données modifie le nombre de nœuds de calcul, ce qui entraîne une reconstruction.
-- La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table par hachage et de créer ensuite un index sur les colonnes fréquemment sollicitées. Lorsqu’une requête requiert le déplacement des données, SQL Data Warehouse déplace uniquement les données dans les colonnes demandées. 
-
-
+- La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table et de créer ensuite un index sur les colonnes fréquemment sollicitées. Quand une requête requiert le déplacement des données, SQL Data Warehouse déplace uniquement les données pour les colonnes demandées. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utiliser des tables répliquées avec des prédicats de requête simples
 Avant de décider de distribuer ou de répliquer une table, pensez aux types de requêtes que vous projetez d’exécuter sur la table. Lorsque possible,
@@ -68,7 +58,7 @@ Avant de décider de distribuer ou de répliquer une table, pensez aux types de 
 
 Les requêtes sollicitant beaucoup le processeur fonctionnent de manière optimale lorsque le travail est réparti entre tous les nœuds de calcul. Par exemple, les requêtes qui exécutent des calculs sur chaque ligne d’une table fonctionnent mieux sur les tables distribués que sur les tables répliquées. Étant donné qu’une table répliquée est entièrement stockée sur chaque nœud de calcul, une requête sollicitant beaucoup le processeur sur une table répliquée s’exécute sur la table entière sur chaque nœud de calcul. Le calcul supplémentaire peut ralentir les performances des requêtes.
 
-Par exemple, cette requête comporte un prédicat complexe.  Elle s’exécute plus rapidement lorsque le fournisseur est une table distribuée au lieu d’une table répliquée. Dans cet exemple, le fournisseur peut être distribué par hachage ou distribué par tourniquet.
+Par exemple, cette requête comporte un prédicat complexe.  Elle s’exécute plus rapidement lorsque le fournisseur est une table distribuée au lieu d’une table répliquée. Dans cet exemple, le fournisseur peut être distribué par tourniquet.
 
 ```sql
 
@@ -133,7 +123,7 @@ Nous avons recréé les tables `DimDate` et `DimSalesTerritory` en tant que tabl
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considérations relatives aux performances pour la modification des tables répliquées
-SQL Data Warehouse implémente une table répliquée en conservant une version principale de la table. Il copie la version principale dans une base de données de distribution sur chaque nœud de calcul. En cas de modification, SQL Data Warehouse met d’abord à jour la table principale. Puis, il demande une reconstruction des tables sur chaque nœud de calcul. Une reconstruction d’une table répliquée implique la copie de la table sur chaque nœud de calcul et la reconstruction des index.
+SQL Data Warehouse implémente une table répliquée en conservant une version principale de la table. Il copie la version principale dans une base de données de distribution sur chaque nœud de calcul. En cas de modification, SQL Data Warehouse met d’abord à jour la table principale. Puis, il reconstruit les tables sur chaque nœud de calcul. Une reconstruction d’une table répliquée implique la copie de la table sur chaque nœud de calcul et la construction des index.  Par exemple, une table répliquée sur un DW400 a 5 copies des données.  Une copie principale et une copie complète sur chaque nœud de calcul.  Toutes les données sont stockées dans des bases de données de distribution. SQL Data Warehouse utilise ce modèle pour prendre en charge les instructions de modification de données plus rapides et les opérations de mise à l’échelle flexibles. 
 
 Les reconstructions sont requises après les événements suivants :
 - Des données sont chargées ou modifiées
@@ -144,7 +134,7 @@ Les reconstructions ne sont pas requises après les événements suivants :
 - Opération de suspension
 - Opération de reprise
 
-La reconstruction ne se produit pas immédiatement après la modification des données. Au lieu de cela, la reconstruction est déclenchée la première fois qu’une requête est sélectionnée à partir de la table.  L’instruction select initiale de la table contient les étapes pour reconstruire la table répliquée.  Étant donné que la reconstruction est effectuée dans la requête, l’impact sur l’instruction select initiale peut être significatif selon la taille de la table.  Si plusieurs tables répliquées nécessitant une reconstruction sont impliquées, chaque copie est reconstruite en série en fonction des étapes de l’instruction.  Pour maintenir la cohérence des données pendant la reconstruction de la table répliquée, un verrou exclusif est placé sur la table.  Le verrou empêche tout accès à la table pendant la durée de la reconstruction. 
+La reconstruction ne se produit pas immédiatement après la modification des données. Au lieu de cela, la reconstruction est déclenchée la première fois qu’une requête est sélectionnée à partir de la table.  La requête qui a déclenché la reconstruction lit immédiatement à partir de la version principale de la table pendant que les données sont copiées de façon asynchrone sur chaque nœud de calcul. Tant que la copie des données n’est pas terminée, les requêtes suivantes continuent d’utiliser la version principale de la table.  Si la table répliquée fait l’objet d’une activité qui entraîne une reconstruction, la copie des données est invalidée et l’instruction select suivante engendre une nouvelle copie des données. 
 
 ### <a name="use-indexes-conservatively"></a>Utilisation restrictive des index
 Les pratiques d’indexation standard s’appliquent aux tables répliquées. SQL Data Warehouse reconstruit chaque index de table répliquée dans le cadre de la reconstruction. Utilisez les index uniquement lorsque le gain de performances compense le coût de reconstruction des index.  
@@ -173,7 +163,7 @@ Par exemple, ce modèle de chargement charge les données à partir de quatre so
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Reconstruire une table répliquée après un chargement par lots
-Pour garantir des temps d’exécution de requête cohérents, nous vous recommandons de forcer une actualisation des tables répliquées après un chargement par lots. Sinon, la première requête doit attendre que les tables s’actualisent, ce qui implique la reconstruction des index. Selon la taille et le nombre des tables répliquées affectées, l’impact sur les performances peut être important.  
+Pour garantir des temps d’exécution de requête cohérents, envisagez d’imposer la construction des tables répliquées après un chargement par lots. Sinon, la première requête recourt toujours à un déplacement. 
 
 Cette requête utilise le DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) pour répertorier les tables répliquées qui ont été modifiées mais pas reconstruites.
 
@@ -188,7 +178,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-Pour forcer une reconstruction, exécutez l’instruction suivante sur chaque table dans la sortie précédente. 
+Pour déclencher une reconstruction, exécutez l’instruction suivante sur chaque table dans la sortie précédente. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management pour les ressources Azure - Configuration des paramètres de rôle | Microsoft Docs
+title: Configurer les paramètres de rôle pour les ressources Azure à l’aide de Privileged Identity Management | Microsoft Docs
 description: Cet article décrit comment configurer les paramètres de rôle pour Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,17 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 0fe986d8cdace301fde4045b16d299ba8395457d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32148809"
 ---
-# <a name="privileged-identity-management---resource-roles---configure"></a>Privileged Identity Management - Rôles de ressource - Configuration
+# <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Configurer les paramètres de rôle pour les ressources Azure à l’aide de Privileged Identity Management 
 
-La configuration des paramètres de rôle permet de définir les valeurs par défaut appliquées aux attributions dans l’environnement PIM. Pour définir ces valeurs pour votre ressource, sélectionnez l’onglet Paramètres de rôle dans le volet de navigation gauche, ou bien le bouton Paramètres de rôle sur la barre d’action dans n’importe quel rôle afin d’afficher les options actuelles.
+Quand vous configurez les paramètres de rôle, vous définissez les paramètres par défaut appliqués aux affectations dans l’environnement Privileged Identity Management (PIM). Pour définir ces paramètres pour votre ressource, sélectionnez l’onglet **Paramètres de rôle** dans le volet gauche. Vous pouvez également sélectionner le bouton Paramètres de rôle de la barre d’action (dans n’importe quel rôle) pour afficher les options actuelles.
 
 
 ## <a name="select-a-role"></a>Sélectionnez un rôle
-Sélectionnez un rôle auquel vous souhaitez apporter une modification. Ensuite, sélectionnez Modifier pour apporter des modifications aux paramètres existants.
+Sélectionnez un rôle que vous souhaitez modifier. Ensuite, pour apporter des modifications aux paramètres existants, sélectionnez **Modifier**.

@@ -1,11 +1,11 @@
 ---
-title: "Présentation de la gestion des appareils dans Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment la gestion des appareils peut vous aider à contrôler les appareils qui accèdent aux ressources de votre environnement."
+title: Présentation de la gestion des appareils dans Azure Active Directory | Microsoft Docs
+description: Découvrez comment la gestion des appareils peut vous aider à contrôler les appareils qui accèdent aux ressources de votre environnement.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202131"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
 
@@ -73,7 +74,7 @@ Les appareils joints Azure AD ont pour objectif de simplifier :
 
 
 Ces objectifs sont atteints en fournissant aux utilisateurs une expérience libre-service du contrôle des appareils professionnels par Azure AD.  
-**Azure AD Join** est destiné aux organisations axées en priorité ou uniquement sur le cloud. Ce sont généralement les petites et moyennes entreprises qui ne possèdent pas d’infrastructure Windows Server Active Directory en local. 
+**Azure AD Join** est destiné aux organisations axées en priorité ou uniquement sur le cloud. Il n’existe aucune restriction quant à la taille ou au type des organisations qui peuvent déployer Azure AD Join. Azure AD Join fonctionne parfaitement même dans un environnement hybride et permet l’accès aux applications et ressources locales.
 
 L’implémentation d’appareils joints Azure AD vous offre les avantages suivants :
 
@@ -81,11 +82,14 @@ L’implémentation d’appareils joints Azure AD vous offre les avantages suiva
 
 - **L’itinérance compatible avec l’entreprise** des paramètres utilisateur sur les appareils joints. Les utilisateurs n’ont pas besoin de se connecter à un compte Microsoft (par exemple, Hotmail) pour afficher les paramètres sur les appareils.
 
-- **Accéder au Windows Store pour Entreprises** à l’aide d’un compte AD. Les utilisateurs peuvent choisir parmi un inventaire d’applications présélectionnées par l’organisation.
+- **Accéder au Windows Store pour Entreprises** à l’aide d’un compte Azure AD. Les utilisateurs peuvent choisir parmi un inventaire d’applications présélectionnées par l’organisation.
 
 - L’assistant **Windows Hello** fournit un accès sécurisé et pratique aux ressources de travail.
 
 - **La restriction d’accès** aux applications ne s’applique qu’aux appareils qui répondent à la stratégie de conformité.
+
+- **Un accès transparent aux ressources locales** lorsque l’appareil dispose d’une ligne de vue sur le contrôleur de domaine local.
+
 
 Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne disposent pas d’une infrastructure Windows Server Active Directory locale, vous pouvez également l’utiliser dans les scénarios où :
 

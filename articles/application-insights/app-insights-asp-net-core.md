@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157140"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights pour ASP.NET Core
 
@@ -193,7 +194,7 @@ Maintenant que vous avez terminé les étapes précédentes, faites des tests et
 
 Le groupe de produits Application Insights a beaucoup travaillé pour s’approcher autant que possible de la parité de fonctionnalité entre le [SDK .NET Framework complet ](https://github.com/Microsoft/ApplicationInsights-dotnet) et le SDK .Net Core. La version 2.2.0 du [SDK ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore) pour Application Insights a largement comblé l’écart de fonctionnalité.
 
-Pour en savoir plus sur les différences et les compromis entre [.NET et .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Pour en savoir plus sur les différences et les compromis entre [.NET et .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | Comparaison des SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +204,7 @@ Pour en savoir plus sur les différences et les compromis entre [.NET et .NET Co
    | **Appels de dépendance SQL**     | **+** |**-** | **+**|
    | **Compteurs de performance*** | **+** | **-**| **-**|
 
-Dans ce contexte, les _compteurs de performance_ font référence aux [compteurs de performance côté serveur](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) telles que le processeur, la mémoire et l’utilisation du disque.
+Dans ce contexte, les _compteurs de performance_ font référence aux [compteurs de performance côté serveur](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) telles que le processeur, la mémoire et l’utilisation du disque.
 
 ## <a name="open-source-sdk"></a>Kit de développement logiciel (SDK) open source
 [Lire et contribuer au code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

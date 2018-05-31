@@ -10,19 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: e021403cd5544f0570e8ea3c73a17a57b241a65f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310976"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Intégration et déploiement continus dans Azure Data Factory
 
 L’intégration continue consiste à tester automatiquement et dès que possible chaque modification apportée à votre code base. Le déploiement continu fait suite au test effectué pendant l’intégration continue et transmet les modifications à un système de production ou intermédiaire.
 
 Pour Azure Data Factory, l’intégration et le déploiement continus impliquent de déplacer des pipelines Data Factory d’un environnement (développement, test, production) vers un autre. Pour procéder à l’intégration et au déploiement continus, vous pouvez utiliser l’intégration de l’interface utilisateur de la fabrique de données avec les modèles Azure Resource Manager. L’interface utilisateur de la fabrique de données peut générer un modèle Resource Manager lorsque vous sélectionnez les options du **modèle ARM**. Lorsque vous sélectionnez **Exporter un modèle ARM**, le portail génère le modèle Resource Manager pour la fabrique de données et un fichier de configuration qui inclut toutes vos chaînes de connexion et d’autres paramètres. Vous devez ensuite créer un fichier de configuration pour chaque environnement (développement, test, production). Le principal fichier de modèle Resource Manager reste le même pour tous les environnements.
+
+Pour une présentation de neuf minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Créer un modèle Resource Manager pour chaque environnement
 Sélectionnez **Exporter un modèle ARM** pour exporter le modèle Resource Manager de votre fabrique de données dans l’environnement de développement.
@@ -62,6 +67,8 @@ Voici le cycle de vie complet d’intégration et de déploiement continus que v
 
 Les étapes suivantes de configuration d’une version VSTS vous permettront d’automatiser le déploiement d’une fabrique de données dans plusieurs environnements.
 
+![Diagramme d’intégration continue avec VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### <a name="requirements"></a>Configuration requise
 
 -   Un abonnement Azure lié à Team Foundation Server ou VSTS utilisant le [*point de terminaison de service Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
@@ -90,7 +97,7 @@ Les étapes suivantes de configuration d’une version VSTS vous permettront d�
 
     a.  Ajoutez les secrets au fichier de paramètres :
 
-        -   Créez une copie du fichier de paramètres qui sera chargée dans la branche de publication et définissez les valeurs des paramètres que vous souhaitez obtenir à partir du coffre de clés avec le format suivant :
+       -   Créez une copie du fichier de paramètres qui sera chargée dans la branche de publication et définissez les valeurs des paramètres que vous souhaitez obtenir à partir du coffre de clés avec le format suivant :
 
         ```json
         {
@@ -100,24 +107,24 @@ Les étapes suivantes de configuration d’une version VSTS vous permettront d�
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Lorsque vous utilisez cette méthode, le secret est automatiquement extrait du coffre de clés.
+       -   Lorsque vous utilisez cette méthode, le secret est automatiquement extrait du coffre de clés.
 
-        -   Le fichier de paramètres doit également être dans la branche de publication.
+       -   Le fichier de paramètres doit également être dans la branche de publication.
 
     b.  Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) :
 
-        -   Sélectionnez l’onglet **Tâches**, créez une tâche, recherchez **Azure Key Vault** et ajoutez-le.
+       -   Sélectionnez l’onglet **Tâches**, créez une tâche, recherchez **Azure Key Vault** et ajoutez-le.
 
-        -   Dans la tâche Key Vault, sélectionnez l’abonnement dans lequel vous avez créé le coffre de clés, fournissez des informations d’identification si nécessaire, puis choisissez le coffre de clés.
+       -   Dans la tâche Key Vault, sélectionnez l’abonnement dans lequel vous avez créé le coffre de clés, fournissez des informations d’identification si nécessaire, puis choisissez le coffre de clés.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Ajoutez une tâche de déploiement Azure Resource Manager :
 

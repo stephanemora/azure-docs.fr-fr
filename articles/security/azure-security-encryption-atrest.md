@@ -3,7 +3,7 @@ title: Chiffrement des données au repos de Microsoft Azure | Microsoft Docs
 description: Cet article fournit une vue d’ensemble du chiffrement des données au repos de Microsoft Azure, avec ses fonctionnalités globales et des considérations générales.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312574"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 Il existe plusieurs outils dans Microsoft Azure pour protéger les données en fonction des besoins de sécurité et de conformité de votre entreprise. Ce document porte sur les points suivants :
@@ -236,10 +237,10 @@ Tout client utilisant les fonctionnalités IaaS d’Azure peut effectuer le chif
 
 #### <a name="azure-storage"></a>Stockage Azure
 
-Les services Azure Stockage Blob et Stockage Fichier prennent en charge le chiffrement au repos pour les scénarios avec chiffrement côté serveur, ainsi que les données chiffrées par le client (chiffrement côté client).
+Tous les services Stockage Azure (Stockage Blob, Stockage File d’attente, Stockage Table et Azure Files) prennent en charge le chiffrement au repos côté serveur, et certains services prennent en charge les clés gérées par le client et le chiffrement côté client.  
 
-- Côté serveur : les clients utilisant Azure Stockage Blob peuvent activer le chiffrement au repos sur chaque compte de ressource de stockage Azure. Une fois activé, le chiffrement côté serveur s’effectue de façon transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption).
-- Côté client : le chiffrement côté client des objets blob Azure est pris en charge. Lors de l’utilisation du chiffrement côté client, les clients chiffrent les données et les chargent sous la forme d’un objet blob chiffré. La gestion des clés est effectuée par le client. Pour plus d’informations, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Côté serveur : tous les services Stockage Azure permettent par défaut le chiffrement côté serveur à l’aide de clés gérées par le service, une opération transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Stockage Blob Azure et Azure Files prennent également en charge les clés gérées par le client dans Azure Key Vault. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Côté client : Les files d’attente, les Tables et les objets BLOB Windows Azure prennent en charge le chiffrement côté client. Lors de l’utilisation du chiffrement côté client, les clients chiffrent les données et les chargent sous la forme d’un objet blob chiffré. La gestion des clés est effectuée par le client. Pour plus d’informations, consultez [Chiffrement côté client et Azure Key Vault pour le stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -257,10 +258,10 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 | **Stockage et bases de données**            |                |                     |                              |                              |        |
 | Disque (IaaS)                      |                | -                   | OUI                          | Oui*                         | -      |
 | SQL Server (IaaS)                |                | OUI                 | OUI                          | OUI                          | OUI    |
-| Azure SQL Database (PaaS)                 |                | OUI                 | VERSION PRÉLIMINAIRE                      | -                            | OUI    |
-| Stockage Azure (Objets blob de blocs/pages) |                | OUI                 | VERSION PRÉLIMINAIRE                      | -                            | OUI    |
-| Stockage Azure (Fichiers)            |                | OUI                 | -                            | -                            | -      |
-| Stockage Azure (Tables, Files d’attente)   |                | -                   | -                            | -                            | OUI    |
+| Azure SQL Database (PaaS)                 |                | OUI                 | OUI                          | -                            | OUI    |
+| Stockage Azure (Objets blob de blocs/pages) |                | OUI                 | OUI                          | -                            | OUI    |
+| Stockage Azure (Fichiers)            |                | OUI                 | OUI                          | -                            | -      |
+| Stockage Azure (Tables, Files d’attente)   |                | OUI                 | -                            | -                            | OUI    |
 | Cosmos DB (Document DB)          |                | OUI                 | -                            | -                            | -      |
 | StorSimple                       |                | OUI                 | -                            | -                            | OUI    |
 | Sauvegarde                           |                | -                   | -                            | -                            | OUI    |
@@ -275,7 +276,7 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 | Power BI                         |                | OUI                 | -                            | -                            | -      |
 | **Services IoT**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | OUI    |
-| Service Bus                      |                | Oui (niveau Premium)              | -                            | -                            | OUI    |
+| Service Bus                      |                | OUI              | -                            | -                            | OUI    |
 | Event Hubs                       |                | OUI             | -                            | -                            | -      |
 
 

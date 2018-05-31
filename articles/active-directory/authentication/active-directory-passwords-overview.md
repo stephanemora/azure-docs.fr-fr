@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6c722bd3fae7f6ed7450e0259f9dff0ee465d158
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201145"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
 
@@ -32,6 +33,8 @@ Grâce à la réinitialisation de mot de passe en libre-service (SSPR) Azure Act
    * Envoyer un courrier électronique à un compte de messagerie secondaire validé.
    * Répondre à leurs questions de sécurité.
 * **Déverrouillage de compte de libre-service** : l’utilisateur ne parvient pas se connecter avec son mot de passe et a été verrouillé. L’utilisateur souhaite déverrouiller son compte sans faire appel à l’administrateur à l’aide de ses méthodes d’authentification.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>Pourquoi choisir SSPR Azure AD ?
 
@@ -50,7 +53,7 @@ SSPR Azure AD est disponible dans trois niveaux, selon votre abonnement :
 
 * **Azure AD gratuit** : les administrateurs chargés uniquement du cloud peuvent réinitialiser leurs mots de passe.
 * **Azure AD Basic** ou tout **abonnement Office 365 payant** : les clients utilisant uniquement le cloud peuvent réinitialiser leurs propres mots de passe.
-* **Azure AD Premium** : n’importe quel utilisateur ou administrateur, notamment les clients utilisant uniquement le cloud et les utilisateurs fédérés ou synchronisés par mot de passe, peuvent réinitialiser leurs propres mots de passe. L’écriture différée doit être activée pour les mots de passe locaux.
+* **Azure AD Premium** : tous les utilisateurs et tous les administrateurs, notamment les utilisateurs synchronisés par hachage de mot de passe, à authentification directe, fédérés et cloud uniquement, peuvent réinitialiser leurs propres mots de passe. L’écriture différée doit être activée pour les mots de passe locaux.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Tarifs, contrat SLA, mises à jour et feuille de route Azure AD
 

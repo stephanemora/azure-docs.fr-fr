@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32164412"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connecter un compte Google Cloud Platform
 
@@ -24,7 +25,7 @@ Vous pouvez connecter votre compte Google Cloud Platform existant à Azure Cost 
 
 Vous commencez par collecter les informations sur votre projet.
 
-1. Connectez-vous à la console Google Cloud Platform via la page [https://console.cloud.google.com](https://console.cloud.google.com).
+1. Connectez-vous à la console Google Cloud Platform à l’adresse [https://console.cloud.google.com](https://console.cloud.google.com).
 2. Passez en revue les informations du projet que vous souhaitez intégrer à Cost Management, puis notez le **Nom du projet** et l’**ID du projet**. Conservez les informations à portée de main pour les étapes ultérieures.  
     ![Console Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Si la facturation n’est pas activée et liée à votre projet, créez un compte de facturation. Pour plus d’informations, voir [Créer un compte de facturation](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
@@ -59,7 +60,7 @@ Pour collecter les informations sur les actifs et l’utilisation, Cost Manageme
 
 ## <a name="add-a-google-cloud-account-to-cost-management"></a>Ajouter un compte Google Cloud à Cost Management
 
-1. Ouvrez le portail Cloudyn à partir du Portail Azure, ou accédez à la page [https://azure.cloudyn.com](https://azure.cloudyn.com/) et connectez-vous.
+1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à [https://azure.cloudyn.com](https://azure.cloudyn.com/) et connectez-vous.
 2. Cliquez sur **Paramètres** (symbole de roue dentée), puis sélectionnez **Comptes cloud**.
 3. Dans **Gestion de comptes**, sélectionnez l’onglet **Comptes Google**, puis cliquez sur **Ajouter un nouveau +**.
 4. Dans **Nom du compte Google**, entrez l’adresse de messagerie du compte de facturation, puis cliquez sur **Suivant**.
