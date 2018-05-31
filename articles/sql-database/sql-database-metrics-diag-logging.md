@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365761"
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312818"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
@@ -156,7 +156,7 @@ Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
 ### <a name="rest-api"></a>de l’API REST
 
-Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’API RESTS Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
+Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’API RESTS Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
