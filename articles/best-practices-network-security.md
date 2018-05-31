@@ -1,11 +1,11 @@
 ---
-title: "Bonnes pratiques en matière de sécurité réseau | Microsoft Docs"
-description: "Découvrez quelques-unes des fonctionnalités clés disponibles dans Azure pour créer des environnements réseau sécurisés"
+title: Bonnes pratiques en matière de sécurité réseau | Microsoft Docs
+description: Découvrez quelques-unes des fonctionnalités clés disponibles dans Azure pour créer des environnements réseau sécurisés
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360470"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Services de cloud computing et sécurité réseau Microsoft
 Les services cloud Microsoft offrent une grande évolutivité des services et de l’infrastructure, des capacités de niveau d'entreprise et de nombreuses options de connectivité hybride. Les clients peuvent choisir d’accéder à ces services avec Internet ou grâce à Azure ExpressRoute, qui fournit une connectivité réseau privée. La plateforme Microsoft Azure permet aux clients d’étendre leur infrastructure dans le cloud et de générer des architectures à plusieurs niveaux en toute transparence. Par ailleurs, des tiers peuvent activer des fonctionnalités améliorées en offrant des services de sécurité et des appliances virtuelles. Ce livre blanc fournit une vue d’ensemble des problèmes de sécurité et d’architecture dont les clients doivent tenir compte lorsqu’ils utilisent des services de cloud computing Microsoft auxquels ils accèdent avec ExpressRoute. Il décrit également la création de services plus sécurisés dans les réseaux virtuels Azure.
@@ -92,7 +93,7 @@ Une fois que le trafic a atteint le réseau virtuel, de nombreuses fonctionnalit
 * **Connexions entre différents locaux**: les clients peuvent établir des connexions entre locaux entre un réseau virtuel et plusieurs sites locaux ou d’autres réseaux virtuels dans Azure. Pour créer une connexion, les clients peuvent utiliser l’homologation de réseau virtuel, des passerelles VPN Azure, des appliances virtuelles de réseau tiers ou ExpressRoute. Azure prend en charge les VPN de site à site (S2S) à l’aide des protocoles IPsec/IKE standards et de la connectivité privée ExpressRoute.
 * **Groupe de sécurité réseau** : permet aux clients de créer des règles (listes de contrôle d’accès) avec le niveau de granularité souhaité : interfaces réseau, machines virtuelles individuelles ou sous-réseaux virtuels. Les clients peuvent contrôler l’accès en autorisant ou en refusant la communication entre les charges de travail au sein d’un réseau virtuel, à partir des systèmes sur les réseaux du client au moyen des connexions entre différents locaux ou de la communication Internet directe.
 * **Routage défini par l’utilisateur** et **transfert IP** : permettent de définir les chemins d’accès de communication entre les différents niveaux d’un réseau virtuel. Les clients peuvent déployer un pare-feu, les services IDS/IPS et d’autres appliances virtuelles et acheminer le trafic réseau à travers ces appliances de sécurité pour l’application de stratégies de limites de sécurité, l’audit et l’inspection.
-* **Appliances virtuelles réseau** dans Azure Marketplace : les appliances de sécurité telles que les pare-feu, les équilibreurs de charge, les systèmes de détection/prévention des intrusions sont disponibles dans Azure Marketplace et la galerie d’images de machines virtuelles. Pour finaliser un environnement réseau sécurisé multiniveau, les clients peuvent déployer ces appliances dans leurs réseaux virtuels et, en particulier, sur leurs limites de sécurité (notamment les sous-réseaux du réseau de périmètre).
+* **Appliances virtuelles réseau** dans la Place de marché Microsoft Azure : les appliances de sécurité telles que les pare-feu, les équilibreurs de charge et les systèmes de détection/prévention des intrusions sont disponibles dans la Place de marché Microsoft Azure et dans la galerie d’images de machines virtuelles. Pour finaliser un environnement réseau sécurisé multiniveau, les clients peuvent déployer ces appliances dans leurs réseaux virtuels et, en particulier, sur leurs limites de sécurité (notamment les sous-réseaux du réseau de périmètre).
 
 Avec ces fonctionnalités et capacités, le diagramme suivant est un exemple de conception d’architecture de réseau de périmètre dans Azure :
 
@@ -204,7 +205,7 @@ Dans cet exemple, il existe un abonnement qui contient les ressources suivantes 
 - un groupe de sécurité réseau est appliqué aux deux sous-réseaux,
 - un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
 - deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »),
-- Un serveur Windows Server qui représente un serveur DNS (« DNS01 »)
+- Un serveur Windows Server qui représente un serveur DNS (« DNS01 »),
 - Une adresse IP publique associée au serveur d’applications web
 
 Pour accéder aux scripts et à un modèle Azure Resource Manager, consultez les [instructions de génération détaillées][Example1].
@@ -513,13 +514,13 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 ## <a name="references"></a>Références
 ### <a name="helpful-websites-and-documentation"></a>Sites web et documentation utiles
 * Accès à Azure avec Azure Resource Manager :
-* Accès à Azure avec PowerShell : [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
-* Documentation relative à la mise en réseau virtuelle : [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* Documentation relative aux groupes de sécurité réseau : [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
+* Accès à Azure avec PowerShell : [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
+* Documentation relative aux réseaux virtuels : [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
+* Documentation relative aux groupes de sécurité réseau : [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
 * Documentation relative au routage défini par l’utilisateur : [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Passerelles virtuelles Azure : [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * VPN de site à site : [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* Documentation relative à ExpressRoute (consultez les sections « Mise en route » et « Procédure ») : [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
+* Documentation relative à ExpressRoute (consultez les sections « Prise en main » et « Procédure ») : [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Organigramme des options de sécurité"

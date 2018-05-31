@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management pour les ressources Azure - Alertes de sécurité| Microsoft Docs
+title: Gérer les alertes de sécurité pour les ressources Azure à l’aide de Privileged Identity Management | Microsoft Docs
 description: Décrit les alertes de sécurité PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,27 +13,29 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 86c9a0f12b2598ffbd02810a11622b13b0363a1f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149183"
 ---
-# <a name="privileged-identity-management---resource-roles---alerts"></a>Privileged Identity Management - Rôles de ressource - Alertes
-PIM pour des ressources Azure génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
+# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Gérer les alertes de sécurité pour les ressources Azure à l’aide de Privileged Identity Management
+Privileged Identity Management (PIM) pour les ressources Azure génère des alertes en cas d’activité suspecte ou non sécurisée dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
 
-![](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Page des alertes](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>Consulter les alertes
-Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement ainsi que les conseils de correction.
-![](media/azure-pim-resource-rbac/rbac-alert-info.png)
+Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement et fournit des conseils pour sa correction.
+
+![Rapport d’alerte](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertes
 | Alerte | Niveau de gravité | Déclencheur | Recommandation |
 | --- | --- | --- | --- |
-| **Trop de propriétaires affectés à une ressource** |Moyenne |Trop d’utilisateurs ont le rôle de propriétaire. |Passez en revue les utilisateurs sur la liste et réaffectez-en certains sur des rôles moins privilégiés. |
+| **Trop de propriétaires affectés à une ressource** |Moyenne |Un trop grand nombre d’utilisateurs possèdent le rôle de propriétaire. |Passez en revue les utilisateurs de la liste et réaffectez-en certains à des rôles moins privilégiés. |
 | **Trop de propriétaires permanents affectés à une ressource** |Moyenne |Trop d’utilisateurs sont affectés de façon permanente à un rôle. |Passez en revue les utilisateurs sur la liste et réaffectez-en certains pour demander une activation pour l’utilisation du rôle. |
-| **Rôle dupliqué créé** |Moyenne |Plusieurs rôles ont les mêmes critères. |Utilisez uniquement l’un de ces rôles. |
+| **Rôle dupliqué créé** |Moyenne |Plusieurs rôles ont les mêmes critères. |Utilisez un seul de ces rôles. |
 
 
 ### <a name="severity"></a>Niveau de gravité
@@ -42,8 +44,8 @@ Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateur
 * **Faible** : ne nécessite pas d’action immédiate, mais suggère une modification de la stratégie.
 
 ## <a name="configure-security-alert-settings"></a>Configurez les paramètres d'alerte de sécurité
-Dans la page Alertes, accédez aux paramètres.
-![](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+Dans la page Alertes, accédez aux **paramètres**.
+![Paramètres](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
 Personnalisez les paramètres des différentes alertes pour travailler avec votre environnement et les objectifs de sécurité.
-![](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Personnaliser les paramètres](media/azure-pim-resource-rbac/rbac-alert-settings.png)

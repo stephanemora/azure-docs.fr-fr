@@ -2,34 +2,35 @@
 title: Activer le réglage automatique pour Azure SQL Database | Microsoft Docs
 description: Vous pouvez facilement activer le réglage automatique sur Azure SQL Database.
 services: sql-database
-author: veljko-msft
-manager: drasumic
+author: danimir
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364469"
 ---
 # <a name="enable-automatic-tuning"></a>Activer le réglage automatique
 
 Azure SQL Database est un service de données géré automatiquement qui surveille vos requêtes en permanence et identifie les actions que vous pouvez effectuer pour améliorer les performances de votre charge de travail. Vous pouvez consulter les recommandations et les appliquer manuellement ou laisser Azure SQL Database appliquer automatiquement des actions correctives : il s’agit du **mode de réglage automatique**. Le réglage automatique peut être activé au niveau du serveur ou de la base de données.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Activer le réglage automatique sur le serveur
-Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les Valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX déactivé.
-
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
-
-Consultez [Notifications par e-mail sur l’ajustement automatique](sql-database-automatic-tuning-email-notifications.md)
+Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
 
 ### <a name="azure-portal"></a>Portail Azure
-Pour activer le réglage automatique sur le serveur Azure SQL Database, accédez au serveur dans le portail Azure, puis sélectionnez **Réglage automatique** dans le menu. Sélectionnez les options de réglage automatique que vous souhaitez activer et sélectionnez **Appliquer** :
+Pour activer le réglage automatique sur le **serveur Azure** SQL Database, accédez au serveur dans le portail Azure, puis sélectionnez **Paramétrage automatique** dans le menu. Sélectionnez les options de réglage automatique que vous souhaitez activer et sélectionnez **Appliquer**.
 
 ![Serveur](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Notez que l’option **DROP_INDEX** à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index, et ne doit pas être activée dans ces cas.
+>
 
 Les options de réglage automatique sur le serveur sont appliquées à toutes les bases de données du serveur. Par défaut, toutes les bases de données héritent de la configuration de leur serveur parent, mais celle-ci peut être remplacée et spécifiée individuellement pour chaque base de données.
 
@@ -46,11 +47,13 @@ Azure SQL Database vous permet de spécifier individuellement la configuration d
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour activer le réglage automatique sur une seule base de données, accédez à la base de données dans le portail Azure, puis sélectionnez **Réglage automatique**. Vous pouvez configurer une seule base de données de façon à ce qu’elle hérite des paramètres du serveur en sélectionnant l’option, ou vous pouvez spécifier individuellement la configuration d’une base de données.
+Pour activer le réglage automatique sur **une seule base de données**, accédez à la base de données dans le portail Azure, puis sélectionnez **Paramétrage automatique**. Vous pouvez configurer une seule base de données de façon à ce qu’elle hérite des paramètres du serveur en sélectionnant l’option, ou vous pouvez spécifier individuellement la configuration d’une base de données.
 
 ![Base de données](./media/sql-database-automatic-tuning-enable/database.png)
 
 Une fois que vous avez sélectionné la configuration appropriée, cliquez sur **Appliquer**.
+
+Notez que l’option DROP_INDEX à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index, et ne doit pas être activée dans ces cas.
 
 ### <a name="rest-api"></a>API REST
 [Cliquez ici pour en savoir plus sur la façon d’activer le réglage automatique sur une base de données par le biais de l’API REST](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
@@ -75,6 +78,10 @@ Si vous affectez la valeur ON à l’option de réglage, les paramètres hérit�
 
 ## <a name="disabled-by-the-system"></a>Désactivée par le système
 Le réglage automatique surveille toutes les actions effectuées sur la base de données et, dans certains cas, il peut déterminer que le réglage automatique ne peut pas fonctionner correctement sur la base de données. Dans ce cas, l’option de réglage est désactivée par le système. Dans la plupart des cas, cela est dû au fait que le Magasin des requêtes n’est pas activé ou est en lecture seule sur une base de données spécifique.
+
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
+
+Consultez [Notifications par e-mail sur l’ajustement automatique](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Lisez l’[article Réglage automatique](sql-database-automatic-tuning.md) pour en savoir plus sur le réglage automatique et sur la manière dont il peut vous aider à améliorer vos performances.
