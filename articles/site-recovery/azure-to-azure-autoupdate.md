@@ -1,23 +1,23 @@
 ---
 title: Mise à jour automatique du service Mobilité vers la reprise d’activité après sinistre interne à Azure | Microsoft Docs
-description: Fournit une vue d’ensemble de la mise à jour automatique du service Mobilité, qui est utilisée pour la réplication de machines virtuelles de Azure à l’aide d’Azure Site Recovery.
+description: Fournit une vue d’ensemble de la mise à jour automatique du service Mobilité, lors de la réplication de machines virtuelles Azure à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: rajanaki
-ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779650"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209829"
 ---
-# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Mise à jour automatique de l’extension du service Mobilité dans la réplication Azure interne à Azure
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication Azure à Azure
 
-Azure Site Recovery a une cadence de publication mensuelle. À cette occasion, des améliorations sont apportées aux fonctionnalités existantes, de nouvelles fonctionnalités sont ajoutées et les éventuels problèmes connus sont résolus. Cela signifie que, pour que le service soit à jour, vous devez planifier le déploiement de ces correctifs sur une base mensuelle. Afin d’éviter la surcharge associée à la mise à niveau, les utilisateurs peuvent à la place autoriser Site Recovery à gérer les mises à jour des composants. Comme détaillé dans la [référence d’architecture](azure-to-azure-architecture.md) pour la reprise d’activité après sinistre interne à Azure, le service Mobilité est installé sur toutes les machines virtuelles pour lesquelles la réplication est activée lors de la réplication des machines virtuelles d’une région Azure à une autre. Ce document fournit les informations suivantes :
+Azure Site Recovery a une cadence de publication mensuelle. À cette occasion, des améliorations sont apportées aux fonctionnalités existantes, de nouvelles fonctionnalités sont ajoutées et les éventuels problèmes connus sont résolus. Cela signifie que, pour que le service soit à jour, vous devez planifier le déploiement de ces correctifs sur une base mensuelle. Afin d’éviter la surcharge associée à la mise à niveau, les utilisateurs peuvent à la place autoriser Site Recovery à gérer les mises à jour des composants. Comme détaillé dans la [référence d’architecture](azure-to-azure-architecture.md) pour la reprise d’activité après sinistre interne à Azure, le service Mobilité est installé sur toutes les machines virtuelles pour lesquelles la réplication est activée lors de la réplication des machines virtuelles d’une région Azure à une autre. Lorsque vous activez la mise à jour automatique, l’extension du service Mobilité est mise à jour à chaque nouvelle version. Ce document fournit les informations suivantes :
 
 - Fonctionnement de la mise à jour automatique
 - Activation des mises à jour automatiques
@@ -26,6 +26,9 @@ Azure Site Recovery a une cadence de publication mensuelle. À cette occasion, d
 ## <a name="how-does-automatic-update-work"></a>Fonctionnement de la mise à jour automatique
 
 Une fois que vous autorisez Site Recovery à gérer les mises à jour, un runbook global (qui est utilisé par les services Azure) est déployé via un compte Automation, qui est créé dans le même abonnement que le coffre. Un seul compte Automation est utilisé pour un coffre spécifique. Le runbook vérifie pour chaque machine virtuelle présente dans un coffre quelles sont les mises à jour automatiques activées et lance une mise à niveau de l’extension du service Mobilité si une version plus récente est disponible. La planification par défaut du runbook a lieu tous les jours à minuit selon le fuseau horaire de la zone géographique de la machine virtuelle répliquée. La planification du runbook peut également être modifiée via le compte Automation par l’utilisateur, si nécessaire. 
+
+> [!NOTE]
+> L’activation des mises à jour automatiques ne nécessite pas un redémarrage de vos machines virtuelles Azure et n’affecte pas la réplication en cours.
 
 ## <a name="enable-automatic-updates"></a>Activation des mises à jour automatiques
 

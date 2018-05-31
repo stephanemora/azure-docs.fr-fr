@@ -1,24 +1,25 @@
 ---
-title: "Configurer CHAP pour un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit comment configurer le protocole Challenge Handshake Authentication Protocol (CHAP) sur un appareil StorSimple."
+title: Configurer CHAP pour un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit comment configurer le protocole Challenge Handshake Authentication Protocol (CHAP) sur un appareil StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012656"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configuration de CHAP pour votre appareil StorSimple
 
@@ -77,8 +78,8 @@ Dans l’authentification unidirectionnelle, la cible authentifie l’initiateur
 4. Dans la boîte de dialogue **Paramètres avancés** :
    
    1. Cochez la case **Enable CHAP log on** .
-   2. Dans le champ **Nom** , tapez le nom d’utilisateur que vous avez spécifié pour l’initiateur CHAP dans le portail Azure Classic.
-   3. Dans le champ **Secret de la cible** , fournissez le mot de passe que vous avez spécifié pour l’initiateur CHAP dans le portail Azure Classic.
+   2. Dans le champ **Nom** , tapez le nom d’utilisateur que vous avez spécifié pour l’initiateur CHAP dans le portail Azure.
+   3. Dans le champ **Secret de la cible** , fournissez le mot de passe que vous avez spécifié pour l’initiateur CHAP dans le portail Azure.
    4. Cliquez sur **OK**.
       
        ![Paramètres avancés - Généraux](./media/storsimple-configure-chap/IC740946.png)
@@ -131,8 +132,8 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 8. Dans la boîte de dialogue **Advanced Properties** :
    
    1. Cochez la case **Enable CHAP log on** .
-   2. Dans le champ **Nom** , tapez le nom d’utilisateur que vous avez spécifié pour l’initiateur CHAP dans le portail Azure Classic.
-   3. Dans le champ **Secret de la cible** , fournissez le mot de passe que vous avez spécifié pour l’initiateur CHAP dans le portail Azure Classic.
+   2. Dans le champ **Nom** , tapez le nom d’utilisateur que vous avez spécifié pour l’initiateur CHAP dans le portail Azure.
+   3. Dans le champ **Secret de la cible** , fournissez le mot de passe que vous avez spécifié pour l’initiateur CHAP dans le portail Azure.
    4. Cochez la case **Perform mutual authentication** .
       
        ![Paramètres avancés - Authentification mutuelle](./media/storsimple-configure-chap/IC740950.png)

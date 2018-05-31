@@ -1,24 +1,25 @@
 ---
-title: "Déployer le service StorSimple Device Manager dans Azure | Microsoft Docs"
-description: "Cet article décrit comment créer et supprimer le service StorSimple Device Manager dans le Portail Azure, ainsi que la procédure de gestion de la clé d’inscription du service."
+title: Déployer le service StorSimple Device Manager dans Azure | Microsoft Docs
+description: Cet article décrit comment créer et supprimer le service StorSimple Device Manager dans le Portail Azure, ainsi que la procédure de gestion de la clé d’inscription du service.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012741"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
@@ -29,7 +30,9 @@ Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se con
 Ce didacticiel décrit les étapes requises pour la création, la suppression, la migration du service et la gestion de la clé d’inscription du service. Les informations contenues dans cet article s’appliquent uniquement aux appareils de la gamme StorSimple 8000. Pour plus d’informations sur StorSimple Virtual Arrays, accédez à [Déployer le service StorSimple Device Manager pour StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Toutes les instances de StorSimple Device Manager classiques sont automatiquement déplacées vers le nouveau portail Azure. Si vous avez des questions, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md). Les applets de commande PowerShell ASM (Azure Service Management) ne sont pas prises en charge après le passage au nouveau portail Azure. Mettez à jour les scripts pour gérer vos appareils, puis accédez à [Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple](storsimple-8000-automation-azurerm-scripts.md) pour plus d’informations. Le nouveau portail Azure prend en charge les appareils exécutant Update 5.0 ou version ultérieure. Si votre appareil n’est pas à jour, installez la mise à jour Update 5.0 immédiatement. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md). Si vous utilisez une appliance StorSimple Cloud Appliance (8010/8020), vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud avec Update 5.0 et basculez ensuite vers la nouvelle appliance cloud créée. Tous les appareils exécutant la mise à jour Update 4.0 ou une version antérieure auront des [fonctionnalités de gestion réduites](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  Le portail Azure prend en charge les appareils exécutant Update 5.0 ou version ultérieure. Si votre appareil n’est pas à jour, installez la mise à jour Update 5.0 immédiatement. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md). 
+> - Si vous utilisez une appliance StorSimple Cloud Appliance (8010/8020), vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud avec Update 5.0 et basculez ensuite vers la nouvelle appliance cloud créée. 
+> - Tous les appareils exécutant la mise à jour Update 4.0 ou une version antérieure auront des [fonctionnalités de gestion réduites](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Créer un service
 Pour créer un service StorSimple Device Manager, vous avez besoin des éléments suivants :
@@ -38,11 +41,7 @@ Pour créer un service StorSimple Device Manager, vous avez besoin des élément
 * Un compte de stockage Microsoft Azure actif
 * Les informations de facturation utilisées pour la gestion des accès
 
-Seuls les abonnements avec un contrat Entreprise sont autorisés. Les abonnements Microsoft Azure Sponsorship qui étaient autorisés dans le portail Azure classique ne sont pas pris en charge dans le portail Azure. Le message suivant s’affiche quand vous utilisez un abonnement non pris en charge :
-
-![Abonnement non valide](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-Vous pouvez également choisir de générer un compte de stockage par défaut lorsque vous créez le service.
+Seuls les abonnements avec un contrat Entreprise sont autorisés. Vous pouvez également choisir de générer un compte de stockage par défaut lorsque vous créez le service.
 
 Un seul service peut gérer plusieurs appareils. Cependant, un appareil ne peut pas couvrir plusieurs services. Une grande entreprise peut avoir plusieurs instances de service pour utiliser différents abonnements, organisations ou même emplacements de déploiement. 
 
@@ -149,8 +148,7 @@ Cette étape s’effectue dans l’interface Windows PowerShell pour StorSimple,
 
 > [!NOTE]
 > Aucune opération ne peut être effectuée dans le portail Azure de votre service StorSimple Manager avant la fin de la substitution de la clé.
-> 
-> 
+
 
 Si vous utilisez la console série de l’appareil pour vous connecter à l’interface Windows PowerShell, procédez comme suit.
 
@@ -191,24 +189,24 @@ Seuls les appareils StorSimple exécutant Update 5.0 et des versions ultérieur
 
 | Opération                                                                                                                       | Prise en charge      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Inscrire un appareil                                                                                                               | Oui            |
-| Configurer les paramètres d’un appareil, tels que les paramètres généraux, réseau et de sécurité                                                                | Oui            |
-| Analyser, télécharger et installer des mises à jour                                                                                             | Oui            |
-| Désactiver un appareil                                                                                                               | Oui            |
-| Supprimer un appareil                                                                                                                   | Oui            |
+| Inscrire un appareil                                                                                                               | OUI            |
+| Configurer les paramètres d’un appareil, tels que les paramètres généraux, réseau et de sécurité                                                                | OUI            |
+| Analyser, télécharger et installer des mises à jour                                                                                             | OUI            |
+| Désactiver un appareil                                                                                                               | OUI            |
+| Supprimer un appareil                                                                                                                   | OUI            |
 | Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non              |
 | Créer, modifier et supprimer un volume                                                                                             | Non              |
 | Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non              |
 | Exécuter une sauvegarde manuelle                                                                                                            | Non              |
 | Exécuter une sauvegarde planifiée                                                                                                         | Non applicable |
 | Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non              |
-| Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | Oui            |
+| Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | OUI            |
 | Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non              |
-| Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | Oui            |
+| Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | OUI            |
 | Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non              |
-| Supprimer une alerte                                                                                                                  | Oui            |
-| Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | Oui            |
-| Activer et désactiver des contrôleurs d’appareils                                                                                              | Oui            |
+| Supprimer une alerte                                                                                                                  | OUI            |
+| Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | OUI            |
+| Activer et désactiver des contrôleurs d’appareils                                                                                              | OUI            |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

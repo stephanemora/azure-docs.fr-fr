@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176284"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203775"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
 
@@ -93,7 +93,7 @@ Le nouveau modèle tarifaire ramène les options tarifaires Log Analytics et App
 L’estimation des coûts montre les effets de ces modifications.
 
 > [!WARNING]
-> Remarque importante : Si vous utilisez Azure Resource Manager ou PowerShell pour déployer [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) dans un abonnement, vous êtes passé au nouveau modèle tarifaire. Si vous spécifiez un plan/niveau tarifaire autre que « pergb2018 » pour Log Analytics ou « De base » pour Application Insights, l’opération réussit, **mais elle utilise uniquement le plan/niveau tarifaire valide** au lieu de se solder par un échec en raison de la spécification d’un plan/niveau tarifaire non valide. 
+> Remarque importante : Si vous utilisez Azure Resource Manager ou PowerShell pour déployer [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) dans un abonnement, vous êtes passé au nouveau modèle tarifaire. Si vous spécifiez un plan/niveau tarifaire autre que « pergb2018 » pour Log Analytics ou « De base » pour Application Insights, l’opération réussit, **mais elle utilise uniquement le plan/niveau tarifaire valide** au lieu de se solder par un échec en raison de la spécification d’un plan/niveau tarifaire non valide (cela ne concerne pas le niveau Gratuit de Log Analytics pour lequel un message de niveau tarifaire non valide est généré).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Transition vers le nouveau modèle de tarification

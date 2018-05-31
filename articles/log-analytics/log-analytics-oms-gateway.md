@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 207b7ab0968f775dba99c2f48c1961d74b4f11c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271647"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connecter des ordinateurs sans accès Internet à l’aide de la passerelle OMS
 Ce document décrit comment configurer la communication avec Azure Automation et Log Analytics à l’aide de la passerelle OMS lorsqu’elle est directement connectée ou lorsque les ordinateurs analysés Operations Manager n’ont pas accès à Internet.  La passerelle OMS, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer au service OMS en son nom.  
@@ -36,7 +37,7 @@ Lorsqu’un groupe d’administration Operations Manager est intégré à Log An
 
 Pour fournir une haute disponibilité pour les groupes directement connectés ou Operations Management qui communiquent avec Log Analytics via la passerelle, vous pouvez utiliser l’équilibrage de charge au niveau du réseau pour rediriger et distribuer le trafic entre plusieurs serveurs de passerelle.  Si un serveur de passerelle tombe en panne, le trafic est redirigé vers un autre nœud disponible.  
 
-Il est recommandé d’installer l’agent OMS sur l’ordinateur exécutant le logiciel de passerelle OMS pour surveiller la passerelle OMS et analyser les données de performances ou d’événements. En outre, l’agent permet à la passerelle OMS d’identifier les points de terminaison de service dont il a besoin pour communiquer.
+L’agent OMS est requis sur l’ordinateur exécutant la passerelle OMS afin qu’il puisse identifier les points de terminaison du service dont il a besoin pour la communication et surveiller la passerelle OMS pour analyser ses performances ou données d’événement.
 
 Chaque agent doit disposer d’une connexion réseau avec sa passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. L’installation de la passerelle sur un contrôleur de domaine n’est pas recommandée.
 
@@ -57,6 +58,7 @@ Lorsque vous configurez un ordinateur pour qu’il s’exécute sur la passerell
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 * .NET Framework 4.5
 * Au minimum un processeur 4 cœurs et 8 Go de mémoire 
+* Agent OMS pour Windows 
 
 ### <a name="language-availability"></a>Langues disponibles
 
@@ -131,20 +133,18 @@ Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide de
 
 Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge réseau Windows Server 2016, consultez [Équilibrage de charge réseau](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Les étapes suivantes décrivent comment configurer un cluster d’équilibrage de charge réseau Microsoft.  
 
-1.  Connectez-vous au serveur Windows qui est membre du cluster d’équilibrage de charge réseau avec un compte d’administration.  
-2.  Ouvrez le Gestionnaire d’équilibrage de charge réseau dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire d’équilibrage de charge réseau**.
+1. Connectez-vous au serveur Windows qui est membre du cluster d’équilibrage de charge réseau avec un compte d’administration.  
+2. Ouvrez le Gestionnaire d’équilibrage de charge réseau dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire d’équilibrage de charge réseau**.
 3. Pour vous connecter à un serveur de passerelle OMS sur lequel Microsoft Monitoring Agent est installé, faites un clic droit sur l’adresse IP du cluster, puis cliquez sur **Ajouter l’hôte au cluster**.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Entrez l’adresse IP du serveur de passerelle que vous voulez connecter.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Connexion](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurer l’agent OMS et le groupe d’administration Operations Manager
 La section suivante contient des étapes expliquant la configuration d’agents OMS connectés directement, d’un groupe d’administration Operations Manager ou Runbook Worker hybride Azure Automation avec la passerelle OMS pour communiquer avec Azure Automation ou Log Analytics.  
 
-Pour comprendre les exigences et la procédure à suivre pour installer l’agent OMS sur des ordinateurs Windows connectés directement à Log Analytics, consultez [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md) ou pour les ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Log Analytics](log-analytics-quick-collect-linux-computer.md).  Pour plus d’informations relatives au traitement de Runbook Worker hybride Automation, consultez [Déployer Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configuration de l’agent OMS et d’Operations Manager pour qu’ils utilisent la passerelle OMS comme serveur proxy
-
 ### <a name="configure-standalone-oms-agent"></a>Configurer l’agent OMS autonome
-Consultez [Configurer les paramètres de pare-feu et de proxy avec Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) pour plus d’informations sur la configuration d’un agent pour qu’il utilise un serveur proxy, dans ce cas, la passerelle.  Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent OMS est l’adresse IP virtuelle de l’équilibrage de charge réseau :<br><br> ![Propriétés de Microsoft Monitoring Agent – Paramètres de proxy](./media/log-analytics-oms-gateway/nlb04.png)
+Pour comprendre les exigences et la procédure à suivre pour installer l’agent OMS sur des ordinateurs Windows connectés directement à Log Analytics, consultez [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md) ou pour les ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Log Analytics](log-analytics-quick-collect-linux-computer.md). Au lieu de spécifier un serveur proxy lors de la configuration de l’agent, vous remplacez cette valeur par l’adresse IP du serveur de passerelle OMS et son numéro de port.  Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent OMS est l’adresse IP virtuelle de l’équilibreur de charge réseau.  
+
+Pour plus d’informations relatives au traitement de Runbook Worker hybride Automation, consultez [Déployer Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configurer Operations Manager : tous les agents utilisent le même serveur proxy
 Vous configurez Operations Manager pour ajouter le serveur de passerelle.  La configuration du proxy Operations Manager est automatiquement appliquée à tous les agents effectuant un rapport à Operations Manager, même si le paramètre est vide.  

@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207204"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Démarrage rapide : créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -110,6 +111,7 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
     - Pour finir, retournez la réponse du service backend au client **(3)**.
 
 4. Appuyez sur **F5** pour continuer.
+    - Si le navigateur vous y invite, accordez des autorisations de lecture et d’exécution au groupe ServiceFabricAllowedUsers pour le mode débogage.
     - Vous êtes à présent au point d’arrêt dans le service principal.
     
     ![Ajouter un service de vote backend](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -176,13 +178,15 @@ N’oubliez pas l’empreinte numérique, elle sera utilisée dans une étape su
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Mettre à l’échelle les applications et services dans un cluster
 Les services Service Fabric peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Plusieurs méthodes sont disponibles pour mettre à l’échelle vos services. Vous pouvez utiliser des scripts ou des commandes de PowerShell ou de l’interface CLI de Service Fabric (sfctl). Dans cet exemple, utilisez Service Fabric Explorer.
 
-Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP des clusters (19080), par exemple, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP des clusters (19080), par exemple, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-Vous pouvez recevoir un avertissement de navigateur mentionnant que l’emplacement n’est pas approuvé. Cela vient du fait que le certificat est auto-signé. Vous pouvez choisir d’ignorer l’avertissement et de continuer. Lorsque vous y êtes invité par le navigateur, sélectionnez le certificat installé pour vous connecter. 
+Vous pouvez recevoir un avertissement de navigateur mentionnant que l’emplacement n’est pas approuvé. Cela vient du fait que le certificat est auto-signé. Vous pouvez choisir d’ignorer l’avertissement et de continuer.
+1. Lorsque vous y êtes invité par le navigateur, sélectionnez le certificat installé pour vous connecter. Le certificat de cluster tiers que vous sélectionnez dans la liste doit correspondre au cluster tiers auquel vous tentez d’accéder. Par exemple, win243uja6w62r.westus.cloudapp.azure.com.
+2. Si le navigateur vous y invite, accordez l’accès à votre clé privée CryptoAPI pour cette session.
 
 Pour mettre à l’échelle le service frontal web, procédez comme suit :
 
-1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. Dans l’arborescence, développez **Applications**->**VotingType**->**fabric:/Voting**. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis choisissez **Scale Service** (Mettre à l’échelle le service).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)

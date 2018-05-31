@@ -2,7 +2,7 @@
 title: Exemples du guide de démarrage rapide de l’interface CLI 2.0 pour Azure Monitor. | Microsoft Docs
 description: Exemples de commandes de CLI 2.0 pour accéder aux fonctionnalités d’Azure Monitor. Azure Monitor est un service Microsoft Azure qui vous permet d’envoyer des notifications d’alerte, ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées ainsi que de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web.
 author: kamathashwin
-manager: orenr
+manager: ''
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34009756"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Exemples du guide de démarrage rapide de l’interface CLI 2.0 pour Azure Monitor
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
@@ -90,18 +91,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>Utilisation des alertes
+## <a name="work-with-alerts"></a>Utilisation des alertes 
+[!NOTE] Seules les alertes (classiques) sont prises en charge dans l’interface de ligne de commande pour le moment. 
 
-Vous pouvez utiliser les informations figurant dans la section pour utiliser les alertes.
-
-### <a name="get-alert-rules-in-a-resource-group"></a>Obtenir des règles d’alerte dans un groupe de ressources
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Obtenir des règles d’alerte (classique) dans un groupe de ressources
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>Créer une règle d’alerte métrique
+### <a name="create-a-metric-alert-classic-rule"></a>Créer une règle d’alerte de métrique (classique)
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -111,7 +111,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>Supprimer une règle d’alerte
+### <a name="delete-an-alert-classic-rule"></a>Supprimer une règle d’alerte (classique)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -207,7 +207,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>Définir les paramètres de mise à l’échelle automatique
+### <a name="set-autoscale-settings"></a>Régler les paramètres de mise à l'échelle automatique
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

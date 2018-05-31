@@ -1,24 +1,25 @@
 ---
-title: "Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome | Microsoft Docs"
-description: "Apprenez à ajouter ou supprimer des nœuds d’un cluster Azure Service Fabric sur une machine physique ou virtuelle sous Windows Server, qu’elle soit locale ou dans un cloud."
+title: Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome | Microsoft Docs
+description: Apprenez à ajouter ou supprimer des nœuds d’un cluster Azure Service Fabric sur une machine physique ou virtuelle sous Windows Server, qu’elle soit locale ou dans un cloud.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212542"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome sous Windows Server
 Une fois que vous avez [créé votre cluster Service Fabric autonome sur des ordinateurs Windows Server](service-fabric-cluster-creation-for-windows-server.md), les besoins de votre entreprise peuvent évoluer et vous obliger à ajouter ou supprimer des nœuds dans votre cluster. Cet article fournit des étapes détaillées pour effectuer ces tâches. Veuillez noter que la fonctionnalité d’ajout/suppression de nœud n’est pas prise en charge dans les clusters de développement locaux.
@@ -57,7 +58,7 @@ Une fois que vous avez [créé votre cluster Service Fabric autonome sur des ord
     Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer. Vous pouvez également exécuter [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps) pour cela.
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Ajouter des nœuds aux clusters configurés avec la sécurité Windows à l’aide de gMSA
-Pour les clusters configurés avec un compte de service géré de groupe (gMSA, Group Managed Service Account) (https://technet.microsoft.com/library/hh831782.aspx), un nouveau nœud peut être ajouté à l’aide d’une mise à niveau de la configuration :
+Pour les clusters configurés avec un compte de service géré de groupe (gMSA) (https://technet.microsoft.com/library/hh831782.aspx), un nouveau nœud peut être ajouté à l’aide d’une mise à niveau de la configuration :
 1. Exécutez [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) sur l’un des nœuds existants pour obtenir le dernier fichier de configuration, et ajoutez des détails sur le nouveau nœud à ajouter dans la section « Nodes ». Assurez-vous que le nouveau nœud fait partie du même compte géré de groupe. Ce compte doit être un compte Administrateur sur tous les ordinateurs.
 
     ```

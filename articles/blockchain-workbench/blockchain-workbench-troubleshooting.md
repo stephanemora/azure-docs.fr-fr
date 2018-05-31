@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8a2715666c4fff490f5184b7b8719b412952b9bf
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 419ed6dc76101366e47ae94067f7b671a10c94e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196332"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Dépannage Azure Blockchain Workbench
 
@@ -49,8 +50,9 @@ Le script accepte les paramètres suivants :
 |---------|---------|----|
 | SubscriptionID | ID d’abonnement associé à la création ou l’emplacement de l’ensemble des ressources. | OUI |
 | ResourceGroupName | Nom du groupe de ressources Azure dans lequel a été déployé Blockchain Workbench. | OUI |
-| OutputDirectory | Chemin d’accès utilisé pour la création du fichier ZIP de sortie. S’il n’est pas spécifié, il est défini par défaut sur le répertoire actuel. | Non 
-| OmsSubscriptionId | L’ID de l’abonnement dans lequel l’instance OMS est déployée. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
+| OutputDirectory | Chemin d’accès utilisé pour la création du fichier ZIP de sortie. S’il n’est pas spécifié, il est défini par défaut sur le répertoire actuel. | Non  |
+| LookbackHours | Nombre d’heures à utiliser lors de l’extraction des données de télémétrie. La valeur par défaut est de 24 heures. La valeur maximale est de 90 heures. | Non  |
+| OmsSubscriptionId | ID de l’abonnement dans lequel l’instance OMS est déployée. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
 | OmsResourceGroup |Le groupe de ressources dans lequel est déployée l’instance OMS. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
 | OmsWorkspaceName | Le nom de l’espace de travail OMS. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench. | Non  |
 
@@ -58,15 +60,17 @@ Le script accepte les paramètres suivants :
 
 Le fichier ZIP de sortie contient la structure de dossier suivante :
 
-| Dossier \ Fichier | Description  |
+| Dossier ou fichier | Description  |
 |---------|---------|
 | \Summary.txt | Résumé du système |
-| \metrics\blockchain | Mesures relatives à l’application blockchain |
-| \metrics\workbench | Mesures relatives à l’application Workbench |
-| \details\blockchain | Journaux détaillés relatifs à l’application blockchain |
-| \details\workbench | Journaux détaillés relatifs à l’application workbench |
+| \Metrics\blockchain | Mesures relatives à l’application blockchain |
+| \Metrics\Workbench | Mesures relatives à l’application Workbench |
+| \Details\Blockchain | Journaux détaillés relatifs à l’application blockchain |
+| \Details\Workbench | Journaux détaillés relatifs à l’application workbench |
 
 Le fichier de résumé vous octroie un aperçu sur l’état global de l’application et sur l’intégrité de l’application. Le résumé communique les actions recommandées, met en évidence les erreurs principales et les métadonnées sur les services en cours d’exécution.
+
+Le dossier **Métriques** contient les métriques des différents composants système, collectées jusqu’à présent. Par exemple, le fichier de sortie `\Details\Workbench\apiMetrics.txt` contient un récapitulatif des différents codes de réponse et temps de réponse collectés au cours d’une période donnée. Le dossier **Détails** contient des journaux détaillés permettant de résoudre les problèmes liés à Workbench ou au réseau blockchain sous-jacent. Par exemple, `\Details\Workbench\Exceptions.csv` contient la liste des exceptions qui se sont produites dans le système dernièrement, ce qui est utile pour résoudre les erreurs liées aux contrats intelligents ou aux interactions avec le blockchain. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

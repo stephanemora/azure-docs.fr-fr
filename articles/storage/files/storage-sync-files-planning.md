@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077672"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -46,7 +47,14 @@ L’agent Azure File Sync est un package téléchargeable qui permet à Windows 
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Point de terminaison de serveur
-Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, `F:\sync1` et `F:\sync2`). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Actuellement, vous ne pouvez pas créer de point de terminaison de serveur pour la racine d’un volume (par exemple `F:\` ou `C:\myvolume`, si un volume est monté comme point de montage).
+Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, `F:\sync1` et `F:\sync2`). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. 
+
+Vous pouvez créer un point de terminaison de serveur via un point de montage. Notez que les points de montage dans le point de terminaison sont ignorés.  
+
+Vous pouvez créer un point de terminaison de serveur sur le volume système, mais il existe deux limites si vous procédez ainsi :
+* La hiérarchisation cloud ne peut pas être activée.
+* La restauration d’espace de noms rapide (où le système désactive rapidement l’espace de noms complet, puis commence à rappeler le contenu) n’est pas effectuée.
+
 
 > [!Note]  
 > Seuls les volumes non amovibles sont pris en charge.  Les lecteurs mappés à partir d’un partage distant ne sont pas pris en charge pour un chemin d’accès au point de terminaison du serveur.  En outre, un point de terminaison de serveur peut se trouver sur le volume système Windows, bien que la hiérarchisation cloud ne soit pas prise en charge sur le volume système.
@@ -105,7 +113,7 @@ Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windo
 | ~$\*.\* | Fichier temporaire Office |
 | \*.tmp | Fichier temporaire |
 | \*.laccdb | Accès au fichier de verrouillage de base de données|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Fichier de synchronisation interne|
 | \\System Volume Information | Dossier spécifique au volume |
 | $RECYCLE.BIN| Dossier |
 | \\SyncShareState | Dossier de synchronisation |
@@ -122,9 +130,9 @@ Pour les volumes sur lesquels la hiérarchisation cloud n’est pas activée, Az
 ### <a name="distributed-file-system-dfs"></a>Système de fichiers DFS
 Azure File Sync prend en charge l’interopérabilité avec les espaces de noms DFS (DFS-N) et la réplication DFS (DFS-R) à partir de l’[agent Azure File Sync 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
 
-**Espaces de noms DFS (DFS-N)** : Azure File Sync est entièrement pris en charge sur les serveurs DFS-N. Vous pouvez installer l’agent Azure File Sync sur un ou plusieurs membres DFS-N pour synchroniser des données entre les points de terminaison de serveur et le point de terminaison cloud. Pour plus d’informations, consultez [Vue d’ensemble des espaces de noms DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**Espaces de noms DFS (DFS-N)**  : Azure File Sync est entièrement pris en charge sur les serveurs DFS-N. Vous pouvez installer l’agent Azure File Sync sur un ou plusieurs membres DFS-N pour synchroniser des données entre les points de terminaison de serveur et le point de terminaison cloud. Pour plus d’informations, consultez [Vue d’ensemble des espaces de noms DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**Réplication DFS (DFS-R)** : étant donné que DFS-R et Azure File Sync sont deux solutions de réplication, dans la plupart des cas, nous recommandons de remplacer le DFS-R par Azure File Sync. Il existe cependant plusieurs scénarios où vous souhaiterez utiliser DFS-R et Azure File Sync :
+**Réplication DFS (DFS-R)**  : étant donné que DFS-R et Azure File Sync sont deux solutions de réplication, dans la plupart des cas, nous recommandons de remplacer le DFS-R par Azure File Sync. Il existe cependant plusieurs scénarios où vous souhaiterez utiliser DFS-R et Azure File Sync :
 
 - Vous migrez d’un déploiement de DFS-R vers un déploiement d’Azure File Sync. Pour plus d’informations, consultez [Migrer un déploiement de la réplication DFS (DFS-R) vers Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Tous les serveurs locaux ayant besoin d’une copie de vos données de fichiers ne peuvent pas être connectés directement à Internet.
@@ -175,7 +183,7 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 | Centre du Canada | Toronto |
 | Est du Canada | Québec |
 | Centre des États-Unis | Iowa |
-| Est de l'Asie | Hong Kong |
+| Est de l'Asie | Hong Kong (R.A.S.) |
 | Est des États-Unis | Virginie |
 | Est des États-Unis 2 | Virginie |
 | Europe du Nord | Irlande |

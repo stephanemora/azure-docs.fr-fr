@@ -1,23 +1,24 @@
 ---
-title: "Communication à distance des services dans Azure Service Fabric | Microsoft Docs"
-description: "La communication à distance dans Service Fabric permet aux clients et aux services de communiquer avec les services en utilisant un appel de procédure distante."
+title: Communication à distance des services dans Azure Service Fabric | Microsoft Docs
+description: La communication à distance dans Service Fabric permet aux clients et aux services de communiquer avec les services en utilisant un appel de procédure distante.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212974"
 ---
 # <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
 > [!div class="op_single_selector"]
@@ -101,7 +102,7 @@ Toutes les exceptions distantes levées par l’API du service sont renvoyées a
 Le proxy de service gère toutes les exceptions de basculement pour la partition de service pour laquelle il a été créé. Il résout à nouveau les points de terminaison s’il existe des exceptions de basculement (non temporaires) et retente l’appel avec le point de terminaison correct. Le nombre de tentatives pour l’exception de basculement est illimité.
 En cas d’exceptions temporaires, il retente uniquement l’appel.
 
-Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) L’utilisateur peut configurer ces valeurs en transmettant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
+Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) L’utilisateur peut configurer ces valeurs en passant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)
