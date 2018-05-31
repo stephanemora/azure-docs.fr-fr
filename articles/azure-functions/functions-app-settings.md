@@ -1,12 +1,12 @@
 ---
-title: "Informations de référence sur les paramètres d’application d’Azure Functions"
-description: "Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions."
+title: Informations de référence sur les paramètres d’application d’Azure Functions
+description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194265"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -155,8 +156,8 @@ La valeur par défaut est « 6.5.0 ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Découvrez comment mettre à jour les paramètres d’application](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Découvrez comment mettre à jour les paramètres d’application](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [Consultez les paramètres globaux dans le fichier host.json](functions-host-json.md)
+[Consultez les paramètres globaux dans le fichier host.json](functions-host-json.md)
+
+[Consultez les autres paramètres des applications App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

@@ -4,21 +4,22 @@ description: Dans ce tutoriel, vous mappez le contenu du point de terminaison Az
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/06/2018
+ms.date: 05/15/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196502"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -113,19 +114,28 @@ Une fois que vous avez enregistré votre domaine personnalisé, vous pouvez l’
     
 2. Sur la page **Profil CDN**, sélectionnez le point de terminaison CDN à associer avec le domaine personnalisé.
 
-    La page **Point de terminaison** s’ouvre.
+   La page **Point de terminaison** s’ouvre.
     
 3. Sélectionnez **Noms de domaine personnalisés**. 
 
    ![Bouton Domaine CDN personnalisé](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
 
-4. Dans **Nom d’hôte personnalisé**, entrez votre domaine personnalisé, y compris le sous-domaine. Par exemple, www.contoso.com ou cdn.contoso.com. N’utilisez pas le nom de sous-domaine cdnverify.
+   La page **Ajouter un domaine personnalisé** s’ouvre.
+
+4. Pour **Nom d’hôte du point de terminaison**, le nom d’hôte du point de terminaison à utiliser comme domaine de destination de votre enregistrement CNAME est prérempli et dérivé de l’URL du point de terminaison CDN : *&lt;nom d’hôte du point de terminaison&gt;*.azureedge.net. Cette valeur n’est pas modifiable.
+
+5. Pour **Nom d’hôte personnalisé**, entrez votre domaine personnalisé, y compris le sous-domaine, à utiliser comme domaine source de votre enregistrement CNAME. Par exemple, www.contoso.com ou cdn.contoso.com. N’utilisez pas le nom de sous-domaine cdnverify.
 
    ![Boîte de dialogue Domaine CDN personnalisé](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
-5. Sélectionnez **Ajouter**.
+6. Sélectionnez **Ajouter**.
 
-   Azure vérifie que l’enregistrement CNAME existe pour le nom de domaine personnalisé que vous avez entré. Si l'enregistrement CNAME est correct, votre domaine personnalisé est validé. La propagation de l’enregistrement CNAME aux serveurs de noms peut prendre du temps. Si votre domaine n’est pas validé immédiatement, vérifiez que l’enregistrement CNAME est correct, patientez quelques minutes, puis réessayez. Pour les points de terminaison du **CDN Azure fourni par Verizon**, la propagation des paramètres du domaine personnalisé sur tous les nœuds de périphérie CDN peut prendre jusqu’à 90 minutes.  
+   Azure vérifie que l’enregistrement CNAME existe pour le nom de domaine personnalisé que vous avez entré. Si l'enregistrement CNAME est correct, votre domaine personnalisé sera validé. 
+
+   La propagation des nouveaux paramètres de domaine personnalisé sur tous les nœuds de périphérie CDN peut prendre un certain temps : 
+    - Pour les profils du **CDN Azure Standard fourni par Microsoft**, la propagation s’effectue généralement dans un délai de 10 minutes. 
+    - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
+    - Dans le cas des profils du **CDN Azure Standard fourni par Verizon** et du **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes.   
 
 
 ## <a name="verify-the-custom-domain"></a>Vérifier le domaine personnalisé
@@ -134,7 +144,7 @@ Une fois que vous avez terminé l’inscription de votre domaine personnalisé, 
  
 1. Assurez-vous d’avoir un contenu public qui est mis en cache au point de terminaison. Par exemple, si votre point de terminaison CDN est associé à un compte de stockage, Azure CDN met en cache le contenu dans un conteneur public. Pour tester le domaine personnalisé, assurez-vous que votre conteneur est configuré pour autoriser l’accès public et qu’il contient au moins un fichier.
 
-2. Dans votre navigateur, accédez à l’adresse du fichier à l’aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est cdn.contoso.com, l’URL vers l’objet mis en cache sera similaire à l’URL suivante : http:\//cdn.contoso.com/my-public-container/my-file.jpg.
+2. Dans votre navigateur, accédez à l’adresse du fichier à l’aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est cdn.contoso.com, l’URL vers l’objet mis en cache sera similaire à l’URL suivante : http:\//cdn.contoso.com/my-public-container/my-file.jpg. Vérifiez que le résultat est identique au résultat que vous obtenez lorsque vous accédez au point de terminaison CDN directement à *&lt;nom d’hôte du point de terminaison&gt;*.azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapper le domaine personnalisé permanent

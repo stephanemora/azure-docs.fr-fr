@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010922"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213263"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -155,7 +155,7 @@ Si la synchronisation échoue sur un serveur :
     2. Vérifiez que le service Azure File Sync est en cours d’exécution sur le serveur. Pour cela, ouvrez le composant logiciel enfichable MMC des services et vérifiez que le service Storage Sync Agent (FileSyncSvc) est en cours d’exécution.
 
 <a id="replica-not-ready"></a>**La synchronisation échoue, avec cette erreur : « 0x80c8300f - Le réplica n’est pas prêt à effectuer l’opération requise »**  
-Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. En principe, la synchronisation démarre à la fin du travail de détection des modifications exécuté sur le partage de fichiers Azure (ce travail peut prendre jusqu’à 24 heures).
+Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. La tâche de détection qui recherche les modifications dans le partage de fichiers Azure est planifiée pour s’exécuter une fois toutes les 24 heures.  La durée d’exécution dépend de la taille de l’espace de noms dans le partage de fichiers Azure.  Cette erreur doit en principe disparaître, une fois la tâche terminée.
 
 
     > [!NOTE]

@@ -1,6 +1,6 @@
 ---
-title: Utiliser une identité MSI attribuée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
-description: Ce tutoriel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) attribuée à l’utilisateur sur une machine virtuelle Linux, pour accéder à Azure Resource Manager.
+title: Utiliser une identité MSI affectée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
+description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux, pour accéder à Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 83203737706b859bfbdfc1b356bbaca6d0b65dc0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6d4f7378ccd24af4281793dbc93df40830a1b31a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931395"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300799"
 ---
-# <a name="use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Utiliser une identité attribuée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutoriel : utiliser une identité attribuée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -76,7 +76,7 @@ Pour ce didacticiel, vous commencez par créer une machine virtuelle Linux. Vous
 2. Créez une identité attribuée à l’utilisateur avec la commande [az identity create](/cli/azure/identity#az_identity_create). Le paramètre `-g` spécifie le groupe de ressources où l’identité MSI est créée, tandis que le paramètre `-n` indique son nom. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<MSI NAME>` par vos propres valeurs :
     
     > [!IMPORTANT]
-    > La création d’identités attribuées à l’utilisateur ne prend en charge que les caractères alphanumériques et le trait d’union (0-9 ou a-z ou A-Z ou -). En outre, le nom doit être limité à 24 caractères pour que l’attribution à la machine virtuelle/au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, consultez [FAQ et problèmes connus](known-issues.md)
+    > La création d’identités attribuées à l’utilisateur prend uniquement en charge les caractères alphanumériques et les traits d’union (0-9 ou a-z ou A-Z ou -). De plus, le nom doit être limité à 24 caractères pour que l’attribution à la machine virtuelle/au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, consultez [FAQ et problèmes connus](known-issues.md)
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -194,5 +194,5 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
     
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir une vue d’ensemble de Managed Service Identity, consultez [Vue d’ensemble](overview.md).
+- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble](overview.md).
 
