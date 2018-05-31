@@ -1,25 +1,26 @@
 ---
-title: "Planification de l’intégration d’Azure Stack à un pare-feu pour les systèmes intégrés Azure Stack | Microsoft Docs"
-description: "Décrit les considérations relatives à l’intégration d’Azure Stack à un pare-feu pour les déploiements d’Azure Stack à plusieurs nœuds connectés à Azure."
+title: Planification de l’intégration d’Azure Stack à un pare-feu pour les systèmes intégrés Azure Stack | Microsoft Docs
+description: Décrit les considérations relatives à l’intégration d’Azure Stack à un pare-feu pour les déploiements d’Azure Stack à plusieurs nœuds connectés à Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936163"
 ---
 # <a name="azure-stack-firewall-integration"></a>Intégration d’Azure Stack à un pare-feu
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Bien que les pare-feu puissent être utiles en cas d’attaques par déni de service distribué (DDOS), de détection des intrusions et d’inspection du contenu, ils peuvent également constituer un goulot d’étranglement au niveau du débit des services de stockage Azure comme les objets blob, les tables et les files d’attente.
@@ -44,7 +45,7 @@ L’utilisation de NAT pour une adresse IP virtuelle publique présente des inco
 Actuellement, il est recommandé de désactiver le déchiffrement de SSL pour tout le trafic Azure Stack. S’il venait à être pris en charge dans les futures mises à jour, nous fournirions des conseils sur la façon d’activer le déchiffrement SSL pour Azure Stack.
 
 ## <a name="edge-firewall-scenario"></a>Scénario de pare-feu de périmètre
-Dans un déploiement de périphérie, Azure Stack est déployé directement derrière le pare-feu ou le routeur de périphérie. Dans ces scénarios, le pare-feu peut se trouver au-dessus de la frontière ou jouer le rôle d’appareil frontière s’il prend en charge ECMP (Equal Cost Multi Path) avec BGP ou le routage statique.
+Dans un déploiement de périphérie, Azure Stack est déployé directement derrière le pare-feu ou le routeur de périphérie. Dans ces scénarios, le pare-feu peut se situer au-dessus de la frontière (scénario 1) s’il prend en charge les configurations de pare-feu actif-actif et actif-passif ou en agissant en tant qu’appareil frontière (scénario 2) où il prend uniquement en charge les configurations de pare-feu actif-actif avec prise en charge d’Equal Cost Multi Path (ECMP) avec BGP ou le routage statique pour le basculement.
 
 En règle générale, les adresses IP routables publiques sont spécifiées pour le pool d’adresses IP virtuelles publiques à partir du réseau externe au moment du déploiement. Dans un scénario de périphérie, il n’est pas recommandé d’utiliser des adresses IP routables publiques sur un autre réseau pour des raisons de sécurité. Ce scénario permet à un utilisateur de bénéficier d’une expérience cloud auto-contrôlée complète, comme dans un cloud public tel qu’Azure.  
 

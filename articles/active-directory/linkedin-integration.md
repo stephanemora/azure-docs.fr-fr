@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762368"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Connexions de comptes LinkedIn pour les applications et services Microsoft
 Dans cet article, vous pouvez découvrir comment gérer les connexions de comptes LinkedIn pour votre locataire dans le centre d’administration Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
 > La fonctionnalité de connexions de comptes LinkedIn est en cours de déploiement sur les locataires Azure AD. Une fois déployée sur votre locataire, elle est activée par défaut. Elle n’est pas disponible pour les clients du gouvernement des États-Unis et les organisations avec des boîtes aux lettres Exchange Online hébergés en Australie, Canada, Chine, France, Allemagne, Inde, Corée du Sud, Royaume-Uni, Japon et Afrique du Sud. La prise en charge de ces emplacements de boîtes aux lettres sera bientôt disponible.  Pour obtenir une vue à jour des informations de déploiement, consultez la page [Feuille de route de Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+
+## <a name="benefit-to-users"></a>Avantages pour les utilisateurs
+Une fois les utilisateurs connectés à leur compte LinkedIn, les informations LinkedIn sont utilisées pour afficher des informations et des fonctionnalités personnalisées dans différentes applications et différents services Microsoft. Sur la carte de visite Microsoft, les utilisateurs ont accès à un aperçu des personnes avec lesquelles ils travaillent, même si elles sont extérieures à leur organisation. Au fil du temps, leur expérience LinkedIn deviendra également plus pertinente et mieux adaptée à leur travail. Par exemple, LinkedIn pourra suggérer de nouvelles connexions en fonction des relations de travail des utilisateurs, ou présenter des informations sur les collaborateurs avec qui ils ont rendez-vous le jour même.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Apparence des connexions de comptes LinkedIn pour l’utilisateur
 Les connexions de comptes LinkedIn permettent aux utilisateurs d’afficher des informations de profils LinkedIn publics dans certaines de leurs applications Microsoft. Les utilisateurs de votre locataire peuvent choisir de se connecter à leurs comptes LinkedIn et Microsoft scolaire ou professionnel pour afficher des informations de profils LinkedIn supplémentaires. Pour plus d’informations, consultez [LinkedIn information and features in Microsoft apps and services (Informations et fonctionnalités LinkedIn dans les services et applications Microsoft)](https://go.microsoft.com/fwlink/?linkid=850740).
@@ -47,7 +50,7 @@ La fonctionnalité de connexions de comptes LinkedIn est activée par défaut po
 1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com/) en utilisant un compte d’administrateur général pour le locataire Azure AD.
 2. Sélectionnez **Utilisateurs**.
 3. Dans le panneau **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
-4. Sous **LinkedIn account connections (Connexions de comptes LinkedIn)** :
+4. Sous **LinkedIn account connections (Connexions de comptes LinkedIn)**  :
   * Sélectionnez **Oui** pour activer les connexions de comptes LinkedIn pour tous les utilisateurs dans votre locataire.
   * Sélectionnez **Sélectionnés** pour activer les connexions de comptes LinkedIn uniquement pour les utilisateurs de locataire sélectionnés.
   * Sélectionnez **Non** pour désactiver les connexions de comptes LinkedIn pour tous les utilisateurs. ![Activation des connexions de comptes LinkedIn](./media/linkedin-integration/LinkedIn-integration.png)

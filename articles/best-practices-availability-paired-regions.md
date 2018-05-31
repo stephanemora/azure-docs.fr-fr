@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939021"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
 
@@ -25,31 +26,30 @@ Chaque région Azure est associée à une autre région au sein de la même rég
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Figure 1 – Diagramme de paire régionale Azure
+Figure 1 – Paires régionales Azure
 
 | Geography | Régions jumelées |  |
 |:--- |:--- |:--- |
 | Asie |Est de l'Asie |Asie du Sud-Est |
 | Australie |Est de l’Australie |Sud-est de l’Australie |
+| Brésil |Sud du Brésil (2) |États-Unis - partie centrale méridionale |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
+| Europe |Europe du Nord |Europe de l'Ouest |
+| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 | Inde |Inde centrale |Inde du Sud |
 | Inde |Inde de l'Ouest (1) |Inde du Sud |
 | Japon |Est du Japon |Ouest du Japon |
 | Corée du Sud |Centre de la Corée |Corée du Sud |
-| Amérique du Nord |Centre-Nord des États-Unis |États-Unis - partie centrale méridionale |
 | Amérique du Nord |Est des États-Unis |États-Unis de l’Ouest |
 | Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
-| Amérique du Nord |Ouest des États-Unis 2 |Centre-Ouest des États-Unis |
-| Europe |Europe du Nord |Europe de l'Ouest |
-| Japon |Est du Japon |Ouest du Japon |
-| Brésil |Sud du Brésil (2) |États-Unis - partie centrale méridionale |
+| Amérique du Nord |Centre-Nord des États-Unis |États-Unis - partie centrale méridionale |
+| Amérique du Nord |Ouest des États-Unis 2 |Centre-Ouest des États-Unis 
+| Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
+| Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
+| Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Gouvernement américain |Gouvernement des États-Unis – Iowa (3) |Gouvernement américain - Virginie |
 | Gouvernement américain |Gouvernement des États-Unis – Virginie (4) |Gouvernement des États-Unis – Texas |
-| Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
-| Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
-| Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
