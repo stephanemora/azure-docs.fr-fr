@@ -1,24 +1,25 @@
 ---
-title: "Bien démarrer avec le serveur web ASP.NET Azure AD v1 | Microsoft Docs"
-description: "Implémentation de la connexion Microsoft dans une solution ASP.NET avec une application basée sur un navigateur web traditionnel utilisant le standard OpenID Connect"
+title: Bien démarrer avec le serveur web ASP.NET Azure AD v1 | Microsoft Docs
+description: Implémentation de la connexion Microsoft dans une solution ASP.NET avec une application basée sur un navigateur web traditionnel utilisant le standard OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156459"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion avec Microsoft à une application ASP.NET
@@ -48,7 +49,7 @@ Ce guide est basé sur des scénarios dans lesquels un navigateur accède à un 
 
 Ce guide utilise les packages suivants :
 
-|Bibliothèque|DESCRIPTION|
+|Bibliothèque|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Intergiciel qui permet à une application d’utiliser OpenIDConnect pour l’authentification.|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Intergiciel qui permet à une application de maintenir la session utilisateur à l’aide de cookies.|
@@ -267,7 +268,7 @@ Sélectionnez le lien hypertexte pour afficher les revendications de l’utilisa
 #### <a name="expected-results"></a>Résultats attendus
  Vous devez voir une table contenant les propriétés de base de l’utilisateur connecté :
 
-| Propriété | Valeur | DESCRIPTION|
+| Propriété | Valeur | Description|
 |---|---|---|
 | NOM | {Nom complet de l’utilisateur} | Prénom et nom de l’utilisateur.
 |Nom d’utilisateur | <span>user@domain.com</span>| Nom d’utilisateur employé pour identifier l’utilisateur connecté.
@@ -280,7 +281,7 @@ En outre, vous verrez une table contenant toutes les revendications de l’utili
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Test de l’accès à une méthode disposant d’un attribut *[Authorize]* (facultatif)
 Lors de cette étape, vous testez l’accès au contrôleur de revendications en tant qu’utilisateur anonyme :<br/>
 Sélectionnez le lien de déconnexion de l’utilisateur et terminez le processus de déconnexion.<br/>
-À présent, dans votre navigateur, tapez http://localhost:{port}/claims pour accéder à votre contrôleur qui est protégé par l’attribut `[Authorize]`.
+À présent, dans votre navigateur, tapez http://localhost:{port}/claims pour accéder à votre contrôleur qui est protégé par l’attribut `[Authorize]`
 
 #### <a name="expected-results"></a>Résultats attendus
 Vous devriez recevoir l’invite vous demandant de vous authentifier pour afficher la vue.
