@@ -6,15 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258224"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -50,7 +51,7 @@ Pour la configuration Graph, un compte de service doit être fourni, avec un acc
 
 Pour la dernière étape, un nouveau propriétaire est configuré pour l’abonnement du fournisseur par défaut. Ce compte dispose d’un accès complet à toutes les ressources lorsqu’il est connecté au portail d’administration d’Azure Stack.
 
-Requirements:
+Prérequis :
 
 
 |Composant|Prérequis|
@@ -59,6 +60,8 @@ Requirements:
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Configuration de l’intégration de Graph
+
+Graph prend uniquement en charge l’intégration avec une seule forêt Active Directory. En présence de plusieurs forêts, seule la forêt spécifiée dans la configuration servira à extraire les utilisateurs et les groupes.
 
 Les informations suivantes sont requises en tant qu’entrées pour les paramètres d’automation :
 
@@ -95,12 +98,14 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Lorsque vous y êtes invité, spécifiez les informations d’identification du compte d’utilisateur que vous souhaitez utiliser pour le service Graph (par exemple, graphservice).
+   Lorsque vous y êtes invité, spécifiez les informations d’identification du compte d’utilisateur que vous souhaitez utiliser pour le service Graph (par exemple, graphservice). L’entrée de l’applet de commande Register-DirectoryService doit correspondre au nom de la forêt/racine du domaine dans la forêt plutôt que n’importe quel autre domaine dans la forêt.
 
    > [!IMPORTANT]
    > Attendez que les informations d’identification apparaissent (Get-Credential n’est pas pris en charge dans le point de terminaison privilégié) et entrez les informations d’identification du compte du service Graph.
 
 #### <a name="graph-protocols-and-ports"></a>Ports et protocoles Graph
+
+Le service Graph d’Azure Stack utilise les protocoles et ports suivants pour communiquer avec un serveur de catalogue global (GC) accessible en écriture et un centre de distribution de clés (KDC) pouvant traiter les demandes de connexion dans la forêt Active Directory cible.
 
 Le service Graph d’Azure Stack utilise les protocoles et ports suivants pour communiquer avec l’Active Directory cible :
 
@@ -285,6 +290,9 @@ Il existe plusieurs scénarios qui requièrent l’utilisation d’un nom princi
 - Fournisseurs de ressources dans Azure Stack lors d’un déploiement avec AD FS
 - Différentes applications
 - Une ouverture de session non interactive est requise
+
+> [!Important]  
+> AD FS prend uniquement en charge les sessions ouvertes interactives. Si vous avez besoin d’une ouverture de session non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).
 
 Pour plus d’informations sur la création d’un SPN, consultez [Créer un principal de service pour AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 

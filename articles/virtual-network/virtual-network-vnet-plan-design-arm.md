@@ -1,254 +1,116 @@
 ---
-title: Guide de planification et de conception de réseau virtuel Azure | Microsoft Docs
-description: Découvrez comment planifier et concevoir des réseaux virtuels dans Azure selon vos besoins en isolement, connectivité et emplacements.
+title: Planifier des réseaux virtuels Azure | Microsoft Docs
+description: Découvrez comment planifier des réseaux virtuels selon vos besoins en isolation, connectivité et emplacements.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: tysonn
+editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2016
+ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365040"
 ---
-# <a name="plan-and-design-azure-virtual-networks"></a>Planifier et concevoir des réseaux virtuels Azure
-La création d’un réseau virtuel à titre d’essai est assez facile, mais vous risquez de déployer plusieurs réseaux virtuels au fil du temps pour prendre en charge les besoins en production de votre organisation. La planification et la conception vous permettent de déployer des réseaux virtuels et de vous connecter aux ressources dont vous avez besoin plus efficacement. Si vous n’êtes pas familiarisé avec les réseaux virtuels, il est recommandé de [découvrir les réseaux virtuels](virtual-networks-overview.md) et d’apprendre [comment en déployer](quick-create-portal.md) un avant de continuer.
+# <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
-## <a name="plan"></a>Planification
-Une bonne compréhension des abonnements Azure, des régions et des ressources réseau est essentielle pour réussir. Vous pouvez utiliser la liste des éléments à prendre en compte ci-dessous comme point de départ. Une fois que vous avez compris ces éléments, vous pouvez définir les conditions requises pour la conception de votre réseau.
+La création d’un réseau virtuel à titre d’essai est assez facile, mais vous risquez de déployer plusieurs réseaux virtuels au fil du temps pour prendre en charge les besoins en production de votre organisation. La planification vous permet de déployer des réseaux virtuels et de vous connecter aux ressources dont vous avez besoin plus efficacement. Les informations contenues dans cet article sont particulièrement utiles si vous êtes déjà familiarisé avec les réseaux virtuels et que vous disposez d’expérience dans leur utilisation. Si vous n’êtes pas familiarisé avec les réseaux virtuels, il vous est recommandé de lire [Virtual network overview](virtual-networks-overview.md) (Vue d’ensemble du réseau virtuel).
 
-### <a name="considerations"></a>Considérations
-Avant de répondre aux questions de planification ci-dessous, tenez compte des éléments suivants :
+## <a name="naming"></a>Dénomination
 
-* Tout ce que vous créez dans Azure se compose d’une ou de plusieurs ressources. Une machine virtuelle est une ressource, l’interface de carte réseau utilisée par une machine virtuelle est une ressource, l’adresse IP publique utilisée par une interface de carte réseau est une ressource, le réseau virtuel auquel l’interface de carte réseau est connectée est une ressource.
-* Vous créez des ressources au sein d’une [région Azure](https://azure.microsoft.com/regions/#services) et d’un abonnement. Les ressources peuvent être connectées uniquement à un réseau virtuel qui existe dans les mêmes région et abonnement.
-* Vous pouvez connecter des réseaux virtuels entre eux comme suit :
-    * **[Homologation de réseau virtuel](virtual-network-peering-overview.md)** : les réseaux virtuels doivent se trouver dans la même région Azure. La bande passante entre des ressources figurant dans des réseaux virtuels homologués est la même que si les ressources qui étaient connectées au même réseau virtuel.
-    * **Passerelle [VPN Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)** : les réseaux virtuels peuvent exister dans une même région Azure ou dans des régions différentes. La bande passante entre des ressources figurant dans des réseaux virtuels connectés via une passerelle VPN est limitée par la bande passante de la passerelle VPN.
-* Vous pouvez connecter des réseaux virtuels à votre réseau local à l’aide de l’une des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) disponibles dans Azure.
-* Différentes ressources peuvent être regroupées dans des [groupes de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups), ce qui facilite la gestion de la ressource en tant qu’unité. Un groupe de ressources peut contenir des ressources provenant de plusieurs régions, tant que les ressources appartiennent au même abonnement.
+Toutes les ressources Azure ont un nom. Le nom doit être unique au sein d’une étendue, qui peut varier pour chaque type de ressource. Par exemple, le nom d’un réseau virtuel doit être unique au sein d’un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mais peut être dupliqué dans un [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou une [région](https://azure.microsoft.com/regions/#services) Azure. La définition d’une convention d’affectation de noms que vous pouvez utiliser régulièrement lorsque vous nommez des ressources est utile lors de la gestion de plusieurs ressources réseau au fil du temps. Pour des suggestions, consultez [Conventions d’affectation de noms](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="define-requirements"></a>Définir les conditions requises
-Utilisez les questions ci-dessous comme point de départ pour la conception de votre réseau Azure.    
+## <a name="regions"></a>Régions
 
-1. Quels emplacements Azure allez-vous utiliser pour héberger des réseaux virtuels ?
-2. Devez-vous assurer la communication entre ces emplacements Azure ?
-3. Devez-vous assurer la communication entre vos réseaux virtuels Azure et vos centres de données locaux ?
-4. Combien de machines virtuelles IaaS (Infrastructure as a Service), de rôles de services cloud et d’applications web sont nécessaires pour votre solution ?
-5. Devez-vous isoler le trafic en fonction des groupes de machines virtuelles (autrement dit, serveurs web frontaux et serveurs de base de données principaux) ?
-6. Devez-vous contrôler le flux du trafic à l’aide d’équipements virtuels ?
-7. Est-ce que les utilisateurs ont besoin de différents jeux d’autorisations pour différentes ressources Azure ?
+Toutes les ressources Azure sont créées dans une région Azure et un abonnement. Une ressource peut être connectée uniquement dans un réseau virtuel qui existe dans les mêmes région et abonnement que la ressource. Toutefois, vous pouvez connecter des réseaux virtuels qui existent dans différents abonnements et différentes régions. Pour plus d’informations, consultez [Connectivité](#connectivity). Lorsque vous choisissez les régions dans lesquelles déployer des ressources, prenez en compte l’emplacement physique des consommateurs des ressources :
 
-### <a name="understand-vnet-and-subnet-properties"></a>Découvrir les propriétés des réseaux virtuels et sous-réseaux
-Les ressources de réseaux virtuels et de sous-réseaux permettent de définir une limite de sécurité pour les charges de travail s’exécutant dans Azure. Un réseau virtuel est caractérisé par une collection d’espaces d’adressage, appelés blocs CIDR.
+- Les consommateurs de ressources souhaitent généralement la latence du réseau la plus faible possibles sur leurs ressources. Pour déterminer les latences relatives entre un emplacement spécifié et des régions Azure, consultez [View relative latencies](../network-watcher/view-relative-latencies.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Afficher les latences relatives).
+- Avez-vous des exigences en matière de résidence, souveraineté, conformité ou résilience des données ? Dans c’est le cas, il est essentiel de choisir la région qui correspond à la configuration requise. Pour plus d’informations, consultez [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) (Zones géographiques Azure).
+- Avez-vous besoin de résilience entre Zones de disponibilité Azure d’une même région Azure pour les ressources que vous déployez ? Vous pouvez déployer des ressources, comme des machines virtuelles, dans différentes zones de disponibilité au sein du même réseau virtuel. Toutefois, toutes les régions Azure ne prennent pas en charge les zones de disponibilité. Pour en savoir plus sur les zones de la disponibilité et les régions qui les prennent en charge, consultez [Zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-> [!NOTE]
-> Les administrateurs réseau sont familiarisés avec la notation CIDR. Si vous n’êtes pas familiarisé avec CIDR, [obtenez davantage d’informations](http://whatismyipaddress.com/cidr).
->
->
+## <a name="subscriptions"></a>Abonnements
 
-Les réseaux virtuels contiennent les propriétés suivantes.
+Vous pouvez déployer autant de réseaux virtuels que nécessaire dans chaque abonnement, jusqu’à la [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Par exemple, certaines organisations disposent d’abonnements distincts pour différents services. Pour plus d’informations et des remarques relatives aux abonnements, consultez [Subscription governance](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy) (Gouvernance de l’abonnement).
 
-| Propriété | Description | Contraintes |
-| --- | --- | --- |
-| **name** |Nom du réseau virtuel |Chaîne de 80 caractères au maximum. Peut contenir des lettres, des chiffres, un trait de soulignement, des points ou des traits d’union. Doit commencer par une lettre ou un chiffre. Doit se terminer par une lettre, un chiffre ou un trait de soulignement. Peut contenir des majuscules ou minuscules. |
-| **location** |Emplacement Azure (également appelé région). |Doit être l’un des emplacements Azure valides. |
-| **addressSpace** |Collection de préfixes d’adresses qui composent le réseau virtuel dans la notation CIDR. |Doit être un tableau de blocs d’adresses CIDR valides, y compris des plages d’adresses IP publiques. |
-| **Sous-réseaux** |Collection des sous-réseaux qui composent le réseau virtuel |consultez le tableau de propriétés des sous-réseaux ci-dessous. |
-| **dhcpOptions** |Objet qui contient une seule propriété obligatoire nommée **dnsServers**. | |
-| **dnsServers** |Tableau des serveurs DNS utilisés par le réseau virtuel. Si aucun serveur n’est spécifié, la résolution de noms interne Azure est utilisée. |Doit être un tableau de 10 serveurs DNS au maximum, par adresse IP. |
+## <a name="segmentation"></a>Segmentation
 
-Un sous-réseau est une ressource enfant d’un réseau virtuel, et permet de définir des segments d’espaces d’adressage dans un bloc CIDR, à l’aide de préfixes d’adresses IP. Les cartes d’interface réseau (NIC) peuvent être ajoutées aux sous-réseaux et connectées aux machines virtuelles, ce qui fournit une connectivité pour différentes charges de travail.
+Vous pouvez créer plusieurs réseaux virtuels par abonnement et par région. Vous pouvez créer plusieurs sous-réseaux au sein de chaque réseau virtuel. Les remarques qui suivent vous aident à déterminer le nombre de réseaux virtuels et sous-réseaux dont vous avez besoin :
 
-Les sous-réseaux contiennent les propriétés suivantes.
+### <a name="virtual-networks"></a>Réseaux virtuels
 
-| Propriété | Description | Contraintes |
-| --- | --- | --- |
-| **name** |Nom du sous-réseau |Chaîne de 80 caractères au maximum. Peut contenir des lettres, des chiffres, un trait de soulignement, des points ou des traits d’union. Doit commencer par une lettre ou un chiffre. Doit se terminer par une lettre, un chiffre ou un trait de soulignement. Peut contenir des majuscules ou minuscules. |
-| **location** |Emplacement Azure (également appelé région). |Doit être l’un des emplacements Azure valides. |
-| **addressPrefix** |Préfixe d’adresse unique qui constitue le sous-réseau dans la notation CIDR |Doit être un bloc CIDR unique qui fait partie de l’un des espaces d’adressage  du réseau virtuel. |
-| **networkSecurityGroup** |NSG appliquée au sous-réseau | |
-| **routeTable** |Table de routage appliquée au sous-réseau | |
-| **ipConfigurations** |Collection d’objets de configuration IP utilisée par la carte réseau connectée au sous-réseau | |
+Un réseau virtuel est une partie virtuelle isolée du réseau public Azure. Chaque réseau virtuel est dédié à votre abonnement. Éléments à prendre en compte lorsque vous choisissez de créer un réseau virtuel ou plusieurs réseaux virtuels dans un abonnement :
+
+- Avez-vous des exigences de sécurité d’organisation pour isoler le trafic dans des réseaux virtuels distincts ? Vous pouvez choisir de connecter des réseaux virtuels ou non. Si vous connectez des réseaux virtuels, vous pouvez implémenter une appliance virtuelle réseau, comme un pare-feu, pour contrôler le flux de trafic entre les réseaux virtuels. Pour plus d’informations, consultez [Sécurité](#security) et [Connectivité](#connectivity).
+- Avez-vous des exigences d’organisation pour isoler les réseaux virtuels dans des [abonnements](#subscriptions) ou [régions](#regions) distincts ?
+- Une [interface réseau](virtual-network-network-interface.md) permet à un machine virtuelle de communiquer avec d’autres ressources. Une ou plusieurs adresses IP privées sont affectées à chaque interface réseau. De combien d’interfaces réseau et d’[adresses IP privées](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) avez-vous besoin dans un réseau virtuel ? Des [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) s’appliquent quant au nombre d’interfaces réseau et d’adresses IP privées que vous pouvez avoir dans un réseau virtuel.
+- Voulez-vous connecter le réseau virtuel à un autre réseau virtuel ou au réseau local ? Vous pouvez choisir de connecter certains réseaux virtuels entre eux ou des réseaux locaux, mais pas d’autres. Pour plus d’informations, consultez [Connectivité](#connectivity). Chaque réseau virtuel que vous connectez à un autre réseau virtuel, ou au réseau local, doit avoir un espace d’adresses unique. Chaque réseau virtuel comprend une ou plusieurs plages d’adresses publiques ou privées affectées à son espace d’adresses. Une plage d’adresses est spécifiée dans un format de routage de domaine Interne sans classe (CIDR), par exemple, 10.0.0.0/16. En savoir plus sur [plages d’adresses](manage-virtual-network.md#add-or-remove-an-address-range) pour les réseaux virtuels.
+- Avez-vous des exigences d’administration d’organisation pour les ressources dans différents réseaux virtuels ? Si c’est le cas, vous pouvez séparer des ressources dans un réseau virtuel distinct afin de simplifier l’[affectation d’autorisations](#permissions) à des personnes de votre organisation ou pour assigner différentes [stratégies](#policies) à différents virtuel réseaux.
+- Lorsque vous déployez des ressources de service Azure dans un réseau virtuel, elles créent leur propre réseau virtuel. Pour déterminer si un service Azure crée son propre réseau virtuel, consultez les informations de chaque [service Azure pouvant être déployé dans un réseau virtuel](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
+
+### <a name="subnets"></a>Sous-réseaux
+
+Un réseau virtuel peut être segmenté en un ou plusieurs sous-réseaux, jusqu’aux [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Éléments à prendre en compte lorsque vous choisissez de créer un sous-réseau ou plusieurs réseaux virtuels dans un abonnement :
+
+- Chaque sous-réseau doit avoir une plage d’adresses unique, spécifiée au format CIDR, dans l’espace d’adresses du réseau virtuel. La plage d’adresses ne peut pas chevaucher d’autres sous-réseaux au sein du réseau virtuel.
+- Si vous envisagez de déployer des ressources de service Azure dans un réseau virtuel, elles peuvent avoir besoin de créer leur propre sous-réseau. De l’espace non alloué doit être suffisant pour le faire. Pour déterminer si un service Azure crée son propre sous-réseau, consultez les informations de chaque [service Azure pouvant être déployé dans un réseau virtuel](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Par exemple, si vous connectez un réseau virtuel à un réseau local à l’aide d’une passerelle VPN Azure, le réseau virtuel doit avoir un sous-réseau dédié pour la passerelle. En savoir plus sur les [sous-réseaux de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
+- Par défaut, Azure achemine le trafic réseau entre tous les sous-réseaux dans un réseau virtuel. Par exemple, vous pouvez remplacer le routage par défaut d’Azure pour empêcher le routage Azure entre des sous-réseaux ou pour acheminer le trafic entre des sous-réseaux via une appliance virtuelle réseau. Si vous avez besoin que le trafic entre des ressources d’un même réseau virtuel circulent via une appliance virtuelle réseau (NVA), déployez les ressources sur des sous-réseaux différents. En savoir plus la [sécurité](#security).
+- Vous pouvez limiter l’accès aux ressources Azure, un compte de stockage Azure ou une base de données SQL Azure par exemple, à des sous-réseaux spécifiques avec un point de terminaison de service de réseau virtuel. Vous pouvez également refuser l’accès aux ressources à partir d’Internet. Vous pouvez créer plusieurs sous-réseaux et activer un point de terminaison de service pour certains sous-réseaux, mais pas pour d’autres. En savoir plus sur les [points de terminaison de service](virtual-network-service-endpoints-overview.md), et les ressources Azure pour lesquelles vous pouvez les activer.
+- Vous pouvez associer zéro ou un groupe de sécurité réseau à chaque sous-réseau dans un réseau virtuel. Vous pouvez associer le même groupe de sécurité réseau, ou un autre, à chaque sous-réseau. Chaque groupe de sécurité réseau contient des règles, qui autorisent ou refusent le trafic vers et depuis des sources et des destinations. En savoir plus sur les [groupes de sécurité réseau](#traffic-filtering).
+
+## <a name="security"></a>Sécurité
+
+Vous pouvez filtrer le trafic réseau vers et depuis des ressources dans un réseau virtuel à l’aide de groupes de sécurité réseau et d’appliances virtuelles réseau. Vous pouvez contrôler la façon selon laquelle Azure achemine le trafic à partir des sous-réseaux. Vous pouvez également limiter qui dans votre organisation peut utiliser des ressources dans des réseaux virtuels.
+
+### <a name="traffic-filtering"></a>Filtrage du trafic
+
+- Vous pouvez filtrer le trafic réseau entre des ressources dans un réseau virtuel à l’aide d’un groupe de sécurité réseau, d’une NVA qui filtre le trafic réseau, ou des deux. Pour déployer une NVA, comme un pare-feu, pour filtrer le trafic réseau, consultez la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?subcategories=appliances&page=1). Lorsque vous utilisez une NVA, vous créez également des itinéraires personnalisés pour acheminer le trafic entre les sous-réseaux et la NVA. En savoir plus sur le [routage du trafic](#traffic-routing).
+- Un groupe de sécurité réseau contient plusieurs règles de sécurité par défaut qui autorisent ou refusent le trafic vers ou depuis des ressources. Un groupe de sécurité réseau peut être associé à une interface réseau, au sous-réseau où se trouve l’interface réseau, ou aux deux. Pour simplifier la gestion des règles de sécurité, il vous est recommandé d’associer, chaque fois que cela est possible, un groupe de sécurité réseau à des sous-réseaux, plutôt qu’à des interfaces réseau du sous-réseau.
+- Si différentes machines virtuelles au sein d’un sous-réseau ont besoin de règles de sécurité différentes, vous pouvez associer l’interface réseau de la machine virtuelle à un ou plusieurs groupes de sécurité d’application. Une règle de sécurité peut spécifier un groupe de sécurité d’application dans sa source, sa destination, ou les deux. Cette règle ne s’applique alors qu’aux interfaces réseau qui sont membres du groupe de sécurité d’application. En savoir plus sur les [groupes de sécurité réseau](security-overview.md) et les [groupes de sécurité d’application](security-overview.md#application-security-groups).
+- Azure crée plusieurs règles de sécurité par défaut dans chaque groupe de sécurité réseau. Une règle par défaut autorise l’ensemble du trafic entre toutes les ressources dans un réseau virtuel. Pour remplacer ce comportement, utilisez des groupes de sécurité réseau, un routage personnaliser pour acheminer le trafic vers une NVA, ou les deux. Il vous est recommandé de vous familiariser avec toutes les [règles de sécurité par défaut](security-overview.md#default-security-rules) d’Azure et de comprendre comment les règles de groupe de sécurité réseau s’appliquent à une ressource.
+
+Vous pouvez consulter des exemples de conception pour l’implémentation d’une zone DMZ entre Azure et Internet à l’aide d’une [NVA](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) ou de [groupes de sécurité réseau](virtual-networks-dmz-nsg.md).
+
+### <a name="traffic-routing"></a>Routage du trafic
+
+Azure crée plusieurs itinéraires par défaut pour le trafic sortant à partir d’un sous-réseau. Vous pouvez remplacer le routage par défaut d’Azure en créant une table de routage et en l’associant à un sous-réseau. Les raisons courantes du remplacement du routage par défaut d’Azure sont les suivantes :
+- Car vous souhaitez que le trafic entre des sous-réseaux circule via une NVA. Pour en savoir plus sur la [configuration de tables de routage pour forcer le trafic via une NVA](tutorial-create-route-table-portal.md)
+- Car vous souhaitez forcer l’ensemble du trafic Internet via une NVA, ou en local, via une passerelle VPN Azure. Le fait de forcer le trafic Internet en local pour inspection et la journalisation sont souvent appelés le tunneling forcé. En savoir plus sur la configuration du [tunneling forcé](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+
+Si vous avez besoin d’implémenter un routage personnalisé, il vous est recommandé de vous familiariser avec le [routage dans Azure](virtual-networks-udr-overview.md).
+
+## <a name="connectivity"></a>Connectivité
+
+Vous pouvez connecter un réseau virtuel à d’autres réseaux virtuels à l’aide de l’homologation de réseau virtuel, ou à votre réseau local, à l’aide d’une passerelle VPN Azure.
+
+### <a name="peering"></a>Homologation
+
+Lorsque vous utilisez l’[homologation de réseau virtuel](virtual-network-peering-overview.md), les réseaux virtuels peuvent se trouver dans la même région, ou dans différentes régions Azure prises en charge. Les réseaux virtuels que vous sélectionnez peuvent se trouver dans le même abonnement, ou dans des abonnements Azure différents, tant que les deux abonnements sont affectés au même locataire Azure Active Directory. Avant de créer une homologation, il est recommandé de vous familiariser avec toutes les [exigences et contraintes de l’homologation](virtual-network-manage-peering.md#requirements-and-constraints). La bande passante entre des ressources figurant dans des réseaux virtuels homologués est la même que si les ressources se trouvaient dans le même réseau virtuel.
+
+### <a name="vpn-gateway"></a>passerelle VPN
+
+Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure pour connecter un réseau virtuel à votre réseau local à l’aide un [VPN site à site](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou à l’aide d’une connexion dédiée à Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Vous pouvez combiner l’homologation et une passerelle VPN pour créer des [réseaux Hub and Spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), dans lesquels des réseaux virtuels Spoke se connectent à un réseau virtuel Hub et où le Hub se connecte à un réseau local, par exemple.
 
 ### <a name="name-resolution"></a>Résolution de noms
-Par défaut, votre réseau virtuel utilise la [résolution de noms fournie par Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md) pour résoudre les noms à l’intérieur du réseau virtuel et sur l’Internet public. Toutefois, si vous connectez vos réseaux virtuels à vos centres de données locaux, vous devez fournir [votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) pour résoudre les noms entre les réseaux.  
 
-### <a name="limits"></a>limites
-Passez en revue les limites de mise en réseau dans l’article sur les [limites Azure](../azure-subscription-service-limits.md#networking-limits) pour vérifier que votre conception n’entre en conflit avec aucune limite. Il est possible d’augmenter certaines limites par le biais d’un ticket d’assistance.
+Les ressources dans un réseau virtuel ne peuvent pas résoudre les noms de ressources dans le réseau virtuel homologué à l’aide du [DNS intégré](virtual-networks-name-resolution-for-vms-and-role-instances.md) d’Azure. Pour résoudre les noms dans un réseau virtuel homologué, [déployez votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) ou utilisez des [domaines privés](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure DNS. La résolution des noms entre des ressources dans un réseau virtuel et des réseaux locaux requiert également que vous déployiez votre propre serveur DNS.
 
-### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez utiliser le [contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md) pour contrôler le niveau d'accès de différents utilisateurs à différentes ressources dans Azure. De cette façon, vous pouvez isoler le travail effectué par votre équipe en fonction de leurs besoins.
+## <a name="permissions"></a>Autorisations
 
-En ce qui concerne les réseaux virtuels, les utilisateurs dans le rôle **Collaborateur de réseau** ont un contrôle total sur les ressources du réseau virtuel Azure Resource Manager. De même, les utilisateurs dans le rôle **Collaborateur de réseau classique** ont un contrôle total sur les ressources du réseau virtuel classique.
+Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) aux ressources. Des autorisations sont affectées à une [étendue](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) dans la hiérarchie suivante : abonnement, groupe d’administration, groupe de ressources et ressource individuelle. Pour en savoir plus sur la hiérarchie, consultez [Organize your resources](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Organiser vos ressources). Pour utiliser des réseaux virtuels Azure et toutes leurs fonctionnalités associées, comme l’homologation, les groupes de sécurité réseau, les points de terminaison de service et les tables de routage, vous pouvez assigner à des membres de votre organisation le rôle [Propriétaire](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Contributeur](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) ou [Contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) intégré, puis assigner le rôle à l’étendue appropriée. Si vous souhaitez assigner des autorisations spécifiques pour un sous-ensemble de fonctionnalités de réseau virtuel, créez un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et assignez les autorisations spécifiques nécessaires pour les [réseaux virtuels](manage-virtual-network.md#permissions), [sous-réseaux et points de terminaison de service](virtual-network-manage-subnet.md#permissions), [interfaces réseau](virtual-network-network-interface.md), [homologation](virtual-network-manage-peering.md#permissions), [groupes de sécurité réseau et d’application](manage-network-security-group.md#permissions) ou les [tables de routage](manage-route-table.md#permissions) au rôle.
 
-> [!NOTE]
-> Vous pouvez également [créer vos propres rôles](../role-based-access-control/role-assignments-portal.md) pour séparer les besoins administratifs.
->
->
+## <a name="policy"></a>Stratégie
 
-## <a name="design"></a>Conception
-Une fois que vous connaissez les réponses aux questions dans la section [Planifier](#Plan) , consultez les rubriques suivantes avant de définir vos réseaux virtuels.
+Azure Policy vous permet de créer, d’assigner et de gérer des définitions de stratégie. Les définitions de stratégie appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’organisation. Azure Policy exécute une évaluation de vos ressources, en analysant les ressources qui ne sont pas conformes avec les définitions de stratégie dont vous disposez. Par exemple, vous pouvez avoir une stratégie qui autorise la création de réseaux virtuels dans un groupe de ressources spécifique uniquement. Une autre stratégie peut exiger qu’un groupe de sécurité réseau soit associé à chaque sous-réseau. Les stratégies sont alors évaluées lors de la création et de la mise à jour des ressources.
 
-### <a name="number-of-subscriptions-and-vnets"></a>Nombre d’abonnements et de réseaux virtuels
-Vous devez envisager de créer plusieurs réseaux virtuels dans les scénarios suivants :
-
-* **Machines virtuelles qui doivent être placées à différents emplacements Azure**. Les réseaux virtuels dans Azure sont régionaux. Ils ne peuvent pas couvrir des emplacements. Par conséquent, vous avez besoin d’au moins un réseau virtuel pour chaque emplacement Azure dans lequel vous voulez héberger des machines virtuelles.
-* **Charges de travail qui doivent être totalement isolées les unes des autres**. Vous pouvez créer des réseaux virtuels distincts, qui utilisent même des espaces d’adressage IP identiques, pour isoler différentes charges de travail les unes des autres.
-
-Gardez à l’esprit que les limites affichées ci-dessus sont définies par région, par abonnement. Cela signifie que vous pouvez utiliser plusieurs abonnements pour augmenter la limite des ressources que vous pouvez gérer dans Azure. Vous pouvez utiliser un réseau VPN de site à site, ou un circuit ExpressRoute, pour connecter les réseaux virtuels dans différents abonnements.
-
-### <a name="subscription-and-vnet-design-patterns"></a>Modèles de conception des abonnements et réseaux virtuels
-Le tableau ci-dessous présente quelques modèles de conception courants pour l’utilisation des abonnements et réseaux virtuels.
-
-| Scénario | Diagramme | Avantages | Inconvénients |
-| --- | --- | --- | --- |
-| Abonnement unique, deux réseaux virtuels par application |![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Un seul abonnement à gérer. |Nombre maximal de réseaux virtuels par région Azure. Vous avez besoin d’abonnements supplémentaires après cela. Pour plus d’informations, consultez l’article sur les [limites Azure](../azure-subscription-service-limits.md#networking-limits). |
-| Un abonnement par application, deux réseaux virtuels par application |![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Utilise uniquement deux réseaux virtuels par abonnement. |Gestion plus difficile quand il existe un trop grand nombre d’applications. |
-| Un abonnement par division, deux réseaux virtuels par application. |![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Équilibre entre le nombre d’abonnements et de réseaux virtuels. |Nombre maximal de réseaux virtuel par division (abonnement). Pour plus d’informations, consultez l’article sur les [limites Azure](../azure-subscription-service-limits.md#networking-limits). |
-| Un abonnement par division, deux réseaux virtuels par groupe d’applications. |![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Équilibre entre le nombre d’abonnements et de réseaux virtuels. |Les applications doivent être isolées à l’aide de sous-réseaux et de groupes de sécurité réseau. |
-
-### <a name="number-of-subnets"></a>Nombre de sous-réseaux
-Vous devez envisager d’utiliser plusieurs sous-réseaux dans un réseau virtuel dans les scénarios suivants :
-
-* **Pas suffisamment d’adresses IP privées pour toutes les cartes réseau dans un sous-réseau**. Si l’espace d’adressage de votre sous-réseau ne contient pas suffisamment d’adresses IP pour le nombre de cartes réseau dans le sous-réseau, vous devez créer plusieurs sous-réseaux. Gardez à l’esprit qu’Azure réserve 5 adresses IP privées de chaque sous-réseau qui ne peuvent pas être utilisées : les première et dernière adresses de l’espace d’adressage (pour l’adresse de sous-réseau et la multidiffusion) et 3 adresses à utiliser en interne (pour DHCP et DNS).
-* **Sécurité**. Vous pouvez utiliser des sous-réseaux pour séparer les groupes de machines virtuelles les uns des autres pour les charges de travail qui ont une structure multicouche, et appliquer différents [groupes de sécurité réseau](virtual-networks-nsg.md#subnets) pour ces sous-réseaux.
-* **Connectivité hybride**. Vous pouvez utiliser des passerelles VPN et circuits ExpressRoute pour [connecter](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) vos réseaux virtuels entre eux et à vos centres de données locaux. Les passerelles VPN et les circuits ExpressRoute nécessitent la création d’un sous-réseau qui leur est propre.
-* **Équipements virtuels**. Vous pouvez utiliser un équipement virtuel, comme un pare-feu, un accélérateur WAN ou une passerelle VPN, dans un réseau virtuel Azure. Quand vous procédez ainsi, vous devez [acheminer le trafic](virtual-networks-udr-overview.md) vers ces équipements et les isoler dans leur propre sous-réseau.
-
-### <a name="subnet-and-nsg-design-patterns"></a>Modèles de conception des sous-réseaux et groupes de sécurité réseau
-Le tableau ci-dessous présente quelques modèles de conception courants pour l’utilisation des sous-réseaux.
-
-| Scénario | Diagramme | Avantages | Inconvénients |
-| --- | --- | --- | --- |
-| Sous-réseau unique, groupes de sécurité réseau par couche d’application, par application |![Sous-réseau unique](./media/virtual-network-vnet-plan-design-arm/figure5.png) |Un seul sous-réseau à gérer. |Plusieurs groupes de sécurité réseau nécessaires pour isoler chaque application. |
-| Un sous-réseau par application, groupes de sécurité réseau par couche d’application |![Sous-réseau par application](./media/virtual-network-vnet-plan-design-arm/figure6.png) |Moins de groupes de sécurité réseau à gérer. |Plusieurs sous-réseaux à gérer. |
-| Un sous-réseau par couche d’application, groupes de sécurité réseau par application |![Sous-réseau par couche](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Équilibre entre le nombre de sous-réseaux et de groupes de sécurité réseau. |Nombre maximal de groupes de sécurité réseau par abonnement. Pour plus d’informations, consultez l’article sur les [limites Azure](../azure-subscription-service-limits.md#networking-limits). |
-| Un sous-réseau par couche d’application, par application, groupes de sécurité réseau par sous-réseau |![Sous-réseau par couche et par application](./media/virtual-network-vnet-plan-design-arm/figure8.png) |Nombre éventuellement inférieur de groupes de sécurité réseau. |Plusieurs sous-réseaux à gérer. |
-
-## <a name="sample-design"></a>Exemple de conception
-Pour illustrer l’application des informations de cet article, envisagez le scénario suivant.
-
-Vous travaillez pour une société qui possède 2 centres de données en Amérique du Nord et deux centres de données en Europe. Vous avez identifié 6 applications clientes différentes gérées par 2 divisions différentes que vous souhaitez migrer vers Azure comme projet pilote. L’architecture de base pour les applications est la suivante :
-
-* App1, App2, App3 et App4 sont des applications web hébergées sur des serveurs Linux exécutant Ubuntu. Chaque application se connecte à un serveur d’applications distinct qui héberge les services RESTful sur des serveurs Linux. Les services RESTful se connectent à une base de données MySQL principale.
-* App5 et App6 sont des applications web hébergées sur des serveurs Windows exécutant Windows Server 2012 R2. Chaque application se connecte à une base de données SQL Server principale.
-* Toutes les applications sont actuellement hébergées dans l’un des centres de données de la société en Amérique du Nord.
-* Les centres de données locaux utilisent l’espace d’adressage 10.0.0.0/8.
-
-Vous devez concevoir une solution de réseau virtuel qui remplit les conditions suivantes :
-
-* Aucune division ne doit être affectée par la consommation de ressources d’autres divisions.
-* Vous devez réduire la quantité de réseaux virtuels et sous-réseaux pour faciliter la gestion.
-* Pour chaque division, un seul réseau virtuel de test/développement doit être utilisé pour toutes les applications.
-* Chaque application est hébergée dans 2 centres de données Azure différents par continent (Amérique du Nord et Europe).
-* Chaque application est totalement isolée des autres.
-* Chaque application est accessible aux clients sur Internet via HTTP.
-* Chaque application est accessible aux utilisateurs connectés aux centres de données locaux à l’aide d’un tunnel chiffré.
-* La connexion aux centres de données locaux doit utiliser des appareils VPN existants.
-* Le groupe réseau de la société doit avoir un contrôle total sur la configuration de réseau virtuel.
-* Les développeurs dans chaque division doivent uniquement pouvoir déployer des machines virtuelles vers des sous-réseaux existants.
-* Toutes les applications sont migrées telles quelles vers Azure (modèle « lift-and-shift »).
-* Les bases de données dans chaque emplacement doivent être répliquées vers d’autres emplacements Azure une fois par jour.
-* Chaque application doit utiliser 5 serveurs web frontaux, 2 serveurs d’applications (si nécessaire) et 2 serveurs de base de données.
-
-### <a name="plan"></a>Planification
-Vous devez commencer la planification de votre conception en répondant à la question dans la section [Définir les conditions requises](#Define-requirements) comme indiqué ci-dessous.
-
-1. Quels emplacements Azure allez-vous utiliser pour héberger des réseaux virtuels ?
-
-    2 emplacements en Amérique du Nord et 2 emplacements en Europe. Vous devez les choisir selon l’emplacement physique de vos centres de données locaux existants. Votre connexion depuis vos emplacements physiques vers Azure aura ainsi une meilleure latence.
-2. Devez-vous assurer la communication entre ces emplacements Azure ?
-
-    Oui. Étant donné que les bases de données doivent être répliquées sur tous les emplacements.
-3. Devez-vous assurer la communication entre vos réseaux virtuels Azure et vos centres de données locaux ?
-
-    Oui. Étant donné que les utilisateurs connectés aux centres de données locaux doivent être en mesure d’accéder aux applications via un tunnel chiffré.
-4. Combien de machines virtuelles IaaS sont nécessaires pour votre solution ?
-
-    200 machines virtuelles IaaS. App1, App2, App3 et App4 nécessitent 5 serveurs web chacun, 2 serveurs d’applications chacun et 2 serveurs de base de données chacun. Ce qui fait un total de 9 machines virtuelles IaaS par application ou 36 machines virtuelles IaaS. App5 et App6 nécessitent 5 serveurs web et 2 serveurs de base de données chacun. Ce qui fait un total de 7 machines virtuelles IaaS par application ou 14 machines virtuelles IaaS. Par conséquent, vous avez besoin de 50 machines virtuelles IaaS pour toutes les applications dans chaque région Azure. Étant donné que nous devons utiliser 4 régions, 200 machines virtuelles IaaS sont nécessaires.
-
-    Vous devez également fournir des serveurs DNS dans chaque réseau virtuel ou dans vos centres de données locaux pour résoudre le nom entre les machines virtuelles IaaS Azure et le réseau local.
-5. Devez-vous isoler le trafic en fonction des groupes de machines virtuelles (autrement dit, serveurs web frontaux et serveurs de base de données principaux) ?
-
-    Oui. Chaque application doit être totalement isolée des autres, et chaque couche d’application doit également être isolée.
-6. Devez-vous contrôler le flux du trafic à l’aide d’équipements virtuels ?
-
-    Non. Les équipements virtuels permettent de mieux contrôler le flux du trafic, notamment une consignation de plan de données plus détaillée.
-7. Est-ce que les utilisateurs ont besoin de différents jeux d’autorisations pour différentes ressources Azure ?
-
-    Oui. L’équipe réseau a besoin d’un contrôle total sur les paramètres de réseau virtuel, tandis que les développeurs doivent uniquement pouvoir déployer des machines virtuelles vers des sous-réseaux préexistants.
-
-### <a name="design"></a>Conception
-Vous devez suivre la conception spécifiant les abonnements, les réseaux virtuels, les sous-réseaux et les groupes de sécurité réseau. Nous abordons le sujet ici, mais vous devez en savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md) avant de terminer votre conception.
-
-**Nombre d’abonnements et de réseaux virtuels**
-
-Les conditions requises suivantes sont associées aux abonnements et réseaux virtuels :
-
-* Aucune division ne doit être affectée par la consommation de ressources d’autres divisions.
-* Vous devez réduire la quantité de réseaux virtuels et sous-réseaux.
-* Pour chaque division, un seul réseau virtuel de test/développement doit être utilisé pour toutes les applications.
-* Chaque application est hébergée dans 2 centres de données Azure différents par continent (Amérique du Nord et Europe).
-
-En fonction de ces conditions requises, vous avez besoin d’un abonnement pour chaque division. De cette façon, la consommation des ressources d’une division n’est pas prise en compte pour déterminer les limites d’autres divisions. En outre, comme vous souhaitez réduire le nombre de réseaux virtuels, vous devez envisager d’utiliser le modèle **un abonnement par division, deux réseaux virtuels par groupe d’applications** comme indiqué ci-dessous.
-
-![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure9.png)
-
-Vous devez également spécifier l’espace d’adressage pour chaque réseau virtuel. Étant donné que vous avez besoin de connectivité entre les centres de données locaux et les régions Azure, l’espace d’adressage utilisé pour les réseaux virtuels Azure ne peut pas entrer en conflit avec le réseau local, et l’espace d’adressage utilisé par chaque réseau virtuel ne doit pas entrer en conflit avec d’autres réseaux virtuels existants. Vous pouvez utiliser les espaces d’adressage dans le tableau ci-dessous pour remplir ces conditions requises.  
-
-| **Abonnement** | **Réseau virtuel** | **Région Azure** | **Espace d’adressage** |
-| --- | --- | --- | --- |
-| BU1 |ProdBU1US1 |États-Unis de l’Ouest |172.16.0.0/16 |
-| BU1 |ProdBU1US2 |Est des États-Unis |172.17.0.0/16 |
-| BU1 |ProdBU1EU1 |Europe du Nord |172.18.0.0/16 |
-| BU1 |ProdBU1EU2 |Europe de l'Ouest |172.19.0.0/16 |
-| BU1 |TestDevBU1 |États-Unis de l’Ouest |172.20.0.0/16 |
-| BU2 |TestDevBU2 |États-Unis de l’Ouest |172.21.0.0/16 |
-| BU2 |ProdBU2US1 |États-Unis de l’Ouest |172.22.0.0/16 |
-| BU2 |ProdBU2US2 |Est des États-Unis |172.23.0.0/16 |
-| BU2 |ProdBU2EU1 |Europe du Nord |172.24.0.0/16 |
-| BU2 |ProdBU2EU2 |Europe de l'Ouest |172.25.0.0/16 |
-
-**Nombre de sous-réseaux et de groupes de sécurité réseau**
-
-Les conditions requises suivantes sont associées aux sous-réseaux et groupes de sécurité réseau :
-
-* Vous devez réduire la quantité de réseaux virtuels et sous-réseaux.
-* Chaque application est totalement isolée des autres.
-* Chaque application est accessible aux clients sur Internet via HTTP.
-* Chaque application est accessible aux utilisateurs connectés aux centres de données locaux à l’aide d’un tunnel chiffré.
-* La connexion aux centres de données locaux doit utiliser des appareils VPN existants.
-* Les bases de données dans chaque emplacement doivent être répliquées vers d’autres emplacements Azure une fois par jour.
-
-En fonction de ces conditions requises, vous pouvez utiliser un seul sous-réseau par couche d’application et utiliser des groupes de sécurité réseau pour filtrer le trafic par application. De cette façon, vous avez uniquement 3 sous-réseaux dans chaque réseau virtuel (frontal, couche d’application et couche de données) et un groupe de sécurité réseau par application et par sous-réseau. Dans ce cas, vous devez envisager d’utiliser le modèle de conception **un sous-réseau par couche d’application, groupes de sécurité réseau par application** . La figure ci-dessous illustre l’utilisation du modèle de conception représentant le réseau virtuel **ProdBU1US1** .
-
-![Un sous-réseau par couche, un groupe de sécurité réseau par application et par couche](./media/virtual-network-vnet-plan-design-arm/figure11.png)
-
-Toutefois, vous devez également créer un sous-réseau supplémentaire pour la connectivité VPN entre les réseaux virtuels et centres de données locaux. Vous devez également spécifier l’espace d’adressage pour chaque sous-réseau. La figure ci-dessous illustre un exemple de solution pour le réseau virtuel **ProdBU1US1** . Vous pouvez répliquer ce scénario pour chaque réseau virtuel. Chaque couleur représente une application différente.
-
-![Exemple de réseau virtuel](./media/virtual-network-vnet-plan-design-arm/figure10.png)
-
-**Contrôle d’accès**
-
-Les conditions requises suivantes sont associées au contrôle d’accès :
-
-* Le groupe réseau de la société doit avoir un contrôle total sur la configuration de réseau virtuel.
-* Les développeurs dans chaque division doivent uniquement pouvoir déployer des machines virtuelles vers des sous-réseaux existants.
-
-En fonction de ces conditions requises, vous pouvez ajouter des utilisateurs de l’équipe réseau au rôle intégré **Collaborateur de réseau** dans chaque abonnement et créer un rôle personnalisé pour les développeurs d’applications dans chaque abonnement en leur donnant les droits d’ajouter des machines virtuelles aux sous-réseaux existants.
-
-## <a name="next-steps"></a>Étapes suivantes
-* [Déployer un réseau virtuel](quick-create-portal.md).
-* Découvrir comment [équilibrer la charge](../load-balancer/load-balancer-overview.md) des machines virtuelles IaaS et [gérer le routage entre plusieurs régions Azure](../traffic-manager/traffic-manager-overview.md).
-* En savoir plus sur les [groupes de sécurité réseau](security-overview.md) dans une solution NSG.
-* En savoir plus sur vos [options de connectivité de réseau virtuel et entre locaux](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
+Les stratégies sont appliquées à la hiérarchie suivante : abonnement, groupe d’administration et groupe de ressources. En savoir plus sur [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou déployez des exemples de [modèle de stratégie](policy-samples.md) de réseau virtuel.

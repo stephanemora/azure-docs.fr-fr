@@ -1,29 +1,31 @@
 ---
-title: "Bien démarrer avec les outils de développement du stockage Azure Stack"
-description: "Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack"
+title: Bien démarrer avec les outils de développement du stockage Azure Stack
+description: Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 02/21/2018
+ms.date: 05/14/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 81c62fc569e9f758d08bfca0bdfc5bcc9ed5860f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198933"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Microsoft Azure Stack fournit un ensemble de services de stockage, notamment le stockage Blob, Table et File d’attente Azure.
+L’infrastructure Microsoft Azure Stack fournit un ensemble de services de stockage incluant le stockage d’objets blob, de tables et de files d’attente.
 
-Cet article fournit des conseils rapides sur l’utilisation des outils de développement du stockage Azure Stack. Des informations plus détaillées et des exemples de code sont disponibles dans les didacticiels correspondants du stockage Azure.
+Utilisez cet article comme un guide de démarrage concernant l’utilisation des outils de développement du stockage Azure Stack. Des informations plus détaillées et des exemples de code sont disponibles dans les didacticiels correspondants du Stockage Azure.
 
-Le stockage Azure et le stockage Azure Stack présentent quelques différences connues, y compris certaines exigences spécifiques pour chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
+>[!NOTE]
+>Le stockage Azure Stack et le stockage Azure présentent quelques différences connues, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliothèques clientes Azure
 
@@ -36,16 +38,17 @@ Les versions prises d’API REST prises en charge pour le stockage Azure Stack s
 | .NET | 8.7.0 | Package NuGet :<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | Fichier app.config |
 | Java | 6.1.0 | Package Maven :<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Configuration de la chaîne de connexion |
 | Node.js | 2.7.0 | Lien NPM :<br>https://www.npmjs.com/package/azure-storage<br>(Exécuter : `npm install azure-storage@2.7.0`)<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Déclaration d’instance de service |
-| C++ | 3.1.0 | Package NuGet :<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-ccp/releases/tag/v3.1.0 | Configuration de la chaîne de connexion |
-| PHP | 1.0.0 | Version de GitHub :<br>Courant : https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob : https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>File d’attente :<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Table : https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installer via Composer (pour en savoir plus, [Voir détails ci-dessous](#install-php-client-via-composer---current).) | Configuration de la chaîne de connexion |
+| C++ | 3.1.0 | Package NuGet :<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>Version de GitHub :<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Configuration de la chaîne de connexion |
+| PHP | 1.0.0 | Version de GitHub :<br>Courant : https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Objet blob : https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>File d’attente :<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Table : https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installer via Composer (pour en savoir plus, [Voir détails ci-dessous](#install-php-client-via-composer---current).) | Configuration de la chaîne de connexion |
 | Python | 1.0.0 | Version de GitHub :<br>Courant :<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob :<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>File d’attente :<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Déclaration d’instance de service |
-| Ruby | 1.0.1 | Package RubyGems :<br>Courant :<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob : https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>File d’attente : https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Table : https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>Version de GitHub :<br>Courant : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>File d’attente : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Table : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Configuration de la chaîne de connexion |
+| Ruby | 1.0.1 | Package RubyGems :<br>Courant :<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Objet blob : https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>File d’attente : https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Table : https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>Version de GitHub :<br>Courant : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Objet blob : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>File d’attente : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Table : https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Configuration de la chaîne de connexion |
 
 #### <a name="install-php-client-via-composer---current"></a>Installer le client PHP via Composer - actuel
 
 Pour installer via Composer : (prenez blob pour exemple).
 
 1. Créez un fichier nommé **composer.json** à la racine du projet avec le code suivant :
+
   ```php
     {
       "require": {
@@ -53,6 +56,7 @@ Pour installer via Composer : (prenez blob pour exemple).
       }
     }
   ```
+
 2. Téléchargez [composer.phar](http://getcomposer.org/composer.phar) à la racine du projet.
 3. Exécutez : `php composer.phar install`.
 
@@ -73,6 +77,7 @@ Pour installer via Composer : (prenez blob pour exemple).
 Pour installer via Composer :
 
 1. Créez un fichier nommé **composer.json** à la racine du projet avec le code suivant :
+
   ```php
     {
           "require":{
@@ -80,6 +85,7 @@ Pour installer via Composer :
           }
     }
   ```
+
 2. Téléchargez [composer.phar](http://getcomposer.org/composer.phar) à la racine du projet.
 3. Exécutez : `php composer.phar install`.
 
@@ -91,16 +97,16 @@ Contactez votre administrateur cloud si vous n’êtes pas sûr de votre point d
 
 ## <a name="examples"></a>Exemples
 
-
 ### <a name="net"></a>.NET
 
 Pour Azure Stack, le suffixe de point de terminaison est spécifié dans le fichier app.config :
 
 ```
-<add key="StorageConnectionString" 
+<add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
 ```
+
 ### <a name="java"></a>Java
 
 Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
@@ -121,6 +127,7 @@ Pour Azure Stack, le suffixe de point de terminaison est spécifié dans l’ins
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
+
 ### <a name="c"></a>C++
 
 Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
@@ -152,6 +159,7 @@ block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
 ```
+
 ### <a name="ruby"></a>Ruby
 
 Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
@@ -187,7 +195,6 @@ Les didacticiels du stockage File d’attente Azure suivants sont applicables à
 * [Utilisation du stockage de files d'attente à partir de PHP](../../storage/queues/storage-php-how-to-use-queues.md)
 * [Utilisation du stockage de files d'attente à partir de Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [Utilisation du stockage de files d'attente à partir de Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
-
 
 ## <a name="table-storage"></a>Stockage de tables
 

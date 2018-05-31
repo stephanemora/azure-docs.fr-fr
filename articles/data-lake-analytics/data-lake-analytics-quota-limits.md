@@ -12,11 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311129"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limites de quota pour Azure Data Lake Analytics
 
@@ -24,9 +25,13 @@ Découvrez comment ajuster et augmenter les limites de quota dans un compte Azur
 
 ## <a name="azure-subscriptions-limits"></a>Limites des abonnements Azure
 
-**Nombre maximal de comptes ADLA par abonnement :** 5.
+**Nombre maximal de comptes ADLA par abonnement et par région :**  5
 
-Il s’agit du nombre maximal de comptes ADLA que vous pouvez créer par abonnement et par région. Lorsque vous essayez de créer le sixième compte ADLA, le message d’erreur suivant s’affiche : « Vous avez atteint le nombre maximal de comptes Data Lake Analytics autorisés (5) dans (zone) sous l’abonnement (nom). » Le cas échéant, vous pouvez choisir une autre région, si besoin, ou supprimer d’éventuels comptes ADLA inutilisés dans la même région, ou encore contacter le support Azure en [ouvrant un ticket de support](#increase-maximum-quota-limits) pour demander une augmentation de quota.
+Lorsque vous essayez de créer le sixième compte ADLA, le message d’erreur suivant s’affiche : « Vous avez atteint le nombre maximal de comptes Data Lake Analytics autorisés (5) dans (zone) sous l’abonnement (nom). » 
+
+Si vous souhaitez aller au-delà de cette limite, vous pouvez essayer ces options :
+* choisissez une autre région le cas échéant
+* contactez le support technique Azure en [ouvrant un ticket de support](#increase-maximum-quota-limits) afin de demander une augmentation du quota.
 
 ## <a name="adla-account-limits"></a>Limites des comptes ADLA
 

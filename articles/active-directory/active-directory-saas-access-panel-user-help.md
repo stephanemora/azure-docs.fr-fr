@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931262"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Résoudre les problèmes liés à l’accès et à l’utilisation du portail Mes applications
 
@@ -55,7 +56,7 @@ Vérifiez que vous respectez les exigences de navigateur suivantes :
 - **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure.
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
-- **Internet Explorer 8, 9, 10, 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
+- **Internet Explorer 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
 
 Vous pouvez également télécharger l’extension pour Chrome et Edge directement à partir des sites suivants :
 
@@ -117,7 +118,7 @@ Sélectionnez la vignette **Groupes**, puis effectuez l’une des actions suivan
    >
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations relatives à la résolution des problèmes, consultez [Problèmes lors de l’utilisation du site web ou de l’application mobile du volet d’accès aux applications](active-directory-application-access-panel-content-map.md).
 

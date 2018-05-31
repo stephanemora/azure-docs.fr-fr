@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769826"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -276,7 +277,11 @@ Pour copier des données vers Dynamics, définissez le type de récepteur dans l
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : ne pas modifier des données dans l’objet de destination lorsque vous effectuez une opération upsert/une opération de mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : ne pas modifier des données dans l’objet de destination lorsque vous effectuez une opération upsert/une opération de mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |
 
 >[!NOTE]
->La valeur par défaut du récepteur writeBatchSize et de l’activité de copie [parallelCopies](copy-activity-performance.md#parallel-copy) pour le récepteur Dynamics est de 10. Par conséquent, 100 enregistrements sont soumis simultanément à Dynamics.
+>La valeur par défaut du récepteur **writeBatchSize** et de l’activité de copie **[parallelCopies](copy-activity-performance.md#parallel-copy)** pour le récepteur Dynamics est de 10. Par conséquent, 100 enregistrements sont soumis simultanément à Dynamics.
+
+Pour Dynamics 365 (en ligne), il existe une limite de [2 appels simultanés de lot par organisation](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Si cette limite est dépassée, une erreur « Serveur occupé » est levée avant l’exécution de la première demande. Conservez une valeur « writeBatchSize » inférieure ou égale à 10 pour éviter la limitation des appels simultanés.
+
+La combinaison optimale des paramètres « **writeBatchSize** » et « **parallelCopies** » dépend du schéma de votre entité, par exemple du nombre de colonnes, de la taille de ligne et du nombre de plug-ins/workflows/activités de workflow rattachés à ces appels, etc. Selon le service Dynamics, le paramètre par défaut 10 writeBatchSize * 10 parallelCopies est recommandé, car il fonctionne pour la plupart des entités Dynamics, bien qu’il ne garantisse pas des performances optimales. Vous pouvez améliorer les performances en ajustant cette combinaison dans les paramètres de votre activité de copie.
 
 **Exemple :**
 
@@ -322,12 +327,13 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Booléen | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Décimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Chaîne | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
 | AttributeType.ManagedProperty | Booléen | ✓ | |
 | AttributeType.Memo | Chaîne | ✓ | ✓ |
 | AttributeType.Money | Décimal | ✓ | ✓ |

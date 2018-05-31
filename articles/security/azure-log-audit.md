@@ -4,7 +4,7 @@ description: Découvrez comment utiliser les données de journalisation pour obt
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057924"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 ## <a name="introduction"></a>Introduction
@@ -70,7 +71,7 @@ Le tableau suivant répertorie les principaux types de journaux disponibles dans
 |[Journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Événements de plan de contrôle sur les ressources d’Azure Resource Manager|   Fournissent des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement.| API Rest et [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Données fréquentes sur les opérations des ressources d’Azure Resource Manager de l’abonnement| Fournissent des informations sur les opérations effectuées par votre ressource| Azure Monitor, [diffusion](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Création de rapports AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Journaux et rapports|Activités d’authentification des utilisateurs et informations sur l’activité système en matière de gestion des utilisateurs et des groupes|[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Machines virtuelles et services cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Journal des événements Windows et Syslog Linux|    Capture les données système et les données de journalisation sur les machines virtuelles, puis les transfère vers un compte de stockage de votre choix.|   Windows avec stockage [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics) et Linux dans Azure Monitor|
+|[Machines virtuelles et services cloud](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Journal des événements Windows et Syslog Linux| Capture les données système et les données de journalisation sur les machines virtuelles, puis les transfère vers un compte de stockage de votre choix.|   Windows avec stockage [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics) et Linux dans Azure Monitor|
 |[Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Journalise le stockage et fournit des données de métriques pour un compte de stockage|Fournit des informations sur les demandes, analyse les tendances d’utilisation et diagnostique les problèmes liés à votre compte de stockage.|    API REST ou [bibliothèque cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Journalisation des flux de groupe de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Format JSON, affiche les flux entrants et sortants, par règle|Afficher des informations sur le trafic IP entrant et sortant via un groupe de sécurité réseau|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Journaux, exceptions et diagnostics personnalisés|    Service de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes.| API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -121,7 +122,7 @@ Les journaux de diagnostic Azure offrent plusieurs options de configuration (por
 
 | de diffusion en continu | Schéma et documentation | Type de ressource | Catégorie |
 | ------- | ------------- | ------------- | -------- |
-|Équilibreur de charge| [Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
+|Load Balancer| [Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Network Security Group|[Analytique des journaux pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
@@ -134,7 +135,7 @@ Les journaux de diagnostic Azure offrent plusieurs options de configuration (por
 |Data Lake Analytics|[Accès aux journaux de diagnostic d’Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Audit|
 |||Microsoft.DataLakeAnalytics/accounts|Requests|
 |||Microsoft.DataLakeStore/accounts|Requests|
-|Logic Apps|[Schéma de suivi personnalisé Logic Apps B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
+|Logic Apps|[Schéma de suivi personnalisé Logic Apps B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
 |||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
 |Azure Batch|[Journalisation des diagnostics Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Azure Automation|[Log Analytics pour Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
@@ -266,7 +267,7 @@ Outre les capacités de journalisation susmentionnées, Network Watcher propose 
 
 ### <a name="application-insight"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Il détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application.
 
  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
 
@@ -366,7 +367,7 @@ Il existe quatre façons différentes de [collecter des journaux et des métriqu
 |IoT Hubs|  Microsoft.Devices/<br>IoTHubs||     Diagnostics||
 |Key Vault| Microsoft.KeyVault/<br>vaults|  Diagnostics  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Équilibreurs de charge|    Microsoft.Network/<br>loadBalancers|    Diagnostics|||
-|Logic Apps|    Microsoft.Logic/<br>workflows|  Diagnostics|    Diagnostics||
+|Logic Apps|    Microsoft.Logic/<br>workflows|  Diagnostics|    Diagnostics||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Network Security Group|   Microsoft.Network/<br>networksecuritygroups|Diagnostics||   [Azure Network Security Group Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Coffres de récupération|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (version préliminaire)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|

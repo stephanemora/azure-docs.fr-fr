@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770721"
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Contrôles d’accès dans l’accès conditionnel Azure Active Directory 
 
@@ -75,13 +76,13 @@ L’authentification multifacteur contribue à empêcher tout accès à vos ress
 
 ### <a name="compliant-device"></a>Conformité de l’appareil
 
-Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux appareils de confiance. Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil de confiance. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils joints à votre Azure Active Directory et marqués comme conformes par votre solution de gestion des données de référence.
+Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux [appareils gérés](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil géré. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils [enregistrés](device-management-introduction.md) sur votre Azure Active Directory et marqués comme conformes par votre solution de gestion des données de référence.
 
 Pour plus d’informations, consultez [Configurer des stratégies d’accès conditionnel au niveau de l’appareil Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Appareil joint à un domaine
+### <a name="hybrid-azure-ad-joined-device"></a>Appareil joint Azure AD hybride
 
-Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint à un domaine. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et postes de travail Windows joints à une instance sur site d’Active Directory. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils joints à votre Active Directory local et votre Azure Active Directory.  
+Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint Azure AD hybride. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et postes de travail Windows joints à une instance sur site d’Active Directory. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils joints à votre Active Directory local et votre Azure Active Directory.  
 
 Pour plus d’informations, consultez [Configurer des stratégies d’accès conditionnel au niveau de l’appareil Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 

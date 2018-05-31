@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140080"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
 
 > [!IMPORTANT]
-> Cette méthode de contrôle de la durée de vie des jetons sera prochainement déconseillée.  Bien qu’elle reste disponible tant que la fonctionnalité de remplacement n’est pas prête, une fois déconseillée, les stratégies de durée de vie des jetons créées via cette méthode ne fonctionneront plus. 
+> Après avoir pris en compte les commentaires de nos clients concernant la préversion, nous prévoyons de remplacer cette fonctionnalité par une nouvelle fonctionnalité pour l’accès conditionnel Azure Active Directory.  Une fois la nouvelle fonctionnalité finalisée, cette fonctionnalité sera déconseillée après une période de notification.  Si vous utilisez la stratégie configurable de durée de vie des jetons, préparez-vous à basculer vers la nouvelle fonctionnalité d’accès conditionnel lorsqu’elle sera disponible. 
 >
 >
 
@@ -108,6 +109,8 @@ Vous pouvez créer, puis affecter une stratégie de durée de vie à une applica
 Pour plus d’informations sur la relation existant entre les objets de principal de service et d’application, consultez [Objets application et principal du service dans Azure Active Directory](active-directory-application-objects.md).
 
 La validité d’un jeton est évaluée lors de son utilisation. C’est la stratégie pourvue de la priorité la plus élevée sur l’application ouverte qui est appliquée.
+
+Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  Par conséquent, 80 jours et 30 minutes s’affichent sous la forme `80.00:30:00`.  La première valeur D peut être supprimée si elle est égale à zéro ; 90 minutes deviennent alors `00:90:00`.  
 
 > [!NOTE]
 > Voici un scénario d’exemple.

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258757"
 ---
 # <a name="azure-stack-1803-update"></a>Mise à jour 1803 d’Azure Stack
 
@@ -41,13 +42,23 @@ Le numéro de build de mise à jour d’Azure Stack 1803 est **20180329.1**.
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Installez la [mise à jour 1802](azure-stack-update-1802.md) d’Azure Stack avant d’appliquer la mise à jour 1803 d’Azure Stack.    
+- Installez la [mise à jour 1802](azure-stack-update-1802.md) d’Azure Stack avant d’appliquer la mise à jour 1803 d’Azure Stack.   
 
+- Installez le **correctif logiciel AzS - 1.0.180312.1 - Build 20180222.2** avant d’appliquer la mise à jour 1803 d’Azure Stack. Ce correctif logiciel met à jour Windows Defender et est disponible lorsque vous téléchargez des mises à jour pour Azure Stack.
+
+  Pour installer le correctif logiciel, suivez les procédures normales pour [l’installation des mises à jour d’Azure Stack](azure-stack-apply-updates.md). Le nom de la mise à jour apparaît en tant que **Correctif logiciel AzS - 1.0.180312.1** et inclut les fichiers suivants : 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  Après avoir chargé ces fichiers dans un compte de stockage et un conteneur, exécutez la programmation d’installation à partir de la vignette Mise à jour du portail d’administration. 
+  
+  Contrairement aux mises à jour d’Azure Stack, l’installation de cette mise à jour ne modifie pas la version d’Azure Stack. Pour confirmer l’installation de cette mise à jour, affichez la liste des **mises à jour installées**.
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
 - Après l’installation de la version 1803, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348) (Le service API du contrôleur réseau se bloque quand vous essayez d’installer une mise à jour Azure Stack)
+  - [Article 4294441 de la Base de connaissances - Échec des opérations sur les ressources de locataire et création de partages inattendus sur le même volume de locataire ou d’infrastructure](https://support.microsoft.com/en-us/help/4294441)
 
 - Après avoir installé cette mise à jour, vérifiez la configuration du pare-feu pour être sûr que les [ports nécessaires](azure-stack-integrate-endpoints.md) sont ouverts. Par exemple, cette mise à jour comprend Azure Monitor, une nouvelle fonctionnalité qui remplace les journaux d’audit par des journaux d’activité. Dans le cadre de cette modification, le port 13012 est désormais utilisé et doit également être ouvert.  
 
@@ -110,9 +121,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 - Il se peut qu’un tableau de bord vide s’affiche sur le portail. Pour récupérer le tableau de bord, sélectionnez l’icône d’engrenage dans l’angle supérieur droit du portail, puis choisissez **Restaurer les paramètres par défaut**.
 
-- Quand vous affichez les propriétés d’une ressource ou d’un groupe de ressources, le bouton **Déplacer** est désactivé. Il s’agit du comportement attendu. Le déplacement de ressources ou de groupes de ressources entre des groupes de ressources ou des abonnements n’est pas pris en charge actuellement.
-
-- La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
+- La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez par supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 
 - Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack. Pour résoudre ce problème, utilisez PowerShell pour vérifier les autorisations.
 
@@ -235,6 +244,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 - Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Après la mise à jour vers Azure Stack 1803, vous pouvez continuer à utiliser les fournisseurs de ressources SQL et MySQL que vous avez déployés précédemment.  Nous vous recommandons de mettre à jour SQL et MySQL lorsqu’une nouvelle version est disponible. Comme Azure Stack, appliquez de façon séquentielle les mises à jour aux fournisseurs de ressources SQL et MySQL.  Par exemple, si vous utilisez la version 1711, commencez par appliquer la version 1712, puis la 1802, avant de mettre à jour vers la 1803.      

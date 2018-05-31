@@ -1,11 +1,11 @@
 ---
-title: "Ajouter un pare-feu de nouvelle génération dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter les recommandations du Centre de sécurité **Ajouter un pare-feu de nouvelle génération** et **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**."
+title: Ajouter un pare-feu de nouvelle génération dans Azure Security Center | Microsoft Docs
+description: Ce document vous explique comment implémenter les recommandations de l’Azure Security Center **Ajouter un pare-feu de nouvelle génération** et **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363687"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Ajouter un pare-feu de nouvelle génération dans le Centre de sécurité Azure
 Azure Security Center peut vous recommander l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité. Ce document inclut un exemple vous expliquant comment procéder.
@@ -49,7 +50,7 @@ Retournons au panneau **Recommandations** . Une nouvelle entrée nommée **Achem
    ![Acheminer le trafic uniquement via un pare-feu de nouvelle génération][7]
 2. Cette opération ouvre le panneau **Acheminer le trafic uniquement via un pare-feu de nouvelle génération** qui répertorie les machines virtuelles vers lesquelles vous pouvez acheminer le trafic. Sélectionnez une machine virtuelle dans la liste.
    ![Sélectionner une machine virtuelle][8]
-3. Un panneau pour la machine virtuelle sélectionnée s’ouvre et affiche les règles de trafic entrant associées. Une description vous fournit plus d’informations sur les étapes suivantes possibles. Sélectionnez **Modifier les règles de trafic entrant** pour poursuivre la modification d’une règle de trafic entrant. La valeur **Source** ne doit pas être définie sur **Quelconque** pour les points de terminaison accessibles sur Internet liés au pare-feu de nouvelle génération. Pour en savoir plus sur les propriétés de la règle de trafic entrant, consultez [Règles de groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+3. Un panneau pour la machine virtuelle sélectionnée s’ouvre et affiche les règles de trafic entrant associées. Une description vous fournit plus d’informations sur les étapes suivantes possibles. Sélectionnez **Modifier les règles de trafic entrant** pour poursuivre la modification d’une règle de trafic entrant. La valeur **Source** ne doit pas être définie sur **Quelconque** pour les points de terminaison accessibles sur Internet liés au pare-feu de nouvelle génération. Pour en savoir plus sur les propriétés de la règle de trafic entrant, consultez les [règles de sécurité](../virtual-network/security-overview.md#security-rules).
    ![Configurer des règles pour limiter l’accès][9]
    ![Modifier une règle de trafic entrant][10]
 
@@ -59,7 +60,7 @@ Ce document vous a montré comment implémenter la recommandation du Centre de s
 * [Pare-feu de nouvelle génération](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
 * [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.

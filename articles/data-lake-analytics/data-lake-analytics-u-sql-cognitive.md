@@ -1,8 +1,8 @@
 ---
-title: "Utilisation de fonctionnalités cognitives U-SQL dans Azure Data Lake Analytics | Microsoft Docs"
-description: "Découvrez comment utiliser l’intelligence des fonctionnalités cognitives U-SQL"
+title: Utilisation de fonctionnalités cognitives U-SQL dans Azure Data Lake Analytics | Microsoft Docs
+description: Découvrez comment utiliser l’intelligence des fonctionnalités cognitives U-SQL
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311112"
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Didacticiel : Bien démarrer avec les capacités cognitives U-SQL
 
@@ -37,8 +38,8 @@ Les fonctionnalités cognitives suivantes sont disponibles :
 
 Le processus général est simple :
 
-* Utilisation de l’instruction REFERENCE ASSEMBLY pour activer les fonctionnalités cognitives pour le script SQL-U
-* Utiliser l’instruction PROCESS sur un ensemble de lignes d’entrée à l’aide d’un UDO cognitif pour générer une sortie d’ensemble de lignes
+* Utilisation de l’instruction `REFERENCE ASSEMBLY` pour activer les fonctionnalités cognitives pour le script U-SQL
+* Utiliser l’instruction `PROCESS` sur un ensemble de lignes d’entrée à l’aide d’un UDO cognitif pour générer une sortie d’ensemble de lignes
 
 ### <a name="detecting-objects-in-images"></a>Détection d’objets dans des images
 
@@ -84,5 +85,5 @@ Pour plus d’exemples, consultez les **Exemples cognitifs/U-SQL** dans la secti
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemples cognitifs/U-SQL](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
-* [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Développer des scripts de U-SQL à l’aide d’outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)

@@ -1,24 +1,25 @@
 ---
-title: "Vue d’ensemble de l’API Azure Relay | Microsoft Docs"
-description: "Vue d’ensemble des API Azure Relay disponibles"
+title: Vue d’ensemble de l’API Azure Relay | Microsoft Docs
+description: Vue d’ensemble des API Azure Relay disponibles
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: fc6db8aba887b186961da9b12e7c5f32afa4355b
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 00496ca6c0138a840322c053d7d20944df228e9f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893440"
 ---
 # <a name="available-relay-apis"></a>API Relay disponibles
 
@@ -32,13 +33,27 @@ La section [Informations supplémentaires](#additional-information) contient plu
 | --- | --- | --- | --- |
 | .NET Standard | les connexions hybrides | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Relais WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Nœud | les connexions hybrides | [`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Nœud | les connexions hybrides | [Websockets : `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets : `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Requêtes HTTP : `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Informations supplémentaires
 
 #### <a name="net"></a>.NET
 
-L’écosystème .NET a plusieurs runtimes, par conséquent, il existe plusieurs bibliothèques .NET pour Event Hubs. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur .NET Framework, consultez les [versions d’infrastructure](/dotnet/articles/standard/frameworks#framework-versions).
+L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèques .NET pour Relay. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur .NET Framework, consultez les [versions d’infrastructure](/dotnet/articles/standard/frameworks#framework-versions).
+
+La bibliothèque .NET Framework prend uniquement en charge le modèle de programmation WCF et s’appuie sur un protocole binaire propriétaire basé sur le transport `net.tcp` WCF. Ce protocole et cette bibliothèque sont conservés à des fins de compatibilité descendante avec les applications existantes.
+
+La bibliothèque .NET Standard est basée sur la définition de protocole ouvert pour le Relay Connexions hybrides qui s’appuie sur HTTP et WebSockets. La bibliothèque prend en charge une abstraction de flux sur Websockets et un mouvement d’API de requête-réponse simple pour répondre aux requêtes HTTP. L’exemple d’[API web](https://github.com/Azure/azure-relay-dotnet) montre comment intégrer Connexions hybrides à ASP.NET Core pour les services web.
+
+#### <a name="nodejs"></a>Node.js
+
+Les modules Connexions hybrides répertoriés dans le tableau ci-dessus remplacent ou modifient les modules Node.js existants par d’autres implémentations qui écoutent le service Azure Relay plutôt que la pile de mise en réseau locale.
+
+Le module `hyco-https` modifie et substitue partiellement les modules Node.js de base `http` et `https`, fournissant une implémentation d’écouteur HTTPS compatible avec de nombreux modules Node.js existants et avec les applications qui reposent sur ces modules de base.
+
+Les modules `hyco-ws` et `hyco-websocket` modifient les modules courants `ws` et `websocket` pour Node.js, fournissant d’autres implémentations d’écouteur qui permettent aux modules et aux applications reposant sur l’un ou l’autre module de s’exécuter derrière le Relay Connexions hybrides.
+
+Vous trouverez plus d’informations sur ces modules dans le dépôt GitHub [azure-relay-node](https://github.com/Azure/azure-relay-node).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

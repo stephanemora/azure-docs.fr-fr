@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366492"
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Résoudre les problèmes relatifs aux groupes de sécurité réseau à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 Si vous avez configuré des groupes de sécurité réseau sur votre machine virtuelle et rencontrez des problèmes de connectivité de machine virtuelle, cet article fournit une vue d’ensemble des fonctionnalités de diagnostic pour les groupes de sécurité réseau afin de vous aider à dépanner.
 
-Les groupes de sécurité réseau vous permettent de contrôler les types de trafic transitant sur vos machines virtuelles. Des groupes de sécurité réseau peuvent être appliqués à des sous-réseaux d’un réseau virtuel Azure (VNet), à des cartes réseau ou aux deux. Les règles effectives appliquées à une carte réseau sont une agrégation de règles existant dans les groupes de sécurité réseau appliqués à une carte réseau et au sous-réseau auquel elle est connectée. Les règles appliquées à ces groupes de sécurité réseau sont parfois en conflit entre elles et peuvent avoir une incidence sur la connectivité réseau d’une machine virtuelle.  
+Les groupes de sécurité réseau vous permettent de contrôler les types de trafic transitant sur vos machines virtuelles. Des groupes de sécurité réseau peuvent être appliqués à des sous-réseaux d’un réseau virtuel Azure (VNet), à des cartes réseau ou aux deux. Les règles effectives appliquées à une carte réseau sont une agrégation de règles existant dans les groupes de sécurité réseau appliqués à une carte réseau et au sous-réseau auquel elle est connectée. Les règles appliquées à ces groupes de sécurité réseau sont parfois en conflit entre elles et peuvent avoir une incidence sur la connectivité réseau d’une machine virtuelle.
 
-Vous pouvez afficher toutes les règles de sécurité effectives de vos groupes de sécurité réseau, telles qu’appliquées aux cartes réseau de votre machine virtuelle. Cet article explique comment résoudre les problèmes de connectivité de machine virtuelle à l’aide de ces règles dans le modèle de déploiement Azure Resource Manager. Si vous n’êtes pas familiarisé avec les concepts de réseau virtuel et de groupe de sécurité réseau, lisez les articles de présentation [Réseau virtuel](virtual-networks-overview.md) et [Groupes de sécurité réseau](virtual-networks-nsg.md).
+Vous pouvez afficher toutes les règles de sécurité effectives de vos groupes de sécurité réseau, telles qu’appliquées aux cartes réseau de votre machine virtuelle. Cet article explique comment résoudre les problèmes de connectivité de machine virtuelle à l’aide de ces règles dans le modèle de déploiement Azure Resource Manager. Si vous n’êtes pas familiarisé avec les concepts de réseau virtuel et de groupe de sécurité réseau, consultez la [présentation du réseau virtuel](virtual-networks-overview.md) et la [présentation du groupe de sécurité réseau](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle
 Le scénario qui suit illustre un problème de connexion courant :
@@ -66,7 +67,7 @@ Vous pouvez afficher la liste complète des règles de sécurité effectives sur
    * **Étendue :** définie sur *VM1*, la machine virtuelle sélectionnée à l’étape 3.
    * **Interface réseau :***VM1-NIC1* est sélectionné. Une machine virtuelle peut avoir plusieurs interfaces réseau. Chaque carte réseau peut avoir des règles de sécurité effectives uniques. En cours de dépannage, vous devrez peut-être afficher les règles de sécurité effectives pour chaque carte réseau.
    * **Groupes de sécurité réseau associés :** des groupes de sécurité réseau peuvent être appliqués à la carte réseau et au sous-réseau auquel elle est connectée. Dans l’image, un groupe de sécurité réseau a été appliqué à la carte réseau et au sous-réseau auquel elle est connectée. Vous pouvez cliquer sur les noms des groupes de sécurité réseau pour en modifier directement les règles.
-   * **Onglet VM1-nsg :** la liste de règles affichée dans l’image a trait au groupe de sécurité réseau appliqué à la carte réseau. Azure crée plusieurs règles par défaut à chaque création d’un groupe de sécurité réseau. Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Pour en savoir plus sur les règles par défaut, consultez [Vue d’ensemble d’un groupe de sécurité réseau](virtual-networks-nsg.md#default-rules) .
+   * **Onglet VM1-nsg :** la liste de règles affichée dans l’image a trait au groupe de sécurité réseau appliqué à la carte réseau. Azure crée plusieurs règles par défaut à chaque création d’un groupe de sécurité réseau. Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Découvrez d’autres informations sur les [règles de sécurité par défaut](security-overview.md#default-security-rules).
    * **Colonne DESTINATION :** certaines règles contiennent du texte dans la colonne, tandis que d’autres contiennent des préfixes d’adresse. Le texte est le nom des balises par défaut appliquées à la règle de sécurité lors de sa création. Les balises sont des identificateurs fournis par le système, qui représentent plusieurs préfixes. La sélection d’une règle avec une balise, telle que *AllowInternetOutBound*, répertorie les préfixes dans le panneau **Préfixes d’adresse** .
    * **Télécharger :** la liste de règles peut être longue. Vous pouvez télécharger un fichier .csv des règles pour l’analyse hors connexion en cliquant sur **Télécharger** , puis en enregistrant le fichier.
    * **AllowRDP** : cette règle autorise les connexions RDP à la machine virtuelle.
