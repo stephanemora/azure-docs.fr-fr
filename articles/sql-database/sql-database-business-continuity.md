@@ -12,11 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192388"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -37,7 +38,7 @@ Le tableau suivant compare le temps de récupération estimé et l’objectif de
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utiliser une limite de restauration dans le temps pour récupérer une base de données
 
-SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Ces sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Dans les niveaux de service Général et Critique pour l’entreprise (en préversion), la rétention des sauvegardes est configurable pendant un maximum de 35 jours. Pour en savoir plus, consultez les [niveaux de service](sql-database-service-tiers.md). Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-service-tiers.md). Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
+SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Si vous utilisez le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), alors ces sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Si vous utilisez le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md), la rétention des sauvegardes est configurable pendant un maximum de 35 jours dans les niveaux de service Général et Critique pour l’entreprise. Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
 
 Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
@@ -97,8 +98,7 @@ Pour plus d’informations et obtenir la procédure détaillée de restauration 
 
 > [!IMPORTANT]
 > Si le serveur logique est supprimé, vous ne pouvez pas récupérer une base de données supprimée.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restaurer des sauvegardes à partir d’une rétention à long terme
 

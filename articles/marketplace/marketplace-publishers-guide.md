@@ -1,6 +1,6 @@
 ---
 title: Guide de l’éditeur Place de marché Microsoft Azure et AppSource
-description: Guide étape par étape et listes de contrôle de publication à destination des nouveaux éditeurs de la Place de marché Microsoft Azure
+description: Vue d’ensemble de la Place de marché Azure et d’AppSource pour les éditeurs d’applications et de services
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -12,15 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30847ff20abf6654e58a0e72a12f04dcd88d5871
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011109"
 ---
-# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide de l’éditeur Place de marché Microsoft Azure et AppSource
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide de l’éditeur Place de marché Azure et AppSource
+
+## <a name="overview"></a>Vue d'ensemble
 
 Bienvenue dans le guide de l’éditeur [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et [AppSource](https://appsource.microsoft.com). Ce guide a été conçu pour aider les nouveaux éditeurs et ceux qui le sont déjà à comprendre comment utiliser les vitrines que sont la Place de marché Microsoft Azure et AppSource pour publier leurs applications et services et comment développer leur activité en partenariat avec Microsoft. 
 
@@ -39,9 +42,11 @@ Bienvenue dans le guide de l’éditeur [Place de marché Microsoft Azure](https
 
 Si vous avez des questions liées à la Place de marché Microsoft Azure, à AppSource ou à ce guide de publication, contactez l’équipe de la Place de marché à l’adresse cloudmarketplace@microsoft.com. 
 
-## <a name="benefits-of-participating-in-the-marketplace"></a>Avantages offerts par la participation à la Place de marché
+## <a name="benefits"></a>Avantages
 
-La Place de marché Microsoft Azure et AppSource sont les lieux de lancement des offres proposées en partenariat avec Microsoft. Elles constituent un véritable accélérateur de croissance pour votre activité. Grâce aux promotions de lancement, à la génération de la demande, ainsi qu’aux ventes et au marketing conjoints, votre référencement sur la Place de marché peut constituer l’élément central de votre activité commerciale dans le cloud. La participation à la Place de marché est gratuite. Notre but est de permettre aux clients Microsoft de trouver les meilleurs solutions et services proposés par notre écosystème de partenaires.
+**Avantages offerts par la participation à la Place de marché**
+
+La Place de marché Azure et AppSource constituent une plateforme de lancement pour les activités de commercialisation conduites avec Microsoft, qui ouvre une opportunité de partenariat de vente conjointe. Grâce aux promotions de lancement, à la génération de la demande, ainsi qu’aux ventes et au marketing conjoints, votre référencement sur la Place de marché peut constituer l’élément central de votre activité commerciale dans le cloud et un véritable plus pour la croissance de votre entreprise. La participation à la Place de marché est gratuite. Notre but est de permettre aux clients Microsoft de trouver les meilleurs solutions et services proposés par notre écosystème de partenaires.
 
 Tirez parti des fonctionnalités de la Place de marché pour développer votre activité :
 
@@ -52,11 +57,11 @@ Tirez parti des fonctionnalités de la Place de marché pour développer votre a
 >[!NOTE]
 >Les applications qui étendent Office accèdent aux informations détaillées via le processus de publication des applications Office.
 
-## <a name="azure-marketplace-and-appsource-storefronts"></a>Vitrines de la Place de marché Microsoft Azure et d’AppSource
+## <a name="storefronts"></a>Vitrines
 
 Microsoft propose deux vitrines de place de marché dans lesquelles les partenaires peuvent répertorier leurs offres, fournir des versions d’évaluation et réaliser des transactions directement avec les clients et l’écosystème Microsoft : [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et [AppSource](https://appsource.microsoft.com). Ces vitrines permettent aux clients de rechercher, d’essayer et d’acheter des applications et des services qui accélèrent leur transformation numérique. Elles aident les éditeurs à développer leurs activités en leur offrant la possibilité de proposer leurs applications et services à des écosystèmes de partenaires et de clients Microsoft.
  
-Les vitrines de la Place de marché s’adaptent au public visé et aux produits cloud de Microsoft, pour que les clients puissent trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécifiques, destinées à optimiser vos efforts de publication. Ces options sont décrites dans le tableau suivant :
+Chaque vitrine propose des options de publication spécifiques, destinées à optimiser vos efforts de publication. Ces options sont décrites dans le tableau suivant :
 
 
 |          |Place de marché Azure |AppSource  |
@@ -67,408 +72,55 @@ Les vitrines de la Place de marché s’adaptent au public visé et aux produits
 |Options de publication     |  Me contacter, Services de conseil, version d’évaluation, machine virtuelle, modèle de solution, application managée       |  Version d’évaluation, Obtenir maintenant, test drive, Me contacter, offre de services de conseil      |
 |L’expérience dans l’application fournit aux utilisateurs l’accès aux applications et aux services dans le contexte de leur application  | Portail Azure et Azure CLI         | Office 365, Dynamics 365, Power BI, applications clientes Office       |
 
-## <a name="using-the-storefronts"></a>Utilisation des vitrines
+## <a name="how-to-publish-on-cloud-marketplace"></a>Comment publier sur la Place de marché dans le cloud
 
-Chaque vitrine répond aux besoins de clients uniques. Vous avez la possibilité de cibler un rôle pour pouvoir offrir la solution ou le service adaptés en fonction de votre client.
-
-Encouragez les professionnels de l’informatique et les développeurs cloud à découvrir, essayer et acheter des solutions IaaS, SaaS et PaaS via la Place de marché Microsoft Azure :
-
-
-|Besoin du client  |Place de marché Azure |
-|---------|---------|
-|**Exige des fonctionnalités de plateforme cloud supplémentaires pour répondre à ses besoins commerciaux et techniques**     |  Propose une gamme grandissante d’applications et de services complémentaires, optimisés pour une exécution dans Azure       |
-|**Estime qu’il est difficile de trouver la bonne application ou le service approprié**    |  Permet, en un seul et même endroit, de trouver, essayer et acheter des solutions et des services Azure        |
-|**A besoin d’un mécanisme de déploiement évolutif pour les applications et services tiers**   | Permet de créer et configurer des déploiements évolutifs pour des applications et services tiers        |
-|**A besoin de nouveaux services et applications qui s’intègrent aux solutions existantes et fonctionnent correctement avec celles-ci**  |   Intègre facilement des applications et services tiers avec les solutions existantes sur Azure      |
-
-Encouragez les utilisateurs métier à rechercher, essayer et obtenir des applications métier SaaS et des services d’implémentation, afin d’accroître les résultats commerciaux et de réduire le délai de rentabilité : 
+Pour publier sur la Place de marché dans le cloud, il suffit de suivre trois étapes simples :
+1.  Déterminer le type de liste adapté à votre offre
+2.  S’inscrire pour publier sur la Place de marché dans le cloud
+3.  Répondre aux exigences techniques et de contenu requises par l’offre et le type de liste
 
 
-|Besoin du client  |AppSource  |
-|---------|---------|
-|**Solutions métier qui fonctionnent avec les produits Microsoft qu’il utilise déjà** | Permet aux clients d’utiliser des services et des applications tierces pour étendre les technologies et applications cloud Microsoft       |
-|**Capacité à trouver facilement la solution ou le service d’implémentation adéquat**    |   Permet, en un seul et même endroit, de découvrir, d’essayer et d’obtenir des applications et des services, des compléments, et bien plus encore      |
-|**Solutions métier propres au secteur pour faire face à ses défis spécifiques**   | Fournit des solutions de bout en bout et complètes afin d’aider à répondre à des exigences spécifiques dans de nombreux secteurs d’activité     |
-|**Applications visant à améliorer la productivité, l’efficacité et les insights de l’activité**    | Fournit des applications métier, notamment pour le service clientèle, les ressources humaines, l’exploitation, et bien plus encore        |
-| **Partenaire d’implémentation expérimenté pour aider à adapter les applications à la situation unique du client** | Fournit un catalogue d’offres de services de conseil pour les solutions basées sur Dynamics 365, Power BI, PowerApps et des applications tierces pour aider les utilisateurs métier à fournir les résultats attendus |
+**1.    Déterminer le type de liste adapté à votre offre**
 
-## <a name="understanding-the-differences-between-storefronts"></a>Différences entre les deux vitrines
-
-Le choix d’une vitrine commence par l’identification du public cible pour votre offre. La Place de marché Microsoft Azure est alignée sur les besoins des professionnels de l’informatique et des développeurs, tandis qu’AppSource répond aux besoins des utilisateurs métier. Si votre solution cible ces deux publics, vous n’avez à la publier qu’une seule fois pour qu’elle soit référencée dans les deux vitrines.
- 
-Voici d’autres avantages de ces deux vitrines :
-
-|Avantage de la vitrine  |Place de marché Azure  |AppSource   |
-|---------|---------|---------|
-|**Souplesse de facturation**    | Pour les machines virtuelles, les options de facturation de type Paiement à l’utilisation sont basées sur des contrats Entreprise Microsoft ou des modèles de vente directe sur le web. Les options de tarification incluent également un abonnement de niveau Gratuit où une offre est gratuite en permanence. En outre, un abonnement de type Essayer maintenant est également compris. L’abonnement reste gratuit pendant une période limitée, et à l’issue de celle-ci, il devient payant. L’activation BYOL (apportez votre propre licence) est aussi une option pour encourager les éditeurs. <br><br>Pour ces options de facturation, lorsque des machines virtuelles sont déployées via des applications Azure (par exemple, un modèle de solution ou une application managée), toutes les ressources Azure approvisionnées sont facturées directement au client. | AppSource propose l’approvisionnement d’une expérience de version d’évaluation, mais n’offre pas encore d’option de publication pour le commerce. Vous pouvez utiliser votre infrastructure actuelle d’enregistrement des commandes et de facturation, sans autre modification ni investissement supplémentaire.        |
-|**Simplification des mises en relation avec d’autres partenaires**     |Actuellement, la Place de marché Microsoft Azure ne permet pas aux éditeurs d’associer un fournisseur de services ou un partenaire de livraison à l’offre qu’ils proposent, mais cette fonctionnalité sera disponible en 2018.         |  Les éditeurs de logiciels indépendants, les intégrateurs de systèmes et les fournisseurs de services managés peuvent être associés à des scénarios d’implémentation spécifiques. Cette fonctionnalité prend en charge la vente collaborative aux nouveaux clients.      |
-|**Automation**     |    Actuellement, la Place de marché Microsoft Azure ne permet pas aux éditeurs d’associer un fournisseur de services ou un partenaire de livraison à l’offre qu’ils proposent.     | Tirez parti d’applications SaaS automatisées avec l’approvisionnement de compléments. Utilisez des modèles de solution pour automatiser la collecte de données SaaS et les scénarios de déploiement.        |Les éditeurs de logiciels indépendants, les intégrateurs de systèmes et les fournisseurs de services managés peuvent être associés à des scénarios d’implémentation spécifiques, prenant en charge la vente collaborative aux nouveaux clients.
-|**Plusieurs types de cloud**     |   Publiez des solutions publiques locales et cloud avec Azure Stack, ou publiez des solutions dans Azure Government et des clouds régionaux, y compris en Chine et en Allemagne.      |    Actuellement, AppSource ne prend pas en charge Azure Stack, Azure Government et les clouds régionaux.     |
-|**Présentation en contexte pour les clients**     |  Présentez votre solution dans le portail Azure pour que les clients puissent effectuer une recherche contextuelle (machines virtuelles et modèles de solution).       |  Atteignez davantage de clients grâce à l’expérience dans l’application pour des produits Microsoft tels que Dynamics 365, Power BI et Office 365.    |
-
-## <a name="publishing-options"></a>Options de publication
-
-Chaque vitrine prend en charge plusieurs options de publication et types d’offres. Sélectionnez le type d’offre qui correspond le mieux à votre application et à votre service. Toutes les options de publication permettent aux partenaires de partager des prospects. 
+Chaque vitrine prend en charge plusieurs options de publication et types d’offres. Sélectionnez le type d’offre qui correspond le mieux à votre application et à votre service. Toutes les options de publication permettent aux partenaires de partager des prospects.
 
 |**Option de publication**  | **Type d’offre** | **Vitrine**  |
 |---------|---------|---------|
 |**Liste**    |    Me contacter, Services de conseil     |  Place de marché, AppSource       |
 |**Version d’évaluation**   |     Version d’évaluation, version d’évaluation SaaS, démonstration interactive, test drive    |  Place de marché, AppSource       |
-|**Transaction**     |   Machine virtuelle, modèle de solution, application managée      |    Place de marché Azure     |
+|**Transaction**     |   Machine virtuelle, modèle de solution, application managée, conteneurs, abonnements SaaS      |    Place de marché Azure     |
 
-### <a name="list"></a>Liste
 
-Utilisez l’option Me contacter lorsqu’une version d’évaluation ou une transaction ne sont pas envisageables. L’avantage de cette méthode est qu’elle permet aux éditeurs ayant commercialisé une solution de commencer immédiatement à générer des prospects qu’ils peuvent transformer en clients, et ainsi, développer rapidement leur activité. Toutefois, l’inconvénient de cette méthode est que, comparée aux autres types d’offres, l’engagement client est limité.
 
->[!IMPORTANT]
->Il est préférable d’engager le client avec des offres Version d’essai et Transaction. La valeur Me contacter correspond au prospect que vous générez. Par conséquent, si vous choisissez ce type de référencement, assurez-vous que votre destination de prospect est configuré et que vous êtes prêt à tirer le meilleur parti du prospect. 
+**2.    Devenir un éditeur partenaire sur le cloud**
 
-Lorsque l’offre se compose principalement de services professionnels (par exemple, des évaluations, des implémentations ou des ateliers), utilisez le type d’offre Services de conseil. La portée, la durée et le prix d’une offre doivent être fixes, et associés à un seul client. En outre, les services doivent être fournis sur le site du client.
-
-### <a name="trial"></a>Version d’évaluation
-
-En proposant une version d’évaluation aux clients, vous augmentez leur niveau d’engagement et donnez à votre solution une plus grande visibilité. Une version d’évaluation permet aux clients de découvrir votre solution avant de l’acheter. Avec une expérience de version d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc de gagner de nombreux prospects intéressants.
- 
-Toutes les options de version d’évaluation sont déployées dans l’environnement de votre version d’évaluation et/ou abonnement Azure, plutôt que dans ceux du client. Les versions d’évaluation doivent être menées par le client et ne pas nécessiter d’achats supplémentaires. En outre, pour les cas d’usage simples, leur configuration doit être minimale. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation. Pour des résultats optimaux, les utilisateurs de la version d’essai doivent être fidélisés et suivis tout au long de leur évaluation. Les éditeurs sont encouragés à utiliser à la fois des prospects de la Place de marché et leur propre outil d’analyse pour suivre et gérer les utilisateurs de la version d’évaluation.
-
-Il existe trois scénarios de version d’évaluation typiques :
-
-
-|**Option de version d’évaluation**  |**Principaux avantages**  |**Choisissez cette option si...**  |
-|---------|---------|---------|
-|**Version d’évaluation**    |     Permet à un client d’essayer votre produit avant de l’acheter via une méthode automatique permettant de transformer la version gratuite en version payante. Offre également des preuves de concept au client et un contrat conjoint avec les équipes de vente Microsoft. |     Votre solution est une machine virtuelle ou un modèle de solution.<br><br> Votre solution est une offre SaaS, et si vous proposez un produit mutualisé SaaS. <br><br>Vous avez une expérience de première exécution pour qu’un client puisse être opérationnel rapidement. <br><br>Vous avez un seul locataire, mais ajoutez des clients en tant qu’utilisateurs invités.|
-**Test drive**     |     Permet à un client d’essayer votre produit avant de l’acheter. Fournit également une expérience guidée de votre solution sur une installation préconfigurée. |   Votre solution est une machine virtuelle, un modèle de solution ou une application SaaS avec un seul locataire, ou si son approvisionnement est compliqué. <br><br>Vous ne disposez pas d’une méthode permettant de transformer votre version d’évaluation en version payante. |
-|**Démonstration interactive**    |  Permet aux clients de voir votre produit à l’action, sans avoir à installer de programme.       |    Votre solution nécessite une installation complexe qui serait trop difficile à effectuer pendant la période d’évaluation.     |
-
-
-#### <a name="free-trial"></a>Essai gratuit
-
-Utilisez l’option Version d’évaluation lorsque la solution ou l’application peut être essayée gratuitement, sur une base SaaS. Cette option vous permet de transformer des clients intéressés en prospects de qualité, vous aidant ainsi à développer rapidement votre activité. Les versions d’évaluation peuvent être proposées sous la forme de comptes dévaluation à durée ou utilisation limitée. Elles doivent inclure un appel à l’action pour accélérer la transformation de votre solution logicielle en version payante.
-
-#### <a name="test-drive"></a>Test drive
-
-Utilisez l’option Test drive lorsque la solution est déployée via une ou plusieurs machines virtuelles, par le biais d’applications IaaS ou SaaS. L’avantage de cette méthode est l’approvisionnement automatique d’une appliance virtuelle ou de l’environnement de solution dans son intégralité. L’approvisionnement est effectué dans le cadre d’une visite guidée de la solution, hébergée par un partenaire et destinée à l’évaluation du client, sans coût supplémentaire pour celui-ci. Il n’est pas nécessaire que le client soit un client Azure existant. Vous pouvez ainsi générer des prospects de meilleure qualité.
-
-L’option Test drive présente d’autres avantages :
-
-- 27 % des recherches utilisateur sur la Place de marché sont affinées pour n’afficher que les offres proposant un test drive. 
-- Les offres avec test drive génèrent 38 % de prospects en plus que les autres. 
-- 36 % des nouvelles acquisitions client sur la Place de marché proviennent de clients ayant d’abord utilisé un test drive. 
-- Les test drives permettent aux vendeurs sur site Microsoft de mieux comprendre votre produit, ce qui est important pour la vente conjointe.
-
-#### <a name="interactive-demo"></a>Démonstration interactive
-
-Montrez aux clients comment utiliser votre produit avec une démonstration interactive. L’avantage de cette option est qu’elle permet d’essayer un produit sans avoir à effectuer de provisionnement complexe. Cette option offre aux clients un aperçu de la solution. Elle permet aussi aux éditeurs de commencer à générer des prospects pouvant être convertis en clients, et ainsi de développer leur activité rapidement. 
-
-### <a name="transaction"></a>Transaction
-
-Dans la Place de marché Microsoft Azure, utilisez une *machine virtuelle* si la solution est déployée en tant qu’appliance virtuelle dans l’abonnement du client. Les machines virtuelles sont entièrement adaptées au commerce, grâce aux modèles de licence de paiement à l’utilisation et BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture les produits au client pour le compte de l’éditeur. L’éditeur profite ainsi de la relation de paiement préférée du client avec Microsoft, y compris du contrat Entreprise. 
-
->[!NOTE]
->Actuellement, les engagements monétaires d’un contrat Entreprise peuvent être utilisés pour l’utilisation Azure d’une appliance virtuelle, mais pas pour les frais de licence logicielle de l’éditeur.
-
-Utilisez un *modèle de solution Azure* si une solution nécessite une automatisation supplémentaire du déploiement et de la configuration, en plus de celle de l’appliance virtuelle. Les modèles de solution peuvent automatiser l’approvisionnement d’une ou de plusieurs ressources de machine virtuelle, et peuvent approvisionner les ressources réseau et de stockage. Les modèles de solution offrent les avantages de l’automatisation pour des machines virtuelles seules et des environnements de solutions IaaS. Apprenez-en plus sur la création de modèles de solution dans [GitHub](https://github.com/MicrosoftDocs/azure-docs).
-
-Utilisez une *application managée Azure* quand vous déployez une machine virtuelle ou une solution IaaS entière sur l’abonnement d’un client et que l’éditeur ou le client souhaite que la solution soit managée par un tiers (par exemple, un intégrateur de systèmes ou un fournisseur de services managés). Apprenez-en plus sur la création d’applications managées dans [Vue d’ensemble des applications gérées Azure](https://docs.microsoft.com/azure/managed-applications/overview). Pour obtenir la liste des questions fréquemment posées, consultez le [Forum aux questions sur la Place de marché](https://azure.microsoft.com/marketplace/faq/).
-
->[!NOTE]
-> Les applications managées doivent pouvoir être déployées via la Place de marché. Si la communication avec le client constitue un sujet d’inquiétude, notez que vous pouvez joindre les clients intéressés si vous avez activé le partage des prospects.
-
-### <a name="azure-certified-program"></a>Programme Azure Certified
-
-Toutes les machines virtuelles publiées sur la Place de marché Microsoft Azure sont testées dans le cadre du programme Azure Certified. Le programme :
-
-- Garantit aux clients que votre machine virtuelle est compatible avec la plateforme Azure et le modèle de vente de la Place de marché.
-- Teste la conformité en matière de sécurité des images en ligne, y compris les virus et les logiciels malveillants.
-- Permet l’utilisation d’un badge, pour chaque offre, dans le but de montrer aux clients professionnels de Microsoft que la solution a été validée.
-
-#### <a name="marketplace-commercial-considerations"></a>Considérations d’ordre commercial concernant la Place de marché
-
-La participation à la Place de marché est gratuite. Si vous utilisez les options Liste, Version d’évaluation ou Transaction (BYOL), la publication de vos solutions sur la Place de marché n’entraîne pas le partage des revenus générés. Pour plus d’informations, consultez les [Politiques concernant la Participation à la Place de Marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-
-#### <a name="pay-as-you-go-and-bring-your-own-license-billing-options"></a>Options de facturation Paiement à l’utilisation et BYOL (apportez votre propre licence)
-
-Lorsque vous utilisez l’option de publication Paiement à l’utilisation, les revenus générés par les licences logicielles basées sur l’utilisation sont répartis entre vous (80 %) et Microsoft (20 %). Le prix d’une offre peut être défini à la fois par les modèles de facturation Paiement à l’utilisation et BYOL (apportez votre propre licence). Ainsi, ces modèles de prix peuvent coexister comme deux références SKU distinctes. Vous devez configurer cela dans votre offre dans le Portail Cloud Partner.
-
-Considérez l'exemple suivant.
-
-Si vous activez l’option Paiement à l’utilisation :
-
-
-|Coût de votre licence   | 1 $/heure        |
-|---------|---------|
-|Coût d’utilisation Azure (D1/1 cœur)     | 0,14 $/heure  |
-|**Microsoft facture au client le montant suivant :**    | **1,14 $/heure**       |
-
-Dans ce scénario, Microsoft facture 1,14 $ l’heure pour l’utilisation de l’image de machine virtuelle publiée.
-
-
-|**Microsoft facture** |**1,14 $/heure**  |
-|---------|---------|
-|Microsoft vous verse 80 % des revenus générés par les licences | 0,80 $/heure        |
-|Microsoft conserve 20 % des revenus générés par les licences    | 0,20 $/heure        |
-|Microsoft conserve les revenus générés par l’utilisation Azure     |   0,14 $/heure      |
-
-À l’inverse, si vous activez l’option BYOL :
-
-|Coût de votre licence     | Frais de licence négociés et facturés par l’éditeur        |
-|---------|---------|
-|Coût d’utilisation Azure (D1/1 cœur)    | 0,14 $/heure         |
-|**Microsoft facture au client le montant suivant :**     | **0,14 $/heure**        |
-
-Dans ce scénario, Microsoft facture 0,14 $ l’heure pour l’utilisation de l’image de machine virtuelle publiée. 
-
-|**Microsoft facture**    |   **0,14 $/heure**      |
-|---------|---------|
-|Microsoft conserve les revenus générés par l’utilisation Azure     |    0,14 $/heure     |
-|Microsoft conserve 0 % des revenus générés par les licences     |  0 $/heure       |
-
-### <a name="single-billing-and-payment-methods"></a>Facturation unique et méthodes de paiement
-
-L’un des grands avantages de l’option de publication Transaction est que Microsoft peut facturer en même temps les frais de licence et l’utilisation Azure sous-jacente, et ce, directement au client. Dans ce scénario, Microsoft facture et prélève en votre nom, ce qui vous évite d’avoir à mettre en œuvre votre propre solution de facturation. En vous focalisant ainsi sur la vente, et non sur la facturation, vous gagnez du temps et économisez des ressources.
-
-### <a name="enterprise-agreement"></a>Contrat Entreprise
-
-Les clients Microsoft utilisent parfois un contrat Entreprise pour payer les produits Microsoft, y compris l’utilisation d’Azure. Cette option de paiement est destinée aux entreprises désireuses d’acheter des licences logicielles et des services cloud pour une période minimale de trois ans. Les clients ont la possibilité de fractionner les paiements, au lieu de tout payer en une seule fois. Lorsqu’un client de contrat Entreprise utilise l’option Paiement à l’utilisation, la facturation des frais de licence logicielle de l’éditeur suit le cycle trimestriel de facturation du dépassement du contrat Entreprise.
-
-### <a name="monetary-commitment"></a>Engagement monétaire 
-
-Tous les clients du Contrat Entreprise peuvent ajouter Azure à leur contrat s’ils optent pour un engagement monétaire initial envers Azure. Cet engagement permet d’utiliser, sur une année, une combinaison des nombreux services cloud proposés par Azure, depuis ses centres de données internationaux.
-
-## <a name="prerequisites-for-marketplace-publishing"></a>Prérequis pour la publication sur la Place de marché
-
-### <a name="prerequisites-for-all-marketplace-publishing-options"></a>Prérequis pour toutes les options de publication sur la Place de marché
-
-
-|**Prérequis**  |**Détails**  |**Option de publication**  |
-|---------|---------|---------|
-|**Politiques concernant la participation**    | Consultez les [politiques concernant la Participation à la Place de Marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Liste, version d’évaluation, transaction        |
-|**Intégration à Microsoft**    | Les offres de la Place de marché Microsoft Azure doivent utiliser ou étendre les types de services Microsoft Azure (par exemple, calcul, réseau, stockage). Elles doivent être alignées sur une catégorie de la Place de marché Microsoft Azure existante (par exemple, bases de données, sécurité, réseau). Consultez [la liste complète](https://azuremarketplace.microsoft.com/marketplace/apps).        | Liste, version d’évaluation, transaction        |
-|**Public ciblé**    | Les offres de la Place de marché Microsoft Azure doivent s’adresser aux professionnels de l’informatique, aux développeurs cloud et autres rôles client techniques.       |  Liste, version d’évaluation, transaction 
-|**Gestion des prospects**    | Pour générer des prospects via la Place de marché Microsoft Azure, vous devez configurer votre système CRM (Marketo, Microsoft Dynamics ou Salesforce) de manière à accepter les données liées aux prospects.        |   Liste, version d’évaluation, transaction      |
-|**Politique de confidentialité et conditions d’utilisation**     |   Votre politique de confidentialité doit être disponible via une URL publique. Vos conditions d’utilisation doivent être saisies sous forme de texte lors de la publication.      |   Liste, version d’évaluation, transaction      |
-|**Support**     |  Votre offre doit inclure une URL de support disponible publiquement, où les clients peuvent trouver de l’aide. Pour les versions d’évaluation, le support doit être fourni gratuitement pendant la période d’évaluation.       |  Version d’évaluation, transaction       |
-
-### <a name="prerequisites-specific-to-trial-publishing"></a>Prérequis concernant la publication avec l’option Version d’évaluation
-
-|**Prérequis**  | **Détails**  |**Option de publication**  |
-|---------|---------|---------|
-|**Période d’essai gratuite et évaluation**     |  Un client doit pouvoir utiliser votre application gratuitement pendant une durée limitée.<br><br>Cela signifie que le client n’aura pas à payer de frais de licence ou d’abonnement pour votre produit, ni de frais liés à l’utilisation du produit ou du service Microsoft interne sous-jacent. Étant donné que toutes les options de version d’évaluation sont déployées dans l’abonnement de produit Microsoft de l’éditeur, l’optimisation et la gestion des coûts liés aux versions d’évaluation sont de la responsabilité du seul éditeur.<br><br>Vous pouvez choisir entre l’option Version d’évaluation, Démonstration interactive ou Test drive. Quel que soit votre choix, la version d’évaluation doit permettre au client de tester gratuitement l’application pendant une durée minimale.<br><br>Pour commencer la création d’un test drive, contactez-nous à l’adresse cloudmarketplace@microsoft.com. <br><br>Notez que les versions d’évaluation SaaS de la Place de marché Microsoft Azure doivent permettre aux utilisateurs de se connecter à l’aide de leurs informations d’identification professionnelles Active Directory. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Version d’évaluation      | 
-| **Solution clé en main facilement configurable**    |  Votre application doit être facile et rapide à configurer.       |  Version d’évaluation       |
-|**Disponibilité/Durée de fonctionnement**    |    La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total.     |    Version d’évaluation     |
-|**Azure Active Directory**    |    Votre offre doit permettre l’authentification unique fédérée Azure Active Directory (Azure AD) avec activation du consentement.      |  Version d’évaluation|
-
-### <a name="prerequisites-specific-to-transaction-publishing"></a>Prérequis concernant la publication avec l’option Transaction
-
-
-|**Prérequis**  |**Détails** |**Option de publication**  |
-|---------|---------|---------|
-|**Facturation et mesure**    |  Votre machine virtuelle doit prendre en charge soit la facturation BYOL (apportez votre propre licence), soit la facturation mensuelle basée sur l’utilisation.       |    Transaction    |
-|**Disque dur virtuel compatible avec Azure**     |   Les machines virtuelles doivent être basées sur [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) ou [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
-
-### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Prérequis spécifiques concernant la publication avec l’option Services de conseil
-
-
-|**Configuration requise** |**Détails**  |**Option de publication**  |
-|---------|---------|---------|
-|**Caractéristiques de l’offre de services**     | Votre Service de conseil doit être : <br>- Fourni en tant qu’engagement pour une durée, une portée et un prix fixes (ou gratuitement). <br>- Principalement orienté vers la prévente. <br>- Limité à un seul client. <br>- Fourni sur site.        |    Liste     |
-|**Conditions requises du partenaire pour les services de conseil**    |   *AppSource uniquement* :  <br>- **Dynamics 365 for Customer Engagement** : avoir la compétence [Gestion de la relation client dans le Cloud](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency), statut Silver ou Gold. <br>- **Dynamics 365 for Finance and Operations, édition Entreprise** : avoir la compétence [Gestion intégrée](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency), statut Silver ou Gold, et avoir un revenu minimum de 25 000 $ dans les opérations cloud les 12 derniers mois. <br>- **Dynamics 365 for Finance and Operations, édition Business** : être [fournisseur de services cloud](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [partenaire de référence numérique](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) pour un client minimum. <br>- **Power BI** : répondre aux critères du [partenaire de solution](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). <br>- **PowerApps** : avoir une solution de [présentation des partenaires](https://powerapps.microsoft.com/en-us/partner-showcase/). |    Liste     |
-
-## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation
-Azure Active Directory est un service d’identité cloud qui permet de s’authentifier avec un compte professionnel ou scolaire Microsoft, à l’aide des protocoles standard OAuth et OpenID Connect. Apprenez-en plus sur Azure AD en vous rendant sur le [site du produit](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
-
-Microsoft authentifie tous les utilisateurs de la Place de marché avec Azure AD. Lorsqu’un utilisateur authentifié clique sur votre annonce de version d’évaluation dans la Place de marché et quand il est redirigé vers l’environnement de votre version d’évaluation, vous pouvez approvisionner l’utilisateur directement dans une version d’évaluation, sans qu’aucune autre étape de connexion ne soit nécessaire. Le [jeton que votre application reçoit d’Azure AD lors de l’authentification](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte d’utilisateur dans votre application. Vous pouvez ensuite automatiser l’expérience d’approvisionnement et augmenter la probabilité de conversion. 
-
-L’utilisation d’Azure AD pour activer l’authentification en un clic dans votre application ou version d’évaluation :
-
-- Simplifie l’expérience utilisateur, de la Place de marché jusqu’à la version d’évaluation. 
-- Fournit une expérience d’utilisation réelle du produit, même lorsque l’utilisateur est redirigé de la Place de marché vers votre domaine ou l’environnement de votre version d’évaluation.
-- Réduit la probabilité d’un abandon après redirection, car aucune autre étape d’authentification supplémentaire n’est nécessaire.
-- Réduit les obstacles de déploiement pour les nombreux utilisateurs d’Azure AD.
-
-### <a name="certify-your-azure-ad-integration-for-the-marketplace-multitenant-applications"></a>Certification de votre intégration Azure AD pour la Place de marché : applications mutualisées
-
-Si vous prenez actuellement en charge Azure AD :
-
-- Inscrivez votre application dans le portail Azure.
-- Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
-- [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-
-Si vous êtes un nouvel utilisateur de l’authentification unique fédérée Azure AD :
-
-- Inscrivez votre application dans le portail Azure.
-- Développer l’authentification unique avec Azure AD à l’aide [d’OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [d’OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-- Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
-- [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
-
-### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>Certification de votre intégration Azure AD pour la Place de marché : applications avec un seul locataire
-
-Il existe plusieurs options pour les applications avec un seul locataire :
-
-- Ajouter des utilisateurs à votre répertoire en tant qu’utilisateurs invités à l’aide [d’Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Approvisionner manuellement les versions d’évaluation pour les clients via l’option Me contacter.
-- Développer un test drive par client.
-- Créer un exemple d’application de démonstration mutualisée avec l’authentification unique.
-
-## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processus de publication par produit pour Office, Dynamics et Power BI
-Pour les applications AppSource qui étendent Office, Dynamics et Power BI, vous pouvez en savoir plus sur les exigences spécifiques en consultant la documentation propre au produit dans cette section. 
-
-
-|Produit |Informations de publication  |
-|---------|---------|
-|Office 365     |    Examinez le [processus et les instructions de publication]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 pour la finance et les opérations  |   Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 for Customer Engagement |Examinez le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Examinez le [processus et les instructions de publication]( https://docs.microsoft.com/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Apprenez-en plus sur [Cortana dans AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
-|Offres de conseils AppSource     |  Examinez les [instructions et découvrez comment soumettre votre offre](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
-
-
-
-## <a name="cloud-partner-portal-pre-publishing-checklist-for-the-azure-marketplace"></a>Liste de contrôle de prépublication dans le Portail Cloud Partner pour la Place de marché Microsoft Azure
-
-Avant de commencer le processus de publication, il peut vous être utile de connaître les composants nécessaires à la création d’une offre. Les artefacts suivants sont nécessaires au workflow de création d’une offre dans le Portail Cloud Partner. 
-
-### <a name="storefront-details"></a>Informations sur les vitrines
-
-
-|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
-|---------|---------|
-|**Nom (200 caractères) et description (2 000 caractères) de l’offre**    |  Tous        |
-|**ID Microsoft Partner Network (MPN)**   |  Tous       |
-|**Disponibilité par pays/région**   | Tous        |
-|**Durée de l’engagement**     |   Services de conseil      |
-|**Secteurs, catégories et mots-clés de recherche applicables**     |  Tous       |
-|**Logos d’entreprise (48 x 48, 216 x 216)**     |  Services de conseil       |
-|**Vidéo de présentation du produit (facultatif)**  |  Tous       |
-|**Captures d’écran (5 maximum, 1 280 x 720)**   |    Tous     |
-|**Documentation marketing (3 documents maximum)**    |  Tous       |
-|**Destination du prospect**    |   Tous      |
-
-### <a name="contacts"></a>Contacts
-
-
-|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
-|---------|---------|
-|**Coordonnées (support, ingénieurs, commerciaux)**    |    Tous     |
-
-### <a name="technical-info"></a>Informations techniques
-
-
-|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre |
-|---------|---------|
-|**URL de la version d’essai**     |  Tous les types d’offres de version d’évaluation       |
-|**Langues prises en charge**    |   Tous les types d’offres de version d’évaluation      |
-|**Numéro de version et date de publication de l’application**    |   Tous les types d’offres de version d’évaluation      |
-|**URL du support technique**    |   Tous les types d’offres de version d’évaluation, machines virtuelles      |
-|**URL des conditions d’utilisation et de la politique de confidentialité**     |    Tous     |
-
-### <a name="test-drive"></a>Test drive
-
-
-|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
-|---------|---------|
-|**Description et durée**     |  Version d’évaluation uniquement       |
-|**Manuel de l’utilisateur**     |   Version d’évaluation uniquement      |
-|**Vidéo de test drive (1 maximum)**     |  Version d’évaluation uniquement       |
-|**Disponibilité par pays/région du test drive**    |   Version d’évaluation uniquement      |
-|**Nom du groupe de ressources Azure**   |         |
-|**ID d’abonnement Azure**     |  Version d’évaluation uniquement       |
-|**ID de locataire Azure AD**   |    Version d’évaluation uniquement     |
-|**ID de l’application Azure AD**  |  Version d’évaluation uniquement       |
-|**Clé d’application Azure AD**     |   Version d’évaluation uniquement      |
-
-### <a name="storefrontmarketplace"></a>Vitrine/Place de marché
-
-
-|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
-|---------|---------|
-|**Titre (50 caractères maximum)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées)       |
-|**Résumé (200 caractères maximum)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées)       |
-|**Résumé long (256 caractères maximum)**     |   Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées)      |
-|**Description HTML (3 000 caractères maximum)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées)       |
-|**Logos d’entreprise (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées)       |
-
-### <a name="sku"></a>SKU
-
-
-|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
-|---------|---------|
-|**Numéro de version**     |    Transaction : applications Azure (modèles de solution et applications managées)     |
-|**Fichier de package contenant tous les fichiers de modèle et le fichier createUIDefinitionFile**   |Transaction : applications Azure (modèles de solution et applications managées)         |
-|**Informations sur le système d’exploitation**    |   Transaction : machines virtuelles      |
-|**Ports et protocoles utilisés**    |  Transaction : machines virtuelles       |
-|**Version et URL SAS de chaque disque dur virtuel utilisé**   |  Transaction : machines virtuelles       |
-
-## <a name="becoming-a-publisher"></a>Devenir un éditeur
-
-Dans cette section, nous vous expliquons comment :
-
-- Devenir éditeur sur la Place de marché Azure et AppSource.
-- Vous connecter au Portail Cloud Partner. Ce portail vous permettra de créer, publier et maintenir votre offre à jour. 
-
-### <a name="process-overview"></a>Vue d’ensemble du processus
-
+Suivez les étapes ci-dessous pour vous inscrire en tant qu’éditeur sur notre Place de marché dans le cloud. Selon votre accord existant avec Microsoft et le type de liste sélectionné, certaines étapes peuvent ne pas être nécessaires : 
 
 |Procédure d’inscription à la Place de marché  |Temps  |Description  |
 |---------|---------|---------|
-| S’inscrire au Microsoft Partner Network | 15 min | Les éditeurs doivent être inscrits au Microsoft Partner Network (MPN) pour recevoir le premier niveau de validation de compte et bénéficier d’avantages et d’un support supplémentaires en étant éditeurs sur la Place de marché Microsoft Azure. |
-|Créer un ID Microsoft     |   15 minutes      |   Les partenaires doivent avoir un ID Microsoft. Celui-ci est utilisé pour accéder au Portail Cloud Partner.       |
-|Envoyer le formulaire de candidature pour la Place de marché     |  1 à 3 jours       |  Les partenaires doivent envoyer le formulaire de candidature pour démarrer le processus d’approbation de la Place de marché. Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande.       |
-|S’inscrire sur le Centre de développement     |    5 à 10 jours     | L’inscription au Centre de développement Microsoft est nécessaire pour que Microsoft confirme que le partenaire est bien une entité légale valide, avec un numéro d’identification du contribuable valide dans le pays où il est enregistré. Le Centre de développement permet au partenaire de devenir un développeur Microsoft agréé, et lui donne accès au programme pour développeurs Azure. <br><br>Veuillez noter que si vous n’avez pas rempli le formulaire de candidature pour la Place de marché, vous devrez payer des frais d’inscription d’un montant de 99 $. Pour ne pas avoir à payer ces frais, renseignez le formulaire de candidature pour la Place de marché. Vous recevrez alors un code promotionnel par e-mail.  |
-|Se connecter au Portail Cloud Partner     |  15 minutes       |   Une fois sa candidature approuvée par l’équipe de la Place de marché, le partenaire peut accéder au [Portail Cloud Partner](https://cloudpartner.azure.com/). Pour se connecter à son profil d’éditeur dans le Portail Cloud Partner, le partenaire doit utiliser l’ID Microsoft qu’il a utilisé dans le formulaire de candidature. Une fois inscrit au Centre de développement, le partenaire doit associer son compte Centre de développement à son profil d’éditeur Place de marché Microsoft Azure pour publier des offres.      |
+| 1. S’inscrire au Microsoft Partner Network | 15 min | Rejoignez Microsoft Partner Network (MPN) pour devenir un partenaire Microsoft officiel et bénéficier d’une assistance et d’avantages supplémentaires en tant qu’éditeur sur la Place de marché Azure. Pour vous inscrire au MPN, rendez-vous sur la page du Microsoft Partner Network et cliquez sur « S’inscrire ». Lors de l’inscription, vous pourrez joindre l’abonnement existant de votre organisation, le cas échéant. Une fois inscrit, notez l’ID MPN de votre organisation : nous vous le demanderons pour activer votre profil de publication dans le Portail Cloud Partner (étape 3).      |
+|2. Créer un ID Microsoft     |   15 minutes      |  Celui-ci est utilisé pour accéder au Portail Cloud Partner. Cette adresse e-mail doit être enregistrée en tant qu’ID Microsoft et est utilisée dans le Portail Cloud Partner (étape 3) et le Centre de développement Microsoft (étape 4). L’adresse e-mail sélectionnée doit, de préférence, appartenir au domaine de votre entreprise et être contrôlée par votre équipe informatique. Pour obtenir des instructions avant de créer un ID, passez en revue les sections du chapitre Instructions et procédures. |
+|3. Envoyer le formulaire de candidature pour la Place de marché     |  1 à 3 jours       | Nommez votre organisation pour devenir un éditeur de la Place de marché Microsoft Cloud. Le formulaire comprend des informations sur votre organisation, la première offre de service ou d’application que vous voulez publier et le niveau de support que vous proposez. <ul><li>[Formulaire de candidature pour la Place de marché Microsoft Azure](http://aka.ms/listonazuremarketplace)</li><li>[Formulaire de candidature pour AppSource](http://aka.ms/listonappsource)</li></ul> Une fois le formulaire envoyé, l’équipe de la Place de marché examine la candidature et valide la demande. Une fois que la demande a été examinée, vous recevez une notification par e-mail avec les étapes suivantes vous permettant de devenir un partenaire agréé et d’accéder au Portail Cloud Partner, où vous pouvez terminer votre première liste d’offres et créer d’autres offres. Si votre demande est approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement Microsoft (étape 4). |
+|4. S’inscrire sur le Centre de développement     |    5 à 10 jours     | S’inscrire au Centre de développement Microsoft est nécessaire pour publier des applications dotées de fonctionnalités de transaction sur la Place de marché, comme les machines virtuelles, les modèles de solution et les applications managées Azure. Cette exigence permettra à Microsoft de valider les informations bancaires, fiscales et légales de votre entreprise. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’organisation. En outre, vous devez fournir des informations personnelles afin de valider votre identité. Vous devez également utiliser un ID Microsoft (étape 2) partagé par l’ensemble de l’entreprise, et utiliser ce même ID dans le Portail Cloud Partner. <ul>Veuillez noter que si vous n’avez pas rempli le formulaire de candidature pour la Place de marché, vous devrez payer des frais d’inscription d’un montant de 99 $. Pour ne pas avoir à payer ces frais, renseignez le formulaire de candidature pour la Place de marché. Vous recevrez alors un code promotionnel par e-mail. Important : vérifiez que votre entreprise ne possède pas déjà de compte Centre de développement Microsoft avant d’essayer d’en créer un. Pour obtenir une explication détaillée de ce processus, consultez Instructions concernant l’inscription au Centre de développement.</ul>   |
+|5. Se connecter au Portail Cloud Partner     |  15 minutes       |  Une fois que la demande a été approuvée, et une fois que vous vous êtes inscrit dans [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) et dans le [Centre de développement Microsoft](https://cloudpartner.azure.com/), un compte est créé pour vous permettre d’accéder au [Portail Cloud Partner](https://dev.windows.com/). L’e-mail d’acceptation de votre candidature contient les informations d’identification à utiliser pour votre première connexion. Pour plus d’informations sur l’utilisation du Portail Cloud Partner, accédez au menu [En savoir plus](https://cloudpartner.azure.com/#Learn) du portail, puis consultez la section Documentation.    |
 
-#### <a name="create-a-microsoft-id"></a>Créer un ID Microsoft
+**3.    Ensemble des prérequis pour l’offre et le type de liste :**
 
-Durant tout le processus de publication dans la Place de marché, vous devez utiliser l’adresse e-mail qui correspond au compte Place de marché. Cette adresse e-mail doit être enregistrée en tant qu’ID Microsoft et est utilisée dans le [Centre de développement Microsoft](https://developer.microsoft.com/) et le[Portail Cloud Partner](https://cloudpartner.azure.com/). 
-
-Vous ne devez utiliser qu’un seul compte d’ID Microsoft pour vos offres Place de marché Microsoft Azure et AppSource. Nous vous recommandons vivement de ne pas l’utiliser avec d’autres services ou offres.
-
-L’adresse e-mail sélectionnée doit, de préférence, appartenir au domaine de votre entreprise et être contrôlée par votre équipe informatique. Pour obtenir des instructions avant de créer un ID, passez en revue les sections de [Instructions et procédures](#guidelines-and-how-tos). 
-
-#### <a name="register-in-microsoft-partner-network"></a>S’inscrire au Microsoft Partner Network 
-En devenant un éditeur de la Place de marché Microsoft Azure ou d’AppSource, votre entreprise sera un partenaire de Microsoft. En vous inscrivant au Microsoft Partner Network (MPN), vous aurez accès à plusieurs avantages clés permettant à votre entreprise de développer des solutions techniques, ainsi que son activité (par exemple, support technique compris). Être éditeur dans la Place de marché vous permettra d’accroître vos avantages dans le Microsoft Partner Network. Pour vous inscrire au MPN, rendez-vous sur la page du [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/). Vous devez confirmer que votre entreprise est déjà inscrite au MPN. Une fois inscrit, vous serez invité à spécifier votre ID MPN pour confirmer votre compte et valider votre profil d’éditeur dans le [Portail Cloud Partner](https://cloudpartner.azure.com/). 
-
-#### <a name="submit-the-marketplace-nomination-form"></a>Envoyer le formulaire de candidature pour la Place de marché
-Dans le cadre du processus d’intégration de la Place de marché, vous devez envoyer un formulaire de candidature. Le formulaire comprend des informations sur votre offre de service ou d’application, des renseignements sur votre entreprise et le niveau de support que vous proposez. 
-
-- [Formulaire de candidature pour la Place de marché Microsoft Azure](http://aka.ms/listonazuremarketplace)   
-- [Formulaire de candidature pour AppSource](http://aka.ms/listonappsource)
-
-Une fois le formulaire envoyé, l’équipe de la Place de marché examine la candidature et valide la demande. Une fois la demande examinée, vous recevez un e-mail dans lequel sont expliquées les étapes à effectuer pour devenir un partenaire agréé dans le Portail Cloud Partner.
-
-#### <a name="register-in-the-developer-center"></a>S’inscrire sur le Centre de développement
-
-S’inscrire au [Centre de développement Microsoft](https://developer.microsoft.com/) est nécessaire pour publier des applications dotées de fonctionnalités de transaction comme les machines virtuelles, les modèles de solution et les applications managées Azure. Cette exigence permettra à Microsoft de valider les informations bancaires, fiscales et légales de votre entreprise. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’entreprise. En outre, vous devez fournir des informations personnelles afin de valider votre identité. Vous devez également utiliser un ID Microsoft partagé par l’ensemble de l’entreprise, et utiliser ce même ID dans le [Portail Cloud Partner](https://cloudpartner.azure.com/). 
-
->[!IMPORTANT]
->Vérifiez que votre entreprise ne possède pas déjà de compte Centre de développement Microsoft avant d’essayer d’en créer un.
-
-Dans le cadre de ce processus, nous recueillons l’adresse de votre entreprise, ainsi que vos informations bancaires et fiscales. Vous pouvez généralement obtenir ces informations auprès du service financier ou commercial. En outre, vous devez renseigner les éléments de profil d’éditeur suivants pour clôturer les différentes phases de création et de déploiement d’offres :
-
-
-|**Profil d’éditeur**  |**Pour démarrer le profil**  |**Préproduction**  |**Liste et version d’évaluation**  |**Transaction**
-|---------|---------|---------|---------|---------|
-|**Enregistrement de l’entreprise**     | Obligatoire        |  Obligatoire       | Obligatoire        |  Obligatoire       |
-|**Numéro fiscal**   |    Facultatif     |    Facultatif     |  Facultatif       | Obligatoire      |
-|**Compte bancaire**     |   Facultatif      |    Facultatif     |  Facultatif       |  Obligatoire      |
-
-Pour obtenir une explication détaillée de ce processus, consultez [Instructions concernant l’inscription au Centre de développement](#instructions-on-how-to-register-in-the-developer-center). 
-
-#### <a name="sign-in-to-the-cloud-partner-portal"></a>Se connecter au Portail Cloud Partner
-
-Une fois que vous avez reçu l’approbation de l’équipe de la Place de marché et que vous vous êtes inscrit au [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) et au [Centre de développement Microsoft](https://dev.windows.com) (le cas échéant), un compte est créé pour vous permettre d’accéder au [Portail Cloud Partner](https://cloudpartner.azure.com). L’e-mail d’acceptation de votre candidature contient les informations d’identification à utiliser pour votre première connexion. 
-
-Utilisez votre compte Place de marché (ID Microsoft) pour accéder à votre profil d’éditeur. Une fois dans le Portail Cloud Partner, la dernière étape consiste à associer le compte Microsoft Partner Network et le compte Centre de développement (le cas échéant) au profil d’éditeur de Place de marché pour pouvoir publier vos offres. Pour cela, dans le Portail Cloud Partner, accédez à votre profil d’éditeur en cliquant sur le bouton situé au bas de l’écran.
-
-Pour plus d’informations sur l’utilisation du Portail Cloud Partner, accédez au menu [En savoir plus](https://cloudpartner.azure.com/#Learn) du portail, puis consultez la section **Documentation**. 
-
+Les exigences techniques et de contenu marketing varient en fonction de la vitrine, du type d’offre et du type de liste. Consultez les spécifications suivantes pour vous assurer que vous y répondez :
+-   Exigences en matière de vitrines : Place de marché Azure et AppSource
+-   Exigences en matière de type de liste : liste, essai et transaction
+-   Exigences en matière de type d’offre : 
+ -  application – machine virtuelle, conteneur ou SaaS
+ -  Offre de conseil
 
 ## <a name="support"></a>Support
+
+**Support**
 
 Voici la liste des options de support pour la Place de marché Microsoft Azure :
 
 **Questions d’ordre général sur la Place de marché Microsoft Azure**
+
 |Canal de support |Description |
 |---------|---------|
 |E-mail : cloudmarketplace@microsoft.com     |  Liste de distribution pour le support concernant l’intégration à la Place de marché. Utilisée pour les demandes d’intégration et pour la mise en place de sessions de découverte et d’architecture des solutions pour des partenaires.        |
@@ -489,7 +141,6 @@ Voici la liste des options de support pour la Place de marché Microsoft Azure :
 
 **Support technique**
 
-
 |Canal de support  |Description  |
 |---------|---------|
 |Forums MSDN : [Place de marché](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum Microsoft Developer Network.         |
@@ -504,9 +155,218 @@ Voici la liste des options de support pour la Place de marché Microsoft Azure :
 |E-mail : gtm@microsoft.com    |  Support pour les avantages de commercialisation et toutes les questions relatives au programme. Heures de bureau dans le fuseau horaire Pacifique.        |
 |E-mail : CEBrand@Microsoft.com     |  Réponses aux questions concernant l’utilisation de la marque et des logos Azure.       |
 
-## <a name="guidelines-and-how-tos"></a>Instructions et procédures
 
-### <a name="guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account"></a>Instructions pour la création d’un ID Microsoft dans le but de gérer un compte Place de marché Microsoft Azure
+### <a name="go-to-market-benefits"></a>Avantages de la mise sur le marché
+
+La Place de marché Azure et AppSource permettent aux éditeurs de présenter leurs solutions à des millions de clients. Les nouveaux référencements sur la Place de marché bénéficient automatiquement d’un ensemble d’avantages de commercialisation gratuits destinés à vous aider à faire connaître votre offre à notre écosystème de clients.
+
+L’intégration de votre offre à la vitrine de la Place de marché est une plateforme de lancement pour les activités de commercialisation conduites avec Microsoft, qui ouvre une opportunité de partenariat de vente conjointe. Tous les nouveaux référencements bénéficient automatiquement d’un ensemble d’avantages de commercialisation gratuits destinés à vous aider à faire connaître votre offre à notre écosystème de clients. Les avantages de commercialisation incluent une série d’activités conjointes de vente et de marketing permettant à nos partenaires de tirer parti de notre marque, de nos canaux et de notre écosystème pour faire connaître leurs solutions et générer des ventes. Aucune action des partenaires n’est requise. Dès qu’une offre est publiée, notre équipe commerciale contacte le partenaire pour commencer la livraison.
+Pour plus d’informations sur les avantages de commercialisation et les moyens que nous mettons à votre disposition pour développer votre activité sur la Place de marché, consultez les [avantages de commercialisation sur le site MPN](https://partner.microsoft.com/en-US/reach-customers/gtm).
+
+
+### <a name="requirements-by-listing-type"></a>Exigences par type de liste
+
+#### <a name="prerequisites-for-marketplace-publishing"></a>Prérequis pour la publication sur la Place de marché
+
+**AppSource : prérequis pour toutes les options de publication**
+
+|**Prérequis**  |**Détails**  |**Requis ou recommandé**  |
+|---------|---------|---------|
+|**Azure Active Directory (AAD)**    |  Votre application doit permettre l’authentification unique fédérée Azure Active Directory avec activation du consentement. Rendez-vous ici pour plus d’informations sur l’activation de l’authentification unique fédérée Azure Active Directory     |    Obligatoire   |
+|**Intégration à Microsoft Cloud Services**    |  Votre application doit pouvoir s’intégrer à d’autres services Microsoft Cloud tels que Microsoft Power BI, Cortana Intelligence ou aux services Microsoft Azure comme l’Internet des objets       |    Recommandé    |
+|**Public ciblé**    |  Les offres AppSource doivent être destinées aux utilisateurs métier et aux propriétaires d’entreprises     |    Obligatoire   |
+|**Application SaaS (Software as a service) professionnelle**    |  Votre application doit être : <ul><li>Une application SaaS métier</li><li>Centrée sur les processus métier</li><li>Destinée aux clients professionnels</li><li>Capable de proposer aux utilisateurs de se connecter avec leurs informations d’identification professionnelles (nom d’utilisateur et mot de passe)</li></ul>       |    Obligatoire    |
+|**Période d’essai gratuite et évaluation**    |  Un client doit pouvoir utiliser votre application gratuitement pendant une durée limitée. Votre essai gratuit peut prendre l’une des deux formes suivantes : <ul><li>Fournir une option d’essai pour que les clients puissent lancer une version d’essai à partir d’AppSource</li><li>Permettre aux clients de demander une version d’essai à partir d’AppSource</li></ul> Quelle que soit la méthode choisie, la version d’essai gratuite doit permettre au client de tester gratuitement l’application pendant une durée minimale.      |    Obligatoire    |
+|**Solution clé en main facilement configurable**    |  Votre application doit être facile et rapide à configurer (sans personnalisation).     |    Obligatoire   |
+|**Gestion des prospects**    |  Pour générer des prospects via la Place de marché Microsoft Azure, vous devez configurer votre système CRM (Marketo, Microsoft Dynamics ou Salesforce) de manière à accepter les données liées aux prospects.       |    Obligatoire    |
+|**Politique de confidentialité et conditions d’utilisation**    |  Votre politique de confidentialité doit être disponible via une URL publique. Vos conditions d’utilisation doivent être saisies sous forme de texte lors de la publication.     |    Obligatoire   |
+|**Support**    |  Votre offre doit inclure une URL de support disponible publiquement, où les clients peuvent trouver de l’aide. Pour les versions d’évaluation, le support doit être fourni gratuitement pendant la période d’évaluation.     |    Obligatoire   |
+
+**Place de marché Azure : prérequis pour les options de publication**
+
+|**Prérequis**  |**Détails**  |**Option de publication**  |
+|---------|---------|---------|
+|**Politiques concernant la participation**    | Consultez les [politiques concernant la Participation à la Place de Marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Liste, version d’évaluation, transaction        |
+|**Intégration à Microsoft**    | Les offres de la Place de marché Microsoft Azure doivent utiliser ou étendre les types de services Microsoft Azure (par exemple, calcul, réseau, stockage). Elles doivent être alignées sur une catégorie de la Place de marché Microsoft Azure existante (par exemple, bases de données, sécurité, réseau). Consultez [la liste complète](https://azuremarketplace.microsoft.com/marketplace/apps).        | Liste, version d’évaluation, transaction        |
+|**Public ciblé**    | Les offres de la Place de marché Microsoft Azure doivent s’adresser aux professionnels de l’informatique, aux développeurs cloud et autres rôles client techniques.       |  Liste, version d’évaluation, transaction 
+|**Gestion des prospects**    | Pour générer des prospects via la Place de marché Microsoft Azure, vous devez configurer votre système CRM (Marketo, Microsoft Dynamics ou Salesforce) de manière à accepter les données liées aux prospects.        |   Liste, version d’évaluation, transaction      |
+|**Politique de confidentialité et conditions d’utilisation**     |   Votre politique de confidentialité doit être disponible via une URL publique. Vos conditions d’utilisation doivent être saisies sous forme de texte lors de la publication.      |   Liste, version d’évaluation, transaction      |
+|**Support**     |  Votre offre doit inclure une URL de support disponible publiquement, où les clients peuvent trouver de l’aide. Pour les versions d’évaluation, le support doit être fourni gratuitement pendant la période d’évaluation.       |  Version d’évaluation, transaction       |
+
+#### <a name="prerequisites-specific-to-trial-publishing"></a>Prérequis concernant la publication avec l’option Version d’évaluation
+
+|**Prérequis**  | **Détails**  |**Option de publication**  |
+|---------|---------|---------|
+|**Période d’essai gratuite et évaluation**     |  Un client doit pouvoir utiliser votre application gratuitement pendant une durée limitée.<br><br>Cela signifie que le client n’aura pas à payer de frais de licence ou d’abonnement pour votre produit, ni de frais liés à l’utilisation du produit ou du service Microsoft interne sous-jacent. Étant donné que toutes les options de version d’évaluation sont déployées dans l’abonnement de produit Microsoft de l’éditeur, l’optimisation et la gestion des coûts liés aux versions d’évaluation sont de la responsabilité du seul éditeur.<br><br>Vous pouvez choisir entre l’option Version d’évaluation, Démonstration interactive ou Test drive. Quel que soit votre choix, la version d’évaluation doit permettre au client de tester gratuitement l’application pendant une durée minimale.<br><br>Pour commencer la création d’un test drive, contactez-nous à l’adresse amp-testdrive@microsoft.com. <br><br>Notez que les versions d’évaluation SaaS de la Place de marché Microsoft Azure doivent permettre aux utilisateurs de se connecter à l’aide de leurs informations d’identification professionnelles Active Directory. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Version d’évaluation      | 
+| **Solution clé en main facilement configurable**    |  Votre application doit être facile et rapide à configurer.       |  Version d’évaluation       |
+|**Disponibilité/Durée de fonctionnement**    |    La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total.     |    Version d’évaluation     |
+|**Azure Active Directory**    |    Votre offre doit permettre l’authentification unique fédérée Azure Active Directory (Azure AD) avec activation du consentement.      |  Version d’évaluation|
+
+#### <a name="prerequisites-specific-to-transaction-publishing"></a>Prérequis concernant la publication avec l’option Transaction
+
+|**Prérequis**  |**Détails** |**Option de publication**  |
+|---------|---------|---------|
+|**Facturation et mesure**    |  Votre machine virtuelle doit prendre en charge soit la facturation BYOL (apportez votre propre licence), soit la facturation mensuelle basée sur l’utilisation.       |    Transaction    |
+|**Disque dur virtuel compatible avec Azure**     |   Les machines virtuelles doivent être basées sur [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) ou [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
+
+#### <a name="prerequisites-specific-to-transaction-publishing-for-containers"></a>Prérequis concernant la publication avec l’option Transaction pour les conteneurs
+
+
+|**Prérequis**  |**Détails** |**Option de publication**  |
+|---------|---------|---------|
+|**Facturation et mesure**   |  Votre conteneur doit prendre en charge soit les modèles de facturation gratuit, soit les modèles BYOL (Bring Your Own License - Apportez votre propre licence).       |  Transaction       |
+|**Image Docker**    |   Les images de conteneur doivent être basées sur le format d’image Docker et doivent être extraites des registres de conteneurs Azure.      |  Transaction       |
+
+#### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>Prérequis concernant la publication avec l’option Transaction pour les abonnements d’application SaaS
+
+|**Prérequis**  |**Détails** |**Option de publication**  |
+|---------|---------|---------|
+|**Facturation et mesure**    |   Votre offre est facturée selon un tarif mensuel forfaitaire. La tarification basée sur l’utilisation et les capacités d’égalisation basées sur l’utilisation ne sont pas prises en charge pour l’instant.      |   Transaction      |
+|**Annulation**  |   Votre offre peut être annulée par le client à tout moment.      |   Transaction      |
+|**Page d’accueil de transaction**     |   Vous hébergez une page d’accueil de transaction conjointe avec Azure, sur laquelle les utilisateurs peuvent créer et gérer leur compte de service SaaS.      |    Transaction     |
+|**API d’abonnement SaaS**    |   Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement.      |     Transaction    |
+
+### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Prérequis spécifiques à la publication avec l’option Services de conseil
+
+|**Configuration requise** |**Détails**  |**Option de publication**  |
+|---------|---------|---------|
+|**Caractéristiques de l’offre de services**     | Votre Service de conseil doit être : <br>- Fourni en tant qu’engagement pour une durée, une portée et un prix fixes (ou gratuitement). <br>- Principalement orienté vers la prévente. <br>- Limité à un seul client. <br>- Fourni sur site.        |    Liste     |
+|**Conditions requises du partenaire pour les services de conseil**    |   *AppSource uniquement* :  <br>- **Dynamics 365 for Customer Engagement** : avoir la compétence [Gestion de la relation client dans le Cloud](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency), statut Silver ou Gold. <br>- **Dynamics 365 for Finance and Operations, édition Entreprise** : avoir la compétence [Gestion intégrée](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency), statut Silver ou Gold, et avoir un revenu minimum de 25 000 $ dans les opérations cloud les 12 derniers mois. <br>- **Dynamics 365 for Finance and Operations, édition Business** : être [fournisseur de services cloud](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [partenaire de référence numérique](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) pour un client minimum. <br>- **Power BI** : répondre aux critères du [partenaire de solution](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). <br>- **PowerApps** : avoir une solution de [présentation des partenaires](https://powerapps.microsoft.com/en-us/partner-showcase/). |    Liste     |
+|**Conditions requises du partenaire pour les services de conseil**    |  *Azure Marketplace uniquement* : <br>Les partenaires doivent également avoir une **compétence niveau Silver ou Gold** dans le domaine approprié pour leur service. Le tableau suivant répertorie les compétences éligibles :</br><br><ul><li> **Compétence :** infrastructure et plateforme cloud. <br>**Domaine fonctionnel :** plateforme cloud, centre de données</li><br><li>**Compétence :** développement d’applications et éditeurs de logiciels indépendants <br>**Domaine fonctionnel :** développement d’applications, intégration d’applications, DevOps</li><br><li>**Compétence :** gestion et analytique des données <br>**Domaine fonctionnel :** analytique des données, plateforme de données </li></br></ul>Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies).</br><br>Pour plus d’informations sur la liste, consultez [Services de conseil dans Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/consulting-services) |    Liste     | 
+
+
+#### <a name="cloud-partner-portal-pre-publishing-checklist-for-the-azure-marketplace"></a>Liste de contrôle de prépublication dans le Portail Cloud Partner pour la Place de marché Azure
+
+Avant de commencer le processus de publication, il peut vous être utile de connaître les composants nécessaires à la création d’une offre. Les artefacts suivants sont nécessaires au workflow de création d’une offre dans le Portail Cloud Partner. 
+
+**Informations sur les vitrines**
+
+|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
+|---------|---------|
+|**Nom (200 caractères) et description (2 000 caractères) de l’offre**    |  Tous        |
+|**ID Microsoft Partner Network (MPN)**   |  Tous       |
+|**Disponibilité par pays/région**   | Tous        |
+|**Durée de l’engagement**     |   Services de conseil      |
+|**Secteurs, catégories et mots-clés de recherche applicables**     |  Tous       |
+|**Logos d’entreprise (48 x 48, 216 x 216)**     |  Services de conseil       |
+|**Vidéo de présentation du produit (facultatif)**  |  Tous       |
+|**Captures d’écran (5 maximum, 1 280 x 720)**   |    Tous     |
+|**Documentation marketing (3 documents maximum)**    |  Tous       |
+|**Destination du prospect**    |   Tous      |
+
+**Contacts**
+
+|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
+|---------|---------|
+|**Coordonnées (support, ingénieurs, commerciaux)**    |    Tous     |
+
+
+**Informations techniques**
+
+|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre |
+|---------|---------|
+|**URL de la version d’essai**     |  Tous les types d’offres de version d’évaluation       |
+|**Langues prises en charge**    |   Tous les types d’offres de version d’évaluation      |
+|**Numéro de version et date de publication de l’application**    |   Tous les types d’offres de version d’évaluation      |
+|**URL du support technique**    |   Tous les types d’offres de version d’évaluation, machines virtuelles      |
+|**URL des conditions d’utilisation et de la politique de confidentialité**     |    Tous     |
+
+
+**Version d’évaluation**
+
+|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
+|---------|---------|
+|**Description et durée**     |  Version d’évaluation uniquement       |
+|**Manuel de l’utilisateur**     |   Version d’évaluation uniquement      |
+|**Vidéo de test drive (1 maximum)**     |  Version d’évaluation uniquement       |
+|**Disponibilité par pays/région du test drive**    |   Version d’évaluation uniquement      |
+|**Nom du groupe de ressources Azure**   |         |
+|**ID d’abonnement Azure**     |  Version d’évaluation uniquement       |
+|**ID de locataire Azure AD**   |    Version d’évaluation uniquement     |
+|**ID de l’application Azure AD**  |  Version d’évaluation uniquement       |
+|**Clé d’application Azure AD**     |   Version d’évaluation uniquement      |
+
+
+**Vitrine/Place de marché**
+
+|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
+|---------|---------|
+|**Titre (50 caractères maximum)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées), conteneurs, abonnements SaaS       |
+|**Résumé (200 caractères maximum)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées), conteneurs, abonnements SaaS       |
+|**Résumé long (256 caractères maximum)**     |   Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées), conteneurs, abonnements SaaS      |
+|**Description HTML (3 000 caractères maximum)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées), conteneurs, abonnements SaaS      |
+|**Logos d’entreprise (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)**    |  Transaction : machines virtuelles, applications Azure (modèles de solution et applications managées), conteneurs, abonnements SaaS     |
+
+
+**Référence (SKU)**
+
+|Vous aurez besoin de cet artefact de publication  |Pour ce type d’offre  |
+|---------|---------|
+|**Numéro de version**     |    Transaction : applications Azure (modèles de solution et applications managées)     |
+|**Fichier de package contenant tous les fichiers de modèle et le fichier createUIDefinitionFile**   |Transaction : applications Azure (modèles de solution et applications managées)         |
+|**Informations sur le système d’exploitation**    |   Transaction : machines virtuelles      |
+|**Ports et protocoles utilisés**    |  Transaction : machines virtuelles       |
+|**Version et URL SAS de chaque disque dur virtuel utilisé**   |  Transaction : machines virtuelles       |
+|**Détails du référentiel d’images Azure Container Registry (ACR), y compris l’ID d’abonnement, le nom du groupe de ressources, le nom du registre, le nom du référentiel, le nom d’utilisateur, le mot de passe et les balises d’image (facultatif)** | Transaction : conteneurs |
+
+
+#### <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation
+Azure Active Directory est un service d’identité cloud qui permet de s’authentifier avec un compte professionnel ou scolaire Microsoft, à l’aide des protocoles standard OAuth et OpenID Connect. Apprenez-en plus sur Azure AD en vous rendant sur le [site du produit](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
+
+Microsoft authentifie tous les utilisateurs de la Place de marché avec Azure AD. Lorsqu’un utilisateur authentifié clique sur votre annonce de version d’évaluation dans la Place de marché et quand il est redirigé vers l’environnement de votre version d’évaluation, vous pouvez approvisionner l’utilisateur directement dans une version d’évaluation, sans qu’aucune autre étape de connexion ne soit nécessaire. Le [jeton que votre application reçoit d’Azure AD lors de l’authentification](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte d’utilisateur dans votre application. Vous pouvez ensuite automatiser l’expérience d’approvisionnement et augmenter la probabilité de conversion. 
+
+L’utilisation d’Azure AD pour activer l’authentification en un clic dans votre application ou version d’évaluation :
+
+- Simplifie l’expérience utilisateur, de la Place de marché jusqu’à la version d’évaluation. 
+- Fournit une expérience d’utilisation réelle du produit, même lorsque l’utilisateur est redirigé de la Place de marché vers votre domaine ou l’environnement de votre version d’évaluation.
+- Réduit la probabilité d’un abandon après redirection, car aucune autre étape d’authentification supplémentaire n’est nécessaire.
+- Réduit les obstacles de déploiement pour les nombreux utilisateurs d’Azure AD.
+
+**Certification de votre intégration Azure AD pour la Place de marché : applications mutualisées**
+
+Si vous prenez actuellement en charge Azure AD :
+
+- Inscrivez votre application dans le portail Azure.
+- Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
+- [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+
+Si vous êtes un nouvel utilisateur de l’authentification unique fédérée Azure AD :
+
+- Inscrivez votre application dans le portail Azure.
+- Développer l’authentification unique avec Azure AD à l’aide [d’OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [d’OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
+- [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
+
+**Certification de votre intégration Azure AD pour la Place de marché : applications avec un seul locataire**
+
+Il existe plusieurs options pour les applications avec un seul locataire :
+
+- Ajouter des utilisateurs à votre répertoire en tant qu’utilisateurs invités à l’aide [d’Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Approvisionner manuellement les versions d’évaluation pour les clients via l’option Me contacter.
+- Développer un test drive par client.
+- Créer un exemple d’application de démonstration mutualisée avec l’authentification unique.
+
+
+### <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
+
+#### <a name="becoming-a-publisher"></a>Devenir un éditeur
+
+Dans cette section, nous vous expliquons comment : <ul><li>Devenir éditeur sur la Place de marché Azure et AppSource.</li><li>Vous connecter au Portail Cloud Partner. Ce portail vous permettra de créer, publier et maintenir votre offre à jour.</li></ul>
+
+**Vue d’ensemble du processus**
+
+|Procédure d’inscription à la Place de marché  |Temps  |Description  |
+|---------|---------|---------|
+| 1. S’inscrire au Microsoft Partner Network | 15 min | Rejoignez Microsoft Partner Network (MPN) pour devenir un partenaire Microsoft officiel et bénéficier d’une assistance et d’avantages supplémentaires en tant qu’éditeur sur la Place de marché Azure. Pour vous inscrire au MPN, rendez-vous sur la page du Microsoft Partner Network et cliquez sur « S’inscrire ». Lors de l’inscription, vous pourrez joindre l’abonnement existant de votre organisation, le cas échéant. Une fois inscrit, notez l’ID MPN de votre organisation : nous vous le demanderons pour activer votre profil de publication dans le Portail Cloud Partner (étape 3).      |
+|2. Créer un ID Microsoft     |   15 minutes      |  Celui-ci est utilisé pour accéder au Portail Cloud Partner. Cette adresse e-mail doit être enregistrée en tant qu’ID Microsoft et est utilisée dans le Portail Cloud Partner (étape 3) et le Centre de développement Microsoft (étape 4). L’adresse e-mail sélectionnée doit, de préférence, appartenir au domaine de votre entreprise et être contrôlée par votre équipe informatique. Pour obtenir des instructions avant de créer un ID, passez en revue les sections du chapitre Instructions et procédures. |
+|3. Envoyer le formulaire de candidature pour la Place de marché     |  1 à 3 jours       | Nommez votre organisation pour devenir un éditeur de la Place de marché Microsoft Cloud. Le formulaire comprend des informations sur votre organisation, la première offre de service ou d’application que vous voulez publier et le niveau de support que vous proposez. <ul><li>[Formulaire de candidature pour la Place de marché Microsoft Azure](http://aka.ms/listonazuremarketplace)</li><li>[Formulaire de candidature pour AppSource](http://aka.ms/listonappsource)</li></ul> Une fois le formulaire envoyé, l’équipe de la Place de marché examine la candidature et valide la demande. Une fois que la demande a été examinée, vous recevez une notification par e-mail avec les étapes suivantes vous permettant de devenir un partenaire agréé et d’accéder au Portail Cloud Partner, où vous pouvez terminer votre première liste d’offres et créer d’autres offres. Si votre demande est approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement Microsoft (étape 4). |
+|4. S’inscrire sur le Centre de développement     |    5 à 10 jours     | S’inscrire au {0}Centre de développement Microsoft{0} est nécessaire pour publier des applications dotées de fonctionnalités de transaction sur la Place de marché, comme les machines virtuelles, les modèles de solution et les applications managées Azure. Cette exigence permettra à Microsoft de valider les informations bancaires, fiscales et légales de votre entreprise. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’organisation. En outre, vous devez fournir des informations personnelles afin de valider votre identité. Vous devez également utiliser un ID Microsoft (étape 2) partagé par l’ensemble de l’entreprise, et utiliser ce même ID dans le Portail Cloud Partner. <ul>Veuillez noter que si vous n’avez pas rempli le formulaire de candidature pour la Place de marché, vous devrez payer des frais d’inscription d’un montant de 99 $. Pour ne pas avoir à payer ces frais, renseignez le formulaire de candidature pour la Place de marché. Vous recevrez alors un code promotionnel par e-mail. Important : vérifiez que votre entreprise ne possède pas déjà de compte Centre de développement Microsoft avant d’essayer d’en créer un. Pour obtenir une explication détaillée de ce processus, consultez Instructions concernant l’inscription au Centre de développement.</ul>   |
+|5. Se connecter au Portail Cloud Partner     |  15 minutes       |  Une fois que la demande a été approuvée, et une fois que vous vous êtes inscrit dans [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) et dans le [Centre de développement Microsoft](https://cloudpartner.azure.com/), un compte est créé pour vous permettre d’accéder au [Portail Cloud Partner](https://dev.windows.com/). L’e-mail d’acceptation de votre candidature contient les informations d’identification à utiliser pour votre première connexion. Pour plus d’informations sur l’utilisation du Portail Cloud Partner, accédez au menu [En savoir plus](https://cloudpartner.azure.com/#Learn) du portail, puis consultez la section Documentation.    |
+
+
+#### <a name="guidelines-and-how-tos"></a>Instructions et procédures
+
+**Instructions pour la création d’un ID Microsoft dans le but de gérer un compte Place de marché Microsoft Azure**
 
 Lorsque vous créez un compte d’entreprise, suivez ces instructions si plusieurs personnes devront accéder au compte en se connectant avec le compte Microsoft qui a ouvert le compte.
 
@@ -626,3 +486,99 @@ Si vous rencontrez des problèmes pendant l’inscription au Centre de développ
 3. Sélectionnez **Aide avec le centre de développement** pour **Type de problème** et **Publication et gestion des applications** pour **Catégorie**. Ensuite, cliquez sur le bouton **Nouveau message électronique**.   
 4. Sur la page de connexion, utilisez n’importe quel compte Microsoft pour vous connecter. Si vous n’avez pas de compte Microsoft, créez-en un en suivant le lien. 
 5. Entrez les détails du problème et envoyez le ticket de support en cliquant sur le bouton **Envoyer**.
+
+#### <a name="billing-options"></a>Options de facturation
+
+**Considérations d’ordre commercial concernant la Place de marché**
+
+La participation à la Place de marché est gratuite. Si vous utilisez les options Liste, Version d’évaluation ou Transaction (BYOL), la publication de vos solutions sur la Place de marché n’entraîne pas le partage des revenus générés. Pour plus d’informations, consultez les [Politiques concernant la Participation à la Place de Marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+
+**Options de facturation Paiement à l’utilisation et BYOL (apportez votre propre licence)**
+
+Lorsque vous utilisez l’option de publication Paiement à l’utilisation, les revenus générés par les licences logicielles basées sur l’utilisation sont répartis entre vous (80 %) et Microsoft (20 %). Le prix d’une offre peut être défini à la fois par les modèles de facturation Paiement à l’utilisation et BYOL (apportez votre propre licence). Ainsi, ces modèles de prix peuvent coexister comme deux références SKU distinctes. Vous devez configurer cela dans votre offre dans le Portail Cloud Partner.
+
+Considérez l'exemple suivant.
+
+Si vous activez l’option Paiement à l’utilisation :
+
+
+|Coût de votre licence   | 1 $/heure        |
+|---------|---------|
+|Coût d’utilisation Azure (D1/1 cœur)     | 0,14 $/heure  |
+|**Microsoft facture au client le montant suivant :**    | **1,14 $/heure**       |
+
+Dans ce scénario, Microsoft facture 1,14 $ l’heure pour l’utilisation de l’image de machine virtuelle publiée.
+
+
+|**Microsoft facture** |**1,14 $/heure**  |
+|---------|---------|
+|Microsoft vous verse 80 % des revenus générés par les licences | 0,80 $/heure        |
+|Microsoft conserve 20 % des revenus générés par les licences    | 0,20 $/heure        |
+|Microsoft conserve les revenus générés par l’utilisation Azure     |   0,14 $/heure      |
+
+À l’inverse, si vous activez l’option BYOL :
+
+|Coût de votre licence     | Frais de licence négociés et facturés par l’éditeur        |
+|---------|---------|
+|Coût d’utilisation Azure (D1/1 cœur)    | 0,14 $/heure         |
+|**Microsoft facture au client le montant suivant :**     | **0,14 $/heure**        |
+
+Dans ce scénario, Microsoft facture 0,14 $ l’heure pour l’utilisation de l’image de machine virtuelle publiée. 
+
+|**Microsoft facture**    |   **0,14 $/heure**      |
+|---------|---------|
+|Microsoft conserve les revenus générés par l’utilisation Azure     |    0,14 $/heure     |
+|Microsoft conserve 0 % des revenus générés par les licences     |  0 $/heure       |
+
+**Facturation unique et méthodes de paiement**
+
+L’un des grands avantages de l’option de publication Transaction est que Microsoft peut facturer en même temps les frais de licence et l’utilisation Azure sous-jacente, et ce, directement au client. Dans ce scénario, Microsoft facture et prélève en votre nom, ce qui vous évite d’avoir à mettre en œuvre votre propre solution de facturation. En vous focalisant ainsi sur la vente, et non sur la facturation, vous gagnez du temps et économisez des ressources.
+
+**Contrat Entreprise**
+
+Les clients Microsoft utilisent parfois un contrat Entreprise pour payer les produits Microsoft, y compris l’utilisation d’Azure. Cette option de paiement est destinée aux entreprises désireuses d’acheter des licences logicielles et des services cloud pour une période minimale de trois ans. Les clients ont la possibilité de fractionner les paiements, au lieu de tout payer en une seule fois. Lorsqu’un client de contrat Entreprise utilise l’option Paiement à l’utilisation, la facturation des frais de licence logicielle de l’éditeur suit le cycle trimestriel de facturation du dépassement du contrat Entreprise.
+
+**Engagement monétaire** 
+
+Tous les clients du Contrat Entreprise peuvent ajouter Azure à leur contrat s’ils optent pour un engagement monétaire initial envers Azure. Cet engagement permet d’utiliser, sur une année, une combinaison des nombreux services cloud proposés par Azure, depuis ses centres de données internationaux.
+
+
+### <a name="azure-marketplace-vs-appsource"></a>Place de marché Azure et AppSource
+
+Chaque vitrine répond aux besoins de clients uniques. Vous avez la possibilité de cibler un rôle pour pouvoir offrir la solution ou le service adaptés en fonction de votre client.
+
+Encouragez les professionnels de l’informatique et les développeurs cloud à découvrir, essayer et acheter des solutions IaaS, SaaS et PaaS via la **Place de marché Azure** :
+
+
+|**Besoin du client**  |**Azure Marketplace** |
+|---------|---------|
+|**Exige des fonctionnalités de plateforme cloud supplémentaires pour répondre à ses besoins commerciaux et techniques**     |  Propose une gamme grandissante d’applications et de services complémentaires, optimisés pour une exécution dans Azure       |
+|**Estime qu’il est difficile de trouver la bonne application ou le service approprié**    |  Permet, en un seul et même endroit, de trouver, essayer et acheter des solutions et des services Azure        |
+|**A besoin d’un mécanisme de déploiement évolutif pour les applications et services tiers**   | Permet de créer et configurer des déploiements évolutifs pour des applications et services tiers        |
+|**A besoin de nouveaux services et applications qui s’intègrent aux solutions existantes et fonctionnent correctement avec celles-ci**  |   Intègre facilement des applications et services tiers avec les solutions existantes sur Azure      |
+
+Encouragez les utilisateurs métier sur **AppSource** à rechercher, essayer et obtenir des applications métier SaaS et des services d’implémentation, afin d’accroître les résultats commerciaux et de réduire le délai de rentabilité : 
+
+
+|**Besoin du client**  |**AppSource**  |
+|---------|---------|
+|**Solutions métier qui fonctionnent avec les produits Microsoft qu’il utilise déjà** | Permet aux clients d’utiliser des services et des applications tierces pour étendre les technologies et applications cloud Microsoft       |
+|**Capacité à trouver facilement la solution ou le service d’implémentation adéquat**    |   Permet, en un seul et même endroit, de découvrir, d’essayer et d’obtenir des applications et des services, des compléments, et bien plus encore      |
+|**Solutions métier propres au secteur pour faire face à ses défis spécifiques**   | Fournit des solutions de bout en bout et complètes afin d’aider à répondre à des exigences spécifiques dans de nombreux secteurs d’activité     |
+|**Applications visant à améliorer la productivité, l’efficacité et les insights de l’activité**    | Fournit des applications métier, notamment pour le service clientèle, les ressources humaines, l’exploitation, et bien plus encore        |
+| **Partenaire d’implémentation expérimenté pour aider à adapter les applications à la situation unique du client** | Fournit un catalogue d’offres de services de conseil pour les solutions basées sur Dynamics 365, Power BI, PowerApps et des applications tierces pour aider les utilisateurs métier à fournir les résultats attendus |
+
+#### <a name="understanding-the-differences-between-storefronts"></a>Différences entre les deux vitrines
+
+Le choix d’une vitrine commence par l’identification du public cible pour votre offre. Si votre solution cible ces deux publics, vous n’avez à la publier qu’une seule fois pour qu’elle soit référencée dans les deux vitrines.
+ 
+Voici d’autres avantages de ces deux vitrines :
+
+|Avantage de la vitrine  |Place de marché Azure  |AppSource   |
+|---------|---------|---------|
+|**Souplesse de facturation**    | Pour les machines virtuelles, les options de facturation de type Paiement à l’utilisation sont basées sur des contrats Entreprise Microsoft ou des modèles de vente directe sur le web. Les options de tarification incluent également un abonnement de niveau Gratuit où une offre est gratuite en permanence. En outre, un abonnement de type Essayer maintenant est également compris. L’abonnement reste gratuit pendant une période limitée, et à l’issue de celle-ci, il devient payant. L’activation BYOL (apportez votre propre licence) est aussi une option pour encourager les éditeurs. <br><br>Pour ces options de facturation, lorsque des machines virtuelles sont déployées via des applications Azure (par exemple, un modèle de solution ou une application managée), toutes les ressources Azure approvisionnées sont facturées directement au client. | AppSource propose l’approvisionnement d’une expérience de version d’évaluation, mais n’offre pas encore d’option de publication pour le commerce. Vous pouvez utiliser votre infrastructure actuelle d’enregistrement des commandes et de facturation, sans autre modification ni investissement supplémentaire.        |
+|**Simplification des mises en relation avec d’autres partenaires**     |Actuellement, la Place de marché Microsoft Azure ne permet pas aux éditeurs d’associer un fournisseur de services ou un partenaire de livraison à l’offre qu’ils proposent, mais cette fonctionnalité sera disponible en 2018.         |  Les éditeurs de logiciels indépendants, les intégrateurs de systèmes et les fournisseurs de services managés peuvent être associés à des scénarios d’implémentation spécifiques. Cette fonctionnalité prend en charge la vente collaborative aux nouveaux clients.      |
+|**Automation**     |    Actuellement, la Place de marché Microsoft Azure ne permet pas aux éditeurs d’associer un fournisseur de services ou un partenaire de livraison à l’offre qu’ils proposent.     | Tirez parti d’applications SaaS automatisées avec l’approvisionnement de compléments. Utilisez des modèles de solution pour automatiser la collecte de données SaaS et les scénarios de déploiement.        |Les éditeurs de logiciels indépendants, les intégrateurs de systèmes et les fournisseurs de services managés peuvent être associés à des scénarios d’implémentation spécifiques, prenant en charge la vente collaborative aux nouveaux clients.
+|**Plusieurs types de cloud**     |   Publiez des solutions publiques locales et cloud avec Azure Stack, ou publiez des solutions dans Azure Government et des clouds régionaux, y compris en Chine et en Allemagne.      |    Actuellement, AppSource ne prend pas en charge Azure Stack, Azure Government et les clouds régionaux.     |
+|**Présentation en contexte pour les clients**     |  Présentez votre solution dans le portail Azure pour que les clients puissent effectuer une recherche contextuelle (machines virtuelles et modèles de solution).       |  Atteignez davantage de clients grâce à l’expérience dans l’application pour des produits Microsoft tels que Dynamics 365, Power BI et Office 365.    |
+

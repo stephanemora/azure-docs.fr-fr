@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 51ee39608672d21b6e838ff1d617bad1089c3c38
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 960a5e7a67ffaed45515e99b6aa7e64025d3167a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770013"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +87,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 | Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 >[!NOTE]
->Lors d’une création via l’interface utilisateur, vous n’avez pas besoin d’entrer la double barre oblique inverse (`\\`) pour échapper comme vous le faites via JSON, spécifiez une barre oblique inverse unique.
+>Lors d’une création via l’interface utilisateur, vous n’avez pas besoin d’entrer la double barre oblique inverse (`\\`) pour générer une séquence d’échappement comme vous le faites via JSON. Spécifiez simplement une barre oblique inverse unique.
 
 ### <a name="example-using-username-and-password-in-plain-text"></a>Exemple : utilisation d’un nom d'utilisateur et d’un mot de passe en texte brut
 
@@ -128,7 +129,7 @@ La section typeProperties est différente pour chaque type de jeu de données. E
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| folderPath |Spécifie le sous-chemin vers le dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |OUI |
+| folderPath |Spécifie le sous-chemin vers le dossier. Utilisez le caractère d’échappement « \' » pour les caractères spéciaux contenus dans la chaîne. Le filtre de caractères génériques n'est pas pris en charge. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |OUI |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque **fileName** n'est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré est au format suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non  |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : « fileFilter » : « *.log »<br/>Exemple 2 : « fileFilter » : « 2014-1-?.txt »<br/><br/>Remarque : fileFilter s’applique à un jeu de données FileShare d’entrée. |Non  |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath/fileName dynamique pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non  |

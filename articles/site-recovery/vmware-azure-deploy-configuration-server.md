@@ -1,6 +1,6 @@
 ---
-title: "Déployer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article explique comment déployer un serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery"
+title: Déployer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment déployer un serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 99b368ca364bd7c5bebfc00c2df0f04333293388
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188478"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -109,6 +110,11 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 8. Dans **Configurer les informations d’identification de la machine virtuelle**, saisissez le nom d’utilisateur et le mot de passe qui serviront à installer automatiquement le service Azure Site Recovery Mobility sur les machines, une fois la réplication activée. Pour les machines Windows, le compte doit disposer des privilèges d’administrateur local sur les machines que vous souhaitez répliquer. Pour Linux, fournissez les détails du compte racine.
 9. Sélectionnez **Finaliser la configuration** pour terminer l’inscription. 
 10. Une fois l’inscription terminée, dans le portail Azure, vérifiez que le serveur de configuration et le serveur VMware sont répertoriés sur la page **Source** dans le coffre. Sélectionnez ensuite **OK** pour configurer les paramètres cibles.
+
+
+## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
+
+Pour mettre à niveau le serveur de configuration sur la version la plus récente, lisez les étapes indiquées [ici](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
 
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement

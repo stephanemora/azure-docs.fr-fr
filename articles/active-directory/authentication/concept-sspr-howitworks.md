@@ -2,25 +2,20 @@
 title: Fonctionnement de la réinitialisation de mot de passe libre-service - Azure Active Directory
 description: Découverte approfondie de la réinitialisation du mot de passe libre-service Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 5933448b40a590b39df5ae4cf07fd858bebcd28f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 6f755754097336fc97678940ea1fa0aa28315fab
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868602"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -49,7 +44,7 @@ Lisez les étapes suivantes pour en savoir plus sur la logique sous-jacente à l
        * Si le test de l’utilisateur n’est pas configuré, l’utilisateur est invité à contacter son administrateur pour réinitialiser son mot de passe.
      * Si la stratégie exige deux tests, AAD vérifie que l’utilisateur a défini les données appropriées pour au moins deux des tests activés par la stratégie de l’administrateur.
        * Si le test de l’utilisateur n’est pas configuré, l’utilisateur est invité à contacter son administrateur pour réinitialiser son mot de passe.
-   * Il vérifie si le mot de passe de l’utilisateur est géré localement (fédération ou synchronisation de hachage de mot de passe).
+   * Il vérifie si le mot de passe de l’utilisateur est géré localement (fédération, authentification directe ou synchronisation du hachage de mot de passe).
      * Si la réécriture est déployée et que le mot de passe est géré localement, l’utilisateur est autorisé à s’authentifier et à réinitialiser son mot de passe.
      * Si la réécriture n’est pas déployée et que le mot de passe est géré localement, l’utilisateur est invité à contacter son administrateur pour réinitialiser son mot de passe.
 4. S’il est établi que l’utilisateur est en mesure de réinitialiser son mot de passe, il reçoit des instructions pour mener à bien le processus de réinitialisation.
@@ -224,8 +219,8 @@ Cette page fournit un état rapide du client d’écriture différée local. L�
 
 Ce contrôle détermine si la réécriture du mot de passe est activée pour ce répertoire. Si c’est le cas, il indique l’état du service de réécriture local. Cela peut être utile si vous voulez désactiver temporairement la réécriture du mot de passe sans devoir reconfigurer Azure AD Connect.
 
-* Si le commutateur est défini sur **Oui**, la réécriture est activée et les utilisateurs fédérés et synchronisés par hachage du mot de passe peuvent réinitialiser leur mot de passe.
-* Si le commutateur est défini sur **Non**, la réécriture est désactivée et les utilisateurs fédérés et synchronisés par hachage du mot de passe ne peuvent pas réinitialiser leur mot de passe.
+* Si le commutateur est défini sur **Oui**, la réécriture est activée et les utilisateurs fédérés, utilisant l’authentification directe ou synchronisés par hachage du mot de passe peuvent réinitialiser leur mot de passe.
+* Si le commutateur est défini sur **Non**, la réécriture est désactivée et les utilisateurs fédérés, utilisant l’authentification directe ou synchronisés par hachage du mot de passe ne peuvent pas réinitialiser leur mot de passe.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe
 

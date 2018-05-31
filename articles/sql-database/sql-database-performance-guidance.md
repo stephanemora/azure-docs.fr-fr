@@ -9,26 +9,27 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195445"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Optimisation des performances dans Azure SQL Database
 
 Azure SQL Database fournit des [recommandations](sql-database-advisor.md) que vous pouvez utiliser pour améliorer les performances de votre base de données, ou vous pouvez laisser Azure SQL Database [s’adapter automatiquement à votre application](sql-database-automatic-tuning.md) et appliquer les modifications qui amélioreront les performances de votre charge de travail.
 
 Si aucune recommandation n’est applicable et si vous avez toujours des problèmes de performances, vous pouvez utiliser les méthodes suivantes pour améliorer les performances :
-1. Augmentez les [niveaux de service](sql-database-service-tiers.md) et apportez davantage de ressources à votre base de données.
-2. Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances. 
-3. Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
+- Augmentez les niveaux de service dans votre [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) ou votre [modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md) pour fournir plus de ressources à votre base de données.
+- Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances. 
+- Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
 
-Ce sont des méthodes manuelles, car vous devez déterminer quels [niveaux de service](sql-database-service-tiers.md) vous devez choisir ou vous sont indispensables pour réécrire le code de l’application ou de la base de données et déployer les changements.
+Ce sont des méthodes manuelles car vous devez déterminer quelles [limites de ressources de modèle basé sur des DTU](sql-database-dtu-resource-limits.md) et [limites de ressources de modèle basé sur des vCores (préversion)](sql-database-vcore-resource-limits.md) répondent à vos besoins. Sinon, vous devez réécrire l’application ou le code de l’application ou de la base de données et déployer les modifications.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Augmentation du niveau de performance de votre base de données
 
-Azure SQL Database propose deux modèles d’achat, à savoir un modèle d’achat DTU et un modèle d’achat vCore. Chaque modèle possède plusieurs [niveaux de service](sql-database-service-tiers.md) parmi lesquels vous pouvez choisir. Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
+Azure SQL Database propose deux modèles d’achat: un [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et un [modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md). Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
 
 > [!NOTE]
 > Cet article se concentre sur les recommandations de performances pour les bases de données uniques dans Microsoft Azure SQL Database. Pour un guide des performances relatives aux pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md). Notez, cependant, que vous pouvez appliquer un grand nombre des recommandations de cet article sur les bases de données d’un pool élastique, afin d’obtenir des avantages similaires en matière de performances.
@@ -48,7 +49,7 @@ Le niveau exact dont vous avez besoin pour votre base de données SQL dépend de
 
 ### <a name="service-tier-capabilities-and-limits"></a>Capacités et limites des niveaux de service
 
-À chaque niveau de service, vous définissez le niveau de performances et disposer ainsi de la possibilité de payer uniquement la capacité nécessaire. Vous pouvez [ajuster la capacité](sql-database-service-tiers.md), en l’augmentant ou en la diminuant, en fonction de l’évolution de la charge de travail. Par exemple, si la charge de travail de votre base de données est élevée au cours de la période des achats de rentrée scolaire, vous pouvez augmenter le niveau de performances pour une durée définie, par exemple entre juillet et septembre. Il est ensuite possible de le réduire à la fin de la période chargée. Vous pouvez réduire vos coûts en optimisant votre environnement cloud conformément aux caractéristiques saisonnières de votre entreprise. Ce modèle fonctionne également bien pour les cycles de version de logiciels. Une équipe de test peut allouer de la capacité pendant des séries de test, et libérer cette capacité une fois les tests terminés. Dans un modèle de requête de capacité, vous payez uniquement la capacité nécessaire, en évitant de financer des ressources dédiées que vous n’utiliseriez que rarement.
+À chaque niveau de service, vous définissez le niveau de performances et disposer ainsi de la possibilité de payer uniquement la capacité nécessaire. Vous pouvez [ajuster la capacité](sql-database-service-tiers-dtu.md), en l’augmentant ou en la diminuant, en fonction de l’évolution de la charge de travail. Par exemple, si la charge de travail de votre base de données est élevée au cours de la période des achats de rentrée scolaire, vous pouvez augmenter le niveau de performances pour une durée définie, par exemple entre juillet et septembre. Il est ensuite possible de le réduire à la fin de la période chargée. Vous pouvez réduire vos coûts en optimisant votre environnement cloud conformément aux caractéristiques saisonnières de votre entreprise. Ce modèle fonctionne également bien pour les cycles de version de logiciels. Une équipe de test peut allouer de la capacité pendant des séries de test, et libérer cette capacité une fois les tests terminés. Dans un modèle de requête de capacité, vous payez uniquement la capacité nécessaire, en évitant de financer des ressources dédiées que vous n’utiliseriez que rarement.
 
 ### <a name="why-service-tiers"></a>Pourquoi des niveaux de service ?
 Bien que la charge de travail de chaque base de données puisse différer, les niveaux de service visent à assurer la prévisibilité des performances dans un large éventail de niveaux de performances. Les clients présentant des exigences d’envergure en matière de ressources de bases de données peuvent opérer dans un environnement informatique davantage dédié.
@@ -270,7 +271,8 @@ Certaines applications sont gourmandes en écriture. Il est parfois possible de 
 Certaines applications de base de données contiennent des charges de travail à lecture intensive. Les couches de mise en cache peuvent contribuer à réduire la charge sur la base de données et éventuellement le niveau de performance requis pour la prise en charge d’une base de données à l’aide d’Azure SQL Database. Le [Cache Redis Azure](https://azure.microsoft.com/services/cache/)permet à un client possédant une charge de travail à lecture intensive de lire les données une seule fois (ou peut-être une seule fois par ordinateur de la couche Application, selon la façon dont il est configuré) et de stocker ces données en dehors de la base de données SQL Azure. Cela permet de réduire la charge de la base de données (UC et E/S de lecture). Toutefois, cela a un impact sur la cohérence transactionnelle, puisque les données lues à partir du cache peuvent ne pas être synchronisées avec les données de la base de données. Si un certain niveau d’incohérence est acceptable dans de nombreuses applications, cela ne se vérifie pas pour l’ensemble des charges de travail. Assurez-vous de comprendre pleinement les exigences d’une application avant d’utiliser une stratégie de mise en cache de couche Application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur les niveaux de service, consultez la section [Options et performances de la base de données SQL](sql-database-service-tiers.md)
+* Pour plus d’informations sur les niveaux de service basés sur des DTU, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Limites de ressources du modèle basé sur des DTU](sql-database-dtu-resource-limits.md)
+* Pour plus d’informations sur les niveaux de service basés sur des vCores, consultez [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md) et [Limites de ressources basées sur des vCores (préversion)](sql-database-vcore-resource-limits.md)
 * Pour de plus amples informations sur les pools élastiques, consultez la page [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
 * Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 

@@ -1,25 +1,26 @@
 ---
-title: "Installation d’une passerelle de données locale - Azure Logic Apps | Microsoft Docs"
-description: "Avant d’accéder à des sources de données locales, installez la passerelle de données locale pour accélérer le transfert et le chiffrement de données entre les sources de données locales et les applications logiques."
-keywords: "accéder aux données, localement, transfert de données, chiffrement, sources de données"
+title: Installation d’une passerelle de données locale - Azure Logic Apps | Microsoft Docs
+description: Avant d’accéder à des sources de données locales, installez la passerelle de données locale pour accélérer le transfert et le chiffrement de données entre les sources de données locales et les applications logiques.
+keywords: accéder aux données, localement, transfert de données, chiffrement, sources de données
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179008"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installer la passerelle de données locale pour Azure Logic Apps
 
@@ -242,6 +243,11 @@ Ainsi, quand l’utilisateur dans le cloud interagit avec un élément connecté
 6. Les résultats sont renvoyés de la source de données vers la passerelle, puis au service cloud de passerelle. Le service cloud de passerelle utilise ensuite les résultats.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Administration au niveau du locataire 
+
+Il n’existe actuellement aucun emplacement unique où les administrateurs locataires peuvent gérer toutes les passerelles que d’autres utilisateurs ont installé et configuré.  Si vous êtes un administrateur locataire, nous vous recommandons de demander aux utilisateurs de votre organisation de vous ajouter en tant qu’administrateur pour chaque passerelle qu’ils installent. Cela vous permet de gérer toutes les passerelles de votre organisation via la page Paramètres de la passerelle ou via des [commandes PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364401"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
@@ -55,7 +56,7 @@ Lorsque vous activez des stratégies Resource Manager et le contrôle RBAC pour 
 
 - [Collaborateur de machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
 - [Collaborateur de machine virtuelle classique](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées avec le modèle de déploiement classique, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
-- [Gestionnaire de sécurité](../role-based-access-control/built-in-roles.md#security-manager) : peut gérer les composants de sécurité, les stratégies de sécurité et les machines virtuelles.
+- [Administrateur de la sécurité](../role-based-access-control/built-in-roles.md#security-admin) : peut gérer les stratégies de sécurité et les composants de sécurité.
 - [Utilisateur de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) : peut tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.
 
 Ne partagez pas les comptes ou les mots de passe entre plusieurs administrateurs, et ne réutilisez pas les mots de passe dans plusieurs comptes d’utilisateur ou services, notamment pour les médias sociaux ou d’autres activités non administratives. Dans l’idéal, utilisez les modèles [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer vos machines virtuelles en toute sécurité. Avec cette approche, vous renforcez vos choix de déploiement et appliquez les paramètres de sécurité tout au long du déploiement.
@@ -68,7 +69,7 @@ Si votre machine virtuelle exécute des applications critiques qui requièrent u
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) requiert également que les machines virtuelles dont la charge est équilibrée appartiennent au même groupe à haute disponibilité. Si ces machines virtuelles doivent être accessibles à partir d’Internet, vous devez configurer un [équilibrage de charge sur Internet](../load-balancer/load-balancer-internet-overview.md).
 
-Lorsque les machines virtuelles sont exposées à Internet, vous devez vérifier que vous [contrôlez le trafic réseau à l’aide de groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md). Comme les groupes de sécurité réseau s’appliquent aux sous-réseaux, vous pouvez réduire leur nombre en regroupant vos ressources par sous-réseau et en les appliquant aux sous-réseaux. L’objectif est de créer une couche d’isolement réseau, en configurant correctement les fonctionnalités de [sécurité réseau](../best-practices-network-security.md) dans Azure.
+Lorsque les machines virtuelles sont exposées à Internet, vous devez vérifier que vous [contrôlez le trafic réseau à l’aide de groupes de sécurité réseau](../virtual-network/security-overview.md). Comme les groupes de sécurité réseau s’appliquent aux sous-réseaux, vous pouvez réduire leur nombre en regroupant vos ressources par sous-réseau et en les appliquant aux sous-réseaux. L’objectif est de créer une couche d’isolement réseau, en configurant correctement les fonctionnalités de [sécurité réseau](../best-practices-network-security.md) dans Azure.
 
 Vous pouvez également utiliser la fonctionnalité d’accès juste à temps d’Azure Security Center pour contrôler qui accède à distance à une machine virtuelle et pendant combien de temps.
 
@@ -124,6 +125,6 @@ Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser pr
 
 En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), vous pouvez surveiller les ressources de vos machines virtuelles et identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances. L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Azure Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Vous pouvez également utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de votre ressource.
+Vous pouvez également utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de vos ressources.
 
 Les organisations qui ne surveillent pas les performances des machines virtuelles ne peuvent pas déterminer si certaines variations des performances sont normales ou pas. Si la machine virtuelle consomme davantage de ressources que la normale, cela peut être le signe d’une attaque potentielle par une ressource externe ou un processus interne compromis.

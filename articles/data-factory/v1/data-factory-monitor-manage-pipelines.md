@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3fb7c0be6f69f15b5b761f0c36d983f008282e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771362"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +29,13 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md) (Surveiller et gérer des pipelines Data Factory dans la version 2).
 
+Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l’aide du Portail Azure et de PowerShell.
+
 > [!IMPORTANT]
 > L’application de surveillance et gestion favorise la surveillance et la gestion de vos pipelines de données, ainsi que la résolution des problèmes. Pour en savoir plus sur l’utilisation de l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
-
-Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l’aide du Portail Azure et de PowerShell. Il offre également des informations sur la façon de créer des alertes et d’être averti en cas d’échec.
+> [!IMPORTANT]
+> Azure Data Factory version 1 utilise maintenant la nouvelle [infrastructure d’alertes Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). L’ancienne infrastructure d’alertes est déconseillée. Par conséquent, vos alertes existantes configurées pour les fabriques de données version 1 ne fonctionnent plus. Vos alertes existantes pour les fabriques de données v1 ne sont pas migrées automatiquement. Vous devez recréer ces alertes sur la nouvelle infrastructure d’alertes. Connectez-vous au portail et sélectionnez **Surveiller** pour créer des alertes sur les métriques (par exemple les exécutions qui ont échoué ou réussi) pour vos fabriques de données version 1.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Présentation des pipelines et des états d’activité
 À l’aide du portail Azure, vous pouvez :
@@ -103,7 +106,7 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 <td>ActivityResume</td><td>L’activité est mise en pause et ne peut pas exécuter les tranches jusqu’à sa reprise.</td>
 </tr>
 <tr>
-<td>Retry</td><td>L’exécution de l’activité est retentée.</td>
+<td>Recommencer</td><td>L’exécution de l’activité est retentée.</td>
 </tr>
 <tr>
 <td>Validation</td><td>La validation n’a pas encore démarré.</td>
@@ -196,7 +199,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Débogage de pipelines
 Azure Data Factory offre des fonctionnalités exceptionnelles pour déboguer et résoudre les problèmes des pipelines via le portail Azure et Azure PowerShell.
 
-> [!Remarque} Il est beaucoup plus facile de résoudre les erreurs à l’aide de l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
+> [!NOTE] 
+> Il est beaucoup plus facile de résoudre les erreurs à l’aide de l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Recherche d’erreurs dans un pipeline
 En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de données généré par celui-ci est alors en état d’erreur. Vous pouvez déboguer et corriger les erreurs dans Azure Data Factory à l’aide des méthodes suivantes.
@@ -296,360 +300,35 @@ L’exemple suivant définit l’état de toutes les tranches de la table « DA
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Créer des alertes dans le portail Azure
 
-## <a name="create-alerts"></a>Créez des alertes
-Azure consigne les événements utilisateur lorsqu'une ressource Azure (par exemple, une fabrique de données) est créée, mise à jour ou supprimée. Vous pouvez créer des alertes relatives à ces événements. Vous pouvez utiliser Data Factory pour capturer différentes mesures et créer des alertes associées. Nous vous recommandons d’utiliser les événements pour obtenir une surveillance en temps réel et les mesures à des fins d’historique.
+1.  Connectez-vous au portail et sélectionnez **Surveiller -> Alertes** pour ouvrir la page des alertes.
 
-### <a name="alerts-on-events"></a>Alertes relatives à des événements
-Les événements Azure fournissent des explications utiles sur ce qui se passe dans vos ressources Azure. Lorsque vous utilisez Azure Data Factory, les événements sont générés quand :
+    ![Ouvrez la page Alertes.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
 
-* Une fabrique de données est créée, mise à jour ou supprimée.
-* Le traitement des données (les « exécutions ») est démarré ou terminé.
-* Un cluster HDInsight à la demande est créé ou supprimé.
+2.  Sélectionnez **+ Nouvelle règle d’alerte** pour créer une nouvelle alerte.
 
-Vous pouvez créer des alertes relatives à ces événements utilisateur et les configurer pour envoyer des notifications par courrier électronique à l’administrateur et aux coadministrateurs de l’abonnement. De plus, vous pouvez spécifier des adresses de messagerie supplémentaires pour les utilisateurs devant recevoir des notifications par courrier électronique lorsque les conditions sont remplies. Cette fonctionnalité est très utile lorsque vous souhaitez être averti en cas d’échec et que vous ne souhaitez pas surveiller en continu votre fabrique de données.
+    ![Créer une nouvelle alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-> [!NOTE]
-> Actuellement, le portail n’affiche pas les alertes sur les événements. Utilisez [l’Application de surveillance et gestion](data-factory-monitor-manage-app.md) pour afficher toutes les alertes.
+3.  Définissez la **condition de l’alerte**. (Veillez à sélectionner **Fabriques de données** dans le champ **Filtrer par type de ressource**.) Vous pouvez également spécifier les valeurs du champ **Dimensions**.
 
+    ![Définir la condition de l’alerte - Sélectionner la cible](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
-#### <a name="specify-an-alert-definition"></a>Spécifier une définition d’alerte
-Pour spécifier une définition d’alerte, vous devez créer un fichier JSON qui décrit les opérations pour lesquelles vous souhaitez être alerté. Dans l'exemple suivant, l'alerte envoie une notification par courrier électronique pour l’opération RunFinished. Pour être plus précis, une notification par courrier électronique est envoyée lorsqu'une exécution de la fabrique de données est terminée en ayant échoué (État = FailedExecution).
+    ![Définir la condition de l’alerte - Ajouter des critères d’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
 
-```JSON
-{
-    "contentVersion": "1.0.0.0",
-     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "parameters": {},
-    "resources":
-    [
-        {
-            "name": "ADFAlertsSlice",
-            "type": "microsoft.insights/alertrules",
-            "apiVersion": "2014-04-01",
-            "location": "East US",
-            "properties":
-            {
-                "name": "ADFAlertsSlice",
-                "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
-                "isEnabled": true,
-                "condition":
-                {
-                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
-                    "dataSource":
-                    {
-                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
-                        "operationName": "RunFinished",
-                        "status": "Failed",
-                        "subStatus": "FailedExecution"   
-                    }
-                },
-                "action":
-                {
-                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                    "customEmails": [ "<your alias>@contoso.com" ]
-                }
-            }
-        }
-    ]
-}
-```
+    ![Définir la condition de l’alerte - Ajouter une logique d’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-Si vous ne voulez pas recevoir d’alerte relative à un problème spécifique, vous pouvez supprimer **subStatus** de la définition JSON ci-dessus.
+4.  Définissez les **détails de l’alerte**.
 
-L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de votre abonnement. Si vous souhaitez configurer l’alerte pour une fabrique de données particulière, vous pouvez spécifier la fabrique de données **resourceUri** dans le bloc **dataSource** :
+    ![Définir les détails de l’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-```JSON
-"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
-```
+5.  Définissez le **groupe d’actions**.
 
-Le tableau suivant dresse la liste des opérations et des états (et états secondaires) disponibles.
+    ![Définir le groupe d’actions - Créer un nouveau groupe d’actions](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 
-| Nom d’opération | Statut | État secondaire |
-| --- | --- | --- |
-| RunStarted |Démarré |Démarrage en cours |
-| RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandonné |
-| OnDemandClusterCreateStarted |Démarré | |
-| OnDemandClusterCreateSuccessful |Succeeded | |
-| OnDemandClusterDeleted |Succeeded | |
+    ![Définir le groupe d’actions - Définir les propriétés](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
 
-Consultez [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) (Créer une règle d’alerte) pour plus d’informations sur les éléments JSON utilisés dans l’exemple.
-
-#### <a name="deploy-the-alert"></a>Déployer l’alerte
-Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
-```
-
-Une fois le déploiement du groupe de ressources terminé, les messages suivants s’affichent :
-
-```
-VERBOSE: 7:00:48 PM - Template is valid.
-WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
-Please update scripts to remove this parameter.
-VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
-VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
-
-DeploymentName    : ADFAlertFailedSlice
-ResourceGroupName : adf
-ProvisioningState : Succeeded
-Timestamp         : 10/11/2014 2:01:00 AM
-Mode              : Incremental
-TemplateLink      :
-Parameters        :
-Outputs           :
-```
-
-> [!NOTE]
-> Vous pouvez utiliser l’API REST [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour créer une règle d’alerte. La charge utile JSON est similaire à l’exemple JSON.  
-
-
-#### <a name="retrieve-the-list-of-azure-resource-group-deployments"></a>Récupérer la liste des déploiements de groupes de ressources Azure
-Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
-
-```powershell
-Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
-```
-
-```
-DeploymentName    : ADFAlertFailedSlice
-ResourceGroupName : adf
-ProvisioningState : Succeeded
-Timestamp         : 10/11/2014 2:01:00 AM
-Mode              : Incremental
-TemplateLink      :
-Parameters        :
-Outputs           :
-```
-
-#### <a name="troubleshoot-user-events"></a>Résoudre les problèmes relatifs aux événements utilisateur
-1. Vous pouvez voir tous les événements générés après avoir cliqué sur la mosaïque **Mesures et opérations**.
-
-    ![Vignette Mesures et opérations](./media/data-factory-monitor-manage-pipelines/metrics-and-operations-tile.png)
-2. Cliquez sur la mosaïque **Événements** pour afficher les événements.
-
-    ![Vignette d'événements](./media/data-factory-monitor-manage-pipelines/events-tile.png)
-3. Dans le panneau **Événements**, vous pouvez consulter des détails sur les événements, les événements filtrés, et ainsi de suite.
-
-    ![Panneau Événements](./media/data-factory-monitor-manage-pipelines/events-blade.png)
-4. Dans la liste des opérations, cliquez sur une **opération** à l’origine d’une erreur.
-
-    ![Sélectionner une opération](./media/data-factory-monitor-manage-pipelines/select-operation.png)
-5. Pour afficher des détails sur l’erreur, cliquez sur un événement **Erreur**.
-
-    ![Événement erreur](./media/data-factory-monitor-manage-pipelines/operation-error-event.png)
-
-Consultez l’article [Azure Insight cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) (Applets de commande Azure Insight) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter, obtenir ou supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
-
-```powershell
-get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
-```
-
-```
-Properties :
-Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
-Condition   :
-DataSource :
-EventName             :
-Category              :
-Level                 :
-OperationName         : RunFinished
-ResourceGroupName     :
-ResourceProviderName  :
-ResourceId            :
-Status                : Failed
-SubStatus             : FailedExecution
-Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
-Condition      :
-Description : One or more of the data slices for the Azure Data Factory has failed processing.
-Status      : Enabled
-Name:       : ADFAlertsSlice
-Tags       :
-$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-Location   : West US
-Name       : ADFAlertsSlice
-```
-
-```powershell
-Get-AlertRule -res $resourceGroup
-```
-```
-Properties : Microsoft.Azure.Management.Insights.Models.Rule
-Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-Location   : West US
-Name       : FailedExecutionRunsWest0
-
-Properties : Microsoft.Azure.Management.Insights.Models.Rule
-Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-Location   : West US
-Name       : FailedExecutionRunsWest3
-```
-
-```powershell
-Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-```
-
-```
-Properties : Microsoft.Azure.Management.Insights.Models.Rule
-Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-Location   : West US
-Name       : FailedExecutionRunsWest0
-```
-
-Exécutez les commandes get-help suivantes afinb d’afficher des détails et des exemples pour l'applet de commande Get-AlertRule.
-
-```powershell
-get-help Get-AlertRule -detailed
-```
-
-```powershell
-get-help Get-AlertRule -examples
-```
-
-
-Si des événements de génération d’alertes apparaissent sur le panneau du portail, mais que vous ne recevez pas de notification par courrier électronique, vérifiez que votre adresse e-mail est bien configurée de manière à recevoir des messages de la part d’expéditeurs externes. Les alertes par courrier électronique peuvent avoir été bloquées en raison de vos paramètres de messagerie.
-
-### <a name="alerts-on-metrics"></a>Alertes relatives à des mesures
-Dans Data Factory, vous pouvez capturer différentes mesures et créer des alertes associées. Vous pouvez surveiller et créer des alertes relatives aux mesures suivantes pour les tranches de votre fabrique de données :
-
-* **Exécutions échouées**
-* **Exécutions réussies**
-
-Ces mesures sont utiles et vous permettent d’obtenir une vue d’ensemble globale des exécutions réussies et échouées dans la fabrique de données. Des mesures sont émises lors de chaque exécution de tranche de données. Toutes les heures, ces mesures sont agrégées et transférées dans votre compte de stockage. Pour activer les mesures, configurez un compte de stockage.
-
-#### <a name="enable-metrics"></a>Activer les mesures
-Pour activer les mesures, cliquez sur ce qui suit à partir du panneau **Data Factory** :
-
-**Analyse** > **Mesures** > **Paramètres de diagnostic** > **Diagnostics**
-
-![Lien Diagnostics](./media/data-factory-monitor-manage-pipelines/diagnostics-link.png)
-
-Dans le panneau **Diagnostics**, cliquez sur **Activé**, sélectionnez le compte de stockage, puis cliquez sur **Enregistrer**.
-
-![Panneau Diagnostics](./media/data-factory-monitor-manage-pipelines/diagnostics-blade.png)
-
-Vous devrez peut-être attendre une heure maximum avant que les mesures ne soient visibles dans le panneau **Analyse**. En effet, l’agrégation des mesures s’effectue une fois par heure.
-
-### <a name="set-up-an-alert-on-metrics"></a>Configurer une alerte relative à des mesures
-Cliquez sur la mosaïque **Mesures de fabrique de données** :
-
-![Vignette Mesures de fabrique de données](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
-
-Dans le panneau **Mesures**, dans la barre d’outils, cliquez sur **+ Ajouter une alerte**.
-![Panneau Mesures de fabrique de données &gt; Ajouter une alerte](./media/data-factory-monitor-manage-pipelines/add-alert.png)
-
-Dans la page **Ajouter une règle d’alerte**, procédez comme suit, puis cliquez sur **OK**.
-
-* Entrez un nom pour l’alerte (p. ex. « alerte d’échec »).
-* Entrez une description pour l’alerte (p. ex. « envoyer un courrier électronique en cas d’échec »).
-* Sélectionnez une mesure (« exécutions échouées » ou « exécutions réussies »).
-* Spécifiez une condition et une valeur de seuil.   
-* Spécifiez la période.
-* Spécifiez si un courrier électronique doit être envoyé aux propriétaires, aux collaborateurs et aux lecteurs.
-
-![Panneau Mesures de fabrique de données > Ajouter une règle d’alerte](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
-
-Une fois la règle d’alerte correctement ajoutée, le panneau se ferme et la nouvelle alerte s’affiche dans le panneau **Mesure**.
-
-![Panneau Mesures de fabrique de données > Nouvelle alerte ajoutée](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
-
-Vous devez également voir le nombre d’alertes dans la mosaïque **Règles d’alerte**. Cliquez sur la mosaïque **Règles d’alerte**.
-
-![Panneau Mesures de fabrique de données - Règles d’alerte](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
-
-Dans le panneau **Règles d’alerte**, vous voyez les alertes existantes. Pour ajouter une alerte, dans la barre d’outils, cliquez sur **Ajouter une alerte**.
-
-![Panneau Règles d’alerte](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
-
-### <a name="alert-notifications"></a>Notifications d’alerte
-Une fois que la règle d’alerte correspond à la condition,vous devez recevoir un courrier électronique vous informant que l’alerte est activée. Une fois que le problème est résolu et que la condition d’alerte est caduque, vous recevez un courrier électronique signalant que l’alerte a été résolue.
-
-Ce comportement se distingue des événements donnant lieu à l’envoi d’une notification dès qu’un échec correspondant à une règle d’alerte a lieu.
-
-### <a name="deploy-alerts-by-using-powershell"></a>Déployer des alertes à l’aide de PowerShell
-Vous pouvez déployer des alertes relatives à des mesures de la même façon que vous le faites pour les événements.
-
-**Définition d’alerte**
-
-```JSON
-{
-    "contentVersion" : "1.0.0.0",
-    "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "parameters" : {},
-    "resources" : [
-    {
-            "name" : "FailedRunsGreaterThan5",
-            "type" : "microsoft.insights/alertrules",
-            "apiVersion" : "2014-04-01",
-            "location" : "East US",
-            "properties" : {
-                "name" : "FailedRunsGreaterThan5",
-                "description" : "Failed Runs greater than 5",
-                "isEnabled" : true,
-                "condition" : {
-                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-                    "dataSource" : {
-                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                        "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
->/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
-                        "metricName" : "FailedRuns"
-                    },
-                    "threshold" : 5.0,
-                    "windowSize" : "PT3H",
-                    "timeAggregation" : "Total"
-                },
-                "action" : {
-                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                    "customEmails" : ["abhinav.gpt@live.com"]
-                }
-            }
-        }
-    ]
-}
-```
-
-Remplacez les valeurs de *subscriptionId*, *resourceGroupName* et *dataFactoryName* figurant dans l’exemple par des valeurs appropriées.
-
-*metricName* prend actuellement en charge deux valeurs :
-
-* FailedRuns
-* SuccessfulRuns
-
-**Déployer l’alerte**
-
-Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
-```
-
-Le message suivant devrait s’afficher après la réussite du déploiement :
-
-```
-VERBOSE: 12:52:47 PM - Template is valid.
-VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
-VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
-
-
-DeploymentName    : FailedRunsGreaterThan5
-ResourceGroupName : adf
-ProvisioningState : Succeeded
-Timestamp         : 7/27/2015 7:52:56 PM
-Mode              : Incremental
-TemplateLink      :
-Parameters        :
-Outputs           
-```
-
-Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour obtenir plus d’informations et des exemples.  
+    ![Définir le groupe d’actions - Nouveau groupe d’actions créé](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Déplacer une fabrique de données vers un autre groupe de ressources ou abonnement
 Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l’aide du bouton de la barre de commandes **Déplacer** situé sur la page d’accueil de votre fabrique de données.
