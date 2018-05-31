@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360323"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770927"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Guide pratique pour planifier le démarrage et l’arrêt d’un runtime d’intégration Azure SSIS 
 L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integration Services) a un coût. Il est donc souhaitable de n’exécuter le runtime d’intégration que quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur de Data Factory ou Azure PowerShell pour [démarrer ou arrêter un runtime d’intégration Azure SSIS manuellement](manage-azure-ssis-integration-runtime.md). Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration (IR) Azure SSIS à l’aide d’Azure Automation et de Azure Data Factory. Voici les étapes générales décrites dans cet article :
@@ -72,6 +72,9 @@ Si vous n’avez pas de compte Azure Automation, créez-en un en suivant les ins
 ### <a name="import-data-factory-modules"></a>Importer des modules Data Factory
 
 1. Sélectionnez **Modules** dans la section **RESSOURCES PARTAGÉES** dans le menu de gauche, puis vérifiez si **AzureRM.Profile** et **AzureRM.DataFactoryV2** apparaissent dans la liste des modules.
+
+    > [!IMPORTANT]
+    > À l’heure actuelle, seuls les modules **AzureRM.DataFactoryV2 0.5.2** et **AzureRM.Profile 4.5.0** sont utilisables.
 
     ![Vérifier les modules requis](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
