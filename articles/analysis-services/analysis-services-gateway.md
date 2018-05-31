@@ -5,14 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156271"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données Azure locale
 La passerelle de données locale agit comme un pont, en fournissant un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans la même région avec une passerelle unique. 
@@ -82,6 +83,11 @@ Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’ai
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>Administration au niveau du locataire 
+
+Il n’existe actuellement aucun emplacement unique où les administrateurs locataires peuvent gérer toutes les passerelles que d’autres utilisateurs ont installé et configuré.  Si vous êtes un administrateur locataire, il est recommandé de demander aux utilisateurs dans votre organisation de vous ajouter en tant qu’administrateur pour chaque passerelle qu’ils installent. Cela vous permet de gérer toutes les passerelles de votre organisation via la page Paramètres de la passerelle ou via des [commandes PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Forum Aux Questions
 

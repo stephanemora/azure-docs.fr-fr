@@ -14,17 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200516"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article explique comment autoriser la connexion d’utilisateurs à l’aide du point de terminaison commun pour Azure Active Directory (Azure AD) par le biais de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
+Cet article explique comment autoriser la connexion d’utilisateurs à l’aide du point de terminaison multi-locataire pour Azure Active Directory (Azure AD) en utilisant des [stratégies personnalisées](active-directory-b2c-overview-custom.md). Cela permet aux utilisateurs issus de différents locataires Azure AD de se connecter à Azure AD B2C sans configurer un fournisseur technique pour chaque locataire. Toutefois, les membres invités dans ces locataires **ne pourront pas** se connecter. Il faudra pour cela [configurer individuellement chaque locataire](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > Nous utilisons « contoso.com » pour l’organisation (locataire) Azure AD et « fabrikamb2c.onmicrosoft.com » comme locataire Azure AD B2C dans les instructions suivantes.
@@ -37,25 +38,22 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
 Ces étapes sont les suivantes :
      
 1. Création d’un locataire Azure Active Directory B2C (Azure AD B2C).
-2. Création d’une application Azure AD B2C.    
-3. Inscription de deux applications de moteur de stratégie.  
-4. Configuration des clés. 
-5. Configuration du pack de démarrage.
+1. Création d’une application Azure AD B2C.    
+1. Inscription de deux applications de moteur de stratégie.  
+1. Configuration des clés. 
+1. Configuration du pack de démarrage.
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>Étape 1. Créer une application Azure AD mutualisée
 
-Pour autoriser la connexion d’utilisateurs à l’aide du point de terminaison Azure AD mutualisé, vous devez disposer d’une application mutualisée inscrite dans l’un de vos locataires Azure AD. Dans cet article, nous allons vous expliquer comment créer une application Azure AD mutualisée dans votre locataire Azure AD B2C. Puis vous découvrirez comment autoriser la connexion d’utilisateurs par le biais de cette application Azure AD mutualisée.
-
->[!NOTE]
-> Si vous souhaitez autoriser la connexion d’utilisateurs Azure AD **ainsi que d’utilisateurs disposant de comptes Microsoft**, ignorez cette section et inscrivez une application dans le [Portail des développeurs Microsoft](https://apps.dev.microsoft.com).
+Pour autoriser la connexion d’utilisateurs à l’aide du point de terminaison Azure AD multi-locataire, il vous faut une application multi-locataire inscrite dans l’un de vos locataires Azure AD. Dans cet article, nous allons vous expliquer comment créer une application Azure AD mutualisée dans votre locataire Azure AD B2C. Puis vous découvrirez comment autoriser la connexion d’utilisateurs par le biais de cette application Azure AD mutualisée.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans le menu supérieur, sélectionnez votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD B2C dans lequel inscrire l’application Azure AD (fabrikamb2c.onmicrosoft.com).
-2. Cliquez sur **Autres services** dans le volet gauche, puis recherchez « Inscriptions d’applications ».
-3. Sélectionnez **Nouvelle inscription d’application**.
-4. Entrez un nom pour votre application (par exemple, `Azure AD B2C App`).
-5. Pour le type d’application, sélectionnez **Application web/API**.
-6. Pour **URL de connexion**, entrez l’URL suivante où `yourtenant` est remplacé par le nom de votre locataire Azure AD B2C (`fabrikamb2c.onmicrosoft.com`) :
+1. Cliquez sur **Autres services** dans le volet gauche, puis recherchez « Inscriptions d’applications ».
+1. Sélectionnez **Nouvelle inscription d’application**.
+1. Entrez un nom pour votre application (par exemple, `Azure AD B2C App`).
+1. Pour le type d’application, sélectionnez **Application web/API**.
+1. Pour **URL de connexion**, entrez l’URL suivante où `yourtenant` est remplacé par le nom de votre locataire Azure AD B2C (`fabrikamb2c.onmicrosoft.com`) :
 
     >[!NOTE]
     >La valeur de « yourtenant » doit être en minuscules dans **l’URL de connexion**.
@@ -83,8 +81,8 @@ Vous devez inscrire la clé d’application dans les paramètres Azure AD B2C. P
    * Pour **Nom**, choisissez un nom correspondant au nom de votre locataire Azure AD (par exemple, `AADAppSecret`).  Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
    * Collez votre clé d’application dans la zone **Secret**.
    * Sélectionnez **Signature**.
-5. Sélectionnez **Créer**.
-6. Vérifiez que vous avez créé la clé `B2C_1A_AADAppSecret`.
+1. Sélectionnez **Créer**.
+1. Vérifiez que vous avez créé la clé `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>Étape 3. Ajoutez un fournisseur de revendications dans votre stratégie de base
 
@@ -115,11 +113,12 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -151,14 +150,15 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
 1. Mettez à jour la valeur pour `<Description>`.
 1. Définissez `<Item Key="client_id">` sur l’ID d’application issu de l’inscription de l’application mutualisée Azure AD.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>Étape 3.1 [Facultatif] Restreindre l’accès à une liste spécifique de locataires Azure AD
-Vous voudrez peut-être mettre à jour la liste d’émetteurs de jetons valides et restreindre l’accès à une liste spécifique de locataires Azure AD autorisés pour la connexion des utilisateurs. Pour obtenir les valeurs correspondantes, vous devrez examiner les métadonnées de chacun des locataires Azure AD spécifiques à partir desquels les utilisateurs seront autorisés à se connecter. Le format des données présente l’aspect suivant : `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre locataire Azure AD (contoso.com ou tout autre locataire Azure AD).
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Étape 3.1 Restreindre l’accès à une liste spécifique de locataires Azure AD
+
+> [!NOTE]
+> La valeur `https://sts.windows.net` pour **ValidTokenIssuerPrefixes** autorise TOUS les utilisateurs Azure AD à se connecter à votre application.
+
+Vous devez mettre à jour la liste d’émetteurs de jetons valides et restreindre l’accès à une liste spécifique de locataires Azure AD autorisés pour la connexion des utilisateurs. Pour obtenir les valeurs correspondantes, vous devrez examiner les métadonnées de chacun des locataires Azure AD spécifiques à partir desquels les utilisateurs seront autorisés à se connecter. Le format des données présente l’aspect suivant : `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre locataire Azure AD (contoso.com ou tout autre locataire Azure AD).
 1. Ouvrez votre navigateur et accédez à l’URL des métadonnées.
 1. Dans le navigateur, recherchez l’objet « issuer » et copiez sa valeur. Elle doit ressembler à ceci : `https://sts.windows.net/{tenantId}/`.
 1. Collez la valeur de la clé `ValidTokenIssuerPrefixes`. Vous pouvez ajouter plusieurs valeurs en les séparant par une virgule. Un exemple de cette opération est commenté dans l’exemple de code XML ci-dessus.
-
-> [!NOTE]
-> L’utilisation de la chaîne `https://sts.windows.net` comme valeur de préfixe autorisera TOUS les utilisateurs Azure AD à se connecter à votre application.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>Étape 4. Inscrire le fournisseur de revendications de compte Azure AD
 
@@ -213,11 +213,11 @@ Vous devez maintenant mettre à jour le fichier de partie de confiance qui initi
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Étape 6 : Charger la stratégie sur votre locataire
 
 1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
-2. Sélectionnez **Infrastructure d’expérience d’identité**.
-3. Sélectionnez **Toutes les stratégies**.
-4. Sélectionnez **Charger la stratégie**.
-5. Activez la case à cocher **Remplacer la stratégie si elle existe**.
-6. Chargez le fichier `TrustFrameworkExtensions.xml` et le fichier de partie de confiance (par exemple `SignUpOrSignInWithAAD.xml`) et assurez-vous que leur validation réussit.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Toutes les stratégies**.
+1. Sélectionnez **Charger la stratégie**.
+1. Activez la case à cocher **Remplacer la stratégie si elle existe**.
+1. Chargez le fichier `TrustFrameworkExtensions.xml` et le fichier de partie de confiance (par exemple `SignUpOrSignInWithAAD.xml`) et assurez-vous que leur validation réussit.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Étape 7 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 

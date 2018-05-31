@@ -3,7 +3,7 @@ title: Solution Blueprint Sécurité et conformité Azure - Charges de travail r
 description: Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895552"
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC
 
@@ -132,7 +133,7 @@ Cette solution a utilisé les services Azure suivants. Les informations détaill
 >- Application web Azure
 >- Azure Automation
 >- Runbooks Azure Automation
->- DNS Azure
+>- Azure DNS
 >- Réseau virtuel Azure
 >- Machine virtuelle Azure
 >- Groupe de ressources et stratégies Azure
@@ -194,7 +195,7 @@ L’architecture protège les données au repos à l’aide du chiffrement, de l
 
 Pour répondre aux exigences du chiffrement des données au repos, l’ensemble du [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise le [chiffrement du service de stockage](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>Base de données SQL Azure
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 
@@ -388,8 +389,3 @@ Les clients doivent conserver une copie de la [Matrice de responsabilités](http
 - Tous les noms de clients, enregistrements de transactions et autres données associées de cette page sont fictifs. Ils ont été créés pour les besoins de cette architecture de base et sont fournis à titre d’exemple uniquement. Toute association ou lien sont purement involontaires ou fortuits.  
 - Cette solution a été développée conjointement par Microsoft et Avyan Consulting, et est disponible avec une [Licence MIT](https://opensource.org/licenses/MIT).
 
-### <a name="document-authors"></a>Auteurs du document
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Dépôt de code"

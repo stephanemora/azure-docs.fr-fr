@@ -1,25 +1,26 @@
 ---
-title: "Déployer et surveiller des modules pour Azure IoT Edge | Microsoft Docs"
-description: "Gérer les modules qui s’exécutent sur des appareils Edge"
+title: Déployer et surveiller des modules pour Azure IoT Edge | Microsoft Docs
+description: Gérer les modules qui s’exécutent sur des appareils Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770604"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Déployer et surveiller des modules IoT Edge à l’échelle : aperçu
 
 Azure IoT Edge vous permet de déplacer l’analytique vers la périphérie et fournit une interface cloud afin de pouvoir gérer et surveiller vos appareils IoT Edge sans avoir à accéder physiquement à chacun d’eux. La capacité à gérer à distance des appareils est de plus en plus importante à mesure que les solutions Internet des objets (IoT) deviennent de plus en plus volumineuses et complexes. Azure IoT Edge est conçu pour prendre en charge vos objectifs professionnels, quel que soit le nombre d’appareils que vous ajoutez.
 
-Vous pouvez gérer les appareils individuellement et y déployer des modules un à la fois. Toutefois, si vous souhaitez apporter des modifications à grande échelle à des appareils, vous pouvez créer un **déploiement IoT Edge**. Les déploiements sont des processus dynamiques qui vous permettent de déployer plusieurs modules sur plusieurs appareils à la fois, de suivre l’état et l’intégrité des modules, et d’apporter des modifications si nécessaire. 
+Vous pouvez gérer les appareils individuellement et y déployer des modules un à la fois. Toutefois, si vous souhaitez apporter des modifications aux appareils à grande échelle, vous pouvez créer un **déploiement automatique IoT Edge**, qui fait partie de la Gestion automatique des appareils dans IoT Hub. Les déploiements sont des processus dynamiques qui vous permettent de déployer plusieurs modules sur plusieurs appareils à la fois, de suivre l’état et l’intégrité des modules, et d’apporter des modifications si nécessaire. 
 
 ## <a name="identify-devices-using-tags"></a>Identifier les appareils à l’aide de balises
 

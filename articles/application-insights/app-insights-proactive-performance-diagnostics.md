@@ -1,9 +1,9 @@
 ---
-title: "Détection intelligente - anomalies de performances | Microsoft Docs"
-description: "Application Insights réalise une analyse télémétrique intelligente de votre application et vous avertit des éventuels problèmes de performances. Cette fonctionnalité ne nécessite aucune configuration."
+title: Détection intelligente - anomalies de performances | Microsoft Docs
+description: Application Insights réalise une analyse télémétrique intelligente de votre application et vous avertit des éventuels problèmes de performances. Cette fonctionnalité ne nécessite aucune configuration.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868932"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -87,7 +88,7 @@ Les courriers électroniques relatifs aux anomalies de performances de détectio
   * Non.  Nous ne détectons pas tous les comportements que vous pouvez considérer comme étant anormaux.
 
 
-* *Si je ne fais rien suite à une notification, un rappel me sera-t-il envoyé ?*
+* *Si je ne fais rien suite à une notification, un rappel me sera-t-il envoyé ?*
   * Non, vous ne recevez qu’un message pour chaque problème. Si le problème persiste, il sera mis à jour dans le panneau de flux Détection intelligente.
 * *J’ai perdu le courrier électronique Où puis-je trouver les notifications dans le portail ?*
   * Dans la vue d'ensemble Application Insights de votre application, cliquez sur la mosaïque **Détection intelligente** . Vous serez en mesure de retrouver toutes les notifications jusqu’à 90 jours dans le passé.
@@ -132,7 +133,7 @@ La notification de dégradation du temps de réponse indique :
 * Liens pour vous aider à diagnostiquer le problème.
   * Suivis du Profileur pour vous aider à savoir ce à quoi la durée de l’opération est consacrée (le lien est disponible si des exemples de suivi du Profileur ont été collectés pour cette opération pendant la période de détection). 
   * Rapports de performance dans l’Explorateur de mesures, dans lequel vous pouvez segmenter et traiter une plage de temps/des filtres pour cette opération.
-  * Recherches de ces appels pour afficher les propriétés d’appels spécifiques.
+  * Recherche de cet appel pour afficher certaines de ses propriétés.
   * Rapports d’échecs : si le nombre > 1, cela signifie que des erreurs dans cette opération ont pu contribuer à la dégradation des performances.
 
 ## <a name="dependency-duration-degradation"></a>Dégradation de la durée de dépendance
@@ -152,7 +153,7 @@ Notez qu’il vous indique :
 * Liens pour vous aider à diagnostiquer le problème
   * Rapports de performances dans l’Explorateur de mesures de cette dépendance
   * Recherches de ces appels de dépendance pour afficher les propriétés des appels
-  * Rapports d’échecs : si le nombre > 1, cela signifie que des appels de dépendance ont échoué pendant la période de détection, qui ont pu contribuer à la dégradation de la durée. 
+  * Rapports d’échecs : si le nombre est supérieur à 1, cela signifie que des appels de dépendance ont échoué pendant la période de détection et ont pu contribuer à la dégradation de la durée. 
   * Ouverture de la fonctionnalité Analytics permettant de calculer cette durée de dépendance et un nombre  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Détection intelligente de modèles de performances lentes 
