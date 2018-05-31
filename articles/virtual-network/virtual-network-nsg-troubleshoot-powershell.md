@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365438"
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Résoudre les groupes de sécurité réseau à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 Si vous avez configuré des groupes de sécurité réseau sur votre machine virtuelle et rencontrez des problèmes de connectivité de machine virtuelle, cet article fournit une vue d’ensemble des fonctionnalités de diagnostic pour les groupes de sécurité réseau afin de vous aider à dépanner.
 
-Les groupes de sécurité réseau vous permettent de contrôler les types de trafic transitant sur vos machines virtuelles. Des groupes de sécurité réseau peuvent être appliqués à des sous-réseaux d’un réseau virtuel Azure (VNet), à des cartes réseau ou aux deux. Les règles effectives appliquées à une carte réseau sont une agrégation de règles existant dans les groupes de sécurité réseau appliqués à une carte réseau et au sous-réseau auquel elle est connectée. Les règles appliquées à ces groupes de sécurité réseau sont parfois en conflit entre elles et peuvent avoir une incidence sur la connectivité réseau d’une machine virtuelle.  
+Les groupes de sécurité réseau vous permettent de contrôler les types de trafic transitant sur vos machines virtuelles. Des groupes de sécurité réseau peuvent être appliqués à des sous-réseaux d’un réseau virtuel Azure (VNet), à des cartes réseau ou aux deux. Les règles effectives appliquées à une carte réseau sont une agrégation de règles existant dans les groupes de sécurité réseau appliqués à une carte réseau et au sous-réseau auquel elle est connectée. Les règles appliquées à ces groupes de sécurité réseau sont parfois en conflit entre elles et peuvent avoir une incidence sur la connectivité réseau d’une machine virtuelle.
 
-Vous pouvez afficher toutes les règles de sécurité effectives de vos groupes de sécurité réseau, telles qu’appliquées aux cartes réseau de votre machine virtuelle. Cet article explique comment résoudre les problèmes de connectivité de machine virtuelle à l’aide de ces règles dans le modèle de déploiement Azure Resource Manager. Si vous n’êtes pas familiarisé avec les concepts de réseau virtuel et de groupe de sécurité réseau, lisez les articles de présentation [Réseau virtuel](virtual-networks-overview.md) et [Groupes de sécurité réseau](virtual-networks-nsg.md).
+Vous pouvez afficher toutes les règles de sécurité effectives de vos groupes de sécurité réseau, telles qu’appliquées aux cartes réseau de votre machine virtuelle. Cet article explique comment résoudre les problèmes de connectivité de machine virtuelle à l’aide de ces règles dans le modèle de déploiement Azure Resource Manager. Si vous n’êtes pas familiarisé avec les concepts de réseau virtuel et de groupe de sécurité réseau, consultez la [présentation du réseau virtuel](virtual-networks-overview.md) et la [présentation du groupe de sécurité réseau](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle
 Le scénario qui suit illustre un problème de connexion courant :
@@ -159,8 +160,7 @@ Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, pro
    
    * Il existe deux sections **NetworkSecurityGroup** : l’une est associée à un sous-réseau (*Subnet1*), et l’autre à une carte d’interface réseau (*VM1-NIC1*). Dans cet exemple, un groupe de sécurité réseau a été appliquée à chacune d’elles.
    * **Association** montre les ressources (carte d’interface réseau ou sous-réseau) auxquelles un groupe de sécurité réseau donné est associé. Si la ressource de groupe de sécurité réseau est déplacée/dissociée immédiatement avant l’exécution de cette commande, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande. 
-   * Les noms de règle sont précédés de *defaultSecurityRules*: lors de la création d’un groupe de sécurité réseau, plusieurs règles de sécurité par défaut sont créées à l’intérieur de celui-ci. Vous ne pouvez pas supprimer des règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée.
-     Pour en savoir plus sur les règles de sécurité par défaut de groupe de sécurité réseau , voir l’article [Vue d’ensemble de groupe de sécurité réseau](virtual-networks-nsg.md#default-rules) .
+   * Les noms de règle sont précédés de *defaultSecurityRules*: lors de la création d’un groupe de sécurité réseau, plusieurs règles de sécurité par défaut sont créées à l’intérieur de celui-ci. Vous ne pouvez pas supprimer des règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Découvrez d’autres informations sur les [règles de sécurité par défaut](security-overview.md#default-security-rules).
    * **ExpandedAddressPrefix** développe les préfixes d’adresse pour les balises par défaut de groupe de sécurité réseau. Les balises représentent plusieurs préfixes d’adresse. L’expansion des balises peut être utile lors de la résolution de problèmes de connectivité de machine virtuelle avec des préfixes d’adresse spécifiques. Par exemple, avec VNET Peering, la balise VIRTUAL_NETWORK se développe pour afficher les préfixes de réseau virtuel homologués dans la sortie précédente.
      
      > [!NOTE]

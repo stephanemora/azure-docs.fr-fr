@@ -1,6 +1,6 @@
 ---
 title: Authentification Azure Active Directory et Resource Manager | Microsoft Docs
-description: "Guide de développement portant sur l’authentification avec l’API Azure Resource Manager et Azure Active Directory pour intégrer une application dans d’autres abonnements Azure."
+description: Guide de développement portant sur l’authentification avec l’API Azure Resource Manager et Azure Active Directory pour intégrer une application dans d’autres abonnements Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359860"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -29,7 +30,7 @@ Votre application peut accéder à ces API de différentes manières :
 1. **Accès de l’utilisateur et de l’application**: pour les applications qui accèdent aux ressources pour le compte d’un utilisateur connecté. Cette approche fonctionne pour les applications, telles que les applications web et les outils en ligne de commande, qui n’assurent que la « gestion interactive » des ressources Azure.
 2. **Accès de l’application uniquement**: pour les applications qui exécutent des services démons et des tâches planifiées. L’identité de l’application se voit octroyer un accès direct aux ressources. Cette approche fonctionne pour les applications qui nécessitent un accès sans affichage (sans assistance) prolongé à Azure.
 
-Cet article explique pas à pas comment créer une application qui met en œuvre ces deux méthodes d’autorisation. Elle montre comment effectuer chaque étape avec l’API REST ou C#. L’application MVC ASP.NET complète est disponible à l’adresse [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Cet article explique pas à pas comment créer une application qui met en œuvre ces deux méthodes d’autorisation. Elle montre comment effectuer chaque étape avec l’API REST ou C#. L’application ASP.NET MVC complète est disponible à l’adresse [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Ce que fait l’application web
 L’application web :
@@ -59,7 +60,7 @@ Indiquez vos informations d’identification.
 
 Autorisez l’application à accéder à vos abonnements Azure :
 
-![Accorder l’accès](./media/resource-manager-api-authentication/sample-ux-4.png)
+![Accorder l'accès](./media/resource-manager-api-authentication/sample-ux-4.png)
 
 Gérez vos abonnements connectés :
 
@@ -224,7 +225,7 @@ Vous disposez d’un jeton d’accès pour Azure Resource Manager uniquement. Il
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obtenir un jeton d’accès d’application uniquement pour l’API Microsoft Azure AD Graph
-Pour authentifier votre application et obtenir un jeton pour l’API Microsoft Azure AD Graph, envoyez une demande de jeton de flux OAuth2.0 pour l’octroi d’informations d’identification du client au point de terminaison de jeton Azure AD (**https://login.microsoftonline.com/{nom_domaine_répertoire}/OAuth2/Token**).
+Pour authentifier votre application et obtenir un jeton pour l’API Azure AD Graph, envoyez une demande de jeton de flux OAuth2.0 pour l’octroi d’informations d’identification du client au point de terminaison de jeton Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 La méthode [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de l’exemple d’application MVC ASP.NET permet d’obtenir un jeton d’accès d’application uniquement pour l’API Graph, via la bibliothèque d’authentification Active Directory Authentication Library (ADAL) pour .NET.
 

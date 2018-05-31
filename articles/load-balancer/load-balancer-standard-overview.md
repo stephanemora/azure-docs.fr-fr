@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362309"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
@@ -119,7 +120,7 @@ Consultez une [discussion détaillée sur les ports HA](load-balancer-ha-ports-o
 
 Load Balancer Standard est entièrement intégré au réseau virtuel.  Le réseau virtuel est un réseau privé et fermé.  Étant donné que les équilibreurs de charge Standard et des adresses IP publiques Standard sont conçus pour permettre à ce réseau virtuel d’être accessible depuis l’extérieur du réseau virtuel, ces ressources sont désormais fermées par défaut, sauf si vous les ouvrez. Cela signifie que les Groupes de sécurité réseau (NSG) sont désormais utilisés pour autoriser explicitement et mettre sur liste verte le trafic autorisé.  Vous pouvez créer votre centre de données virtuel complet et décider via le Groupe de sécurité réseau de ce qui doit être disponible et quand.  Si vous n’avez pas de Groupe de sécurité réseau sur un sous-réseau ou une carte réseau de votre ressource de machine virtuelle, nous n’autoriserons pas au trafic d’atteindre cette ressource.
 
-Pour plus d’informations sur les Groupes de sécurité réseau et la façon de les appliquer à votre scénario, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+Pour plus d’informations sur les Groupes de sécurité réseau et la façon de les appliquer à votre scénario, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Connexions sortantes
 
@@ -218,11 +219,14 @@ Load Balancer Standard est un produit facturé en fonction du nombre de règles 
 
 ## <a name="limitations"></a>Limites
 
-- Actuellement, les instances de serveur principal Load Balancer ne peuvent pas être placées dans des réseaux virtuels homologués. Toutes les instances de serveur principal doivent être dans la même région.
 - Les références SKU ne sont pas mutables. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.
 - Une ressource de machine virtuelle autonome, une ressource de groupe à haute disponibilité ou une ressource de groupe de machines virtuelles identiques peut faire référence à une seule référence SKU, jamais aux deux.
-- Les [alertes Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) ne sont pas prises en charge pour l’instant.
+- Une règle Load Balancer ne peut pas s’étendre sur deux réseaux virtuels.  Les frontaux et les instances principales associées doivent se trouver dans le même réseau virtuel.  
+- Les frontaux Load Balancer ne sont pas accessibles sur un appairage global de réseaux virtuels.
 - Les [opérations de déplacement d’abonnement](../azure-resource-manager/resource-group-move-resources.md) ne sont pas prises en charge pour les ressources LB et PIP de SKU standard.
+- Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Ne comptez pas sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente sont susceptibles de changer sans préavis. Partez toujours du principe que vous devrez créer explicitement une [connexion sortante](load-balancer-outbound-connections.md) si vous en souhaitez une alors que vous utilisez seulement un équilibreur de charge Standard interne.
+- Load Balancer est un produit TCP ou UDP pour l’équilibrage de charge et de réacheminement de ports pour ces protocoles IP spécifiques.  Les règles d’équilibrage de charge et les règles NAT entrantes sont prises en charge pour les protocoles TCP et UDP, mais pas pour les autres protocoles IP, y compris ICMP. Load Balancer ne peut pas mettre fin à la charge utile d’un flux TCP ou UDP, ni y répondre ou interagir d’une quelconque autre façon avec cette charge utile. Il ne s’agit pas d’un proxy. La réussite de la validation de la connectivité à un serveur frontal doit avoir lieu dans la bande avec le même protocole que celui utilisé dans une règle d’équilibrage de charge ou de règle NAT entrante (TCP ou UDP) _et_ au moins une de vos machines virtuelles doit générer une réponse pour qu’un client puisse voir une réponse à partir d’un serveur frontal.  L’absence de réponse de la part du serveur frontal Load Balancer dans la bande indique qu’aucune machine virtuelle n’a été en mesure de répondre.  Il est impossible d’interagir avec un serveur frontal Load Balancer si aucune machine virtuelle ne peut répondre.  Cela vaut également pour les connexions sortantes où la [traduction d’adresses réseau avec masquage de port](load-balancer-outbound-connections.md#snat) est uniquement prise en charge pour les protocoles TCP et UDP ; tous les autres protocoles IP, y compris ICMP, échoueront également.  Assignez une adresse IP publique de niveau d’instance pour résoudre le problème.
+- À la différence des équilibreurs de charge publics qui fournissent des [connexions sortantes](load-balancer-outbound-connections.md) lors de la transition à partir d’adresses IP privées à l’intérieur du réseau virtuel vers des adresses IP publiques, les équilibreurs de charge internes ne traduisent pas les connexions sortantes pour le serveur frontal d’un équilibreur de charge interne, dans la mesure où les deux sont dans l’espace d’adressage IP privé.  Cela évite le risque d’épuisement SNAT à l’intérieur de l’espace d’adressage IP interne unique lorsque la traduction n’est pas requise.  L’effet secondaire est que, si un flux sortant d’une machine virtuelle dans le pool principal tente un flux vers le serveur frontal de l’équilibreur de charge interne dans le pool duquel il réside _et_ est mappé sur lui-même, les deux aspects du flux ne correspondent pas et le flux échoue.  Si le flux n’es pas mappé sur la même machine virtuelle dans le pool principal qui a créé le flux vers le serveur frontal, le flux réussit.   Lorsque le flux est mappé sur lui-même, le flux sortant apparaît comme provenant de la machine virtuelle vers le serveur frontal et le flux entrant correspondant apparaît comme étant issu de la machine virtuelle vers elle-même. Du point de vue du système d’exploitation invité, les parties entrante et sortante d’un même flux ne correspondent pas à l’intérieur de la machine virtuelle. La pile TCP ne reconnaît pas ces parties du flux comme faisant partie du même flux étant donné que la source et la destination ne correspondent pas.  Lorsque le flux est mappé vers une autre machine virtuelle dans le pool principal, les parties du flux correspondent et la machine virtuelle peut répondre correctement au flux.  Le symptôme pour repérer ce scénario est la présence intermittente de délais de connexion dépassés. Plusieurs solutions de contournement courantes permettent de parvenir à ce scénario de manière fiable (flux originaires d’un pool principal vers les pools du serveur principal ou vers le serveur frontal de l’équilibreur de charge interne), notamment l’insertion d’un proxy tiers derrière l’équilibreur de charge interne ou [l’utilisation de règles de style DSR](load-balancer-multivip-overview.md).  Vous pouvez utiliser un équilibreur de charge public pour résoudre le problème, mais le scénario qui en résulte est sujet aux [épuisements SNAT](load-balancer-outbound-connections.md#snat) et doit être évité, sauf s’il est soigneusement géré.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -234,7 +238,7 @@ Load Balancer Standard est un produit facturé en fonction du nombre de règles 
 - En savoir plus sur [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md)
 - Découvrez comment utiliser [Load Balancer avec plusieurs serveurs frontaux](load-balancer-multivip-overview.md)
 - En savoir plus sur les [Réseaux virtuels](../virtual-network/virtual-networks-overview.md).
-- En savoir plus sur les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+- En savoir plus sur les [groupes de sécurité réseau](../virtual-network/security-overview.md).
 - En savoir plus sur les [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
 - En savoir plus sur les autres [fonctionnalités de mise en réseau](../networking/networking-overview.md) clés d’Azure.
 - En savoir plus sur [Load Balancer](load-balancer-overview.md).

@@ -1,11 +1,11 @@
 ---
-title: "Modèles d’Application SQL Server sur des machines virtuelles | Microsoft Docs"
-description: "Cet article traite des modèles d'application pour SQL Server sur des machines virtuelles Azure. Il fournit aux architectes de solutions et aux développeurs une bonne base de départ pour l’architecture et la conception d’applications."
+title: Modèles d’Application SQL Server sur des machines virtuelles | Microsoft Docs
+description: Cet article traite des modèles d'application pour SQL Server sur des machines virtuelles Azure. Il fournit aux architectes de solutions et aux développeurs une bonne base de départ pour l’architecture et la conception d’applications.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9a306dc5676bb98baf0c9aa000c4c518279bd932
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eaeff1e57042b2e6a98559c19dc1dabebbf92ed4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195105"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +58,7 @@ Cet article décrit plusieurs modèles d’application qui peuvent convenir à d
 * Vous avez besoin d’une compatibilité complète avec une version locale de SQL Server tout en voulant déplacer des applications existantes vers Azure en l’état.
 * Vous souhaitez exploiter les fonctionnalités de l’environnement Azure mais la base de données SQL Azure ne prend pas en charge les fonctionnalités requises par votre application. Cela peut inclure les éléments suivants :
   
-  * **Taille de la base de données**: au moment de la mise à jour de cet article, le service Base de données SQL prend en charge une base de données pouvant contenir jusqu’à 1 To de données. Si votre application nécessite plus de 1 To de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour obtenir les toutes dernières informations dans ce domaine, consultez les pages [Montée en charge avec la base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) et [Niveaux de service et niveaux de performances de la base de données SQL Azure](../../../sql-database/sql-database-service-tiers.md).
+  * **Taille de la base de données**: au moment de la mise à jour de cet article, le service Base de données SQL prend en charge une base de données pouvant contenir jusqu’à 1 To de données. Si votre application nécessite plus de 1 To de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Croissance externe (scale out) des bases de données Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [Modèle d’achat DTU](../../../sql-database/sql-database-service-tiers-dtu.md) et [Modèle achats vCore](../../../sql-database/sql-database-service-tiers-vcore.md)(préversion).
   * **Conformité HIPAA** : les clients du secteur de la santé et les fournisseurs de logiciels indépendants (ISV) peuvent choisir le service [SQL Server dans des machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md) au lieu du service [Base de données SQL Azure](../../../sql-database/sql-database-technical-overview.md), car le service SQL Server sur une machine virtuelle Azure est couvert par le contrat HIPAA Business Associate Agreement (BAA). Pour plus d’informations sur la conformité, consultez le [Centre de confidentialité Microsoft Azure - Conformité](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Fonctionnalités au niveau de l’instance**: à ce stade, le service Base de données SQL ne prend pas en charge les fonctionnalités qui résident en dehors de la base de données (comme les serveurs liés, les travaux de l’Agent, FileStream, Service Broker, etc.). Pour plus d’informations, consultez la section [Instructions et limitations de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 

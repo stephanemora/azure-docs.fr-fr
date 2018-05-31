@@ -14,11 +14,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154288"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -44,7 +45,7 @@ Voici la légende des images de l’article :
 ## <a name="single-forest-single-azure-ad-tenant"></a>Une seule forêt, un seul client Azure AD
 ![Topologie pour une forêt unique et un locataire unique](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-La topologie la plus courante est une forêt locale unique, avec un ou plusieurs domaines, et un locataire Azure AD unique. L’authentification Azure AD est effectuée avec la synchronisation de mot de passe. Il s’agit de la seule topologie prise en charge par l’installation rapide d’Azure AD Connect.
+La topologie la plus courante est une forêt locale unique, avec un ou plusieurs domaines, et un locataire Azure AD unique. L’authentification Azure AD est effectuée avec la synchronisation du hachage de mot de passe. Il s’agit de la seule topologie prise en charge par l’installation rapide d’Azure AD Connect.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Une seule forêt, plusieurs serveurs de synchronisation connectés à un client Azure AD
 ![Topologie filtrée pour une forêt unique non prise en charge](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +65,7 @@ Des topologies courantes sont présentées dans les sections sur les [topologies
 
 La configuration par défaut d’Azure AD Connect Sync suppose que :
 
-* Chaque utilisateur n’a qu’un seul compte activé et la forêt où se trouve ce compte est utilisée pour authentifier l’utilisateur. Cette supposition comprend la synchronisation des mots de passe et la fédération. UserPrincipalName et sourceAnchor/immutableID proviennent de cette forêt.
+* Chaque utilisateur n’a qu’un seul compte activé et la forêt où se trouve ce compte est utilisée pour authentifier l’utilisateur. Cette hypothèse s’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. UserPrincipalName et sourceAnchor/immutableID proviennent de cette forêt.
 * Chaque utilisateur n’a qu’une seule boîte aux lettres.
 * la forêt qui héberge la boîte aux lettres d’un utilisateur a la meilleure qualité de données pour les attributs visibles dans la liste d’adresses globale Exchange. Si aucune boîte aux lettres n’est associée à l’utilisateur, n’importe quelle forêt peut être utilisée pour fournir ces valeurs d’attributs.
 * Si vous avez une boîte aux lettres liée, il existe également un compte dans une forêt différente de celle utilisée pour la connexion.
@@ -157,7 +158,7 @@ Cette topologie comprend les restrictions suivantes pour les scénarios sinon pr
 
 * Seul un des locataires Azure AD peut activer Exchange hybride avec l’instance Active Directory locale.
 * Les appareils Windows 10 ne peuvent être associés qu’à un seul locataire Azure AD.
-* L’option d’authentification unique (SSO) pour la synchronisation de mot de passe et l’authentification directe ne peut être utilisée qu’avec un seul locataire Azure AD.
+* L’option d’authentification unique (SSO) pour la synchronisation du hachage de mot de passe et l’authentification directe ne peut être utilisée qu’avec un seul locataire Azure AD.
 
 La condition requise d’un ensemble d’objets mutuellement exclusifs s’applique également à l’écriture différée. Certaines fonctionnalités d’écriture différée ne sont pas prises en charge avec cette topologie, car elles supposent une seule configuration locale. Voici quelques fonctionnalités :
 

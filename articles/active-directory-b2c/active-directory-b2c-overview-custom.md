@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32138915"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C : stratégies personnalisées
 
@@ -64,7 +65,7 @@ Azure AD B2C interagit de façon séquentielle avec les fournisseurs d’identit
 
 ### <a name="identity-experience-framework"></a>Identity Experience Framework (Infrastructure d’expérience d’identité)
 
-Plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre entités (en général des fournisseurs de revendications) dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WS-Fed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). Le I2E crée des expériences conviviales en marque blanche qui prennent en charge HTML, CSS et javascript.  Aujourd’hui, l’infrastructure d’expérience d’identité est disponible uniquement dans le contexte du service Azure AD B2C, en priorité pour les tâches relatives au service de gestion des accès et des identités clients.
+Plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre entités (en général des fournisseurs de revendications) dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WS-Fed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). Le I2E crée des expériences conviviales en marque blanche qui prennent en charge HTML, CSS et JavaScript.  Aujourd’hui, l’infrastructure d’expérience d’identité est disponible uniquement dans le contexte du service Azure AD B2C, en priorité pour les tâches relatives au service de gestion des accès et des identités clients.
 
 ### <a name="built-in-policies"></a>Stratégies prédéfinies
 
