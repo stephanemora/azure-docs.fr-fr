@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360487"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -82,7 +83,7 @@ Batch prend en charge les [options de compte](../storage/common/storage-account-
 
 * Comptes Usage général v2 (GPv2) 
 * Comptes Usage général v1 (GPv1)
-* Comptes de stockage d’objets blob
+* Comptes de stockage d’objets blob (actuellement pris en charge pour les pools dans la configuration de la machine virtuelle)
 
 Vous pouvez associer un compte de stockage à votre compte Batch lorsque vous créez le compte Batch. Vous avez également la possibilité de le faire ultérieurement. Prenez en compte vos exigences en termes de coûts et de performances lorsque vous choisissez un compte de stockage. Par exemple, les options de compte de stockage Blob et GPv2 prennent en charge des [limites d’extensibilité et de capacité](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) plus importantes que celles des options GPv1. (Contactez le support technique Azure pour demander une augmentation de la limite de stockage.) Ces options de compte peuvent améliorer les performances des solutions Batch qui possèdent un certain nombre de tâches de lecture ou d’écriture s’exécutant simultanément sur le compte de stockage.
 

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d151aba43a6795c5a691077fe6729fc9853012bf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Didacticiel : Intégration d’Azure Active Directory à Clever
 
@@ -30,7 +31,7 @@ L’intégration de Clever dans Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Clever (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -111,12 +112,12 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://clever.com/in/<companyname>`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://clever.com/<companyname>`
+    b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique de Clever](https://clever.com/about/contact/).
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique de Clever](https://clever.com/about/contact/).
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton de copie pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
     ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
@@ -130,7 +131,8 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     | Nom de l'attribut  | Valeur de l’attribut |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_username  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | Firstname  | user.givenname |
     | Lastname  | user.surname |
 
@@ -158,19 +160,22 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant Login")
 
+    > [!NOTE]
+    > Avant de pouvoir tester l’authentification unique, vous devez contacter l[’équipe du support Clever Client](https://clever.com/about/contact/) pour activer l’authentification unique Office 365 dans le back end.
+
 10. Dans la page **Instant Login** , procédez comme suit :
-      
+    
       ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant Login")
-      
+    
       a. Renseignez le champ **Login URL**.
-      
+    
       >[!NOTE]
       >**Login URL** est une valeur personnalisée. Pour obtenir cette valeur, contactez [l’équipe de support technique de Clever](https://clever.com/about/contact/).
-      
+    
       b. Sous **Identity System**, sélectionnez **ADFS**.
 
       c. Dans la zone de texte **URL des métadonnées**, collez la valeur **URL des métadonnées de fédération de l’application** que vous avez copiée sur le portail Azure.
-      
+    
       d. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -254,7 +259,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

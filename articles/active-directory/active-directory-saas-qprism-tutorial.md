@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à QPrism | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et QPrism."
+title: 'Didacticiel : Intégration d’Azure Active Directory à QPrism | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Didacticiel : Intégration d’Azure Active Directory à QPrism
 
@@ -32,7 +33,8 @@ L’intégration de QPrism dans Azure AD vous offre les avantages suivants :
 
 Pour plus d’informations sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à QPrism, vous avez besoin des éléments suivants :
 
@@ -45,7 +47,7 @@ Pour tester la procédure de ce didacticiel, suivez les recommandations ci-desso
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de QPrism à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -110,34 +112,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). 
 
-4. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
+4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
-    a. Sélectionnez **Inscriptions d’applications**.
-    
-    ![Configuration des inscriptions d’applications pour l’authentification unique](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
-    
-    ![Configuration du point de terminaison pour l’authentification unique](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
-    
-    ![Configuration du point de terminaison pour l’authentification unique](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Accédez maintenant à la page de propriétés de **QPrism**, puis copiez **l’ID d’application** à l’aide du bouton **Copier**. Ensuite, collez-le dans le Bloc-notes.
- 
-    ![Configuration de l’ID d’application pour l’authentification unique](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Générez **l’URL des métadonnées** en utilisant le modèle suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`. 
+     ![Lien Téléchargement de certificat](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Sélectionnez **Enregistrer**.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Pour configurer l’authentification unique côté **QPrism**, envoyez **l’URL des métadonnées** à [l’équipe de support QPrism](mailto:qsupport-ce@quatrro.com). L’équipe vérifiera que la connexion SAML à authentification unique est correctement configurée des deux côtés.
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application. Après avoir ajouté cette application à partir de la section **Active Directory** > **Applications d’entreprise**, cliquez sur l’onglet **Authentification unique**, puis accédez à la documentation incorporée par le biais de la section **Configuration** située au bas de la page. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+6. Pour configurer l’authentification unique côté **QPrism**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

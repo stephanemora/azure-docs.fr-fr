@@ -12,20 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358810"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Mettre à jour Azure App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1802 à votre système Azure Stack intégré ou déployez le dernier kit de développement Azure Stack avant le déploiement d’Azure App Service.
+> Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.2.
 >
 >
 
@@ -54,7 +55,7 @@ Au cours de ce processus, la mise à niveau va :
 
 Pour mettre à niveau votre déploiement d’App Service sur Azure Stack, procédez comme suit :
 
-1. Téléchargez le [Programme d’installation App Service](https://aka.ms/appsvcupdate1installer)
+1. Téléchargez le [Programme d’installation App Service](https://aka.ms/appsvcupdate2installer)
 
 2. Exécutez appservice.exe en tant qu’administrateur
 
@@ -75,7 +76,7 @@ Pour mettre à niveau votre déploiement d’App Service sur Azure Stack, procé
    1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
         * Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Cliquez sur **Se connecter**.
         * Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : *cloudadmin@azurestack.local*. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
-   2. Sélectionnez votre abonnement dans la zone **Abonnements Azure Stack**.
+   2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
    3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
    4. Si un déploiement App Service existant est détecté, le groupe de ressources et le compte de stockage sont renseignés et grisés.
    5. Cliquez sur **Suivant** pour passer en revue le résumé de la mise à niveau.

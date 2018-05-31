@@ -12,20 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359898"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1802 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service.
+> Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.2.
 >
 >
 
@@ -80,7 +81,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 7. Sur la page suivante :
     1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
         - Indiquez votre compte Administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
-    2. Sélectionnez votre abonnement dans la zone **Abonnements Azure Stack**.
+    2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
     3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
     4. Cliquez sur **Suivant**.
 
@@ -126,7 +127,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     ![Programme d’installation App Service][11]
 
-12. Entrez les détails SQL Server de l’instance de serveur utilisée pour héberger les bases de données du fournisseur de ressources App Service, puis cliquez sur **Suivant**. Le programme d’installation valide les propriétés de connexion SQL.
+12. Entrez les détails SQL Server de l’instance de serveur utilisée pour héberger les bases de données du fournisseur de ressources App Service, puis cliquez sur **Suivant**. Le programme d’installation valide les propriétés de connexion SQL. Vous **devez** entrer l’adresse IP interne ou le nom de domaine complet comme nom de serveur SQL Server.
 
 > [!NOTE]
 > Le programme d’installation tente de tester la connectivité au serveur SQL Server avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au serveur SQL Server et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations SQL Server et continuez si elles sont correctes.

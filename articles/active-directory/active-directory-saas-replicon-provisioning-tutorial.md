@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6f536ba1711076eab0eb9dcbea7d357e9cebf3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345593"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Didacticiel : configurer Replicon pour l’approvisionnement automatique d’utilisateurs
 
@@ -116,7 +117,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     *   Dans le champ **Domaine**, indiquez le domaine comme décrit dans l’étape 6.
     
-6. Obtenez l’URL **serviceEndpointRootURL** pour votre compte de locataire Replicon en vous basant sur les étapes mentionnées dans le [service d’aide Replicon](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Lors de l’obtention de l’URL, le **domaine** doit être le sous-domaine de l’URL **serviceEndpointRootURL**, comme souligné. 
+6. Obtenez l’URL **serviceEndpointRootURL** pour votre compte de locataire Replicon en vous basant sur les étapes mentionnées dans l’[aide des services Replicon](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Lors de l’obtention de l’URL, le **domaine** doit être le sous-domaine de l’URL **serviceEndpointRootURL**, comme souligné. 
 
     ![Approvisionnement de Replicon](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 
@@ -159,7 +160,7 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

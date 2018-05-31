@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366747"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutoriel : Appeler des API de recherche cognitive (version préliminaire)
 
@@ -23,7 +24,7 @@ Dans ce tutoriel, vous effectuez des appels d’API REST pour effectuer les tâc
 
 > [!div class="checklist"]
 > * Créer un pipeline d’indexation qui enrichit les données sources destinées à un index
-> * Utiliser les compétences de reconnaissance d’entité intégrée, de détection de la langue, de manipulation de texte et d’extraction d’expression clé sur un exemple de jeu de données
+> * Utiliser les compétences intégrées sur un exemple de données : reconnaissance d’entité, détection de la langue, manipulation de texte et extraction d’expression clé
 > * Découvrir comment chaîner des compétences en mappant les entrées aux sorties dans un ensemble de compétences
 > * Exécuter des demandes et passer en revue les résultats
 > * Réinitialiser l’index et les indexeurs pour un développement ultérieur
@@ -55,7 +56,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Pour Emplacement, choisissez **Sud-Centre des États-Unis** ou **Europe de l’Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
 
-1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/) tel qu’un service **De base** ou **Standard**. 
+1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
 
   Un service gratuit est limité à 3 index, à une taille maximale d’objet blob de 16 Mo et à 2 minutes d’indexation, ce qui est insuffisant pour exercer toutes les fonctionnalités de recherche cognitive. Pour passer en revue les limites des différents niveaux, consultez [Limites du service](search-limits-quotas-capacity.md).
 
@@ -72,7 +73,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurer le service Blob Azure et charger les données d’exemple
 
-Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge d’un [indexeur Recherche Azure](search-indexer-overview.md). Dans cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
+Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge d’un [indexeur Recherche Azure](search-indexer-overview.md). Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Les données d’exemple se composent d’un petit ensemble de fichiers de types différents. 
 
@@ -85,7 +86,7 @@ Le pipeline d’enrichissement extrait des données des sources de données Azur
   La chaîne de connexion doit être une URL similaire à l’exemple suivant :
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 Il existe d’autres manières de spécifier la chaîne de connexion, par exemple en fournissant une signature d’accès partagé. Pour en savoir plus sur les informations d’identification de source de données, consultez [Indexation du stockage d’objets blob Azure](search-howto-indexing-azure-blob-storage.md#Credentials).

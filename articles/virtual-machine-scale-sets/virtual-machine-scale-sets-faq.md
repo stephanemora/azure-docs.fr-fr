@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895316"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -450,9 +451,9 @@ Si la définition de l’extension dans le modèle de groupe de machines virtuel
 
 Si une machine virtuelle existante est corrigée par service, cela s’apparente à un redémarrage et les extensions ne sont pas exécutées à nouveau. Si elle est réinitialisée, cela revient à remplacer le disque du système d’exploitation par l’image source. Toutes les spécialisations du modèle le plus récent, telles que les extensions, sont exécutées.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Comment joindre un groupe de machines virtuelles identiques à un domaine Azure AD ?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Comment joindre un groupe de machines virtuelles identiques à un domaine Active Directory ?
 
-Pour joindre un groupe de machines virtuelles identiques à un domaine Azure Active Directory (Azure AD), vous pouvez définir une extension. 
+Pour joindre un groupe de machines virtuelles identiques à un domaine Active Directory (AD), vous pouvez définir une extension. 
 
 Pour définir une extension, utilisez la propriété JsonADDomainExtension :
 

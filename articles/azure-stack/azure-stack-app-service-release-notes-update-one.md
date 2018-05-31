@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358079"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 1
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 1, ainsi que les problèmes connus. Les problèmes connus ont été divisés selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
+Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 1, ainsi que les problèmes connus. Les problèmes connus ont été répartis selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
 
 > [!IMPORTANT]
 > Appliquez la mise à jour 1802 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service.
@@ -40,7 +41,7 @@ Le numéro de build d’App Service sur Azure Stack Update 1 est **69.0.13698.9*
 
 
 > [!IMPORTANT]
-> Les nouveaux déploiements d’Azure App Service sur Azure Stack nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **** *.sso.appservice.<region>.<domainname>.<extension>**
+> Les nouveaux déploiements d’Azure App Service sur Azure Stack nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
 >
 >
 
@@ -199,7 +200,7 @@ L’emplacement d’échange des sites est rompu dans cette mise en production. 
     ```
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
  
-Si vous avez choisi de déployer un modèle dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
  * Source : Toutes
  * Plage de ports source : : *
  * Destination : adresses IP

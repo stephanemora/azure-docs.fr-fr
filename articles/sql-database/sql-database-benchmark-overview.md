@@ -9,18 +9,19 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191405"
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Vue d’ensemble du test d’évaluation DTU d’Azure SQL Database
 ## <a name="overview"></a>Vue d'ensemble
-Dans le modèle d’achat DTU, Microsoft Azure SQL Database propose trois [niveaux de service](sql-database-service-tiers.md) associés à plusieurs niveaux de performance. Chaque niveau de performance permet de gagner en ressources, c’est-à-dire en puissance, pour générer à chaque fois un meilleur débit.
+Dans le modèle d’achat DTU, Microsoft Azure SQL Database propose trois [niveaux de service](sql-database-service-tiers-dtu.md) associés à plusieurs niveaux de performance. Chaque niveau de performance permet de gagner en ressources, c’est-à-dire en puissance, pour générer à chaque fois un meilleur débit.
 
 > [!IMPORTANT]
-> Azure SQL Database prend désormais également en charge un modèle d’achat vCore (préversion). Pour plus d’informations, consultez [Modèle d’achat vCore (en préversion)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+> Azure SQL Database prend désormais également en charge un modèle d’achat vCore (préversion). Pour plus d’informations, consultez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Il est important de pouvoir évaluer dans quelle mesure le gain de puissance de chaque niveau de performance se répercute sur les performances de la base de données. C’est pourquoi Microsoft a développé le test d’évaluation de la base de données Azure (ASDB, Azure SQL Database Benchmark). Le test d’évaluation combine plusieurs opérations de base disponibles dans toutes les charges de travail OLTP. Nous évaluons le débit atteint avec les bases de données exécutées à chaque niveau de performance.
 
@@ -126,6 +127,8 @@ Le test d’évaluation de la base de données SQL Azure mesure les performance
 ## <a name="resources"></a>Ressources
 [Présentation de la base de données SQL](sql-database-technical-overview.md)
 
-[Niveaux de service et niveaux de performances](sql-database-service-tiers.md)
+[Niveaux de service et de performances basés sur les DTU](sql-database-service-tiers-dtu.md)
+
+[Niveaux de service et de performances basés sur vCore](sql-database-service-tiers-vcore.md)
 
 [Guide des performances pour les bases de données uniques](sql-database-performance-guidance.md)

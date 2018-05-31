@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425972"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance
 
@@ -57,7 +58,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/#create/Microsoft.SQL
    |**Type de compte**|Stockage d'objets blob||
    |**Performances**|Standard ou premium|Lecteurs magnétiques ou disques SSD|
    |**Réplication**|Stockage localement redondant||
-   |**Niveau d’accès (par défaut)|Froid ou chaud||
+   |\*\*Niveau d’accès (par défaut)|Froid ou chaud||
    |**Transfert sécurisé requis**|Désactivé||
    |**Abonnement**|Votre abonnement|Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions).|
    |**Groupe de ressources**|Le groupe de ressources que vous avez créé précédemment|| 

@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362292"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Didacticiel : analyser des vidéos avec Azure Media Services 
 
@@ -67,7 +68,7 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Créer une ressource de sortie pour stocker le résultat d’un travail 
 
-La ressource de sortie stocke le résultat de votre travail. Le projet définit la fonction **DownloadResults** qui télécharge les résultats à partir de cette ressource de sortie dans le dossier « output », afin de voir ce que vous avez obtenu.
+La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stocke le résultat de votre travail. Le projet définit la fonction **DownloadResults** qui télécharge les résultats à partir de cette ressource de sortie dans le dossier « output », afin de voir ce que vous avez obtenu.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -77,7 +78,7 @@ Lors de l’encodage ou du traitement de contenus dans Media Services, il est co
 
 #### <a name="transform"></a>Transformer
 
-Lorsque vous créez une instance de **transformation**, vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**, comme indiqué dans le code ci-dessus. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. Dans cet exemple, le préréglage **VideoAnalyzerPreset** est utilisé et la langue (« fr-fr ») est passée à son constructeur. Ce préréglage vous permet d’extraire plusieurs insights audio et vidéo à partir d’une vidéo. Vous pouvez utiliser le préréglage **AudioAnalyzerPreset** si vous avez besoin d’extraire plusieurs insights audio à partir d’une vidéo. 
+Lorsque vous créez une instance de [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**, comme indiqué dans le code ci-dessus. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. Dans cet exemple, le préréglage **VideoAnalyzerPreset** est utilisé et la langue (« fr-fr ») est passée à son constructeur. Ce préréglage vous permet d’extraire plusieurs insights audio et vidéo à partir d’une vidéo. Vous pouvez utiliser le préréglage **AudioAnalyzerPreset** si vous avez besoin d’extraire plusieurs insights audio à partir d’une vidéo. 
 
 Lorsque vous créez une **transformation**, vous devez tout d’abord vérifier s’il en existe déjà une à l’aide de la méthode **Get**, comme indiqué dans le code qui suit.  Dans Media Services v3, les méthodes **Get** appliquées sur les entités renvoient **null** si l’entité n’existe pas (une vérification du nom respectant la casse).
 
@@ -85,7 +86,7 @@ Lorsque vous créez une **transformation**, vous devez tout d’abord vérifier 
 
 #### <a name="job"></a>Travail
 
-Comme indiqué ci-dessus, l’objet **Transformation** est la formule et un **travail** est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l’emplacement de votre vidéo par : URL HTTPS, URL SAP ou des éléments qui se trouvent dans votre compte Media Services. 
+Comme indiqué ci-dessus, l’objet [Transformation](https://docs.microsoft.com/rest/api/media/transforms) est la formule et un [travail](https://docs.microsoft.com/en-us/rest/api/media/jobs) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l’emplacement de votre vidéo par : URL HTTPS, URL SAP ou des éléments qui se trouvent dans votre compte Media Services. 
 
 Dans cet exemple, l’entrée de la tâche est une vidéo locale.  
 
@@ -93,7 +94,7 @@ Dans cet exemple, l’entrée de la tâche est une vidéo locale.
 
 ### <a name="wait-for-the-job-to-complete"></a>Attendre la fin du travail
 
-Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. Il existe différentes options pour être prévenu de l’achèvement du travail. L’option la plus simple (indiquée ici) est d’utiliser l’interrogation. 
+Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. Il existe différentes options pour être prévenu de l’achèvement du [travail](https://docs.microsoft.com/en-us/rest/api/media/jobs). L’option la plus simple (indiquée ici) est d’utiliser l’interrogation. 
 
 L’interrogation n’est pas une meilleure pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid.
 
@@ -105,7 +106,7 @@ Le **travail** passe généralement par les états suivants : **Planifié**, **E
 
 ### <a name="download-the-result-of-the-job"></a>Télécharger le résultat du travail
 
-La fonction suivante télécharge les résultats à partir de l’élément multimédia de sortie dans le dossier « sortie », afin de pouvoir examiner les résultats du travail. 
+La fonction suivante télécharge les résultats à partir de la [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie dans le dossier « sortie », afin que vous puissiez examiner les résultats du travail. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
