@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310602"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -34,12 +35,14 @@ Cet article explique comment configurer la protection d’une machine virtuelle 
 * Les machines virtuelles chiffrées à l’aide d’Azure Disk Encryption
 * Sauvegarde cohérente des applications des machines virtuelles Windows à l’aide de machines virtuelles VSS et Linux avec des scripts pré et post-instantané personnalisés
 
-Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez la section [Sauvegarder et restaurer des machines virtuelles sur des disques managés](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez la section [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Sauvegarder et restaurer des machines virtuelles sur des disques gérés). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 Pour en savoir plus sur ce que vous pouvez et ne pouvez pas sauvegarder, consultez [Préparation de votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle.
+> Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde.
+Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>`
+<br>Par exemple : AzureBackupRG_northeurope_1
 >
 >
 
