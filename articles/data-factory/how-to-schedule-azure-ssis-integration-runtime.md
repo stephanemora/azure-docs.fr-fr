@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360323"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Guide pratique pour planifier le démarrage et l’arrêt d’un runtime d’intégration Azure SSIS 
 L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integration Services) a un coût. Il est donc souhaitable de n’exécuter le runtime d’intégration que quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur de Data Factory ou Azure PowerShell pour [démarrer ou arrêter un runtime d’intégration Azure SSIS manuellement](manage-azure-ssis-integration-runtime.md). Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration (IR) Azure SSIS à l’aide d’Azure Automation et de Azure Data Factory. Voici les étapes générales décrites dans cet article :
@@ -70,21 +71,17 @@ Si vous n’avez pas de compte Azure Automation, créez-en un en suivant les ins
 
 ### <a name="import-data-factory-modules"></a>Importer des modules Data Factory
 
-1. Sélectionnez **Modules** dans la section **RESSOURCES PARTAGÉES** dans le menu de gauche, puis vérifiez si **AzureRM.Profile** et **AzureRM.DataFactoryV2** apparaissent dans la liste des modules. Si ce n’est pas le cas, sélectionnez **Parcourir la galerie** dans la barre d’outils.
+1. Sélectionnez **Modules** dans la section **RESSOURCES PARTAGÉES** dans le menu de gauche, puis vérifiez si **AzureRM.Profile** et **AzureRM.DataFactoryV2** apparaissent dans la liste des modules.
 
-    ![Page d’accueil Automation](./media/how-to-schedule-azure-ssis-integration-runtime/automation-modules.png)
-2. Dans la fenêtre **Parcourir la galerie**, dans la fenêtre de recherche, tapez **AzureRM.Profile**, puis appuyez sur **Entrée**. Sélectionnez **AzureRM.Profile** dans la liste. Ensuite, cliquez sur **Importer** dans la barre d’outils. 
+    ![Vérifier les modules requis](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-    ![Sélectionner AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/select-azurerm-profile.png)
-1. Dans la fenêtre **Importer**, sélectionnez l’option **J’accepte de mettre à jour tous les modules Azure**, puis cliquez sur **OK**.  
+2.  Accédez à PowerShell Gallery pour le [module AzureRM.DataFactoryV2 0.5.2](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2), sélectionnez **Déployer sur Azure Automation**, sélectionnez votre compte Automation, puis cliquez sur **OK**. Revenez à l’affichage des **Modules** dans la section **RESSOURCES PARTAGÉES**, dans le menu de gauche, et attendez que **l’ÉTAT** du module **AzureRM.DataFactoryV2 0.5.2**  devienne **Disponible**.
 
-    ![Importer AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/import-azurerm-profile.png)
-4. Fermez les fenêtres pour revenir à la fenêtre **Modules**. L’état de l’importation doit apparaître dans la liste. Sélectionnez **Actualiser** pour actualiser la liste. Patientez jusqu’à ce que la colonne **ÉTAT** ait pour valeur **Disponible**.
+    ![Vérifier le module Data Factory](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-    ![État de l’importation](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-profile.png)
-1. Répétez les étapes pour importer le module **AzureRM.DataFactoryV2**. Vérifiez que l’état de ce module est défini sur **Disponible** avant de continuer. 
+3.  Accédez à PowerShell Gallery pour le [module AzureRM.Profile 4.5.0](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), cliquez sur **Déployer sur Azure Automation**, sélectionnez votre compte Automation, puis cliquez sur **OK**. Revenez à l’affichage des **Modules** dans la section **RESSOURCES PARTAGÉES**, dans le menu de gauche, et attendez que **l’ÉTAT** du module **AzureRM.Profile 4.5.0** devienne **Disponible**.
 
-    ![État d’importation final](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-datafactoryv2.png)
+    ![Vérifier le module Profil](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
 ### <a name="create-a-powershell-runbook"></a>Créer un runbook PowerShell
 La procédure suivante indique comment créer un runbook PowerShell. Le script associé au runbook démarre ou arrête un runtime d’intégration Azure SSIS en fonction de la commande que vous spécifiez pour le paramètre **OPERATION**. Cette section ne fournit pas tous les détails de la création d’un runbook. Pour plus d’informations, consultez l’article [Créer un runbook](../automation/automation-quickstart-create-runbook.md).

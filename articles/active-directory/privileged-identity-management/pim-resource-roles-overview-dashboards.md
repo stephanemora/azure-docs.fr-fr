@@ -1,6 +1,6 @@
 ---
-title: Effectuer une révision d’accès dans Privileged Identity Management pour les ressources Azure | Microsoft Docs
-description: Ce document explique comment effectuer une révision et y accéder dans PIM pour les ressources Azure.
+title: 'Vue d’ensemble : Effectuer une révision d’accès dans Privileged Identity Management pour les ressources Azure | Microsoft Docs'
+description: Ce document explique comment effectuer une révision d’accès dans PIM pour les ressources Azure.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,20 +14,29 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: f1bcf114b997c3056016b84cafc28253ea1af28e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 61be9873cac462c096599680a6e071e104f3a54c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200618"
 ---
-# <a name="resource-dashboards"></a>Tableaux de bord de ressources
+# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Utiliser un tableau de bord de ressources pour effectuer une révision d’accès
 
-Le tableau de bord de vue d’administrateur possède quatre composants principaux. Une représentation graphique des activations de rôle de ressource au cours des sept derniers jours. Ces données sont limitées à la ressource sélectionnée et affichent les activations pour les principaux rôles (propriétaire, collaborateur, administrateur de l’accès utilisateur) et pour tous les rôles combinés.
+Il est possible d’utiliser un tableau de bord de ressources pour effectuer une révision d’accès dans Privileged Identity Management (PIM) pour les ressources Azure. Le tableau de bord Vue Administration se compose de trois éléments principaux :
 
-Deux graphiques se trouvent à droite du graphique des activations, affichant la distribution des attributions de rôle par type d’attribution, pour les utilisateurs et les groupes. La sélection d’une section du graphique indique la valeur sous forme d’un pourcentage (ou vice versa).
+- une représentation graphique des activations de rôle des ressources ;
+- deux graphiques montrant la distribution des attributions de rôle par type d’attribution ;
+- une zone de données se rapportant aux nouvelles attributions de rôle.
 
-![](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Capture d’écran du tableau de bord Vue Administration montrant les graphiques](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-Sous les graphiques, vous voyez le nombre d’utilisateurs et de groupes ayant reçu de nouvelles attributions de rôle au cours des 30 derniers jours (à gauche) ainsi qu’une liste des rôles, triée par les attributions totales (ordre décroissant).
+![Capture d’écran du tableau de bord Vue Administration montrant les listes de données](media/azure-pim-resource-rbac/role-settings.png)
 
-![](media/azure-pim-resource-rbac/role-settings.png)
+La représentation graphique des activations de rôle des ressources couvre les sept derniers jours. Ces données, limitées à la ressource sélectionnée, présentent les activations des rôles les plus courants (propriétaire, contributeur, administrateur de l’accès utilisateur) et tous rôles confondus.
+
+À droite du graphique des activations, deux graphiques montrent la distribution des attributions de rôle par type d’attribution, pour les utilisateurs et les groupes. Vous pouvez passer des valeurs aux pourcentages (et vice versa) en sélectionnant une section du graphique.
+
+Sous les graphiques apparaissent le nombre d’utilisateurs et de groupes ayant reçu de nouvelles attributions de rôle au cours des 30 derniers jours ainsi que la liste des rôles triée par nombre total d’attributions (dans l’ordre décroissant).
+
+

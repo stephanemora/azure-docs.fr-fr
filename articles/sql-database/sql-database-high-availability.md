@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777013"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 Depuis la sortie de l’offre PaaS Azure SQL Database, Microsoft a promis à ses clients d’intégrer au service la haute disponibilité afin qu’ils n’aient plus à intervenir, à ajouter une logique particulière ou à prendre des décisions dans ce domaine. Microsoft offre aux clients un contrat de niveau de service (SLA) et conserve un contrôle total sur la configuration et l’utilisation du système de haute disponibilité. Le SLA relatif à la haute disponibilité s’applique à une base de données SQL dans une région et ne fournit aucune protection en cas de panne généralisée, dès lors que les raisons de cette panne échappent au contrôle raisonnable de Microsoft (catastrophe naturelle, guerre, actes de terrorisme, émeutes, action des pouvoirs publics, panne d’un réseau ou d’un appareil autre que celle des centres de données de Microsoft, notamment sur le site du client ou entre le site du client et le centre de données de Microsoft).
@@ -30,7 +31,7 @@ Les clients s’intéressent davantage à la résilience de leurs propres bases 
 
 Pour les données, SQL Database utilise le stockage local (LS) basé sur des disques/disques durs virtuels à connexion directe et le stockage étendu (RS) basé sur des objets blob de pages de stockage Azure Premium. 
 - Le stockage local est utilisé dans les bases de données et les pools élastiques Premium ou Critique pour l’entreprise (préversion) lesquels sont conçus pour les applications OLTP stratégiques ayant des exigences élevées en termes d’IOPS. 
-- Le stockage étendu est utilisé pour les niveaux de service De base et Standard lesquels sont conçus pour les charges de travail orientées budget, ou encore les bases de données passives ou volumineuses qui requièrent une certaine puissance de stockage et de calcul pour être mises à l’échelle de manière indépendante. Nous utilisons un objet blob de page unique pour la base de données et les fichiers journaux, ainsi que des mécanismes intégrés de réplication et de basculement de stockage.
+- Le stockage distant est utilisé pour les niveaux de service De base, Standard et Usage général, lesquels sont conçus pour les charges de travail professionnelles orientées budget qui demandent une certaine puissance de stockage et de calcul pour être mises à l’échelle de manière indépendante. Nous utilisons un objet blob de page unique pour la base de données et les fichiers journaux, ainsi que des mécanismes intégrés de réplication et de basculement de stockage.
 
 Dans ces deux cas, la réplication, la détection des défaillances et les mécanismes de basculement de SQL Database sont entièrement automatisés et fonctionnent sans intervention humaine. Cette architecture garantit que les données validées ne sont jamais perdues et que la durabilité des données prévaut.
 
@@ -56,7 +57,7 @@ Le système de basculement [Service Fabric](../service-fabric/service-fabric-ove
 
 ## <a name="remote-storage-configuration"></a>Configuration du stockage à distance
 
-Pour les configurations de stockage étendu (niveaux De base et Standard), une seule copie est conservée dans le stockage étendu des objets blob. Il s’agit d’utiliser les fonctionnalités des systèmes de stockage en termes de durabilité, de redondance et de détection bit-rot. 
+Dans les configurations de stockage distant (niveau De base, Standard ou Usage général), une seule copie est conservée dans le Stockage Blob distant, à l’aide des fonctionnalités de durabilité, de redondance et de détection de la dégradation des données des systèmes de stockage. 
 
 L’architecture de haute disponibilité est illustrée dans le diagramme suivant :
  
@@ -87,9 +88,14 @@ La version avec redondance de zone de l’architecture de haute disponibilité e
 ## <a name="read-scale-out"></a>Lecture du Scale-out
 Comme décrit, les niveaux de service Premium et Critique pour l’entreprise (préversion) tirent parti du quorum et de la technologie AlwaysON pour une haute disponibilité à la fois dans des configurations pour zone unique et redondantes dans une zone. Un des avantages de la technologie AlwaysON est que les réplicas sont toujours dans un état cohérent au niveau transactionnel. Étant donné que les réplicas ont le même niveau de performances que le principal, l’application peut tirer parti de cette capacité supplémentaire pour la maintenance des charges de travail en lecture seule sans coût supplémentaire (lecture du Scale-out). De cette façon, les requêtes en lecture seule seront isolées à partir de la charge de travail principale en lecture-écriture et n’affecteront pas ses performances. La fonctionnalité de lecture du Scale-out est conçue pour les applications incluant des charges de travail en lecture seule séparées logiquement, comme des analyses, et peut par conséquent tirer parti de cette capacité supplémentaire sans connexion au principal. 
 
-Pour utiliser la fonctionnalité de lecture du Scale-out avec une base de données particulière, vous devez l’activer explicitement lors de la création de la base de données, ou ultérieurement en modifiant sa configuration à l’aide de PowerShell en appelant les applets de commande [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [ New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou via l’API REST de Azure Resource Manager à l’aide de la méthode [Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate).
+Pour utiliser la fonctionnalité d’échelle horizontale en lecture avec une base de données en particulier, vous devez l’activer explicitement lors de la création de la base de données, ou ultérieurement en modifiant sa configuration avec PowerShell par un appel aux cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [ New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou avec l’API REST Azure Resource Manager suivant la méthode [Bases de données – Créer ou mettre à jour](/rest/api/sql/databases/createorupdate).
 
-Une fois la lecture du Scale Out activée pour une base de données, les applications se connectant à cette base de données seront dirigées vers le réplica en lecture-écriture ou un réplica en lecture seule de cette base de données en fonction de la propriété `ApplicationIntent` configurée dans la chaîne de connexion de l’application. Pour plus d’informations sur la propriété `ApplicationIntent`, consultez [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+Une fois la lecture du Scale Out activée pour une base de données, les applications se connectant à cette base de données seront dirigées vers le réplica en lecture-écriture ou un réplica en lecture seule de cette base de données en fonction de la propriété `ApplicationIntent` configurée dans la chaîne de connexion de l’application. Pour plus d’informations sur la propriété `ApplicationIntent`, consultez [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Si l’échelle horizontale en lecture est désactivée ou si la propriété d’échelle lecture est définie dans un niveau de service non pris en charge, toutes les connexions sont dirigées vers le réplica en lecture-écriture, indépendamment de la propriété `ApplicationIntent`.  
+
+> [!NOTE]
+> Il est possible d’activer l’échelle horizontale en lecture sur une base de données Standard ou Usage général, même si cela n’aura pas pour effet de router la session visée en lecture seule vers un réplica distinct. L’objectif est de prendre en charge des applications existantes qui évoluent entre les niveaux Standard/Usage général et Premium/Critique pour l’entreprise.  
 
 La fonctionnalité de lecture du Scale-out prend en charge la cohérence au niveau de la session. Si la session en lecture seule se reconnecte après une erreur de connexion engendrée par l’indisponibilité du réplica, elle peut être redirigée vers un autre réplica. Bien qu’improbable, cela peut engendrer le traitement d’un jeu de données périmé. De même, si une application écrit des données à l’aide d’une session en lecture-écriture et les lit immédiatement à l’aide d’une session en lecture seule, il est possible que les nouvelles données ne soient pas visibles immédiatement.
 

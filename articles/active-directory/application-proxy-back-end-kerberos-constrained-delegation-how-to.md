@@ -1,11 +1,11 @@
 ---
-title: "Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application | Microsoft Docs"
-description: "Résolvez les problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application."
+title: Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application | Microsoft Docs
+description: Résolvez les problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068266"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application
 
@@ -30,7 +31,7 @@ Par conséquent, cet article a pour objet de fournir un point de référence uni
 
 Cet article repose sur les hypothèses suivantes :
 
--   Le déploiement du proxy d’application Azure est conforme à notre [documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable), et l’accès général aux applications non-KCD fonctionne comme prévu.
+-   Le déploiement du proxy d’application Azure est conforme à notre [documentation](manage-apps/application-proxy-enable.md), et l’accès général aux applications non-KCD fonctionne comme prévu.
 
 -   L’application cible publiée est basée sur IIS et l’implémentation de Kerberos de Microsoft.
 
@@ -40,9 +41,10 @@ Cet article repose sur les hypothèses suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Le proxy d’application Azure peut être déployé sur de nombreux types d’environnement ou d’infrastructure. Les architectures varient naturellement d’une organisation à l’autre. Les causes les plus courantes de problèmes liés à KCD ne portent pas sur les environnements eux-mêmes, mais plutôt sur de simples erreurs de configuration ou des négligences d’ordre général.
 
-Par conséquent, il est préférable de vérifier systématiquement que vous respectez toutes les conditions préalables figurant dans notre [article sur l’utilisation de l’authentification SSO KCD avec le proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) avant d’essayer de résoudre les problèmes.
+Par conséquent, il est préférable de vérifier systématiquement que vous respectez toutes les conditions préalables figurant dans notre [article sur l’utilisation de l’authentification SSO KCD avec le proxy d’application](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) avant d’essayer de résoudre les problèmes.
 
 Consultez notamment la section sur la configuration de KCD sur 2012 R2. En effet, il convient d’adopter une approche radicalement différente pour la configuration de KCD avec les versions précédentes de Windows, et ce, tout en tenant compte de plusieurs considérations :
 
@@ -70,11 +72,11 @@ Ces erreurs entraînent toutes le même symptôme, à savoir l’échec de l’a
 
 Le mode de résolution varie selon le problème et les symptômes observés. Avant d’aller plus loin, consultez les liens suivants, qui offrent des informations utiles que vous ne connaissez peut-être pas déjà :
 
--   [Résoudre les problèmes de proxy d’application et les messages d’erreur](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Résoudre les problèmes de proxy d’application et les messages d’erreur](active-directory-application-proxy-troubleshoot.md)
 
--   [Erreurs Kerberos](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Erreurs Kerberos](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Utilisation de l’authentification unique quand des identités locales et sur le cloud ne sont pas identiques](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Utilisation de l’authentification unique quand des identités locales et sur le cloud ne sont pas identiques](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Si vous en arrivez là, vous avez certainement affaire à un problème majeur. Commencez par séparer le flux en trois étapes distinctes pour résoudre chaque aspect.
 
@@ -98,7 +100,7 @@ Les entrées correspondantes du journal des événements apparaîtront comme év
 
 -   Utilisez un enregistrement A dans votre DNS interne pour l’adresse de l’application et non un enregistrement CNAME.
 
--   Vérifiez de nouveau que l’hôte de connecteur a obtenu les droits nécessaires pour déléguer au SPN du compte cible désigné et que l’option **Utiliser tout protocole d’authentification** est sélectionnée. Pour plus d’informations, consultez [l’article sur la configuration de l’authentification unique](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Vérifiez de nouveau que l’hôte de connecteur a obtenu les droits nécessaires pour déléguer au SPN du compte cible désigné et que l’option **Utiliser tout protocole d’authentification** est sélectionnée. Pour plus d’informations, consultez [l’article sur la configuration de l’authentification unique](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Vérifiez qu’il n’existe qu’une seule instance du SPN dans Active Directory en émettant une commande `setspn -x` à partir d’une invite de commandes sur n’importe quel hôte membre du domaine
 
@@ -179,4 +181,4 @@ Si vous ne progressez toujours pas dans la résolution de votre problème, adres
 -   Authentification à deux tronçons : couramment utilisée dans les scénarios où une application est hiérarchisée, avec un serveur principal et un serveur frontal requérant tous deux une authentification comme les services SQL Reporting.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Configurer la délégation Kerberos contrainte (KCD) sur un domaine géré](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Configurer la délégation Kerberos contrainte (KCD) sur un domaine géré](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

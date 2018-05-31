@@ -9,18 +9,19 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195530"
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Créer et gérer des serveurs et des bases de données Azure SQL Database
 
 SQL Database propose trois types de bases de données :
 
-- Une base de données SQL Azure créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un ensemble défini de [ressources de calcul et de stockage pour différentes charges de travail](sql-database-service-tiers.md). Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique.
-- Une base de données créée dans le cadre d’un [pool de bases de données](sql-database-elastic-pool.md) au sein d’un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un ensemble défini de [ressources de calcul et de stockage pour différentes charges de travail](sql-database-service-tiers.md) qui sont partagés entre toutes les bases de données du pool. Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique.
+- Une base de données unique créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un [ensemble défini de ressources de calcul et de stockage](sql-database-service-tiers-dtu.md) ou une [mise à l'échelle indépendante des ressources de calcul et de stockage](sql-database-service-tiers-vcore.md). Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique.
+- Une base de données créée dans le cadre d’un [pool de bases de données](sql-database-elastic-pool.md) au sein d’un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un [ensemble combiné de ressources de calcul et de stockage (basées sur des DTU)](sql-database-service-tiers-dtu.md) ou une [mise à l'échelle indépendante des ressources de calcul et de stockage (basées sur des vCores)](sql-database-service-tiers-vcore.md) partagées entre toutes les bases de données du pool. Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique.
 - Une [instance d’un serveur SQL](sql-database-managed-instance.md) (Managed Instance) créée au sein d’un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un semble défini de ressources de calcul et de stockage pour toutes les bases de données de cette instance de serveur. Une instance gérée contient des bases de données système et utilisateur. Managed Instance est conçue pour permettre une migration « lift-and-shift » d’une base de données vers un PaaS entièrement géré, sans reconcevoir l’application. Managed Instance fournit une forte compatibilité avec le modèle de programmation SQL Server local, ainsi que des supports pour la grande majorité des fonctionnalités SQL Server et les outils et services connexes.  
 
 Microsoft Azure SQL Database prend en charge les versions 7.3 et ultérieures du client de protocole TDS (Tabular Data Stream) et permet uniquement des connexions TCP/IP chiffrées.
@@ -52,7 +53,7 @@ Un serveur logique de base de données Azure :
 - Fournit un point de terminaison de connexion pour l’accès aux bases de données (<serverName>. database.windows.net)
 - Fournit l’accès aux métadonnées concernant l’accès aux ressources contenues via les DMV en vous connectant à une base de données MASTER 
 - Fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexions, pare-feu, audit, détection des menaces, etc. 
-- Est limité par un quota dans l’abonnement parent (vingt serveurs par abonnement par défaut ; [consultez la section Limites d’abonnement ici](../azure-subscription-service-limits.md))
+- Est limité par un quota dans l’abonnement parent (six serveurs par abonnement par défaut ; [consultez les Limites d’abonnement ici](../azure-subscription-service-limits.md))
 - Fournit l’étendue du quota de base de données et du quota DTU ou vCore pour les ressources qu’il contient (par exemple, 45 000 DTU)
 - Est la portée du contrôle de version pour les fonctionnalités activées sur les ressources qu’il contient 
 - Les connexions principales au niveau du serveur peuvent gérer toutes les bases de données sur un serveur
@@ -65,11 +66,11 @@ Pour aider à protéger vos données, le [pare-feu SQL Database](sql-database-f
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Gérer les serveurs, les bases de données et les pare-feu SQL Azure à l’aide du portail Azure
 
-Vous pouvez créer le groupe de ressources de la base de données SQL Azure en avance ou lors de la création du serveur lui-même. 
+Vous pouvez créer le groupe de ressources de la base de données SQL Azure en avance ou lors de la création du serveur lui-même. Il existe plusieurs méthodes pour accéder à un nouveau formulaire de serveur SQL : en créant un nouveau serveur SQL ou dans le cadre de la création d’une base de données. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Créer un serveur SQL vide (serveur logique)
 
-Pour créer un serveur Azure SQL Database (sans base de données) à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL (logique) vide.  
+Pour créer un serveur Azure SQL Database (sans base de données) à l’aide du [portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur logique).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Créer un exemple de base de données SQL ou une base de données SQL vide
 
@@ -78,7 +79,7 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Pour en savoir plus sur la sélection du niveau tarifaire de votre base de données, consultez la page [Niveaux de service](sql-database-service-tiers.md).
+> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md).
 
 Pour créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -91,7 +92,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
    ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Pour configurer les propriétés de niveau de performance d’une base de données, consultez la page [Niveaux de service](sql-database-service-tiers.md).
+> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779449"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -203,7 +204,7 @@ Site Recovery crée une instance de machine virtuelle dont le type est identique
    * Pour une machine virtuelle créée avec le modèle de déploiement Classic : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../linux/classic/configure-availability-classic.md).
    * Pour une machine virtuelle créée avec le modèle de déploiement Resource Manager : enregistrez la configuration de votre machine virtuelle, puis supprimez et recréez les machines virtuelles dans le groupe à haute disponibilité. Pour ce faire, utilisez le script figurant dans [Définir le groupe à haute disponibilité de machine virtuelle Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Avant d’exécuter ce script, vérifiez ses limites et planifiez votre temps d’arrêt.
 
-2. **Supprimer les anciennes machines virtuelles et les anciens disques**. Vérifiez que les disques Premium sont cohérents avec les disques sources et que les nouvelles machines virtuelles exécutent la même fonction que les machines virtuelles sources. Supprimez la machine virtuelle et les disques de vos comptes de stockage sources dans le portail Azure. Si un problème survient et que le disque n’est pas supprimé même après la suppression de la machine virtuelle, consultez [Résoudre les erreurs quand vous supprimez des disques durs virtuels](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Supprimer les anciennes machines virtuelles et les anciens disques**. Vérifiez que les disques Premium sont cohérents avec les disques sources et que les nouvelles machines virtuelles exécutent la même fonction que les machines virtuelles sources. Supprimez la machine virtuelle et les disques de vos comptes de stockage sources dans le portail Azure. Si un problème survient et que le disque n’est pas supprimé même après la suppression de la machine virtuelle, consultez [Résoudre les erreurs de suppression de ressources de stockage](storage-resource-deletion-errors.md).
 
 3. **Nettoyer l’infrastructure Azure Site Recovery**. Si Site Recovery n’est plus nécessaire, vous pouvez nettoyer son infrastructure. Supprimez les éléments répliqués, le serveur de configuration et la stratégie de récupération, puis supprimez le coffre Azure Site Recovery.
 

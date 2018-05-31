@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053422"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -42,7 +43,13 @@ Accédez aux autres solutions, puis cliquez sur **Activer**. Les listes déroula
 
 Chaque solution utilise une configuration d’étendue au sein de l’espace de travail pour cibler les ordinateurs qui obtiennent la solution. La configuration d’étendue est un groupe de recherches enregistrées utilisé pour limiter l’étendue de la solution à des ordinateurs spécifiques. Pour accéder aux configurations d’étendue, dans votre compte Automation sous **RESSOURCES CONNEXES**, sélectionnez **Espace de travail**. Ensuite, dans l’espace de travail sous **SOURCES DE DONNÉES DE L’ESPACE DE TRAVAIL**, sélectionnez **Configurations des étendues**.
 
-Les deux configurations d’étendue créées par défaut sont **MicrosoftDefaultScopeConfig-ChangeTracking** et **MicrosoftDefaultScopeConfig-Updates**.
+Si l’espace de travail sélectionné n’a pas encore les solutions de gestion des mises à jour ou de suivi des modifications, les configurations de portée suivantes sont créées :
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Si l’espace de travail sélectionné a déjà la solution. La solution n’est pas de nouveau déployée et la configuration d’étendue ne lui est pas ajoutée à.
 
 Cliquez sur le bouton de sélection (...) dans l’une des configurations et sélectionnez **Modifier**. Dans la page **Modifier la configuration d’étendue**, sélectionnez **Sélectionner des groupes d’ordinateurs** pour ouvrir la page **Groupes d’ordinateurs**. Cette page affiche les recherches enregistrées utilisées pour créer la configuration d’étendue.
 
