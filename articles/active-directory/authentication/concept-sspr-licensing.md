@@ -2,20 +2,26 @@
 title: Licence de réinitialisation de mot de passe libre-service - Azure Active Directory
 description: Conditions de licence pour la réinitialisation du mot de passe en libre-service dans Azure AD
 services: active-directory
-ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
+keywords: ''
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.assetid: ''
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/11/2018
+ms.author: joflore
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 699d621856e9febf7a5d4093d7fdc86c39d5f242
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864653"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149234"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 

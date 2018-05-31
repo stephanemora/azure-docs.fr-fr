@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: c9dab276b39b1ceb55851e865f9166e3e9e7fee8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779088"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -88,13 +89,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |FailedRequests|Demandes de la passerelle ayant échoué|Count|Total|Nombre de défaillances des demandes de la passerelle|Emplacement, nom d’hôte|
 |OtherRequests|Autres demandes de la passerelle|Count|Total|Nombre d’autres demandes de la passerelle|Emplacement, nom d’hôte|
 |Duration|Durée globale des demandes de passerelle|Millisecondes|Moyenne|Durée globale des demandes de passerelle en millisecondes|Emplacement, nom d’hôte|
-|Capacity|Capacité (préversion)|Pourcentage|Maximale|Métrique d’utilisation pour le service ApiManagement|Lieu|
+|Capacity|Capacité (préversion)|Pourcentage|Moyenne|Métrique d’utilisation pour le service ApiManagement|Lieu|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|TotalJob|Nombre total de travaux|Count|Total|Nombre total de travaux|RunbookName, Status|
+|TotalJob|Nombre total de travaux|Count|Total|Nombre total de travaux|Runbook, état|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -360,6 +361,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture disque par seconde|Aucune dimension|
 |Crédits de processeurs restants|Crédits de processeurs restants|Count|Moyenne|Nombre total de crédits pouvant être consommés|Aucune dimension|
 |Crédits de processeur consommés|Crédits de processeur consommés|Count|Moyenne|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
+|Octets lus/s par disque|Octets lus/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des octets/s lus sur un seul disque pendant la période de surveillance|SlotId|
+|Octets écrits/s par disque|Octets/s écrits sur disque de données (préversion)|CountPerSecond|Moyenne|Total des octets/s écrits sur un seul disque pendant la période de surveillance|SlotId|
+|Opérations de lecture/s par disque|Opérations de lecture/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de la lecture sur un seul disque pendant la période de surveillance|SlotId|
+|Opérations d’écriture/s par disque|Opérations d’écriture/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de l’écriture sur un seul disque pendant la période de surveillance|SlotId|
+|QD par disque|QD du disque de données (préversion)|Count|Moyenne|Longueur de file d’attente (ou QD) du disque de données|SlotId|
+|Octets lus/s sur système d’exploitation par disque|Octets lus/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des octets/s lus sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Octets écrits/s sur système d’exploitation par disque|Octets/s écrits sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des octets/s écrits sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Opérations de lecture/s sur système d’exploitation par disque|Opérations de lecture/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de la lecture sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Opérations d’écriture/s sur système d’exploitation par disque|Opérations d’écriture/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de l’écriture sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|QD sur système d’exploitation par disque|QD du disque de système d’exploitation (préversion)|Count|Moyenne|Longueur de file d’attente (ou QD) du disque du système d’exploitation|Aucune dimension|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -374,6 +385,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture disque par seconde|Aucune dimension|
 |Crédits de processeurs restants|Crédits de processeurs restants|Count|Moyenne|Nombre total de crédits pouvant être consommés|Aucune dimension|
 |Crédits de processeur consommés|Crédits de processeur consommés|Count|Moyenne|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
+|Octets lus/s par disque|Octets lus/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des octets/s lus sur un seul disque pendant la période de surveillance|SlotId|
+|Octets écrits/s par disque|Octets/s écrits sur disque de données (préversion)|CountPerSecond|Moyenne|Total des octets/s écrits sur un seul disque pendant la période de surveillance|SlotId|
+|Opérations de lecture/s par disque|Opérations de lecture/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de la lecture sur un seul disque pendant la période de surveillance|SlotId|
+|Opérations d’écriture/s par disque|Opérations d’écriture/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de l’écriture sur un seul disque pendant la période de surveillance|SlotId|
+|QD par disque|QD du disque de données (préversion)|Count|Moyenne|Longueur de file d’attente (ou QD) du disque de données|SlotId|
+|Octets lus/s sur système d’exploitation par disque|Octets lus/s sur disque du système d’exploitation|CountPerSecond|Moyenne|Total des octets/s lus sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Octets écrits/s sur système d’exploitation par disque|Octets/s écrits sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des octets/s écrits sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Opérations de lecture/s sur système d’exploitation par disque|Opérations de lecture/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de la lecture sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Opérations d’écriture/s sur système d’exploitation par disque|Opérations d’écriture/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de l’écriture sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|QD sur système d’exploitation par disque|QD du disque de système d’exploitation (préversion)|Count|Moyenne|Longueur de file d’attente (ou QD) du disque du système d’exploitation|Aucune dimension|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -388,6 +409,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture disque par seconde|Aucune dimension|
 |Crédits de processeurs restants|Crédits de processeurs restants|Count|Moyenne|Nombre total de crédits pouvant être consommés|Aucune dimension|
 |Crédits de processeur consommés|Crédits de processeur consommés|Count|Moyenne|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
+|Octets lus/s par disque|Octets lus/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des octets/s lus sur un seul disque pendant la période de surveillance|SlotId|
+|Octets écrits/s par disque|Octets/s écrits sur disque de données (préversion)|CountPerSecond|Moyenne|Total des octets/s écrits sur un seul disque pendant la période de surveillance|SlotId|
+|Opérations de lecture/s par disque|Opérations de lecture/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de la lecture sur un seul disque pendant la période de surveillance|SlotId|
+|Opérations d’écriture/s par disque|Opérations d’écriture/s sur disque de données (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de l’écriture sur un seul disque pendant la période de surveillance|SlotId|
+|QD par disque|QD du disque de données (préversion)|Count|Moyenne|Longueur de file d’attente (ou QD) du disque de données|SlotId|
+|Octets lus/s sur système d’exploitation par disque|Octets lus/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des octets/s lus sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Octets écrits/s sur système d’exploitation par disque|Octets/s écrits sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des octets/s écrits sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Opérations de lecture/s sur système d’exploitation par disque|Opérations de lecture/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de la lecture sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|Opérations d’écriture/s sur système d’exploitation par disque|Opérations d’écriture/s sur disque du système d’exploitation (préversion)|CountPerSecond|Moyenne|Total des IOPS effectuées lors de l’écriture sur un seul disque pendant la période de surveillance du disque du système d’exploitation|Aucune dimension|
+|QD sur système d’exploitation par disque|QD du disque de système d’exploitation (préversion)|Count|Moyenne|Longueur de file d’attente (ou QD) du disque du système d’exploitation|Aucune dimension|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -395,6 +426,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |CpuUsage|Utilisation du processeur|Count|Moyenne|Utilisation du processeur sur tous les cœurs en millicores.|containerName|
 |MemoryUsage|Utilisation de la mémoire|Octets|Moyenne|Utilisation de la mémoire totale en octets.|containerName|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Nombre total de cœurs d’unité centrale disponibles dans un cluster géré|Count|Total|Nombre total de cœurs d’unité centrale disponibles dans un cluster géré|Aucune dimension|
+|kube_node_status_allocatable_memory_bytes|Quantité totale de mémoire disponible dans un cluster géré|Octets|Total|Quantité totale de mémoire disponible dans un cluster géré|Aucune dimension|
+|kube_pod_status_ready|Nombre de pods en état Prêt|Count|Total|Nombre de pods en état Prêt|espace de noms, pod|
+|kube_node_status_condition|États pour les différentes conditions de nœud|Count|Total|États pour les différentes conditions de nœud|condition, état, nœud|
+|kube_pod_status_phase|Nombre de pods par phase|Count|Total|Nombre de pods par phase|phase, espace de noms, pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -435,8 +476,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|FailedRuns|Exécutions échouées|Count|Total||pipelineName, activityName, windowEnd, windowStart |
-|SuccessfulRuns|Exécutions réussies|Count|Total||pipelineName, activityName, windowEnd, windowStart |
+|FailedRuns|Exécutions échouées|Count|Total||pipelineName, activityName, windowEnd, windowStart|
+|SuccessfulRuns|Exécutions réussies|Count|Total||pipelineName, activityName, windowEnd, windowStart|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
@@ -477,30 +518,32 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Moyenne|Pourcentage d’UC|Aucune dimension|
-|compute_limit|Limite d’unités de calcul|Count|Moyenne|Limite d’unités de calcul|Aucune dimension|
-|compute_consumption_percent|Pourcentage d’unités de calcul|Pourcentage|Moyenne|Pourcentage d’unités de calcul|Aucune dimension|
 |memory_percent|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Aucune dimension|
 |io_consumption_percent|Pourcentage d’E/S|Pourcentage|Moyenne|Pourcentage d’E/S|Aucune dimension|
 |storage_percent|Pourcentage de stockage|Pourcentage|Moyenne|Pourcentage de stockage|Aucune dimension|
 |storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|Aucune dimension|
 |storage_limit|Limite de stockage|Octets|Moyenne|Limite de stockage|Aucune dimension|
+|serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Moyenne|Pourcentage de stockage du journal du serveur|Aucune dimension|
+|serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Moyenne|Stockage du journal du serveur utilisé|Aucune dimension|
+|serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Moyenne|Limite de stockage du journal du serveur|Aucune dimension|
 |active_connections|Nombre total de connexions actif|Count|Moyenne|Nombre total de connexions actif|Aucune dimension|
-|connections_failed|Total de connexions ayant échoué|Count|Moyenne|Total de connexions ayant échoué|Aucune dimension|
+|connections_failed|Total de connexions ayant échoué|Count|Total|Total de connexions ayant échoué|Aucune dimension|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Moyenne|Pourcentage d’UC|Aucune dimension|
-|compute_limit|Limite d’unités de calcul|Count|Moyenne|Limite d’unités de calcul|Aucune dimension|
-|compute_consumption_percent|Pourcentage d’unités de calcul|Pourcentage|Moyenne|Pourcentage d’unités de calcul|Aucune dimension|
 |memory_percent|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Aucune dimension|
 |io_consumption_percent|Pourcentage d’E/S|Pourcentage|Moyenne|Pourcentage d’E/S|Aucune dimension|
 |storage_percent|Pourcentage de stockage|Pourcentage|Moyenne|Pourcentage de stockage|Aucune dimension|
 |storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|Aucune dimension|
 |storage_limit|Limite de stockage|Octets|Moyenne|Limite de stockage|Aucune dimension|
-|active_connections|Nombre total de connexions actif|Count|Moyenne|Nombre total de connexions actif|Aucune dimension|
-|connections_failed|Total de connexions ayant échoué|Count|Moyenne|Total de connexions ayant échoué|Aucune dimension|
+|serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Moyenne|Pourcentage de stockage du journal du serveur|Aucune dimension|
+|serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Moyenne|Stockage du journal du serveur utilisé|Aucune dimension|
+|serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Moyenne|Limite de stockage du journal du serveur|Aucune dimension|
+|active_connections|Nombre total de connexions actif|Count|Total|Nombre total de connexions actif|Aucune dimension|
+|connections_failed|Total de connexions ayant échoué|Count|Total|Total de connexions ayant échoué|Aucune dimension|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
@@ -572,76 +615,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |RegistrationAttempts|Tentatives d’enregistrement|Count|Total|Nombre d’inscriptions d’appareils tentées|ProvisioningServiceName, IotHubName, Status|
 |DeviceAssignments|Appareils attribués|Count|Total|Nombre d’appareils affectés à un hub IoT|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Tentatives d’attestation|Count|Total|Nombre d’attestations d’appareils tentées|ProvisioningServiceName, Status, Protocol|
-
-## <a name="microsoftdeviceselasticpools"></a>Microsoft.Devices/ElasticPools
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|elasticPool.requestedUsageRate|Taux d’utilisation demandée|Pourcentage|Moyenne|Taux d’utilisation demandée|Aucune dimension|
-
-## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|tenantHub.requestedUsageRate|Taux d’utilisation demandée|Pourcentage|Moyenne|Taux d’utilisation demandée|Aucune dimension|
-|deviceDataUsage|Utilisation totale des données d’appareil|Count|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
-|d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|Aucune dimension|
-|d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Count|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|Aucune dimension|
-|c2d.commands.egress.complete.success|Commandes terminées|Count|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|Aucune dimension|
-|c2d.commands.egress.abandon.success|Commandes abandonnées|Count|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|Aucune dimension|
-|c2d.commands.egress.reject.success|Commandes rejetées|Count|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|Aucune dimension|
-|devices.totalDevices|Nombre total d’appareils|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
-|devices.connectedDevices.allProtocol|Appareils connectés|Count|Total|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
-|d2c.telemetry.egress.success|Messages de télémétrie remis|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison (total)|Aucune dimension|
-|d2c.telemetry.egress.dropped|Messages supprimés|Count|Total|Nombre de messages ignorés, car le point de terminaison de livraison était indisponible|Aucune dimension|
-|d2c.telemetry.egress.orphaned|Messages orphelins|Count|Total|Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris|Aucune dimension|
-|d2c.telemetry.egress.invalid|Messages non valides|Count|Total|Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison|Aucune dimension|
-|d2c.telemetry.egress.fallback|Messages correspondant à une condition de secours|Count|Total|Nombre de messages écrits au point de terminaison de secours|Aucune dimension|
-|d2c.endpoints.egress.eventHubs|Messages remis aux points de terminaison Event Hub|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison Event Hub|Aucune dimension|
-|d2c.endpoints.latency.eventHubs|Latence des messages des points de terminaison Event Hub|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.serviceBusQueues|Messages remis aux points de terminaison de file d’attente Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de file d’attente Service Bus|Aucune dimension|
-|d2c.endpoints.latency.serviceBusQueues|Latence des messages des points de terminaison de files d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.serviceBusTopics|Messages remis aux points de terminaison de rubrique Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de rubrique Service Bus|Aucune dimension|
-|d2c.endpoints.latency.serviceBusTopics|Latence des messages des points de terminaison de rubriques Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.builtIn.events|Messages remis au point de terminaison intégré (messages/événements)|Count|Total|Nombre de fois où des messages ont été écrits au point de terminaison intégré (messages/événements)|Aucune dimension|
-|d2c.endpoints.latency.builtIn.events|Latence de message pour le point de terminaison intégré (messages/événements)|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison prédéfini (messages/événements), en millisecondes |Aucune dimension|
-|d2c.endpoints.egress.storage|Messages remis aux points de terminaison de stockage|Count|Total|Nombre de fois où des messages ont correctement été écrits sur des points de terminaison de stockage|Aucune dimension|
-|d2c.endpoints.latency.storage|Latence des messages pour les points de terminaison de stockage|Millisecondes|Moyenne|Latence moyenne entre l’entrée des messages dans IoT Hub et l’entrée des message dans un point de terminaison de stockage, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.storage.bytes|Données écrites dans le stockage|Octets|Total|Volume de données, en octets, écrites sur des points de terminaison de stockage|Aucune dimension|
-|d2c.endpoints.egress.storage.blobs|Objets blob écrits dans le stockage|Count|Total|Nombre d’objets blob écrits sur des points de terminaison de stockage|Aucune dimension|
-|d2c.twin.read.success|Lectures de représentations réussies d’appareils|Count|Total|Total des lectures de représentations réussies initiées par un appareil.|Aucune dimension|
-|d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Count|Total|Total des lectures de représentations en échec initiées par un appareil.|Aucune dimension|
-|d2c.twin.read.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|Aucune dimension|
-|d2c.twin.update.success|Mises à jour de représentations réussies d’appareils|Count|Total|Total des mises à jour de représentations réussies initiées par un appareil.|Aucune dimension|
-|d2c.twin.update.failure|Mises à jour de représentations d’appareils en échec|Count|Total|Total des mises à jour de représentations en échec initiées par un appareil.|Aucune dimension|
-|d2c.twin.update.size|Taille des mises à jour de représentations d’appareils|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un appareil.|Aucune dimension|
-|c2d.methods.success|Appels de méthode directe réussis|Count|Total|Total des appels de méthode directe réussis.|Aucune dimension|
-|c2d.methods.failure|Appels de méthode directe en échec|Count|Total|Total des appels de méthode directe en échec.|Aucune dimension|
-|c2d.methods.requestSize|Taille de demande des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les demandes de méthode directe réussies.|Aucune dimension|
-|c2d.methods.responseSize|Taille de réponse des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les réponses de méthode directe réussies.|Aucune dimension|
-|c2d.twin.read.success|Lectures de représentations réussies de serveur principal|Count|Total|Total des lectures de représentations réussies initiées par un serveur principal.|Aucune dimension|
-|c2d.twin.read.failure|Lectures de représentations de serveur principal en échec|Count|Total|Total des lectures de représentations en échec initiées par un serveur principal.|Aucune dimension|
-|c2d.twin.read.size|Taille de la réponse des lectures de représentations de serveur principal|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un serveur principal.|Aucune dimension|
-|c2d.twin.update.success|Mises à jour de représentations réussies de serveur principal|Count|Total|Total des mises à jour de représentations réussies initiées par un serveur principal.|Aucune dimension|
-|c2d.twin.update.failure|Mises à jour de représentations de serveur principal en échec|Count|Total|Total des mises à jour de représentations en échec initiées par un serveur principal.|Aucune dimension|
-|c2d.twin.update.size|Taille des mises à jour de représentations de serveur principal|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un serveur principal.|Aucune dimension|
-|twinQueries.success|Requêtes de représentations réussies|Count|Total|Total des requêtes de représentations réussies.|Aucune dimension|
-|twinQueries.failure|Requêtes de représentations en échec|Count|Total|Total des requêtes de représentations en échec.|Aucune dimension|
-|twinQueries.resultSize|Taille du résultat des requêtes de représentations|Octets|Moyenne|Moyenne, minimum et maximum de la taille du résultat de toutes les requêtes de représentations réussies.|Aucune dimension|
-|jobs.createTwinUpdateJob.success|Créations réussies des travaux de mises à jour de représentations|Count|Total|Total des créations réussies de travaux de mises à jour de représentations.|Aucune dimension|
-|jobs.createTwinUpdateJob.failure|Créations des travaux de mises à jour de représentations en échec|Count|Total|Total des créations en échec des travaux de mises à jour de représentations.|Aucune dimension|
-|jobs.createDirectMethodJob.success|Créations réussies des travaux d’appel de méthode|Count|Total|Total des créations réussies des travaux d’appel de méthode directe.|Aucune dimension|
-|jobs.createDirectMethodJob.failure|Créations des travaux d’appel de méthode en échec|Count|Total|Total des créations en échec des travaux d’appel de méthode directe.|Aucune dimension|
-|jobs.listJobs.success|Appels réussis pour répertorier les travaux|Count|Total|Total des appels réussis pour répertorier les travaux.|Aucune dimension|
-|jobs.listJobs.failure|Appels en échec pour répertorier les travaux|Count|Total|Total des appels en échec pour répertorier les travaux.|Aucune dimension|
-|jobs.cancelJob.success|Annulations de travaux réussies|Count|Total|Total des appels réussis pour annuler un travail.|Aucune dimension|
-|jobs.cancelJob.failure|Annulations de travaux en échec|Count|Total|Total des appels en échec pour annuler un travail.|Aucune dimension|
-|jobs.queryJobs.success|Requêtes de travaux réussies|Count|Total|Total des appels réussis pour interroger les travaux.|Aucune dimension|
-|jobs.queryJobs.failure|Requêtes de travaux en échec|Count|Total|Total des appels en échec pour interroger les travaux.|Aucune dimension|
-|jobs.completed|Travaux terminés|Count|Total|Total des travaux terminés.|Aucune dimension|
-|jobs.failed|Travaux en échec|Count|Total|Total des travaux en échec.|Aucune dimension|
-|d2c.telemetry.ingress.sendThrottle|Nombre d’erreurs de limitation|Count|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|Aucune dimension|
-|dailyMessageQuotaUsed|Nombre total de messages utilisés|Count|Moyenne|Nombre total de messages utilisés aujourd’hui. Il s’agit d’une valeur cumulative qui est réinitialisée sur zéro à 00h00 UTC chaque jour.|Aucune dimension|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
@@ -920,13 +893,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |incoming.all.requests|Toutes les demandes entrantes|Count|Total|Nombre total des demandes entrantes pour un hub de notification|Aucune dimension|
 |incoming.all.failedrequests|Toutes les requêtes entrantes ayant échoué|Count|Total|Nombre total des demandes entrantes ayant échoué pour un hub de notification|Aucune dimension|
 
-## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|QueryDuration|Durée de la requête|Millisecondes|Moyenne|Durée de la requête DAX dans le dernier intervalle|Aucune dimension|
-|QueryPoolJobQueueLength|Threads : longueur de file d’attente de travaux du pool de requêtes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|Aucune dimension|
-
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 (Préversion publique)
 
@@ -1003,6 +969,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Heartbeat|Heartbeat|Count|Moyenne|Heartbeat|Computer, OSType, Version, SourceComputerId|
 |Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Classification, UpdateState, Optional, Approved|
 
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|QueryDuration|Durée de la requête|Millisecondes|Moyenne|Durée de la requête DAX dans le dernier intervalle|Aucune dimension|
+|QueryPoolJobQueueLength|Threads : longueur de file d’attente de travaux du pool de requêtes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|Aucune dimension|
+|qpu_high_utilization_metric|Utilisation élevée du QPU|Count|Total|Utilisation élevée du QPU pendant la dernière minute, 1 pour une utilisation élevée du QPU, sinon 0|Aucune dimension|
+|memory_metric|Mémoire|Octets|Moyenne|Mémoire. Plage de 0-3 Go pour A1, de 0-5 Go pour A2, de 0-10 Go pour A3, de 0-25 Go pour A4, de 0-50 Go pour A5 et de 0-100 Go pour A6|Aucune dimension|
+|memory_thrashing_metric|Vidage de mémoire|Pourcentage|Moyenne|Vidage de mémoire moyenne.|Aucune dimension|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -1046,6 +1022,20 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ActiveMessages|Nombre de messages actifs dans une file d’attente/rubrique. (Préversion)|Count|Moyenne|Nombre de messages actifs dans une file d’attente/rubrique. (Préversion)|EntityName|
 |CPUXNS|Utilisation du processeur par espace de noms|Pourcentage|Maximale|Métrique d’utilisation du processeur de l’espace de noms Service Bus Premium|Aucune dimension|
 |WSXNS|Utilisation de la taille mémoire par espace de noms|Pourcentage|Maximale|Métrique d’utilisation de la mémoire de l’espace de noms Service Bus Premium|Aucune dimension|
+
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|ConnectionCount|Nombre de connexions|Count|Maximale|Nombre de connexions utilisateur|Aucune dimension|
+|ConnectionCountPerSecond|Nombre de connexions par seconde|CountPerSecond|Moyenne|Nombre moyen de connexions par seconde|Aucune dimension|
+|MessageCount|Nombre de messages|Count|Maximale|Nombre total de messages au cours du mois|Aucune dimension|
+|MessageCountPerSecond|Nombre de messages par seconde|CountPerSecond|Moyenne|Nombre moyen de messages|Aucune dimension|
+|MessageUsed|Message utilisé|Pourcentage|Maximale|Pourcentage de messages utilisés au cours du mois|Aucune dimension|
+|ConnectionUsed|Connexion utilisée|Pourcentage|Maximale|Pourcentage de connexions utilisées|Aucune dimension|
+|UserErrors|Erreurs d’utilisateur|Pourcentage|Maximale|Pourcentage d’erreurs d’utilisateur|Aucune dimension|
+|SystemErrors|Erreurs système|Pourcentage|Maximale|Pourcentage d’erreurs système|Aucune dimension|
+|SystemLoad|Charge du système|Pourcentage|Maximale|Pourcentage de charge du système|Aucune dimension|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -1182,6 +1172,30 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |DeserializationError|Erreurs de désérialisation d’entrée|Count|Total|Erreurs de désérialisation d’entrée|Aucune dimension|
 |EarlyInputEvents|Événements dont l’heure d’application est antérieure à leur heure d’arrivée.|Count|Total|Événements dont l’heure d’application est antérieure à leur heure d’arrivée.|Aucune dimension|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Messages reçus en entrée|Count|Total|Nombre de messages lus à partir de la totalité des Event Hubs ou des sources d’événements IoT Hub|Aucune dimension|
+|IngressReceivedInvalidMessages|Messages non valides reçus en entrée|Count|Total|Nombre de messages non valides lus à partir de la totalité des Event Hubs ou des sources d’événements IoT Hub|Aucune dimension|
+|IngressReceivedBytes|Octets reçus en entrée|Octets|Total|Nombre d’octets lus à partir de toutes les sources d’événements|Aucune dimension|
+|IngressStoredBytes|Octets stockés en entrée|Octets|Total|Taille totale des événements traités correctement et disponibles pour une requête|Aucune dimension|
+|IngressStoredEvents|Événements stockés en entrée|Count|Total|Nombre d’événements aplatis traités correctement et disponibles pour une requête|Aucune dimension|
+|IngressReceivedMessagesTimeLag|Retard des messages reçus en entrée|Secondes|Maximale|Différence entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée|Aucune dimension|
+|IngressReceivedMessagesCountLag|Décalage de nombre des messages reçus en entrée|Count|Moyenne|Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée|Aucune dimension|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Messages reçus en entrée|Count|Total|Nombre de messages lus à partir de la source de l’événement|Aucune dimension|
+|IngressReceivedInvalidMessages|Messages non valides reçus en entrée|Count|Total|Nombre de messages non valides lus à partir de la source de l’événement|Aucune dimension|
+|IngressReceivedBytes|Octets reçus en entrée|Octets|Total|Nombre d’octets lus à partir de la source de l’événement|Aucune dimension|
+|IngressStoredBytes|Octets stockés en entrée|Octets|Total|Taille totale des événements traités correctement et disponibles pour une requête|Aucune dimension|
+|IngressStoredEvents|Événements stockés en entrée|Count|Total|Nombre d’événements aplatis traités correctement et disponibles pour une requête|Aucune dimension|
+|IngressReceivedMessagesTimeLag|Retard des messages reçus en entrée|Secondes|Maximale|Différence entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée|Aucune dimension|
+|IngressReceivedMessagesCountLag|Décalage de nombre des messages reçus en entrée|Count|Moyenne|Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée|Aucune dimension|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -1216,6 +1230,19 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |AppConnections|connexions|Count|Moyenne|connexions|Instance|
 |Handles|Nombre de descripteurs|Count|Moyenne|Nombre de descripteurs|Instance|
 |Threads|Nombre de threads|Count|Moyenne|Nombre de threads|Instance|
+|IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|
+|IoWriteBytesPerSecond|Octets écrits par seconde (E/S)|BytesPerSecond|Total|Octets écrits par seconde (E/S)|Instance|
+|IoOtherBytesPerSecond|Autres octets par seconde (E/S)|BytesPerSecond|Total|Autres octets par seconde (E/S)|Instance|
+|IoReadOperationsPerSecond|Opérations de lecture par seconde (E/S)|BytesPerSecond|Total|Opérations de lecture par seconde (E/S)|Instance|
+|IoWriteOperationsPerSecond|Opérations d’écriture par seconde (E/S)|BytesPerSecond|Total|Opérations d’écriture par seconde (E/S)|Instance|
+|IoOtherOperationsPerSecond|Autres opérations par seconde (E/S)|BytesPerSecond|Total|Autres opérations par seconde (E/S)|Instance|
+|RequestsInApplicationQueue|Demandes dans la file d’attente d’application|Count|Moyenne|Demandes dans la file d’attente d’application|Instance|
+|CurrentAssemblies|Assemblys actuels|Count|Moyenne|Assemblys actuels|Instance|
+|TotalAppDomains|Total des domaines d’application|Count|Moyenne|Total des domaines d’application|Instance|
+|TotalAppDomainsUnloaded|Total des domaines d’application déchargés|Count|Moyenne|Total des domaines d’application déchargés|Instance|
+|Gen0Collections|Garbage collections de génération 0|Count|Total|Garbage collections de génération 0|Instance|
+|Gen1Collections|Garbage collections de génération 1|Count|Total|Garbage collections de génération 1|Instance|
+|Gen2Collections|Garbage collections de génération 2|Count|Total|Garbage collections de génération 2|Instance|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
 
@@ -1228,6 +1255,19 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|Instance|
 |FunctionExecutionUnits|Unités d’exécution de fonctions|Count|Total|Unités d’exécution de fonctions|Instance|
 |FunctionExecutionCount|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions|Instance|
+|IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|
+|IoWriteBytesPerSecond|Octets écrits par seconde (E/S)|BytesPerSecond|Total|Octets écrits par seconde (E/S)|Instance|
+|IoOtherBytesPerSecond|Autres octets par seconde (E/S)|BytesPerSecond|Total|Autres octets par seconde (E/S)|Instance|
+|IoReadOperationsPerSecond|Opérations de lecture par seconde (E/S)|BytesPerSecond|Total|Opérations de lecture par seconde (E/S)|Instance|
+|IoWriteOperationsPerSecond|Opérations d’écriture par seconde (E/S)|BytesPerSecond|Total|Opérations d’écriture par seconde (E/S)|Instance|
+|IoOtherOperationsPerSecond|Autres opérations par seconde (E/S)|BytesPerSecond|Total|Autres opérations par seconde (E/S)|Instance|
+|RequestsInApplicationQueue|Demandes dans la file d’attente d’application|Count|Moyenne|Demandes dans la file d’attente d’application|Instance|
+|CurrentAssemblies|Assemblys actuels|Count|Moyenne|Assemblys actuels|Instance|
+|TotalAppDomains|Total des domaines d’application|Count|Moyenne|Total des domaines d’application|Instance|
+|TotalAppDomainsUnloaded|Total des domaines d’application déchargés|Count|Moyenne|Total des domaines d’application déchargés|Instance|
+|Gen0Collections|Garbage collections de génération 0|Count|Total|Garbage collections de génération 0|Instance|
+|Gen1Collections|Garbage collections de génération 1|Count|Total|Garbage collections de génération 1|Instance|
+|Gen2Collections|Garbage collections de génération 2|Count|Total|Garbage collections de génération 2|Instance|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1254,6 +1294,19 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |AppConnections|connexions|Count|Moyenne|connexions|Instance|
 |Handles|Nombre de descripteurs|Count|Moyenne|Nombre de descripteurs|Instance|
 |Threads|Nombre de threads|Count|Moyenne|Nombre de threads|Instance|
+|IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|
+|IoWriteBytesPerSecond|Octets écrits par seconde (E/S)|BytesPerSecond|Total|Octets écrits par seconde (E/S)|Instance|
+|IoOtherBytesPerSecond|Autres octets par seconde (E/S)|BytesPerSecond|Total|Autres octets par seconde (E/S)|Instance|
+|IoReadOperationsPerSecond|Opérations de lecture par seconde (E/S)|BytesPerSecond|Total|Opérations de lecture par seconde (E/S)|Instance|
+|IoWriteOperationsPerSecond|Opérations d’écriture par seconde (E/S)|BytesPerSecond|Total|Opérations d’écriture par seconde (E/S)|Instance|
+|IoOtherOperationsPerSecond|Autres opérations par seconde (E/S)|BytesPerSecond|Total|Autres opérations par seconde (E/S)|Instance|
+|RequestsInApplicationQueue|Demandes dans la file d’attente d’application|Count|Moyenne|Demandes dans la file d’attente d’application|Instance|
+|CurrentAssemblies|Assemblys actuels|Count|Moyenne|Assemblys actuels|Instance|
+|TotalAppDomains|Total des domaines d’application|Count|Moyenne|Total des domaines d’application|Instance|
+|TotalAppDomainsUnloaded|Total des domaines d’application déchargés|Count|Moyenne|Total des domaines d’application déchargés|Instance|
+|Gen0Collections|Garbage collections de génération 0|Count|Total|Garbage collections de génération 0|Instance|
+|Gen1Collections|Garbage collections de génération 1|Count|Total|Garbage collections de génération 1|Instance|
+|Gen2Collections|Garbage collections de génération 2|Count|Total|Garbage collections de génération 2|Instance|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1295,4 +1348,4 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les métriques dans Azure Monitor](monitoring-overview-metrics.md)
 * [Créer des alertes sur les métriques](insights-receive-alert-notifications.md)
-* [Exporter des métriques vers le stockage, un hub d’événements ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
+* [Exporter des métriques vers le stockage, un Event Hub ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
