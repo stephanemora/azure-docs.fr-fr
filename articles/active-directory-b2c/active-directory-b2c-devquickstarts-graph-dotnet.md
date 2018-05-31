@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140029"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Graph Azure AD
 
@@ -29,16 +30,16 @@ Pour les clients B2C, il existe deux modes principaux de communication avec l’
 * Pour les tâches interactives, à exécution unique, vous devez agir comme un compte d’administrateur dans le client B2C lorsque vous exécutez ces tâches. Avec ce mode, un administrateur doit se connecter à l’aide de ses informations d’identification avant de pouvoir effectuer des appels à l’API Graph.
 * Pour les tâches automatisées, en continu, vous devez utiliser un compte de service doté des privilèges nécessaires pour effectuer des tâches de gestion. Dans Azure AD, vous pouvez le faire en inscrivant une application et en l’authentifiant auprès d’Azure AD à l’aide d’un **ID d’application** qui utilise [l’octroi des informations d’identification du client OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Dans ce cas, l’application joue son propre rôle, et non celui d’un utilisateur, pour appeler l’API Graph.
 
-Dans cet article, nous allons expliquer comment exécuter le cas d’utilisation automatisée. Pour cette démonstration, nous allons créer un `B2CGraphClient` .NET 4.5 qui effectuera les opérations de création, de lecture, de mise à jour et de suppression (CRUD) d’utilisateurs. Le client aura une interface de ligne de commande (CLI) Windows permettant d’appeler des méthodes différentes. Toutefois, le code est écrit pour se comporter de façon non interactive et automatisée.
+Dans cet article, vous découvrirez comment exécuter le cas d’utilisation automatisée. Vous allez créer un `B2CGraphClient` .NET 4.5 qui effectuera les opérations de création, de lecture, de mise à jour et de suppression (CRUD) d’utilisateurs. Le client aura une interface de ligne de commande (CLI) Windows permettant d’appeler des méthodes différentes. Toutefois, le code est écrit pour se comporter de façon non interactive et automatisée.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Obtention d’un client Azure AD B2C
-Avant de pouvoir créer des applications ou des utilisateurs, ou interagir avec Azure AD, vous avez besoin d’un client Azure AD B2C comportant un compte d’administrateur général. Si vous n’avez pas encore de client, suivez le guide de [prise en main d’Azure AD B2C](active-directory-b2c-get-started.md).
+Avant de pouvoir créer des applications ou des utilisateurs, vous devez disposer d’un locataire Azure AD B2C. Si vous n’avez pas encore de client, suivez le guide de [prise en main d’Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Inscrire votre application dans votre locataire
-Une fois que vous avez un locataire B2C, vous devez inscrire votre application par le biais du [portail Azure](https://portal.azure.com).
+Une fois que vous avez un locataire B2C, vous devez inscrire votre application à l’aide du [portail Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Pour utiliser l’API Graph avec votre client B2C, vous allez devoir inscrire une application dédiée à l’aide du menu générique *Inscriptions d’applications* du Portail Azure, et **NON** à l’aide du menu *Applications* d’Azure AD B2C. Vous ne pouvez pas réutiliser les applications B2C existantes que vous avez inscrites dans le menu *Applications* d’Azure AD B2C.
+> Pour utiliser l’API Graph avec votre locataire B2C, vous devez inscrire une application à l’aide du service *Inscriptions d’applications* du portail Azure, et **NON** à l’aide du menu *Applications* d’Azure AD B2C. Les instructions suivantes vous indiquent comment accéder au menu requis. Vous ne pouvez pas réutiliser les applications B2C existantes que vous avez inscrites dans le menu *Applications* d’Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD B2C en sélectionnant votre compte dans le coin supérieur droit de la page.
@@ -47,7 +48,8 @@ Une fois que vous avez un locataire B2C, vous devez inscrire votre application p
     1. Sélectionnez **Application web/API** en tant que Type d’application.    
     2. Fournissez **toutes les URL de connexion** (par exemple, https://B2CGraphAPI) comme elle ne convient pas pour cet exemple.  
 5. L’application va maintenant s’afficher dans la liste des applications. Cliquez sur celle-ci pour obtenir l’**ID de l’application** (également appelé ID client). Copiez-le, car vous en aurez besoin dans une section ultérieure.
-6. Dans le menu Paramètres, cliquez sur **Clés** et ajoutez une nouvelle clé (également appelée clé secrète client). Copiez-la également pour une utilisation dans une section ultérieure.
+6. Dans le menu Paramètres, cliquez sur **Clés**.
+7. Dans la section **Mots de passe**, saisissez la description de la clé, sélectionnez une durée, puis cliquez sur **Enregistrer**. Copiez la valeur de clé (également appelé Clé secrète client) pour l’utiliser dans une section ultérieure.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurer les autorisations Créer, Lire et Mettre à jour pour votre application
 Vous devez maintenant configurer votre application pour obtenir toutes les autorisations requises pour créer, lire, mettre à jour et supprimer des utilisateurs.

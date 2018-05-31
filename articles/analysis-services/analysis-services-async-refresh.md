@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153124"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 À l’aide de n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
@@ -198,7 +199,7 @@ Voici un exemple de code C# pour vous aider à démarrer, [RestApiSample sur Gi
 1.  Clonez ou téléchargez le référentiel. Ouvrez la solution RestApiSample.
 2.  Recherchez la ligne **client.BaseAddress = ...** et indiquez votre [URL de base](#base-url).
 
-L’exemple de code peut utiliser une connexion interactive, une combinaison nom d’utilisateur/mot de passe ou un [principal du service](#service-principle).
+L’exemple de code peut utiliser une connexion interactive, une combinaison nom d’utilisateur/mot de passe ou un [principal du service](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Connexion interactive ou nom d’utilisateur/mot de passe
 
@@ -235,7 +236,7 @@ Cette forme d’authentification nécessite de créer une application Azure disp
 
 #### <a name="service-principal"></a>Principal du service
 
-Consultez [Créer un principal du service – Portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) et [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md) pour plus d’informations sur la configuration du principal de service et l’attribution des autorisations nécessaires dans Azure AS. Après cette procédure, suivez les étapes complémentaires suivantes :
+Consultez [Créer un principal du service – Portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) et [Ajouter un principal du service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md) pour plus d’informations sur la configuration du principal du service et l’attribution des autorisations nécessaires dans Azure AS. Après cette procédure, suivez les étapes complémentaires suivantes :
 
 1.  Dans l’exemple de code, recherchez **string authority = …**, puis remplacez **common** par l’ID client de votre organisation.
 2.  Ajoutez ou enlevez des marques de commentaire pour que la classe ClientCredential soit utilisée pour instancier l’objet d’informations d’identification. Vérifiez que les valeurs \<ID de l’application> et \<clé de l’application> valeurs sont accessibles de manière sécurisée, ou utilisez l’authentification par certificat pour les principaux de service.

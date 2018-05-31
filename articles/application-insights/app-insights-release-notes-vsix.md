@@ -1,9 +1,9 @@
 ---
-title: "Notes de publication de l’extension Visual Studio pour Developer Analytics"
-description: "Dernières mises à jour des outils Visual Studio pour Developer Analytics"
+title: Notes de publication de l’extension Visual Studio pour Developer Analytics
+description: Dernières mises à jour des outils Visual Studio pour Developer Analytics
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869544"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notes de publication de Developer Analytics Tools
 
@@ -289,8 +290,3 @@ Vous n’avez plus à vous connecter à Azure pour ajouter des packages Applicat
 
 ![Boîte de dialogue Nouveau projet](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Prise en charge des appareils
-Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que notre expérience développeur mobile pour les appareils était HockeyApp. HockeyApp vous permet de distribuer des versions bêta à vos testeurs, de collecter et d’analyser tous les incidents de votre application et de recueillir les commentaires directement auprès de vos clients.
-HockeyApp prend en charge votre application, quelle que soit la plateforme sur laquelle vous avez choisi de la générer, qu’il s’agisse d’iOS, d’Android, de Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
-
-Dans les versions futures de l’extension Application Insights, nous allons présenter une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer par HockeyApp en ajoutant simplement la référence NuGet. Pour plus d’informations, consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) .

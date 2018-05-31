@@ -5,34 +5,35 @@ services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b08bfcd4cb9e85f9e682efe0f599b6dd88897962
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1df3e188b71b8fa2d5223bad8bc5914513e26286
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371199"
 ---
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil
 
 Dans cette section, vous allez utiliser le [Portail Azure][lnk-azure-portal] afin de créer une identité d’appareil dans le registre d’identité présent dans votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section Registre d’identité du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Utilisez le volet **Appareils IoT** dans le portail pour générer un ID d’appareil unique et la clé de votre appareil permettant l’identification à IoT Hub. Les ID d’appareil respectent la casse.
 
-1. Assurez-vous d’être connecté au [Portail Azure][lnk-azure-portal].
+1. Connectez-vous au [portail Azure][lnk-azure-portal].
 
-1. Dans la barre de lancement, cliquez sur **All resources** (Toutes les ressources) et recherchez votre ressource IoT Hub.
+1. Sélectionnez **Toutes les ressources**, puis recherchez votre ressource IoT Hub.
 
-    ![Accéder à votre IoT Hub][img-find-iothub]
+1. Lorsque votre ressource IoT Hub est ouverte, cliquez sur l’outil **Appareil IoT**, puis cliquez en haut sur **Ajouter**. 
 
-1. Lorsque votre ressource IoT Hub est ouverte, cliquez sur l’outil **Appareil IoT**, puis cliquez en haut sur **Ajouter**. Indiquez le nom de votre nouvel appareil, par exemple **myDeviceId**, et cliquez sur **Enregistrer**.
+    ![Créer une identité d’appareil sur le portail][img-add-device]
 
-    ![Créer une identité d’appareil sur le portail][img-create-device]
-
-   Cette action permet de créer une identité d’appareil pour votre IoT Hub.
+1. Indiquez un nom pour votre nouvel appareil, par exemple **myDeviceId**, puis cliquez sur **Enregistrer**. Cette action permet de créer une identité d’appareil pour votre IoT Hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. Dans la liste d’appareils de l’outil **Appareils IoT**, cliquez sur l’appareil récemment créé et notez la **chaîne de connexion, ainsi que la clé primaire**.
+   ![Ajouter un nouvel appareil][img-create-device]
+
+1. Dans la liste des appareils, cliquez sur l’appareil nouvellement créé, puis copiez la **chaîne de connexion ainsi que la clé primaire** pour une utilisation ultérieure.
 
     ![Chaîne de connexion de l’appareil][img-connection-string]
 
@@ -41,9 +42,9 @@ Dans cette section, vous allez utiliser le [Portail Azure][lnk-azure-portal] afi
 
 <!-- Images. -->
 [img-find-iothub]: ./media/iot-hub-get-started-create-device-identity-portal/find-iothub.png
-[img-create-device]: ./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png
+[img-add-device]: ./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png
 [img-connection-string]: ./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png
-
+[img-create-device]:./media/iot-hub-get-started-create-device-identity-portal/add-device.png
 
 <!-- Links -->
 [lnk-azure-portal]: https://portal.azure.com

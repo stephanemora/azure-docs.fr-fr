@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory B2C : Ajouter un fournisseur Azure AD à l’aide de stratégies personnalisées | Microsoft Docs"
-description: "Découvrir les stratégies personnalisées Azure Active Directory B2C"
+title: 'Azure Active Directory B2C : Ajouter un fournisseur Azure AD à l’aide de stratégies personnalisées | Microsoft Docs'
+description: Découvrir les stratégies personnalisées Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140221"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C : se connecter à l’aide de comptes Azure AD
 
@@ -26,7 +27,8 @@ ms.lasthandoff: 12/11/2017
 
 Cet article explique comment autoriser la connexion d’utilisateurs d’une organisation Azure Active Directory (Azure AD) spécifique en utilisant des [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -45,13 +47,13 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 >[!NOTE]
 > Nous utilisons « contoso.com » pour l’organisation (locataire) Azure AD et « fabrikamb2c.onmicrosoft.com » comme locataire Azure AD B2C dans les instructions suivantes.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans le menu supérieur, sélectionnez votre compte. Dans la liste **Répertoire**, choisissez l’organisation (locataire) Azure AD auprès de laquelle vous voulez inscrire votre application (contoso.com).
-1. Cliquez sur **Autres services** dans le volet gauche, puis recherchez « Inscriptions d’applications ».
-1. Sélectionnez **Nouvelle inscription d’application**.
-1. Entrez un nom pour votre application (par exemple, `Azure AD B2C App`).
-1. Pour le type d’application, sélectionnez **Application web/API**.
-1. Pour **URL de connexion**, entrez l’URL suivante où `yourtenant` est remplacé par le nom de votre locataire Azure AD B2C (`fabrikamb2c.onmicrosoft.com`) :
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Dans le menu supérieur, sélectionnez votre compte. Dans la liste **Répertoire**, choisissez l’organisation (locataire) Azure AD auprès de laquelle vous voulez inscrire votre application (contoso.com).
+3. Cliquez sur **Autres services** dans le volet gauche, puis recherchez « Inscriptions d’applications ».
+4. Sélectionnez **Nouvelle inscription d’application**.
+5. Entrez un nom pour votre application (par exemple, `Azure AD B2C App`).
+6. Pour le type d’application, sélectionnez **Application web/API**.
+7. Pour **URL de connexion**, entrez l’URL suivante où `yourtenant` est remplacé par le nom de votre locataire Azure AD B2C (`fabrikamb2c.onmicrosoft.com`) :
 
     >[!NOTE]
     >La valeur de « yourtenant » doit être en minuscules dans **l’URL de connexion**.
@@ -60,10 +62,10 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Enregistrez l’ID de l’application.
-1. Sélectionnez l’application que vous venez de créer.
-1. Dans le panneau **Paramètres**, sélectionnez **Clés**.
-1. Créez une clé et enregistrez-la. Vous allez l’utiliser dans les étapes de la prochaine section.
+8. Enregistrez l’ID de l’application.
+9. Sélectionnez l’application que vous venez de créer.
+10. Dans le panneau **Paramètres**, sélectionnez **Clés**.
+11. Entrez la description de la clé, sélectionnez une durée, puis cliquez sur **Enregistrer**. La valeur de la clé s’affiche. Copiez-la, car vous allez l’utiliser dans les étapes de la prochaine section.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Ajouter la clé d’Azure AD à Azure AD B2C
 

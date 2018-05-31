@@ -2,29 +2,24 @@
 title: Licence de réinitialisation de mot de passe libre-service - Azure Active Directory
 description: Conditions de licence pour la réinitialisation du mot de passe en libre-service dans Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33864653"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 
-Pour que la réinitialisation du mot de passe Azure Active Directory (Azure AD) fonctionne, vous *devez disposer d’au moins une licence affectée dans votre organisation*. Nous n’appliquons pas de licence par utilisateur lors de l’expérience de réinitialisation du mot de passe. Pour conserver la conformité avec votre contrat de licence Microsoft, vous devez attribuer des licences à tous les utilisateurs qui utilisent des fonctionnalités Premium.
+Pour que la réinitialisation du mot de passe Azure Active Directory (Azure AD) fonctionne, vous *devez disposer d’au moins une licence affectée dans votre organisation*. Nous n’appliquons pas de licence par utilisateur lors de l’expérience de réinitialisation du mot de passe. Une licence appropriée est requise si un utilisateur bénéficie directement ou indirectement d’une fonctionnalité couverte par cette licence.
 
 * **Utilisateurs du cloud uniquement** : n’importe quelle référence Office 365 payante ou Azure AD Basic
 * Utilisateurs **cloud** ou **locaux** : Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
@@ -37,8 +32,9 @@ Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l�
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 (Plan E3)
-* Microsoft 365 (Plan E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > Les plans de licences Office 365 édition autonome *ne prennent pas en charge la réécriture du mot de passe* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.

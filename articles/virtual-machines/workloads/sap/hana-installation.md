@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778594"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
 
 Voici quelques définitions importantes à connaître avant de lire ce guide. Dans [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), nous avons présenté deux classes différentes d’unités de grande instance HANA avec :
 
 - S72, S72m, S144, S144m, S192 et S192m, que nous appelons la « Classe Type I » des références SKU ;
-- S384, S384m, S384xm, S576, S768 et S960, que nous appelons la « Classe Type II » des références SKU.
+- S384, S384m, S384xm, S576m, S768m et S960m, que nous appelons la « Classe Type II » des références SKU.
 
 Le spécificateur de classe est utilisé dans la documentation relative à la grande instance HANA pour désigner différentes fonctionnalités et exigences en fonction des références SKU de grande instance HANA.
 
@@ -234,7 +235,7 @@ Dans YaST, accédez à Software Maintenance (Maintenance logicielle), puis reche
 ![SMT dans YaST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Acceptez la sélection pour l’installation sur smtserver. Une fois l’installation terminée, accédez à la configuration du serveur SMT, puis entrez les informations d'identification de votre organisation que vous avez récupérées précédemment à partir du Centre de clients SUSE. Entrez également le nom d’hôte de votre machine virtuelle Azure en tant qu’URL du serveur SMT. Dans cette démonstration, il s’agit de https://smtserver, comme affiché dans le graphique suivant.
+Acceptez la sélection pour l’installation sur smtserver. Une fois l’installation terminée, accédez à la configuration du serveur SMT, puis entrez les informations d'identification de votre organisation que vous avez récupérées précédemment à partir du Centre de clients SUSE. Entrez également le nom d’hôte de votre machine virtuelle Azure en tant qu’URL du serveur SMT. Dans cette démonstration, il s’agit de https://smtserver, comme dans le graphique suivant.
 
 ![Configuration du serveur SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

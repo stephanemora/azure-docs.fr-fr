@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780226"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Prendre en main la diffusion de contenus à la demande à l’aide du Kit de développement logiciel (SDK) .NET
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -155,7 +156,7 @@ Dans Media Services, vous téléchargez (ou réceptionnez) vos fichiers numériq
 
 La méthode **UploadFile** définie ci-dessous appelle **CreateFromFile** (défini dans les extensions du Kit de développement logiciel (SDK) .NET). **CreateFromFile** crée un nouvel élément multimédia dans lequel le fichier source spécifié est téléchargé.
 
-La méthode **CreateFromFile** prend **AssetCreationOptions, ce qui vous permet de spécifier les options de création d’éléments multimédias suivantes :
+La méthode **CreateFromFile** prend \*\*AssetCreationOptions, ce qui vous permet de spécifier les options de création d’éléments multimédias suivantes :
 
 * **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
   Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.

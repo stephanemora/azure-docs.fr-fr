@@ -1,14 +1,14 @@
 ---
-title: "Empaqueter et déployer une application de conteneurs Microsoft Azure Service Fabric | Microsoft Docs"
-description: "Dans ce didacticiel, vous découvrez comment générer une définition d’application Azure Service Fabric à l’aide de Yeoman et empaqueter l’application."
+title: Empaqueter et déployer une application de conteneurs Microsoft Azure Service Fabric | Microsoft Docs
+description: Dans ce didacticiel, vous découvrez comment générer une définition d’application Azure Service Fabric à l’aide de Yeoman et empaqueter l’application.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Conteneurs, Microservices, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365365"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Didacticiel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric
 
@@ -36,6 +37,7 @@ Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de g
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 - Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 - L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
 
@@ -45,7 +47,8 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
 1. Installez nodejs et NPM sur votre machine. Notez que les utilisateurs Mac OSX doivent utiliser le gestionnaire de package Homebrew.
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Installez le générateur de modèles Yeoman sur votre machine à partir de NPM. 
 
@@ -247,11 +250,11 @@ Utilisez le script d’installation fourni dans le répertoire **TestContainer**
 ./install.sh
 ```
 
-Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Développez le nœud Applications et constatez qu’il existe une entrée pour votre type d’application, et une entrée pour l’instance.
+Ouvrez un navigateur et accédez à Service Fabric Explorer sur http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Développez le nœud Applications et constatez qu’il existe une entrée pour votre type d’application, et une entrée pour l’instance.
 
 ![Service Fabric Explorer][sfx]
 
-Pour pouvoir vous connecter à l’application en cours d’exécution, ouvrez un navigateur web et accédez à l’url du cluster, par exemple http://lin0823ryf2he.cloudapp.azure.com:80. L’application de vote doit s’afficher dans l’interface utilisateur web.
+Pour pouvoir vous connecter à l’application en cours d’exécution, ouvrez un navigateur web et accédez à l’URL du cluster, par exemple http://lin0823ryf2he.cloudapp.azure.com:80. L’application de vote doit s’afficher dans l’interface utilisateur web.
 
 ![ApplicationDeVote][votingapp]
 

@@ -1,11 +1,11 @@
 ---
-title: "Créer une passerelle Azure Application Gateway - Azure CLI 1.0 | Microsoft Docs"
-description: "Découvrez comment créer une passerelle Application Gateway à l’aide d’Azure CLI 1.0 dans Resource Manager"
+title: Créer une passerelle Azure Application Gateway - Azure CLI 1.0 | Microsoft Docs
+description: Découvrez comment créer une passerelle Application Gateway à l’aide d’Azure CLI 1.0 dans Resource Manager
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
-ms.openlocfilehash: fe50fb3a7434702101dc5ae7a9dd176a33423119
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201869"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
-> * [portail Azure](application-gateway-create-gateway-portal.md)
+> * [Portail Azure](application-gateway-create-gateway-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
 > * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 > 
@@ -67,7 +68,7 @@ Ouvrez **l’invite de commandes Microsoft Azure**et connectez-vous.
 azure login
 ```
 
-Une fois que vous avez tapé l’exemple précédent, un code est fourni. Accédez à https://aka.ms/devicelogin dans un navigateur pour continuer le processus de connexion.
+Une fois que vous avez tapé l’exemple précédent, un code est fourni. Accédez à https://aka.ms/devicelogin dans un navigateur pour poursuivre le processus de connexion.
 
 ![Invite de commande affichant le code de l’appareil][1]
 

@@ -1,6 +1,6 @@
 ---
-title: 'Privileged Identity Management pour ressources Azure : attributions de membres éligibles et visibilité des ressources | Microsoft Docs'
-description: Décrit comment attribuer les membres en tant que membres éligibles aux rôles de ressources.
+title: Attributions de membres éligibles et visibilité des ressources pour Azure dans Privileged Identity Management | Microsoft Docs
+description: Décrit comment attribuer des membres en tant que membres éligibles pour des rôles de ressources lors de l’utilisation de PIM.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,15 +14,16 @@ ms.topic: article
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 273b06c91d68a764fe814374c0eca6ed1698cc2e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4804d930a98192d64245784058920eeba7d30212
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149984"
 ---
-# <a name="eligible-assignments-and-resource-visibility"></a>Attributions de membres éligibles et visibilité des ressources
+# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Attributions de membres éligibles et visibilité des ressources avec Privileged Identity Management
 
-PIM pour les rôles de ressources Azure accroît la sécurité des organisations possédant des ressources Azure critiques. PIM permet aux administrateurs des ressources d’attribuer des membres aux rôles de ressources comme étant éligibles. Lisez ce qui suit pour en apprendre davantage sur les différents types d’attribution et les états des rôles de ressources Azure. 
+PIM (Privileged Identity Management) pour les rôles de ressources Azure renforce la sécurité des organisations ayant des ressources Azure critiques. Les administrateurs de ressources peuvent utiliser PIM pour attribuer des membres en tant que membres éligibles pour des rôles de ressources. Lisez les sections qui suivent pour en apprendre davantage sur les différents types et états d’attribution des rôles de ressources Azure. 
 
 ## <a name="assignment-types"></a>Types d’attributions
 
@@ -31,40 +32,41 @@ PIM pour les ressources Azure fournit deux types distincts d’attribution :
 - Éligible
 - Actif
 
-Les attributions de membres éligibles exigent des membres qu’ils effectuent une action pour utiliser ce rôle. Il peut s’agir de procéder à une vérification de l’authentification multifacteur, de fournir une justification et de demander une approbation auprès des approbateurs désignés.
+Les attributions de membres éligibles exigent des membres qu’ils effectuent une action pour utiliser ce rôle. Il peut s’agir de procéder à une vérification de l’authentification multifacteur, de fournir une justification professionnelle ou de demander une approbation aux approbateurs désignés.
 
-Les attributions de membres actifs n’exigent pas des membres qu’ils effectuent une action pour utiliser ce rôle. Les membres attribués comme étant actifs possèdent à tout moment les privilèges fournis par le rôle.
+Les attributions de membres actifs n’exigent pas des membres qu’ils effectuent une action pour utiliser ce rôle. Les membres attribués comme étant actifs détiennent à tout moment les privilèges affectés au rôle.
 
 ## <a name="assignment-duration"></a>Durée de l’attribution
 
-Au moment de la configuration des paramètres de PIM sur un rôle, les administrateurs des ressources peuvent choisir l’une de ces deux options pour chaque type d’attribution. Ces options deviennent la durée maximale par défaut lorsqu’un membre est attribué au rôle dans PIM.
+Au moment de la configuration des paramètres de PIM pour un rôle, les administrateurs des ressources peuvent choisir parmi deux options possibles pour chaque type d’attribution. Ces options deviennent la durée maximale par défaut lorsqu’un membre est attribué au rôle dans PIM. 
+
+Un administrateur peut choisir l’un de ces types d’attribution :
 
 - Autoriser une attribution éligible permanente
 - Autoriser une attribution active permanente
 
-or
+Un administrateur peut également choisir l’un de ces types d’attribution :
 
 - Faire expirer les attributions éligibles après
 - Faire expirer les attributions actives après
 
-Si un administrateur de la ressource choisit d’autoriser l’attribution éligible permanente et/ou d’autoriser l’attribution active permanente, tous les administrateurs qui attribuent des membres à la ressource auront la possibilité de définir des appartenances permanentes.
+Si un administrateur de ressources choisit **Autoriser une attribution éligible permanente** ou **Autoriser une attribution active permanente**, tous les administrateurs qui attribuent des membres à la ressource peuvent définir des appartenances permanentes.
 
-En choisissant de faire expirer les attributions éligibles après et/ou de faire expirer les attributions actives après, vous contrôlez le cycle de vie de l’attribution en imposant que toutes les attributions disposent d’une date de début et d’une date de fin.
+Si un administrateur de ressources choisit **Faire expirer les attributions éligibles après** ou **Faire expirer les attributions actives après**, il contrôle le cycle de vie de l’attribution en exigeant que toutes les attributions aient une date de début et une date de fin spécifiées.
 
->[!NOTE] 
->Toutes les attributions avec une date de fin spécifiée peuvent être renouvelées par les administrateurs de la ressource. De plus, les membres peuvent initier des demandes en libre-service pour [étendre ou renouveler les attributions](pim-resource-roles-renew-extend.md).
+> [!NOTE] 
+> Toutes les attributions qui ont une date de fin spécifiée peuvent être renouvelées par les administrateurs de ressources. De plus, les membres peuvent lancer des demandes en libre-service afin d’[étendre ou renouveler des attributions](pim-resource-roles-renew-extend.md).
 
 
 ## <a name="assignment-states"></a>États d’attribution
 
-PIM pour les ressources Azure possède deux états d’attribution distincts qui s’affichent sous l’onglet Rôles actifs dans les écrans Mes rôles, Rôles et Membres de PIM. Ces états sont :
+PIM pour les ressources Azure a deux états d’attribution distincts qui s’affichent sous l’onglet **Rôles actifs** dans les vues **Mes rôles**, **Rôles** et **Membres** de PIM. Ces états sont :
 
 - Attribué
 - Activé
 
-Au moment d’afficher une appartenance répertoriée dans Rôles actifs, la colonne ÉTAT vous permet de faire la distinction entre les utilisateurs qui sont « attribués » comme étant « actifs » et ceux qui ont activé une attribution éligible et sont maintenant actifs.
+Quand vous visualisez une appartenance listée dans **Rôles actifs**, vous pouvez utiliser la valeur indiquée dans la colonne **ÉTAT** pour faire la distinction entre les utilisateurs qui sont **Attribués** comme étant actifs et ceux qui ont **Activé** une attribution éligible et sont maintenant actifs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Attribuer des rôles dans PIM](pim-resource-roles-assign-roles.md)
-
+[Attribuer des rôles dans Privileged Identity Management](pim-resource-roles-assign-roles.md)

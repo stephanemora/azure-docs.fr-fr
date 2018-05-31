@@ -1,5 +1,5 @@
 ---
-title: Limiter le trafic web avec un pare-feu d’applications web - Azure CLI
+title: Activer le pare-feu d’applications web - Azure CLI
 description: Découvrez comment limiter le trafic web avec un pare-feu d’applications web sur une passerelle d’application à l’aide d’Azure CLI.
 services: application-gateway
 author: vhorne
@@ -10,13 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 64de501c2e7912cb4cbbae4b194d6c686a1efe67
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ca00dd3b359d9aff1b987a3bef5b27732678b0a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356220"
 ---
-# <a name="tutorial-restrict-web-traffic-with-a-web-application-firewall-using-the-azure-cli"></a>Tutoriel : limiter le trafic web avec un pare-feu d’applications web à l’aide d’Azure CLI
+# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutoriel : activer le pare-feu d’applications web à l’aide d’Azure CLI
 
 Vous pouvez limiter le trafic sur une [passerelle d’application](overview.md) à l’aide d’un [pare-feu d’applications web](waf-overview.md) (WAF). Le WAF utilise des règles [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pour protéger votre application. Ces règles incluent la protection contre les attaques telles que l’injection de code SQL, les attaques de script entre sites et les détournements de session. 
 
@@ -30,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ![Exemple de pare-feu d’applications web](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -134,7 +135,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Créer un compte de stockage et configurer des diagnostics

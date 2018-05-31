@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc32ba4858e7be901d2cd4d773491247e9e0e672
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942494"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Limites du modèle d’achat vCore d’Azure SQL Database (préversion)
 
@@ -25,48 +26,95 @@ ms.lasthandoff: 04/28/2018
 Pour les bases de données uniques, les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de performance et de service. Vous pouvez définir le niveau de service, le niveau de performance et la quantité de stockage pour une base de données unique à l’aide du [portail Azure](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), de [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), de [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [d’Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) ou de [l’API REST](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
 ### <a name="general-purpose-service-tier"></a>Niveau de service Usage général
-|Niveau de performance|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Mémoire (Go)|7|14|28|56|112|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
-|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Taille maximale des données (Go)|1 024|1 024|1536|3 072|4096|
-|Taille maximale du journal|307|307|461|922|1229|
-|Taille de TempDB (DB)|32|64|128|256|384|
-|IOPS cible|320|640|1 280|2560|5120|
-|Latence d’E/S (approximative)|5-7 ms (écriture)
-|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
-|Nombre de réplicas|1|1|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+|Niveau de performance|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|:--- | --: |--: |--: |--: |--: |--: |
+|Génération H/W|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Mémoire (Go)|7|14|28|56|112|168|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Taille maximale des données (Go)|1 024|1 024|1536|3 072|4096|4096|
+|Taille maximale du journal|307|307|461|922|1229|1229|
+|Taille de TempDB (DB)|32|64|128|256|384|384|
+|IOPS cible (64 ko)|500|1 000|2000|4000|7000|7000|
+|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|4 800|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|000
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|||
+
+#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+|Niveau de performance|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
+|Génération H/W|5.|5.|5.|5.|5.|5.|5.|
+|vCores|2|4|8|16|24|32|48|80|
+|Mémoire (Go)|11|22|44|88|132|176|264|440|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Taille maximale des données (Go)|1 024|1 024|1536|3 072|4096|4096|4096|4096|
+|Taille maximale du journal|307|307|461|614|1229|1229|1229|1229|
+|Taille de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS cible (64 ko)|500|1 000|2000|4000|6000|7000|7000|7000|
+|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4 800|8000|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
 ### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
-|Niveau de performance|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Mémoire (Go)|7|14|28|56|112|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1|2|4|8|20|
-|Type de stockage|SSD attaché|SSD attaché|SSD attaché|SSD attaché|SSD attaché|
-|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|
-|Taille maximale du journal|307|307|307|307|307|
-|Taille de TempDB (DB)|32|64|128|256|384|
-|IOPS cible|5 000|10000|20000|40000|80000|
-|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
-|Nombre de réplicas|3|3|3|3|3|
-|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+|Niveau de performance|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|Génération H/W|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Mémoire (Go)|7|14|28|56|112|168|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|1|2|4|8|20|36|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
+|Taille maximale du journal|307|307|307|307|307|307|
+|Taille de TempDB (DB)|32|64|128|256|384|384|
+|IOPS cible (64 ko)|5 000|10000|20000|40000|80000|120 000|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|4 800|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Nombre de réplicas|3|3|3|3|3|3|
+|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|||
+
+#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+|Niveau de performance|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
+|vCores|2|4|8|16|24|32|48|80|
+|Mémoire (Go)|11|22|44|88|132|176|264|440|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|1 571|3 142|6 284|15 768|25 252|37 936|68 104|131,64|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|2 048|4096|4096|4096|
+|Taille maximale du journal|307|307|307|307|614|1229|1229|1229|
+|Taille de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS cible (64 ko)|5 000|10000|20000|40000|60000|80000|120 000|200000
+|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4 800|8000|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
 ## <a name="single-database-change-storage-size"></a>Base de données unique : modifier la taille de stockage
@@ -101,51 +149,103 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 > Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont le même niveau de performance. Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
 
 ### <a name="general-purpose-service-tier"></a>Niveau de service Usage général
-|Niveau de performance|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Mémoire (Go)|7|14|28|56|112|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
-|Taille maximale des données (Go)|512|756|1536|2 048|3584|
-|Taille maximale du journal|154|227|461|614|1075|
-|Taille de TempDB (DB)|32|64|128|256|384|
-|IOPS cible|320|640|1 280|2560|5120|
-|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
-|Densité de pool maximale|100|200|500|500|500|
-|Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|
-|Nombre de réplicas|1|1|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+|Niveau de performance|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|Génération H/W|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Mémoire (Go)|7|14|28|56|112|168|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Taille maximale des données (Go)|512|756|1536|2 048|3584|4096|
+|Taille maximale du journal|154|227|461|614|1075|1229|
+|Taille de TempDB (DB)|32|64|128|256|384|384|
+|IOPS cible (64 ko)|500|1 000|2000|4000|7000|7000|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|5040|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Densité de pool maximale|100|200|500|500|500|500|
+|Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Nombre de réplicas|1|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|||
+
+#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+|Niveau de performance|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
+|vCores|2|4|8|16|24|32|48|80|
+|Mémoire (Go)|11|22|44|88|132|176|264|440|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Taille maximale des données (Go)|512|756|1536|2 048|3 072|4096|4096|4096|
+|Taille maximale du journal|154|227|461|614|922|1229|1229|1229|
+|Taille de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS cible (64 ko)|500|1 000|2000|4000|6000|7000|7000|7000|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|2520|3360|5040|8400
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
+|Densité de pool maximale|100|200|500|500|500|500|500|500|
+|Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Nombre de réplicas|1|1|1|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
 ### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
-|Niveau de performance|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|
-|vCores|1|2|4|8|16|
-|Mémoire (Go)|7|14|28|56|112|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1|2|4|8|20|
-|Type de stockage|SSD attaché|SSD attaché|SSD attaché|SSD attaché|SSD attaché|
-|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|
-|Taille maximale du journal|307|307|307|461|614|
-|Taille de TempDB (DB)|32|64|128|256|384|
-|IOPS cible|320|640|1 280|2560|5120|
-|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
-|Densité de pool maximale|N/A|50|100|100|100|
-|Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|
-|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+|Niveau de performance|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|Génération H/W|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Mémoire (Go)|7|14|28|56|112|168|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|1|2|4|8|20|36|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
+|Taille maximale du journal|307|307|307|307|307|307|
+|Taille de TempDB (DB)|32|64|128|256|384|384|
+|IOPS cible (64 ko)|5 000|10000|20000|40000|80000|120 000|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|5040|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Densité de pool maximale|N/A|50|100|100|100|100|
+|Valeurs min/max de pool élastique|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
+
+#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+|Niveau de performance|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
+|vCores|2|4|8|16|24|48|64|80|
+|Mémoire (Go)|11|22|44|88|132|176|264|440|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|1 571|3 142|6 284|15 768|25 252|37 936|68 104|131,64|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|2 048|4096|4096|4096|
+|Taille maximale du journal|307|307|307|307|614|1229|1229|1229|
+|Taille de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS cible (64 ko)|5 000|10000|20000|40000|60000|80000|120 000|200000
+|Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|2520|3360|5040|8400|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
+|Densité de pool maximale|N/A|50|100|100|100|100|100|100|
+|Valeurs min/max de pool élastique|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|||
+
 Si tous les vCore d’un pool élastique sont occupés, chaque base de données du pool reçoit une quantité égale de ressources de calcul pour traiter les requêtes. Le service de base de données SQL offre un partage équitable des ressources entre les bases de données, garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de vCore par base de données est défini sur une valeur différente de zéro.
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriétés de base de données pour les bases de données mises en pool

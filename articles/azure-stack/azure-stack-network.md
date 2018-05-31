@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936515"
 ---
 # <a name="network-connectivity"></a>Connectivité réseau
 Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack qui vous aideront à déterminer la meilleure intégration possible d’Azure Stack dans votre environnement réseau existant. 
@@ -70,7 +71,7 @@ Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils pui
 Ce réseau /27 correspond à la petite plage du sous-réseau d’infrastructure Azure Stack mentionné précédemment. Il ne nécessite pas d’adresses IP publiques, mais exige un accès à Internet par le biais de NAT ou d’un proxy transparent. Ce réseau sera alloué pour le système de console de récupération d’urgence (ERCS). La machine virtuelle ERCS requiert un accès à Internet pendant l’inscription auprès d’Azure et les sauvegardes d’infrastructure. Ma machine virtuelle ERCS doit être routable pour votre réseau de gestion à des fins de dépannage.
 
 ### <a name="public-vip-network"></a>Réseau d’adresse IP virtuelle publique
-Le réseau d’adresse IP virtuelle publique est affecté au contrôleur réseau dans Azure Stack. Il ne s’agit pas d’un réseau logique sur le commutateur. Le SLB utilise le pool d’adresses et assigne des réseaux /32 pour les charges de travail clientes. Dans la table de routage du commutateur, ces adresses IP 32 sont publiées en tant qu’itinéraire disponible via BGP. Ce réseau contient les adresses IP accessibles en externe ou publiques. L’infrastructure Azure Stack utilise 8 adresses de ce réseau d’adresses IP virtuelles publiques, tandis que les autres sont utilisées par les machines virtuelles de locataire. La taille réseau sur ce sous-réseau peut aller d’un minimum de /26 (64 hôtes) à un maximum de /22 (1022 hôtes). Nous vous recommandons de prévoir pour un réseau /24.
+Le réseau d’adresse IP virtuelle publique est affecté au contrôleur réseau dans Azure Stack. Il ne s’agit pas d’un réseau logique sur le commutateur. Le SLB utilise le pool d’adresses et assigne des réseaux /32 pour les charges de travail clientes. Dans la table de routage du commutateur, ces adresses IP 32 sont publiées en tant qu’itinéraire disponible via BGP. Ce réseau contient les adresses IP accessibles en externe ou publiques. L’infrastructure Azure Stack réserve les 31 premières adresses de ce réseau d’adresse IP virtuelle publique tandis que les autres sont utilisées par les machines virtuelles clientes. La taille réseau sur ce sous-réseau peut aller d’un minimum de /26 (64 hôtes) à un maximum de /22 (1022 hôtes). Nous vous recommandons de prévoir pour un réseau /24.
 
 ### <a name="switch-infrastructure-network"></a>Réseau d’infrastructure du commutateur
 Ce réseau /26 est le sous-réseau contenant des sous-réseaux IP point à point routables /30 (2 adresses IP d’hôte) et les bouclages dédiés aux sous-réseaux /32 pour la gestion du commutateur intrabande et l’ID de routeur BGP. Cette plage d’adresses IP doit être routable en externe de la solution Azure Stack pour votre centre de données. Il peut s’agit d’adresses IP privées ou publiques.

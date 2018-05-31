@@ -1,8 +1,8 @@
 ---
-title: "Surveiller les applications Docker dans Azure Application Insights | Microsoft Docs"
-description: "Vous pouvez visualiser les compteurs de performances, les événements et les exceptions Docker dans Application Insights, avec les données de télémétrie des applications en conteneur."
+title: Surveiller les applications Docker dans Azure Application Insights | Microsoft Docs
+description: Vous pouvez visualiser les compteurs de performances, les événements et les exceptions Docker dans Application Insights, avec les données de télémétrie des applications en conteneur.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153691"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Analyse des applications Docker dans Application Insights
-Les événements de cycle de vie et les compteurs de performances provenant de conteneurs [Docker](https://www.docker.com/) peuvent être représentés dans Application Insights. Installez l'image [Application Insights](app-insights-overview.md) dans un conteneur de votre hôte pour afficher les compteurs de performances de l'hôte, ainsi que d'autres images.
+Les événements de cycle de vie et les compteurs de performances provenant de conteneurs [Docker](https://www.docker.com/) peuvent être représentés dans Application Insights. Installez l'image [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) dans un conteneur de votre hôte pour afficher les compteurs de performances de l'hôte, ainsi que d'autres images.
 
 Avec Docker, vous distribuez vos applications dans des conteneurs légers avec toutes les dépendances. Elles s’exécuteront sur n’importe quelle machine hôte exécutant un moteur Docker.
 
@@ -43,6 +44,10 @@ Lorsque vous exécutez l’[image Application Insights](https://hub.docker.com/r
 2. Ajoutez la mosaïque Docker : choisissez **Ajouter la mosaïque**, faites glisser la mosaïque Docker à partir de la galerie, puis cliquez sur **Terminer**. 
    
     ![exemple](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> Le volet de vue d’ensemble d’Application Insights est désormais verrouillé et ne permet pas d’ajouter des vignettes à partir de la galerie. Vous pouvez toujours ajouter la vignette Docker en suivant la procédure ci-dessus via l’interface du tableau de bord Azure.
+
 3. Cliquez sur la liste déroulante **Essentials** et sélectionnez la clé d'instrumentation. Vous l’utilisez pour indiquer au Kit de développement logiciel (SDK) où envoyer ses données de télémétrie.
 
     ![exemple](./media/app-insights-docker/02-props.png)

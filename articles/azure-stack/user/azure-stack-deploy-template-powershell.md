@@ -1,11 +1,11 @@
 ---
-title: "Déployer des modèles avec PowerShell dans Azure Stack | Microsoft Docs"
-description: "Apprenez à déployer une machine virtuelle à l’aide d’un modèle Resource Manager et de PowerShell."
+title: Déployer des modèles avec PowerShell dans Azure Stack | Microsoft Docs
+description: Déployez un modèle dans Azure Stack avec PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359813"
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Déployer des modèles dans Azure Stack à l’aide de PowerShell
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Déployer un modèle dans Azure Stack avec PowerShell
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Utilisez PowerShell pour déployer des modèles Azure Resource Manager dans le Kit de développement Azure Stack.  Les modèles Resource Manager déploient et approvisionnent toutes les ressources de l’application en une seule opération coordonnée.
+Vous pouvez utiliser PowerShell pour déployer des modèles Azure Resource Manager dans Azure Stack. Cet article montre comment utiliser PowerShell pour déployer un modèle.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Exécuter les applets de commande AzureRM PowerShell
-Dans cet exemple, vous exécutez un script pour déployer une machine virtuelle dans le Kit de développement Azure Stack à l’aide d’un modèle Resource Manager.  Avant de continuer, vérifiez que vous avez [configuré PowerShell](azure-stack-powershell-configure-user.md)  
 
-Le disque dur virtuel utilisé dans cet exemple de modèle est WindowsServer-2012-R2-Datacenter.
+Cet exemple utilise les applets de commande AzureRM PowerShell et un modèle stocké sur GitHub. Le modèle crée une machine virtuelle Windows Server 2012 R2 Datacenter.
 
-1. Accédez à <http://aka.ms/AzureStackGitHub>, recherchez le modèle **101-simple-windows-vm** et enregistrez-le à l’emplacement suivant : c:\\templates\\ azuredeploy-101-simple-windows-vm.json.
-2. Dans PowerShell, exécutez le script de déploiement suivant. Remplacez *username* et *password* par votre nom d’utilisateur et votre mot de passe. Pour les prochaines utilisations, augmentez la valeur du paramètre *$myNum* pour éviter d’écraser votre déploiement.
-   
+>[!NOTE]
+>Avant d’essayer cet exemple, vérifiez que vous avez [configuré PowerShell](azure-stack-powershell-configure-user.md) pour un utilisateur Azure Stack.
+
+1. Accédez à <http://aka.ms/AzureStackGitHub> et recherchez le modèle **101-simple-windows-vm**. Enregistrez le modèle à cet emplacement : C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+2. Ouvrez une invite de commandes PowerShell avec élévation de privilèges.
+3. Remplacez *username* et *password* dans le script suivant par votre nom d’utilisateur et votre mot de passe, puis exécutez le script.
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -56,9 +60,12 @@ Le disque dur virtuel utilisé dans cet exemple de modèle est WindowsServer-201
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Ouvrir le portail Azure Stack, cliquez sur **Parcourir**, cliquez sur **Machines virtuelles** et recherchez votre nouvelle machine virtuelle (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >Chaque fois que vous exécutez ce script, augmentez la valeur du paramètre « $myNum » pour éviter d’écraser votre déploiement.
+
+4. Ouvrez le portail Azure Stack portal, sélectionnez **Parcourir**, puis sélectionnez **Machines virtuelles** pour rechercher votre nouvelle machine virtuelle (*myDeployment001*).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Déployer des modèles avec Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
+[Déployer des modèles avec Visual Studio](azure-stack-deploy-template-visual-studio.md)

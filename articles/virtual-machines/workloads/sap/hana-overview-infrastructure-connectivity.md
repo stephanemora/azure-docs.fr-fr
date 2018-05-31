@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778288"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure 
 
 Quelques définitions avant de lire ce guide. Dans [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), nous avons présenté deux classes différentes d’unités de grande instance HANA avec :
 
 - S72, S72m, S144, S144m, S192 et S192m, que nous appelons la « Classe Type I » des références SKU ;
-- S384, S384m, S384xm, S576, S768 et S960, que nous appelons la « Classe Type II » des références SKU.
+- S384, S384m, S384xm, S576m, S768m et S960m, que nous appelons la « Classe Type II » des références SKU.
 
 Les spécificateurs de classe sont utilisé dans la documentation relative à la grande instance HANA pour désigner différentes fonctionnalités et exigences en fonction des références SKU de grande instance HANA.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Dans cet exemple, la référence SKU de passerelle HighPerformance a été utilisée. Vous pouvez opter pour HighPerformance ou pour UltraPerformance, les seules références SKU de passerelle prises en charge pour SAP HANA sur Azure (grandes instances).
 
 > [!IMPORTANT]
-> Pour les grandes instances HANA dont les types de références SKU sont S384, S384m, S384xm, S576, S768 et S960 (références SKU de classe de Type II), l’utilisation de la référence SKU de passerelle UltraPerformance est obligatoire.
+> Pour les grandes instances HANA dont les types de références SKU sont S384, S384m, S384xm, S576m, S768m et S960m (classe Type II des références SKU), il est obligatoire d’utiliser la référence SKU de passerelle UltraPerformance.
 
 ### <a name="linking-vnets"></a>Liaison de réseaux virtuels
 

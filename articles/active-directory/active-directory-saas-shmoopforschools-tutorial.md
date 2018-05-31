@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Shmoop For Schools."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Shmoop For Schools.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 799a88344d6c348061af19bfbbd9022025d2d66b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350608"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools
 
@@ -30,9 +31,10 @@ L’intégration de Shmoop For Schools à Azure AD vous offre les avantages suiv
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Shmoop For Schools avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Shmoop For Schools, vous avez besoin des éléments suivants :
 
@@ -79,8 +81,6 @@ Pour configurer l’intégration de Shmoop For Schools à Azure AD, vous devez 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Shmoop For Schools avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Shmoop For Schools équivalent dans Azure AD. En d’autres termes, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Shmoop For Schools.
-
-Dans Shmoop For Schools, donnez à la valeur **Username** la même valeur que le **nom d’utilisateur** dans Azure AD. Vous avez à présent établi la relation.
 
 Pour configurer et tester l’authentification unique Azure AD avec Shmoop For Schools, suivez les indications des sections ci-après :
 
@@ -146,31 +146,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Pour générer l’**URL** des métadonnées, effectuez les étapes suivantes :
+7. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
-    a. Sélectionnez **Inscriptions d’applications**.
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    b. Pour ouvrir la boîte de dialogue **Points de terminaison**, sélectionnez **Points de terminaison**.  
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. Accédez à la page de propriétés **Shmoop For Schools**. Copiez l**'ID de l’application** à l’aide du bouton **Copier**. Collez-le dans le Bloc-notes.
- 
-    ![Configurer l’authentification unique](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    e. Générez **l’URL des métadonnées** en utilisant le modèle suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
-
-8. Pour configurer l’authentification unique côté **Shmoop For Schools**, vous devez envoyer l’**URL des métadonnées** à l’[équipe de support de Shmoop For Schools](mailto:support@shmoop.com).
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application. Après avoir ajouté cette application à partir de la section **Active Directory** > **Applications d’entreprise**, sélectionnez l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée en consultant la [documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+8. Pour configurer l’authentification unique côté **Shmoop For Schools**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe de support de Shmoop For Schools](mailto:support@shmoop.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -252,7 +232,7 @@ Pour plus d’informations sur le volet d’accès, consultez la page [Présenta
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

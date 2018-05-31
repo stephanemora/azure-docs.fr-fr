@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187706"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architecture de la réplication Azure vers Azure
 
@@ -46,7 +47,7 @@ Quand vous activez la réplication de machines virtuelles Azure, les ressources 
 
 **Ressource** | **Détails**
 --- | ---
-**Groupe de ressources cible** | Groupe de ressources auquel appartiennent les machines virtuelles répliquées après le basculement.
+**Groupe de ressources cible** | Groupe de ressources auquel appartiennent les machines virtuelles répliquées après le basculement. L’emplacement de ce groupe de ressources peut être n’importe quelle région Azure à l’exception de la région Azure dans laquelle les machines virtuelles source sont hébergées.
 **Réseau virtuel cible** | Réseau virtuel dans lequel les machines virtuelles répliquées sont situées après le basculement. Un mappage réseau est créé entre les réseaux virtuels source et cible, et inversement.
 **Comptes Stockage de cache** | Avant que les changements des machine virtuelles sources soient répliqués sur un compte de stockage cible, ils sont suivis et envoyés au compte de stockage de cache dans l’emplacement source. Cette étape garantit un impact minimal sur les applications de production s’exécutant sur la machine virtuelle.
 **Comptes de stockage cibles (si la machine virtuelle source n’utilise pas de disques managés)**  | Comptes de stockage dans l’emplacement cible vers lesquels les données sont répliquées.

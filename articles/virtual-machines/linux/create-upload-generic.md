@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 171265d996c9fe4eb10ac354347f5725dadd0203
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 17b4df83b141d5365a8d6244c4ab73b0eba5ed73
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944584"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +30,9 @@ Le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exéc
 * [Linux sur Azure : Distributions approuvées](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Prise en charge d’images Linux dans Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
-Toutes les distributions exécutées sur Azure doivent remplir les conditions suivantes pour fonctionner correctement sur la plateforme.  Cet article n'est pas exhaustif, car chaque distribution est différente. Il est également possible que, même en répondant à tous les critères ci-dessous, il s'avère nécessaire de modifier votre système Linux pour garantir son fonctionnement correct sur la plateforme.
+Toutes les distributions exécutées sur Azure doivent remplir les conditions suivantes pour fonctionner correctement sur la plateforme.  Cet article n’est pas exhaustif, car chaque distribution est différente. Même si tous les critères ci-dessous sont remplis, il est possible que vous deviez modifier considérablement votre système Linux pour garantir son bon fonctionnement sur la plateforme.
 
-C'est pourquoi nous recommandons de commencer avec une de nos [distributions Linux approuvées sur Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dans la mesure du possible. Les articles suivants vous montrent comment préparer les diverses distributions Linux approuvées prises en charge dans Azure :
+C’est pourquoi nous vous recommandons, dans la mesure du possible, de commencer avec une [distribution Linux approuvée sur Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). L’article suivant vous montre comment préparer les diverses distributions Linux approuvées prises en charge sur Azure :
 
 * **[Distributions CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -40,7 +41,7 @@ C'est pourquoi nous recommandons de commencer avec une de nos [distributions Li
 * **[SLES et openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-La suite de cet article fournit des conseils généraux pour exécuter votre distribution Linux sur Azure.
+La suite de cet article fournit des conseils généraux pour exécuter votre distribution Linux sur Azure.
 
 ## <a name="general-linux-installation-notes"></a>Notes générales d'installation de Linux
 * Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**.  Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd. Si vous utilisez VirtualBox, vous devez sélectionner **Taille fixe** par opposition à la valeur par défaut allouée dynamiquement lors de la création du disque.
@@ -53,7 +54,7 @@ La suite de cet article fournit des conseils généraux pour exécuter votre dis
 * Tous les VDH sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. Lors de la conversion d’un disque brut vers VDH, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo avant la conversion. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installation de modules de noyau sans Hyper-V
-Azure s’exécute sur l’hyperviseur Hyper-V. Linux nécessite donc l’installation de certains modules de noyau pour pouvoir s’exécuter dans Azure. Si vous avez une machine virtuelle qui a été créée en dehors d’Hyper-V, les programmes d’installation de Linux risquent de ne pas comprendre les pilotes pour Hyper-V dans le ramdisk initial (initrd ou initramfs), sauf s’ils détectent qu’il s’exécute dans un environnement Hyper-V. Lorsque vous utilisez un système de virtualisation différent (Virtualbox, KVM, etc.) pour préparer votre image Linux, vous devrez peut-être recréer le fichier initrd pour vous assurer que les modules noyaux `hv_vmbus` et `hv_storvsc` sont disponibles dans le ramdisk initial.  Ceci est un problème connu, touchant au moins les systèmes basés sur la distribution Red Hat en amont.
+Azure s’exécute sur l’hyperviseur Hyper-V. Linux nécessite donc l’installation de certains modules de noyau pour pouvoir s’exécuter dans Azure. Si vous avez une machine virtuelle qui a été créée en dehors d’Hyper-V, les programmes d’installation de Linux risquent de ne pas inclure les pilotes pour Hyper-V dans le ramdisk initial (initrd ou initramfs), sauf s’ils détectent qu’il s’exécute dans un environnement Hyper-V. Quand vous utilisez un système de virtualisation différent (Virtualbox, KVM, etc.) pour préparer votre image Linux, vous devrez peut-être recréer le fichier initrd pour garantir que les modules noyaux `hv_vmbus` et `hv_storvsc` soient au moins disponibles dans le ramdisk initial.  Ceci est un problème connu, touchant au moins les systèmes basés sur la distribution Red Hat en amont.
 
 Le mécanisme de reconstruction d'image initrd ou initramfs varie en fonction de la distribution. Consultez la documentation ou le support de votre distribution pour trouver la procédure appropriée.  L’exemple suivant permet de régénérer le fichier initrd, à l’aide de l’utilitaire `mkinitrd` :
 
@@ -68,11 +69,11 @@ Puis, régénérez initrd avec les modules noyau `hv_vmbus` et `hv_storvsc` :
 
 
 ### <a name="resizing-vhds"></a>Redimensionnement des disques durs virtuels
-Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle alignée à 1 Mo.  En règle générale, les disques durs virtuels créés à l'aide d'Hyper-V sont déjà alignés correctement.  Si le disque dur virtuel n’est pas correctement aligné, un message d’erreur semblable au suivant peut s’afficher lorsque vous tentez de créer une *image* à partir de votre disque dur virtuel :
+Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle alignée à 1 Mo.  En règle générale, les disques durs virtuels créés à l'aide d'Hyper-V sont déjà alignés correctement.  Si le disque dur virtuel n’est pas correctement aligné, un message d’erreur semblable au suivant peut s’afficher quand vous tentez de créer une *image* à partir de votre disque dur virtuel :
 
     "The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de l’applet de commande Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) .  Si vous n’utilisez pas un environnement Windows, il est recommandé d’utiliser qemu-img pour convertir (si nécessaire) et redimensionner le disque dur virtuel.
+Pour résoudre ce comportement, redimensionnez la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de l’applet de commande Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx).  Si vous n’utilisez pas un environnement Windows, il est recommandé d’utiliser qemu-img pour convertir (si nécessaire) et redimensionner le disque dur virtuel.
 
 > [!NOTE]
 > Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img 2.2.0 ou une version antérieure, ou d’effectuer une mise à jour à la version 2.6 ou à une version ultérieure. Référence : https://bugs.launchpad.net/qemu/+bug/1490611.
@@ -83,7 +84,7 @@ Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à 
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
-2. Calculez la taille requise pour l'image disque afin de vous assurer que la taille virtuelle est alignée à 1 Mo.  Le script shell bash suivant peut vous y aider.  Le script utilise « `qemu-img info` » pour déterminer la taille virtuelle de l’image disque, puis calcule la taille au 1 Mo supérieur :
+2. Calculez la taille nécessaire de l’image disque pour faire en sorte que la taille virtuelle soit alignée à 1 Mo.  Le script shell bash suivant peut vous y aider.  Le script utilise « `qemu-img info` » pour déterminer la taille virtuelle de l’image disque, puis calcule la taille au 1 Mo supérieur :
    
        rawdisk="MyLinuxVM.raw"
        vhddisk="MyLinuxVM.vhd"
@@ -108,11 +109,11 @@ Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à 
        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Conditions requises pour le noyau Linux
-Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont directement liés au noyau Linux en amont. Ces pilotes sont déjà disponibles dans de nombreuses distributions qui comprennent une version récente du noyau Linux (3.x et supérieures). Sinon, ces distributions fournissent des versions rétroportées de ces pilotes avec leurs noyaux.  Ces pilotes sont mis à jour en permanence dans le noyau en amont avec de nouveaux correctifs et de nouvelles fonctionnalités. Aussi, dans la mesure du possible, il est recommandé d’exécuter une [distribution approuvée](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) comportant ces correctifs et ces modifications.
+Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont directement liés au noyau Linux en amont. Ces pilotes sont déjà disponibles dans de nombreuses distributions qui incluent une version récente du noyau Linux (3.x et supérieures). Sinon, ces distributions fournissent des versions rétroportées de ces pilotes avec leurs noyaux.  Ces pilotes sont mis à jour en permanence dans le noyau en amont avec de nouveaux correctifs et de nouvelles fonctionnalités. Aussi, dans la mesure du possible, il est recommandé d’exécuter une [distribution approuvée](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) comportant ces correctifs et modifications.
 
-Si vous exécutez une variante des versions Red Hat Enterprise Linux **6.0-6.3**, vous devez installer les pilotes LIS les plus récents pour Hyper-V. Les pilotes sont disponibles [ici](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Pour RHEL **6.4+** (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d'installation supplémentaire n'est donc nécessaire pour exécuter ces systèmes sur Azure.
+Si vous exécutez une variante de Red Hat Enterprise Linux versions **6.0-6.3**, vous devez installer les pilotes LIS les plus récents pour Hyper-V. Les pilotes sont disponibles [ici](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Pour RHEL **6.4+** (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d'installation supplémentaire n'est donc nécessaire pour exécuter ces systèmes sur Azure.
 
-Si un noyau personnalisé est requis, il est recommandé d’utiliser une version plus récente du noyau (c.-à-d. **3.8+**). Pour ces distributions ou les fournisseurs qui maintiennent leur propre noyau, il est nécessaire de rétroporter régulièrement les pilotes LIS du noyau en amont vers votre noyau personnalisé.  Même si vous exécutez une version relativement récente du noyau, il est fortement recommandé de conserver une trace des correctifs en amont des pilotes LIS et de les rétroporter en fonction des besoins. L’emplacement des fichiers sources du pilote LIS est disponible dans le fichier [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) dans l’arborescence source du noyau Linux :
+Si un noyau personnalisé est requis, il est recommandé d’utiliser une version plus récente du noyau (c.-à-d. **3.8+**). Pour ces distributions ou les fournisseurs qui maintiennent leur propre noyau, il est nécessaire de rétroporter régulièrement les pilotes LIS du noyau en amont vers votre noyau personnalisé.  Même si vous exécutez une version relativement récente du noyau, il est fortement recommandé de conserver une trace des correctifs en amont des pilotes LIS et de les rétroporter en fonction des besoins. L’emplacement des fichiers sources du pilote LIS est disponible dans le fichier [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) dans l’arborescence source du noyau Linux :
 
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -126,7 +127,7 @@ Si un noyau personnalisé est requis, il est recommandé d’utiliser une versio
     F:    include/linux/hyperv.h
     F:    tools/hv/
 
-Au minimum, l'absence des correctifs suivants a été reconnue pour poser des problèmes sur Azure : ils doivent donc être inclus dans le noyau. Cette liste n’est pas exhaustive ni complète pour toutes les distributions :
+Au minimum, l’absence des correctifs suivants pose des problèmes connus sur Azure ; ils doivent donc être inclus dans le noyau. Cette liste n’est pas exhaustive ni complète pour toutes les distributions :
 
 * [ata_piix : reporter des disques dans les pilotes Hyper-V par défaut](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 * [storvsc : compte des paquets en transit dans le chemin RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
@@ -137,9 +138,9 @@ Au minimum, l'absence des correctifs suivants a été reconnue pour poser des pr
 * [scsi_sysfs : se protéger contre une double exécution de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>agent Linux Azure
-L' [Agent Linux Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent) est requis pour approvisionner une machine virtuelle Linux dans Azure. La dernière version, les problèmes des fichiers ou l'envoi de requêtes d'extraction sont disponibles dans le [référentiel de l'agent Linux sur GitHub](https://github.com/Azure/WALinuxAgent).
+L' [Agent Linux Azure](../extensions/agent-linux.md) (waagent) est requis pour approvisionner une machine virtuelle Linux dans Azure. La dernière version, les problèmes des fichiers ou l'envoi de requêtes d'extraction sont disponibles dans le [référentiel de l'agent Linux sur GitHub](https://github.com/Azure/WALinuxAgent).
 
-* L'agent Linux est publié avec la licence Apache 2.0. De nombreuses distributions fournissent déjà des packages RPM ou deb pour l'agent : dans certains cas, l'installation et la mise à jour ne nécessitent aucun travail.
+* L'agent Linux est publié avec la licence Apache 2.0. De nombreuses distributions fournissent déjà des packages RPM ou deb pour l’agent. Dans certains cas, l’installation et la mise à jour ne nécessitent donc aucun travail.
 * L'agent Linux Azure nécessite Python v2.6+.
 * L'agent nécessite également le module python-pyasn1. La plupart des distributions le fournissent sous la forme d'un package indépendant que vous pouvez installer.
 * Dans certains cas, l'agent Linux Azure n'est pas compatible avec NetworkManager. Dans la plupart des cas, NetworkManager, configuré dans les packages RPM/Deb fournis avec les distributions, entre en conflit avec le package waagent, ce qui entraîne la désinstallation de NetworkManager lors de l'installation du package de l'agent Linux.
@@ -147,25 +148,27 @@ L' [Agent Linux Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-m
 
 ## <a name="general-linux-system-requirements"></a>Configuration générale requise Linux
 
-* Modifiez la ligne de démarrage du noyau dans GRUB ou GRUB2 afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
+* Modifiez la ligne de démarrage du noyau dans GRUB ou GRUB2 afin d'y inclure les paramètres suivants. Cela garantit également que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure :
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
+  
+    Cela garantit également que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure.
   
     Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants s'ils sont présents :
   
         rhgb quiet crashkernel=auto
   
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option `crashkernel` peut éventuellement être conservée. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle de 128 Mo ou plus, ce qui peut être problématique sur les machines virtuelles de petite taille.
+    Le démarrage graphique et transparent n’est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option `crashkernel` peut éventuellement être conservée. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle de 128 Mo ou plus, ce qui peut être problématique sur les machines virtuelles plus petites.
 
 * Installation de l'agent Linux Azure
   
-    L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé WALinuxAgent ou walinuxagent).  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé WALinuxAgent ou walinuxagent).  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../extensions/agent-linux.md).
 
 * Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
 
 * Ne créez pas d'espace swap sur le disque du système d'exploitation.
   
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Le disque de ressources local est un disque *temporaire*, et il peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
   
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -184,5 +187,5 @@ L' [Agent Linux Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-m
   > 
   > 
 
-* Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
+* Arrêtez la machine virtuelle et chargez le disque dur virtuel sur Azure.
 

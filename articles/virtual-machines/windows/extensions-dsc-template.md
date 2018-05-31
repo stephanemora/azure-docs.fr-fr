@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194986"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
 
@@ -33,7 +34,7 @@ Cet article décrit le modèle Azure Resource Manager destiné au [gestionnaire 
 
 L’extrait de code suivant va dans la section **Resource** du modèle.
 L’extension DSC hérite des propriétés par défaut de l’extension.
-Pour plus d’informations, consultez la [classe VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Pour plus d’informations, consultez la [classe VirtualMachineExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +84,7 @@ Un groupe de machines virtuelles identiques comporte une section **properties** 
 Sous **Extensions**, ajoutez les détails nécessaires pour l’extension DSC.
 
 L’extension DSC hérite des propriétés par défaut de l’extension.
-Pour plus d’informations, consultez la [classe VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Pour plus d’informations, consultez la [classe VirtualMachineScaleSetExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -197,7 +198,7 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 
 ## <a name="default-configuration-script"></a>Script de configuration par défaut
 
-Pour plus d’informations sur les valeurs suivantes, consultez la page de documentation [Paramètres de base du gestionnaire de configuration locale](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Pour plus d’informations sur les valeurs suivantes, consultez la page de documentation [Paramètres de base du gestionnaire de configuration locale](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 Vous pouvez utiliser le script de configuration par défaut de l’extension DSC pour configurer uniquement les propriétés du gestionnaire de configuration locale qui sont répertoriées dans le tableau suivant.
 
 | Nom de la propriété | type | Description |
@@ -340,9 +341,9 @@ Voici certaines des erreurs que vous risquez de rencontrer et la manière dont v
 
 ### <a name="invalid-values"></a>Valeurs non valides
 
-« Privacy.dataCollection is '{0}'.
+"Privacy.dataCollection est « {0} ».
 The only possible values are '', 'Enable' et 'Disable'.
-« WmfVersion est '{0}'.
+"WmfVersion est « {0} ».
 Les seules valeurs possibles sont les suivantes : and 'latest'".
 
 **Problème** : Une valeur fournie n’est pas autorisée.
@@ -352,7 +353,7 @@ Pour plus d’informations, consultez le tableau [Détails](#details).
 
 ### <a name="invalid-url"></a>URL non valide
 
-« ConfigurationData.url is '{0}'. This is not a valid URL » (configurationData.url est « {0} ». Il ne s’agit pas d’une URL valide.) « DataBlobUri is '{0}'. This is not a valid URL » (DataBlobUri est « {0} ». Il ne s’agit pas d’une URL valide.) « Configuration.url is '{0}'. This is not a valid URL » (configuration.url est « {0} ». Il ne s’agit pas d’une URL valide.)
+"ConfigurationData.url est « {0} ». This is not a valid URL" (Il ne s’agit par d’une URL valide) "DataBlobUri est « {0} ». This is not a valid URL" (Il ne s’agit pas d’une URL valide) "Configuration.url est « {0} ». This is not a valid URL » (configuration.url est « {0} ». Il ne s’agit pas d’une URL valide.)
 
 **Problème** : Une URL fournie n’est pas valide.
 
@@ -361,7 +362,7 @@ Assurez-vous que toutes les URL se résolvent en emplacements valides auxquels l
 
 ### <a name="invalid-configurationargument-type"></a>Type configurationArguments non valide
 
-« Invalid configurationArguments type {0} » (Type configurationArguments {0} non valide)
+« Invalid configurationArguments type {0} » (Type configurationArguments non valide)
 
 **Problème** : La propriété *ConfigurationArguments* ne peut pas se résoudre en objet de **table de hachage**.
 
@@ -370,7 +371,7 @@ Suivez le format fourni dans l’exemple précédent. Prenez garde aux guillemet
 
 ### <a name="duplicate-configurationarguments"></a>Propriétés configurationArguments en double
 
-« Found duplicate arguments '{0}' in both public and protected configurationArguments » (Arguments « {0} » en double trouvés dans les paramètres configurationArguments publics et protégés)
+« Found duplicate arguments '{0}' in both public and protected configurationArguments » (Arguments en double trouvés dans les paramètres configurationArguments publics et protégés)
 
 **Problème** : Les arguments *ConfigurationArguments* dans les paramètres publics et les arguments *ConfigurationArguments* dans les paramètres protégés contiennent des propriétés portant le même nom.
 
