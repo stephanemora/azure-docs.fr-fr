@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770517"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258224"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -51,7 +51,7 @@ Pour la configuration Graph, un compte de service doit être fourni, avec un acc
 
 Pour la dernière étape, un nouveau propriétaire est configuré pour l’abonnement du fournisseur par défaut. Ce compte dispose d’un accès complet à toutes les ressources lorsqu’il est connecté au portail d’administration d’Azure Stack.
 
-Requirements:
+Prérequis :
 
 
 |Composant|Prérequis|
@@ -290,6 +290,9 @@ Il existe plusieurs scénarios qui requièrent l’utilisation d’un nom princi
 - Fournisseurs de ressources dans Azure Stack lors d’un déploiement avec AD FS
 - Différentes applications
 - Une ouverture de session non interactive est requise
+
+> [!Important]  
+> AD FS prend uniquement en charge les sessions ouvertes interactives. Si vous avez besoin d’une ouverture de session non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).
 
 Pour plus d’informations sur la création d’un SPN, consultez [Créer un principal de service pour AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 

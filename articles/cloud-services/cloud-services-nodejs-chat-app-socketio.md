@@ -1,11 +1,11 @@
 ---
 title: Application Node.js avec Socket.IO - Azure
-description: "Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure."
+description: Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011313"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
@@ -28,7 +29,8 @@ Voici une capture d’écran de l’application terminée :
 
 ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Assurez-vous que les versions et les produits suivants sont installés pour mener à bien l'exemple dans cet article :
 
 * Installez [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -61,7 +63,7 @@ Pour ce projet, nous allons utiliser un exemple de conversation instantanée obt
 
 1. Créez une copie locale du référentiel en utilisant le bouton **Clone** . Vous pouvez aussi télécharger le projet en utilisant le bouton **ZIP** .
    
-   ![Fenêtre de navigateur affichant https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l'icône de téléchargement ZIP en surbrillance][chat-example-view]
+   ![Une fenêtre de navigateur avec https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l’icône de téléchargement ZIP mis en surbrillance][chat-example-view]
 2. Accédez à la structure de répertoires du référentiel local, jusqu’à atteindre le répertoire **examples\\chat**. Copiez le contenu de ce répertoire dans le répertoire **C:\\node\\chatapp\\WorkerRole1** créé précédemment.
    
    ![Explorateur affichant le contenu du répertoire examples\\chat extrait de l’archive][chat-contents]
@@ -123,7 +125,7 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 4. Une fois le test de l'application terminé, arrêtez l'émulateur en exécutant la commande suivante :
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Pour déployer l'application dans Azure, utilisez la cmdlet **Publish-AzureServiceProject** . Par exemple :
+5. Pour déployer l'application dans Azure, utilisez la cmdlet **Publish-AzureServiceProject** . Par exemple : 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
