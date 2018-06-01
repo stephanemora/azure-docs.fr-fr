@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304655"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -74,7 +75,7 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
 Network Performance Monitor utilise des transactions synthétiques pour analyser les performances réseau entre les agents sources et cibles. Vous pouvez choisir une analyse effectuée par le biais du protocole TCP et ICMP dans les fonctionnalités de l’Analyseur de performances et du Moniteur de points de terminaison de service. TCP est utilisé pour le Moniteur ExpressRoute. Vérifiez que le pare-feu autorise les communications entre les agents Operations Management Suite utilisés pour l’analyse sur le protocole que vous avez choisi. 
 
-* **Protocole TCP** : si vous choisissez le protocole TCP pour l’analyse, ouvrez le port du pare-feu sur les agents utilisés pour Network Performance Monitor et le Moniteur ExpressRoute afin de vous assurer que les agents peuvent se connecter entre eux. Pour ouvrir le port, exécutez le script EnableRules.ps1 PowerShell sans paramètre dans une fenêtre PowerShell avec des privilèges d’administrateur.
+* **Protocole TCP** : si vous choisissez le protocole TCP pour l’analyse, ouvrez le port du pare-feu sur les agents utilisés pour Network Performance Monitor et le Moniteur ExpressRoute afin de vous assurer que les agents peuvent se connecter entre eux. Pour ouvrir le port, exécutez le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sans paramètre dans une fenêtre PowerShell avec des privilèges d’administrateur.
 
     Le script crée des clés de Registre requises par la solution. Il crée également des règles de pare-feu Windows pour autoriser les agents à créer des connexions TCP entre eux. Les clés de Registre créées par le script spécifient également s’il faut enregistrer les journaux de débogage et le chemin d’accès des fichiers journaux. Le script définit également le port TCP de l’agent utilisé pour la communication. Les valeurs de ces clés sont définies automatiquement par le script. Ne modifiez pas manuellement ces clés. Le port ouvert par défaut est 8084. Vous pouvez utiliser un port personnalisé en ajoutant le paramètre portNumber au script. Utilisez le même port sur tous les ordinateurs exécutant le script. 
 
@@ -82,7 +83,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
     > Le script configure uniquement le pare-feu Windows en local. Si vous avez un pare-feu réseau, assurez-vous qu’il autorise le trafic destiné au port TCP que Network Performance Monitor utilise.
 
     >[!NOTE]
-    > Vous n’avez pas besoin d’exécuter le script PowerShell EnableRules.ps1 pour le Moniteur de points de terminaison de service.
+    > Vous n’avez pas besoin d’exécuter le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript ) pour le Moniteur de points de terminaison de service.
 
     
 

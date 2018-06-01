@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ba48c5d14775004e22dd67a2932c8969e6dfdd6d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 550eb3f25a1b17600a5c4eee51ff1867d2f1fb34
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354178"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32161422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutoriel : Intégration d’Azure Active Directory à Yodeck
 
@@ -31,7 +31,7 @@ L’intégration de Yodeck avec Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Yodeck (par authentification unique) avec leur compte Azure AD
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     
     c. Une fois l’**URL des métadonnées de fédération de l’application** importée, les champs restants sont renseignés automatiquement.
 
-    d. Cliquez sur **Enregistrer**.
+    d. Cliquez sur **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -203,7 +203,7 @@ Dans le cas de Yodeck, le provisionnement est une tâche manuelle.
 
     d. Sélectionnez l’option **Account Permissions** conforme aux exigences de votre organisation.
     
-    e. Cliquez sur **Enregistrer**.
+    e. Cliquez sur **Save**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -245,7 +245,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
 

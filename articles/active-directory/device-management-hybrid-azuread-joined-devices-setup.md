@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258310"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -96,6 +97,7 @@ Si votre organisation envisage d’utiliser l’authentification unique transpar
 
 - En outre, le paramètre suivant doit être activé dans la zone intranet de l’utilisateur : « Autoriser les mises à jour de la barre d’état via le script ».
 
+Si votre organisation utilise une configuration gérée (non fédérée) avec AD en local et n’utilise pas ADFS pour établir la fédération avec Azure AD, la jointure Azure AD hybride sous Windows 10 s’appuie sur les objets ordinateurs dans AD à synchroniser avec Azure AD. Assurez-vous que toutes les unités d’organisation qui contiennent les objets ordinateurs devant avoir une jointure Azure AD hybride peuvent être synchronisées dans la configuration de la synchronisation Azure AD Connect.
 
 Si votre organisation requiert un accès à Internet via un proxy sortant, vous devez implémenter la détection automatique de proxy web (WPAD) pour permettre aux ordinateurs Windows 10 de s’inscrire à Azure AD.
 
@@ -187,6 +189,14 @@ Dans une configuration à forêts multiples, vous devez utiliser le script ci-de
 
     $deSCP.CommitChanges()
 
+Dans le script ci-dessus,
+
+- `$verifiedDomain = "contoso.com"` est un espace réservé que vous devez remplacer par l’un de vos noms de domaine vérifiés dans Azure AD. Vous devez posséder le domaine pour pouvoir l’utiliser.
+
+Pour plus d’informations sur la vérification du domaine, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+Pour obtenir la liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser le cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0). 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Étape 2 : Configuration de l’émission de revendications
 
@@ -330,6 +340,7 @@ Dans la revendication ci-dessus,
 
 
 Pour plus d’informations sur la vérification du domaine, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+
 Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

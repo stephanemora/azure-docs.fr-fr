@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266859"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Haute disponibilité de SAP HANA sur des machines virtuelles Azure
 
@@ -228,10 +229,10 @@ Les éléments suivants sont précédés de **[A]** \(applicable à tous les nœ
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       Créez les volumes logiques
+        Créez les volumes logiques. Un volume linéaire est créé quand vous utilisez lvcreate sans le commutateur -i. Nous vous suggérons de créer un volume agrégé par bandes pour de meilleures performances d’E/S. La valeur de l’argument -i doit être identique au nombre de volumes physiques sous-jacents. Dans ce document, 2 volumes physiques sont utilisés pour le volume de données. par conséquent, l’argument de commutateur -i est 2. Comme 1 volume physique est utilisé pour le volume de journal, aucun commutateur -i n’est utilisé de manière explicite. Utilisez le commutateur -i et remplacez la valeur par un nombre équivalent au nombre de volumes physiques sous-jacents quand vous utilisez plusieurs volumes physiques pour chaque volume de données, volume de journal ou volume partagé.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

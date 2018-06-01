@@ -7,13 +7,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072434"
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -241,18 +242,13 @@ Pour créer un disque de rétention, procédez comme suit :
 
 1. Connectez un nouveau disque de 1 To à la machine virtuelle du serveur cible maître Linux et démarrez la machine.
 
-2. Utilisez la commande **multipath -ll** pour obtenir l’ID multichemin du disque de rétention.
-    
-     `multipath -ll`
+2. Utilisez la commande **multipath -ll** pour obtenir l’ID multichemin du disque de rétention : **multipath -ll**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![ID Multipath](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Formatez le lecteur, puis créez un système de fichiers dessus.
-
+3. Formatez le disque, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4/dev/mapper/<id multichemin du disque de rétention>**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Création d’un système de fichiers sur le lecteur](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Système de fichiers](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Après avoir créé le système de fichiers, montez le disque de rétention.
 
@@ -336,9 +332,9 @@ Une fois l’installation terminée, inscrivez le serveur de configuration à l�
      Attendez la fin du script. Si le serveur cible maître est inscrit, il figure sur la page **Site Recovery Infrastructure** (Infrastructure Site Recovery) du portail.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Installer les outils VMware sur le serveur maître cible
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installer les outils VMware / open-vm-tools sur le serveur maître cible
 
-Vous devez installer les outils VMware sur le serveur maître cible pour que ce dernier puisse détecter les magasins de données. Si les outils ne sont pas installés, l’écran de reprotection n’est pas répertorié dans les magasins de données. Vous devrez redémarrer après l’installation des outils VMware.
+Vous devez installer les outils VMware ou open-vm-tools sur le serveur maître cible pour que ce dernier puisse détecter les magasins de données. Si les outils ne sont pas installés, l’écran de reprotection n’est pas répertorié dans les magasins de données. Vous devrez redémarrer après l’installation des outils VMware.
 
 ### <a name="upgrade-the-master-target-server"></a>Mettre à niveau le serveur cible maître
 
