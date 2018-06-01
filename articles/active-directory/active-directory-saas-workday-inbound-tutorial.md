@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258995"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
 
@@ -805,20 +806,13 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 * Un problème précédent avec les journaux d’audit n’apparaissant pas dans les locataires Azure AD situés dans l’Union européenne a été résolu. Toutefois, une configuration supplémentaire de l’agent est requise pour les locataires Azure AD dans l’Union européenne. Pour plus d’informations, consultez [Partie 3 : configurer l’agent de synchronisation local](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>Conformité RGPD
+## <a name="gdpr-information"></a>Informations sur le RGPD
 
 Le [règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) est une loi de l’Union européenne sur la protection et la confidentialité des données. Le règlement RGPD établit des règles que doivent respecter les sociétés, les administrations, les ONG et d’autres organisations qui proposent des biens et services aux personnes de l’Union européenne ou qui collectent et analysent des données liées à des résidents de l’Union européenne. 
 
-Le service de provisionnement d’Azure AD est conforme aux règles RGPD, tout comme les autres services et fonctionnalités de Microsoft. Pour plus d’informations sur la façon dont Microsoft s’est conformé aux règles RGPD, consultez les [termes du contrat de service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Pour plus d’informations sur la façon dont Microsoft s’est conformé aux règles RGPD, consultez les [termes du contrat de service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Toutefois, étant donné que la solution de provisionnement Workday pour Active Directory nécessite l’installation d’un agent de synchronisation sur un serveur joint à un domaine, vous devrez suivre certains événements pour rester conforme aux règles RGPD.
- 
-L’agent crée des journaux dans le **journal des événements Windows**, qui peut contenir des informations permettant d’identifier l’utilisateur.
-
-Il existe deux méthodes pour rester conforme aux règles RGPD :
-
-1. Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des journaux des événements Windows 
-2. Conserver moins de 48 heures les journaux des événements Windows provenant du processus AADSyncAgent
+Notez que la solution de provisionnement Workday pour Active Directory nécessite l’installation d’un agent de synchronisation sur un serveur joint à un domaine. Cet agent crée des journaux dans le **journal des événements Windows**, qui peut contenir des informations d’identification personnelle.
 
 Pour plus d’informations sur la configuration de la conservation des données dans les journaux des événements Windows, consultez [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx). Pour obtenir des informations générales sur le journal des événements Windows, consultez [cet article](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -828,4 +822,3 @@ Pour plus d’informations sur la configuration de la conservation des données 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Découvrir comment configurer l’authentification unique entre Workday et Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](active-directory-saas-tutorial-list.md)
-
