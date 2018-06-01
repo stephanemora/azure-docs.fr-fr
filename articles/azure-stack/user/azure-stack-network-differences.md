@@ -1,29 +1,28 @@
 ---
-title: "Mise en réseau Azure Stack : différences et considérations"
-description: "Découvrez les différences et les éléments à prendre en compte lors de l’utilisation de la mise en réseau dans Azure Stack."
+title: 'Mise en réseau Azure Stack : différences et considérations'
+description: Découvrez les différences et les éléments à prendre en compte lors de l’utilisation de la mise en réseau dans Azure Stack.
 services: azure-stack
-keywords: 
+keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196251"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considérations relatives à la mise en réseau Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-La mise en réseau dans Azure Stack fournit la plupart des fonctionnalités disponibles dans Azure, avec quelques différences dont vous devez avoir connaissance avant de commencer le déploiement.
+La gestion réseau Azure Stack dispose d’un grand nombre des fonctionnalités fournies par la gestion réseau Azure. Toutefois, il existe des différences fondamentales que vous devez connaître avant de déployer un réseau Azure Stack.
 
-
-Cet article fournit une vue d’ensemble des considérations uniques pour la mise en réseau et ses fonctionnalités dans Azure Stack. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
-
+Cet article fournit une vue d’ensemble de considérations propres à la gestion réseau Azure Stack et ses fonctionnalités. Pour connaître les différences majeures entre Azure Stack et Azure, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
 
 ## <a name="cheat-sheet-networking-differences"></a>Aide-mémoire : différences de mise en réseau
 
@@ -40,7 +39,7 @@ Cet article fournit une vue d’ensemble des considérations uniques pour la mis
 | |Passerelle de réseau virtuel à réseau virtuel|Prise en charge|Pas encore pris en charge|
 | |SKU de passerelle de réseau virtuel|Prise en charge de Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. |Prise en charge des SKU Basic, Standard et High-Performance.|
 |Équilibrage de charge|Adresses IP publiques IPv6|Prise en charge de l’affectation d’une adresse IP publique IPv6 à un équilibreur de charge.|Seul le protocole IPv4 est pris en charge.|
-|Network Watcher|Fonctionnalités de surveillance réseau de locataire Network Watcher|Prise en charge|Pas encore pris en charge|
+|Network Watcher|Fonctionnalités de surveillance réseau de locataire Network Watcher|Prise en charge|Pas encore pris en charge|
 |CDN|Profils de réseau de distribution de contenu (CDN)|Prise en charge|Pas encore pris en charge|
 |passerelle d’application|Équilibrage de charge de couche 7|Prise en charge|Pas encore pris en charge|
 |Traffic Manager|Routage du trafic entrant pour une fiabilité et des performances d’application optimales.|Prise en charge|Pas encore pris en charge|

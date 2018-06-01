@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012915"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -33,7 +34,7 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 |[Tous deux Resource Manager](create-peering-different-subscriptions.md) |Différent|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
 
-Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Ce didacticiel utilise des réseaux virtuels situés dans la même région. Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region).  
+Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Ce didacticiel utilise des réseaux virtuels situés dans la même région. Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). Il est recommandé de vous familiariser avec les [exigences et contraintes de l’appairage](virtual-network-manage-peering.md#requirements-and-constraints) avant d’appairer des réseaux virtuels.
 
 Lors de la création d’une homologation de réseaux virtuels entre des réseaux virtuels dans différents abonnements, les abonnements doivent tous deux être associés au même locataire Active Directory. Si vous n’avez pas encore de locataire Azure Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Vous pouvez vous connecter à des réseaux virtuels dans différents abonnements et clients Azure Active Directory à l’aide d’une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 

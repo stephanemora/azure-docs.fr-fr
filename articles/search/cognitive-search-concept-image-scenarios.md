@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367271"
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058044"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -39,8 +39,6 @@ Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui 
 
 > [!NOTE]
 > Si vous ne définissez pas la propriété *imageAction* sur « none », vous ne pouvez définir la propriété *parsingMode* que sur « default ».  Vous ne pouvez définir qu’une seule de ces deux propriétés sur une valeur autre que la valeur par défaut dans la configuration de votre indexeur.
-
-Définissez le paramètre **parsingMode** avec la valeur `json` (pour indexer chaque objet blob en tant que document unique) ou `jsonArray` (si vos objets blob contiennent des tableaux JSON et que vous souhaitez traiter chaque élément de tableau comme un document distinct).
 
 La valeur par défaut de 2000 pixels pour la hauteur et la largeur maximales des images normalisées est basée sur les tailles maximales prises en charge par la [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) et la [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md). Si vous augmentez les limites maximales, il se peut que le traitement échoue sur des images de grande taille.
 

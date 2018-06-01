@@ -12,19 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076160"
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considérations relatives aux machines virtuelles dans Azure Stack
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Les machines virtuelles sont des ressources de calcul évolutives et à la demande qui sont mises à la disposition des utilisateurs dans Azure Stack. Quand vous utilisez des machines virtuelles, sachez qu’il existe des différences entre les fonctionnalités disponibles dans Azure et dans Azure Stack. Cet article offre une vue d’ensemble des considérations propres aux machines virtuelles et à leurs fonctionnalités dans Azure Stack. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
+Les machines virtuelles Azure Stack fournissent des ressources de calcul scalables et à la demande. Avant de déployer des machines virtuelles, il est important de comprendre les différences entre les fonctionnalités de machine virtuelle disponibles dans Azure Stack et Microsoft Azure. Cet article explique ces différences et identifie les points clés à prendre en compte lors de la planification des déploiements de machines virtuelles. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Aide-mémoire : différences sur le plan des machines virtuelles
 
@@ -41,10 +42,12 @@ Les machines virtuelles sont des ressources de calcul évolutives et à la deman
 |Groupes identiques de machines virtuelles |Prise en charge du dimensionnement automatique des instances|Pas de prise en charge du dimensionnement automatique des instances.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles
-Azure impose des limites de ressources de plusieurs façons pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si vous n’appliquez pas de limites sur la consommation de ressources des locataires, l’expérience de ces derniers peut être compromise quand un voisin bruyant consomme des ressources de façon excessive. 
-- Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place. Les limites dans Azure Stack correspondent aux limites dans Azure.  
-- Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage. 
-- Pour les machines virtuelles avec plusieurs disques de données joints, le débit maximal de chaque disque de données individuel est de 500 E/S par seconde pour les disques HHD et de 2 300 E/S par seconde pour les disques SSD.
+
+Azure Stack impose des limites de ressources pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Ces limites améliorent les performances du locataire en réduisant l’impact de la consommation des ressources par d’autres locataires.
+
+- Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place. Les limites dans Azure Stack sont les mêmes que celles appliquées dans Azure.
+- Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.
+- Pour les machines virtuelles avec plusieurs disques de données joints, le débit maximal de chaque disque de données est de 500 E/S par seconde pour les disques HHD et de 2300 E/S par seconde pour les disques SSD.
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack, ainsi que leur configuration :
 
@@ -61,7 +64,7 @@ Le tableau suivant répertorie les machines virtuelles prises en charge sur Azur
 |Mémoire optimisée|Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Mémoire optimisée|Séries DSv2 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Par exemple, cette cohérence inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances d’une même taille de machine virtuelle dans Azure Stack dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
+Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Cela inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances des machines virtuelles de même taille dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
 
 ## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
 
@@ -92,7 +95,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 La liste des types de ressources et des versions d’API pris en charge peut varier si l’opérateur du cloud met à jour votre environnement Azure Stack avec une version plus récente.
+
+## <a name="windows-activation"></a>Activation de Windows
+
+Les produits Windows doivent être utilisés conformément aux droits d’utilisation des produits et aux termes des contrats de licence Microsoft. Azure Stack active les machines virtuelles Windows Server à l’aide de la fonctionnalité [Activation automatique des machines virtuelles](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA).
+
+- L’hôte Azure Stack active Windows avec les clés AVMA pour Windows Server 2016. Toutes les machines virtuelles exécutant Windows Server 2012 ou une version ultérieure sont automatiquement activées.
+- Celles qui exécutent Windows Server 2008 R2 doivent être activées manuellement à l’aide de [l’activation MAK](https://technet.microsoft.com/library/ff793438.aspx).
+
+Microsoft Azure utilise l’activation KMS pour activer les machines virtuelles Windows. Si vous déplacez une machine virtuelle d’Azure Stack vers Azure et rencontrez des problèmes d’activation, consultez [Résoudre les problèmes d’activation de Windows sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Vous trouverez des informations supplémentaires dans le billet de blog [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) publié par l’équipe du support technique Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

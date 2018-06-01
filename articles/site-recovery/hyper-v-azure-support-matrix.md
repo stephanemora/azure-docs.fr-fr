@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011371"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice de prise en charge pour la réplication d’Hyper-V vers Azure
 
@@ -23,9 +24,9 @@ Cet article résume les composants pris en charge ainsi que les paramètres conc
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
 **Scénario** | **Détails**
---- | --- 
+--- | ---
 Hyper-V avec Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur des hôtes Hyper-V managés dans l’infrastructure System Center Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.<br/><br/> Lorsque les hôtes Hyper-V sont managés par Virtual Machine Manager, vous pouvez également effectuer la récupération d’urgence vers un site secondaire local. Pour plus d’informations sur ce scénario, consultez [ce didacticiel](tutorial-vmm-to-vmm.md).
-Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur les hôtes Hyper-V qui ne sont pas gérés par Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell. 
+Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur les hôtes Hyper-V qui ne sont pas gérés par Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.
 
 
 ## <a name="on-premises-servers"></a>Serveurs locaux
@@ -39,7 +40,7 @@ Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2016,
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées
 
 
-Le tableau suivant récapitule la prise en charge des machines virtuelles. Site Recovery prend en charge les charges de travail s’exécutant sur un système d’exploitation pris en charge. 
+Le tableau suivant récapitule la prise en charge des machines virtuelles. Site Recovery prend en charge les charges de travail s’exécutant sur un système d’exploitation pris en charge.
 
  **Composant** | **Détails**
 --- | ---
@@ -78,7 +79,8 @@ Plusieurs cartes réseau | OUI | OUI
 Adresse IP réservée | OUI | OUI
 IPv4 | OUI | OUI
 Conserver l’adresse IP source | OUI | OUI
-Points de terminaison du service Réseau virtuel Azure<br/><br/> (Pare-feu et réseaux virtuels du Stockage Azure) | Non  | Non 
+Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI | OUI
+Mise en réseau accélérée | Non  | Non 
 
 
 ## <a name="hyper-v-host-storage"></a>Stockage hôte Hyper-V
@@ -125,7 +127,7 @@ Objets blob de blocs | Non  | Non
 Chiffrement au repos (SSE)| OUI | OUI
 Stockage Premium | OUI | OUI
 Service Import/Export | Non  | Non 
-Points de terminaison de service Azure Virtual Network (pare-feux de Stockage Azure et réseaux virtuels), sur la cible pour le compte de stockage de cache utilisé pour les données de réplication | Non  | Non 
+Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non  | Non 
 
 
 ## <a name="azure-compute-features"></a>Fonctionnalités de Calcul Azure
@@ -159,9 +161,9 @@ Type de machine virtuelle | Génération 1<br/><br/> Génération 2--Windows | L
 ## <a name="recovery-services-vault-actions"></a>Actions de coffre Recovery Services
 
 **Action** |  **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
---- | --- | --- 
-Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non  
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non  
+--- | --- | ---
+Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non 
 
 
 ## <a name="provider-and-agent"></a>Fournisseur et agent
@@ -179,4 +181,4 @@ Agent Microsoft Azure Recovery Services | Coordonne la réplication entre les ma
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [préparer Azure](tutorial-prepare-azure.md) à la récupération d’urgence de machines virtuelles Hyper-V locales. 
+Découvrez comment [préparer Azure](tutorial-prepare-azure.md) à la récupération d’urgence de machines virtuelles Hyper-V locales.

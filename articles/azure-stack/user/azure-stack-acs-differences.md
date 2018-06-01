@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197808"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : différences et points à prendre en compte
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 Le stockage Azure Stack est l’ensemble des services cloud de stockage fournis dans Microsoft Azure Stack. Le stockage Azure Stack fournit des fonctionnalités de gestion des objets blob, des tables, des files d’attente et des comptes avec une sémantique Azure cohérente.
 
-Cet article récapitule les différences connues entre le stockage Azure Stack et le stockage Azure. Il expose également les principaux points à prendre en compte quand vous déployez Azure Stack. Pour connaître les différences majeures entre Azure Stack et Azure, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
+Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure Stack et Azure, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
 
 ## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
 
@@ -49,26 +50,28 @@ Suppression réversible pour le Stockage Blob|VERSION PRÉLIMINAIRE|Pas encore p
 |Taille de la clé de ligne et de la clé de partition de table|1 024 caractères (2 048 octets)|400 caractères (800 octets)
 |Instantané d’objet blob|Le nombre maximum d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.|
 
-### <a name="metrics"></a>Mesures
 Il existe également des différences sur le plan des métriques de stockage :
+
 * Les données de transaction dans les métriques de stockage ne font pas la distinction entre la bande passante réseau interne et externe.
 * Les données de transaction dans les métriques de stockage ne prennent pas en compte l’accès des machines virtuelles aux disques montés.
 
 ## <a name="api-version"></a>Version de l'API
+
 Les versions suivantes sont prises en charge avec le stockage Azure Stack :
 
 API de services de Stockage Azure :
 
 Mise à jour 1802 ou plus récente :
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versions antérieures :
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 API de gestion des services de Stockage Azure :
 
@@ -78,7 +81,7 @@ API de gestion des services de Stockage Azure :
 
 ## <a name="sdk-versions"></a>Versions du SDK
 
-Les bibliothèques de client suivantes sont prises en charge avec le stockage Azure Stack :
+Le stockage Azure Stack prend en charge les bibliothèques de client suivantes :
 
 | Bibliothèque cliente | Version prise en charge par Azure Stack | Lien                                                                                                                                                                                                                                                                                                                                     | Spécification du point de terminaison       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +97,3 @@ Les bibliothèques de client suivantes sont prises en charge avec le stockage Az
 
 * [Bien démarrer avec les outils de développement du stockage Azure Stack](azure-stack-storage-dev.md)
 * [Présentation du stockage Azure Stack](azure-stack-storage-overview.md)
-

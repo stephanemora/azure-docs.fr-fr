@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055615"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
 
@@ -58,4 +59,4 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 | Clés            | Vous pouvez créer des clés pour accéder par programme aux API web sécurisées par Azure AD sans aucune interaction de l’utilisateur. Depuis la page \*\*Clés\*\*, saisissez une description de clé et la date d’expiration,puis enregistrez pour générer la clé. Veillez à l’enregistrer dans un endroit sûr, car vous ne pourrez pas y accéder ultérieurement.             |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestion des applications avec Azure Active Directory](manage-apps/what-is-application-management.md)

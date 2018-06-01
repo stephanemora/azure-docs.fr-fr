@@ -1,6 +1,6 @@
 ---
-title: Créer une passerelle d’application avec un arrêt SSL - Portail Azure | Microsoft Docs
-description: Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide du portail Azure.
+title: Configurer une passerelle d’application avec un arrêt SSL - Portail Azure | Microsoft Docs
+description: Découvrez comment configurer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide du portail Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195911"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
-Vous pouvez utiliser le portail Azure pour créer une [passerelle d’application](overview.md) avec un certificat pour un arrêt SSL qui utilise des machines virtuelles pour des serveurs principaux.
+Vous pouvez utiliser le portail Azure afin de configurer une [passerelle d’application](overview.md) avec un certificat pour un arrêt SSL qui utilise des machines virtuelles avec des serveurs backend.
 
 Dans cet article, vous apprendrez comment :
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936668"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196217"
 ---
 # <a name="azure-stack-1802-update"></a>Mise à jour 1802 d’Azure Stack
 
@@ -117,8 +117,6 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
 - Il se peut qu’il ne soit pas possible d’afficher les ressources de calcul ou de stockage sur le portail d’administration. Ce problème est dû au fait qu’une erreur s’est produite pendant l’installation de la mise à jour, et que celle-ci a été, à tort, signalée comme réussie. Si ce problème se produit, contactez les services de support technique Microsoft pour obtenir de l’aide.
 
 - Il se peut qu’un tableau de bord vide s’affiche sur le portail. Pour récupérer le tableau de bord, sélectionnez l’icône d’engrenage dans l’angle supérieur droit du portail, puis choisissez **Restaurer les paramètres par défaut**.
-
-- Quand vous affichez les propriétés d’une ressource ou d’un groupe de ressources, le bouton **Déplacer** est désactivé. Il s’agit du comportement attendu. Le déplacement de ressources ou de groupes de ressources entre des groupes de ressources ou des abonnements n’est pas pris en charge actuellement.
 
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 
@@ -264,6 +262,7 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
 
 - Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Après la mise à jour vers Azure Stack 1802, vous pouvez continuer à utiliser les fournisseurs de ressources SQL et MySQL que vous avez déployés précédemment.  Nous vous recommandons de mettre à jour SQL et MySQL lorsqu’une nouvelle version est disponible. Comme Azure Stack, appliquez de façon séquentielle les mises à jour aux fournisseurs de ressources SQL et MySQL.  Par exemple, si vous utilisez la version 1710, commencez par appliquer la version 1711, puis la 1712 et ensuite mettez à jour vers la 1802.      

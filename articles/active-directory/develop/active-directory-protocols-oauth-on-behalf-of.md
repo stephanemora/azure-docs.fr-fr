@@ -1,25 +1,28 @@
 ---
-title: "Authentification de service à service Azure AD à l’aide de la spécification préliminaire Pour le compte de OAuth2.0 | Microsoft Docs"
-description: "Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service en utilisant le flux Pour le compte de OAuth 2.0."
+title: Authentification de service à service Azure AD à l’aide de la spécification préliminaire Pour le compte de OAuth2.0 | Microsoft Docs
+description: Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service en utilisant le flux Pour le compte de OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157212"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels service à service utilisant l’identité utilisateur déléguée dans le flux Pour le compte de
 Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
@@ -41,7 +44,7 @@ Les étapes qui suivent constituent le flux Pour le compte de et sont décrites 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Inscrire le service et l’application dans Azure AD
 Inscrivez l’application cliente et le service de niveau intermédiaire dans Azure AD.
 ### <a name="register-the-middle-tier-service"></a>Inscrire le service de niveau intermédiaire
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications** et choisissez **Nouvelle inscription d’application**.
@@ -49,7 +52,7 @@ Inscrivez l’application cliente et le service de niveau intermédiaire dans Az
 6. Toujours dans le portail Azure, choisissez votre application, puis cliquez sur **Paramètres**. Dans le menu Paramètres, choisissez **Clés**, puis ajoutez une clé. Sélectionnez une durée de clé d’une ou deux années. Lorsque vous enregistrez cette page, la valeur de clé s’affiche. Copiez et enregistrez cette valeur dans un emplacement sûr, car vous en aurez besoin plus tard pour configurer les paramètres d’application dans votre implémentation. Cette valeur de clé ne s’affichera plus et ne pourra pas être récupérée, par conséquent, enregistrez-la dès que vous la voyez dans le portail Azure.
 
 ### <a name="register-the-client-application"></a>Inscrire l’application cliente
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications** et choisissez **Nouvelle inscription d’application**.
@@ -84,7 +87,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 La requête HTTP POST suivante demande un jeton d’accès pour l’API web https://graph.windows.net. `client_id` identifie le service qui demande le jeton d’accès.
 
 ```
@@ -112,14 +115,14 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | assertion |required | Valeur du jeton utilisé dans la demande. |
 | client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application, dans le Portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, puis sur le nom de l’application. |
 | client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application.  Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la section traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
+| client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la section traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
 | resource |required | URI ID d’application du service web de destination (ressource sécurisée). Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, sur le nom de l’application, sur **Tous les paramètres**, puis sur **Propriétés**. |
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 La requête HTTP POST suivante demande un jeton d’accès pour l’API web https://graph.windows.net avec un certificat. `client_id` identifie le service qui demande le jeton d’accès.
 
 ```
@@ -154,7 +157,7 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 | refresh_token |Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. |
 
 ### <a name="success-response-example"></a>Exemple de réponse correspondant à une réussite
-L’exemple suivant montre une réponse correspondant à une réussite à une demande de jeton d’accès pour l’API web https://graph.windows.net.
+L’exemple suivant illustre une réponse affirmative à une demande de jeton d’accès pour l’API web https://graph.windows.net.
 
 ```
 {
@@ -189,7 +192,7 @@ Une réponse d’erreur est retournée par le point de terminaison du jeton Azur
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Utiliser le jeton d’accès pour accéder à la ressource sécurisée
 Le service de niveau intermédiaire peut maintenant utiliser le jeton obtenu ci-dessus pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
