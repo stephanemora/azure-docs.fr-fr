@@ -12,34 +12,80 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: e8e40b763f0c6f1f994535ab2ff335cfcbf02cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4698f2e4c75456de7387ee7fe3bfa9b2ab4dd406
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011388"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
-L’activité d’obtention des métadonnées peut être utilisée pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Cette activité est prise en charge uniquement pour les fabriques de données version 2. Elle peut être utilisée dans les scénarios suivants :
+L’activité GetMetadata peut être utilisée pour récupérer les **métadonnées** de n’importe quelle donnée dans Azure Data Factory. Cette activité est prise en charge uniquement pour les fabriques de données version 2. Elle peut être utilisée dans les scénarios suivants :
 
 - Valider les informations de métadonnées de n’importe quelle donnée
 - Déclencher un pipeline lorsque des données sont prêtes/disponibles
 
 La fonctionnalité suivante est disponible dans le flux de contrôle :
+
 - La sortie de l’activité d’obtention des métadonnées peut être utilisée dans des expressions conditionnelles pour effectuer la validation.
 - Un pipeline peut être déclenché lorsque la condition est remplie via une bouche Do-Until
-
-L’activité d’obtention des métadonnées sélectionne un jeu de données en tant qu’entrée requise, puis génère les informations de métadonnées disponibles en tant que sortie. Actuellement, seul le jeu de données d’objets blob Azure est pris en charge. Les champs de métadonnées pris en charge sont size, structure et lastModified time.  
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+L’activité GetMetadata sélectionne un jeu de données comme entrée requise, puis génère les informations de métadonnées disponibles comme sortie. Pour l’instant, les connecteurs suivants avec les métadonnées récupérables correspondantes sont pris en charge :
+
+>[!NOTE]
+>Si vous exécutez l’activité GetMetadata sur un runtime d’intégration auto-hébergé, la dernière fonctionnalité est prise en charge sur la version 3.6 ou ultérieure. 
+
+### <a name="supported-connectors"></a>Connecteurs pris en charge
+
+**Stockage de fichiers :**
+
+| Connecteur/Métadonnées | itemName<br>(fichier/dossier) | itemType<br>(fichier/dossier) | size<br>(fichier) | created<br>(fichier/dossier) | lastModified<br>(fichier/dossier) |childItems<br>(dossier) |contentMD5<br>(fichier) | structure<br/>(fichier) | columnCount<br>(fichier) | exists<br>(fichier/dossier) |
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Objets blob Azure | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Stockage Fichier Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| Système de fichiers | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+**Base de données relationnelle :**
+
+| Connecteur/Métadonnées | structure | columnCount | exists |
+|:--- |:--- |:--- |:--- |
+| Azure SQL Database | √ | √ | √ |
+| Azure SQL Data Warehouse | √ | √ | √ |
+| SQL Server | √ | √ | √ |
+
+### <a name="metadata-options"></a>Options de métadonnées
+
+Les types de métadonnées suivants peuvent être spécifiés dans la liste de champs d’activité GetMetadata à récupérer :
+
+| Type de métadonnées | Description |
+|:--- |:--- |
+| itemName | Nom du fichier ou dossier. |
+| itemType | Type du fichier ou dossier. La valeur de sortie est `File` ou `Folder`. |
+| size | Taille du fichier en octets. S’applique aux fichiers uniquement. |
+| created | Date/heure de création du fichier ou du dossier. |
+| lastModified | Date/heure de dernière modification du fichier ou du dossier. |
+| childItems | Liste des sous-dossiers et fichiers à l’intérieur du dossier donné. S’applique aux dossiers uniquement. La valeur de sortie est une liste de noms et de types de tous les éléments enfants. |
+| contentMD5 | MD5 du fichier. S’applique aux fichiers uniquement. |
+| structure | Structure de données dans le fichier ou la table de base de données relationnelle. La valeur de sortie est une liste de noms et de types de colonnes. |
+| columnCount | Nombre de colonnes dans le fichier ou la table relationnelle. |
+| exists| Indique si un fichier/un dossier/une table existe ou non. Notez que si « exists » est spécifié dans la liste de champs GetMetadata, l’activité n’échoue pas même quand l’élément (fichier/dossier/table) n’existe pas ; au lieu de cela, `exists: false` est retourné dans la sortie. |
+
+>[!TIP]
+>Quand vous voulez vérifier si un fichier/un dossier/une table existe ou non, spécifiez `exists` dans la liste de champs d’activité GetMetadata, puis examinez le résultat `exists: true/false` de la sortie de l’activité. Si `exists` n’est pas configuré dans la liste de champs, l’activité GetMetadata échoue quand l’objet est introuvable.
 
 ## <a name="syntax"></a>Syntaxe
 
-### <a name="get-metadata-activity-definition"></a>Définition de l’activité d’obtention des métadonnées :
-Dans l’exemple suivant, l’activité d’obtention des métadonnées renvoie les métadonnées concernant les données représentées par MyDataset. 
+**Activité GetMetadata :**
 
 ```json
 {
@@ -54,7 +100,8 @@ Dans l’exemple suivant, l’activité d’obtention des métadonnées renvoie 
     }
 }
 ```
-### <a name="dataset-definition"></a>Définition du jeu de données :
+
+**Jeu de données :**
 
 ```json
 {
@@ -67,37 +114,74 @@ Dans l’exemple suivant, l’activité d’obtention des métadonnées renvoie 
         },
         "typeProperties": {
             "folderPath":"container/folder",
-            "Filename": "file.json",
+            "filename": "file.json",
             "format":{
                 "type":"JsonFormat"
-                "nestedSeperator": ","
             }
         }
     }
 }
 ```
 
-### <a name="output"></a>Sortie
+## <a name="type-properties"></a>Propriétés type
+
+Actuellement, l’activité GetMetadata peut extraire les types d’informations de métadonnées suivants.
+
+Propriété | Description | Obligatoire
+-------- | ----------- | --------
+fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | OUI 
+dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | OUI
+
+## <a name="sample-output"></a>Exemple de sortie
+
+Le résultat de GetMetadata est illustré dans la sortie de l’activité. Voici deux exemples avec des options de métadonnées exhaustives sélectionnées dans la liste de champs en tant que référence. Pour utiliser le résultat dans une activité suivante, utilisez le modèle `@{activity('MyGetMetadataActivity').output.itemName}`.
+
+### <a name="get-a-files-metadata"></a>Obtenir les métadonnées d’un fichier
+
 ```json
 {
-    "size": 1024,
-    "structure": [
-        {
-            "name": "id",
-            "type": "Int64"
-        }, 
-    ],
-    "lastModified": "2016-07-12T00:00:00Z"
+  "exists": true,
+  "itemName": "test.csv",
+  "itemType": "File",
+  "size": 104857600,
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "contentMD5": "cMauY+Kz5zDm3eWa9VpoyQ==",
+  "structure": [
+    {
+        "name": "id",
+        "type": "Int64"
+    },
+    {
+        "name": "name",
+        "type": "String"
+    }
+  ],
+  "columnCount": 2
 }
 ```
 
-## <a name="type-properties"></a>Propriétés type
-Actuellement, l’activité d’obtention des métadonnées peut extraire les types d’informations de métadonnées suivants à partir d’un jeu de données de stockage Azure.
+### <a name="get-a-folders-metadata"></a>Obtenir les métadonnées d’un dossier
 
-Propriété | Description | Valeurs autorisées | Obligatoire
--------- | ----------- | -------------- | --------
-fieldList | Répertorie les types d’informations de métadonnées requis.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    Non <br/>Si cette valeur est vide, l’activité retourne toutes les 3 informations de métadonnées prises en charge. 
-dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. <br/><br/>Le type de jeu de données actuellement pris en charge est Azure Blob. Les propriétés secondaires sont : <ul><li><b>referenceName</b>: référence à un jeu de données Azure Blob existant</li><li><b>type</b> : comme le jeu de données est référencé, le type est « DatasetReference »</li></ul> |    <ul><li>Chaîne</li><li>DatasetReference</li></ul> | OUI
+```json
+{
+  "exists": true,
+  "itemName": "testFolder",
+  "itemType": "Folder",
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "childItems": [
+    {
+      "name": "test.avro",
+      "type": "File"
+    },
+    {
+      "name": "folder hello",
+      "type": "Folder"
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 

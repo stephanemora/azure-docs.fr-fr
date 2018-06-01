@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211559"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
 
@@ -80,6 +81,10 @@ Affichez les sauvegardes qui sont conservées pour une base de données spécifi
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Utiliser PowerShell pour configurer des stratégies de rétention à long terme et restaurer des sauvegardes
 
 Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
+
+> [!IMPORTANT]
+> Vous devez utiliser la dernière version d’AzureRM PowerShell pour configurer des stratégies LTR V2. La version actuelle est [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview). Comme il s’agit d’une préversion, utilisez la commande suivante pour l’installer : `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Pour obtenir des conseils sur l’installation de la préversion, consultez [Obtenir le module PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). La version de mai 2018 d’AzureRM PowerShell sera disponible dans quelques jours (normalement le 18/05/2018). Vous pouvez ignorer le commutateur -AllowPrelease lors de l’installation de la préversion quand elle sera disponible et utiliser la commande suivante : `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Créer une stratégie de rétention à long terme
 

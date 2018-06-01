@@ -1,25 +1,27 @@
 ---
-title: "Bien démarrer avec Azure Cordova | Microsoft Docs"
-description: "Création d’une application Cordova qui s’intègre avec Azure AD pour la connexion et appelle les API protégées par Azure AD en utilisant OAuth."
+title: Bien démarrer avec Azure Cordova | Microsoft Docs
+description: Création d’une application Cordova qui s’intègre avec Azure AD pour la connexion et appelle les API protégées par Azure AD en utilisant OAuth.
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156729"
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Bien démarrer avec Azure AD Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +35,7 @@ Un plug-in Cordova encapsule des kits de développement logiciels (SDK) natifs A
 Dans ce didacticiel, nous allons utiliser le plug-in Apache Cordova pour la bibliothèque d’authentification Active Directory (ADAL) afin d’améliorer une application simple en ajoutant les fonctionnalités suivantes :
 
 * Avec quelques lignes de code seulement, authentifier un utilisateur et obtenir un jeton.
-* Utiliser ce jeton pour appeler l’API Graph afin d’interroger ce répertoire et d’afficher les résultats.  
+* Utiliser ce jeton pour appeler l’API Graph afin d’interroger ce répertoire et d’afficher les résultats. 
 * Utiliser le cache de jetons ADAL pour limiter les invites d’authentification de l’utilisateur.
 
 Pour apporter ces améliorations, vous devez :
@@ -44,10 +46,11 @@ Pour apporter ces améliorations, vous devez :
 4. créer le projet de déploiement Cordova avec toutes les plateformes à cibler, ajouter le plug-in Cordova ADAL, puis tester la solution dans des émulateurs.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un client Azure AD où vous avez un compte disposant de droits de développement d’application.
-* Un environnement de développement configuré pour exécuter Apache Cordova.  
+* Un environnement de développement configuré pour exécuter Apache Cordova. 
 
 Si vous disposez déjà de ces éléments, passez directement à l’étape 1.
 
@@ -98,8 +101,8 @@ Une fois l’inscription terminée, Azure AD affecte un ID d’application uniqu
 
 Pour exécuter `DirSearchClient Sample`, autorisez la nouvelle application à interroger l’API Azure AD Graph :
 
-1. Dans la page **Paramètres**, sélectionnez **Autorisations requises**, puis **Ajouter**.  
-2. Pour l’application Azure Active Directory, sélectionnez l’API **Microsoft Graph**, puis ajoutez l’autorisation **Access the directory as the signed-in user** (Accéder au répertoire en tant qu’utilisateur connecté) sous **Autorisations déléguées**.  Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
+1. Dans la page **Paramètres**, sélectionnez **Autorisations requises**, puis **Ajouter**. 
+2. Pour l’application Azure Active Directory, sélectionnez l’API **Microsoft Graph**, puis ajoutez l’autorisation **Access the directory as the signed-in user** (Accéder au répertoire en tant qu’utilisateur connecté) sous **Autorisations déléguées**. Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>Étape 2 : Cloner l’exemple de référentiel d’application
 À partir de votre environnement ou de la ligne de commande, tapez la commande suivante :

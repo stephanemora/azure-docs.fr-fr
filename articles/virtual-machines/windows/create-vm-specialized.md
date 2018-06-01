@@ -1,11 +1,11 @@
 ---
-title: "Créer une machine virtuelle Windows à partir d’un disque dur virtuel spécialisé dans Azure | Microsoft Docs"
-description: "Créez une machine virtuelle Windows en attachant un disque géré spécialisé en tant que disque de système d’exploitation à l’aide du modèle de déploiement Resource Manager."
+title: Créer une machine virtuelle Windows à partir d’un disque dur virtuel spécialisé dans Azure | Microsoft Docs
+description: Créez une machine virtuelle Windows en attachant un disque géré spécialisé en tant que disque de système d’exploitation à l’aide du modèle de déploiement Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012782"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -40,7 +41,7 @@ Cette rubrique montre comment utiliser des disques gérés. Si vous avez un dép
 Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](/powershell/azure/overview).
 
@@ -137,7 +138,7 @@ Selon votre connexion réseau et la taille de votre fichier de disque dur virtue
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Créer un disque géré à partir du disque dur virtuel
 
-Créez un disque géré à partir du disque dur virtuel spécialisé dans votre compte de stockage à l’aide de [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Cet exemple utilise **myOSDisk1** en tant que nom de disque, place le disque dans un stockage *StandardLRS*, et utilise *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd* en tant qu’URI pour le disque dur virtuel source.
+Créez un disque géré à partir du disque dur virtuel spécialisé dans votre compte de stockage à l’aide de [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Cet exemple utilise **myOSDisk1** pour le nom du disque, place le disque dans le stockage *Standard_LRS* et utilise *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* comme URI du disque dur virtuel source.
 
 Créez un groupe de ressources pour la nouvelle machine virtuelle.
 
@@ -153,7 +154,7 @@ Créez le disque de système d’exploitation à partir du disque dur virtuel ch
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +338,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Ajoutez le disque de système d’exploitation à la configuration en utilisant la commande [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Cet exemple définit la taille du disque sur *128 Go* et attache le disque géré en tant que disque de système d’exploitation *Windows*.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
@@ -367,5 +368,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
+Connectez-vous à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
 

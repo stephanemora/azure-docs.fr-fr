@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: ed0bde0945a36c4fa194059f3b17557d566047a2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202218"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
@@ -34,7 +35,7 @@ Outre l’intégration dans ces deux services, IoT Hub propose également ses pr
 
 Azure Monitor fournit des informations de diagnostic au niveau des ressources, ce qui vous permet de contrôler les opérations qui ont lieu au sein de votre IoT Hub. 
 
-Les paramètres de diagnostic d’Azure Monitor remplacent le moniteur d’opérations d’IoT Hub. Si vous surveillez actuellement les opérations de l’utilisateur, vous devez migrer votre flux de travail. Pour plus d’informations, consultez [Migrer de la surveillance des opérations vers les paramètres de diagnostic][lnk-migrate].
+Les paramètres de diagnostic d’Azure Monitor remplacent le moniteur d’opérations d’IoT Hub. Si vous utilisez actuellement la surveillance des opérations, vous devez migrer vos flux de travail. Pour plus d’informations, consultez [Migrer de la surveillance des opérations vers les paramètres de diagnostic][lnk-migrate].
 
 Pour en savoir plus sur les mesures et les événements spécifiques surveillés par Azure Monitor, consultez [Mesures prises en charge avec Azure Monitor][lnk-AM-metrics] et [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure][lnk-AM-schemas].
 
