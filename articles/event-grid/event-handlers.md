@@ -5,14 +5,15 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/25/2018
+ms.topic: conceptual
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: ccbabed3fd1df39ac2ba732064392a1a0ecede2a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301765"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestionnaires d’événements dans Azure Event Grid
 
@@ -39,7 +40,15 @@ Utilisez Azure Functions pour les réponses serverless à des événements.
 | [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md) | Quand Event Hubs crée un fichier Capture, Event Grid envoie un événement à une application de fonction. L’application récupère le fichier Capture et migre les données vers un entrepôt de données. |
 | [Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
 
-## <a name="logic-apps"></a>Logic Apps
+## <a name="hybrid-connections"></a>les connexions hybrides
+
+Utilisez les connexions hybrides Azure Relay pour envoyer des événements aux applications se trouvant dans un réseau d’entreprise et qui ne disposent pas d’un point de terminaison accessible publiquement.
+
+|Intitulé  |Description  |
+|---------|---------|
+| [Envoyer des évènements à une connexion hybride](custom-event-to-hybrid-connection.md) | Envoie un événement personnalisé vers une connexion hybride existante pour son traitement par une application d’écouteur. |
+
+## <a name="logic-apps"></a>Logic Apps
 
 Utilisez Logic Apps pour automatiser les processus métier afin de répondre aux événements.
 
@@ -49,7 +58,7 @@ Utilisez Logic Apps pour automatiser les processus métier afin de répondre aux
 | [Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
 | [Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
 
-## <a name="queue-storage"></a>Stockage de files d’attente
+## <a name="queue-storage"></a>Stockage File d’attente
 
 Utilisez le stockage File d’attente pour recevoir des événements qui doivent être extraits.
 
