@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 62df56f76c410186e986564ce8e5a4673a413ebb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 143ee99c581db052c1dbcbf46decce356ee96fa6
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155716"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258054"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliothèques d’authentification d’Azure Active Directory
 
@@ -48,7 +48,7 @@ La bibliothèque d’authentification Azure Active Directory v1.0 (ADAL, Azure 
 | Android |ADAL |[Référentiel Central](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Application Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Application web Node.js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)| |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Applications web Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | |
-| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Application Web Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) | |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Application Web Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) | [Référence](http://adal-python.readthedocs.io/en/latest/) |
 
 ## <a name="microsoft-supported-server-libraries"></a>Bibliothèques serveur prises en charge par Microsoft
 
