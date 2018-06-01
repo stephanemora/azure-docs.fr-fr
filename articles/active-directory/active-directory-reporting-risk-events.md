@@ -1,8 +1,8 @@
 ---
-title: "Événements à risque dans Azure Active Directory | Microsoft Docs"
-description: "Cette rubrique offre une présentation détaillée des événements à risque."
+title: Événements à risque dans Azure Active Directory | Microsoft Docs
+description: Cet article offre une présentation détaillée des événements à risque.
 services: active-directory
-keywords: "azure active directory identity protection, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
+keywords: azure active directory identity protection, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195316"
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -39,12 +40,13 @@ La grande majorité des violations de sécurité ont lieu lorsque des cybercrimi
 L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. Avec l’édition Azure AD Premium P2, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes. Avec l’édition Azure AD Premium P1, les détections qui ne sont pas couvertes par la licence s’affichent comme événement à risque **Connexion avec un risque supplémentaire détecté**.
 
 
-Cette rubrique offre une présentation détaillée des événements à risque et vous montre comment vous pouvez les utiliser pour protéger vos identités Azure AD.
+Cet article offre une présentation détaillée des événements à risque et montre comment les utiliser pour protéger vos identités Azure AD.
 
 
 ## <a name="risk-event-types"></a>Type d’événement à risque
 
-Le type d’événement à risque détermine l’action suspecte pour laquelle un enregistrement d’événement à risque a été créé.  
+Le type d’événement à risque détermine l’action suspecte pour laquelle un enregistrement d’événement à risque a été créé.
+
 Les investissements continus de Microsoft dans le processus de détection assurent :
 
 - L’amélioration de la précision de la détection des événements à risque existants 
@@ -76,6 +78,8 @@ L’algorithme ignore les « faux positifs » évidents contribuant aux conditio
 
 Ce type d’événement à risque prend en compte les emplacements de connexion passés (IP, latitude/longitude et NSA) pour déterminer les emplacements non connus/nouveaux. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». L’événement à risque est déclenché quand la connexion se fait depuis un emplacement qui ne figure pas dans la liste des emplacements connus. Le système a une période d’apprentissage initiale de 30 jours, durant laquelle il ne signale pas les nouveaux emplacements en tant qu’emplacements non connus. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. 
 
+Identity Protection détecte les connexions provenant d’emplacements non connus, ainsi que celles ayant fait l’objet d’une authentification de base et celles qui utilisent des protocoles hérités. Étant donné que ces protocoles ne proposent pas les fonctionnalités modernes, telles que l’ID client, les données de télémétrie ne sont pas suffisantes pour réduire le nombre de faux positifs. Pour réduire le nombre d’événements à risque détectés, vous devez passer à une méthode d’authentification moderne.   
+
 ### <a name="sign-ins-from-infected-devices"></a>Connexions depuis des appareils infectés
 
 Ce type d’événement à risque identifie les connexions depuis des appareils infectés par des logiciels malveillants, qui sont connus pour communiquer activement avec un serveur robot, grâce à la mise en corrélation des adresses IP des appareils des utilisateurs avec des adresses ayant été en contact avec un serveur robot. 
@@ -86,8 +90,7 @@ Ce type d’événement à risque identifie les adresses IP depuis lesquelles un
 
 ## <a name="detection-type"></a>Type de détection
 
-Le type de détection (Temps réel, Hors connexion) indique les circonstances de détection d’un événement à risque.  
-À l’heure actuelle, la plupart des événements à risque sont détectés hors connexion dans le cadre d’une opération de post-traitement après la survenue de l’événement à risque.
+Le type de détection (Temps réel, Hors connexion) indique les circonstances de détection d’un événement à risque. À l’heure actuelle, la plupart des événements à risque sont détectés hors connexion dans le cadre d’une opération de post-traitement après la survenue de l’événement à risque.
 
 Le tableau suivant répertorie le temps nécessaire à un type de détection pour s’afficher dans un rapport associé :
 
@@ -113,8 +116,7 @@ Pour les types d’événement à risque détectés par Azure Active Directory, 
 
 Le niveau de risque d’un événement à risque (Haut, Moyen ou Faible) indique la gravité et la probabilité d’un tel événement. Cette propriété vous aide à établir la priorité des mesures à prendre. 
 
-Le niveau de gravité de l’événement à risque signalé représente la probabilité qu’une identité soit compromise.  
-La probabilité indique le risque de faux positifs. 
+Le niveau de gravité de l’événement à risque signalé représente la probabilité qu’une identité soit compromise. La probabilité indique le risque de faux positifs. 
 
 Par exemple, 
 
@@ -132,8 +134,7 @@ Les événements à risque liés à des informations d’identification divulgu�
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Connexions depuis des adresses IP anonymes
 
-Le niveau de risque de ce type d’événement à risque est défini sur **Moyen**, car une adresse IP anonyme n’est pas en soi une indication forte qu’un compte a été compromis.  
-Nous vous recommandons de contacter immédiatement l’utilisateur pour vérifier s’il utilisait une adresse IP anonyme.
+Le niveau de risque de ce type d’événement à risque est défini sur **Moyen**, car une adresse IP anonyme n’est pas en soi une indication forte qu’un compte a été compromis. Nous vous recommandons de contacter immédiatement l’utilisateur pour vérifier s’il utilisait une adresse IP anonyme.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Voyage impossible vers des emplacements inhabituels
@@ -184,5 +185,5 @@ Il existe deux emplacements dans lesquels vous pouvez passer en revue les évén
  - **Azure AD Identity Protection** : les événements à risque font également partie des fonctionnalités de génération de rapports [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
     
 
-Bien que la détection des événements à risque représente déjà un aspect important de la protection de vos identités, vous pouvez également les résoudre manuellement ou implémenter des réponses automatisées en configurant des stratégies d’accès conditionnel. Pour plus de détails, consultez [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Bien que la détection des événements à risque représente déjà un aspect important de la protection de vos identités, vous pouvez également les résoudre manuellement ou implémenter des réponses automatisées en configurant des stratégies d’accès conditionnel. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
