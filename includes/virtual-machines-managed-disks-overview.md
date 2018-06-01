@@ -47,7 +47,7 @@ Examinons ces éléments de plus près.
 **Type de stockage :** Managed Disks propose 2 niveaux de performance : [Premium](../articles/virtual-machines/windows/premium-storage.md) (disques SSD) et [Standard](../articles/virtual-machines/windows/standard-storage.md) (disque dur). La facturation d’un disque managé dépend du type de stockage sélectionné.
 
 
-**Taille de disque** : la facturation des disques managés dépend de leur taille configurée. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille configurée de 200 Go, vous êtes facturé selon la tarification du disque S20.
+**Taille de disque** : la facturation des disques managés dépend de leur taille configurée. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille approvisionnée de 200 Go, vous êtes facturé selon la tarification du type de disque S15.
 
 Voici les tailles de disque disponible pour un disque managé Premium :
 
@@ -58,9 +58,9 @@ Voici les tailles de disque disponible pour un disque managé Premium :
 
 Voici les tailles de disque disponible pour un disque managé Standard :
 
-| **Disques managés<br> Standard** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Taille du disque        | 32 Gio   | 64 Gio   | 128 Go | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 
+| **Disques managés<br> Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 
 
 
 **Nombre de transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Les transactions associées aux disques managés Premium ne sont pas facturées.

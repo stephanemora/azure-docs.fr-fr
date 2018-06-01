@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212872"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -35,7 +36,7 @@ Avant de commencer, il est utile [d’examiner l’architecture](vmware-azure-ar
 
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
-1. Dans **Coffres Recovery Services**, sélectionnez le nom du coffre, **ContosoVMVault**.
+1. Dans **Archivages de Recovery Services**, sélectionnez le nom de l’archivage. Nous utilisons **ContosoVMVault** pour ce scénario.
 2. Dans **Prise en main**, sélectionnez Site Recovery. Sélectionnez ensuite **Préparer l’infrastructure**.
 3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
 4. Dans **Où voulez-vous répliquer vos machines**, sélectionnez **Dans Azure**.
@@ -139,7 +140,7 @@ Sélectionnez et vérifiez les ressources cibles.
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**.
 2. Sélectionnez le coffre Recovery Services nommé **ContosoVMVault**.
 3. Pour créer une stratégie de réplication, sélectionnez **Infrastructure Azure Site Recovery** > **Stratégies de réplication** > **+Stratégie de réplication**.
-4. Dans **Créer une stratégie de réplication**, entrez le nom de stratégie **VMwareRepPolicy**.
+4. Dans **Créer une stratégie de réplication**, entrez le nom de stratégie. Nous utilisons **VMwareRepPolicy** pour ce scénario.
 5. Dans **Seuil RPO**, utilisez la valeur par défaut de 60 minutes. Cette valeur définit la fréquence à laquelle les points de récupération sont créés. Une alerte est générée lorsque la réplication continue dépasse cette limite.
 6. Dans **Rétention des points de récupération**, utilisez la valeur par défaut de 24 heures pour la durée de la fenêtre de conservation pour chaque point de récupération. Pour ce didacticiel, utilisez la valeur 72 heures. Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre.
 7. Dans **Fréquence des captures instantanées de cohérence d’application**, utilisez la valeur par défaut de 60 minutes pour la fréquence de création des captures instantanées de cohérence d’application. Sélectionnez **OK** pour créer la stratégie.
