@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/17/2018
 ms.author: brenduns
-ms.openlocfilehash: 1c22eb17ffcd070c1c5529033eeaa73dc7bd3859
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b84744a52426123f2f3e7dd4c14419fef8b779cc
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077239"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258628"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
 
@@ -52,6 +52,18 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 |**Standard_A6** |4 |28    |285 |500 |500 |8 x 500  |2 / 1 000 |
 |**Standard_A7** |8 |56    |605 |500 |500 |16 x 500 |4 / 2 000 |
 
+### <a name="av2-series"></a>Série Av2
+*Nécessite Azure Stack version 1804 ou ultérieure*
+
+|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |
+|-----------------|----|----|-----|-----|------|--------------|---------|
+|**Standard_A1_v2**  |1   |2   |10   |500 |1 000  |2 / 2 x 500   |2 / 250  |
+|**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4 / 4 x 500   |2 / 500  |
+|**Standard_A4v2**   |4   |8   |40   |500 |4000  |8 / 8 x 500   |4 / 1 000 |
+|**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16 / 16 x 500 |8 / 2 000 |
+|**Standard_A2m_v2** |2   |16  |20   |500 |2000  |4 / 4 x 500   |2 / 500  |
+|**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8 / 8 x 500   |4 / 1 000 |
+|**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16 / 16 x 500 |8 / 2 000 |
 
 ### <a name="d-series"></a>Série D
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |
@@ -87,6 +99,45 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 |**Standard_DS3_v2** |4   |14  |28  |1 000 |16000 |16 / 16x2 300 |4 / 3 000 |
 |**Standard_DS4_v2** |8   |28  |56  |1 000 |32000 |32 / 32x2 300 |8 / 6 000 |
 |**Standard_DS5_v2** |16  |56  |112 |1 000 |64 000 |64 / 64x2 300 |8 / 10000 |
+
+
+## <a name="compute-optimized"></a>Optimisé pour le calcul
+### <a name="f-series"></a>Série F
+*Nécessite Azure Stack version 1804 ou ultérieure*
+
+|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |
+|-----------------|----|----|-----|----|------|------------|---------|
+|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x400   |2 / 750  |
+|**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8 x 500   |2 / 1 500 |
+|**Standard_F4**  |4   |8   |64   |500 |12 000 |16 / 16 x 500 |4 / 3 000 |
+|**Standard_F8**  |8   |16  |128  |500 |24 000 |32 / 32 x 500 |8 / 6 000 |
+|**Standard_F16** |16  |32  |256  |500 |48 000 |64 / 64 x 500 |8 / 6 000 - 12 000  |
+
+
+### <a name="fs-series"></a>Série Fs
+*Nécessite Azure Stack version 1804 ou ultérieure*  
+
+|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |
+|------------------|----|----|----|-----|------|-------------|---------|
+|**Standard_F1s**  |1   |2   |4   |1 000 |4000  |4 / 4x2 300   |2 / 750  |
+|**Standard_F2s**  |2   |4   |8   |1 000 |8000  |8 / 8x2 300   |2 / 1 500 |
+|**Standard_F4s**  |4   |8   |16  |1 000 |16000 |16 / 16x2 300 |4 / 3 000 |
+|**Standard_F8s**  |8   |16  |32  |1 000 |32000 |32 / 32x2 300 |8 / 6 000 |
+|**Standard_F16s** |16  |32  |64  |1 000 |64 000 |64 / 64x2 300 |8 / 6 000 - 12 000  |
+
+
+### <a name="fsv2-series"></a>Série Fsv2
+*Nécessite Azure Stack version 1804 ou ultérieure* 
+
+|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |
+|---------------------|----|----|-----|-----|-------|--------------|---------|
+|**Standard_F2s_v2**  |2   |4   |16   |1 000 |4000   |4 / 4x2 300    |Modéré |
+|**Standard_F4s_v2**  |4   |8   |32   |1 000 |8000   |8 / 8x2 300    |Modéré |
+|**Standard_F8s_v2**  |8   |16  |64   |1 000 |16000  |16 / 16x2 300  |Élevé     |
+|**Standard_F16s_v2** |16  |32  |128  |1 000 |32000  |32 / 32x2 300  |Élevé     |
+|**Standard_F32s_v2** |32  |64  |256  |1 000 |64 000  |32 / 32x2 300  |Élevé  |
+|**Standard_F64s_v2** |64  |128 |512  |1 000 |128000 |32 / 32x2 300  |Extrêmement élevée  |
+
 
 ## <a name="memory-optimized"></a>Mémoire optimisée
 
@@ -124,6 +175,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 |**Standard_DS12_v2** |4   |28  |56   |1 000 |16000  |16 / 16x2 300  |4 / 3 000 |
 |**Standard_DS13_v2** |8   |56  |112  |1 000 |32000  |32 / 32x2 300  |8 / 6 000 |
 |**Standard_DS14_v2** |16  |112 |224  |1 000 |64 000  |64 / 64x2 300  |8 / 10000 |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

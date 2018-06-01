@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931262"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260507"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Résoudre les problèmes liés à l’accès et à l’utilisation du portail Mes applications
 
@@ -58,10 +58,11 @@ Vérifiez que vous respectez les exigences de navigateur suivantes :
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
 - **Internet Explorer 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
 
-Vous pouvez également télécharger l’extension pour Chrome et Edge directement à partir des sites suivants :
+Vous pouvez également télécharger l’extension directement à partir des sites suivants :
 
-- [Extension Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extension Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si vous avez installé l’extension et que vous rencontrez toujours des problèmes, essayez ce qui suit :
 
@@ -78,14 +79,14 @@ Si vous avez installé l’extension et que vous rencontrez toujours des problè
    4. Sélectionnez l’icône de l’extension.
    5. Pour vous connecter à l’extension, sélectionnez **Connectez-vous pour commencer**.
 
-* Pour vous connecter directement à une application à partir du navigateur, procédez comme suit :
+* Pour vous connecter directement à une application à partir du navigateur, procédez comme suit :
    1. Après avoir installé l’extension, connectez-vous-y en sélectionnant **Connectez-vous pour commencer**.
    2. Connectez-vous à l’application avec l’URL de connexion.  
        L’URL de connexion est généralement l’URL de l’application qui affiche le formulaire de connexion.
       L’extension doit modifier l’état et vous indiquer qu’un mot de passe est disponible.
    3. Pour vous connecter, sélectionnez l’icône de l’extension.
 
-* Pour démarrer une application à partir de l’extension, procédez comme suit :
+* Pour démarrer une application à partir de l’extension, procédez comme suit :
    1. Après avoir installé l’extension, connectez-vous-y en sélectionnant **Connectez-vous pour commencer**.
    2. Sélectionnez l’icône de l’extension pour ouvrir son menu.
    3. Recherchez une application disponible dans le portail Mes applications.

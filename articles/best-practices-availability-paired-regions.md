@@ -9,12 +9,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939021"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302676"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
 
@@ -32,6 +32,7 @@ Figure 1 – Paires régionales Azure
 |:--- |:--- |:--- |
 | Asie |Est de l'Asie |Asie du Sud-Est |
 | Australie |Est de l’Australie |Sud-est de l’Australie |
+| Australie |Centre de l’Australie |Centre de l’Australie 2 |
 | Brésil |Sud du Brésil (2) |États-Unis - partie centrale méridionale |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|

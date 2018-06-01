@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 042dd4876a63e5881e67456b449570b01cb967a5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011286"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365659"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection : bonnes pratiques et architectures de référence
 
@@ -87,8 +87,8 @@ Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sél
 
 L’idée derrière la défense en profondeur est de gérer les risques en utilisant des stratégies de protection variées. Le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Nous vous recommandons d’implémenter des conceptions sécurisées pour vos applications par le biais des fonctionnalités intégrées à la plateforme Azure.
 
-Par exemple, plus la taille (*surface d’exposition*) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) et [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). Les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) permettent également de réduire la surface d’attaque.
-Vous pouvez utiliser des [balises de service](/virtual-network/security-overview.md) et des [groupes de sécurité d’application](/virtual-network/security-overview.md) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
+Par exemple, plus la taille (*surface d’exposition*) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) et [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). Les [groupes de sécurité réseau](../virtual-network/security-overview.md) permettent également de réduire la surface d’attaque.
+Vous pouvez utiliser des [balises de service](/virtual-network/security-overview.md#service-tags) et des [groupes de sécurité d’application](/virtual-network/security-overview.md#application-security-groups) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
 
 Vous devez déployer les services Azure dans un [réseau virtuel](../virtual-network/virtual-networks-overview.md) dans la mesure du possible. Les ressources de service peuvent ainsi communiquer par le biais d’adresses IP privées. Le trafic du service Azure à partir d’un réseau virtuel utilise des adresses IP publiques comme adresses IP source par défaut. Le fait d’utiliser des [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) force le trafic de service à utiliser des adresses privées de réseau virtuel comme adresses IP source lors de l’accès au service Azure à partir d’un réseau virtuel.
 

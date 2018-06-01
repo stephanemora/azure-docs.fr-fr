@@ -1,21 +1,22 @@
 ---
-title: "Basculer et restaurer automatiquement des machines virtuelles Azure répliquées vers une région Azure secondaire avec Azure Site Recovery (préversion)"
-description: "Découvrez comment basculer et restaurer automatiquement la réplication de machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery"
+title: Basculer et restaurer automatiquement des machines virtuelles Azure répliquées vers une région Azure secondaire avec Azure Site Recovery
+description: Découvrez comment basculer et restaurer automatiquement la réplication de machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209271"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure (préversion)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
@@ -26,6 +27,8 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 > * Reprotéger la machine virtuelle Azure secondaire, afin qu’elle soit répliquée vers la région primaire
 > * Restaurer automatiquement la machine virtuelle secondaire
 > * Reprotéger la machine virtuelle principale vers la région secondaire
+
+La réplication Azure vers Azure est actuellement disponible en préversion.
 
 ## <a name="prerequisites"></a>Prérequis
 

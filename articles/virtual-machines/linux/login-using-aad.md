@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
+ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271958"
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943991"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -35,7 +35,6 @@ Les avantages liés à l’utilisation de l’authentification Azure AD pour se 
   - En réduisant la dépendance aux comptes d’administrateur local, vous n’avez pas à vous soucier de la perte/du vol des informations d’identification, des utilisateurs qui configurent des informations d’identification faibles, etc.
   - Les stratégies portant sur la complexité et la durée de vie du mot de passe qui sont configurées pour votre annuaire Azure AD contribuent à sécuriser également les machines virtuelles Linux.
   - Pour sécuriser davantage la connexion aux machines virtuelles Azure, vous pouvez configurer l’authentification multifacteur.
-  - La possibilité de se connecter à des machines virtuelles Linux avec Azure Active Directory fonctionne également pour les clients qui utilisent [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Une collaboration parfaite :** le contrôle d’accès en fonction du rôle (RBAC) vous permet de spécifier qui peut se connecter à une machine virtuelle donnée en tant qu’utilisateur standard ou avec des privilèges d’administrateur. Lorsque des utilisateurs rejoignent ou quittent votre équipe, vous pouvez mettre à jour la stratégie RBAC pour la machine virtuelle pour accorder les accès appropriés. Cette expérience est beaucoup plus simple que d’avoir à nettoyer les machines virtuelles pour supprimer les clés publiques SSH inutiles. Lorsque des employés quittent votre organisation et que leur compte d’utilisateur est désactivé ou supprimé d’Azure AD, ils n’ont plus accès à vos ressources.
 
@@ -51,7 +50,7 @@ Les distributions Linux suivantes sont actuellement prises en charge dans la pr�
 
 Les régions Azure suivantes sont actuellement prises en charge dans la préversion de cette fonctionnalité :
 
-- Toutes les régions Azure globales
+- Toutes les régions Azure publiques
 
 >[!IMPORTANT]
 > Pour utiliser cette fonctionnalité en préversion, déployez uniquement une distribution Linux prise en charge dans une région Azure prise en charge. La fonctionnalité n’est prise en charge ni dans Azure Government ni dans les clouds souverains.
@@ -168,10 +167,6 @@ Si vous effectuez correctement l’étape d’authentification dans un navigateu
 - Vérifiez que le nom de connexion spécifié à l’invite SSH est correct. Une faute de frappe dans le nom de connexion peut provoquer une incompatibilité entre le nom de connexion spécifié à l’invite SSH et le compte avec lequel vous vous êtes connecté à Azure AD. Exemple : vous avez tapé *azuresuer@contoso.onmicrosoft.com* à la place de *azureuser@contoso.onmicrosoft.com*.
 - Si vous possédez plusieurs comptes d’utilisateurs, veillez à ne pas indiquer un autre compte d’utilisateur dans la fenêtre du navigateur lorsque vous vous connectez à Azure AD.
 - Linux est un système d’exploitation qui respecte la casse. La différence entre « Azureuser@contoso.onmicrosoft.com » et « azureuser@contoso.onmicrosoft.com » peut entraîner une incompatibilité. Assurez-vous que vous spécifiez l’UPN en respectant la casse appropriée à l’invite SSH.
-
-## <a name="preview-feedback"></a>Commentaires de la préversion
-
-Partager vos commentaires sur cette version préliminaire fonctionnalité ou signaler des problèmes sur le [forum de commentaires d’Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
