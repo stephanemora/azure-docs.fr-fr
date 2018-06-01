@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196982"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Paramétrage d’Azure Data Lake Store pour les performances
 
@@ -66,7 +65,7 @@ En règle générale, les moteurs d’analytique comme HDInsight et Azure Data L
 
 De manière générale, organisez vos données dans de grands fichiers pour des performances optimales.  Il convient d’organiser les jeux de données dans des fichiers de 256 Mo ou plus. Dans certains cas, par exemple pour les images et les données binaires, il n’est pas possible de les traiter en parallèle.  Dans ces cas, il est recommandé de créer des fichiers individuels de moins de 2 Go.
 
-Parfois, les pipelines de données ont un contrôle limité sur les données brutes qui possèdent un grand nombre de petits fichiers.  Il est recommandé de faire appel à un processus de préparation qui génère des fichiers de grande taille à utiliser pour les applications en aval.  
+Parfois, les pipelines de données ont un contrôle limité sur les données brutes qui possèdent un grand nombre de petits fichiers.  Il est recommandé de faire appel à un processus de préparation pour générer les fichiers de grande taille à utiliser pour les applications en aval.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organisation des données de série chronologique dans des dossiers
 
@@ -123,7 +122,7 @@ Il existe trois couches au sein d’un cluster HDInsight qui peuvent être ajust
 
 En fonction de votre charge de travail, il y aura toujours une taille de conteneur YARN minimale requise. Si vous sélectionnez un conteneur trop petit, vos tâches rencontreront des problèmes de mémoire insuffisante. En général, les conteneurs YARN ne doivent pas être inférieurs à 1 Go. Les conteneurs YARN de 3 Go sont courants. Pour certaines charges de travail, des conteneurs YARN plus grands peuvent être nécessaires.  
 
-**Augmentez le nombre de cœurs par conteneur YARN.**  Augmentez le nombre de cœurs alloués à chaque conteneur pour augmenter le nombre de tâches parallèles qui s’exécutent dans chaque conteneur.  Cela fonctionne pour des applications comme Spark qui exécutent plusieurs tâches par conteneur.  Pour des applications comme Hive qui exécutent un seul thread par conteneur, il est préférable d’avoir plus de conteneurs plutôt que plus de cœurs par conteneur.   
+**Augmentez le nombre de cœurs par conteneur YARN.**  Augmentez le nombre de cœurs alloués à chaque conteneur pour augmenter le nombre de tâches parallèles qui s’exécutent dans chaque conteneur.  Cela fonctionne pour des applications comme Spark qui exécutent plusieurs tâches par conteneur.  Pour des applications comme Hive qui exécutent un seul thread par conteneur, il est préférable d’avoir plus de conteneurs plutôt que plus de cœurs par conteneur.
 
 ### <a name="workload-layer"></a>Couche de charge de travail
 

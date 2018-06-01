@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257640"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Vue d’ensemble de Place de Marché Azure Stack
 
@@ -29,7 +30,7 @@ Marketplace est une collection de services, d’applications et de ressources pe
 
 En tant qu’opérateur Azure Stack, c’est vous qui décidez des éléments à ajouter (publier) dans Place de Marché. Vous pouvez publier des éléments tels que des bases de données, App Services, et ainsi de suite. La publication les rend visibles par tous les utilisateurs. Vous pouvez publier des éléments personnalisés que vous créez. Vous pouvez également publier des éléments à partir d’une [liste croissante d’éléments de Place de Marché Azure](azure-stack-marketplace-azure-items.md). Quand vous publiez un élément sur Place de Marché, les utilisateurs peuvent le voir dans les cinq minutes qui suivent.
 
-Pour ouvrir Marketplace, cliquez sur **Nouveau**.
+Pour ouvrir la Place de marché, dans la console d’administration, sélectionnez **Nouveau**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +48,6 @@ Chaque élément publié sur Marketplace utilise un format Azure Gallery Package
 Avec la version 1803 ou plus, Azure Stack convertit les images en fichiers partiellement alloués lors du téléchargement à partir d’Azure ou lorsque vous téléchargez des images personnalisées. Ce processus ajoute du temps lors de l’ajout d’une image, mais économise de l’espace et accélère le déploiement de ces images. La conversion s’applique uniquement aux nouvelles images.  Les images existantes ne sont pas modifiées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
+[Télécharger des éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md)  
 [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)
 

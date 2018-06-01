@@ -1,25 +1,28 @@
 ---
-title: "Bien démarrer avec Azure AD Xamarin | Microsoft Docs"
-description: "Créez des applications Xamarin qui s’intègrent avec Azure AD pour la connexion et appellent des API protégées par Azure AD en utilisant OAuth."
+title: Bien démarrer avec Azure AD Xamarin | Microsoft Docs
+description: Créez des applications Xamarin qui s’intègrent avec Azure AD pour la connexion et appellent des API protégées par Azure AD en utilisant OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156685"
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Bien démarrer avec Azure AD Xamarin
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -50,15 +53,14 @@ Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte. Puis, dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
-3. Dans le volet gauche, cliquez sur **Tous les services**, puis sélectionnez **Azure Active Directory**.
+3. Cliquez sur **Tous les services** dans le volet de gauche, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Pour créer une **application cliente native**, suivez les invites.
   * Le champ **Nom** décrit l’application aux utilisateurs.
   * **L’URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur (par exemple, http://DirectorySearcher).
 6. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à l’application. Copiez la valeur de l’onglet **Application**, car vous en aurez besoin ultérieurement.
 7. Sur la page **Paramètres**, sélectionnez **Autorisations requises**, puis **Ajouter**.
-8. Sélectionnez l’API **Microsoft Graph**. Sous **Autorisations déléguées**, ajoutez l’autorisation **Lire les données de l’annuaire**.  
-Cette action permet à l’application d’interroger l’API Graph pour les utilisateurs.
+8. Sélectionnez l’API **Microsoft Graph**. Sous **Autorisations déléguées**, ajoutez l’autorisation **Lire les données de l’annuaire**. Cette action permet à l’application d’interroger l’API Graph pour les utilisateurs.
 
 ## <a name="step-3-install-and-configure-adal"></a>Étape 3 : Installer et configurer la bibliothèque ADAL
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL puisse communiquer avec Azure AD, fournissez-lui des informations sur l’inscription des applications.
@@ -91,7 +93,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 
   * *tenant* est le domaine de votre client Azure AD (par exemple, contoso.onmicrosoft.com).
   * *clientId* est l’ID client de l’application, que vous avez copié à partir du portail.
-  * *returnUri* est l’URI de redirection que vous avez entré sur le portail (par exemple, http://DirectorySearcher).
+  * *returnUri* est l’URI de redirection que vous avez entrée sur le portail (par exemple, http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 Presque toute la logique d’authentification de l’application réside dans `DirectorySearcher.SearchByAlias(...)`. Dans les projets propres à la plateforme, la seule nécessité est de transmettre un paramètre contextuel à la PCL `DirectorySearcher`.
@@ -103,8 +105,7 @@ Presque toute la logique d’authentification de l’application réside dans `D
     {
     ```
 
-2. Initialisez `AuthenticationContext`, la classe principale de la bibliothèque ADAL.  
-Cette action fournit à la bibliothèque ADAL les coordonnées dont elle a besoin pour communiquer avec Azure AD.
+2. Initialisez `AuthenticationContext`, la classe principale de la bibliothèque ADAL. Cette action fournit à la bibliothèque ADAL les coordonnées dont elle a besoin pour communiquer avec Azure AD.
 3. Appelez `AcquireTokenAsync(...)`, qui accepte l’objet `IPlatformParameters` et appelle le flux d’authentification nécessaire pour renvoyer un jeton à l’application.
 
     ```csharp

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942354"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -29,6 +30,10 @@ ms.lasthandoff: 04/16/2018
 Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fonctionne au niveau du DNS. Il envoie des réponses DNS pour diriger les clients vers le point de terminaison de service approprié. Les clients se connectent ensuite directement au point de terminaison du service, et non via Traffic Manager.
 
 Par conséquent, Traffic Manager ne fournit pas de point de terminaison ou d’adresse IP pour permettre aux clients de se connecter. Si vous souhaitez une adresse IP statique pour votre service, celle-ci doit être configurée au niveau du service, pas dans Traffic Manager.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quels types de trafic peuvent être routés à l’aide de Traffic Manager ?
+Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous avez des points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne de [l’équilibrage de charge Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou des utilisateurs qui effectuent des demandes DNS à partir de tels réseaux internes, Traffic Manager ne peut pas être utilisé pour leur trafic.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager prend-il en charge les sessions « persistantes » ?
 

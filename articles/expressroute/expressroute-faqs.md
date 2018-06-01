@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160867"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -156,7 +157,7 @@ Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même métro ? Puis-je les lier au même réseau virtuel ?
 
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel.
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel. Chaque nom d’emplacement dans le portail Azure ou dans l’API PowerShell/CLI représente un emplacement appairage. Par exemple, vous pouvez sélectionner les emplacements d’appairage « Singapour » et « Singapour2 » et vous connecter à des circuits de chacun pour le même réseau virtuel. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 

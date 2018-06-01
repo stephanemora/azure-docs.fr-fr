@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0307b26741a6bbbf29626e670467cdd72697646
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943579"
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migrer manuellement une machine virtuelle classique vers une nouvelle machine virtuelle avec disque managé par ARM depuis le disque dur virtuel 
 
@@ -92,6 +93,8 @@ Préparez votre application pour les interruptions de service. Pour effectuer un
 
 Préparez votre application pour les interruptions de service. Pour effectuer une migration sans erreur, vous devez arrêter tous les processus en cours d’exécution dans le système actuel. Ce n’est qu’à cette condition que le système présentera un état cohérent, permettant sa migration vers la nouvelle plateforme. La durée de l’interruption de service dépend de la quantité de données dans les disques à migrer.
 
+Cette partie nécessite le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Vous devez également exécuter `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+
 
 1.  Tout d’abord, définissez les paramètres communs :
 
@@ -121,11 +124,11 @@ Préparez votre application pour les interruptions de service. Pour effectuer un
 
 2.  Créez un disque de système d’exploitation géré à l’aide du disque dur virtuel de la machine virtuelle classique.
 
-    Assurez-vous que vous avez indiqué l’URI complet du disque dur virtuel du système d’exploitation dans le paramètre $osVhdUri. De plus, dans **Type de compte**, indiquez **PremiumLRS** ou **StandardLRS** selon le type de disque (Premium ou Standard) vers lequel vous effectuez la migration.
+    Assurez-vous que vous avez indiqué l’URI complet du disque dur virtuel du système d’exploitation dans le paramètre $osVhdUri. De plus, dans **-AccountType**, indiquez **Premium_LRS** ou **Standard_LRS** selon le type de disque (Premium ou Standard) vers lequel vous effectuez la migration.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
     -ResourceGroupName $resourceGroupName
     ```
 
@@ -134,14 +137,14 @@ Préparez votre application pour les interruptions de service. Pour effectuer un
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  Créez un disque de données géré à partir du fichier de disque dur virtuel de données et ajoutez-le à la nouvelle machine virtuelle.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -AccountType Premium_LRS -Location $location -CreationDataCreateOption Import '
     -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
     
     $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '
