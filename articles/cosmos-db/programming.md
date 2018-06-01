@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197991"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
@@ -151,6 +152,21 @@ Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opéra
 Cette procédure stockée peut être modifiée pour accepter en entrée un tableau de corps de document et pour les créer dans la même exécution de procédure stockée au lieu de plusieurs requêtes visant à les créer chacune séparément. Cette procédure stockée permet d’implémenter une importation en bloc efficace pour Azure Cosmos DB (un point que nous aborderons plus tard dans ce tutoriel).   
 
 L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Plus loin dans ce tutoriel, vous en saurez plus sur les déclencheurs et les fonctions définies par l’utilisateur.
+
+### <a name="known-issues"></a>Problèmes connus
+
+Quand vous définissez une procédure stockée à partir du Portail Microsoft Azure, les paramètres d’entrée sont toujours envoyés sous forme de chaîne à la procédure stockée. Même si vous passez un tableau de chaînes sous forme d’entrée, le tableau est converti en chaîne et envoyé à la procédure stockée. Pour contourner ce problème, vous pouvez définir une fonction à l’intérieur de votre procédure stockée pour que la chaîne soit analysée en tant que tableau. Dans l’exemple de code suivant, la chaîne est analysée en tant que tableau : 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>Transactions de programme de base de données
 Une transaction dans une base de données classique peut être définie comme étant une séquence d'opérations effectuées en tant qu'unité de travail logique unique. Chaque transaction offre des **garanties ACID**. ACID est un acronyme bien connu qui est l’abréviation de quatre propriétés : Atomicité, Cohérence, Isolation et Durabilité.  

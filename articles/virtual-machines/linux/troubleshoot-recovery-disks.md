@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271484"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure CLI 2.0 pour connecter votre disque dur virtuel à une autre machine virtuelle Linux afin de corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,6 +32,8 @@ Le processus de résolution de problème se présente comme suit :
 3. Connectez-vous à la machine virtuelle de dépannage. Modifiez les fichiers ou exécutez des outils afin de corriger les problèmes sur le disque dur virtuel d’origine.
 4. Démontez le disque dur virtuel d’origine et dissociez-le de la machine virtuelle de dépannage.
 5. Créez une machine virtuelle à l’aide du disque dur virtuel d’origine.
+
+Pour la machine virtuelle qui utilise le disque managé, consultez [Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 Pour mener à bien ces étapes de dépannage, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
 
@@ -183,6 +186,13 @@ Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel exis
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation
+1. Arrêtez la machine virtuelle Windows avec disque managé affectée.
+2. [Créez une capture instantanée de disque managé](../windows/snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle avec disque managé.
+3. [Créez un disque managé à partir de la capture instantanée](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Attachez le disque managé en tant que disque de données de la machine virtuelle](../windows/attach-disk-ps.md).
+5. [Transformez le disque de données de l’étape 4 en disque de système d’exploitation](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

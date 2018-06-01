@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076212"
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -31,14 +32,14 @@ Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des opt
 
 Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la durabilité et de la disponibilité que chaque stratégie de réplication vous fournit pour un type d’événement donné (ou un événement d’impact similaire).
 
-| Scénario | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Indisponibilité des nœuds dans un centre de données |OUI |OUI |OUI |OUI
-| Indisponibilité d’un centre de données complet (zonal ou non) |Non  |OUI |OUI |OUI |
-| Panne à l’échelle d’une région |Non  |Non  |OUI |OUI |
-| Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région |Non  |Non  |Non  |OUI |
-| Conçu pour fournir une certaine durabilité des objets sur une année donnée |Au moins 99,999999999 % (11 chiffres 9)|Au moins 99,9999999999 % (12 chiffres 9)|Au moins 99,99999999999999 % (16 chiffres 9)|Au moins 99,99999999999999 % (16 chiffres 9)|
-| Disponible dans les types de compte de stockage ___ |GPv1, GPv2, blob |GPv2 |GPv1, GPv2, blob |GPv1, GPv2, blob
+| Scénario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Indisponibilité des nœuds dans un centre de données                                                                 | OUI                             | OUI                              | OUI                                  | OUI                                  |
+| Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                               | OUI                              | OUI                                  | OUI                                  |
+| Panne à l’échelle d’une région                                                                                     | Non                               | Non                                | OUI                                  | OUI                                  |
+| Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                               | Non                                | Non                                    | OUI                                  |
+| Conçu pour fournir une certaine durabilité des objets sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
+| Types de compte de stockage pris en charge                                                                   | GPv1, GPv2, blob                | GPv2                             | GPv1, GPv2, blob                     | GPv1, GPv2, blob                     |
 
 Consultez [Présentation de la tarification Stockage Azure ](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différentes options de redondance.
 
@@ -49,7 +50,7 @@ Consultez [Présentation de la tarification Stockage Azure ](https://azure.micro
 Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide du [portail Azure](https://portal.azure.com/), [d’Azure PowerShell](storage-powershell-guide-full.md), [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou de l’une des nombreuses [bibliothèques clientes Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
 
    > [!NOTE]
-   > Actuellement, vous ne pouvez utiliser ni le portail ni une API pour convertir votre compte en stockage ZRS. Toutefois, nous prévoyons d’assurer la prise en charge de la migration du stockage LRS, GRS et RA-GRS vers ZRS une fois que ce stockage ZRS sera généralement disponible. Pour plus d’informations, consultez [Stockage redondant dans une zone (ZRS)](storage-redundancy-zrs.md).
+   > Actuellement, vous ne pouvez utiliser ni le portail ni une API pour convertir votre compte en stockage ZRS. Si vous souhaitez convertir la réplication de votre compte en ZRS, consultez [Stockage redondant dans une zone (ZRS)](storage-redundancy-zrs.md) pour plus d’informations.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>La modification de la stratégie de réplication de mon compte implique-t-elle des coûts ?
 Cela dépend de votre chemin de conversion. Voici le classement des offres de redondance de la moins coûteuse à la plus chère : LRS, ZRS, GRS et RA-GRS. Par exemple, une migration *à partir de* LRS implique des frais supplémentaires, car vous passez à un niveau de redondance plus sophistiqué. Une migration *vers* GRS ou RA-GRS entraîne des frais de sortie de la bande passante, car vos données (dans la région primaire) sont répliquées vers la région secondaire distante. Il s’agit de frais uniques dus lors de l’installation initiale. Une fois les données copiées, aucuns frais supplémentaires de conversion ne sont générés. Vous serez facturé uniquement pour répliquer des données nouvelles ou mises à jour vers des données existantes. Pour plus d’informations sur les coûts de bande passante, consultez la [page de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).

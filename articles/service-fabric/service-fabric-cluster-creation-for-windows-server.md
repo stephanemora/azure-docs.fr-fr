@@ -1,24 +1,25 @@
 ---
-title: "Créer un cluster Azure Service Fabric autonome | Microsoft Docs"
-description: "Créez un cluster Azure Service Fabric sur n’importe quel ordinateur (physique ou virtuel) exécutant Windows Server, qu’il soit local ou dans un cloud."
+title: Créer un cluster Azure Service Fabric autonome | Microsoft Docs
+description: Créez un cluster Azure Service Fabric sur n’importe quel ordinateur (physique ou virtuel) exécutant Windows Server, qu’il soit local ou dans un cloud.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: dekapur;chackdan;maburlik
-ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: dekapur
+ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209152"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server
 Vous pouvez utiliser Azure Service Fabric pour créer des clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement contenant un ensemble d’ordinateurs Windows Server interconnectés, que ce soit en local ou avec un fournisseur cloud. Service Fabric fournit un package d’installation pour créer des clusters Service Fabric, appelé package Windows Server autonome.
@@ -154,9 +155,9 @@ Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un 
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Données de télémétrie recueillies et comment se désabonner
-Par défaut, le produit collecte les données de télémétrie sur l’utilisation de Service Fabric en vue de l’améliorer. L’outil d’analyse des meilleures pratiques qui s’exécute dans le cadre de l’installation contrôle la connectivité à [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Si le service n’est pas joignable, la configuration échoue, sauf si vous vous désabonnez de la télémétrie.
+Par défaut, le produit collecte les données de télémétrie sur l’utilisation de Service Fabric en vue de l’améliorer. L’outil Best Practice Analyzer qui s’exécute dans le cadre de l’installation contrôle la connectivité à [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Si le service n’est pas joignable, la configuration échoue, sauf si vous vous désabonnez de la télémétrie.
 
-1. Le pipeline de télémétrie essaye de charger les données suivantes sur [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) une fois par jour. Ce meilleur téléchargement n’a aucun impact sur la fonctionnalité de cluster. Les données de télémétrie sont envoyées uniquement à partir du nœud qui exécute le service Failover Manager principal. Aucun autre nœud n’envoie des données de télémétrie.
+1. Le pipeline de télémétrie tente de charger les données suivantes vers [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) une fois par jour. Ce meilleur téléchargement n’a aucun impact sur la fonctionnalité de cluster. Les données de télémétrie sont envoyées uniquement à partir du nœud qui exécute le service Failover Manager principal. Aucun autre nœud n’envoie des données de télémétrie.
 2. La télémétrie se compose des éléments suivants :
 
 * Nombre de services

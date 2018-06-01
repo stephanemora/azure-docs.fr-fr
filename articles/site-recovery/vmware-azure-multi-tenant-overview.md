@@ -7,19 +7,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0168849c01add3f714b139c7984e3def74f40a5b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071761"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Prise en charge de l’architecture multilocataire pour la réplication de VMware vers Azure avec CSP
 
-[Azure Site Recovery](site-recovery-overview.md) prend en charge les environnements multilocataires pour les abonnements de locataire. Il prend également en charge une architecture multilocataire pour les abonnements de locataire qui sont créés et gérés via le programme Fournisseur de solutions cloud (CSP) Microsoft. 
+[Azure Site Recovery](site-recovery-overview.md) prend en charge les environnements multilocataires pour les abonnements de locataire. Il prend également en charge une architecture multilocataire pour les abonnements de locataire qui sont créés et gérés via le programme Fournisseur de solutions cloud (CSP) Microsoft.
 
-Cet article offre une vue d’ensemble de l’implémentation et de la gestion de la réplication de l’architecture multilocataire VMware vers Azure. 
+Cet article offre une vue d’ensemble de l’implémentation et de la gestion de la réplication de l’architecture multilocataire VMware vers Azure.
 
 ## <a name="multi-tenant-environments"></a>Environnements multilocataires
 
@@ -33,7 +34,7 @@ Il existe trois modèles multilocataires principaux :
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Fournisseur de services d’hébergement partagé (HSP)
 
- Les deux autres scénarios sont des sous-ensembles du scénario d’hébergement partagé et ils reposent sur les mêmes principes. Les différences sont décrites à la fin des conseils d’hébergement partagé.
+Les deux autres scénarios sont des sous-ensembles du scénario d’hébergement partagé et ils reposent sur les mêmes principes. Les différences sont décrites à la fin des conseils d’hébergement partagé.
 
 L’exigence de base dans un scénario de multilocation est que les locataires soient isolés. Un locataire ne doit pas être capable de voir ce qu’un autre locataire a hébergé. Dans un environnement géré par un partenaire, cette exigence n’est pas aussi importante que dans un environnement en libre-service où elle peut être critique. Cet article part du principe que l’isolation des locataires est requise.
 
@@ -63,7 +64,7 @@ Dans le scénario multilocataire, chaque serveur de configuration utilise deux c
 
 ## <a name="vcenter-account-requirements"></a>Conditions requises pour le compte vCenter
 
-Vous devez configurer le serveur de configuration avec un compte auquel un rôle spécial a été affecté. 
+Configurez le serveur de configuration avec un compte auquel un rôle spécial a été affecté.
 
 - L’attribution de rôle doit être appliquée au compte d’accès vCenter pour chaque objet vCenter et elle ne doit pas être propagée sur les objets enfants. Cette configuration garantit l’isolation des locataires, car la propagation d’accès peut entraîner un accès accidentel à d’autres objets.
 
@@ -108,22 +109,36 @@ Pour limiter les opérations de récupération d’urgence au basculement unique
 - Au lieu d’affecter le rôle *Azure_Site_Recovery* au compte d’accès vCenter, affectez uniquement un rôle *Lecture seule* à ce compte. Ce jeu d’autorisations permet la réplication et le basculement de la machine virtuelle, et il n’autorise pas la restauration automatique.
 - Tout le reste de la procédure précédente ne change pas. Pour garantir l’isolation des locataires et limiter la découverte de la machine virtuelle, chaque autorisation est toujours affectée au niveau de l’objet uniquement et n’est pas propagée sur les objets enfants.
 
+### <a name="deploy-resources-to-the-tenant-subscription"></a>Déployer des ressources sur l’abonnement locataire
+
+1. Sur le portail Azure, créez un groupe de ressources, puis déployez un coffre Recovery Services en suivant la procédure habituelle.
+2. Téléchargez la clé d’inscription du coffre.
+3. Inscrivez le serveur de configuration du locataire à l’aide de la clé d’inscription du coffre.
+4. Entrez les informations d’identification des deux comptes, le compte permettant d’accéder au serveur vCenter et le compte permettant d’accéder à la machine virtuelle.
+
+    ![Comptes serveur de configuration de gestionnaire](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+
+### <a name="register-servers-in-the-vault"></a>Inscrire les serveurs dans le coffre
+
+1. Dans le portail Azure, dans le coffre que vous avez créé précédemment, inscrivez le serveur vCenter auprès du serveur de configuration, en utilisant le compte vCenter que vous avez créé.
+2. Terminez la « Préparation de l’infrastructure » pour la récupération de site en suivant la procédure habituelle.
+3. Les machines virtuelles sont maintenant prêtes pour la réplication. Vérifiez que seuls les machines virtuelles du locataire apparaissent dans **Répliquer** > **Sélectionner des machines virtuelles**.
 
 ## <a name="dedicated-hosting-solution"></a>Solution d’hébergement dédié
 
-Comme indiqué dans le diagramme suivant, la différence architecturale dans une solution d’hébergement dédié réside dans le fait que l’infrastructure de chaque locataire est configurée pour ce locataire uniquement. Étant donné que les locataires sont isolés à l’aide de vCenter distincts, le fournisseur d’hébergement doit toujours suivre les étapes CSP indiquées pour l’hébergement partagé, mais ne doit pas nécessairement se soucier de l’isolation des locataires. Le CSP reste inchangé.
+Comme indiqué dans le diagramme suivant, la différence architecturale dans une solution d’hébergement dédié réside dans le fait que l’infrastructure de chaque locataire est configurée pour ce locataire uniquement.
 
 ![architecture-hsp-partagé](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Scénario d’hébergement dédié avec plusieurs vCenter**
 
 ## <a name="managed-service-solution"></a>Solution de service géré
 
-Comme indiqué dans le diagramme suivant, la différence architecturale dans une solution de service géré réside dans le fait que l’infrastructure de chaque locataire est également séparée physiquement de l’infrastructure d’autres locataires. Ce scénario s’applique généralement lorsque le locataire possède l’infrastructure et souhaite disposer d’un fournisseur de solutions pour gérer la récupération d’urgence. Là encore, étant donné que les locataires sont isolés physiquement via des infrastructures différentes, le partenaire doit suivre les étapes CSP indiquées pour l’hébergement partagé, mais ne doit pas nécessairement se soucier de l’isolation des locataires. L’approvisionnement CSP reste inchangé.
+Comme indiqué dans le diagramme suivant, la différence architecturale dans une solution de service géré réside dans le fait que l’infrastructure de chaque locataire est également séparée physiquement de l’infrastructure d’autres locataires. Ce scénario s’applique généralement lorsque le locataire possède l’infrastructure et souhaite disposer d’un fournisseur de solutions pour gérer la récupération d’urgence.
 
 ![architecture-hsp-partagé](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Scénario de service géré avec plusieurs vCenter**
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus](site-recovery-role-based-linked-access-control.md) sur le contrôle d’accès en fonction du rôle dans Site Recovery.
-Découvrez comment [configurer la récupération d’urgence des machines virtuelles VMware vers Azure](vmware-azure-tutorial.md)
-[Set up disaster recovery for VMWare VMs with multi-tenancy with CSP](vmware-azure-multi-tenant-csp-disaster-recovery.md) (Configurer la récupération d’urgence pour des machines virtuelles VMware avec une architecture multilocataire avec CSP)
+- [En savoir plus](site-recovery-role-based-linked-access-control.md) sur le contrôle d’accès en fonction du rôle dans Site Recovery.
+- Découvrez comment configurer la récupération d’urgence des [machines virtuelles VMware](vmware-azure-tutorial.md) vers Azure.
+- Apprenez-en davantage sur [l’Architecture mutualisée avec CSP pour les machines virtuelles VMWare](vmware-azure-multi-tenant-csp-disaster-recovery.md).

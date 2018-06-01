@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203969"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Activer l’approvisionnement automatique de Microsoft Monitoring Agent     
-Lorsque l’approvisionnement automatique est activé, Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+Le provisionnement automatique est désactivé par défaut. Lorsque l’approvisionnement automatique est activé, Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 > [!NOTE]
 > La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources. Pour plus d’informations, consultez la section [Désactiver l’approvisionnement automatique](security-center-enable-data-collection.md#disable-automatic-provisioning) de cet article. La collecte des artefacts et les captures instantanées des disques de machine virtuelle sont activées, même si l’approvisionnement automatique est désactivé.
@@ -34,11 +35,14 @@ Lorsque l’approvisionnement automatique est activé, Security Center approvisi
 Pour activer l’approvisionnement automatique de Microsoft Monitoring Agent :
 1. Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
 2. Sélectionnez l’abonnement.
+
+  ![Sélectionnez un abonnement][7]
+
 3. Dans **Stratégie de sécurité**, sélectionnez **Collecte de données**.
-4. Dans **Intégration**, sélectionnez **Activé** pour activer l’approvisionnement automatique.
+4. Dans **Provisionnement automatique**, sélectionnez **Activé** pour activer le provisionnement automatique.
 5. Sélectionnez **Enregistrer**.
 
-![Activer l’approvisionnement automatique][1]
+  ![Activer l’approvisionnement automatique][1]
 
 ## <a name="default-workspace-configuration"></a>Configuration d’espace de travail par défaut
 Les données collectées par Security Center sont stockées dans les espaces de travail Log Analytics.  Vous pouvez choisir de stocker les données collectées à partir des machines virtuelles Azure dans des espaces de travail créés par Security Center ou dans un espace de travail existant que vous avez créé.
@@ -49,16 +53,16 @@ Pour utiliser votre espace de travail Log Analytics existant :
 
 Pour sélectionner un espace de travail Log Analytics existant :
 
-1. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Use another workspace** (Utiliser un autre espace de travail).
+1. Sous **Configuration de l’espace de travail par défaut**, sélectionnez **Utiliser un autre espace de travail**.
 
    ![Sélectionner un espace de travail existant][2]
 
 2. Dans le menu déroulant, sélectionnez un espace de travail pour stocker les données collectées.
 
-> [!NOTE]
-> Dans le menu déroulant, seuls les espaces de travail auxquels vous avez accès et se trouvant dans votre abonnement Azure sont affichés.
->
->
+  > [!NOTE]
+  > Dans le menu déroulant, tous les espaces de travail dans l’ensemble de vos abonnements sont disponibles. Pour plus d’informations, consultez [Sélection de l’espace de travail parmi les abonnements](security-center-enable-data-collection.md#cross-subscription-workspace-selection).
+  >
+  >
 
 3. Sélectionnez **Enregistrer**.
 4. Après avoir sélectionné **Enregistrer**, vous serez invité à reconfigurer les machines virtuelles surveillées.
@@ -73,7 +77,15 @@ Pour sélectionner un espace de travail Log Analytics existant :
 
    - Sélectionnez **Annuler** pour annuler l’opération.
 
-   ![Sélectionner un espace de travail existant][3]
+     ![Sélectionner un espace de travail existant][3]
+
+## <a name="cross-subscription-workspace-selection"></a>Sélection de l’espace de travail parmi les abonnements
+Quand vous sélectionnez un espace de travail pour stocker vos données, tous les espaces de travail dans l’ensemble de vos abonnements sont disponibles. La sélection de l’espace de travail parmi les abonnements vous permet de collecter des données à partir de machines virtuelles exécutées dans différents abonnements, et de les stocker dans l’espace de travail de votre choix. Cette fonctionnalité concerne les machines virtuelles exécutées sur Linux et Windows.
+
+> [!NOTE]
+> La sélection de l’espace de travail parmi les abonnements fait partie du niveau gratuit d’Azure Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+>
+>
 
 ## <a name="data-collection-tier"></a>Niveau de collecte des données
 Security Center peut réduire le volume d’événements tout en conservant suffisamment d’événements pour l’investigation, l’audit et la détection des menaces. Vous pouvez choisir la stratégie de filtrage adaptée à vos abonnements et espaces de travail à partir de quatre ensembles d’événements à collecter par l’agent.
@@ -84,7 +96,8 @@ Security Center peut réduire le volume d’événements tout en conservant suff
 - **Aucun** : désactivation de la collecte d’événements de sécurité à partir des journaux App Locker et de sécurité. Les tableaux de bord de sécurité des clients qui choisissent cette option afficheront uniquement les journaux de pare-feu Windows et les évaluations proactives comme les logiciels anti-programme malveillant, la ligne de base et la mise à jour.
 
 > [!NOTE]
-> Ces ensembles ont été conçus pour des scénarios classiques. Veillez à évaluer celui qui correspond à vos besoins avant de l’implémenter.
+> Ces ensembles d’événements de sécurité sont disponibles uniquement avec le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+Ces ensembles ont été conçus pour des scénarios classiques. Veillez à évaluer celui qui correspond à vos besoins avant de l’implémenter.
 >
 >
 
@@ -115,7 +128,7 @@ Voici le détail complet des ID d’événement App Locker et de sécurité pour
 >
 
 Pour choisir votre stratégie de filtrage :
-1. Dans le panneau **Stratégie de sécurité et paramètres**, sélectionnez votre stratégie de filtrage dans **Événements de sécurité**.
+1. Dans le panneau **Stratégie de sécurité : collecte de données**, sélectionnez votre stratégie de filtrage dans **Événements de sécurité**.
 2. Sélectionnez **Enregistrer**.
 
    ![Choix de la stratégie de filtrage][5]
@@ -129,12 +142,13 @@ Vous pouvez désactiver l’approvisionnement automatique à partir des ressourc
 >
 
 1. Retournez au menu principal de Security Center et sélectionnez Stratégie de sécurité.
-
-   ![Désactiver l’approvisionnement automatique][6]
-
 2. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Dans le panneau **Stratégie de sécurité : collecte de données**, dans **Intégration** sélectionnez **Non** pour désactiver l’approvisionnement automatique.
-4. Sélectionnez **Enregistrer**.  
+3. Dans le panneau **Stratégie de sécurité : collecte de données**, dans **Provisionnement automatique**, sélectionnez **Désactivé**.
+4. Sélectionnez **Enregistrer**.
+
+  ![Désactiver le provisionnement automatique][6]
+
+Quand le provisionnement automatique est désactivé, la section de configuration de l’espace de travail par défaut n’est pas affichée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré le fonctionnement de la collecte de données et de l’approvisionnement automatique dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
@@ -153,4 +167,5 @@ Cet article vous a montré le fonctionnement de la collecte de données et de l�
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png
