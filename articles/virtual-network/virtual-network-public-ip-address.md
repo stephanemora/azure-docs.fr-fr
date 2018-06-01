@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895021"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305053"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Créer, modifier ou supprimer une adresse IP publique
 
-Découvrez les adresses IP publiques et apprenez à en créer, modifier et supprimer une. Une adresse IP publique est une ressource disposant de ses propres paramètres configurables. Affecter une adresse IP publique à d’autres ressources Azure permet :
-- Une connectivité Internet entrante pour les ressources comme les machines virtuelles Azure, les groupes de machines virtuelles Azure identiques, la passerelle VPN Azure, les passerelles Application Gateway et les équilibreurs Azure Load Balancer accessibles sur Internet. Les ressources Azure ne peuvent pas recevoir de communications entrantes provenant d’Internet sans adresse IP publique assignée. Alors que certaines ressources Azure sont, par nature, accessibles par le biais d’adresses IP publiques, des adresses IP publiques doivent être assignées aux autres ressources pour que ces dernières soient accessibles à partir d’Internet.
-- Connectivité sortante vers Internet à l’aide d’une adresse IP prédictible. Par exemple, une machine virtuelle peut communiquer en sortie vers Internet sans adresse IP publique assignée, mais son adresse fait l’objet d’une traduction d’adresse réseau par Azure vers une adresse publique non prédictible. L’attribution d’une adresse IP publique à une ressource vous permet de savoir quelle adresse IP est utilisée pour la connexion sortante. Bien que prédictible, l’adresse peut changer en fonction de la méthode d’attribution choisie. Pour plus d’informations, consultez [Créer une adresse IP publique](#create-a-public-ip-address). Pour en savoir plus sur les connexions sortantes des ressources Azure, lisez l’article [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Découvrez les adresses IP publiques et apprenez à en créer, modifier et supprimer une. Une adresse IP publique est une ressource disposant de ses propres paramètres configurables. L’attribution d’une adresse IP publique à une ressource Azure qui prend en charge les adresses IP publiques permet :
+- Communication entrante d’Internet vers la ressource, par exemple les machines virtuelles Azure (VM), les passerelles Azure Application Gateway, les équilibreurs de charge Azure Load Balancer, les passerelles VPN Azure, etc. Vous pouvez toujours communiquer avec des ressources telles qu’une machine virtuelle, à partir d’Internet si aucune adresse IP publique ne lui est attribuée à condition que la machine virtuelle fasse partie d’un pool principal à équilibreur de charge et qu’une adresse IP publique soit attribuée à l’équilibreur de charge. Pour déterminer si une ressource d’un service Azure spécifique peut se voir attribuer une adresse IP publique ou si des communications peuvent être établies avec elle via l’adresse IP publique d’une autre ressource Azure, consultez la documentation du service. 
+- Connectivité sortante vers Internet à l’aide d’une adresse IP prédictible. Par exemple, une machine virtuelle peut communiquer en sortie vers Internet sans adresse IP publique attribuée, mais son adresse fait l’objet d’une traduction d’adresse réseau par Azure en adresse publique non prédictible par défaut. L’attribution d’une adresse IP publique à une ressource vous permet de savoir quelle adresse IP est utilisée pour la connexion sortante. Bien que prédictible, l’adresse peut changer en fonction de la méthode d’attribution choisie. Pour plus d’informations, consultez [Créer une adresse IP publique](#create-a-public-ip-address). Pour en savoir plus sur les connexions sortantes des ressources Azure, consultez [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

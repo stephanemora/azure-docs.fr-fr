@@ -15,12 +15,12 @@ ms.date: 05/11/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 85a9b3a4f1fc21cbb47d41a61661de38d6fc246d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160833"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203503"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Vous ne pouvez pas modifier les rôles intégrés, mais vous pouvez créer vos propres [rôles personnalisés](custom-roles.md) en fonction des besoins de votre organisation.
@@ -101,7 +101,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur Traffic Manager](#traffic-manager-contributor) | Permet de gérer des profils Traffic Manager, mais pas de contrôler qui y a accès. |
 | [Administrateur de l'accès utilisateur](#user-access-administrator) | Vous permet de gérer l'accès utilisateur aux ressources Azure. |
 | [Connexion de l’administrateur aux machines virtuelles](#virtual-machine-administrator-login) | - Les utilisateurs disposant de ce rôle peuvent se connecter à une machine virtuelle avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux. |
-| [Collaborateur de machine virtuelle](#virtual-machine-contributor) | Vous permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
+| [Collaborateur de machine virtuelle](#virtual-machine-contributor) | Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
 | [Connexion de l’utilisateur aux machines virtuelles](#virtual-machine-user-login) | Les utilisateurs disposant de ce rôle ont la possibilité de se connecter à une machine virtuelle en tant qu’utilisateur standard. |
 | [Collaborateur de plan web](#web-plan-contributor) | Permet de gérer des plans web pour des sites web, mais pas d’y accéder. |
 | [Collaborateur de site web](#website-contributor) | Permet de gérer des sites web (pas des plans web), mais pas d’y accéder. |
@@ -1443,7 +1443,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Vous permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
+> | **Description** | Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Autorisation de lecture |
