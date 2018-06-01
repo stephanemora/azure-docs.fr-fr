@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 8a3eedb5a3d96eedd1a64d85afdb58f8961df272
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775211"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202439"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -76,8 +76,8 @@ Load Balancer offre les fonctionnalités de base suivantes pour les applications
 
     Load Balancer n’interagit pas directement avec les protocoles TCP et UDP ou la couche Application et n’importe quel scénario d’application TCP ou UDP peut être pris en charge.  Load Balancer ne démarre pas et ne termine pas les flux ; il n’interagit pas avec la charge utile du flux ; il ne fournit aucune fonction de passerelle de couche Application et l’établissement de liaisons de protocole se produit toujours directement entre le client et l’instance de pool du serveur principal.  La réponse à un flux entrant provient toujours d’une machine virtuelle.  Lorsque le flux arrive sur la machine virtuelle, l’adresse IP source d’origine est également conservée.  Quelques exemples pour mieux illustrer la transparence :
     - Chaque point de terminaison obtient uniquement une réponse d’une machine virtuelle.  Par exemple, l’établissement d’une liaison TCP se fait toujours entre le client et la machine virtuelle du serveur principal sélectionnée.  La réponse à une demande d’un serveur principal est une réponse générée par la machine virtuelle du serveur principal. Lorsque vous validez correctement la connectivité à un serveur frontal, vous validez la connectivité de bout en bout à au moins une machine virtuelle du serveur principal.
-    - Les charges utiles d’application sont transparentes pour Load Balancer et n’importe quelle application UDP ou TCP peut être prise en charge. Pour les charges de travail qui nécessitent un traitement par requête HTTP ou une manipulation des charges utiles de couche Application (par exemple, l’analyse des URL HTTP), vous devez utiliser un équilibreur de charge de couche 7 comme [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway).
-    - Étant donné que Load Balancer est indépendant de la charge utile TCP et que le déchargement TLS (« SSL ») n’est pas fourni, vous pouvez générer des scénarios chiffrés de bout en bout à l’aide de Load Balancer et vous profitez d’une importante augmentation de la taille des instances pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle elle-même.  Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal.  Si vous avez besoin du « déchargement SSL », d’un traitement de couche Application ou si vous souhaitez déléguer la gestion des certificats à Azure, vous devez utiliser l’équilibreur de charge couche 7 Azure, à savoir [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway).
+    - Les charges utiles d’application sont transparentes pour Load Balancer et n’importe quelle application UDP ou TCP peut être prise en charge. Pour les charges de travail qui nécessitent un traitement par requête HTTP ou une manipulation des charges utiles de couche Application (par exemple, l’analyse des URL HTTP), vous devez utiliser un équilibreur de charge de couche 7 comme [Application Gateway](https://azure.microsoft.com/services/application-gateway).
+    - Étant donné que Load Balancer est indépendant de la charge utile TCP et que le déchargement TLS (« SSL ») n’est pas fourni, vous pouvez générer des scénarios chiffrés de bout en bout à l’aide de Load Balancer et vous profitez d’une importante augmentation de la taille des instances pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle elle-même.  Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal.  Si vous avez besoin du « déchargement SSL », d’un traitement de couche Application ou si vous souhaitez déléguer la gestion des certificats à Azure, vous devez utiliser l’équilibreur de charge couche 7 Azure, à savoir [Application Gateway](https://azure.microsoft.com/services/application-gateway).
         
 
 * **Reconfiguration automatique**
@@ -125,8 +125,8 @@ _Il est recommandé de spécifier les références SKU de manière explicite, m�
 
 | | [Référence Standard](load-balancer-standard-overview.md) | Référence SKU De base |
 | --- | --- | --- |
-| taille de pool principal | Jusqu’à 1000 instances. | Jusqu’à 100 instances. |
-| points de terminaison du pool du serveur principal | Toute machine virtuelle dans un réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques. | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique. |
+| Taille de pool de serveur principal | Jusqu’à 1000 instances. | Jusqu’à 100 instances. |
+| Points de terminaison du pool du serveur principal | Toute machine virtuelle dans un réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques. | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique. |
 | Zones de disponibilité Azure | Serveurs frontaux redondants dans une zone et zonaux pour le trafic entrant et sortant, mappages de flux sortants protégés contre les défaillances de zone, équilibrage de charge interzones. | / |
 | Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussis et échoués), mesures de plan de données actives | Azure Log Analytics pour l’équilibreur de charge public uniquement, alerte d’épuisement des ports SNAT, mesure de l’intégrité du pool du serveur principal. |
 | Ports HA | Équilibreur de charge interne. | / |
@@ -151,7 +151,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 *Figure : équilibrage du trafic web à l’aide d’un équilibreur de charge public*
 
-Quand les clients Internet envoient des requêtes de pages web à l’adresse IP publique d’une application web sur le port TCP 80, Azure Load Balancer distribue les requêtes entre les trois machines virtuelles du groupe soumis à l’équilibrage de charge. Des informations supplémentaires sur l’algorithme de l’équilibreur de charge sont disponibles sur la [page de présentation de l’équilibreur de charge](load-balancer-overview.md#load-balancer-features).
+Quand les clients Internet envoient des requêtes de pages web à l’adresse IP publique d’une application web sur le port TCP 80, Azure Load Balancer distribue les requêtes entre les trois machines virtuelles du groupe soumis à l’équilibrage de charge. Des informations supplémentaires sur l’algorithme de l’équilibreur de charge sont disponibles dans la section[Fonctionnalités de l’équilibreur de charge](load-balancer-overview.md##fundamental-load-balancer-features) de cet article.
 
 Par défaut, Azure Load Balancer répartit le trafic réseau équitablement sur plusieurs instances de machine virtuelle. Vous pouvez également configurer l’affinité de session. Pour plus d’informations, consultez [Mode de distribution de l’équilibrage de charge](load-balancer-distribution-mode.md).
 

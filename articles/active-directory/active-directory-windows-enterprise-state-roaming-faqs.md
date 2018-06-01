@@ -1,9 +1,9 @@
 ---
-title: "FAQ sur l’itinérance des paramètres et des données | Microsoft Docs"
-description: "Répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application."
+title: FAQ sur l’itinérance des paramètres et des données | Microsoft Docs
+description: Répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 services: active-directory
-keywords: "paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming"
-documentationcenter: 
+keywords: paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,23 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258712"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
-Cette rubrique répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
+Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 
 ## <a name="what-data-roams"></a>Quelles données sont itinérantes ?
 Les **Paramètres Windows** : les paramètres du PC intégrés au système d’exploitation Windows. En règle générale, ce sont des paramètres qui personnalisent votre PC. Ils incluent les catégories principales suivantes :
 
 * Le *Thème* comprenant des fonctionnalités telles que les paramètres de thème du bureau et de la barre des tâches.
 * Les *paramètres Internet Explorer* comprenant les onglets récemment ouverts et les favoris.
-* Les *Paramètres du navigateur Microsoft Edge*, tel que les favoris et la liste de lecture.
+* Les *Paramètres du navigateur Edge*, tel que les favoris et la liste de lecture.
 * Les *Mots de passe* comprenant les mots de passe Internet, les profils Wi-Fi, etc.
 * Les *Préférences linguistiques* comprenant la disposition du clavier, la langue du système, la date et l’heure, etc.
 * Les *Options d’ergonomie* comprenant les thèmes à contraste élevé, le Narrateur et la Loupe.
@@ -70,12 +71,12 @@ Si vous avez stocké des données personnelles sur votre appareil d’entreprise
 Dans les versions Windows 10 publiées à partir de novembre 2015 inclus, Enterprise State Roaming n’est pris en charge que pour un compte à la fois. Si vous vous connectez à Windows à l’aide d’un compte Azure AD professionnel ou scolaire, toutes les données seront synchronisées via Azure AD. Si vous vous connectez à Windows à l’aide d’un compte Microsoft personnel, toutes les données sont synchronisées via le compte Microsoft. En itinérance, les données d’application universelles utilisent uniquement le compte de connexion principal de l’appareil seulement si la licence de l’application est détenue par le compte principal. Les données d’application universelles appartenant à un compte secondaire ne seront pas synchronisées.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Les paramètres se synchronisent-ils pour les comptes Azure AD regroupant plusieurs clients ?
-Lorsque plusieurs comptes Azure AD regroupant différents clients Azure AD se trouvent sur le même appareil, vous devez mettre à jour le registre de l’appareil afin de communiquer avec le service Azure Rights Management pour chaque client Azure AD.  
+Lorsque plusieurs comptes Azure AD regroupant différents locataires Azure AD se trouvent sur le même appareil, vous devez mettre à jour le registre de l’appareil afin de communiquer avec le service Azure Rights Management pour chaque locataire Azure AD.  
 
-1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure et sélectionnez un client Azure AD. Le GUID pour le client se trouve sur la page Propriétés du client sélectionné (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), et porte le nom **ID de répertoire**. 
+1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure et sélectionnez un client Azure AD. Le GUID du locataire se trouve dans la page Propriétés du locataire sélectionné (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), étiqueté **ID de répertoire**. 
 2. Dès que vous disposez du GUID, vous devez ajouter la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    À partir de la clé **tenant ID GUID**, créez une nouvelle valeur de chaînes multiples (REG-MULTI-SZ) nommée **AllowedRMSServerUrls**. Pour ses données, spécifiez les URL de point de distribution de licence des autres clients Azure auxquels l’appareil accède.
-3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration** . Si les valeurs des paramètres **LicensingIntranetDistributionPointUrl** et **LicensingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
+3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration** dans le module AADRM. Si les valeurs des paramètres **LicensingIntranetDistributionPointUrl** et **LicensingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Quelles sont les options disponibles pour les paramètres d’itinérance des applications de bureau Windows existantes ?
 L’itinérance ne fonctionne qu’avec les applications Windows universelles. Deux options permettent d’activer l’itinérance sur une application de bureau Windows existante :
@@ -95,9 +96,9 @@ Les administrateurs peuvent configurer UE-V pour déplacer simplement les donné
 Enterprise State Roaming stocke toutes les données synchronisées dans le cloud Azure. UE-V offre une solution d’itinérance locale.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>À qui appartiennent les données en itinérance ?
-Les données en itinérance via Enterprise State Roaming sont détenues par les entreprises. Les données sont stockées dans un centre de données Azure. Toutes les données utilisateur sont chiffrées en transit et au repos dans le cloud à l’aide d’Azure Rights Management (Azure RMS). Il s’agit d’une amélioration par rapport à la synchronisation des paramètres de compte Microsoft, qui chiffre seulement certaines données sensibles telles que les informations d’identification utilisateur avant de quitter l’appareil.
+Les données en itinérance via Enterprise State Roaming sont détenues par les entreprises. Les données sont stockées dans un centre de données Azure. Toutes les données utilisateur sont chiffrées à l’aide du service Azure Rights Management d’Azure Information Protection lorsqu’elles sont en transit et lorsqu’elles sont au repos dans le cloud. Il s’agit d’une amélioration par rapport à la synchronisation des paramètres de compte Microsoft, qui chiffre seulement certaines données sensibles telles que les informations d’identification utilisateur avant de quitter l’appareil.
 
-Microsoft s’engage à protéger les données client. Les données de paramètres d’un utilisateur de l’entreprise sont automatiquement chiffrées par Azure RMS avant qu’elles quittent un appareil Windows 10, afin qu’elles soient illisibles pour les autres utilisateurs. Si votre organisation dispose d’un abonnement payant à Azure RMS, vous pouvez utiliser d’autres fonctionnalités Azure RMS, telles que le suivi et la suppression de documents, la protection automatique des messages électroniques contenant des informations sensibles et la gestion de vos propres clés (la solution « bring your own key », littéralement « apportez votre propre clé », également appelée BYOK). Pour plus d’informations sur ces fonctionnalités et sur le fonctionnement d’Azure RMS, consultez l’article [En quoi consiste Azure Rights Management ?](https://technet.microsoft.com/jj585026.aspx).
+Microsoft s’engage à protéger les données client. Les données de paramètres d’un utilisateur de l’entreprise sont automatiquement chiffrées par le service Azure Rights Management avant de quitter un appareil Windows 10, pour ne pas qu’elles puissent être lues par les autres utilisateurs. Si votre organisation dispose d’un abonnement payant au service Azure Rights Management, vous pouvez utiliser d’autres fonctionnalités de protection, telles que le suivi et la révocation de documents, la protection automatique des e-mails contenant des informations sensibles, et la gestion de vos propres clés (solution BYOK). Pour plus d’informations sur ces fonctionnalités et sur le fonctionnement de ce service de protection, consultez [En quoi consiste Azure Rights Management ?](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Puis-je gérer la synchronisation d’un paramètre ou d’une application spécifique ?
 Dans Windows 10, il n’existe aucun paramètre de MDM ou de stratégie de groupe permettant de désactiver l’itinérance pour une application en particulier. Les administrateurs client peuvent désactiver la synchronisation des données d’application pour toutes les applications sur un appareil géré, mais il n’existe aucun contrôle plus précis au niveau ou au sein de l’application.
@@ -116,8 +117,8 @@ Lorsque vous utilisez à la fois Enterprise State Roaming et UE-V, les règles s
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Comment la solution Enterprise State Roaming prend-elle en charge Virtual Desktop Infrastructure (VDI) ?
 Enterprise State Roaming est pris en charge sur les SKU client Windows 10, mais pas sur les éditions serveur. Si une machine virtuelle cliente est hébergée sur un hyperviseur alors que vous vous connectez à distance à la machine virtuelle, vos données seront alors en mode itinérant. Si plusieurs utilisateurs partagent le même système d’exploitation et que les utilisateurs se connectent à distance à un serveur pour bénéficier d’une expérience de bureau complète, l’itinérance peut ne pas fonctionner. Ce dernier scénario n’est pas officiellement pris en charge.
 
-## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>Que se passe-t-il si mon organisation achète Azure RMS après avoir utilisé l’itinérance ?
-Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’abonnement gratuit à Azure RMS en utilisation limitée, acheter un abonnement payant à Azure RMS n’aura aucun impact sur les fonctionnalités de l’itinérance, et votre administrateur informatique n’aura pas besoin de modifier la configuration.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Que se passe-t-il quand mon organisation achète un abonnement comprenant Azure Rights Management après avoir utilisé l’itinérance ?
+Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’abonnement gratuit à Azure Rights Management en utilisation limitée, l’achat d’un [abonnement payant](https://azure.microsoft.com/pricing/details/information-protection/) au service de protection Azure Rights Management n’a aucun impact sur les fonctionnalités de l’itinérance et votre administrateur informatique n’a pas non plus besoin de changer la configuration.
 
 ## <a name="known-issues"></a>Problèmes connus
 Pour obtenir la liste des problèmes connus, consultez la documentation indiquée dans la section [Résolution des problèmes](active-directory-windows-enterprise-state-roaming-troubleshooting.md). 

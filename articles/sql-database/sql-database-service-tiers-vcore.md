@@ -6,14 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212379"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Nouveau modèle d’achat basé sur des vCores d’Azure SQL Database (préversion)
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/11/2018
 |**Modèle d’achat**|**Description**|**Idéal pour**|
 |---|---|---|
 |Modèle DTU|Ce modèle est basé sur une mesure regroupant des ressources de calcul, de stockage et d’E/S. Les niveaux de performance en termes d’unités de transaction de base de données (DTU) pour des bases de données uniques et d’unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-what-is-a-dtu.md).|Idéal pour les clients qui souhaitent des options de ressources préconfigurées et simples.| 
-|Modèle vCore|Ce modèle vous permet de faire évoluer indépendamment les ressources de calcul et de stockage. Il permet également d’utiliser Azure Hybrid Benefit pour SQL Server afin de réduire les coûts.|Idéal pour les clients qui donnent la priorité à la flexibilité, au contrôle et à la transparence.|
+|Modèle vCore|Ce modèle vous permet de mettre à l’échelle les ressources de calcul et les ressources de stockage indépendamment : jusqu’à 80 vCore, 4 To de stockage de données et 200 000 IOPS. Il permet également d’utiliser Azure Hybrid Benefit pour SQL Server afin de réduire les coûts.|Idéal pour les clients qui donnent la priorité à la flexibilité, au contrôle et à la transparence.|
 ||||  
 
 ![Modèle de prix](./media/sql-database-service-tiers/pricing-model.png)
@@ -65,10 +66,10 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 ||**Usage général**|**Critique pour l’entreprise**|
 |---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|
-|Calcul|De 1 à 16 vCore|De 1 à 16 vCore|
+|Calcul|Entre 1 et 80 vCore, générations 4 et 5 |Entre 1 et 80 vCore, générations 4 et 5|
 |Mémoire|7 Go par cœur |7 Go par cœur |
-|Stockage|Stockage distant Premium, de 5 Go à 4 To|Stockage SSD local, de 5 Go à 1 To|
-|Débit d’E/S (approximatif)|500 IOPS par vCore avec un maximum de 7 500 IOPS|5 000 IOPS par cœur|
+|Stockage|Stockage distant Premium, de 5 Go à 4 To|Stockage sur SSD local, de 5 Go à 4 To|
+|Débit d’E/S (approximatif)|500 IOPS par vCore avec 7000 IOPS au maximum|5000 IOPS par cœur avec 200 000 IOPS au maximum|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [échelle lecture](sql-database-read-scale-out.md), haute disponibilité redondante dans une zone|
 |Sauvegardes|RA-GRS, 7 à 35 jours (7 jours par défaut)|RA-GRS, 7 à 35 jours (7 jours par défaut)*|
 |En mémoire|N/A|Prise en charge|

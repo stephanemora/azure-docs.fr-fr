@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1199eca457c3f06fdd6a4b68a05da3210ea9a2c9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197237"
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Migration Data Lake Store entre les régions
 
@@ -34,7 +33,7 @@ La disponibilité d’Azure Data Lake Store s’étendant à davantage de régio
 
 ## <a name="migration-considerations"></a>Considérations relatives à la migration
 
-Tout d’abord, identifiez la stratégie de migration appropriée pour votre application qui écrit, lit ou traite des données dans Data Lake Store. Lorsque vous choisissez une stratégie, tenez compte des exigences de disponibilité de votre application et du temps d’arrêt qui se produit lors d’une migration. Par exemple, votre approche la plus simple peut être d’utiliser le modèle de migration dans le cloud de type « lift-and-shift ». Dans cette approche, vous suspendez l’application dans votre région existante et toutes vos données sont copiées dans la nouvelle région. Une fois le processus de copie terminé, vous reprenez votre application dans la nouvelle région, puis supprimez l’ancien compte Data Lake Store. La migration nécessite un temps d’arrêt.
+Tout d’abord, identifiez la stratégie de migration appropriée pour votre application qui écrit, lit ou traite des données dans Data Lake Store. Au moment de choisir une stratégie, tenez compte des exigences de disponibilité de votre application et du temps d’arrêt qui se produit pendant une migration. Par exemple, votre approche la plus simple peut être d’utiliser le modèle de migration dans le cloud de type « lift-and-shift ». Dans cette approche, vous suspendez l’application dans votre région existante et toutes vos données sont copiées dans la nouvelle région. Une fois le processus de copie terminé, vous reprenez votre application dans la nouvelle région, puis supprimez l’ancien compte Data Lake Store. La migration nécessite un temps d’arrêt.
 
 Pour réduire ce temps d’arrêt, vous pouvez immédiatement commencer à ingérer les nouvelles données dans la nouvelle région. Une fois que vous avez les données minimales requises, exécutez votre application dans la nouvelle région. En arrière-plan, continuez à copier les données plus anciennes du compte Data Lake Store existant vers le nouveau compte Data Lake Store dans la nouvelle région. Cette approche vous permet de passer à la nouvelle région avec un temps d’arrêt minimal. Une fois que toutes les anciennes données ont été copiées, supprimez l’ancien compte Data Lake Store.
 

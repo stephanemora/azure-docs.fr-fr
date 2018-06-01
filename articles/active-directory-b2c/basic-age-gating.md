@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206319"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261280"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Utilisation de la vérification de l’âge dans Azure AD B2C
 
@@ -51,22 +51,19 @@ Une fois que la vérification de l’âge est activée dans votre flux d’utili
 Vous pouvez demander à Azure AD B2C de bloquer les mineurs sans consentement parental ou de les autoriser en laissant l’application décider ce qu’elle fera de ces utilisateurs.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>Autoriser les mineurs sans consentement parental
-Pour les flux d’utilisateurs impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir d’autoriser les mineurs sans consentement dans votre application.  Les mineurs sans consentement parental sont autorisés à se connecter ou à créer un compte normalement et un jeton d’ID est émis avec la revendication `legalAgeGroupClassification`.  En utilisant cette revendication, vous pouvez choisir l’expérience de ces utilisateurs, par exemple la collecte du consentement parental (et la mise à jour du champ `consentProvidedForMinor`).
+Pour les flux d’utilisateurs impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir d’autoriser les mineurs sans consentement dans votre application.  Les mineurs sans consentement parental sont autorisés à se connecter ou à créer un compte normalement et Azure AD B2C émet un jeton d’ID avec la revendication `legalAgeGroupClassification`.  En utilisant cette revendication, vous pouvez choisir l’expérience de ces utilisateurs, par exemple la collecte du consentement parental (et la mise à jour du champ `consentProvidedForMinor`).
 
 ###<a name="blocking-minors-without-parental-consent"></a>Bloquer les mineurs sans consentement parental
-Pour les flux d’utilisateurs impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir de bloquer les mineurs sans consentement dans votre application.  Il existe deux options pour la gestion des utilisateurs bloqués dans Azure AD B2C :
+Pour les flux d’utilisateurs impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir de bloquer les mineurs sans le consentement de votre application.  Il existe deux options pour la gestion des utilisateurs bloqués dans Azure AD B2C :
 * Envoyez du code JSON à l’application : cette option envoie à l’application une réponse indiquant que le mineur a été bloqué.
 * Affichez une page d’erreur : l’utilisateur voit une page l’informant qu’il ne peut pas accéder à l’application
 
 ##<a name="known-issues"></a>Problèmes connus
-###<a name="customization-unavailable-for-new-pages"></a>Personnalisation non disponible pour les nouvelles pages
-Il existe deux nouvelles pages qui peuvent être disponibles dans votre flux d’utilisateur lorsque vous activez la vérification de l’âge.  Les pages de collecte du pays et de la date de naissance lors de la connexion et la page d’erreur ne peuvent pas être utilisées avec la personnalisation de la langue ou de la mise en page.  Cette option sera disponible dans une prochaine mise à jour.
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Format de la réponse envoyée lorsqu’un mineur est bloqué.
 Actuellement, la réponse n’est pas correctement mise en forme. Ce bogue sera résolu dans une prochaine mise à jour.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Si vous supprimez des attributs spécifiques qui ont été ajoutés pendant la configuration, il se peut que votre répertoire ne puisse pas utiliser la vérification de l’âge.
-Dans la configuration de la vérification de l’âge, vous avez configuré votre répertoire via une option dans votre `Properties`.  Si vous supprimez `legalCountry` ou `dateOfBirth`, votre locataire ne peut plus utiliser la vérification de l’âge et ces propriétés ne peuvent pas être recréées.
+Dans la configuration de la vérification de l’âge, vous avez configuré votre répertoire via une option dans votre `Properties`.  Si vous supprimez `legalCountry` ou `dateOfBirth` à l’aide de Graph, votre répertoire ne peut plus utiliser la vérification de l’âge et ces propriétés ne peuvent pas être recréées.
 
 ###<a name="list-of-countries-is-incomplete"></a>La liste des pays est incomplète
 Actuellement, la liste des pays dans legalCountry est incomplète. Nous ajouterons le reste des pays dans une prochaine mise à jour.

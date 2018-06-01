@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192953"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
@@ -57,7 +58,7 @@ Après avoir finalisé vos conditions d’utilisation, effectuez les étapes sui
 4. Entrez **Nom d’affichage**.  L’en-tête correspond à ce que les utilisateurs voient quand ils se connectent.
 5. **Accédez** au fichier PDF finalisé de vos conditions et sélectionnez-le.  Il est recommandé d’utiliser une taille de police de 24.
 6. **Sélectionnez** la langue des conditions d’utilisation.  L’option de langue vous permet de charger plusieurs conditions d’utilisation, chacune dans une langue différente.  La version des conditions d’utilisation affichée pour l’utilisateur final dépend des préférences de son navigateur.
-7. Activez ou désactivez l’option **Demander aux utilisateurs d’étendre les conditions d’utilisation**.  Si cette option est activée, les utilisateurs finaux sont priés d’afficher les conditions d’utilisation avant de les accepter.
+7. Activez ou désactivez l’option **Demander aux utilisateurs d’étendre les conditions d’utilisation**.  Si cette option est activée, les utilisateurs finaux seront tenus de visualiser les conditions d’utilisation avant de les accepter.
 8. Dans **Accès conditionnel**, vous pouvez **appliquer** les conditions d’utilisation chargées en sélectionnant un modèle dans la liste déroulante ou une stratégie d’accès conditionnel personnalisée.  Les stratégies d’accès conditionnel personnalisées permettent de définir des conditions d’utilisation plus précises, jusqu’au niveau d’une application cloud ou d’un groupe d’utilisateurs.  Pour plus d’informations, consultez [Configuration de stratégies d’accès conditionnel personnalisées](active-directory-conditional-access-best-practices.md).
 9. Cliquez sur **Créer**.
 10. Si vous avez sélectionné un modèle d’accès conditionnel personnalisé, un nouvel écran s’affiche pour vous permettre de personnaliser la stratégie d’accès conditionnel.
@@ -90,7 +91,7 @@ Si vous souhaitez afficher l’historique des acceptations et des refus en plus 
 Vous pouvez utiliser la fonction d’audit de deux façons, selon ce que vous souhaitez faire.  
 
 
-Pour démarrer l’audit, effectuez les étapes suivantes :
+Pour démarrer l’audit, procédez comme suit :
 
 ### <a name="to-audit-terms-of-use"></a>Pour auditer les conditions d’utilisation
 1. Accédez au tableau de bord à l’adresse [https://aka.ms/catou](https://aka.ms/catou)
@@ -121,6 +122,13 @@ Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont a
 
 4.  C’est là que vous pouvez consulter les conditions d’utilisation que vous avez acceptées. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Suppression d’utilisateurs des conditions d’utilisation actives
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Par défaut, un utilisateur supprimé conserve cet état dans Azure AD pendant 30 jours, au cours desquels il peut être restauré par un administrateur s’il y a lieu.  Au bout de 30 jours, cet utilisateur est définitivement supprimé.  En outre, à l’aide du portail Azure Active Directory, un Administrateur général peut explicitement [supprimer définitivement un utilisateur récemment supprimé](active-directory-users-restore.md) avant que cette période arrive à son terme.  Une fois qu’un utilisateur a été définitivement supprimé, les données le concernant sont par la suite supprimées des conditions d’utilisation actives.  Les informations d’audit relatives aux utilisateurs supprimés sont conservées dans le journal d’audit.
+
+
 
 ## <a name="additional-information"></a>Informations supplémentaires
 Tenez compte des points suivants pour faciliter la mise en place de conditions d’utilisation.
@@ -139,7 +147,7 @@ Tenez compte des points suivants pour faciliter la mise en place de conditions d
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**</br>
-R : Vous pouvez simplement cliquer sur le nombre figurant sous « acceptées » en regard de vos conditions d’utilisation.  Pour plus d’informations, consultez [Affichage de l’état utilisateur actuel](#viewing-current-user-status).  En outre, un utilisateur qui accepte les conditions d’utilisation est consigné dans le journal d’audit. Vous pouvez rechercher le journal d’audit Azure AD pour voir les résultats.  
+R : Vous pouvez cliquer sur le nombre figurant sous « acceptées » en regard de vos conditions d’utilisation.  Pour plus d’informations, consultez [Affichage de l’état utilisateur actuel](#viewing-current-user-status).  En outre, un utilisateur qui accepte les conditions d’utilisation est consigné dans le journal d’audit. Vous pouvez rechercher le journal d’audit Azure AD pour voir les résultats.  
 
 **Q : Si vous changez les conditions d’utilisation, les utilisateurs doivent-ils les accepter à nouveau ?**</br>
 R : Oui. Si un administrateur change les conditions d’utilisation, les utilisateurs doivent les accepter à nouveau.
@@ -154,7 +162,7 @@ R : Les conditions d’utilisation sont déclenchées durant la procédure de c
 R : Vous pouvez créer une stratégie d’accès conditionnel sur les applications d’entreprise à l’aide de l’authentification moderne.  Pour plus d’informations, consultez [Applications d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou un utilisateur donné ?**</br>
-R : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est dans l’étendue de plusieurs conditions d’utilisation, il accepte une instance des conditions d’utilisation à la fois.
+R : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il accepte ces différentes conditions d’utilisation une par une.
  
 **Q : Que se passe-t-il si un utilisateur refuse les conditions d’utilisation ?**</br>
 R : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.

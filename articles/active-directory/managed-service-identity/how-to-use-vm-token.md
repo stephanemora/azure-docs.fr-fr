@@ -7,22 +7,27 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165449"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton. Nous vous recommandons d’utiliser MSI avec le point de terminaison IMDS, car le point de terminaison d’extension de machine virtuelle sera supprimé.
+
+L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
+
+Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,14 +38,14 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article
 
 
 > [!IMPORTANT]
-> - Tous les scripts/exemples de code de cet article supposent que le client exécute une machine virtuelle avec le paramètre MSI activé. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation de MSI sur une machine virtuelle, consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](qs-configure-portal-windows-vm.md), ou l’un des autres articles (à l’aide de PowerShell, CLI, d’un modèle ou d’un kit de développement logiciel Azure). 
+> - Tous les scripts/exemples de code de cet article partent du principe que le client s’exécute sur une machine virtuelle avec une identité MSI (Managed Service Identity). Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation de MSI sur une machine virtuelle, consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](qs-configure-portal-windows-vm.md), ou l’un des autres articles (à l’aide de PowerShell, CLI, d’un modèle ou d’un kit de développement logiciel Azure). 
 
 > [!IMPORTANT]
-> - La limite de sécurité d’une identité gérée est la ressource. L’ensemble du code/des scripts en cours d’exécution sur une machine virtuelle MSI peut demander et récupérer des jetons. 
+> - La limite de sécurité d’une identité MSI est la ressource sur laquelle elle est utilisée. Tous les scripts/le code exécutés sur une machine virtuelle peuvent demander et récupérer des jetons pour n’importe quelle identité MSI disponible sur cette machine. 
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Une application cliente peut demander un [jeton d’accès d’application uniquement](../develop/active-directory-dev-glossary.md#access-token) de MSI pour accéder à une ressource donnée. Le jeton est [basé sur le principal du service MSI](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/active-directory-protocols-oauth-service-to-service.md).
+Une application cliente peut demander un [jeton d’accès d’application uniquement](../develop/active-directory-dev-glossary.md#access-token) de Managed Service Identity pour accéder à une ressource donnée. Le jeton est [basé sur le principal du service MSI](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -49,7 +54,7 @@ Une application cliente peut demander un [jeton d’accès d’application uniqu
 | [Obtenir un jeton par Go](#get-a-token-using-go) | Exemple d’utilisation du point de terminaison REST de MSI à partir d’un client Go |
 | [Obtenir un jeton par Azure PowerShell](#get-a-token-using-azure-powershell) | Exemple d’utilisation du point de terminaison REST de MSI à partir d’un client PowerShell |
 | [Obtenir un jeton par CURL](#get-a-token-using-curl) | Exemple d’utilisation du point de terminaison REST de MSI à partir d’un client Bash/CURL |
-| [Gestion de l’expiration du jeton](#handling-token-expiration) | Conseils pour la gestion des jetons d’accès expirés |
+| [Gestion de la mise en cache des jetons](#handling-token-caching) | Conseils pour la gestion des jetons d’accès expirés |
 | [Gestion des erreurs](#error-handling) | Conseils pour la gestion des erreurs HTTP retournées par le point de terminaison de jeton de MSI |
 | [ID de ressource pour les services Azure](#resource-ids-for-azure-services) | Où obtenir les ID de ressource pour les services Azure pris en charge |
 
@@ -57,10 +62,10 @@ Une application cliente peut demander un [jeton d’accès d’application uniqu
 
 L’interface fondamentale pour l’acquisition d’un jeton d’accès est basée sur REST, le rendant accessible à toute application cliente en cours d’exécution sur la machine virtuelle et pouvant effectuer des appels REST par HTTP. Cela est similaire au modèle de programmation Azure AD, sauf si le client utilise un point de terminaison sur la machine virtuelle (à la place d’un point de terminaison Azure AD).
 
-Exemple de requête à l’aide du point de terminaison de service de métadonnées d’instance (IMDS) MSI *(recommandé)*  :
+Exemple de requête utilisant le point de terminaison IMDS (Instance Metadata Service) Azure *(recommandé)*  :
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Élément | Description |
@@ -71,7 +76,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, https://management.azure.com/. |
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par MSI afin de limiter une attaque de falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules.
 
-Exemple de requête utilisant le point de terminaison d’extension de machine virtuelle MSI *(prochainement déconseillé)* :
+Exemple de requête utilisant le point de terminaison d’extension de machine virtuelle MSI *(prochainement déprécié)*  :
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -265,23 +270,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>Expiration du jeton 
+## <a name="token-caching"></a>Mise en cache de jeton
 
-Si vous mettez le jeton en cache dans votre code, vous devez être prêt à gérer les scénarios dans lesquels la ressource indique que le jeton a expiré. 
+Même si le sous-système MSI utilisé (Extension de machine virtuelle IMDS/MSI) met en cache les jetons, nous vous recommandons également d’implémenter la mise en cache des jetons dans votre code. Vous devez donc vous préparer pour les scénarios dans lesquels la ressource indique que le jeton a expiré. 
 
-Remarque : étant donné que le sous-système MSI IMDS met en cache des jetons, les appels réseau à Azure AD aboutissent uniquement dans les cas suivants :
-- une absence dans le cache se produit du fait d’une absence de jeton dans le cache
-- le jeton a expiré
+Les appels sur le câble à Azure AD réussissent uniquement quand :
+- Un échec d’accès dans le cache se produit du fait d’une absence de jeton dans le cache du sous-système MSI.
+- Le jeton mis en cache a expiré.
 
 ## <a name="error-handling"></a>Gestion des erreurs
 
-Le point de terminaison MSI signale des erreurs via le champ de code d’état de l’en-tête du message de la réponse HTTP en tant qu’erreurs 4xx ou 5xx :
+Le point de terminaison MSI signale des erreurs par le biais du champ de code d’état de l’en-tête du message de la réponse HTTP en tant qu’erreurs 4xx ou 5xx :
 
 | Code d’état | Motif de l’erreur | Procédure de gestion |
 | ----------- | ------------ | ------------- |
+| 404 Introuvable. | Le point de terminaison IMDS est en cours de mise à jour. | Réessayez avec interruption exponentielle. Consultez les conseils ci-dessous. |
 | 429 Trop de requêtes. |  Limite IMDS atteinte. | Réessayer avec interruption exponentielle. Consultez les conseils ci-dessous. |
 | Erreur 4xx dans la requête. | Un ou plusieurs des paramètres de la requête étaient incorrects. | Ne faites pas de nouvel essai.  Examinez les détails de l’erreur pour plus d’informations.  Les erreurs 4xx sont des erreurs au moment de la conception.|
 | Erreur 5xx temporaire de service. | Le sous-système de MSI ou Azure Active Directory a renvoyé une erreur temporaire. | Il est possible de faire une nouvelle tentative après un délai d’une seconde.  Si vous réessayez trop souvent ou trop rapidement, IMDS et/ou Azure AD peut renvoyer une erreur de limite de débit (429).|
+| timeout | Le point de terminaison IMDS est en cours de mise à jour. | Réessayez avec interruption exponentielle. Consultez les conseils ci-dessous. |
 
 Si une erreur se produit, le corps de réponse HTTP correspondant contient des données JSON avec les détails de l’erreur :
 
@@ -304,11 +311,11 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 |           | access_denied | Le propriétaire de la ressource ou le serveur d’autorisation a refusé la requête. |  |
 |           | unsupported_response_type | Le serveur d’autorisation ne prend pas en charge l’obtention d’un jeton d’accès par cette méthode. |  |
 |           | invalid_scope | L’étendue demandée est incorrecte, inconnue ou non valide. |  |
-| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux dans *\<Chemin d’accès de fichier\>* | Vérifiez que l’identité du service administré a été activée dans la machine virtuelle. Consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](qs-configure-portal-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Consultez « l’exemple de demande » dans la [section REST précédente](#rest) pour obtenir un exemple, ou les [services Azure prenant en charge l’authentification Azure AD](overview.md#azure-services-that-support-azure-ad-authentication) pour obtenir une liste des services et leur ID de ressource respectif.
+| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux dans *\<Chemin d’accès de fichier\>* | Vérifiez que l’identité du service administré a été activée dans la machine virtuelle. Consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](qs-configure-portal-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Consultez « l’exemple de demande » dans la [section REST précédente](#rest) pour obtenir un exemple, ou les [services Azure prenant en charge l’authentification Azure AD](services-support-msi.md) pour obtenir une liste des services et leur ID de ressource respectif.
 
-## <a name="throttling-guidance"></a>Guide de la limitation 
+## <a name="retry-guidance"></a>Conseils sur les nouvelles tentatives 
 
-Les limites de la limitation s’appliquent au nombre d’appels effectués au point de terminaison MSI IMDS. Lorsque le seuil de limitation est dépassé, le point de terminaison MSI IMDS limite toutes les autres requêtes pendant que la limitation est appliquée. Pendant cette période, le point de terminaison MSI IMDS renvoie le code d’état HTTP 429 (« Un trop grand nombre de requêtes ») et les requêtes échouent. 
+La limitation s’applique au nombre d’appels effectués au point de terminaison IMDS. Quand le seuil de limitation est dépassé, le point de terminaison IMDS limite toutes les autres requêtes pendant que la limitation est appliquée. Pendant cette période, le point de terminaison IMDS retourne le code d’état HTTP 429 (« Trop de requêtes ») et les requêtes échouent. 
 
 Pour une nouvelle tentative, nous vous recommandons la stratégie suivante : 
 
@@ -318,7 +325,7 @@ Pour une nouvelle tentative, nous vous recommandons la stratégie suivante :
 
 ## <a name="resource-ids-for-azure-services"></a>ID de ressource pour les services Azure
 
-Consultez [Services Azure prenant en charge l’authentification de Azure AD](overview.md#azure-services-that-support-azure-ad-authentication) pour obtenir une liste des ressources qui prennent en charge Azure AD et qui ont été testées avec l’identité du service administré et leur ID de ressources respectif.
+Consultez [Services Azure prenant en charge l’authentification de Azure AD](services-support-msi.md) pour obtenir une liste des ressources qui prennent en charge Azure AD et qui ont été testées avec l’identité du service administré et leur ID de ressources respectif.
 
 
 ## <a name="related-content"></a>Contenu connexe
