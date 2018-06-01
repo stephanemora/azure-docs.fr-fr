@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: eb824913a4b3482879ccc45e2f660342695b1618
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258944"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -34,6 +35,64 @@ Rubrique |  Détails
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+### <a name="release-status"></a>État de la version
+
+14/5/2018 : publié pour la mise à niveau automatique et le téléchargement.
+
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+
+Améliorations et nouvelles fonctionnalités
+
+- Cette version inclut la préversion publique de l’intégration de PingFederate dans Azure AD Connect. Avec cette version, les clients peuvent configurer facilement et de manière fiable leur environnement Azure Active Directory pour tirer parti de PingFederate en tant que fournisseur de fédération. Pour en savoir plus sur l’utilisation de cette nouvelle fonctionnalité, voir notre [documentation en ligne](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- Nous avons mis à jour l’utilitaire de dépannage de l’Assistant Azure AD Connect dans lequel nous analysons à présent davantage de scénarios d’erreur, tels que des boîtes aux lettres liées et des groupes dynamiques AD. Pour en savoir plus sur l’utilitaire de dépannage, [voir ici](active-directory-aadconnect-troubleshoot-objectsync.md).
+- La configuration de l’Écriture différée des appareils est désormais gérée uniquement dans l’Assistant Azure AD Connect.
+- Un nouveau module PowerShell nommé ADSyncTools.psm1 a été ajouté. Il permet notamment de résoudre des problèmes de connectivité SQL. Pour en savoir plus sur le module ADSyncTools, [voir ici](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- Une nouvelle tâche supplémentaire, « Configurer les options de l’appareil », a été ajoutée. Vous pouvez l’utiliser pour configurer les deux opérations suivantes : 
+    -   **Joindre Hybrid Azure AD** : si votre environnement comporte une empreinte locale AD et si vous souhaitez également profiter des fonctionnalités proposées par Azure Active Directory, vous pouvez implémenter des appareils joints Azure AD hybrides. Il s’agit d’appareils qui sont à la fois, joints à votre service Active Directory local et à Azure Active Directory.
+    -   **Écriture différée des appareils** : l’écriture différée est utilisée pour activer l’accès conditionnel basé sur l’appareil à des appareils protégés par AD FS (2012 R2 ou version supérieure).
+
+   >[!NOTE] 
+   > - L’option permettant d’activer l’écriture différée des appareils sera grisée dans Personnalisation des options de synchronisation. 
+   > -  Le module PowerShell pour ADPrep est déconseillé avec cette version.
+
+
+
+### <a name="fixed-issues"></a>Problèmes résolus 
+
+- Cette version met à jour l’installation de SQL Server Express vers SQL Server 2012 SP4, qui, entre autres, fournit des correctifs pour plusieurs vulnérabilités de sécurité.  Cliquez [ici](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) pour plus d’informations sur SQL Server 2012 SP4.
+- Traitement des règles de synchronisation : des règles de synchronisation de jointure sortante sans condition de jointure doivent être supprimées si la règle de synchronisation parente n’est plus applicable.
+- Plusieurs correctifs d’accessibilité ont été appliqués à l’interface de Synchronization Service Manager et à l’éditeur de règles de synchronisation
+- Assistant Azure AD Connect : erreur de création de compte de connecteur AD quand Azure AD Connect est un groupe de travail.
+- Assistant Azure AD Connect : sur la page de connexion à Azure AD, la case à cocher de vérification s’affiche chaque fois qu’il existe une discordance entre les domaines AD et les domaines Azure AD vérifiés.
+- Correctif PowerShell de mise à niveau automatique pour définir correctement l’état de mise à niveau automatique dans certains cas après une tentative de mise à niveau automatique.
+- Assistant Azure AD Connect : télémétrie mise à jour pour capturer des informations précédemment manquantes.
+- Assistant Azure AD Connect : Les modifications suivantes ont été apportées lorsque vous utilisez la tâche **Modifier la connexion d’utilisateur** pour basculer d’AD FS à l’authentification directe :
+    - L’agent d’authentification directe est installé sur le serveur Azure AD Connect et la fonctionnalité d’authentification directe est activée, avant que nous convertissions des domaines de l’état « fédéré » à l’état « géré ».
+    - Les utilisateurs ne sont plus convertis de l’état « fédéré » à l’état « géré ». Seuls les domaines sont convertis.
+- Assistant Azure AD Connect : une expression régulière multi-domaine d’AD FS n’est pas correcte quand l’UPN de l’utilisateur a une mise à jour d’expression régulière de caractère spécial pour prendre en charge les caractères spéciaux.
+- Assistant Azure AD Connect : suppression du message fallacieux « Configurer l’attribut d’ancre source » en l’absence de changement. 
+- Assistant Azure AD Connect : prise en charge d’AD FS pour le scénario de fédération double.
+- Assistant Azure AD Connect : les revendications AD FS ne sont pas mises à jour pour un domaine ajouté lors de la conversion d’un domaine géré en domaine fédéré.
+- Assistant Azure AD Connect : lors de la détection des packages installés, nous trouvons des produits Dirsync/Azure AD Sync/Azure AD Connect périmés. Nous allons désormais tenter de désinstaller les produits périmés.
+- Assistant Azure AD Connect : correction du mappage des messages d’erreur en cas d’échec de l’installation de l’agent d’authentification relais.
+- Assistant Azure AD Connect : conteneur « Configuration » supprimé de la page Filtrage par domaine/unité d’organisation.
+- Installation du moteur de synchronisation : suppression de la logique héritée inutile qui échouait parfois lors de l’exécution du msi d’installation du moteur de synchronisation.
+- Assistant Azure AD Connect : correction du texte d’aide contextuelle sur la page Fonctionnalités facultatives pour la synchronisation du hachage de mot de passe.
+- Runtime du moteur de synchronisation : correction du scénario dans lequel un objet CS a une tentative de règles de suppression et de synchronisation pour réapprovisionner l’objet.
+- Runtime du moteur de synchronisation : ajout d’un lien d’aide pour le guide de dépannage de la connectivité en ligne vers le journal des événements pour une erreur d’importation.
+- Runtime du moteur de synchronisation : réduction de l’utilisation de la mémoire du planificateur de synchronisation lors de l’énumération des connecteurs.
+- Assistant Azure AD Connect : correction d’un problème de résolution d’un compte de service de synchronisation personnalisé ne disposant pas de privilèges de Lecture AD.
+- Assistant Azure AD Connect : amélioration de la journalisation des sélections de filtrage par domaine ou unité d’organisation.
+- Assistant Azure AD Connect : ajout de revendications AD FS par défaut à l’approbation de fédération créée pour le scénario d’authentification multifacteur.
+- Assistant Azure AD Connect : WAP de déploiement AD FS : l’ajout de serveur échoue à utiliser le nouveau certificat.
+- Assistant Azure AD Connect : exception DSSO quand les informations d’identification onPremCredentials ne sont pas initialisées pour un domaine. 
+- Flux préférentiel de l’attribut AD distinguishedName à partir d’Active User Object.
+- Correction d’un bug cosmétique où la priorité de la première règle de synchronisation OOB était fixée à 99 au lieu de 100.
+
+
 
 ## <a name="117510"></a>1.1.751.0
 État 4/12/2018 : publié pour le téléchargement uniquement

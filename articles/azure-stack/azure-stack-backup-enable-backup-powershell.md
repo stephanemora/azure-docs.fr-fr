@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074930"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259853"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Activer la sauvegarde d’Azure Stack avec PowerShell
 
@@ -31,7 +31,7 @@ Activez le service Infrastructure Backup avec Windows PowerShell pour effectuer 
  - Secrets KeyVault
  - Stratégies et rôles utilisateur RBAC
 
-Vous pouvez accéder aux cmdlets PowerShell pour activer la sauvegarde, démarrer la sauvegarde et obtenir des informations sur la sauvegardes via le point de terminaison de gestion d’opérateur.
+Vous pouvez accéder aux cmdlets PowerShell pour activer la sauvegarde, démarrer la sauvegarde et obtenir des informations sur la sauvegarde via le point de terminaison de gestion d’opérateur.
 
 ## <a name="prepare-powershell-environment"></a>Préparer l’environnement PowerShell
 
@@ -65,7 +65,7 @@ Dans la même session PowerShell, modifiez le script PowerShell suivant en ajout
 
 | Variable        | Description   |
 |---              |---                                        |
-| $username       | Saisissez le **nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur de l’emplacement du lecteur partagé. Par exemple : `Contoso\administrator`. |
+| $username       | Saisissez le **Nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur de l’emplacement du lecteur partagé avec un accès suffisant pour lire et écrire des fichiers. Par exemple : `Contoso\backupshareuser`. |
 | $password       | Saisissez le **mot de passe** de l’utilisateur. |
 | $sharepath      | Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Vous devez utiliser une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour garantir la disponibilité des données de sauvegarde, l’appareil doit se trouver dans un emplacement distinct. |
 

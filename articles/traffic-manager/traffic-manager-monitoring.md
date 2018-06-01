@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211716"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -30,7 +31,7 @@ Pour configurer la surveillance des points de terminaison, vous devez spécifier
 
 * **Protocole**. Sélectionnez HTTP, HTTPS ou TCP comme protocole utilisé par Traffic Manager lors de la détection du point de terminaison pour contrôler son intégrité. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement s’il est présent.
 * **Port**. Choisissez le port utilisé pour la requête.
-* **Chemin d’accès**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole TCP, indiquez le chemin d’accès relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
+* **Chemin d’accès**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole HTTP et HTTPS, indiquez le chemin relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
 * **Intervalle de détection**. Cette valeur spécifie la fréquence à laquelle l’intégrité d’un point de terminaison est contrôlée par un agent de détection Traffic Manager. Vous pouvez spécifier deux valeurs ici : 30 secondes (détection normale) et 10 secondes (détection rapide). Si aucune valeur n’est fournie, le profil définit par défaut la valeur sur 30 secondes. Visitez la page [Tarification de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pour en savoir plus sur la tarification pour la détection rapide.
 * **Nombre d’échecs tolérés**. Cette valeur spécifie le nombre d’échecs tolérés par un agent de détection de Traffic Manager avant que le point de terminaison soit considéré comme défectueux. La valeur peut être comprise entre 0 et 9. Une valeur égale à 0 signifie qu’il suffit d’un seul échec lors de l’analyse pour que le point de terminaison soit considéré comme défectueux. Si aucune valeur n’est spécifiée, la valeur par défaut est 3.
 * **Délai d’expiration de la surveillance**. Cette propriété spécifie le temps que l’agent de détection de Traffic Manager doit attendre avant de considérer que la procédure comme un échec lorsqu’une sonde de vérification de l’intégrité est envoyée au point de terminaison. Si l’intervalle de détection est défini sur 30 secondes, vous pouvez définir la valeur du délai d’expiration entre 5 et 10 secondes. Si aucune valeur n’est spécifiée, la valeur par défaut est 10 secondes. Si l’intervalle de détection est défini sur 10 secondes, vous pouvez définir la valeur du délai d’expiration entre 5 et 9 secondes. Si aucune valeur n’est spécifiée pour le délai d’expiration, la valeur par défaut est 9 secondes.
@@ -135,7 +136,7 @@ Lorsqu’un point de terminaison est détérioré, il n’est plus renvoyé en r
 * **Priorité**. Les points de terminaison forment une liste hiérarchisée. Le premier point de terminaison disponible sur la liste est toujours renvoyé. Si l’état d’un point de terminaison est Détérioré, alors le point de terminaison disponible suivant est renvoyé.
 * **Pondération**. Le point de terminaison de remplacement est choisi de façon aléatoire parmi tous les points de terminaison disponibles en fonction des pondérations qui leur ont été affectées et des pondérations des autres points de terminaison disponibles.
 * **Performances**. Le point de terminaison le plus proche de l’utilisateur final est renvoyé. Si ce point de terminaison n’est pas disponible, Traffic Manager déplace le trafic vers les points de terminaison dans la région Azure suivante la plus proche. Vous pouvez configurer d’autres plans de basculement pour le routage du trafic à l’aide des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
-* **Géographique**. Le point de terminaison mappé pour servir la zone géographique en fonction de l’adresse IP de la requête est renvoyé. Si ce point de terminaison n’est pas disponible, aucun autre point de terminaison ne sera sélectionné pour le basculement, car un emplacement géographique ne peut être mappé qu’à un seul point de terminaison dans un profil (plus de détails dans la rubrique [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Lorsque le routage géographique est utilisé, nous recommandons aux clients d’utiliser des profiles Traffic Manager imbriqués avec plusieurs points de terminaison comme points de terminaison du profil.
+* **Géographique**. Le point de terminaison mappé pour servir la zone géographique en fonction de l’adresse IP de la requête est renvoyé. Si ce point de terminaison n’est pas disponible, aucun autre point de terminaison ne sera sélectionné pour le basculement, car un emplacement géographique ne peut être mappé qu’à un seul point de terminaison dans un profil (plus de détails dans la rubrique [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Lorsque le routage géographique est utilisé, nous recommandons aux clients d’utiliser des profils Traffic Manager imbriqués avec plusieurs points de terminaison comme points de terminaison du profil.
 
 Pour plus d’informations, consultez la rubrique relative aux [méthodes de routage du trafic dans Traffic Manager](traffic-manager-routing-methods.md).
 

@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304111"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -33,6 +34,8 @@ Cet article explique comment utiliser des liaisons Azure Service Bus dans Azure 
 Les liaisons Service Bus sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Déclencheur
 
@@ -49,16 +52,22 @@ Consultez l’exemple propre à un langage particulier :
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
-L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui consigne un message de la file d’attente Service Bus.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui lit les [métadonnées du message](#trigger---message-metadata) et consigne un message de la file d’attente Service Bus :
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +75,7 @@ Cet exemple concerne Azure Functions version 1.x ; pour la version 2.x, [omettez
  
 ### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
 
-L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction consigne un message de la file d’attente Service Bus.
+L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction lit [les métadonnées du message](#trigger---message-metadata) et consigne un message de la file d’attente Service Bus.
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -88,9 +97,19 @@ Voici les données de liaison dans le fichier *function.json* :
 Voici le code Script C# :
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +143,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
 
-L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction consigne un message de la file d’attente Service Bus. 
+L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction lit [les métadonnées du message](#trigger---message-metadata) et consigne un message de la file d’attente Service Bus. 
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -148,6 +167,9 @@ Voici le code de script JavaScript :
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -247,7 +269,30 @@ La gestion des messages incohérents ne peut pas être contrôlée ou configuré
 
 ## <a name="trigger---peeklock-behavior"></a>Déclencheur - Comportement de PeekLock
 
-Le runtime Functions reçoit un message en [mode PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Il appelle l’élément `Complete` sur le message si la fonction se termine correctement. Si la fonction échoue, il appelle l’élément `Abandon`. Si la fonction s’exécute au-delà du délai imparti à `PeekLock`, le verrou est automatiquement renouvelé.
+Le runtime Functions reçoit un message en [mode PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Il appelle l’élément `Complete` sur le message si la fonction se termine correctement. Si la fonction échoue, il appelle l’élément `Abandon`. Si la fonction s’exécute au-delà du délai imparti `PeekLock`, le verrou est automatiquement renouvelé tant que la fonction s’exécute. 
+
+Functions 1.x vous permet de configurer `autoRenewTimeout` dans *host.json*, qui est mappé à [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). La valeur maximale autorisée pour ce paramètre est de 5 minutes, conformément à la documentation de Service Bus, tandis que vous pouvez augmenter la limite de temps de Functions jusqu’à 10 minutes (5 minutes par défaut). Pour les fonctions de Service Bus, vous ne voudrez pas le faire, car vous dépasseriez la limite de renouvellement de Service Bus.
+
+## <a name="trigger---message-metadata"></a>Déclencheur - métadonnées de message
+
+Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+
+|Propriété|type|Description|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Le nombre de remises.|
+|`DeadLetterSource`|`string`|La source de lettre morte.|
+|`ExpiresAtUtc`|`DateTime`|Le délai d'expiration en UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|Le temps de file d’attente en UTC.|
+|`MessageId`|`string`|Valeur définie par l’utilisateur que Service Bus peut utiliser pour identifier les messages en double, si cette fonctionnalité est activée.|
+|`ContentType`|`string`|Un identificateur de type de contenu utilisé par l’expéditeur et le récepteur pour une logique spécifique à l’application.|
+|`ReplyTo`|`string`|L’adresse de file d’attente de réponse.|
+|`SequenceNumber`|`Int64`|Le numéro unique attribué à un message par Service Bus.|
+|`To`|`string`|L’adresse de destination.|
+|`Label`|`string`|L’étiquette spécifique de l’application.|
+|`CorrelationId`|`string`|L’ID de corrélation.|
+|`Properties`|`IDictionary<String,Object>`|Les propriétés de message spécifiques à l’application.|
+
+Consultez les [exemples de code](#trigger---example) qui utilisent ces propriétés précédemment dans cet article.
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
@@ -404,7 +449,7 @@ Voici le code de script JavaScript qui crée un message unique :
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +460,9 @@ Voici le code de script JavaScript qui crée plusieurs messages :
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```

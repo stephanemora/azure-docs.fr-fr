@@ -1,6 +1,6 @@
 ---
-title: Comprendre l’application de la remise de l’offre Azure Reserved Virtual Machine Instances | Microsoft Docs
-description: Découvrez comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée aux machines virtuelles en cours d’exécution.
+title: Comprendre la remise d’instances réservées Azure - Facturation dans Azure | Microsoft Docs
+description: Découvrez comment la remise d’instance de machine virtuelle réservée Azure est appliquée aux machines virtuelles en cours d’exécution.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,46 +11,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 05/09/2018
 ms.author: yashar
-ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: a0800bafc3d6b858387e28a3b75bc7b3a6bfe6e8
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301411"
 ---
-# <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée
-Dès que vous achetez une instance de machine virtuelle réservée, la remise de réservation est automatiquement appliquée aux machines virtuelles correspondant aux attributs et à la quantité de la réservation. Une réservation couvre les coûts d’infrastructure de vos machines virtuelles. Le tableau suivant illustre les coûts de votre machine virtuelle après l’achat d’une réservation. Dans tous les cas, vous êtes facturé pour le stockage et la mise en réseau selon les tarifs normaux.
+# <a name="understand-how-the-reserved-instance-discount-is-applied"></a>Comprendre comment la remise d’instance réservée est appliquée
+Lorsque vous achetez une instance de machine virtuelle réservée Azure, la remise est automatiquement appliquée aux machines virtuelles correspondant aux attributs et à la quantité de l’instance réservée. Une instance réservée couvre les coûts d’infrastructure de vos machines virtuelles. Le tableau suivant illustre les coûts de votre machine virtuelle après l’achat d’une instance réservée. Dans tous les cas, vous êtes facturé pour le stockage et la mise en réseau selon les tarifs normaux.
 
-| Type de machine virtuelle  | Frais associés à la réservation |    
+| Type de machine virtuelle  | Frais avec instance réservée |    
 |-----------------------|--------------------------------------------|
-|Machines virtuelles Linux sans logiciel supplémentaire | La réservation couvre les coûts d’infrastructure des machines virtuelles.|
-|Machines virtuelles Linux avec frais de logiciel (par exemple, Red Hat) | La réservation couvre les coûts d’infrastructure. Vous êtes facturé pour les logiciels supplémentaires.|
-|Machines virtuelles Windows sans logiciel supplémentaire |La réservation couvre les coûts d’infrastructure. Vous êtes facturé pour les logiciels Windows.|
-|Machines virtuelles Windows avec logiciels supplémentaires (par exemple, SQL server) | La réservation couvre les coûts d’infrastructure. Vous êtes facturé pour les logiciels Windows et les logiciels supplémentaires.|
-|Machines virtuelles Windows avec [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | La réservation couvre les coûts d’infrastructure. Les coûts des logiciels Windows sont couverts par Azure Hybrid Benefit. Tout logiciel supplémentaire est facturé séparément.| 
+|Machines virtuelles Linux sans logiciel supplémentaire | L’instance réservée couvre les coûts d’infrastructure de vos machines virtuelles.|
+|Machines virtuelles Linux avec frais de logiciel (par exemple, Red Hat) | L’instance réservée couvre les coûts d’infrastructure. Vous êtes facturé pour les logiciels supplémentaires.|
+|Machines virtuelles Windows sans logiciel supplémentaire |L’instance réservée couvre les coûts d’infrastructure. Vous êtes facturé pour les logiciels Windows.|
+|Machines virtuelles Windows avec logiciels supplémentaires (par exemple, SQL server) | L’instance réservée couvre les coûts d’infrastructure. Vous êtes facturé pour les logiciels Windows et les logiciels supplémentaires.|
+|Machines virtuelles Windows avec [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | L’instance réservée couvre les coûts d’infrastructure. Les coûts des logiciels Windows sont couverts par Azure Hybrid Benefit. Tout logiciel supplémentaire est facturé séparément.| 
 
-## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Application de la remise de réservation aux machines virtuelles non Windows
- La remise de réservation est appliquée aux instances de machine virtuelle en cours d’exécution sur une base horaire. Les réservations que vous avez achetées sont mises en correspondance avec l’utilisation émise par les machines virtuelles en cours d’exécution pour appliquer la remise de réservation. Pour les machines virtuelles qui ne peuvent pas s’exécuter pendant une heure entière, la réservation est remplie à partir d’autres machines virtuelles n’utilisant pas de réservation, incluant des machines virtuelles s’exécutant simultanément. À la fin de l’heure, l’application de réservation pour les machines virtuelles dans l’heure est verrouillée. Quand une machine virtuelle ne s’exécute pas pendant une heure ou quand des machines virtuelles s’exécutant simultanément dans l’heure ne remplissent pas l’heure de réservation, la réservation est sous-utilisée pour cette heure. Le graphique suivant illustre l’application d’une réservation à l’utilisation de machines virtuelles facturables. La représentation est basée sur l’achat d’une réservation et sur deux instances de machine virtuelle correspondantes.
+## <a name="application-of-reserved-instance-discount-to-non-windows-vms"></a>Application de la remise d’instance réservée à des machines virtuelles autres que Windows
+ La remise d’instance réservée est appliquée aux instances de machine virtuelle en cours d’exécution, sur une base horaire. Les instances réservées que vous avez achetées sont mises en correspondance avec l’utilisation émise par les machines virtuelles en cours d’exécution, pour appliquer la remise d’instance réservée. Pour les machines virtuelles qui ne peuvent pas s’exécuter pendant une heure entière, l’instance réservée est complétée avec d’autres machines virtuelles n’utilisant pas une instance réservée, y compris celle qui s’exécutent simultanément. À la fin de l’heure, l’application de l’instance réservée aux machines virtuelles est verrouillée. Quand une machine virtuelle ne s’exécute pas pendant une heure ou quand des machines virtuelles s’exécutant simultanément durant l’heure ne consomment pas totalement l’heure de l’instance réservée, l’instance réservée est sous-utilisée. Le graphique suivant illustre l’application d’une instance réservée à l’utilisation de machines virtuelles facturables. L’illustration correspond à l’achat d’une instance réservée et à deux instances de machine virtuelle correspondantes.
 
-![Application de l’instance de machine virtuelle réservée](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
+![Capture d’écran avec une instance réservée appliquée et deux instances de machine virtuelle correspondantes](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
-1.  Toute utilisation se situant au-dessus de la ligne de l’instance de machine virtuelle réservée est facturée selon le tarif standard de paiement à l’utilisation. Aucune facturation n’est appliquée à l’utilisation située sous cette ligne, car elle a déjà été payée dans le cadre de l’achat de la réservation.
+1.  Toute utilisation supérieure à la ligne de l’instance réservée est facturée au tarif standard de paiement à l’utilisation. Aucune facturation n’est appliquée en cas d’utilisation inférieure à la ligne des instances réservées, car elle est déjà incluse dans l’achat de l’instance réservée.
 2.  Dans l’heure 1, l’instance 1 s’exécute pendant 0,75 heure, et l’instance 2 pendant 0,5 heure. L’utilisation totale de l’heure 1 est 1,25 heure. Vous payez 0,25 heure restante au tarif du paiement à l’utilisation.
-3.  Pour les heures 2 et 3, les deux instances se sont exécutées chacune pendant 1 heure. Une instance est couverte par la réservation, et l’autre est facturée au tarif du paiement à l’utilisation.
-4.  Pour l’heure 4, l’instance 1 s’exécute pendant 0,5 heure tandis que l’instance 2 s’exécute pendant 1 heure. L’instance 1 est entièrement couverte par la réservation, et la durée de 0,5 heure de l’instance 2 est couverte. Vous êtes facturé au tarif du paiement à l’utilisation pour cette durée de 0,5 heure restante.
+3.  Pour les heures 2 et 3, les deux instances se sont exécutées chacune pendant 1 heure. Une instance est couverte par l’instance réservée et l’autre est facturée au tarif de paiement à l’utilisation.
+4.  Pour l’heure 4, l’instance 1 s’exécute pendant 0,5 heure tandis que l’instance 2 s’exécute pendant 1 heure. L’instance 1 est entièrement couverte par l’instance réservée, et la durée de 0,5 heure de l’instance 2 est couverte. Vous êtes facturé au tarif du paiement à l’utilisation pour cette durée de 0,5 heure restante.
 
-Pour comprendre et voir l’application de vos réservations dans les rapports d’utilisation pour la facturation, consultez [Comprendre l’utilisation de l’instance de machine virtuelle réservée](https://go.microsoft.com/fwlink/?linkid=862757).
+Pour comprendre et voir l’application de vos instances réservées dans les rapports d’utilisation servant à la facturation, consultez [Comprendre l’utilisation de l’instance réservée](https://go.microsoft.com/fwlink/?linkid=862757).
 
-## <a name="application-of-reservation-discount-to-windows-vms"></a>Application de la remise de réservation aux machines virtuelles Windows
-Lorsque vous exécutez les instances de machine virtuelle Windows, la réservation est appliquée pour couvrir les coûts d’infrastructure. L’application de la réservation aux coûts d’infrastructure de machine virtuelle pour les machines virtuelles Windows est identique à celle qui est appliquée pour les machines virtuelles non Windows. Vous payez séparément, par processeur virtuel, pour les logiciels Windows. Consultez [Coûts des logiciels Windows avec les réservations](https://go.microsoft.com/fwlink/?linkid=862756). Vous pouvez supporter les coûts de licence Windows avec [Azure Hybrid Benefit pour Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+## <a name="application-of-reserved-instance-discount-to-windows-vms"></a>Application de la remise d’instance réservée à des machines virtuelles autres que Windows
+Lorsque vous exécutez des instances de machine virtuelle Windows, l’instance réservée est appliquée pour couvrir les coûts d’infrastructure. L’application de l’instance réservée aux coûts d’infrastructure des machines virtuelles Windows est identique à celle qui est appliquée pour les machines virtuelles autres que Windows. Vous payez séparément, par processeur virtuel, pour les logiciels Windows. Consultez [Coûts des logiciels Windows avec les instances réservées](https://go.microsoft.com/fwlink/?linkid=862756). Vous pouvez supporter les coûts de licence Windows avec [Azure Hybrid Benefit pour Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
+Pour plus d’informations sur les instances réservées, consultez les articles suivants :
 
+- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](billing-save-compute-costs-reservations.md)
 - [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Administrer les instances de machine virtuelle réservées Azure](billing-manage-reserved-vm-instance.md)
-- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](billing-save-compute-costs-reservations.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](billing-understand-vm-reservation-charges.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
 - [Comprendre l’utilisation des instances réservées pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
@@ -59,4 +61,4 @@ Pour plus d’informations sur les instances de machine virtuelle réservées, v
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

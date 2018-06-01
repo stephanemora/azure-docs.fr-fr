@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258679"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -49,6 +49,24 @@ Certificats de service d’infrastructure pour les services accessibles de l’e
 
 Afin de maintenir l’intégrité de l’infrastructure Azure Stack, les opérateurs doivent pouvoir effectuer régulièrement la rotation des secrets de leur infrastructure à une fréquence conforme aux exigences de sécurité de leur organisation.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotation des secrets avec des certificats externes obtenus auprès d’une nouvelle autorité de certification
+
+Azure Stack prend en charge la rotation des secrets avec des certificats externes obtenus auprès d’une nouvelle autorité de certification dans les contextes suivants :
+
+|Autorité de certification de certificats installée|Autorité de certification vers laquelle effectuer la rotation|Prise en charge|Versions d’Azure Stack prises en charge|
+|-----|-----|-----|-----|-----|
+|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification d’entreprise|Non pris en charge||
+|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
+|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification publique<sup>*</sup>|Prise en charge|1803 et ultérieure|
+|De : Autorité de certification d’entreprise|Vers : Autorité de certification d’entreprise|Pris en charge à condition que les clients utilisent la MÊME autorité de certification d’entreprise que celle utilisée au moment du déploiement|1803 et ultérieure|
+|De : Autorité de certification d’entreprise|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
+|De : Autorité de certification d’entreprise|Vers : Autorité de certification publique<sup>*</sup>|Prise en charge|1803 et ultérieure|
+|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification d’entreprise|Non pris en charge|1803 et ultérieure|
+|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
+|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification publique<sup>*</sup>|Prise en charge|1803 et ultérieure|
+
+<sup>*</sup> Les autorités de certification publiques mentionnées ici sont celles qui font partie du programme de certification racine approuvé Windows. La liste complète est disponible dans la rubrique [Programme de certification racine approuvé Microsoft : Participants (depuis le 27 juin 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Correction des alertes
 
 Lorsque les secrets arrivent à expiration dans moins de 30 jours, les alertes suivantes sont générées dans le portail d’administration : 
@@ -74,7 +92,7 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rotation des clés internes et externes
 
-Pour effectuer la rotation des clés internes et externes :
+Pour effectuer la rotation d’un secret interne et externe :
 
 1. Dans le répertoire **/Certificats** nouvellement créé lors des étapes préliminaires, placez le nouveau jeu de certificats externes de remplacement dans la structure de répertoires en suivant le format décrit dans la section Certificats obligatoires de la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Créez une session PowerShell avec le [point de terminaison privilégié](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) à l’aide du compte **CloudAdmin** et stockez les sessions en tant que variable. Vous allez utiliser cette variable comme paramètre dans l’étape suivante.
@@ -135,9 +153,9 @@ Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredent
 
 La cmdlet Start-SecretRotation effectue la rotation des secrets de l’infrastructure d’un système Azure Stack. Par défaut, elle effectue la rotation de tous les secrets exposés au réseau de l’infrastructure interne, et avec une entrée d’utilisateur elle procède également à la rotation des certificats de tous les points de terminaison d’infrastructure réseau externe. Lors de la rotation de points de terminaison d’infrastructure réseau externe, Start-SecretRotation doit être exécuté via un bloc de script Invoke-Command, avec la session de point de terminaison privilégié de l’environnement Azure Stack transmise comme paramètre de session.
  
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
-| Paramètre | type | Obligatoire | Position | Default | Description |
+| Paramètre | Type | Obligatoire | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets internes et externes. Le répertoire de fin doit être **\Certificates**. |
 | CertificatePassword | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets internes et externes. |

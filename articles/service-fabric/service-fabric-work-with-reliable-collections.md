@@ -1,24 +1,25 @@
 ---
 title: Utilisation des collections fiables | Microsoft Docs
-description: "Découvrez les meilleures pratiques d’utilisation des collections fiables."
+description: Découvrez les meilleures pratiques d’utilisation des collections fiables.
 services: service-fabric
 documentationcenter: .net
 author: rajak
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210815"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Nous allons examiner un exemple d’utilisation type d’un objet de dictionnaire fiable afin de voir ses fonctionnalités réelles.
