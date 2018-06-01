@@ -1,11 +1,11 @@
 ---
-title: "Déployer et mettre à niveau les microservices Azure localement | Microsoft Docs"
-description: "Apprenez à configurer un cluster de Service Fabric local et déployer une application existante vers ce dernier, puis mettre à niveau cette application."
+title: Déployer et mettre à niveau les microservices Azure localement | Microsoft Docs
+description: Apprenez à configurer un cluster de Service Fabric local et déployer une application existante vers ce dernier, puis mettre à niveau cette application.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
-ms.openlocfilehash: 9d547039491f6b0c0d308c64d11e9c54b4b4e3d5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.author: ryanwi
+ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205244"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Prise en main avec le déploiement et la mise à niveau d’applications sur votre cluster local
 Le kit de développement logiciel Fabric Service comprend un environnement de développement local complet que vous pouvez utiliser pour rapidement maîtriser le déploiement et la gestion des applications sur un cluster local. Dans cet article, vous créez un cluster local, déployez une application existante, puis mettez à niveau cette application vers une nouvelle version, le tout à partir de Windows PowerShell.
@@ -124,7 +125,7 @@ Maintenant que l’application est déployée, examinons certains des détails d
    
     Le jeu de commandes que vous avez utilisé, ainsi que toutes les commandes PowerShell de Service Fabric, sont disponibles pour n’importe quel cluster auquel vous pouvez connecter, qu’il soit local ou distant.
    
-    Pour un moyen plus visuel d’interagir avec le cluster, vous pouvez utiliser l’outil explorateur de Fabric Service web en accédant à [http://localhost:19080/Explorer](http://localhost:19080/Explorer) dans le navigateur.
+    Pour un moyen plus visuel d’interagir avec le cluster, vous pouvez utiliser l’outil Service Fabric Explorer web en accédant à [http://localhost:19080/Explorer](http://localhost:19080/Explorer) dans le navigateur.
    
     ![Afficher les détails de l’application dans Fabric Service Explorer][sfx-service-overview]
    

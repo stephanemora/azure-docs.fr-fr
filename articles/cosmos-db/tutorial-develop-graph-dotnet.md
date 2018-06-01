@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1843e37d9baf1ab264db96109eb5ffd0704e35b7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271287"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB : Développer avec l’API Graph dans .NET
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
@@ -169,13 +170,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## <a name="add-vertices-and-edges"></a>Ajouter des vertex et des bords
 
-Nous allons examiner les instructions Gremlin indiquées dans la section précédente plus en détail. Nous commençons par créer des vertex à l’aide de la méthode `addV` de Gremlin. Par exemple, l’extrait de code suivant crée un vertex « Thomas Andersen » de type « Personne », avec des propriétés pour le prénom, le nom et l’âge.
+Nous allons examiner plus en détail les instructions Gremlin indiquées dans la section précédente. Nous commençons par ajouter des vertex à l’aide de la méthode `addV` de Gremlin. Par exemple, l’extrait de code suivant crée un vertex « Thomas Andersen » de type « Personne », avec des propriétés pour le prénom et l’âge.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {

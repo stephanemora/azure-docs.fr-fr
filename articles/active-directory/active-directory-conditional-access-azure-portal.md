@@ -16,11 +16,12 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257731"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
@@ -121,3 +122,5 @@ L’utilisation de l’accès conditionnel requiert une licence Azure AD Premium
 - Pour savoir acquérir de l’expérience dans la configuration d’une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- Pour obtenir un plan de déploiement étape par étape avec les stratégies recommandées, consultez le [plan de déploiement d’accès conditionnel](http://aka.ms/conditionalaccessdeploymentplan).

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 677fc66b66d6c17806a313f2fac3a15e8e1775ba
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261577"
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Utilisation d’Azure DNS pour les domaines privés
 Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de service en une adresse IP. Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure.  En plus des domaines DNS accessibles sur Internet, Azure DNS prend désormais également en charge les domaines DNS privés en tant que fonctionnalité en préversion.  
@@ -54,7 +55,7 @@ Azure DNS fournit un service DNS fiable et sécurisé pour gérer et résoudre l
 
 ## <a name="limitations"></a>Limites
 * 1 réseau virtuel d’inscription par zone privée.
-* Jusqu’à 10 réseaux virtuels d’inscription par zone privée.
+* Jusqu’à 10 réseaux virtuels d’inscription par zone privée
 * Un réseau virtuel donné ne peut être lié qu’à une seule zone privée en tant que réseau virtuel d’inscription.
 * Un réseau virtuel donné peut être lié à 10 zones privées en tant que réseau virtuel résolution.
 * Si un réseau virtuel d’inscription est spécifié, les enregistrements DNS pour les machines virtuelles de ce réseau virtuel qui sont inscrits dans la zone privée ne seront pas visibles ou récupérables à partir de l’API/Powershell/interface CLI, mais les enregistrements de machine virtuelle sont tout de même enregistrés et résolus avec succès.
