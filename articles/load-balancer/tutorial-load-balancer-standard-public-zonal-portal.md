@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304723"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Didacticiel : équilibrer la charge de machines virtuelles dans une zone de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -139,7 +140,7 @@ Dans cette section, vous créez des règles du groupe de sécurité réseau pour
 2. Sur la page **Vue d’ensemble**, cliquez sur **Connexion** à RDP dans la machine virtuelle.
 3. Connectez-vous à la machine virtuelle avec le nom d’utilisateur et le mot de passe que vous avez spécifiés lors de la création de celle-ci (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion.
 4. Sur le bureau du serveur, accédez à **Outils d’administration Windows**>**Windows PowerShell**.
-6. Dans la fenêtre PowerShell, exécutez les commandes suivantes pour installer le serveur IIS, supprimez le fichier default.htm, ajoutez un nouveau fichier default.htm qui affiche le nom de la machine virtuelle :
+6. Dans la fenêtre PowerShell, exécutez les commandes suivantes pour installer le serveur IIS, supprimez le fichier iisstart.htm par défaut, puis ajoutez un nouveau fichier iisstart.htm qui affiche le nom de la machine virtuelle :
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ Dans cette section, vous créez des règles du groupe de sécurité réseau pour
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Fermez la session RDP avec *myVM1*.
-9. Répétez les étapes 1 à 8 pour installer IIS sur *myVM2*.
+7. Fermez la session RDP avec *myVM1*.
+8. Répétez les étapes 1 à 7 pour installer IIS sur *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
 
