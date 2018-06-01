@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 579af89c0d6d184b517ecb9e8a53be9d76cf1c93
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 78d3399aab8e3c3b1d98946cb3ac6ffab353d95c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257711"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -36,10 +37,11 @@ L’architecture de création de rapports dans Azure Active Directory comprend l
 
 Cette rubrique vous donne une vue d’ensemble des activités de connexion.
 
-## <a name="pre-requisite"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
-* Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
+* Utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité ou Lecteur de rapports
 * Administrateurs généraux
 * Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 
@@ -47,7 +49,7 @@ Cette rubrique vous donne une vue d’ensemble des activités de connexion.
 * Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion.
 
 
-## <a name="signs-in-activities"></a>Activités de connexion
+## <a name="sign-in-activities"></a>Activités de connexion
 
 Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
 
@@ -85,7 +87,7 @@ En cliquant sur un élément dans le mode Liste, vous pouvez obtenir toutes les 
 ![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/03.png "Activité de connexion")
 
 
-## <a name="filtering-sign-in-activities"></a>Filtrage des activités de connexion
+## <a name="filter-sign-in-activities"></a>Filtrer les activités de connexion
 
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données de connexion à l’aide des champs par défaut suivants :
 
@@ -141,6 +143,19 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 ![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/12.png "Activité de connexion")
 
 
+> [!TIP] 
+> Outre les filtres par défaut, tous les champs supplémentaires que vous ajoutez à votre vue de connexions deviennent des champs de filtre.
+
+
+## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
+
+Vous pouvez télécharger les données des activités de connexion si vous souhaitez les utiliser en dehors du portail Azure. En plus d’un bouton de téléchargement, le portail Azure vous propose une option permettant de générer un script pour télécharger vos données.  
+
+![Télécharger](./media/active-directory-reporting-activity-sign-ins/71.png "Télécharger")
+
+En cliquant sur **Télécharger**, un fichier CSV contenant les 5K enregistrements les plus récents est créé. Si vous avez besoin de davantage de souplesse, vous pouvez utiliser la solution de script. En cliquant sur **Script**, un script comprenant tous les filtres que vous avez définis est créé. En plus de l’implémentation technique, le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](active-directory-reporting-retention.md).  
+
+
 
 ## <a name="sign-in-activities-shortcuts"></a>Raccourcis relatifs aux activités de connexion
 
@@ -168,7 +183,6 @@ Votre point d’entrée pour ces données est le graphique des connexions des ut
 
 Lorsque vous cliquez sur un jour dans le graphique des connexions, vous obtenez une vue d’ensemble des activités de connexion correspondantes.
 
-![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/07.png "Activité de connexion")
 
 Chaque ligne de la liste des activités de connexion affiche :
 
@@ -223,7 +237,6 @@ Si vous le souhaitez, vous pouvez définir la focalisation sur une application s
 Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applications, vous obtenez une liste détaillée des activités de connexion.
 
 
-![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/48.png "Activité de connexion")
 
 
 L’option **Connexions** vous fournit une vue d’ensemble complète de tous les événements de connexion à vos applications.

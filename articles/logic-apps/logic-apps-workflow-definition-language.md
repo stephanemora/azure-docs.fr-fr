@@ -3,7 +3,7 @@ title: Schéma du langage de définition du flux de travail - Azure Logic Apps
 description: Écrivez des définitions de flux de travail personnalisées pour Azure Logic Apps avec le langage de définition de flux de travail
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775279"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886803"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Définitions de flux de travail Logic Apps avec le langage de définition de flux de travail
 
@@ -218,15 +218,16 @@ Dans les [expressions](#expressions) et les [fonctions](#functions), les opérat
 
 <a name="functions"></a>
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Fonctions
 
-Certaines expressions obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de l’application logique. Pour référencer ou utiliser ces valeurs dans des expressions, vous pouvez faire appel à des *fonctions*. Par exemple, vous pouvez utiliser des fonctions mathématiques pour effectuer des calculs, telles que la fonction [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), qui renvoie la somme d’entiers ou de nombres à virgule flottante. 
+Certaines expressions obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de l’application logique. Pour référencer ou utiliser ces valeurs dans des expressions, vous pouvez faire appel à des [*fonctions*](../logic-apps/workflow-definition-language-functions-reference.md). Par exemple, vous pouvez utiliser des fonctions mathématiques pour effectuer des calculs, telles que la fonction [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), qui renvoie la somme d’entiers ou de nombres à virgule flottante. Pour plus d’informations sur chaque fonction, consultez l’[article de référence alphabétique](../logic-apps/workflow-definition-language-functions-reference.md).
+Vous pouvez également continuer à découvrir les fonctions et leur usage général.
 
 Voici quelques exemples de tâches que vous pouvez accomplir avec les fonctions : 
 
 | Tâche | Syntaxe de la fonction | Résultat | 
 | ---- | --------------- | -------------- | 
-| Renvoyer une chaîne en minuscules. | toLower('<*text*>') <p>Par exemple : toLower('Hello') | "hello" | 
+| Retourne une chaîne en minuscules. | toLower('<*text*>') <p>Par exemple : toLower('Hello') | "hello" | 
 | Renvoyer un identificateur global unique (GUID). | guid() |« c2ecc88d-88c8-4096-912c-d6f2e2b138ce » | 
 |||| 
 
@@ -271,18 +272,18 @@ Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne
 
 | Fonction de chaîne | Tâche | 
 | --------------- | ---- | 
-| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combiner deux chaînes ou plus et renvoyer la chaîne combinée. | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine au moins deux chaînes et retourne la chaîne combinée. | 
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Vérifier si une chaîne se termine par la sous-chaîne spécifiée. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Générer un identificateur global unique (GUID) sous forme de chaîne. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Renvoyer la position de départ d’une sous-chaîne. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Renvoyer la position de fin d’une sous-chaîne. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Remplacer une sous-chaîne par la chaîne spécifiée et renvoyer la chaîne mise à jour. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Renvoyer un tableau qui comporte tous les caractères d’une chaîne et sépare chaque caractère à l’aide du caractère délimiteur spécifié. | 
-| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Vérifier si une chaîne commence par une sous-chaîne spécifique. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Vérifie si une chaîne commence par une sous-chaîne spécifique. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Renvoyer les caractères d’une chaîne, en commençant à partir de la position spécifiée. | 
-| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Renvoyer une chaîne en minuscules. | 
-| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Renvoyer une chaîne en majuscules. | 
-| [découper](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprimer les espaces blancs de début et de fin d’une chaîne et renvoyer la chaîne mise à jour. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourne une chaîne en minuscules. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourne une chaîne en majuscules. | 
+| [découper](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. | 
 ||| 
 
 <a name="collection-functions"></a>
@@ -293,16 +294,16 @@ Pour travailler avec des collections, généralement des tableaux, des chaînes 
 
 | Fonction de collection | Tâche | 
 | ------------------- | ---- | 
-| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Vérifier si une collection contient un élément spécifique. |
-| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Vérifier si une collection est vide. | 
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Vérifie si une collection contient un élément spécifique. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Vérifie si une collection est vide. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Renvoyer le premier élément d’une collection. | 
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Renvoyer une collection qui contient *uniquement* les éléments communs aux collections spécifiées. | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retourne une collection qui contient *uniquement* les éléments communs aux collections spécifiées. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Renvoyer une chaîne qui contient *tous* les éléments d’un tableau, séparés par le caractère spécifié. | 
-| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Renvoyer le dernier élément d’une collection. | 
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retourne le dernier élément d’une collection. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Renvoyer le nombre d’éléments d’une chaîne ou d’un tableau. | 
-| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Supprimer des éléments du début d’une collection et renvoyer *tous les autres* éléments. | 
-| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Renvoyer des éléments du début d’une collection. | 
-| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Renvoyer une collection qui contient *tous* les éléments des collections spécifiées. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Supprime des éléments du début d’une collection et retourne *tous les autres* éléments. | 
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Retourne des éléments du début d’une collection. | 
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retourne une collection qui contient *tous* les éléments des collections spécifiées. | 
 ||| 
 
 <a name="comparison-functions"></a>
@@ -313,15 +314,15 @@ Pour travailler avec des conditions, comparer des valeurs et les résultats d’
 
 | Fonction de comparaison | Tâche | 
 | ------------------- | ---- | 
-| [et](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifier si toutes les expressions sont vraies. | 
+| [et](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. | 
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Vérifier si les deux valeurs sont équivalentes. | 
-| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Vérifier si la première valeur est supérieure à la deuxième valeur. | 
-| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Vérifier si la première valeur est supérieure ou égale à la deuxième valeur. | 
-| [si](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifier si une expression est vraie ou fausse. En fonction du résultat, renvoyer la valeur spécifiée. | 
-| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Vérifier si la première valeur est inférieure à la deuxième valeur. | 
-| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Vérifier si la première valeur est inférieure ou égale à la deuxième valeur. | 
-| [non](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifier si une expression est fausse. | 
-| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifier si au moins une expression est vraie. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Vérifie si la première valeur est supérieure à la seconde. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Vérifie si la première valeur est supérieure ou égale à la seconde. | 
+| [si](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. | 
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Vérifie si la première valeur est inférieure à la seconde. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Vérifie si la première valeur est inférieure ou égale à la seconde. | 
+| [non](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. | 
+| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
 ||| 
 
 <a name="conversion-functions"></a>
@@ -332,13 +333,13 @@ Pour modifier le type ou le format d’une valeur, vous pouvez utiliser ces fonc
 
 | Fonction de conversion | Tâche | 
 | ------------------- | ---- | 
-| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Renvoyer un tableau à partir d’une entrée spécifique unique. Pour des entrées multiples, consultez [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
-| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Renvoyer la version encodée en base 64 d’une chaîne. | 
-| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Renvoyer la version binaire d’une chaîne encodée en base 64. | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Retourne un tableau à partir d’une entrée spécifique unique. Pour des entrées multiples, consultez [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retourne la version encodée en Base64 d’une chaîne. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Retourne la version binaire d’une chaîne encodée en Base64. | 
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Renvoyer la version de type chaîne d’une chaîne encodée en base 64. | 
 | [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Renvoyer la version binaire d’une valeur d’entrée. | 
 | [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Renvoyer la version booléenne d’une valeur d’entrée. | 
-| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Renvoyer un tableau à partir d’entrées multiples. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Retourne un tableau à partir de plusieurs entrées. | 
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Renvoyer l’URI de données d’une valeur d’entrée. | 
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Renvoyer la version binaire d’un URI de données. | 
 | [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Renvoyer la version de type chaîne d’un URI de données. | 
@@ -347,8 +348,8 @@ Pour modifier le type ou le format d’une valeur, vous pouvez utiliser ces fonc
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Renvoyer une chaîne qui remplace les caractères d’échappement par des versions décodées. | 
 | [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Renvoyer une chaîne qui remplace les caractères non sécurisés pour les URL par des caractères d'échappement. | 
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Renvoyer un nombre à virgule flottante pour une valeur d’entrée. | 
-| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Renvoyer la version de type entier d’une chaîne. | 
-| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Renvoyer la valeur ou l’objet de type JavaScript Objet Notation (JSON) d’une chaîne ou d’un élément XML. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Retourne la version de type entier d’une chaîne. | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retourne la valeur ou l’objet de type JavaScript Object Notation (JSON) d’une chaîne ou d’un élément XML. | 
 | [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Renvoyer la version de type chaîne d’une valeur d’entrée. | 
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Renvoyer la version encodée dans un URI d’une valeur d’entrée en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement. | 
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Renvoyer la version binaire d’une chaîne encodée dans un URI. | 
@@ -364,15 +365,15 @@ Pour travailler avec des entiers et des nombres à virgule flottante, vous pouve
 
 | Fonction mathématique | Tâche | 
 | ------------- | ---- | 
-| [ajouter](../logic-apps/workflow-definition-language-functions-reference.md#add) | Renvoyer le résultat de l’addition de deux nombres. | 
+| [ajouter](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourne le résultat de l’addition de deux nombres. | 
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Renvoyer le résultat de la division de deux nombres. | 
 | [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Renvoyer la valeur la plus élevée d’un ensemble de nombres ou d’un tableau. | 
-| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Renvoyer la valeur la plus basse d’un ensemble de nombres ou d’un tableau. | 
-| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Renvoyer le reste de la division de deux nombres. | 
-| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Renvoyer le produit de la multiplication de deux nombres. | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retourne la plus petite valeur d’un ensemble de nombres ou d’un tableau. | 
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Retourne le reste de la division de deux nombres. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Retourne le produit de la multiplication de deux nombres. | 
 | [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Renvoyer un entier aléatoire à partir d’une plage spécifique. | 
-| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Renvoyer un tableau d’entiers qui commence par un entier spécifique. | 
-| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Renvoyer le résultat de la soustraction du second nombre du premier. | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Retourne un tableau d’entiers qui commence par un entier spécifique. | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Retourne le résultat de la soustraction du second nombre du premier. | 
 ||| 
 
 <a name="date-time-functions"></a>
@@ -424,7 +425,7 @@ Par exemple, vous pouvez référencer les sorties d’une action et utiliser ces
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Renvoyer la sortie `body` d’une action lors de l’exécution. Voir aussi [body](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
 | [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Renvoyer la sortie d’une action lors de l’exécution. Voir [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Renvoyer la sortie d’une action lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Voir aussi [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
-| [body](#body) | Renvoyer la sortie `body` d’une action lors de l’exécution. Voir aussi [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [body](#body) | Retourne la sortie `body` d’une action lors de l’exécution. Voir aussi [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Créer un tableau contenant les valeurs qui correspondent à un nom de clé dans la sortie *form-data* ou *form-encoded* d’une action. | 
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Renvoyer une valeur unique qui correspond à un nom de clé dans la sortie *form-data* ou *form-encoded output* d’une action. | 
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | À l’intérieur d’une action répétée sur un tableau, renvoyer l’élément actuel du tableau au cours de l’itération actuelle de l’action. | 
@@ -467,10 +468,10 @@ Pour travailler avec des objets JSON et des nœuds XML, vous pouvez utiliser ces
 | Fonction de manipulation | Tâche | 
 | --------------------- | ---- | 
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Ajouter une propriété et sa valeur, ou paire nom-valeur, à un objet JSON et renvoyer l’objet mis à jour. | 
-| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Renvoyer la première valeur non égale à Null d’un ou plusieurs paramètres. | 
+| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Retourne la première valeur autre que Null d’un ou plusieurs paramètres. | 
 | [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Supprimer une propriété d’un objet JSON et renvoyer l’objet mis à jour. | 
 | [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Définir la valeur d’une propriété d’un objet JSON et renvoyer l’objet mis à jour. | 
-| [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Vérifier si le code XML contient des valeurs ou des nœuds qui correspondent à une expression de langage XPath et renvoyer les valeurs ou les nœuds correspondants. | 
+| [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Vérifie si le code XML contient des valeurs ou des nœuds qui correspondent à une expression de langage XPath et retourne les valeurs ou les nœuds correspondants. | 
 ||| 
 
 ## <a name="next-steps"></a>Étapes suivantes

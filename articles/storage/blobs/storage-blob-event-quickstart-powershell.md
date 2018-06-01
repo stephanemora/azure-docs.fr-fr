@@ -8,11 +8,12 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261436"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Acheminer des événements de stockage Blob vers un point de terminaison web avec PowerShell
 
@@ -21,7 +22,7 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Dans 
 En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Pour simplifier l’exemple présenté dans cet article, les événements sont envoyés à une URL qui collecte seulement les messages. Vous créez cet URL en utilisant l’outil tiers de [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **Hookbin** n’est pas destiné à une utilisation avec débit élevé. L’utilisation de cet outil est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil.
+> **Hookbin** n’est pas destiné à une utilisation avec débit élevé. L’utilisation de cet outil est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil. De plus, n’oubliez pas que **Hookbin** fait l’objet d’un [traitement spécial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) par Azure Event Grid. Pour faciliter les tests, Event Grid envoie des événements à cette URL sans avoir besoin d’une réponse correcte aux demandes de validation d’abonnements (ce qui serait le cas [autrement](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 En suivant les instructions de cet article, vous voyez que les données d’événement ont été envoyées à un point de terminaison.
 

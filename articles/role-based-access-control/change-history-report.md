@@ -1,6 +1,6 @@
 ---
-title: Accès aux rapports - Contrôle d’accès en fonction du rôle Azure | Microsoft Docs
-description: Générez un rapport qui répertorie toutes les modifications d’accès à vos abonnements Azure avec contrôle d’accès basé sur les rôles au cours des 90 derniers jours.
+title: Afficher les journaux d’activité des changements RBAC dans Azure | Microsoft Docs
+description: Affichez les journaux d’activité des changements de contrôle d’accès en fonction du rôle au cours des 90 derniers jours.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,55 +11,134 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2017
+ms.date: 04/23/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deef89e62dcec3141be46549cc0fb34b33a6335a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5e09ccdc4942a39e54b760cb5ad78c035dbc05f8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312421"
 ---
-# <a name="create-an-access-report-for-role-based-access-control"></a>Créer un rapport d’accès pour le contrôle d’accès en fonction du rôle
-Chaque fois qu’un utilisateur autorise ou interdit l’accès dans vos abonnements, les modifications sont consignées dans les événements Azure. Vous pouvez créer des rapports d’historique de modification d’accès pour voir toutes les modifications apportées au cours des 90 derniers jours.
+# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle
 
-## <a name="create-a-report-with-azure-powershell"></a>Créer un rapport avec Azure PowerShell
-Pour créer un rapport d’historique des modifications d’accès dans PowerShell, utilisez la commande [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog).
+Quand un utilisateur apporte des changements à des définitions ou attributions de rôle au sein de vos abonnements, ceux-ci sont journalisés dans la catégorie Administratif du [Journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Vous pouvez afficher les journaux d’activité pour voir tous les changements RBAC (contrôle d’accès en fonction du rôle) des 90 derniers jours.
 
-Lorsque vous appelez cette commande, vous pouvez spécifier quelle propriété des affectations répertorier, y compris les suivantes :
+## <a name="operations-that-are-logged"></a>Opérations journalisées
 
-| Propriété | Description |
-| --- | --- |
-| **Action** |Si l’accès a été autorisé ou interdit |
-| **Appelant** |Le propriétaire responsable de la modification d’accès |
-| **PrincipalId** | L’identificateur unique de l’utilisateur, du groupe ou d’une application auquel ou à laquelle le rôle a été assigné |
-| **PrincipalName** |Le nom de l’utilisateur, du groupe ou de l’application |
-| **PrincipalType** |Si l’affectation était pour un utilisateur, un groupe ou une application |
-| **RoleDefinitionId** |Le GUID du rôle qui a été accordé ou refusé |
-| **RoleName** |Le rôle qui a été accordé ou refusé |
-| **Portée** | L’identificateur unique de l’abonnement, du groupe de ressources ou d’une ressource auquel ou à laquelle l’affectation s’applique | 
-| **ScopeName** |Le nom de l’abonnement, du groupe de ressources ou de la ressource |
-| **ScopeType** |Si l’étendue de l’affectation était au niveau de l’abonnement, du groupe de ressources ou de la ressource |
-| **Timestamp** |La date et l’heure de la modification d’accès |
+Voici les opérations RBAC qui sont journalisées dans le journal d’activité :
 
-Cet exemple de commande répertorie toutes les modifications d’accès de l’abonnement au cours des sept derniers jours :
+- Créer ou mettre à jour une définition de rôle personnalisée
+- Supprimer la définition de rôle personnalisée
+- Créer une attribution de rôle
+- Supprimer une attribution de rôle
+
+## <a name="azure-portal"></a>Portail Azure
+
+Pour commencer, le plus simple consiste à afficher les journaux d’activité avec le portail Azure. La capture d’écran suivante montre un exemple de journal d’activité qui a été filtré pour afficher la catégorie **Administratif**, ainsi que les opérations de définition de rôle et d’attribution de rôle. Il contient également un lien pour télécharger les journaux dans un fichier CSV.
+
+![Journaux d’activité à l’aide du portail : capture d’écran](./media/change-history-report/activity-log-portal.png)
+
+Pour plus d’informations, consultez [Afficher des événements dans le journal d’activité](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Pour afficher les journaux d’activité avec Azure PowerShell, utilisez la commande [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog).
+
+Cette commande liste tous les changements d’attribution de rôle dans un abonnement au cours des sept derniers jours :
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+```
+
+Cette commande liste tous les changements de définition de rôle dans un groupe de ressources au cours des sept derniers jours :
+
+```azurepowershell
+Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+```
+
+Cette commande liste tous les changements d’attribution de rôle et de définition de rôle dans un abonnement au cours des sept derniers jours et affiche les résultats dans une liste :
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+```
+
+```Example
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:07 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          statusCode     : Created
+                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:05 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
 
 ```
-Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+
+## <a name="azure-cli"></a>Azure CLI
+
+Pour afficher les journaux d’activité avec l’interface de ligne de commande Azure, utilisez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
+
+Cette commande liste les journaux d’activité dans un groupe de ressources depuis l’heure de début :
+
+```azurecli
+az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - capture d’écran](./media/change-history-report/access-change-history.png)
+Cette commande liste les journaux d’activité pour le fournisseur de ressources Authorization depuis l’heure de début :
 
-## <a name="create-a-report-with-azure-cli"></a>Créer un rapport avec l’interface de ligne de commande Azure
-Pour créer un rapport d’historique des modifications d’accès dans l’interface de ligne de commande Azure, utilisez la commande `azure role assignment changelog list` .
+```azurecli
+az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
+```
 
-## <a name="export-to-a-spreadsheet"></a>Exporter vers une feuille de calcul
-Pour enregistrer le rapport ou manipuler les données, exportez les modifications d’accès vers un fichier .csv. Vous pouvez ensuite afficher le rapport dans une feuille de calcul pour révision.
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-![ChangeLog affiché en tant que feuille de calcul - capture d’écran](./media/change-history-report/change-history-spreadsheet.png)
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) est un autre outil que vous pouvez utiliser pour collecter et analyser les changements de contrôle d’accès en fonction du rôle de toutes vos ressources Azure. Log Analytics offre les avantages suivants :
+
+- Écriture de requêtes et d’une logique complexes
+- Intégration aux alertes, à Power BI et à d’autres outils
+- Enregistrement des données pour des périodes de rétention plus longues
+- Références croisées à d’autres journaux, tels que ceux liés à la sécurité, aux machines virtuelles et aux journaux personnalisés
+
+Voici les étapes de base pour bien démarrer :
+
+1. [Créez un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+
+1. [Configurez la solution Activity Log Analytics](../log-analytics/log-analytics-activity.md#configuration) pour vos espaces de travail.
+
+1. [Affichez les journaux d’activité](../log-analytics/log-analytics-activity.md#using-the-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de l’analytique des journaux d’activité consiste à cliquer sur l’option **Log Analytics**.
+
+   ![Option Log Analytics dans le portail](./media/change-history-report/azure-log-analytics-option.png)
+
+1. Éventuellement, utilisez la page [Recherche dans les journaux](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](https://docs.loganalytics.io/docs/Learn) pour interroger et afficher les journaux. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../log-analytics/log-analytics-log-search-portals.md).
+
+Voici une requête qui retourne les nouvelles attributions de rôle organisées par fournisseur de ressources cible :
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
+| summarize count(), makeset(Caller) by TargetResourceAuthProvider
+```
+
+Voici une requête qui retourne des changements d’attribution de rôle affichés dans un graphique :
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationName
+| render timechart
+```
+
+![Journaux d’activité à l’aide du portail Analytique avancée : capture d’écran](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](custom-roles.md)
-* En savoir plus sur la gestion du [contrôle d’accès en fonction du rôle Azure avec PowerShell](role-assignments-powershell.md)
-
+* [Afficher des événements dans le journal d’activité](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Surveiller l’activité d’abonnement avec le journal d’activité Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: b377b5ca9d46d66fe99a8f60383076920b098a7d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ff47060ddfee458279c9fed0fd3fcafcf35229d2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33769713"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885436"
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Installation personnalisée du runtime d’intégration Azure-SSIS
 
@@ -33,6 +33,10 @@ Vous pouvez installer des composants libres, ou sans licence, et des composants 
 -   Si vous souhaitez utiliser `gacutil.exe` pour installer des assemblys dans Global Assembly Cache (GAC), vous devez le fournir dans le cadre de votre installation personnalisée, ou utiliser l’exemplaire fourni dans le conteneur Préversion publique.
 
 -   Si vous devez accompagner votre IR Azure-SSIS d’une installation personnalisée pour former un réseau virtuel, seul le réseau virtuel Azure Resource Manager est pris en charge. Le réseau virtuel classique n’est pas pris en charge.
+
+-   Actuellement, le partage administratif n’est pas pris en charge sur l’IR Azure-SSIS.
+
+-   Si vous souhaitez mapper un partage de fichiers à un lecteur dans votre configuration personnalisée, la commande `net use` n’est actuellement pas prise en charge. Par conséquent, vous ne pouvez pas utiliser une commande telle que `net use d: \\fileshareserver\sharename`. Au lieu de cela, utilisez la commande `cmdkey`, par exemple `cmdkey /add:fileshareserver /user:yyy /pass:zzz`, pour accéder à `\\fileshareserver\folder` directement dans vos packages.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -137,15 +141,15 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
        4. Un dossier `MSDTC`, qui contient une installation personnalisée permettant de modifier les configurations du réseau et de la sécurité pour l’instance Microsoft Distributed Transaction Coordinator (MSDTC) sur chaque nœud de votre runtime d’intégration Azure-SSIS.
 
-       5. Un dossier `ORACLE ENTERPRISE`, qui contient un script d’installation personnalisée (`main.cmd`) et le fichier de configuration de l’installation sans assistance (`client.rsp`) pour installer le pilote Oracle OCI sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition (préversion privée). Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Oracle. Vous devez d’abord télécharger `winx64_12102_client.zip` depuis [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), puis le télécharger dans votre conteneur avec `main.cmd` et `client.rsp`. Si vous utilisez TNS pour vous connecter à Oracle, vous devez également télécharger `tnsnames.ora`, le modifier, puis le charger dans votre conteneur de manière à ce qu’il puisse être copié dans le dossier d’installation Oracle pendant l’installation.
+       5. Un dossier `ORACLE ENTERPRISE`, qui contient un script d’installation personnalisée (`main.cmd`) et le fichier de configuration de l’installation sans assistance (`client.rsp`) pour installer le pilote Oracle OCI sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Oracle. Vous devez d’abord télécharger le dernier client Oracle, par exemple `winx64_12102_client.zip`, depuis [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), puis le charger dans votre conteneur avec `main.cmd` et `client.rsp`. Si vous utilisez TNS pour vous connecter à Oracle, vous devez également télécharger `tnsnames.ora`, le modifier, puis le charger dans votre conteneur de manière à ce qu’il puisse être copié dans le dossier d’installation Oracle pendant l’installation.
 
-       6. Un dossier `ORACLE STANDARD`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer le pilote Oracle ODP.NET sur chaque nœud de votre IR Azure-SSIS. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination ADO.NET. Commencez par télécharger `ODP.NET_Managed_ODAC122cR1.zip` depuis [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), puis chargez-le dans votre conteneur avec `main.cmd`.
+       6. Un dossier `ORACLE STANDARD`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer le pilote Oracle ODP.NET sur chaque nœud de votre IR Azure-SSIS. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination ADO.NET. Vous devez d’abord télécharger le dernier pilote ODP.NET Oracle, par exemple `ODP.NET_Managed_ODAC122cR1.zip`, depuis [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), puis le charger dans votre conteneur avec `main.cmd`.
 
-       7. Un dossier `SAP BW`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer l’assembly de connecteurs SAP .NET (`librfc32.dll`) sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition (préversion privée). Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination SAP BW. Commencez par charger la version 64 bits ou 32 bits de `librfc32.dll` du dossier d’installation SAP vers votre conteneur avec `main.cmd`. Le script copie ensuite l’assembly SAP dans le dossier `%windir%\SysWow64` ou `%windir%\System32` pendant l’installation.
+       7. Un dossier `SAP BW`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer l’assembly de connecteurs SAP .NET (`librfc32.dll`) sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination SAP BW. Commencez par charger la version 64 bits ou 32 bits de `librfc32.dll` du dossier d’installation SAP vers votre conteneur avec `main.cmd`. Le script copie ensuite l’assembly SAP dans le dossier `%windir%\SysWow64` ou `%windir%\System32` pendant l’installation.
 
        8. Un dossier `STORAGE`, qui contient une installation personnalisée pour Azure PowerShell sur chaque nœud de votre IR Azure-SSIS. Ce programme d’installation vous permet de déployer et d’exécuter des packages SSIS qui exécutent des scripts PowerShell [ pour manipuler votre compte Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copiez `main.cmd`, un échantillon `AzurePowerShell.msi` (ou installez la dernière version) et `storage.ps1` dans votre conteneur. Utilisez PowerShell.dtsx comme modèle pour vos packages. Le modèle de package combine une [tâche de téléchargement Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), qui télécharge `storage.ps1` sous forme de script PowerShell modifiable, et une [tâche d’exécution du processus](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) qui exécute le script sur chaque nœud.
 
-       9. Un dossier `TERADATA`, qui contient un script d’installation personnalisée (`main.cmd)`), son fichier associé (`install.cmd`) et les packages du programme d’installation (`.msi`). Ces fichiers installent des connecteurs Teradata, l’API TPT et le pilote ODBC sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition (préversion privée). Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Teradata. Commencez par télécharger le fichier Teradata Outils et utilitaires (TTU) 15.x zip (par exemple, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) depuis [Teradata](http://partnerintelligence.teradata.com), puis chargez-le dans votre conteneur avec les fichiers `.cmd` et `.msi` ci-dessus.
+       9. Un dossier `TERADATA`, qui contient un script d’installation personnalisée (`main.cmd)`), son fichier associé (`install.cmd`) et les packages du programme d’installation (`.msi`). Ces fichiers installent des connecteurs Teradata, l’API TPT et le pilote ODBC sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Teradata. Commencez par télécharger le fichier Teradata Outils et utilitaires (TTU) 15.x zip (par exemple, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) depuis [Teradata](http://partnerintelligence.teradata.com), puis chargez-le dans votre conteneur avec les fichiers `.cmd` et `.msi` ci-dessus.
 
     ![Dossiers dans le dossier de scénarios utilisateur](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

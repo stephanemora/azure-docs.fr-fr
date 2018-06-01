@@ -1,24 +1,25 @@
 ---
-title: "Didacticiel de mise à niveau d’applications Service Fabric | Microsoft Docs"
-description: "Cet article vous présente l'expérience de déploiement d'une application Service Fabric, la modification du code et le déploiement d'une mise à niveau à l'aide de Visual Studio."
+title: Didacticiel de mise à niveau d’applications Service Fabric | Microsoft Docs
+description: Cet article vous présente l'expérience de déploiement d'une application Service Fabric, la modification du code et le déploiement d'une mise à niveau à l'aide de Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205193"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Didacticiel sur la mise à niveau d'une application Service Fabric à l'aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -40,7 +41,7 @@ La sélection de l’option **Publier** affiche une autre fenêtre. Vous pouvez 
 
 ![Publication d'une application Service Fabric][image2]
 
-À présent, vous pouvez cliquer sur **Publier** dans la boîte de dialogue. Vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application Visual Objects possède un service web accessible en tapant [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) dans la barre d’adresse de votre navigateur.  Vous devez normalement voir 10 objets visuels flottants en rotation à l'écran.
+À présent, vous pouvez cliquer sur **Publier** dans la boîte de dialogue. Vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application Visual Objects a un service web accessible en tapant [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) dans la barre d’adresse de votre navigateur.  Vous devez normalement voir 10 objets visuels flottants en rotation à l'écran.
 
 **REMARQUE :** si vous procédez au déploiement vers le profil `Cloud.xml` (Azure Service Fabric), l’application doit alors être disponible à l’adresse **http://{NomServiceFabric}.{Région}.cloudapp.azure.com:8081/visualobjects/**. Assurez-vous d’avoir configuré `8081/TCP` dans l’équilibreur Load Balancer (recherchez l’équilibreur Load Balancer dans le même groupe de ressources que l’instance Service Fabric).
 

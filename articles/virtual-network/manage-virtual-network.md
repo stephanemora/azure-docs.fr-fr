@@ -15,20 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ce858553a67bce714ceae43a5bb2f86839d9c507
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 56839c38de135a805c51bb96ad5d7abc41ebcad7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895360"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
-Découvrez comment créer et supprimer un réseau virtuel, ainsi que modifier des paramètres tels que les serveurs DNS et les espaces d’adressage IP, pour un réseau virtuel existant.
-
-Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique du cloud Azure, dédiée à votre abonnement Azure. Pour chaque réseau virtuel que vous créez, vous pouvez :
-- Choisir un espace d’adressage à assigner. Un espace d’adressage se compose d’une ou plusieurs plages d’adresses qui sont définies à l’aide d’une notation de routage CIDR (Classless InterDomain Routing), telle que 10.0.0.0/16.
-- Choisir d’utiliser le serveur DNS fourni par Azure ou votre propre serveur DNS. Toutes les ressources connectées au réseau virtuel sont assignées à ce serveur DNS pour résoudre les noms au sein du réseau virtuel.
-- Segmenter le réseau virtuel en sous-réseaux, chacun avec sa propre plage d’adresses, au sein de l’espace d’adressage du réseau virtuel. Pour savoir comment créer, modifier et supprimer des sous-réseaux, voir [Ajouter, modifier ou supprimer des sous-réseaux](virtual-network-manage-subnet.md).
+Découvrez comment créer et supprimer un réseau virtuel, ainsi que modifier des paramètres tels que les serveurs DNS et les espaces d’adressage IP, pour un réseau virtuel existant. Si vous découvrez les réseaux virtuels, vous trouverez plus d’informations à leur sujet dans la [Vue d’ensemble du réseau virtuel](virtual-networks-overview.md) ou en suivant un [didacticiel](quick-create-portal.md). Un réseau virtuel contient des sous-réseaux. Pour savoir comment créer, modifier et supprimer des sous-réseaux, voir [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -36,8 +32,9 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 5.2.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce didacticiel requiert Azure CLI version 2.0.26 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées répertoriées dans [Autorisations](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
@@ -94,7 +91,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
     - **Paramètres Azure courants** : pour en savoir plus sur les paramètres Azure courants, voir les informations suivantes :
         *   [Journal d’activité](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
         *   [Contrôle d’accès (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-        *   [Balises](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+        *   [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Script Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -167,17 +164,15 @@ Vous pouvez supprimer un réseau virtuel uniquement si aucune ressource n’est 
 
 ## <a name="permissions"></a>Autorisations
 
-Pour effectuer des tâches sur des réseaux virtuels, votre compte doit posséder le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées qui sont répertoriées dans le tableau suivant :
+Pour effectuer des tâches sur des réseaux virtuels, votre compte doit posséder le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées qui sont répertoriées dans le tableau suivant :
 
-|Opération                                    |   Nom d’opération                    |
-|-------------------------------------------  |   --------------------------------  |
-|Microsoft.Network/virtualNetworks/read       |   Obtenir un réseau virtuel               |
-|Microsoft.Network/virtualNetworks/write      |   Créer ou mettre à jour un réseau virtuel  |
-|Microsoft.Network/virtualNetworks/delete     |   Supprimer un réseau virtuel            |
+| Action                                  |   NOM                                |
+|---------------------------------------- |   --------------------------------    |
+|Microsoft.Network/virtualNetworks/read   |   Lire un réseau virtuel              |
+|Microsoft.Network/virtualNetworks/write  |   Création ou mise à jour d’un réseau virtuel  |
+|Microsoft.Network/virtualNetworks/delete |   Supprimer un réseau virtuel            |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment créer une machine virtuelle et la connecter à un réseau virtuel, voir [Créer votre premier réseau virtuel](quick-create-portal.md#create-virtual-machines).
-- Pour savoir comment filtrer le trafic réseau entre les sous-réseaux d’un réseau virtuel, voir [Créer des groupes de sécurité réseau à l’aide du portail Azure](virtual-networks-create-nsg-arm-pportal.md).
-- Pour homologuer un réseau virtuel à un autre réseau virtuel, voir [Créer une homologation de réseau virtuel](tutorial-connect-virtual-networks-portal.md).
-- Pour découvrir les options de connexion d’un réseau virtuel à un réseau local, voir [À propose de la passerelle du VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
+- Créez un réseau virtuel avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou à l’aide des[modèles Azure Resource Manager](template-samples.md)
+- Créer et appliquer une [stratégie Azure](policy-samples.md) pour des réseaux virtuels
