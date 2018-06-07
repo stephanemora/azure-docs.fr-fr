@@ -4,8 +4,8 @@ description: Découvrez comment gérer les partages de fichiers Azure avec Azure
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4a7d39910fac6096ef17873a9f81c5e1d1508857
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34757137"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gestion des partages de fichiers Azure avec Azure PowerShell 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec PowerShell. Dans cet article, vous apprendrez comment :
@@ -165,7 +166,7 @@ Maintenant, si vous répertoriez les fichiers dans le nouveau partage, vous deve
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Bien que la cmdlet `Start-AzureStorageFileCopy` soit pratique pour déplacer des fichiers ad-hoc entre des partages de fichiers Azure et des conteneurs de stockage d’objets blob Azure, nous recommandons AzCopy pour des déplacements plus volumineux (en termes de nombre ou de taille des fichiers déplacés). En savoir plus sur [AzCopy pour Windows](../common/storage-use-azcopy.md) et [AzCopy pour Linux](../common/storage-use-azcopy-linux.md). AzCopy doit être installé en local (il n’est pas disponible dans Cloud Shell) 
+Bien que la cmdlet `Start-AzureStorageFileCopy` soit pratique pour déplacer des fichiers ad-hoc entre des partages de fichiers Azure et des conteneurs de stockage d’objets blob Azure, nous recommandons AzCopy pour des déplacements plus volumineux (en termes de nombre ou de taille des fichiers déplacés). En savoir plus sur [AzCopy pour Windows](../common/storage-use-azcopy.md) et [AzCopy pour Linux](../common/storage-use-azcopy-linux.md). AzCopy doit être installé en local (il n’est pas disponible dans Cloud Shell). 
 
 ## <a name="create-and-modify-share-snapshots"></a>Créer et modifier des instantanés de partage
 Avec un partage de fichiers Azure, vous pouvez aussi créer des instantanés de partage. Un instantané conserve un point dans le temps pour un partage de fichiers Azure. Les instantanés de partage sont similaires aux technologies de systèmes d’exploitation que vous connaissez peut-être déjà comme :

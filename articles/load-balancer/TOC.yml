@@ -10,18 +10,26 @@
       href: quickstart-create-basic-load-balancer-portal.md
     - name: Créer un équilibrage de charge de base - Azure CLI
       href: quickstart-create-basic-load-balancer-cli.md
+    - name: Créer un équilibrage de charge de base - Azure PowerShell
+      href: quickstart-create-basic-load-balancer-powershell.md
     - name: Créer un équilibrage de charge standard - Portail
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Créer un équilibrage de charge standard - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
+    - name: Créer un équilibrage de charge standard - Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
 - name: Didacticiels
   items:
+    - name: Créer et gérer un équilibreur de charge
+      href: tutorial-load-balancer-standard-manage-portal.md
     - name: Équilibrer la charge de trafic interne vers des machines virtuelles
       href: tutorial-load-balancer-basic-internal-portal.md
     - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Configurer le transfert de port dans l’équilibreur de charge
+      href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Exemples
   items:
     - name: Azure CLI

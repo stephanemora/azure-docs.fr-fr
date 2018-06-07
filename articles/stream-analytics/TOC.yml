@@ -50,8 +50,6 @@
   items:
     - name: gérer
       items:
-        - name: Mettre à jour un travail
-          href: stream-analytics-job-reliability.md
         - name: Mettre à jour les informations d’identification
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurer des alertes
@@ -60,6 +58,10 @@
           href: stream-analytics-test-query.md
         - name: Afficher les résultats dans un tableau de bord
           href: stream-analytics-power-bi-dashboard.md
+        - name: Nettoyer votre travail
+          href: stream-analytics-clean-up-your-job.md
+        - name: Associer les travaux à des fins de fiabilité
+          href: stream-analytics-job-reliability.md
     - name: Créer des solutions
       items:
         - name: Analyse d’opinions Twitter
@@ -139,7 +141,7 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.streamanalytics
     - name: Langage de requête
       href: 'https://msdn.microsoft.com/library/azure/dn834998'

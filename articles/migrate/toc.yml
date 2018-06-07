@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
-    - name: Concepts du collecteur
+    - name: À propos du collecteur
       href: concepts-collector.md
     - name: Calculs d’évaluation
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Procédures
   items:
-    - name: Migrer vos ressources locales vers Azure
+    - name: Série de migration Contoso
       items:
-        - name: Vue d’ensemble du scénario - migrer vos ressources locales vers Azure
-          href: migrate-scenarios-overview.md
-        - name: 'Scénario 1 : évaluer les ressources locales à migrer vers Azure'
+        - name: 1. Contoso - Vue d’ensemble de la migration
+          href: contoso-migration-overview.md
+        - name: 2. Contoso - Configurer une infrastructure Azure
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso - Évaluer les ressources locales à migrer vers Azure
           href: migrate-scenarios-assessment.md
-        - name: 'Scénario 2 : Migration lift-and-shift vers Azure'
+        - name: 4. Contoso - Réhéberger sur des machines virtuelles Azure et Azure SQL Database Managed Instance
           href: migrate-scenarios-lift-and-shift.md
     - name: Découvrir et évaluer un environnement de grande taille
       href: how-to-scale-assessment.md
