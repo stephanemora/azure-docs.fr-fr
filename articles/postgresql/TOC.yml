@@ -67,6 +67,8 @@
           href: concepts-firewall-rules.md
         - name: Configuration du chiffrement SSL
           href: concepts-ssl-connection-security.md
+        - name: Réseau virtuel
+          href: concepts-data-access-and-security-vnet.md
     - name: Continuité de l’activité
       items:
         - name: Vue d'ensemble
@@ -119,6 +121,12 @@
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-on-metric.md
+    - name: Réseau virtuel
+      items:
+        - name: Portail Azure
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: Informations de référence
   items:
     - name: Azure CLI

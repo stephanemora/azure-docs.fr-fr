@@ -7,9 +7,9 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Docker Swarm Linux
-      href: container-service-swarm-walkthrough.md
-    - name: Linux DC/OS
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: DC/OS
       href: container-service-dcos-quickstart.md
 - name: Didacticiels
   items:
@@ -27,10 +27,6 @@
       href: container-service-security.md
 - name: Procédures
   items:
-    - name: "Créer un cluster\_ACS"
-      href: container-service-create-acs-cluster-cli.md
-    - name: Se connecter avec un cluster ACS
-      href: container-service-connect.md
     - name: Mettre à l’échelle un cluster ACS
       href: container-service-scale.md
     - name: DC/OS
@@ -69,9 +65,9 @@
           href: container-service-docker-swarm-setup-ci-cd.md
         - name: "CI/CD avec Docker\_Swarm (moteur\_ACS) et VSTS"
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: PowerShell
       href: /powershell/module/azurerm.compute
@@ -85,11 +81,11 @@
       href: container-service-faq.md
     - name: Modèles – Moteur ACS
       href: 'https://github.com/Azure/acs-engine'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

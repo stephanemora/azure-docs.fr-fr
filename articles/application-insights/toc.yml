@@ -268,6 +268,8 @@
           href: app-insights-export-power-bi.md
     - name: Sécuriser
       items:
+        - name: Gestion des données personnelles
+          href: app-insights-customer-data.md
         - name: 'Collecte, rétention et stockage des données'
           href: app-insights-data-retention-privacy.md
         - name: 'Ressources, rôles et contrôle d’accès'

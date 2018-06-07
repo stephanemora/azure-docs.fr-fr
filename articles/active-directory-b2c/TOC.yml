@@ -58,10 +58,10 @@
               href: 'https://github.com/Azure-Samples/active-directory-b2c-android-native-msal'
             - name: Android utilisant AppAuth
               href: active-directory-b2c-devquickstarts-android.md
-            - name: .NET
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
-            - name: Xamarin
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
+        - name: .NET
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
+        - name: Xamarin
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
         - name: Informations d’identification de mot de passe du propriétaire de ressource
           href: configure-ropc.md
     - name: les applications web
@@ -268,7 +268,7 @@
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=active-directory-b2c'
     - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c'
+      href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework'
     - name: Support
       href: active-directory-b2c-support.md
     - name: vidéos
