@@ -43,11 +43,9 @@
 ### [Créer une connexion privée dédiée (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## gestion
+### [Vue d’ensemble de la surveillance réseau](network-monitoring-overview.md)
+### [Vérifier l’utilisation des ressources par rapport aux limites de Azure](check-usage-against-limits.md)
 ### [Topologie du réseau](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Gérer la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Déterminer le saut suivant routage](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Vérifier le flux IP pour une machine virtuelle](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Vue d’ensemble de la surveillance réseau](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Exemples de scripts
 ### [interface de ligne de commande Azure](cli-samples.md)

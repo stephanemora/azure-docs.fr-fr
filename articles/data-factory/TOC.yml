@@ -1,5 +1,7 @@
 - name: Documentation Data Factory V2
   href: index.yml
+- name: Basculer vers la documentation de la version 1
+  href: v1/data-factory-introduction.md
 - name: Vue d'ensemble
   items:
     - name: Présentation de Data Factory
@@ -372,19 +374,21 @@
           href: create-azure-ssis-integration-runtime.md
     - name: "Exécuter des packages\_SSIS dans Azure"
       items:
-        - name: Associer un runtime d’intégration Azure SSIS à un réseau virtuel
+        - name: Joindre un runtime d’intégration (IR) Azure-SSIS à un réseau virtuel (VNET)
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Configurer une haute performance pour le runtime d’intégration Azure-SSIS
+        - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Configurer une haute performance pour le runtime d’intégration (IR) Azure-SSIS
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Configurer Enterprise Edition pour le runtime d’intégration Azure-SSIS
+        - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Personnalisation des configurations du runtime d’intégration Azure-SSIS
+        - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Déployer des composants sous licence pour le runtime d’intégration Azure-SSIS
+        - name: Installer les composants sous licence pour le runtime d’intégration (IR) Azure-SSIS
           href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: Exécuter des packages SSIS à l’aide d’une activité SSIS
+        - name: Exécuter des packages SSIS avec l’activité Exécuter le Package SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
-        - name: Exécuter des packages SSIS à l’aide d’une activité de procédure stockée
+        - name: Exécuter des packages SSIS avec l’activité de procédure stockée
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
           href: how-to-schedule-azure-ssis-integration-runtime.md

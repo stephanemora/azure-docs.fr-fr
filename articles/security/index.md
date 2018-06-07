@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: carolz
-ms.openlocfilehash: d05b90b5c961bcbdca4b3ac904e015623b05f1a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4122afcc730c9c8b312373b77eaf4fd004b2248b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641150"
 ---
 # <a name="azure-security-documentation"></a>Documentation sur la sécurité Azure
 
@@ -48,7 +49,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">J’envisage d’utiliser Azure pour mon entreprise. Qu’est-ce qu’Azure peut me proposer ?</p>
+                            <p style="font-size: 1.12rem;">J’envisage d’utiliser Azure pour mon entreprise. Quelle sécurité Azure peut me proposer ?</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +96,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-network-security-best-practices">
+        <a href="/azure/security/security-network-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -126,7 +127,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Quelles sont les options de surveillance et de journalisation disponibles dans Azure ?</p>
+                            <p style="font-size: 1.12rem;">Quelles options de surveillance et de journalisation sont disponibles dans Azure ?</p>
                         </div>
                     </div>
                 </div>

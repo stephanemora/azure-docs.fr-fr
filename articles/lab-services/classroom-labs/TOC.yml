@@ -1,0 +1,50 @@
+- name: Documentation Lab Services
+  href: /azure/lab-services
+- name: Vue d'ensemble
+  items:
+    - name: À propos des laboratoires de salle de classe
+      href: classroom-labs-overview.md
+    - name: Comparer des types de laboratoires
+      href: ../compare-lab-types.md
+- name: Didacticiels
+  items:
+    - name: 1. Configurer un compte de laboratoire
+      href: tutorial-setup-lab-account.md
+    - name: 2. Configurer un laboratoire de salle de classe
+      href: tutorial-setup-classroom-lab.md
+    - name: 3. Accéder à un laboratoire de salle de classe
+      href: tutorial-connect-virtual-machine-classroom-lab.md
+- name: Procédures
+  items:
+    - name: Gérer les comptes de laboratoire
+      href: how-to-manage-lab-accounts.md
+    - name: Gérer les laboratoires de salle de classe
+      href: how-to-manage-classroom-labs.md
+    - name: Accéder aux laboratoires de salle de classe
+      href: how-to-use-classroom-lab.md
+- name: Informations de référence
+  items:
+    - name: "CLI\_2.0"
+      href: /cli/azure/lab
+    - name: PowerShell
+      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
+    - name: de l’API REST
+      href: 'https://docs.microsoft.com/rest/api/dtl/'
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
+    - name: Blog de l’équipe
+      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
+    - name: Dépassement de capacité de la pile
+      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
+    - name: vidéos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'

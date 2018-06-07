@@ -1,26 +1,24 @@
 ---
-title: "Documentation Azure Data Lake Analytics - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez les analyses Big Data avec Data Lake Analytics. Des didacticiels vous montrent comment exécuter des analyses interactives par lots en temps réel, et comment écrire des requêtes U-SQL."
+title: Documentation Azure Data Lake Analytics - Tutoriels, informations de référence sur les API
+description: Découvrez les analyses Big Data avec Azure Data Lake Analytics. Des didacticiels vous montrent comment exécuter des analyses interactives par lots en temps réel, et comment écrire des requêtes U-SQL.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624214"
 ---
-# <a name="data-lake-analytics-documentation"></a>Documentation Data Lake Analytics
+# <a name="azure-data-lake-analytics-documentation"></a>Documentation Azure Data Lake Analytics
 
-Apprenez à utiliser Data Lake Analytics pour exécuter des travaux d’analyse Big Data mis à l’échelle de manière à obtenir des jeux de données conséquents. Des didacticiels et autres documents vous montrent comment créer et gérer des travaux d’analyse interactifs par lots en temps réel, et comment exécuter des requêtes à l’aide du langage U-SQL.
+Apprenez à utiliser Azure Data Lake Analytics pour exécuter des travaux d’analyse Big Data mis à l’échelle de manière à obtenir des jeux de données conséquents. Des didacticiels et autres documents vous montrent comment créer et gérer des travaux d’analyse interactifs par lots en temps réel, et comment exécuter des requêtes à l’aide du langage U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -95,16 +93,15 @@ Apprenez à utiliser Data Lake Analytics pour exécuter des travaux d’analyse 
     <tr>
         <td><a href="data-lake-analytics-manage-use-portal.md">Portail</a></td>
         <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
-        <td><a href="data-lake-analytics-manage-use-cli.md">Interface de ligne de commande Azure</a></td>
-        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET</a></td>
+        <td><a href="data-lake-analytics-manage-use-cli.md">interface de ligne de commande Azure</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">Kit de développement logiciel (SDK) .NET</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Kit de développement logiciel (SDK) Python</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Kit de développement logiciel (SDK) Java</a></td>
     </tr>
 </table>
 
 ---
  
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -113,7 +110,7 @@ Apprenez à utiliser Data Lake Analytics pour exécuter des travaux d’analyse 
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
-                        <p><a href="/cli/azure/dla">CLI 2.0</a></p>
+                        <p><a href="/cli/azure/dla">CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

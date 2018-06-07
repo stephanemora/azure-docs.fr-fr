@@ -15,6 +15,7 @@
 ### [Création par programmation des tableaux de bord Azure](azure-portal-dashboards-create-programmatically.md)
 ## gérer
 ### [Activer le contraste élevé ou modifier le thème](azure-portal-change-theme-high-contrast.md)
+### [Exporter ou supprimer des paramètres utilisateur](azure-portal-export-delete-settings.md)
 ### [Utiliser le portail pour gérer les ressources](../azure-resource-manager/resource-group-portal.md)
 ### [Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md)
 ### [Partager des tableaux de bord à l’aide du contrôle d’accès en fonction du rôle](azure-portal-dashboard-share-access.md)
