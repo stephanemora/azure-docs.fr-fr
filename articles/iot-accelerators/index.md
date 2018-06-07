@@ -1,19 +1,19 @@
 ---
 title: Documentation sur les accélérateurs de solution Azure IoT - Tutoriels, informations de référence sur les API | Microsoft Docs
 description: La documentation sur les accélérateurs de solution Azure IoT comprend des guides de prise en main, des articles sur les procédures, des tutoriels et des références sur les API.
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
-ms.openlocfilehash: cacc09cf926c5af9a770e42967a5e6cbbb46bfd7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: dobett
+ms.openlocfilehash: 3e9fe2b67980e83f57732c10da99738a15a5219e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626970"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Documentation sur les accélérateurs de solution IoT
 
@@ -30,10 +30,10 @@ Prenez rapidement en main les accélérateurs de solution IoT pour générer vos
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Vue d’ensemble des accélérateurs de solution</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Déploiement d’un accélérateur de solution</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Fonctionnalités de la solution prêtes à l’emploi</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Fonctionnalités de surveillance</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Fonctionnalités de la solution prêtes à l’emploi</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Fonctionnalités de surveillance</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Fonctionnalités de gestion des règles</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Fonctionnalités de gestion des appareils</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Fonctionnalités de gestion des appareils</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,9 +53,9 @@ Prenez rapidement en main les accélérateurs de solution IoT pour générer vos
                     <div class="cardText">
                         <p>Découvrez comment connecter vos appareils à un accélérateur de solution</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Vue d’ensemble du modèle de l’appareil</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Personnalisation de vos appareils simulés</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Connexion d’appareils physiques</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Vue d’ensemble du modèle de l’appareil</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Personnalisation de vos appareils simulés</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Connexion d’appareils physiques</a></li>
                         </ul>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ Prenez rapidement en main les accélérateurs de solution IoT pour générer vos
                 <div class="card">
                     <div class="cardText">
                         <h3>Ressources</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">Architecture de la sécurité</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">Meilleures pratiques en matière de sécurité</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Sécuriser votre déploiement IoT</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Tout savoir sur la sécurité</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Architecture de la sécurité</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Meilleures pratiques en matière de sécurité</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Sécuriser votre déploiement IoT</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Tout savoir sur la sécurité</a></p>
                    </div>
                 </div>
             </div>

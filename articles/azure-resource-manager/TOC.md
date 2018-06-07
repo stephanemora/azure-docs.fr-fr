@@ -4,7 +4,7 @@
 ## [Présentation de Resource Manager](resource-group-overview.md)
 ## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Déploiements Resource Manager et classiques](resource-manager-deployment-model.md)
-## [Gouvernance de l’abonnement](resource-manager-subscription-governance.md)
+## [Gouvernance de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organiser les ressources avec des groupes d’administration](management-groups-overview.md)
 
 # Prise en main
@@ -50,7 +50,6 @@
 ### [Créer par programmation des abonnements EA](programmatically-create-subscription.md)
 ### [Créer des groupes d’administration](management-groups-create.md)
 ### [Gérer vos groupes d’administration](management-groups-manage.md)
-### [Exemples de gouvernance](resource-manager-subscription-examples.md)
 
 ## Contrôler l’accès
 ### Créer un principal du service
