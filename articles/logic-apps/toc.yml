@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Étendues
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Créer des variables pour l’enregistrement des valeurs
+          href: logic-apps-create-variables-store-values.md
         - name: Ajouter du code personnalisé avec Azure Functions
           href: logic-apps-azure-functions.md
         - name: Appeler des applications logiques avec Azure Functions
@@ -61,6 +63,8 @@
           href: logic-apps-content-type.md
         - name: Gérer les erreurs et exceptions
           href: logic-apps-exception-handling.md
+        - name: Gérer les messages volumineux
+          href: logic-apps-handle-large-messages.md
         - name: Sécuriser vos applications logiques
           href: logic-apps-securing-a-logic-app.md
         - name: Développer des connecteurs personnalisés
@@ -152,7 +156,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: Base de données SQL Azure
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -292,7 +296,7 @@
       href: logic-apps-limits-and-config.md
     - name: Contrôle de l’utilisation
       href: logic-apps-pricing.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.logicapp
     - name: de l’API REST
       href: /rest/api/logic/

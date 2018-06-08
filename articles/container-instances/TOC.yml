@@ -39,7 +39,9 @@
   items:
     - name: Déployer
       items:
-        - name: Déployer des groupes de plusieurs conteneurs
+        - name: Groupes de plusieurs conteneurs - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: Groupes de plusieurs conteneurs - Gestionnaire des ressources
           href: container-instances-multi-container-group.md
         - name: Déployer depuis Azure Container Registry
           href: container-instances-using-azure-container-registry.md

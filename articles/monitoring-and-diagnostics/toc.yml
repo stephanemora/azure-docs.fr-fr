@@ -21,7 +21,7 @@
   items:
     - name: Sources de données d’analyse
       href: monitoring-data-sources.md
-    - name: "Azure\_Monitor"
+    - name: Azure Monitor
       href: monitoring-overview-azure-monitor.md
     - name: Mesures
       href: monitoring-overview-metrics.md
@@ -129,6 +129,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Exemples Azure PowerShell
           href: insights-powershell-samples.md
+        - name: Exemples d’interface de ligne de commande Azure
+          href: insights-cli-samples.md
     - name: Utiliser l’extension Azure Diagnostics
       items:
         - name: Envoyer à Stockage Azure
@@ -169,7 +171,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.insights
     - name: REST
       href: /rest/api/monitor/

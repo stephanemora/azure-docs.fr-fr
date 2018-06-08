@@ -5,6 +5,7 @@
     - name: Que sont les groupes de machines virtuelles identiques ?
       href: overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer dans le portail Azure
       href: quick-create-portal.md
@@ -64,6 +65,102 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+- name: Concepts
+  items:
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: Régions et disponibilité
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
+    - name: Types et tailles des machines virtuelles
+      href: ../virtual-machines/windows/sizes.md
+      maintainContext: true
+      items:
+        - name: Usage général
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: Série B modulable
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: Optimisé pour le calcul
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: Mémoire optimisée
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: Processeurs virtuels avec contraintes
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Optimisé pour le stockage
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: Optimisé pour le GPU
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: Configuration des pilotes GPU
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: Calcul haute performance
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Unités de calcul Azure (ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: Scores de test d’évaluation
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Versions de Linux approuvées
+      href: ../virtual-machines/linux/endorsed-distros.md
+      maintainContext: true
+    - name: Maintenance et mises à jour
+      href: ../virtual-machines/windows/maintenance-and-updates.md
+      maintainContext: true
+    - name: Stockage sur disque
+      href: ../virtual-machines/windows/about-disks-and-vhds.md
+      maintainContext: true
+      items:
+        - name: Managed Disks
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Stockage Premium
+          href: ../virtual-machines/windows/premium-storage.md
+          maintainContext: true
+        - name: Performances de stockage Premium
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Stockage Standard
+          href: ../virtual-machines/windows/standard-storage.md
+          maintainContext: true
+        - name: Objectifs d’extensibilité pour les disques
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: Sauvegarde et récupération d’urgence pour les disques
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: Mise en réseau
+      href: ../virtual-machines/windows/network-overview.md
+      maintainContext: true
+    - name: Automatisation de l’infrastructure
+      href: ../virtual-machines/windows/infrastructure-automation.md
+      maintainContext: true
+    - name: Sécurité et stratégie
+      href: ../virtual-machines/windows/security-policy.md
+      maintainContext: true
+    - name: Surveillance
+      href: ../virtual-machines/windows/monitor.md
+      maintainContext: true
+    - name: Calcul haute performance
+      href: ../virtual-machines/windows/high-performance-computing.md
+      maintainContext: true
+    - name: Points à prendre en considération pour le déploiement
+      items:
+        - name: Quotas de processeurs virtuels
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: Procédure
   items:
     - name: Planifier et concevoir

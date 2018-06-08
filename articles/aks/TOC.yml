@@ -63,6 +63,8 @@
           href: internal-lb.md
         - name: Entrée et TLS
           href: ingress.md
+        - name: Trafic de sortie
+          href: egress.md
         - name: Routage d’applications HTTP
           href: http-application-routing.md
     - name: Sécurité et authentification
