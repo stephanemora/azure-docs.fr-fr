@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Envoyer des événements dans le Stockage File d’attente
       href: custom-event-to-queue-storage.md
+    - name: Envoyer des événements vers Event Hubs
+      href: custom-event-to-eventhub.md
 - name: Didacticiels
   items:
     - name: M’avertir par e-mail lorsque la machine virtuelle subit des modifications
@@ -43,7 +45,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
     - name: Modèles Resource Manager
       href: template-samples.md
