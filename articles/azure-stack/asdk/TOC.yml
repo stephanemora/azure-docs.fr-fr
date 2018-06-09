@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: Notes de publication relatives à l’ASDK
       href: asdk-release-notes.md
-- name: Didacticiels
-  items:
-    - name: S’abonner à une offre
-      href: asdk-subscribe-services.md
-    - name: Offres et plans de mise à jour
-      href: asdk-update-offers.md
-    - name: Créer une machine virtuelle à partir d’un modèle
-      href: asdk-create-vm-template.md
 - name: Concepts
   items:
     - name: Considérations en matière de planification du déploiement

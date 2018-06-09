@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: Avec REST
           href: stream-files-tutorial-with-rest.md
+    - name: Diffuser en direct
+      items:
+        - name: Avec .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: Analyser votre vidéo
       items:
         - name: Avec .NET
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Autogen échelle de débit adaptatif
           href: autogen-bitrate-ladder.md
+    - name: Vidéo en flux continu
+      href: live-streaming-overview.md
     - name: Intelligence multimédia
       href: intelligence-concept.md
     - name: Réaction aux événements
