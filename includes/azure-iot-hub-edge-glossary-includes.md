@@ -1,4 +1,7 @@
-## <a name="iot-edge"></a>IoT Edge
+## <a name="automatic-device-management"></a>Gestion automatique des appareils
+La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils pendant tout leur cycle de vie. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et permettre à IoT Hub de mettre à jour les appareils chaque fois qu’ils se trouvent dans l’étendue.  La gestion automatique des appareils comprend les [configurations automatiques des appareils](/articles/iot-hub/iot-hub-auto-device-config.md) et les [déploiements automatiques IoT Edge](/articles/iot-edge/how-to-deploy-monitor.md).
+
+## <a name="iot-edge"></a>IoT Edge
 Azure IoT Edge permet d’effectuer un déploiement basé sur le cloud de services Azure et de code spécifique de solution sur des appareils locaux. Les appareils IoT Edge peuvent agréger des données d’autres appareils afin d’effectuer un calcul et une analyse avant d’envoyer les données vers le cloud. Pour plus d’informations, consultez [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
 
 ## <a name="iot-edge-agent"></a>Agent IoT Edge
@@ -7,8 +10,8 @@ Partie du runtime IoT Edge responsable des modules de déploiement et de surveil
 ## <a name="iot-edge-device"></a>Appareil IoT Edge
 Un runtime IoT Edge doit être installé sur les appareils IoT Edge et ces derniers doivent être marqués comme « Appareil IoT Edge » dans les détails de l’appareil. En savoir plus sur [Déployer Azure IoT Edge sur un appareil simulé dans Linux - préversion](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
-## <a name="iot-edge-deployment"></a>Déploiement IoT Edge
-Un déploiement IoT Edge configure un ensemble cible d’appareils IoT Edge pour exécuter un ensemble de modules IoT Edge. Chaque déploiement s’assure en permanence que tous les appareils qui correspondent à la condition cible exécutent l’ensemble spécifié de modules, même lorsque de nouveaux appareils sont créés ou modifiées pour correspondre à la condition cible. Chaque appareil IoT Edge ne reçoit que le déploiement de priorité la plus élevée pour lequel il répond à la condition cible. Pour en savoir plus sur le [Déploiement IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+## <a name="iot-edge-automatic-deployment"></a>Déploiement automatique IoT Edge
+Un déploiement automatique IoT Edge configure un ensemble cible d’appareils IoT Edge pour exécuter un ensemble de modules IoT Edge. Chaque déploiement s’assure en permanence que tous les appareils qui correspondent à la condition cible exécutent l’ensemble spécifié de modules, même lorsque de nouveaux appareils sont créés ou modifiées pour correspondre à la condition cible. Chaque appareil IoT Edge ne reçoit que le déploiement de priorité la plus élevée pour lequel il répond à la condition cible. En savoir plus sur le [déploiement automatique IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## <a name="iot-edge-deployment-manifest"></a>Manifeste de déploiement IoT Edge
 Document JSON contenant les informations à copier dans une ou plusieurs représentations de modules d’appareils IoT Edge pour déployer un ensemble de modules, itinéraires et propriétés souhaitées de module associé.

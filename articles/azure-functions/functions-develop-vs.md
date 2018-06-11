@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a38729c266a4dd214c3de97c6b9d92df6ed2dd96
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735117"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
 
@@ -31,7 +32,7 @@ Azure Functions Tools propose les avantages suivants :
 * Développer et déployer des fonctions précompilées C#. Les fonctions précompilées offrent de meilleures performances de démarrage à froid que les fonctions basées sur un script C#. 
 * Coder vos fonctions en C# tout en bénéficiant de tous les avantages du développement Visual Studio. 
 
-Cette rubrique vous montre comment utiliser Azure Functions Tools pour Visual Studio 2017 afin de développer vos fonctions en C#. Vous apprenez également à publier votre projet sur Azure en tant qu’assembly .NET.
+Cet article vous montre comment utiliser Azure Functions Tools pour Visual Studio 2017 afin de développer vos fonctions en C#. Vous apprenez également à publier votre projet sur Azure en tant qu’assembly .NET.
 
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
@@ -75,15 +76,15 @@ Pour créer et déployer des fonctions, vous avez également besoin des élémen
 
 4. Une fois la mise à jour terminée, choisissez **Fermer** et redémarrez Visual Studio.
 
-## <a name="create-an-azure-functions-project"></a>Créer un projet Azure Functions 
+## <a name="create-an-azure-functions-project"></a>Créer un projet Azure Functions
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 Le modèle de projet crée un projet C#, installe le package NuGet `Microsoft.NET.Sdk.Functions` et définit le framework cible. Functions 1.x cible le .NET Framework, et Functions 2.x cible .NET Standard. Le nouveau projet comporte les fichiers suivants :
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lors de l’exécution en local et dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
-    
-* **local.settings.json** : maintient les paramètres utilisés lors de l’exécution des fonction en local. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier des paramètres, tels que des chaînes de connexion vers d’autres services Azure. Ajoutez une clé au tableau **Valeurs** pour chaque connexion requise par les fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans la rubrique Procédure locale de codage et de test d’Azure Functions.
+
+* **local.settings.json** : maintient les paramètres utilisés lors de l’exécution des fonction en local. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier les paramètres de l’application pour les variables requises par vos fonctions. Ajoutez un élément au tableau **Valeurs** pour chaque connexion requise par les liaisons de fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans l’article Azure Functions Core Tools.
 
 Pour plus d’informations, consultez [Projet de bibliothèque de classes Azure Functions](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -93,13 +94,13 @@ Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tou
 
 [!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
- Pour définir la chaîne de connexion de compte de stockage :
+Pour définir la chaîne de connexion de compte de stockage :
 
-1. Dans Visual Studio, ouvrez **Cloud Explorer**, développez **Compte de stockage** > **Votre compte de stockage**, puis sélectionnez **Propriétés** et copiez la valeur **Chaîne de connexion principale**.   
+1. Dans Visual Studio, ouvrez **Cloud Explorer**, développez **Compte de stockage** > **Votre compte de stockage**, puis sélectionnez **Propriétés** et copiez la valeur **Chaîne de connexion principale**.
 
 2. Dans votre projet, ouvrez le fichier local.settings.json et définissez la valeur de la clé **AzureWebJobsStorage** sur la chaîne de connexion que vous avez copiée.
 
-3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions.  
+3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions.
 
 ## <a name="create-a-function"></a>Créer une fonction
 
@@ -109,11 +110,11 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
 
 2. Choisissez votre déclencheur, définissez les propriétés de liaison, puis cliquez sur **Créer**. L’exemple suivant montre les paramètres lors de la création d’une fonction déclenchée par le stockage File d’attente. 
 
-    ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
-    
-    Cet exemple de déclencheur utilise une chaîne de connexion avec une clé nommée **QueueStorage**. Ce paramètre de chaîne de connexion doit être défini dans le fichier local.settings.json. 
- 
-3. Examinez la classe qui vient d’être ajoutée. Vous voyez une méthode statique **Run**, qui est attribuée avec l’attribut **FunctionName**. Cet attribut indique que la méthode est le point d’entrée de la fonction. 
+    ![Créer une fonction déclenchée par une file d’attente](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+
+    Cet exemple de déclencheur utilise une chaîne de connexion avec une clé nommée **QueueStorage**. Ce paramètre de chaîne de connexion doit être défini dans le fichier local.settings.json.
+
+3. Examinez la classe qui vient d’être ajoutée. Vous voyez une méthode statique **Run**, qui est attribuée avec l’attribut **FunctionName**. Cet attribut indique que la méthode est le point d’entrée de la fonction.
 
     Par exemple, la classe C# suivante représente une fonction de stockage déclenchée par le stockage File d’attente :
 
@@ -121,25 +122,56 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
-    
+
     namespace FunctionApp1
     {
         public static class Function1
         {
-            [FunctionName("QueueTriggerCSharp")]        
+            [FunctionName("QueueTriggerCSharp")]
             public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
             {
                 log.Info($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
-    } 
+    }
     ````
- 
     Un attribut spécifique à la liaison est appliqué à chaque paramètre de liaison fourni à la méthode de point d’entrée. L’attribut accepte les informations de liaison en tant que paramètres. Dans l’exemple précédent, un attribut **QueueTrigger** est appliqué au premier paramètre, indiquant ainsi la fonction déclenchée par la file d’attente. Le nom de la file d’attente et le nom du paramètre de la chaîne de connexion sont transmis en tant que paramètres à l’attribut **QueueTrigger**.
+    
+Vous pouvez utiliser la procédure ci-dessus pour ajouter des fonctions à votre projet d’application de fonction. Chaque fonction dans le projet peut avoir un déclencheur différent, mais une fonction ne doit avoir qu’un seul déclencheur. Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+
+## <a name="add-bindings"></a>Ajouter des liaisons
+
+Comme avec les déclencheurs, les liaisons d’entrée et de sortie sont ajoutées à votre fonction en tant qu’attributs de liaison. Ajoutez des liaisons à une fonction comme suit :
+
+1. Vérifiez que vous avez [configuré le projet pour un développement local](#configure-the-project-for-local-development).
+
+2. Ajoutez le package d’extension NuGet approprié pour la liaison spécifique. Pour plus d’informations, consultez [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) (Développement C# local à l’aide de Visual Studio) dans l’article relatifs aux déclencheurs et liaisons. Les exigences de package NuGet spécifique à la liaison sont indiquées dans l’article de référence pour la liaison. Par exemple, recherchez les exigences de package pour le déclencheur Event Hubs dans l’[article de référence de la liaison Event Hubs](functions-bindings-event-hubs.md).
+
+3. Si la liaison requiert des paramètres de l’application, ajoutez-les à la collection **Valeurs** dans le [fichier de paramètres local](functions-run-local.md#local-settings-file). Ces valeurs sont utilisées lorsque la fonction s’exécute localement. Lorsque la fonction s’exécute dans l’application de fonction dans Azure, les [paramètres de l’application de fonction](#function-app-settings) sont utilisés.
+
+4. Ajoutez l’attribut de liaison correspondant à la signature de méthode. Dans l’exemple suivant, un message de file d’attente déclenche la fonction, et la liaison de sortie crée un nouveau message de file d’attente avec le même texte dans une autre file d’attente.
+
+    ```csharp
+    public static class SimpleExampleWithOutput
+    {
+        [FunctionName("CopyQueueMessage")]
+        public static void Run(
+            [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
+            [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
+            TraceWriter log)
+        {
+            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            myQueueItemCopy = myQueueItem;
+        }
+    }
+    ```
+La connexion au stockage de file d’attente est obtenue à partir du paramètre `AzureWebJobsStorage`. Pour plus d’informations, consultez l’article de référence pour la liaison spécifique. 
+
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="testing-functions"></a>Tester les fonctions
 
-Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions sur votre ordinateur de développement local. Vous êtes invité à installer ces outils la première fois que vous démarrez une fonction dans Visual Studio.  
+Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions sur votre ordinateur de développement local. Vous êtes invité à installer ces outils la première fois que vous démarrez une fonction dans Visual Studio.
 
 Pour tester votre fonction, appuyez sur F5. Si vous y êtes invité, acceptez la requête dans Visual Studio pour télécharger et installer Azure Functions Core (CLI) Tools. Vous devrez peut-être activer une exception de pare-feu afin de permettre aux outils de prendre en charge les requêtes HTTP.
 
@@ -153,9 +185,9 @@ Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consulte
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Paramètres Function App   
+## <a name="function-app-settings"></a>Paramètres Function App
 
-Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonction dans Azure. Ces paramètres ne sont pas chargés automatiquement quand vous publiez le projet. 
+Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonction dans Azure. Ces paramètres ne sont pas chargés automatiquement quand vous publiez le projet.
 
 Le moyen le plus simple de charger les paramètres obligatoires sur votre application de fonctions dans Azure consiste à utiliser le lien **Gérer les paramètres d’application...** qui apparaît une fois votre projet correctement publié. 
 
@@ -177,4 +209,4 @@ Pour plus d’informations sur Azure Functions Tools, consultez la section Commo
 
 Pour en savoir plus sur Azure Functions Core Tools, consultez [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md).
 
-Pour en savoir plus sur le développement de fonctions en tant que bibliothèques de classes, consultez [Informations de référence pour les développeurs C# sur Azure Functions](functions-dotnet-class-library.md). Cette rubrique fournit également des liens vers des exemples d’utilisation d’attributs pour déclarer les différents types de liaisons pris en charge par Azure Functions.    
+Pour en savoir plus sur le développement de fonctions en tant que bibliothèques de classes, consultez [Informations de référence pour les développeurs C# sur Azure Functions](functions-dotnet-class-library.md). Cet article fournit également des liens vers des exemples d’utilisation d’attributs pour déclarer les différents types de liaisons pris en charge par Azure Functions.    

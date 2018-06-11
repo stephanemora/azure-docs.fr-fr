@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: DNS inversé
       href: dns-reverse-dns-overview.md
+    - name: Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procédures
   items:
     - name: Créer une zones DNS personnalisée et un enregistrement - Azure CLI
@@ -48,7 +50,7 @@
       items:
         - name: Portail Azure
           href: dns-operations-dnszones-portal.md
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: dns-operations-dnszones.md
         - name: Azure CLI
           href: dns-operations-dnszones-cli.md
@@ -56,7 +58,7 @@
       items:
         - name: Portail Azure
           href: dns-operations-recordsets-portal.md
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: dns-operations-recordsets.md
         - name: Azure CLI
           href: dns-operations-recordsets-cli.md
@@ -84,7 +86,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=dns'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.dns
     - name: Azure CLI
       href: /cli/azure/network/dns

@@ -29,6 +29,8 @@
   items:
     - name: Mise en route
       items:
+        - name: Intégrer plusieurs machines virtuelles à partir du portail
+          href: automation-onboard-solutions-from-browse.md
         - name: Intégrer à partir d’une machine virtuelle Azure
           href: automation-onboard-solutions-from-vm.md
         - name: Intégrer à partir d’un compte Automation
@@ -159,14 +161,12 @@
       items:
         - name: galerie de runbooks
           href: automation-runbook-gallery.md
-        - name: Surveiller des runbooks avec les journaux d’activité
-          href: automation-alert-activity-log.md
+        - name: Surveiller des runbooks avec des alertes de métrique
+          href: automation-alert-metric.md
         - name: Démarrer un runbook depuis des alertes Azure
           href: automation-create-alert-triggered-runbook.md
         - name: Créer une machine virtuelle Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Résoudre une alerte de machine virtuelle Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Démarrer/arrêter des machines virtuelles pendant les heures creuses
           href: automation-solution-vm-management.md
         - name: Supprimer le groupe de ressources
@@ -215,16 +215,12 @@
   items:
     - name: Vidéo de présentation d’Automation
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
-    - name: Formation Azure Automation
-      href: 'https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382'
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Parcours d’apprentissage
-      href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
+      href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/automation/)'
+      href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Notes de publication

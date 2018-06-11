@@ -116,6 +116,8 @@
           href: cdn-troubleshoot-endpoint.md
         - name: Compression de fichiers
           href: cdn-troubleshoot-compression.md
+        - name: Autorités de certification autorisées
+          href: cdn-troubleshoot-allowed-ca.md
 - name: Informations de référence
   items:
     - name: Informations de référence du moteur de règles

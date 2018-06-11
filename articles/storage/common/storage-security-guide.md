@@ -6,34 +6,34 @@ author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32768011"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735325"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
-## <a name="overview"></a>Vue d'ensemble
-
 Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui, une fois réunies, permettent aux développeurs de créer des applications sécurisées :
 
-- Toutes les données écrites dans le stockage Azure sont automatiquement chiffrées à l’aide du [Chiffrement de service de stockage (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Le compte de stockage proprement dit peut être sécurisé à l’aide du contrôle d’accès en fonction du rôle et d’Azure Active Directory. 
+- Toutes les données écrites dans le stockage Azure sont automatiquement chiffrées à l’aide du [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Azure Active Directory (Azure AD) et le contrôle d’accès en fonction du rôle (RBAC) sont pris en charge pour le stockage Azure pour les opérations de gestion des ressources et les opérations de données comme suit :   
+    - Vous pouvez attribuer des rôles RBAC limités au compte de stockage à des principaux de sécurité et utiliser Azure AD pour autoriser les opérations de gestion des ressources telles que la gestion des clés.
+    - L’intégration Azure AD est prise en charge dans la préversion pour les opérations de données sur les services d’objet Blob et de file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité de service gérée. Pour plus d’informations, consultez [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Authentifier l’accès à Azure Storage à l’aide d’Azure Active Directory (préversion)).   
 - Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0.  
 - Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
 
-Cet article fournit une vue d’ensemble sur chacune de ces fonctionnalités de sécurité, qui peuvent être utilisées avec Azure Storage. Des liens vers des articles détaillés vous sont proposés pour vous permettre d’explorer de façon plus détaillée chaque fonctionnalité.
+Cet article fournit une vue d’ensemble sur chacune de ces fonctionnalités de sécurité, qui peuvent être utilisées avec le stockage Azure. Des liens vers des articles détaillés vous sont proposés pour vous permettre d’explorer de façon plus détaillée chaque fonctionnalité.
 
 Voici les sujets qui sont abordés dans cet article :
 
 * [Sécurité du plan de gestion](#management-plane-security) – Sécurisation de votre compte de stockage
 
-  Le plan de gestion se compose des ressources utilisées pour gérer votre compte de stockage. Cette section, couvre modèle de déploiement Azure Resource Manager et la façon d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès à vos comptes de stockage. Il évoque aussi la gestion des clés de compte de stockage et vous expliquerons comment les régénérer.
+  Le plan de gestion se compose des ressources utilisées pour gérer votre compte de stockage. Cette section couvre le modèle de déploiement Azure Resource Manager et la façon d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès à vos comptes de stockage. Elle couvre aussi la gestion des clés de compte de stockage et vous explique comment les regénérer.
 * [Sécurité du plan de données](#data-plane-security) – Sécurisation de l’accès à vos données
 
   Dans cette section, nous verrons comment autoriser l’accès aux objets de données réels de votre compte de stockage (objets blob, fichiers, files d’attente et tables) en utilisant des signatures d’accès partagé et des stratégies d’accès stockées. Nous évoquerons à la fois les signatures d’accès partagé (SAP) au niveau des services et les signatures d’accès partagé au niveau des comptes. Nous verrons aussi comment limiter l’accès à une adresse IP spécifique (ou à une plage d’adresses IP), comment limiter le protocole utilisé pour HTTPS et comment révoquer une signature d’accès partagé sans attendre son expiration.
@@ -109,7 +109,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
   Ce lien donne accès à une vidéo sur Channel 9 enregistrée à l’occasion de la conférence MS Ignite en 2015. Cette session traite des fonctionnalités de gestion d’accès et de création de rapports d’Azure et explore les bonnes pratiques en ce qui concerne la sécurisation de l’accès aux abonnements Azure à l’aide d’Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Gestion des clés de compte de stockage
-Les clés de compte de stockage sont des chaînes de 512 bits créés par Azure qui, combinées avec le nom de compte de stockage, permettent d’accéder aux objets de données présents dans le compte de stockage, notamment les blobs, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage de fichiers Azure. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
+Les clés de compte de stockage sont des chaînes de 512 bits créées par Azure qui, combinées avec le nom de compte de stockage, permettent d’accéder aux objets de données présents dans le compte de stockage, notamment les blobs, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage de fichiers Azure. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
 
 Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
 
@@ -161,12 +161,15 @@ Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans tou
 ## <a name="data-plane-security"></a>Sécurité du plan de données
 La sécurité du plan de données fait référence aux méthodes permettant de sécuriser les objets de données stockés dans Azure Storage : les objets blob, files d’attente, tables et fichiers. Nous avons vu des méthodes qui permettent de chiffrer les données et la sécurité pendant le transit des données, mais comment faire pour contrôler l’accès aux objets ?
 
-Deux méthodes permettent d’autoriser l’accès aux objets de données eux-mêmes. Il s’agit de contrôler l’accès aux clés de compte de stockage et d’utiliser des signatures d’accès partagé pour accorder l’accès à des objets de données spécifiques pour une durée déterminée.
+Trois options vous permettent d’autoriser l’accès aux objets de données dans le stockage Azure, notamment :
+
+- Utilisation d’Azure AD pour autoriser l’accès aux conteneurs et files d’attente (préversion). Azure AD offre des avantages par rapport à d’autres approches d’autorisation, notamment la suppression de la nécessité de stocker des secret dans votre code. Pour plus d’informations, consultez [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Authentifier l’accès à Azure Storage à l’aide d’Azure Active Directory (préversion)). 
+- Utilisation de vos clés de compte de stockage pour autoriser l’accès via la clé partagée. L’autorisation via la clé partagée nécessite de stocker vos clés de compte de stockage dans votre application. Lorsque cela est possible, Microsoft recommande donc d’utiliser Azure AD. Pour les applications de production, ou pour autoriser l’accès aux tables et fichiers Azure, continuez à utiliser la clé partagée lorsque l’intégration Azure AD est en préversion.
+- Utilisation de signatures d’accès partagé pour accorder des autorisations contrôlées sur des objets de données spécifiques pour une durée spécifique.
 
 Par ailleurs, pour le stockage Blob, vous pouvez autoriser un accès public à vos objets blob en définissant de manière appropriée le niveau d’accès du conteneur qui contient les objets blob. Si vous définissez l’accès pour un conteneur sur Objet blob ou Conteneur, vous autorisez l’accès en lecture public pour les objets blob de ce conteneur. Cela signifie que toute personne avec une URL pointant vers un objet blob dans ce conteneur peut l’ouvrir dans un navigateur sans utiliser de signature d’accès partagé ni disposer de clé de compte de stockage.
 
 En plus de limiter l’accès par le biais de l’autorisation, vous pouvez également utiliser [Pare-feu et réseaux virtuels](storage-network-security.md) pour limiter l’accès au compte de stockage en fonction des règles de réseau.  Cette approche vous permet de refuser l’accès au trafic Internet public et d’accorder l’accès uniquement à certains réseaux virtuels Azure ou certaines plages d’adresses IP Internet publiques.
-
 
 ### <a name="storage-account-keys"></a>Clés de compte de stockage
 Les clés de compte de stockage sont des chaînes de 512 bits créées par Azure qui, combinées avec le nom de compte, permettent d’accéder aux objets de données stockés dans le compte de stockage.
@@ -265,21 +268,9 @@ Pour disposer d’un canal de communication sécurisé, vous devez toujours util
 Vous pouvez appliquer l’utilisation du protocole HTTPS lorsque vous appelez les API REST pour accéder aux objets dans les comptes de stockage en activant l’option [Transfert sécurisé requis](../storage-require-secure-transfer.md) pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Utilisation du chiffrement pendant le transit avec des partages de fichiers Azure
-Azure Files prend en charge HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et l’accès sur le bureau.
+[Azure Files](../files/storage-files-introduction.md) prend en charge le chiffrement via SMB 3.0 et avec HTTPS lors de l’utilisation de l’API REST File. Lors du montage en dehors de la région Azure dans laquelle se trouve le partage de fichiers Azure, comme localement ou dans une autre région Azure, SMB 3.0 avec chiffrement est toujours requis. SMB 2.1 ne prend pas en charge le chiffrement. Par défaut, les connexions ne sont autorisées que dans la même région dans Azure, mais SMB 3.0 avec chiffrement peut être appliqué en [exigeant un transfert sécurisé](../storage-require-secure-transfer.md) pour le compte de stockage.
 
-Si les partages de fichiers Azure peuvent être utilisés avec Unix, le client SMB de Linux ne prend pas encore en charge le chiffrement. L’accès est donc autorisé uniquement dans une région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
-
-Vous pouvez appliquer l’utilisation du chiffrement avec le service Azure Files en activant l’option [Transfert sécurisé requis](../storage-require-secure-transfer.md) pour le compte de stockage. Si vous utilisez les API REST, le protocole HTTPS est requis. Pour SMB, seules les connexions SMB qui prennent en charge le chiffrement seront établies avec succès.
-
-#### <a name="resources"></a>Ressources
-* [Présentation d’Azure Files](../files/storage-files-introduction.md)
-* [Bien démarrer avec Azure Files sur Windows](../files/storage-how-to-use-files-windows.md)
-
-  Cet article offre une vue d’ensemble des partages de fichiers Azure et décrit comment les monter et les utiliser sur Windows.
-
-* [Comment utiliser Azure Files avec Linux](../files/storage-how-to-use-files-linux.md)
-
-  Cet article montre comment monter un partage de fichiers Azure sur un système Linux et comment charger/télécharger des fichiers.
+SMB 3.0 avec chiffrement est disponible dans [tous les systèmes d’exploitation Windows et Windows Server pris en charge](../files/storage-how-to-use-files-windows.md) à l’exception de Windows 7 et Windows Server 2008 R2, qui prennent uniquement en charge SMB 2.1. SMB 3.0 est également pris en charge sur [macOS](../files/storage-how-to-use-files-mac.md) et sur les distributions de [Linux](../files/storage-how-to-use-files-linux.md) utilisant le noyau Linux 4.11 et versions ultérieures. La prise en charge du chiffrement pour SMB 3.0 a également été appliquée dans des versions antérieures du noyau Linux par plusieurs distributions Linux, consultez [Understanding SMB client requirements](../files/storage-how-to-use-files-linux.md#smb-client-reqs) (Présentation des exigences de client SMB).
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Utilisation du chiffrement côté client pour sécuriser les données envoyées dans le stockage
 Le chiffrement côté client est une autre méthode possible pour garantir la sécurité de vos données pendant leur transfert entre une application cliente et Azure Storage. Les données sont chiffrées avant d’être transférées vers Azure Storage. Quand vous récupérez les données d’Azure Storage, les données sont déchiffrées seulement après leur réception côté client. Même si les données sont chiffrées quand elles sont en transit sur le réseau, nous vous recommandons d’utiliser également le protocole HTTPS. En effet, HTTPS inclut des vérifications de l’intégrité des données qui contribuent à réduire les erreurs réseau ayant un impact sur l’intégrité des données.
@@ -287,13 +278,13 @@ Le chiffrement côté client est une autre méthode possible pour garantir la s�
 Le chiffrement côté client est aussi une méthode qui vous permet de chiffrer vos données au repos, car les données sont stockées dans leur forme chiffrée. Nous discuterons de ce point plus en détail dans la section sur le [chiffrement au repos](#encryption-at-rest).
 
 ## <a name="encryption-at-rest"></a>Chiffrement au repos
-Il existe trois fonctionnalités Azure qui fournissent un chiffrement au repos. La première, Azure Disk Encryption, s’utilise pour chiffrer les disques de données et de système d’exploitation utilisés par des machines virtuelles IaaS. Le chiffrement côté client et SSE, sont utilisés pour chiffrer les données dans Azure Storage. 
+Il existe trois fonctionnalités Azure qui fournissent un chiffrement au repos. La première, Azure Disk Encryption, s’utilise pour chiffrer les disques de données et de système d’exploitation utilisés par des machines virtuelles IaaS. Le chiffrement côté client et SSE sont utilisés pour chiffrer les données dans le stockage Azure. 
 
-Vous pouvez utiliser le chiffrement côté client pour chiffrer les données en transit (ces données sont également stockées dans leur forme chiffrée dans Azure Storage). Si vous préférez, vous pouvez aussi utiliser le protocole HTTPS pendant le transfert et utiliser un autre moyen de votre choix pour chiffrer automatiquement les données stockées. Il existe deux méthodes possibles : Azure Disk Encryption et SSE. La première chiffre les données directement sur les disques de données et de système d’exploitation. La seconde chiffre les données qui sont écrites dans le stockage Azure Blob Storage.
+Vous pouvez utiliser le chiffrement côté client pour chiffrer les données en transit (ces données sont également stockées dans leur forme chiffrée dans le stockage Azure). Si vous préférez, vous pouvez aussi utiliser le protocole HTTPS pendant le transfert et utiliser un autre moyen de votre choix pour chiffrer automatiquement les données stockées. Il existe deux méthodes possibles : Azure Disk Encryption et SSE. La première chiffre les données directement sur les disques de données et de système d’exploitation. La seconde chiffre les données qui sont écrites dans le stockage Azure Blob Storage.
 
 ### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
 
-SSE est activé pour tous les comptes de stockage et ne peut pas être désactivé. SSE chiffre automatiquement vos données lors de leur écriture dans le stockage Azure. Lorsque vous lisez des données depuis le stockage Azure, elles déchiffrées par le stockage Azure avant d’être retournées. SSE vous permet de sécuriser vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
+SSE est activé pour tous les comptes de stockage et ne peut pas être désactivé. SSE chiffre automatiquement vos données lors de leur écriture dans le stockage Azure. Lorsque vous lisez des données depuis le stockage Azure, elles sont déchiffrées par le stockage Azure avant d’être retournées. SSE vous permet de sécuriser vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
 
 Vous pouvez utiliser des clés gérées par Microsoft ou vos propres clés personnalisées. Microsoft génère les clés gérées, puis gère leur stockage sécurisé ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. Pour en savoir plus sur l’utilisation de clés personnalisées, consultez [Storage Service Encryption avec des clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
@@ -377,7 +368,7 @@ Le chiffrement côté client entraîne une plus grande charge pour le client. Vo
 
 #### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
 
-SSE est géré par le Stockage Azure. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans Azure Storage. Le chiffrement du service de stockage n’affecte pas les performances de Stockage Azure.
+SSE est géré par le Stockage Azure. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans le stockage Azure. Le chiffrement du service de stockage n’affecte pas les performances de Stockage Azure.
 
 Il est possible de chiffrer tous types de données du compte de stockage avec SSE (objets blob de blocs, objets blob d’ajout, objets blob de pages, données de table, données de file d’attente et fichiers).
 
@@ -514,8 +505,7 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
    Microsoft laisse à chaque client le soin de décider si le mode FIPS doit être activé. Nous pensons qu’il n’existe aucune raison valable pour les clients qui ne sont pas soumis aux réglementations gouvernementales d’activer le mode FIPS par défaut.
 
-   **Ressources**
-
+### <a name="resources"></a>Ressources
 * [Why We’re Not Recommending “FIPS Mode” Anymore (Pourquoi nous ne recommandons plus le « mode FIPS »)](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Cet article de blog donne une vue d’ensemble des normes FIPS et explique pourquoi le mode FIPS n’est plus activé par défaut.

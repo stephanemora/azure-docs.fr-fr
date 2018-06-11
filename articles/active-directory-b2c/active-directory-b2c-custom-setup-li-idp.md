@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités OAuth2 à l’aide de stratégies personnalisées'
-description: Article sur la procédure à suivre pour configurer une application LinkedIn à l’aide du protocole OAuth2 et de stratégies personnalisées
+title: Ajouter LinkedIn en tant que fournisseur d’identité OAuth2 à l’aide de stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
+description: Article sur la procédure à suivre pour configurer une application LinkedIn à l’aide du protocole OAuth2 et de stratégies personnalisées.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709323"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
