@@ -28,7 +28,11 @@
 - name: Concepts
   items:
     - name: Transition de portail OMS
-      href: log-analytics-oms-portal-faq.md
+      items:
+        - name: Vue d'ensemble
+          href: log-analytics-oms-portal-transition.md
+        - name: Questions courantes
+          href: log-analytics-oms-portal-faq.md
     - name: Mise à niveau de l’espace de travail
       items:
         - name: Présentation de la mise à niveau
