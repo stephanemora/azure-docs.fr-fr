@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 79e7d049ebf184e273e05250bd6f112d4c6be53d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34715358"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806868"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide de l’éditeur Place de marché Azure et AppSource
 
@@ -144,7 +144,7 @@ Voici la liste des options de support pour la Place de marché Microsoft Azure :
 |Canal de support  |Description  |
 |---------|---------|
 |Forums MSDN : [Place de marché](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum Microsoft Developer Network.         |
-|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Environnement Stack Overflow permettant d’obtenir des solutions et de poser des questions sur tout ce qui concerne Azure et la Place de Marché :<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Environnement Stack Overflow permettant d’obtenir des solutions et de poser des questions sur tout ce qui concerne Azure et la Place de Marché :<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Containers sur Azure](https://stackoverflow.com/search?q=azure+container)</li></ul> |
 
 
 **Ressources marketing**
@@ -215,7 +215,10 @@ Pour plus d’informations sur les avantages de commercialisation et les moyens 
 |**Prérequis**  |**Détails** |**Option de publication**  |
 |---------|---------|---------|
 |**Facturation et mesure**   |  Votre conteneur doit prendre en charge soit les modèles de facturation gratuit, soit les modèles BYOL (Bring Your Own License - Apportez votre propre licence).       |  Transaction       |
-|**Image Docker**    |   Les images de conteneur doivent être basées sur le format d’image Docker et doivent être extraites des registres de conteneurs Azure.      |  Transaction       |
+|**Image créée à partir du fichier Dockerfile**    |   Les images de conteneur doivent être basées sur la spécification d’image Docker et doivent être générées à partir d’un fichier Dockerfile. Vous trouverez plus d’informations sur la création d’images Docker [ici].(https://docs.docker.com/engine/reference/builder/#usage)     |  Transaction       |
+|**Hébergement dans ACR**    |   Les images de conteneur doivent être hébergées dans un Azure Container Registry (ACR). Apprenez en plus sur comment travailler avec ACR [ici].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     |  Transaction       |
+|**Balisage d’images**    |   Les images de conteneur doivent contenir au moins 1 balise (nombre maximal de balises : 16). Apprenez en plus sur le balisage d’une image [ici].(https://docs.docker.com/engine/reference/commandline/tag/)     |  Transaction       |
+
 
 #### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>Prérequis concernant la publication avec l’option Transaction pour les abonnements d’application SaaS
 
@@ -224,7 +227,8 @@ Pour plus d’informations sur les avantages de commercialisation et les moyens 
 |**Facturation et mesure**    |   Votre offre est facturée selon un tarif mensuel forfaitaire. La tarification basée sur l’utilisation et les capacités d’égalisation basées sur l’utilisation ne sont pas prises en charge pour l’instant.      |   Transaction      |
 |**Annulation**  |   Votre offre peut être annulée par le client à tout moment.      |   Transaction      |
 |**Page d’accueil de transaction**     |   Vous hébergez une page d’accueil de transaction conjointe avec Azure, sur laquelle les utilisateurs peuvent créer et gérer leur compte de service SaaS.      |    Transaction     |
-|**API d’abonnement SaaS**    |   Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement.      |     Transaction    |
+|**API d’abonnement**    |   Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement.      |     Transaction    |
+
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Prérequis spécifiques à la publication avec l’option Services de conseil
 
