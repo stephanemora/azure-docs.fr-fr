@@ -33,6 +33,8 @@
 ### [Créer des Event Hubs prenant en charge Kafka](event-hubs-create-kafka-enabled.md) 
 ### [Transmission en continu vers les Event Hubs Azure pour l’écosystème Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 ### [Utilisation de Kafka MirrorMaker avec des Event Hubs Azure pour l’écosystème Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
+### [Utilisation d’Apache Flink avec Event Hubs pour l’écosystème Kafka](event-hubs-kafka-flink-tutorial.md)
+### [Utilisation d’Akka Streams avec Event Hubs pour l’écosystème Kafka](event-hubs-kafka-akka-streams-tutorial.md)
 ## Développement
 ### [Envoyer des événements à l’aide de .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Recevoir des événements à l’aide de .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
@@ -40,7 +42,7 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Journaux de diagnostic](event-hubs-diagnostic-logs.md)
-### [Guide du protocole AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+### [Guide du protocole AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## gérer
 ### [Analyser Event Hubs avec la surveillance Azure](event-hubs-metrics-azure-monitor.md)
 ### [Bibliothèques de gestion d’Event Hubs](event-hubs-management-libraries.md)

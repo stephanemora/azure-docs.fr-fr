@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Didacticiels
   items:
+    - name: Créer un cluster Kubernetes avec AKS et Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
     - name: Emplacements de déploiement fournisseur Terraform et Azure
       href: terraform-slot-walkthru.md
     - name: Créer une machine virtuelle Terraform avec le paramètre MSI activé
