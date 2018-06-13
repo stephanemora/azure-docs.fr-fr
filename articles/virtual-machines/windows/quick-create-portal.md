@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure | Microsoft Docs'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le Portail Azure pour créer une machine virtuelle Windows.
 services: virtual-machines-windows
@@ -64,7 +64,7 @@ Créez une connexion Bureau à distance à la machine virtuelle. Ces instruction
     
 2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par nom DNS sur le port 3389 et cliquez sur **Télécharger le fichier RDP**.
 
-2. Ouvrez le fichier RDP téléchargé et, à l’invite, cliquez sur **Se connecter**. 
+2. Ouvrez le fichier RDP téléchargé et cliquez sur **Se connecter** lorsque vous y êtes invité.
 
 3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *nom_machine_virtuelle*\*nom_utilisateur*, entrez le mot de passe créé pour la machine virtuelle, puis cliquez sur **OK**.
 
@@ -78,7 +78,7 @@ Pour voir votre machine virtuelle en action, installez le serveur web IIS. Ouvre
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Ensuite, fermez la connexion RDP à la machine virtuelle.
+Une fois terminé, fermez la connexion RDP à la machine virtuelle.
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 
