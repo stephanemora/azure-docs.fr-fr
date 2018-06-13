@@ -45,7 +45,7 @@ L’intégration de vos annuaires locaux avec Azure AD améliore la productivit�
 * Fournit les fonctionnalités les plus récentes pour vos scénarios. Azure AD Connect remplace les versions antérieures des outils d’intégration d’identité tels que DirSync et Azure AD Sync. Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](../active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### <a name="how-azure-ad-connect-works"></a>Fonctionnement d’Azure AD Connect
-Azure Active Directory Connect est constitué de trois composants principaux : les services de synchronisation, le composant Active Directory Federation Services facultatif et le composant d’analyse nommé [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+Azure Active Directory Connect est constitué de trois composants principaux : les services de synchronisation, le composant facultatif Active Directory Federation Services, et le composant d’analyse nommé [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 <center>![Pile Azure AD Connect](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
 </center>
