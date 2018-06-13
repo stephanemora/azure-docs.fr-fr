@@ -78,7 +78,7 @@ Pour voir votre machine virtuelle en action, installez le serveur web IIS. Ouvre
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Ensuite, fermez la connexion RDP à la machine virtuelle.
+Une fois terminé, fermez la connexion RDP à la machine virtuelle.
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 
