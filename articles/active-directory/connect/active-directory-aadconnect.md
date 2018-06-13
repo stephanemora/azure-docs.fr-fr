@@ -91,7 +91,7 @@ Il peut également être judicieux de se préparer aux préoccupations [opérati
 |Planification opérationnelle | [Azure Connect AD sync : tâches et examen opérationnels](active-directory-aadconnectsync-operations.md)|
 |Options de connexion utilisateur | [Options de connexion de l’utilisateur via Azure AD Connect](active-directory-aadconnect-user-signin.md)|
 
-## <a name="configure-sync-features"></a>Configuration de fonctionnalités de synchronisation
+## <a name="configure-sync-features"></a>Configuration des fonctionnalités de synchronisation
 Azure AD Connect est doté de plusieurs fonctionnalités que vous pouvez activer ou qui sont activées par défaut. Certaines fonctionnalités peuvent parfois nécessiter une configuration supplémentaire dans des topologies et scénarios spécifiques.
 
 [filtrage](active-directory-aadconnectsync-configure-filtering.md) est utilisé lorsque vous souhaitez limiter le nombre d’objets synchronisés sur Azure AD. Par défaut, tous les utilisateurs, contacts, groupes et ordinateurs Windows 10 sont synchronisés. Vous pouvez modifier le filtrage en fonction des domaines, des unités d’organisation ou des attributs.
@@ -135,7 +135,7 @@ Le modèle de configuration dans la synchronisation est appelé [Approvisionneme
 |Approvisionnement déclaratif | [Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)|
 |Modifier la configuration par défaut | [Meilleures pratiques pour la modification de la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
-## <a name="configure-federation-features"></a>Configuration de fonctionnalités de fédération
+## <a name="configure-federation-features"></a>Configuration des fonctionnalités de fédération
 
 Azure AD Connect fournit plusieurs fonctionnalités qui simplifient la fédération avec Azure AD à l’aide d’AD FS, ainsi que la gestion de l’approbation de fédération. Azure AD Connect prends en charge AD FS sur Windows Server 2012R2 et les versions ultérieures.
 
@@ -155,7 +155,7 @@ Si votre serveur ADFS n’a pas été configuré pour mettre à jour automatique
 |Tous les articles AD FS | [Fédération avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)|
 |Configuration d’ADFS avec des sous-domaines | [Prise en charge de plusieurs domaines pour la fédération avec Azure AD](active-directory-aadconnect-multiple-domains.md)|
 |Gérer la batterie AD FS | [Gestion AD FS et personnalisation avec Azure AD Connect](active-directory-aadconnect-federation-management.md)|
-|Mise à jour manuelle de certificats de fédération | [Renouvellement des certificats de fédération pour Office 365 et Azure AD](active-directory-aadconnect-o365-certs.md)|
+|Mise à jour manuelle des certificats de fédération | [Renouvellement des certificats de fédération pour Office 365 et Azure AD](active-directory-aadconnect-o365-certs.md)|
 
 ## <a name="more-information-and-references"></a>Plus d’informations et de références
 |Rubrique |Lien|  
