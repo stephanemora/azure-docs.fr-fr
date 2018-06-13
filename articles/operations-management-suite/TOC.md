@@ -23,13 +23,12 @@
 ### [Vue d’ensemble de Microsoft Azure Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Sécuriser
-### [Surveiller les ressources](oms-security-monitoring-resources.md)
-### [Répondre à des alertes de sécurité](oms-security-responding-alerts.md)
-### [Évaluation de la ligne de base](oms-security-baseline.md)
-### [Évaluation des logiciels malveillants](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Évaluation des mises à jour du système](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Connecter des produits de sécurité](oms-security-connect-products.md)
-### [Évaluation de la ligne de base web](oms-security-web-baseline-assessment.md)
+### [Surveiller les ressources](../security-center/security-center-monitoring.md)
+### [Répondre à des alertes de sécurité](../security-center/security-center-managing-and-responding-alerts.md)
+### [Évaluation de la ligne de base](../security-center/security-center-customize-os-security-config.md)
+### [Évaluation des logiciels malveillants](../security-center/security-center-install-endpoint-protection.md)
+### [Connecter des produits de sécurité](../security-center/quick-security-solutions.md)
+### [Évaluation de la ligne de base web](../security-center/security-center-customize-os-security-config.md)
 
 ## Utiliser des solutions
 ### [Liste des solutions de gestion](../monitoring/monitoring-solutions.md)
@@ -46,7 +45,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Service Map
-##### [Procédure pas à pas](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Utilisation](../monitoring/monitoring-service-map.md)
 ##### [Configurer](../monitoring/monitoring-service-map-configure.md)
 ##### [Intégration avec Operations Manager](../monitoring/monitoring-service-map-scom.md)

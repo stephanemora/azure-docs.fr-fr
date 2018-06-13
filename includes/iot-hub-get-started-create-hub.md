@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: d586ca18953b12045fbbaa4a656d78a7192eb88e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "34371233"
 ---
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
@@ -26,27 +26,27 @@ Créez un IoT Hub pour que votre application de périphérique simulé puisse se
 
 1. Dans le volet **IoT Hub**, entrez les informations suivantes pour votre IoT Hub :
 
-   * **Abonnement** : choisissez l’abonnement que vous souhaitez utiliser pour créer ce IoT Hub.
+   * **Abonnement** : choisissez l’abonnement que vous souhaitez utiliser pour créer cet IoT Hub.
 
-   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. Pour plus d’informations, consulter [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups].
+   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. Pour plus d’informations, consultez l’article [Use resource groups to manage your Azure resources][lnk-resource-groups] (Utiliser des groupes de ressources pour gérer vos ressources Azure).
 
-   * **Région** : sélectionnez l’emplacement le plus proche de vous.
+   * **Région** : sélectionnez la région correspondant à votre emplacement.
 
    * **Nom** : créer un nom de votre IoT Hub. Si le nom saisi est disponible, une coche verte s’affiche.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Fenêtre Bases de IoT Hub][2]
+   ![Fenêtre Bases de l’IoT Hub][2]
 
-2. Sélectionnez **Suivant : taille et échelle** pour poursuivre la création de votre IoT hub. 
+2. Sélectionnez **Suivant : taille et échelle** pour poursuivre la création de votre IoT Hub. 
 
-3. Choisissez votre **niveau de tarification et de mise à l'échelle**. Pour cet article, sélectionnez le niveau **F1 - libre** s’il est toujours disponible sur votre abonnement. Pour plus d’informations, consultez [Niveau de tarification et de mise à l’échelle][lnk-pricing].
+3. Choisissez votre **niveau de tarification et de mise à l’échelle**. Pour cet article, sélectionnez le niveau **F1 - Gratuit** s’il est toujours disponible sur votre abonnement. Pour plus d’informations, consultez [Niveau de tarification et de mise à l’échelle][lnk-pricing].
 
-   ![Fenêtre de taille et échelle du IoT Hub][3]
+   ![Fenêtre de taille et de mise à l’échelle de l’IoT Hub][3]
 
-4. Sélectionner **Revoir + créer**.
+4. Sélectionnez **Revoir + créer**.
 
-1. Passez en revue vos informations de IoT hub, puis cliquez sur **Créer**. La création de votre IoT Hub peut prendre plusieurs minutes. Vous pouvez suivre la progression dans le volet **Notifications**.
+1. Passez en revue vos informations d’IoT Hub, puis cliquez sur **Créer**. La création de votre IoT Hub peut prendre plusieurs minutes. Vous pouvez suivre la progression dans le volet **Notifications**.
 
 1. Lorsque votre IoT Hub est prêt, cliquez sur sa vignette dans le portail Azure pour ouvrir la fenêtre de ses propriétés. Maintenant que vous avez créé un IoT Hub, recherchez les informations importantes que vous utilisez pour connecter des appareils et des applications à votre IoT Hub. Cliquer sur **Stratégies d’accès partagé**.
    

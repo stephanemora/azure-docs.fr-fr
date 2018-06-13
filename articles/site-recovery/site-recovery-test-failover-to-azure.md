@@ -1,6 +1,6 @@
 ---
-title: "Tester le basculement vers Azure dans Azure Site Recovery | Microsoft Docs"
-description: "Découvrez l’exécution d’un test de basculement à partir d’un site local vers Azure, à l’aide du service Azure Site Recovery."
+title: Tester le basculement vers Azure dans Azure Site Recovery | Microsoft Docs
+description: Découvrez l’exécution d’un test de basculement à partir d’un site local vers Azure, à l’aide du service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643649"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Tester le basculement vers Azure dans Site Recovery
 
@@ -40,7 +41,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
     - Site Recovery essaie de créer des machines virtuelles de test dans un sous-réseau avec le même nom et la même adresse IP que ceux fournis dans les paramètres **Calcul et réseau** de la machine virtuelle.
     - Si aucun sous-réseau portant le même nom n’est disponible dans le réseau virtuel Azure utilisé pour le test de basculement, alors la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique.
-    - Si la même adresse IP n’est pas disponible dans le sous-réseau, alors la machine virtuelle reçoit une autre adresse IP disponible dans le sous-réseau. [Plus d’informations](#creating-a-network-for-test-failover)
+    - Si la même adresse IP n’est pas disponible dans le sous-réseau, alors la machine virtuelle reçoit une autre adresse IP disponible dans le sous-réseau. [Plus d’informations](#create-a-network-for-test-failover)
 4. Si vous effectuez le basculement vers Azure alors que le chiffrement des données est activé, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement pendant l’installation du fournisseur. Vous pouvez ignorer cette étape si le chiffrement n’est pas activé.
 5. Effectuez un suivi de l’opération sur l’onglet **Tâches** . Vous devriez voir apparaître l’ordinateur virtuel de réplication de test sur le portail Microsoft Azure.
 6. Pour lancer une connexion RDP à la machine virtuelle Azure, vous devez [ajouter une adresse IP publique](https://aka.ms/addpublicip) sur l’interface réseau de la machine virtuelle basculée. 
@@ -112,5 +113,5 @@ Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez exécuté une simulation de récupération d’urgence, découvrez les autres types de [basculement](site-recovery-failover.md).
