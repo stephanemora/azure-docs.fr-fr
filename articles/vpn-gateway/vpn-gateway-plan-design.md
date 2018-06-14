@@ -1,11 +1,11 @@
 ---
-title: "Planification et conception des connexions entre les systèmes locaux : passerelle VPN Azure | Microsoft Docs"
-description: "En savoir plus sur la planification et la conception de la passerelle VPN pour les connexions entre locaux, hybrides et entre réseaux virtuels"
+title: 'Planification et conception des connexions entre les systèmes locaux : passerelle VPN Azure | Microsoft Docs'
+description: En savoir plus sur la planification et la conception de la passerelle VPN pour les connexions entre locaux, hybrides et entre réseaux virtuels
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125477"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planification et conception de la passerelle VPN
 
