@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800021"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitation de requêtes avancée avec Gestion des API Azure
 La possibilité de limiter les requêtes entrantes est un rôle clé du service Gestion des API Azure. En contrôlant la fréquence des requêtes ou le nombre total de requêtes/données transférées, Gestion des API permet aux fournisseurs d’API de protéger leurs API contre les abus et de créer de la valeur pour différents niveaux de produits API.

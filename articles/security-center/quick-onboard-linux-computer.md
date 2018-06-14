@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530164"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Linux à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources Linux s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Linux.

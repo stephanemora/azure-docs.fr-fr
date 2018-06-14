@@ -1,6 +1,6 @@
 ---
-title: "Configuration du délai d’inactivité TCP de l’équilibrage de charge | Microsoft Docs"
-description: "Configuration du délai d’inactivité TCP de l’équilibrage de charge"
+title: Configuration du délai d’inactivité TCP de l’équilibrage de charge | Microsoft Docs
+description: Configuration du délai d’inactivité TCP de l’équilibrage de charge
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020904"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configuration des paramètres de délai d’inactivité et d’expiration TCP pour Azure Load Balancer
 

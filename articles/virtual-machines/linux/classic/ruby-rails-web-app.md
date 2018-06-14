@@ -1,11 +1,11 @@
 ---
-title: "Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | Microsoft Docs"
-description: "Configuration et hébergement d'un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux."
+title: Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | Microsoft Docs
+description: Configuration et hébergement d'un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397595"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Application Web Ruby on Rails sur une machine virtuelle Azure
 Ce didacticiel explique comment héberger un site web Ruby on Rails sur Azure à l'aide d'une machine virtuelle Linux.  
@@ -127,7 +128,7 @@ Le résultat ressemble à ce qui suit.
 
     ![page rails par défaut][default-rails-cloud]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez effectué la plupart des étapes manuellement. Dans un environnement de production, vous écririez votre application sur un ordinateur de développement et la déploieriez sur la machine virtuelle Azure. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques. Pour plus d’informations, consultez http://rubyonrails.org/deploy/.
 
 Pour en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][rails-guides].

@@ -1,11 +1,11 @@
 ---
-title: "Ajouter plusieurs connexions site à site de la passerelle VPN à un réseau virtuel : Portail Azure : Resource Manager | Microsoft Docs"
-description: "Ajouter des connexions S2S multisites à une passerelle VPN qui dispose déjà d’une connexion"
+title: 'Ajouter plusieurs connexions site à site de la passerelle VPN à un réseau virtuel : Portail Azure : Resource Manager | Microsoft Docs'
+description: Ajouter des connexions S2S multisites à une passerelle VPN qui dispose déjà d’une connexion
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398601"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
@@ -91,6 +92,6 @@ Vérifiez les points suivants :
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.

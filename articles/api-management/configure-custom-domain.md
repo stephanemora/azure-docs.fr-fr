@@ -1,11 +1,11 @@
 ---
-title: "Configurer un nom de domaine personnalisé pour une instance de gestion des API Azure | Microsoft Docs"
-description: "Cette rubrique explique comment configurer un nom de domaine personnalisé pour votre instance de gestion des API Azure."
+title: Configurer un nom de domaine personnalisé pour une instance de gestion des API Azure | Microsoft Docs
+description: Cette rubrique explique comment configurer un nom de domaine personnalisé pour votre instance de gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29345368"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé 
 
@@ -62,6 +63,6 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Mettre à niveau votre service et le mettre à l’échelle](upgrade-and-scale.md)

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574970"
 ---
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées par ce démarrage rapide en procédant de la façon suivante de façon à ne pas exposer de coûts :
 
