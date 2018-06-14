@@ -21,6 +21,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337756"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer
 Cet article vous aide à résoudre les problèmes suivants :

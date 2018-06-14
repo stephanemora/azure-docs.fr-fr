@@ -1,8 +1,8 @@
 ---
-title: "Informations d’identification du déploiement d’Azure App Service | Microsoft Docs"
-description: "Apprenez à utiliser les informations d’identification du déploiement d’Azure App Service."
+title: Informations d’identification du déploiement d’Azure App Service | Microsoft Docs
+description: Apprenez à utiliser les informations d’identification du déploiement d’Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778545"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](app-service-deploy-local-git.md) et le [déploiement FTP/S](app-service-deploy-ftp.md). Ils ne sont pas les mêmes que vos informations d’identification Azure Active Directory.
@@ -90,6 +91,6 @@ Pour réinitialiser les informations d’identification au niveau de l’applica
 
     L’action de réinitialisation invalide les fichiers .PublishSettings précédemment téléchargés.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment utiliser ces informations d’identification pour déployer votre application à partir de [Git local](app-service-deploy-local-git.md) ou à l’aide de [FTP/S](app-service-deploy-ftp.md).

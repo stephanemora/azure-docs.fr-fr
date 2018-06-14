@@ -1,11 +1,11 @@
 ---
-title: "Définition du lecteur D: d’une machine virtuelle comme lecteur de données | Microsoft Docs"
-description: "Décrit comment modifier les lettres de lecteurs pour une machine virtuelle Windows, afin que vous puissiez utiliser le lecteur D: comme lecteur de données."
+title: 'Définition du lecteur D: d’une machine virtuelle comme lecteur de données | Microsoft Docs'
+description: 'Décrit comment modifier les lettres de lecteurs pour une machine virtuelle Windows, afin que vous puissiez utiliser le lecteur D: comme lecteur de données.'
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577443"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilisation du lecteur D comme lecteur de données sur une machine virtuelle Windows
 Si votre application doit utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser une autre lettre de lecteur pour le disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.
@@ -62,6 +63,6 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 8. Cliquez sur **Appliquer**. Vous serez averti que l'ordinateur doit être redémarré pour que les modifications prennent effet.
 9. Redémarrez la machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en y [attachant un disque de données supplémentaire](attach-managed-disk-portal.md).
 

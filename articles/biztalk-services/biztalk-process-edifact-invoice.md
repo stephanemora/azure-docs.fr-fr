@@ -1,11 +1,11 @@
 ---
-title: "Didacticiel : Traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Microsoft Docs"
-description: "Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service"
+title: 'Didacticiel : Traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Microsoft Docs'
+description: Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
 ms.service: biztalk-services
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633864"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
 

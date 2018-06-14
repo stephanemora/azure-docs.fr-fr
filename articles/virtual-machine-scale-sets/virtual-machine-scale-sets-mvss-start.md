@@ -1,11 +1,11 @@
 ---
-title: "En savoir plus sur les modèles de groupes de machines virtuelles identiques | Microsoft Docs"
-description: "Découvrez comment créer un modèle de groupe identique minimum viable pour les groupes de machines virtuelles identiques"
+title: En savoir plus sur les modèles de groupes de machines virtuelles identiques | Microsoft Docs
+description: Découvrez comment créer un modèle de groupe identique minimum viable pour les groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781253"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
 Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de jeu de mise à l’échelle viable minimal et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss). 
@@ -208,6 +209,6 @@ Toutefois, l’identificateur du réseau virtuel n’est pas suffisant. Indiquez
 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

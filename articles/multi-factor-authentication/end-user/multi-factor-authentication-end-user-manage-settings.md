@@ -1,9 +1,9 @@
 ---
-title: "Gérer les paramètres de la vérification en deux étapes | Microsoft Docs"
-description: "Gérez l’utilisation d’Azure Multi-Factor Authentication, notamment la modification des informations de contact ou la configuration des appareils."
+title: Gérer les paramètres de la vérification en deux étapes | Microsoft Docs
+description: Gérez l’utilisation d’Azure Multi-Factor Authentication, notamment la modification des informations de contact ou la configuration des appareils.
 services: multi-factor-authentication
-keywords: "client de l'authentification multifacteur, problème d'authentification, ID de corrélation"
-documentationcenter: 
+keywords: client de l'authentification multifacteur, problème d'authentification, ID de corrélation
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626656"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gérer les paramètres de la vérification en deux étapes
 Cet article répond aux questions en rapport avec la mise à jour des paramètres de Multi-Factor Authentication ou de la vérification en deux étapes. Si vous rencontrez des problèmes de connexion à votre compte, consultez [Problèmes avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) pour obtenir de l’aide.

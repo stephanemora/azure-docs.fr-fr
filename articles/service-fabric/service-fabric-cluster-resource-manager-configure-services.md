@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210577"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configuration des paramètres Cluster Resource Manager pour les services Service Fabric
 Service Fabric Cluster Resource Manager assure un contrôle précis des règles qui régissent chaque service nommé individuel. Chaque service nommé peut spécifier des règles pour son allocation dans le cluster. Chaque service nommé peut également définir l’ensemble de mesures à inclure dans ses rapports, notamment leur importance pour ce service. La configuration des services se décompose en trois tâches :

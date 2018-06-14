@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209968"
 ---
 # <a name="service-fabric-architecture"></a>Architecture de Service Fabric
 Service Fabric est constitué de sous-systèmes en couches. Ces sous-systèmes permettent d’écrire des applications qui présentent les caractéristiques suivantes :

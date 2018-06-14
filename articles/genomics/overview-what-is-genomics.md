@@ -1,7 +1,7 @@
 ---
-title: "Qu’est-ce que Microsoft Genomics ? | Microsoft Docs"
+title: Qu’est-ce que Microsoft Genomics ? | Microsoft Docs
 titleSuffix: Azure
-description: "Découvrez comment Microsoft Genomics peut optimiser le séquençage du génome, offrant maintenant une implémentation cloud de BWA-GATK pour une analyse secondaire."
+description: Découvrez comment Microsoft Genomics peut optimiser le séquençage du génome, offrant maintenant une implémentation cloud de BWA-GATK pour une analyse secondaire.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684682"
 ---
 # <a name="what-is-microsoft-genomics"></a>Qu’est-ce que Microsoft Genomics ?
 Microsoft Genomics offre l’implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire. Le service est certifié ISO et conforme aux réglementations HIPAA et offre une prévisibilité des prix pour vos besoins de séquençage du génome. Découvrez comment utiliser le service Microsoft Genomics et l’intégration avec notre API en lisant nos procédures de démarrage rapide, didacticiels et documentations.

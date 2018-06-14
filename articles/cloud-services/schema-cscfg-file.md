@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358215"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schéma de définition d’Azure Cloud Services (fichier .cscfg)
 Le fichier de configuration de service spécifie le nombre d’instances de rôle à déployer pour chaque rôle dans le service, les valeurs des paramètres de configuration et les empreintes des certificats associés à un rôle. Si le service fait partie d’un réseau virtuel, les informations de configuration pour le réseau doivent être fournies dans le fichier de configuration de service, ainsi que dans le fichier de configuration de réseau virtuel. L’extension par défaut du fichier de configuration de service est .cscfg.

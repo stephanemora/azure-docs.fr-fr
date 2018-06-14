@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble du programme des fournisseurs de solutions cloud et de Microsoft Azure StorSimple | Microsoft Docs"
-description: "Vue d’ensemble de StorSimple et du programme des fournisseurs de solutions cloud pour les partenaires StorSimple."
+title: Vue d’ensemble du programme des fournisseurs de solutions cloud et de Microsoft Azure StorSimple | Microsoft Docs
+description: Vue d’ensemble de StorSimple et du programme des fournisseurs de solutions cloud pour les partenaires StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26367673"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Qu’est-ce que StorSimple pour le programme des fournisseurs de solutions cloud ?
 

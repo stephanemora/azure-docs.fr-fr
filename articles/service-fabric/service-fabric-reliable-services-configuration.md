@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209999"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.

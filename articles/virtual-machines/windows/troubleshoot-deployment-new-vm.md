@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes de déploiement de machine virtuelle Windows dans Azure | Microsoft Docs"
-description: "Résoudre les problèmes de déploiement de Resource Manager lors de la création d’une machine virtuelle Windows dans Azure"
+title: Résoudre les problèmes de déploiement de machine virtuelle Windows dans Azure | Microsoft Docs
+description: Résoudre les problèmes de déploiement de Resource Manager lors de la création d’une machine virtuelle Windows dans Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27580369"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Résoudre les problèmes de déploiement lors de la création d’une machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -88,6 +89,6 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   * Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).
   * Ajoutez la nouvelle machine virtuelle au même réseau virtuel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez Windows une machine virtuelle existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

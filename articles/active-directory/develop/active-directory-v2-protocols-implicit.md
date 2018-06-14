@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158385"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocoles v2.0 - Applications à page unique utilisant le flux implicite
 Le point de terminaison v2.0 vous permet de connecter des utilisateurs dans vos applications à page unique avec des comptes personnels et professionnels/scolaires de Microsoft. Les applications à page unique et autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent des problématiques spécifiques liées à l’authentification :

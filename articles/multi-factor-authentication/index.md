@@ -1,11 +1,11 @@
 ---
-title: "Documentation Azure Multi-Factor Authentication - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Apprenez à déployer Multi-Factor Authentication avec diverses méthodes de vérification conçues pour simplifier le processus d’authentification. Didacticiels, kit de développement logiciel et autre."
+title: Documentation Azure Multi-Factor Authentication - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Apprenez à déployer Multi-Factor Authentication avec diverses méthodes de vérification conçues pour simplifier le processus d’authentification. Didacticiels, kit de développement logiciel et autre.
 services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26630816"
 ---
 # <a name="multi-factor-authentication-documentation"></a>Documentation Multi-Factor Authentication
 

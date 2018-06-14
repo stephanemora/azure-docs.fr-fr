@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157892"
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory
 
