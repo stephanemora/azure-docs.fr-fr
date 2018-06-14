@@ -1,11 +1,11 @@
 ---
 title: Appliquer le chiffrement de disque dans Azure Security Center | Microsoft Docs
-description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Apply disk encryption** (Appliquer le chiffrement de disque Azure Disk Encryption)."
+description: Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Apply disk encryption** (Appliquer le chiffrement de disque Azure Disk Encryption).
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040214"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Appliquer le chiffrement de disque dans Azure Security Center
 Azure Security Center vous recommande d’appliquer le chiffrement de disques si vous avez des disques de machines virtuelles Windows ou Linux qui ne sont pas chiffrés à l’aide d’Azure Disk Encryption. Disk Encryption vous permet de chiffrer vos disques de machines virtuelles IaaS Windows et Linux.  Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.

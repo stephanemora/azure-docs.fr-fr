@@ -1,11 +1,11 @@
 ---
-title: "Résolution des problèmes de l’outil Azure Import-Export | Microsoft Docs"
-description: "Découvrez certains des problèmes courants que observés avec l’outil Azure Import-Export et comment les gérer."
+title: Résolution des problèmes de l’outil Azure Import-Export | Microsoft Docs
+description: Découvrez certains des problèmes courants que observés avec l’outil Azure Import-Export et comment les gérer.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b91ca5eb-c557-460a-9afc-0590b38471f9
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059364"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Résolution des problèmes associés à l’outil d’importation/d’exportation Azure
 L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il rencontre des problèmes. Cette rubrique répertorie certains des problèmes courants que les utilisateurs peuvent rencontrer.  
