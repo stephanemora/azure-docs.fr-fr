@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783458"
 ---
 # <a name="develop-video-player-applications"></a>Développement d’applications de lecteur vidéo
 ## <a name="overview"></a>Vue d'ensemble
