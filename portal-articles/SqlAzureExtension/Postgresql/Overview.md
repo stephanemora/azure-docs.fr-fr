@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble d’Azure Database pour PostgreSQL | Microsoft Docs"
-description: "Aide relative à la vue d’ensemble d’Azure Database pour PostgreSQL au sein du portail Azure"
+title: Vue d’ensemble d’Azure Database pour PostgreSQL | Microsoft Docs
+description: Aide relative à la vue d’ensemble d’Azure Database pour PostgreSQL au sein du portail Azure
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073841"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Base de données Azure pour obtenir une Documentation PostgreSQL
 

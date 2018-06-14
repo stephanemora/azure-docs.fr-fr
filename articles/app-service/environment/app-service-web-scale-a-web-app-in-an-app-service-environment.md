@@ -1,8 +1,8 @@
 ---
-title: "Comment mettre à l'échelle une application dans un environnement App Service"
-description: "Mise à l'échelle d'une application dans un environnement App Service"
+title: Comment mettre à l'échelle une application dans un environnement App Service
+description: Mise à l'échelle d'une application dans un environnement App Service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986314"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Mise à l'échelle des applications dans un environnement App Service
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :

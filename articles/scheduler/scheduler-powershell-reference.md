@@ -1,11 +1,11 @@
 ---
-title: "Informations de référence sur les applets de commande PowerShell de Scheduler"
-description: "Informations de référence sur les applets de commande PowerShell de Scheduler"
+title: Informations de référence sur les applets de commande PowerShell de Scheduler
+description: Informations de référence sur les applets de commande PowerShell de Scheduler
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039834"
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Informations de référence sur les applets de commande PowerShell de Scheduler
 Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.

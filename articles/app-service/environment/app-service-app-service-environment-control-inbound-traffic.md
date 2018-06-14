@@ -1,11 +1,11 @@
 ---
-title: "Contrôle du trafic entrant vers un environnement App Service"
-description: "Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service."
+title: Contrôle du trafic entrant vers un environnement App Service
+description: Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987004"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Contrôle du trafic entrant vers un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble

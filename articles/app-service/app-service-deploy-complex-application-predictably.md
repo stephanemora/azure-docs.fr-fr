@@ -1,8 +1,8 @@
 ---
-title: "Mise en service et déploiement de microservices de manière prévisible dans Azure"
-description: "Découvrez comment déployer une application composée de microservices dans Azure App Service sous forme d'unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et de scripts PowerShell."
+title: Mise en service et déploiement de microservices de manière prévisible dans Azure
+description: Découvrez comment déployer une application composée de microservices dans Azure App Service sous forme d'unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et de scripts PowerShell.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987454"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell. 
