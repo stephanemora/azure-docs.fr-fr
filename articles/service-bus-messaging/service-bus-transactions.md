@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble du traitement des transactions dans Azure Service Bus | Microsoft Docs"
-description: "Vue d’ensemble des transactions atomiques Azure Service Bus et de la fonctionnalité de transfert"
+title: Vue d’ensemble du traitement des transactions dans Azure Service Bus | Microsoft Docs
+description: Vue d’ensemble des transactions atomiques Azure Service Bus et de la fonctionnalité de transfert
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558939"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Vue d’ensemble du traitement des transactions Service Bus
 
@@ -76,7 +77,7 @@ using (scope = new TransactionScope())
 } 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les files d’attente de lettres mortes Service Bus, consultez les articles suivants :
 
