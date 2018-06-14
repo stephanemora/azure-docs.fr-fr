@@ -1,11 +1,11 @@
 ---
-title: "Installer un appareil Microsoft Azure StorSimple 8600 | Microsoft Docs"
-description: "Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel."
+title: Installer un appareil Microsoft Azure StorSimple 8600 | Microsoft Docs
+description: Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743712"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
 ## <a name="overview"></a>Vue d'ensemble
@@ -265,6 +266,6 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 Vous avez terminé le branchement des câbles d’alimentation, d’accès réseau et de connexion en série de votre appareil. L’étape suivante consiste à configurer le logiciel sur votre appareil.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous êtes maintenant prêt à procéder au [déploiement et à la configuration de votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

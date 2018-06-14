@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’actions de requête et de réponse | Microsoft Docs"
-description: "Présentation des déclencheurs et des actions de requête et de réponse dans une application logique Azure"
-services: 
-documentationcenter: 
+title: Utilisation d’actions de requête et de réponse | Microsoft Docs
+description: Présentation des déclencheurs et des actions de requête et de réponse dans une application logique Azure
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27960559"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
 Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
@@ -108,6 +109,6 @@ Les éléments suivants sont des champs d’entrée pour l’action Réponse HTT
 | headers |headers |Un objet JSON de tout en-tête de réponse à inclure |
 | body |body |Le corps de texte de la réponse |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

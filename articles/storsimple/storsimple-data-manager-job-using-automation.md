@@ -1,12 +1,12 @@
 ---
-title: "Utiliser Azure Automation pour lancer une tâche dans StorSimple Data Manager | Microsoft Docs"
-description: "Découvrez comment utiliser Azure Automation pour déclencher des travaux StorSimple Data Manager"
+title: Utiliser Azure Automation pour lancer une tâche dans StorSimple Data Manager | Microsoft Docs
+description: Découvrez comment utiliser Azure Automation pour déclencher des travaux StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862194"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Utiliser Azure Automation pour déclencher un travail
 
@@ -123,6 +124,6 @@ Procédez comme suit pour importer, publier et exécuter le runbook pour déclen
 
     ![Ajouter Runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).
