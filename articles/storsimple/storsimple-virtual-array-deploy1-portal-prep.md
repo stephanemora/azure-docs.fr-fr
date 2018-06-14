@@ -1,11 +1,11 @@
 ---
-title: "Préparation du portail pour StorSimple Virtual Array | Microsoft Docs"
-description: "Le premier didacticiel de déploiement de StorSimple Virtual Array implique la préparation du portail Azure"
+title: Préparation du portail pour StorSimple Virtual Array | Microsoft Docs
+description: Le premier didacticiel de déploiement de StorSimple Virtual Array implique la préparation du portail Azure
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24526551"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 

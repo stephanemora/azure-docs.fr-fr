@@ -1,11 +1,11 @@
 ---
-title: "Séries de références (SKU) non disponibles | Microsoft Docs"
-description: "Certaines séries de références (SKU) ne sont pas disponibles pour l’abonnement sélectionné pour cette région."
+title: Séries de références (SKU) non disponibles | Microsoft Docs
+description: Certaines séries de références (SKU) ne sont pas disponibles pour l’abonnement sélectionné pour cette région.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870576"
 ---
 # <a name="region-or-sku-unavailable"></a>Région ou référence (SKU) non disponible
 Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à un SKU de machine virtuelle.

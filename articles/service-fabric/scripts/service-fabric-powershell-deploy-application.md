@@ -1,13 +1,13 @@
 ---
-title: "Exemple de script Azure PowerShell - Déployer une application sur un cluster | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Déployez une application sur un cluster Service Fabric."
+title: Exemple de script Azure PowerShell - Déployer une application sur un cluster | Microsoft Docs
+description: Exemple de script Azure PowerShell - Déployez une application sur un cluster Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927598"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Déployer une application sur un cluster Service Fabric
 
@@ -47,7 +48,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 |[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Crée une application à partir d’un type d’application inscrit. |
 | [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Supprime un package d’application Service Fabric du magasin d’images.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur le module Service Fabric PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 

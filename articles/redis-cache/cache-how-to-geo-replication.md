@@ -1,11 +1,11 @@
 ---
-title: "Comment configurer la géoréplication pour Cache Redis Azure | Microsoft Docs"
-description: "Découvrez comment répliquer vos instances Cache Redis Azure dans des régions géographiques."
+title: Comment configurer la géoréplication pour Cache Redis Azure | Microsoft Docs
+description: Découvrez comment répliquer vos instances Cache Redis Azure dans des régions géographiques.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911368"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Comment configurer la géoréplication pour Cache Redis Azure
 
@@ -177,7 +178,7 @@ Dans la version initiale de la géoréplication, Cache Redis Azure ne prend pas 
 Actuellement, pour lancer le basculement, vous devez supprimer le lien de géoréplication dans le portail Azure, puis modifier le point de terminaison de connexion dans le client Redis du cache lié principal au cache secondaire (précédemment lié). Une fois les deux caches dissociés, le réplica redevient un cache en lecture-écriture normal, et accepte directement les demandes des clients Redis.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur le [Niveau Premium de Cache Redis Azure](cache-premium-tier-intro.md).
 

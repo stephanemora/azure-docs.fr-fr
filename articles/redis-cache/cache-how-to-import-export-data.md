@@ -1,11 +1,11 @@
 ---
-title: "Importer et exporter des données dans le Cache Redis Azure | Microsoft Docs"
-description: "Découvrez comment importer et exporter des données vers et depuis un stockage d’objets blob à l’aide de vos instances Premium de Cache Redis Azure"
+title: Importer et exporter des données dans le Cache Redis Azure | Microsoft Docs
+description: Découvrez comment importer et exporter des données vers et depuis un stockage d’objets blob à l’aide de vos instances Premium de Cache Redis Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910085"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importer et exporter des données dans le Cache Redis Azure
 L’Importation/Exportation est une opération de gestion de données de Cache Redis Azure qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Redis Azure, en important ou en exportant une capture instantanée de base de données du Cache Redis (RDB) depuis un cache Premium vers un objet blob dans un compte Azure Storage. 
@@ -157,7 +158,7 @@ Pour résoudre ce problème, démarrez l’importation ou l’exportation avant 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>J’ai obtenu une erreur en exportant mes données vers un stockage d’objets blob Azure. Que s’est-il passé ?
 L’exportation ne fonctionne qu’avec les fichiers RDB stockés sous la forme d’objets blob de pages. Les autres types d’objets blob ne sont pas pris en charge pour l’instant, y compris les comptes de stockage d’objets blob de niveaux chaud et froid. Pour plus d’informations, consultez [Comptes de stockage Blob](../storage/common/storage-account-options.md#blob-storage-accounts).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
 * [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)    

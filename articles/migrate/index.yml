@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentation Azure Migrate
 metadata:
-  title: "Documentation Azure Migrate\_- Didacticiels, référence sur les API\_| Microsoft\_Docs"
+  title: Documentation Azure Migrate - Didacticiels, référence sur les API | Microsoft Docs
   description: Découvrez comment évaluer des machines locales pour la migration vers Azure
   services: migration-planner
   author: rayne-wiselman
@@ -13,14 +13,20 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
+  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
+  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 11/27/2017
+  ms.locfileid: "25927116"
 abstract:
   description: Azure Migrate vous aide à découvrir et à évaluer l’adéquation des machines locales pour la migration vers Azure et fournit des estimations en matière de dimensionnement et de coût pour l’exécution de machines virtuelles Azure.
 sections:
-  - title: Didacticiels pas à pas
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: Découvrez comment évaluer les machines virtuelles VMware pour la migration vers Azure
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Découvrez comment évaluer les machines virtuelles VMware pour la migration vers Azure
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-assessment-vmware">Découvrir et évaluer des machines virtuelles VMware locales</a>
+    - html: <a href="tutorial-assessment-vmware">Découvrir et évaluer des machines virtuelles VMware locales</a>

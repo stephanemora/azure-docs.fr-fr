@@ -1,6 +1,6 @@
 ---
-title: "Documentation d’aide pour les machines virtuelles Linux | Microsoft Docs"
-description: "Contenu d’aide relatif à la vue d’ensemble des machines virtuelles Linux dans le portail Azure"
+title: Documentation d’aide pour les machines virtuelles Linux | Microsoft Docs
+description: Contenu d’aide relatif à la vue d’ensemble des machines virtuelles Linux dans le portail Azure
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057652"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Linux
 
