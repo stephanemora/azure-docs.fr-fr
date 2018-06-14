@@ -1,11 +1,11 @@
 ---
-title: "Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle | Microsoft Docs"
-description: "Cette rubrique explique comment mettre à niveau et mettre à l’échelle une instance du service Gestion des API Azure."
+title: Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle | Microsoft Docs
+description: Cette rubrique explique comment mettre à niveau et mettre à l’échelle une instance du service Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658635"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API et la mettre à l’échelle 
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194398"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics
 Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :

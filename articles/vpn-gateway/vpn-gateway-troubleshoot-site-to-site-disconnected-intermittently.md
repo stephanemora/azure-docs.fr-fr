@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160569"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Résolution des problèmes : déconnexion intermittente du VPN de site à site Azure
 

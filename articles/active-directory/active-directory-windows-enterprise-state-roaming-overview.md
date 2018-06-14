@@ -1,9 +1,9 @@
 ---
-title: "Vue d’ensemble d’Enterprise State Roaming | Microsoft Docs"
-description: "Fournit des informations sur les paramètres Enterprise State Roaming dans les périphériques Windows. Enterprise State Roaming fournit aux utilisateurs une expérience unifiée sur leurs appareils Windows et réduit le temps nécessaire à la configuration d’un nouveau périphérique."
+title: Vue d’ensemble d’Enterprise State Roaming | Microsoft Docs
+description: Fournit des informations sur les paramètres Enterprise State Roaming dans les périphériques Windows. Enterprise State Roaming fournit aux utilisateurs une expérience unifiée sur leurs appareils Windows et réduit le temps nécessaire à la configuration d’un nouveau périphérique.
 services: active-directory
-keywords: "Qu’est-ce que Enterprise State Roaming, la synchronisation d’entreprise et Windows cloud"
-documentationcenter: 
+keywords: Qu’est-ce que Enterprise State Roaming, la synchronisation d’entreprise et Windows cloud
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614948"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Présentation d’Enterprise State Roaming
 Avec Windows 10, les utilisateurs [Azure Active Directory (Azure AD)](active-directory-whatis.md) ont la possibilité de synchroniser en toute sécurité leurs paramètres utilisateur et les données de paramètres d’application dans le cloud. Enterprise State Roaming fournit aux utilisateurs une expérience unifiée sur leurs appareils Windows et réduit le temps nécessaire à la configuration d’un nouveau périphérique. Enterprise State Roaming fonctionne comme la [synchronisation des paramètres de consommateur](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) présentée dans Windows 8. En outre, Enterprise State Roaming offre :

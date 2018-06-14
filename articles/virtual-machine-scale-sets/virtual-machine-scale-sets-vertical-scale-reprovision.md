@@ -1,11 +1,11 @@
 ---
-title: "Mettre à l’échelle verticalement des groupes identiques de machines virtuelles Azure | Microsoft Docs"
-description: "Mettre à l’échelle une machine virtuelle en réponse aux alertes avec Azure Automation"
+title: Mettre à l’échelle verticalement des groupes identiques de machines virtuelles Azure | Microsoft Docs
+description: Mettre à l’échelle une machine virtuelle en réponse aux alertes avec Azure Automation
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781817"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Mise à l’échelle verticale avec des groupes de machines virtuelles identiques
 Cet article décrit comment mettre à l’échelle verticalement des [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/) Azure avec ou sans réapprovisionnement. Pour mettre à l’échelle verticalement des machines virtuelles qui n’appartiennent pas à des groupes de machines virtuelles identiques, consultez [Mettre à l’échelle verticalement une machine virtuelle Azure avec Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

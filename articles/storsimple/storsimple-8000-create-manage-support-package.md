@@ -1,12 +1,12 @@
 ---
-title: "Création d’un package de prise en charge de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Apprenez à créer, déchiffrer et modifier un package de prise en charge pour votre appareil de la gamme StorSimple 8000."
+title: Création d’un package de prise en charge de la gamme StorSimple 8000 | Microsoft Docs
+description: Apprenez à créer, déchiffrer et modifier un package de prise en charge pour votre appareil de la gamme StorSimple 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743576"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
@@ -144,7 +145,7 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Apprenez-en davantage sur les [informations collectées dans le package de prise en charge](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
 * Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

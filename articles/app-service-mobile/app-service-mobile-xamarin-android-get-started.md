@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d'Azure Mobile Apps pour les applications Xamarin.Android"
-description: "Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d'applications Xamarin Android."
+title: Prise en main d'Azure Mobile Apps pour les applications Xamarin.Android
+description: Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d'applications Xamarin Android.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592777"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Création d'une application Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -64,7 +65,7 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
    >
    >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Ajouter l’authentification à votre application ](app-service-mobile-xamarin-android-get-started-users.md)
 * [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-android-get-started-push.md)

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165194"
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Déboguez des applications Spark localement ou à distance sur un cluster HDInsight avec le kit de ressources Azure pour IntelliJ via SSH
 

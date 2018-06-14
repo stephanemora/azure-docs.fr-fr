@@ -1,8 +1,8 @@
 ---
-title: "Architecture d’Operations Management Suite (OMS) | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud.  Cet article identifie les différents services inclus dans OMS et fournit des liens vers leur documentation détaillée."
+title: Architecture d’Operations Management Suite (OMS) | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud.  Cet article identifie les différents services inclus dans OMS et fournit des liens vers leur documentation détaillée.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26683263"
 ---
 # <a name="oms-architecture"></a>Architecture OMS
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) est un ensemble de services informatiques destinés à gérer vos environnements locaux et de cloud.  Cet article décrit les différents composants OMS locaux et de cloud, ainsi que leur architecture de cloud computing de haut niveau.  Pour plus d’informations, vous pouvez consulter la documentation de chaque service.

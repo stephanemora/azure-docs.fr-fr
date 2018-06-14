@@ -1,10 +1,10 @@
 ---
 title: Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Cordova) | Microsoft Docs
-description: "Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Cordova"
+description: Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Cordova
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593712"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activation de la synchronisation hors connexion pour votre application mobile Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -189,7 +190,7 @@ Dans cette section, vous reconnectez l'application au serveur principal mobile, 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 * [Visual Studio Tools pour Apache Cordova]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Consultez les fonctionnalités de synchronisation hors connexion plus avancées, comme la résolution des conflits dans [l’exemple de synchronisation hors connexion]
 * Consultez la référence de l’API de synchronisation hors connexion dans la [documentation de l’API](https://azure.github.io/azure-mobile-apps-js-client).
 

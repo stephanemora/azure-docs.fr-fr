@@ -1,6 +1,6 @@
 ---
-title: "Exemples d’interface de ligne de commande Azure - App Service | Microsoft Docs"
-description: "Exemples d’interface de ligne de commande - App Service"
+title: Exemples d’interface de ligne de commande Azure - App Service | Microsoft Docs
+description: Exemples d’interface de ligne de commande - App Service
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658362"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 

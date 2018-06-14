@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157994"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Intégration d’applications dans Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

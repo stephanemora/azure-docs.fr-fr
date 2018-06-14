@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158235"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web. Avec la mise en œuvre du modèle d’application v2.0 d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau. Ce guide est indépendant de la langue. Il explique comment envoyer et recevoir des messages HTTP sans utiliser aucune des [bibliothèques d’authentification Open Source Azure](active-directory-authentication-libraries.md).

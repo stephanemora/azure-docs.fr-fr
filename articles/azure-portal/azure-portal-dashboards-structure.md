@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165177"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :

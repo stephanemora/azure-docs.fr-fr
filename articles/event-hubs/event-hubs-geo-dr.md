@@ -1,11 +1,11 @@
 ---
-title: "Géorécupération d’urgence Azure Event Hubs | Microsoft Docs"
-description: "Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs."
+title: Géorécupération d’urgence Azure Event Hubs | Microsoft Docs
+description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745892"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Event Hubs
 
@@ -100,7 +101,7 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
 * La [référence d’API REST](/rest/api/eventhub/disasterrecoveryconfigs) décrit les API nécessaires pour effectuer la configuration de la géorécupération.

@@ -1,11 +1,11 @@
 ---
-title: "Problèmes de connexion à une application personnalisée | Microsoft Docs"
-description: "Erreurs courantes pouvant vous empêcher de vous connecter à une application développée avec Azure AD"
+title: Problèmes de connexion à une application personnalisée | Microsoft Docs
+description: Erreurs courantes pouvant vous empêcher de vous connecter à une application développée avec Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614137"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problèmes de connexion à une application personnalisée
 

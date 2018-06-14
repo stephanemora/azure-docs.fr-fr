@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363245"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Création d’un travail d’exportation pour le service Azure Import/Export
 La création d’un travail d’exportation pour le service Microsoft Azure Import/Export à l’aide de l’API REST implique les étapes suivantes :

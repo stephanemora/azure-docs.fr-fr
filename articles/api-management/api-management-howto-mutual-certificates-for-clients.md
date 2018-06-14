@@ -1,11 +1,11 @@
 ---
-title: "Sécuriser les API avec l’authentification de certificat client dans la gestion des API - Gestion des API Azure | Microsoft Docs"
-description: "Apprenez à sécuriser l’accès aux API à l’aide des certificats clients"
+title: Sécuriser les API avec l’authentification de certificat client dans la gestion des API - Gestion des API Azure | Microsoft Docs
+description: Apprenez à sécuriser l’accès aux API à l’aide des certificats clients
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26406741"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
