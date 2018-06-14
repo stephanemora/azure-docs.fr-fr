@@ -1,11 +1,11 @@
 ---
 title: Surveiller les API avec Gestion des API Azure, Event Hubs et Runscope | Microsoft Docs
-description: "Exemple d’application illustrant la stratégie log-to-eventhub par la connexion de Gestion des API Azure, d’Azure Event Hubs et de Runscope pour la journalisation HTTP et la surveillance"
+description: Exemple d’application illustrant la stratégie log-to-eventhub par la connexion de Gestion des API Azure, d’Azure Event Hubs et de Runscope pour la journalisation HTTP et la surveillance
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117066"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Surveiller vos API avec la Gestion des API Azure, Event Hubs et Runscope
 Le [service de gestion des API](api-management-key-concepts.md) fournit de nombreuses fonctionnalités pour améliorer le traitement des requêtes HTTP envoyées à votre API HTTP. Toutefois, l’existence des demandes et réponses est temporaire. La demande est effectuée et elle transite par le service de gestion des API vers le serveur principal de votre API. Votre API traite la requête et une réponse retourne vers le consommateur d’API. Le service Gestion des API conserve certaines statistiques importantes sur les API à des fins d’affichage dans le tableau de bord du portail Azure, mais au-delà, les détails disparaissent.
@@ -273,7 +274,7 @@ Dans l’image animée suivante, vous pouvez voir une demande adressée à une A
 ## <a name="summary"></a>Résumé
 Le service Gestion des API Azure fournit un emplacement idéal pour capturer le trafic HTTP qui circule vers et depuis vos API. Azure Event Hubs est une solution pouvant être mise à l’échelle et économique permettant de capturer le trafic et de l’intégrer à des systèmes de traitement secondaire pour la journalisation, la surveillance et d’autres analyses sophistiquées. La connexion à des systèmes de surveillance de trafic tiers tels que Runscope se résume à la rédaction de quelques dizaines de lignes de code.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur Azure Event Hubs
   * [Prise en main avec Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

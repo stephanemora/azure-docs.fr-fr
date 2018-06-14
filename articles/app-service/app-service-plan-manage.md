@@ -1,12 +1,12 @@
 ---
-title: "Gérer un plan App Service dans Azure | Microsoft Docs"
-description: "Découvrez comment effectuer différentes tâches pour gérer un plan App Service."
-keywords: "app service, azure app service, mise à l’échelle, plan app service, changer, créer, gérer, gestion"
+title: Gérer un plan App Service dans Azure | Microsoft Docs
+description: Découvrez comment effectuer différentes tâches pour gérer un plan App Service.
+keywords: app service, azure app service, mise à l’échelle, plan app service, changer, créer, gérer, gestion
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117678"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gérer un plan App Service dans Azure
 

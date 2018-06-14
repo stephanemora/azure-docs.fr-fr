@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique pour configurer une identité MSI affectée par l’utilisateur pour une machine virtuelle Azure à l’aide d’un modèle Azure"
-description: "Instructions pas à pas expliquant comment configurer une identité du service administré (MSI) affectée par l’utilisateur pour une machine virtuelle Azure, à l’aide d’un modèle Azure Resource Manager."
+title: Guide pratique pour configurer une identité MSI affectée par l’utilisateur pour une machine virtuelle Azure à l’aide d’un modèle Azure
+description: Instructions pas à pas expliquant comment configurer une identité du service administré (MSI) affectée par l’utilisateur pour une machine virtuelle Azure, à l’aide d’un modèle Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984037"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configurer une identité MSI (Managed Service Identity) affectée par l’utilisateur pour une machine virtuelle, à l’aide d’un modèle Azure
 

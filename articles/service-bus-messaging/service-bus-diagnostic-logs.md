@@ -1,13 +1,13 @@
 ---
-title: "Journaux de diagnostic Azure Service Bus | Microsoft Docs"
-description: "Découvrez comment configurer les journaux de diagnostic pour Service Bus dans Azure."
-keywords: 
+title: Journaux de diagnostic Azure Service Bus | Microsoft Docs
+description: Découvrez comment configurer les journaux de diagnostic pour Service Bus dans Azure.
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122174"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
@@ -91,7 +92,7 @@ Voici un exemple de chaîne JSON du journal des opérations :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Service Bus, voir les liens suivants :
 

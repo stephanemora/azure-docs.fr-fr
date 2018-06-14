@@ -1,11 +1,11 @@
 ---
-title: "Utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux sur Azure | Microsoft Docs"
-description: "Comment utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux lors de la création avec Azure CLI 2.0"
+title: Utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux sur Azure | Microsoft Docs
+description: Comment utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux lors de la création avec Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123461"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux sur Azure
 Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour ajouter un utilisateur sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ce script cloud-init s’exécute au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md).
@@ -81,7 +82,7 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des exemples cloud-init supplémentaires de modifications de configuration, consultez les rubriques suivantes :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)

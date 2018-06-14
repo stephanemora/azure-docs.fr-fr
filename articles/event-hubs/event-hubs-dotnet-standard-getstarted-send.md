@@ -1,12 +1,12 @@
 ---
-title: "Envoyer des événements vers Azure Event Hubs avec .NET Standard | Microsoft Docs"
-description: "Prise en main de l’envoi d’événements vers Event Hubs dans .NET Standard"
+title: Envoyer des événements vers Azure Event Hubs avec .NET Standard | Microsoft Docs
+description: Prise en main de l’envoi d’événements vers Event Hubs dans .NET Standard
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28985202"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Bien démarrer avec l’envoi de messages vers Azure Event Hubs dans .NET Standard
 
@@ -197,7 +198,7 @@ Ajoutez le package NuGet de bibliothèque standard .NET [`Microsoft.Azure.EventH
 
 Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Recevoir des événements d’Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)

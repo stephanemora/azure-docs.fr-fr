@@ -1,12 +1,12 @@
 ---
-title: "Conseils de gestion des erreurs d’Azure Functions | Microsoft Docs"
-description: "Fournit des conseils généraux pour la gestion des erreurs qui se produisent dans lors de l’exécution de vos fonctions, ainsi que des liens vers des rubriques d’erreurs spécifiques d’une liaison."
+title: Conseils de gestion des erreurs d’Azure Functions | Microsoft Docs
+description: Fournit des conseils généraux pour la gestion des erreurs qui se produisent dans lors de l’exécution de vos fonctions, ainsi que des liens vers des rubriques d’erreurs spécifiques d’une liaison.
 services: functions
-cloud: 
-documentationcenter: 
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29133696"
 ---
 # <a name="azure-functions-error-handling"></a>Gestion d’erreurs d’Azure Functions
 

@@ -1,12 +1,12 @@
 ---
-title: "Optimiser le débit du réseau des machines virtuelles | Microsoft Docs"
-description: "Découvrez comment optimiser le débit du réseau des machines virtuelles Azure."
+title: Optimiser le débit du réseau des machines virtuelles | Microsoft Docs
+description: Découvrez comment optimiser le débit du réseau des machines virtuelles Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132889"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimiser le débit du réseau des machines virtuelles Azure
 
@@ -152,7 +153,7 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 Apprenez-en plus sur les Services d’intégration Linux version 4.2 pour Hyper-V en consultant la [page de téléchargement](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez le résultat optimisé avec le [Test de bande passante/débit de machine virtuelle Azure](virtual-network-bandwidth-testing.md) pour votre scénario.
 * Découvrez de quelle façon [la bande passante est allouée aux machines virtuelles] (virtual-machine-network-throughput.md)
 * En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)

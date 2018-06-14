@@ -1,12 +1,12 @@
 ---
 title: Conserver des fichiers pour Bash dans Azure Cloud Shell | Microsoft Docs
-description: "Procédure pas à pas de conservation des fichiers dans Azure Cloud Shell avec Bash."
+description: Procédure pas à pas de conservation des fichiers dans Azure Cloud Shell avec Bash.
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919540"
 ---
 [!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -90,7 +91,7 @@ justin@Azure:~$
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
 [En savoir plus sur le stockage de fichiers Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [En savoir plus sur les balises de stockage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
