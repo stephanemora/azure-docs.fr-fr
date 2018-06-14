@@ -1,12 +1,12 @@
 ---
-title: "Exemple de script Microsoft Azure PowerShell - Rotation des clés d’accès au compte de stockage | Microsoft Docs"
-description: "Créez un compte de stockage Azure, puis récupérez l’une de ses clés d’accès et organisez sa rotation."
+title: Exemple de script Microsoft Azure PowerShell - Rotation des clés d’accès au compte de stockage | Microsoft Docs
+description: Créez un compte de stockage Azure, puis récupérez l’une de ses clés d’accès et organisez sa rotation.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25984160"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Créer un compte de stockage et faire tourner ses clés d’accès
 

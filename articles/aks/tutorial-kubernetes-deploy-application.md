@@ -3,17 +3,18 @@ title: Didacticiel Kubernetes sur Azure - Déployer une application
 description: Didacticiel ACS - Déployer une application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067671"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (ACS)
 
@@ -72,10 +73,10 @@ Enregistrez et fermez le fichier.
 
 ## <a name="deploy-application"></a>Déployer l’application
 
-Utilisez la commande [kubectl create][kubectl-create] pour exécuter l’application. Cette commande analyse le fichier manifeste et crée les objets Kubernetes définis.
+Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter l’application. Cette commande analyse le fichier manifeste et crée les objets Kubernetes définis.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Output:
@@ -132,6 +133,7 @@ Passez au didacticiel suivant pour en savoir plus sur la mise à l’échelle d�
 > [Mettre à l’échelle l’application et l’infrastructure Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
