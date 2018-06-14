@@ -1,7 +1,7 @@
 ---
 title: Comprendre vos clients dans Azure Application Insights | Microsoft Docs
-description: "Didacticiel sur l’utilisation d’Azure Application Insights pour comprendre comment les clients utilisent votre application."
-keywords: 
+description: Didacticiel sur l’utilisation d’Azure Application Insights pour comprendre comment les clients utilisent votre application.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24099019"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utiliser Azure Application Insights pour comprendre comment les clients utilisent votre application
 

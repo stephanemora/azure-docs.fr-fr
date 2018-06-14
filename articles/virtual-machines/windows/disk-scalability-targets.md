@@ -1,6 +1,6 @@
 ---
-title: "Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows - Microsoft Azure | Microsoft Docs"
-description: "Découvrez les cibles de scalabilité et de performance des disques attachés aux machines virtuelles exécutant Windows."
+title: Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows - Microsoft Azure | Microsoft Docs
+description: Découvrez les cibles de scalabilité et de performance des disques attachés aux machines virtuelles exécutant Windows.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24871483"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows
 

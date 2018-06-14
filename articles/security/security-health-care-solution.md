@@ -1,5 +1,5 @@
 ---
-title: "Guide pratique de conception de solutions de santé sécurisées dans Azure | Microsoft Docs"
+title: Guide pratique de conception de solutions de santé sécurisées dans Azure | Microsoft Docs
 description: " Cet article vous aidera à comprendre comment améliorer la sécurité de vos solutions de santé en utilisant les services et les fonctionnalités Azure que vous configurez. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540973"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Guide pratique de conception de solutions de santé sécurisées dans Azure
 Les start-ups du secteur de la santé, les intégrateurs de systèmes, les éditeurs de logiciels indépendants et les organismes de santé qui envisagent le passage à Azure recherchent des conseils les aidant à intégrer des contrôles de sécurité leur permettant de respecter leurs obligations de conformité.

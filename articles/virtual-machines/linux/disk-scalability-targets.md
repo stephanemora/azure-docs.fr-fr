@@ -1,6 +1,6 @@
 ---
-title: "Cibles de scalabilité et de performance des disques de machine virtuelle sur Linux - Microsoft Azure | Microsoft Docs"
-description: "Découvrez les cibles de scalabilité et de performance des disques attachés aux machines virtuelles exécutant Linux."
+title: Cibles de scalabilité et de performance des disques de machine virtuelle sur Linux - Microsoft Azure | Microsoft Docs
+description: Découvrez les cibles de scalabilité et de performance des disques attachés aux machines virtuelles exécutant Linux.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24871503"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Cibles de scalabilité et de performance des disques de machine virtuelle sur Linux
 
