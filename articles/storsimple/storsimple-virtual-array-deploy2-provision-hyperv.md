@@ -1,11 +1,11 @@
 ---
 title: Approvisionner StorSimple Virtual Array dans Hyper-V | Microsoft Docs
-description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d’un tableau virtuel dans Hyper-V."
+description: Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d’un tableau virtuel dans Hyper-V.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111077"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration dans Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
