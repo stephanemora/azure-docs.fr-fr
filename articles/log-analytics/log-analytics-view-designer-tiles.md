@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947314"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guide de référence des vignettes du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.

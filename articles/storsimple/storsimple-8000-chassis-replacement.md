@@ -1,12 +1,12 @@
 ---
-title: "Remplacer le châssis d’un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit comment retirer et remplacer le châssis pour votre boîtier principal StorSimple ou le boîtier EBOD."
+title: Remplacer le châssis d’un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit comment retirer et remplacer le châssis pour votre boîtier principal StorSimple ou le boîtier EBOD.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108157"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Remplacer le châssis sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble

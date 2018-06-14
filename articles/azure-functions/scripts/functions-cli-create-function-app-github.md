@@ -1,8 +1,8 @@
 ---
-title: "Créer une Function App et déployer le code de fonction à partir de GitHub | Microsoft Docs"
-description: "Exemple de script Azure CLI - Créer une Function App et déployer le code de fonction à partir de GitHub"
+title: Créer une Function App et déployer le code de fonction à partir de GitHub | Microsoft Docs
+description: Exemple de script Azure CLI - Créer une Function App et déployer le code de fonction à partir de GitHub
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842658"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Créer une Function App et déployer le code de fonction à partir de GitHub
 

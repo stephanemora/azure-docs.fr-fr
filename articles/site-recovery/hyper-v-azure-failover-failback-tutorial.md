@@ -1,6 +1,6 @@
 ---
-title: "Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure avec Site Recovery | Microsoft Docs"
-description: "Découvrez comment basculer des machines virtuelles Hyper-V vers Azure et restaurer sur le site local avec Azure Site Recovery"
+title: Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure avec Site Recovery | Microsoft Docs
+description: Découvrez comment basculer des machines virtuelles Hyper-V vers Azure et restaurer sur le site local avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852895"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 

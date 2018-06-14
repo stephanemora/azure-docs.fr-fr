@@ -1,6 +1,6 @@
 ---
-title: "Basculer et restaurer automatiquement des serveurs physiques répliqués sur Azure avec Site Recovery | Microsoft Docs"
-description: "Découvrez comment basculer des serveurs physiques vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery"
+title: Basculer et restaurer automatiquement des serveurs physiques répliqués sur Azure avec Site Recovery | Microsoft Docs
+description: Découvrez comment basculer des serveurs physiques vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876006"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
 

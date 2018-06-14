@@ -1,8 +1,8 @@
 ---
 title: Stockage Standard pour les disques de machine virtuelle Linux dans Azure | Microsoft Docs
-description: "Présentation du stockage Standard économique et des disques de machine virtuelle Linux gérés et non gérés."
+description: Présentation du stockage Standard économique et des disques de machine virtuelle Linux gérés et non gérés.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666871"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

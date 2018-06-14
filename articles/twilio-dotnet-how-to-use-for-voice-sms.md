@@ -1,11 +1,11 @@
 ---
-title: "Utilisation de Twilio pour les fonctionnalités vocales et de SMS (.NET) | Microsoft Docs"
-description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET."
-services: 
+title: Utilisation de Twilio pour les fonctionnalités vocales et de SMS (.NET) | Microsoft Docs
+description: Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET.
+services: ''
 documentationcenter: .net
 author: devinrader
 manager: twilio
-editor: 
+editor: ''
 ms.assetid: 74d4f3c9-f1cb-4968-b744-36b32cd0e834
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111787"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -48,7 +49,7 @@ La liste suivante présente les verbes Twilio.  Découvrez les autres verbes et 
 * **&lt;Hangup&gt;** : met fin à un appel.
 * **&lt;Play&gt;** : lit un fichier audio.
 * **&lt;Pause&gt;** : patiente silencieusement pendant un nombre déterminé de secondes.
-* **&lt;Record&gt;** : enregistre la voix de l’appelant et renvoie l’URL d’un fichier contenant l’enregistrement.
+* **&lt;Record&gt;**  : enregistre la voix de l’appelant et renvoie l’URL d’un fichier contenant l’enregistrement.
 * **&lt;Redirect&gt;** : transfère le contrôle d'un appel ou d'un SMS au TwiML à une autre URL.
 * **&lt;Reject&gt;** : refuse un appel entrant sur votre numéro Twilio sans vous facturer
 * **&lt;Say&gt;** : convertit le texte d'un appel en parole.

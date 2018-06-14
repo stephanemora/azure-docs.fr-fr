@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877277"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack peuvent utiliser l’API d’utilisation du fournisseur pour consulter l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations sur l’utilisation directe de P1 et de P2, et P1 peut effectuer un appel pour obtenir des informations relatives à l’utilisation de P3 et P4.
@@ -40,7 +41,7 @@ Cette API d’utilisation est une API de fournisseur. Un rôle Propriétaire, Co
 | --- | --- |
 | *armendpoint* |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. La convention Azure Stack est que le nom du point de terminaison Azure Resource Manager soit au format `https://adminmanagement.{domain-name}`. Par exemple, pour le kit de développement, si le nom du domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
 | *subId* |ID d’abonnement de l’utilisateur qui effectue l’appel. |
-| *reportedStartTime* |Heure de début de la requête. La valeur de *DateTime* doit être au format Coordinated Universal Time (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format est l’ISO 8601 *échappé*. Par exemple *2015-06-16T18%3a53%3a11%2b00%3a00Z*, où les deux-points sont échappés avec*%3a* et le signe plus est échappé avec *%2b* afin qu’il soit adapté aux URI. |
+| *reportedStartTime* |Heure de début de la requête. La valeur de *DateTime* doit être au format Coordinated Universal Time (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format est l’ISO 8601 *échappé*. Par exemple *2015-06-16T18%3a53%3a11%2b00%3a00Z*, où les deux-points sont échappés avec *%3a* et le signe plus est échappé avec *%2b* afin qu’il soit adapté aux URI. |
 | *reportedEndTime* |Heure de fin de la requête. Les contraintes qui s’appliquent à *reportedStartTime* s’appliquent également à cet argument. La valeur de *reportedEndTime* ne peut pas être la date actuelle ou ultérieure à la date actuelle. Dans ce cas, le résultat a la valeur « traitement non terminé ». |
 | *aggregationGranularity* |Paramètre facultatif qui a deux valeurs potentielles discrètes : quotidienne et horaire. Comme le suggèrent les valeurs, l’une retourne les données avec une granularité journalière, et l’autre est une résolution horaire. L’option quotidienne est la valeur par défaut. |
 | *subscriberId* |l'ID d'abonnement. Pour obtenir des données filtrées, l’ID d’abonnement d’un locataire direct du fournisseur est exigé. Si aucun paramètre d’ID d’abonnement n’est spécifié, l’appel retourne les données d’utilisation pour tous les locataires directs du fournisseur. |
