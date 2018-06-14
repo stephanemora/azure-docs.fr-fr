@@ -1,11 +1,11 @@
 ---
-title: "Exemple de workflow pour préparer des disques durs pour un travail d’importation Azure Import/Export - v1 | Microsoft Docs"
-description: "Obtenez la procédure pas à pas relative au processus de préparation des disques à un travail d’importation dans le service Azure Import/Export."
+title: Exemple de workflow pour préparer des disques durs pour un travail d’importation Azure Import/Export - v1 | Microsoft Docs
+description: Obtenez la procédure pas à pas relative au processus de préparation des disques à un travail d’importation dans le service Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26692022"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exemple de workflow pour préparer des disques durs à un travail d’importation
 Cette rubrique vous guide tout au long du processus de préparation des disques pour un travail d’importation.  

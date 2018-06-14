@@ -18,10 +18,11 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684583"
 abstract:
-  description: "Découvrez comment Microsoft Genomics peut optimiser le séquençage du génome à l’aide d’une implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire."
+  description: Découvrez comment Microsoft Genomics peut optimiser le séquençage du génome à l’aide d’une implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire.
 sections:
-- title: "Démarrages en 5 minutes"
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
     text: Soumettez un workflow via le service Microsoft Genomics.

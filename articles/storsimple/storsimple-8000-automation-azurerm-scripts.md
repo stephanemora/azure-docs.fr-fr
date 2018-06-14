@@ -1,12 +1,12 @@
 ---
-title: "Utiliser des scripts Azure Resource Manager pour gérer les appareils StorSimple | Microsoft Docs"
-description: "Découvrez comment utiliser des scripts Azure Resource Manager pour automatiser des travaux StorSimple"
+title: Utiliser des scripts Azure Resource Manager pour gérer les appareils StorSimple | Microsoft Docs
+description: Découvrez comment utiliser des scripts Azure Resource Manager pour automatiser des travaux StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26373939"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple
 

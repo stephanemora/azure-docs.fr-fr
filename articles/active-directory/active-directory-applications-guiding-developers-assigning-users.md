@@ -1,11 +1,11 @@
 ---
-title: "Azure AD et applications : affectations d’utilisateurs à une application | Microsoft Docs"
-description: "Implémentation de l’attribution d’utilisateurs pour les applications Azure."
+title: 'Azure AD et applications : affectations d’utilisateurs à une application | Microsoft Docs'
+description: Implémentation de l’attribution d’utilisateurs pour les applications Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598622"
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD et applications : affectation d’utilisateurs à une application
 Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur.  Pour savoir comment demander l’affectation de l'utilisateur, consultez l’article [Demande de l’affectation de l’utilisateur](active-directory-applications-guiding-developers-requiring-user-assignment.md) .

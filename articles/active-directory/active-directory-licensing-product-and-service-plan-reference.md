@@ -1,13 +1,13 @@
 ---
 title: Noms de produit et identificateurs de plans de service pour la gestion des licences dans Azure Active Directory | Microsoft Docs
-description: "Mappage des identificateurs pour gérer les licences d’Azure AD dans le portail Azure, le portail Office 365, PowerShell ou Microsoft Graph"
+description: Mappage des identificateurs pour gérer les licences d’Azure AD dans le portail Azure, le portail Office 365, PowerShell ou Microsoft Graph
 services: active-directory
 keywords: Plans de service des licences Azure Active Directory
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609326"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Noms de produits et identificateurs de plans de service pour la gestion des licences
 

@@ -20,7 +20,7 @@
         <array>
         <string>remote-notification</string>
         </array>
-7. Si vous utilisez **Xcode 7+** et **iOS 9 +** :
+7. Si vous utilisez **Xcode 7+** et **iOS 9 +**  :
    
    * Activer **Notifications Push** dans Cibles > Nom de cible > Fonctionnalités.
 
