@@ -1,11 +1,11 @@
 ---
-title: "Activation de l’audit et détection des menaces dans les bases de données SQL dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous explique comment implémenter la recommandation Azure Security Center **Activer l’audit et la détection des menaces pour les bases de données SQL**."
+title: Activation de l’audit et détection des menaces dans les bases de données SQL dans Azure Security Center | Microsoft Docs
+description: Ce document vous explique comment implémenter la recommandation Azure Security Center **Activer l’audit et la détection des menaces pour les bases de données SQL**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 224b6755-2b36-4ecd-9af8-139a198e0df1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040104"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Activation de l’audit et détection des menaces dans les bases de données SQL dans Azure Security Center
 Azure Security Center vous recommande d’activer l’audit et la détection des menaces sur toutes les bases de données SQL, si ce n’est déjà fait. L’audit et la détection des menaces peuvent vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.

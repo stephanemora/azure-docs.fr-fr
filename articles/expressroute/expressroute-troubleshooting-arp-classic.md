@@ -1,6 +1,6 @@
 ---
-title: "Obtention de tables ARP - Classic : guide de résolution des problèmes Azure ExpressRoute | Microsoft Docs"
-description: "Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute."
+title: 'Obtention de tables ARP - Classic : guide de résolution des problèmes Azure ExpressRoute | Microsoft Docs'
+description: Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013164"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement classique
 > [!div class="op_single_selector"]
