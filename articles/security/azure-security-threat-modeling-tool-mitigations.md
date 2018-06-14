@@ -1,6 +1,6 @@
 ---
-title: "Atténuations - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft"
-description: "Page des atténuations de l’outil Microsoft de modélisation des menaces, mettant en évidence des solutions possibles pour les menaces générées les plus exposées."
+title: Atténuations - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft
+description: Page des atténuations de l’outil Microsoft de modélisation des menaces, mettant en évidence des solutions possibles pour les menaces générées les plus exposées.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043434"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Atténuations de l’outil Microsoft de modélisation des menaces
 
