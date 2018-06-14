@@ -1,11 +1,11 @@
 ---
-title: "Diagnostic et récupération d’erreur pour les travaux Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment activer la journalisation documentée pour les travaux du service Microsoft Azure Import/Export."
+title: Diagnostic et récupération d’erreur pour les travaux Azure Import/Export | Microsoft Docs
+description: Découvrez comment activer la journalisation documentée pour les travaux du service Microsoft Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059284"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnostic et récupération d’erreur pour les travaux Azure Import/Export
 Pour chaque disque traité, le service Azure Import/Export crée un journal d’erreurs dans le compte de stockage associé. Vous pouvez également activer la journalisation documentée en définissant la propriété `LogLevel` sur `Verbose` lors de l’appel des opérations [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).
