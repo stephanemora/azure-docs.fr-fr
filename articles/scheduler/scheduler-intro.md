@@ -1,11 +1,11 @@
 ---
-title: "Présentation d’Azure Scheduler | Microsoft Docs"
-description: "Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement."
+title: Présentation d’Azure Scheduler | Microsoft Docs
+description: Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22715112"
 ---
 # <a name="what-is-azure-scheduler"></a>Présentation d’Azure Scheduler
 Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement.  Scheduler effectue cette opération à l’aide du [portail Azure](scheduler-get-started-portal.md), du code, de l’[API REST](https://msdn.microsoft.com/library/mt629143.aspx) ou d’Azure PowerShell.

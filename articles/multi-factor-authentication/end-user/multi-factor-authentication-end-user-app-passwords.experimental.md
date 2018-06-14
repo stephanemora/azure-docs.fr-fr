@@ -1,8 +1,8 @@
 ---
-title: "Comment utiliser les mots de passe d’application dans Azure MFA ? | Microsoft Docs"
-description: "Cette page permet aux utilisateurs de comprendre ce que sont les mots de passe d’application et leur utilisation avec Azure MFA."
+title: Comment utiliser les mots de passe d’application dans Azure MFA ? | Microsoft Docs
+description: Cette page permet aux utilisateurs de comprendre ce que sont les mots de passe d’application et leur utilisation avec Azure MFA.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700443"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?
 Actuellement, certaines applications sans navigateur telles que le client de messagerie native Apple qui utilise Exchange Active Sync ne prennent pas en charge l’authentification multifacteur. L’authentification multifacteur est activée par l’utilisateur.  Cela signifie qu’un utilisateur ne peut pas utiliser l’authentification multifacteur dans les cas suivants :
@@ -108,7 +109,7 @@ Si vous n’êtes pas sûr des cas dans lesquels vous utilisez l’authentificat
 6. Confirmez que vous voulez supprimer ce mot de passe en cliquant sur **Oui**.
 7. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 

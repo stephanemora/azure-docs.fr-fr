@@ -1,11 +1,11 @@
 ---
-title: "Ajout de l’action de requête dans des applications logiques | Microsoft Docs"
-description: "Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau."
-services: 
-documentationcenter: 
+title: Ajout de l’action de requête dans des applications logiques | Microsoft Docs
+description: Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962643"
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête
 L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
@@ -79,6 +80,6 @@ Vous trouverez ci-dessous les détails de sortie correspondant à la requête HT
 | --- | --- | --- |
 | Tableau filtré |array |Tableau contenant un objet pour chaque résultat filtré |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

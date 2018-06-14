@@ -1,11 +1,11 @@
 ---
-title: "Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization (Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé) | Microsoft Docs"
-description: "Migrer des applications du service Access Control Service vers le service de signature d’accès partagé (SAP)"
+title: Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization (Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé) | Microsoft Docs
+description: Migrer des applications du service Access Control Service vers le service de signature d’accès partagé (SAP)
 services: service-bus-relay
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855380"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé
 
@@ -59,7 +60,7 @@ Vous pouvez effectuer cette nouvelle configuration supplémentaire de la signatu
 
 Les règles de signature d’accès partagé ne sont pas destinées à être des comptes; elles sont des clés de signatures nommées associées à des droits. Par conséquent, les scénarios dans lesquels l’application crée plusieurs identités de service et leur accorde des droits d’accès pour plusieurs entités ou pour l’espace de noms entier requièrent toujours un intermédiaire pour émettre des jetons. Vous pouvez obtenir des conseils pour ce type d’intermédiaire en [contactant le support technique](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur l’authentification Azure Relay, consultez les sujets suivants :
 

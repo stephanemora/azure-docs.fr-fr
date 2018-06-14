@@ -1,11 +1,11 @@
 ---
-title: "Communication pour les rôles dans les services cloud | Microsoft Docs"
-description: "Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle."
+title: Communication pour les rôles dans les services cloud | Microsoft Docs
+description: Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27701888"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
@@ -369,6 +370,6 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**, de **
 
 Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur le [modèle](cloud-services-model-and-package.md)de service cloud.
 

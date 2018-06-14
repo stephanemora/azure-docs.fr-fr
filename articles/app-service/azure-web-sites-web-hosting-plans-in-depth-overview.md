@@ -1,12 +1,12 @@
 ---
-title: "Présentation des plans Azure App Service | Microsoft Docs"
-description: "Découvrez comment fonctionnent les plans Azure App Service et comment ils peuvent améliorer votre gestion."
-keywords: "app service, azure app service, mise à l’échelle, évolutif, scalabilité, plan app service, coût d’app service"
+title: Présentation des plans Azure App Service | Microsoft Docs
+description: Découvrez comment fonctionnent les plans Azure App Service et comment ils peuvent améliorer votre gestion.
+keywords: app service, azure app service, mise à l’échelle, évolutif, scalabilité, plan app service, coût d’app service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862357"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
 

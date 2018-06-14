@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Chiffrement et déchiffrement d’objets blob dans le service Stockage Azure à l’aide d’Azure Key Vault | Microsoft Docs"
-description: "Comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client pour le service Stockage Microsoft Azure avec Azure Key Vault."
+title: 'Didacticiel : Chiffrement et déchiffrement d’objets blob dans le service Stockage Azure à l’aide d’Azure Key Vault | Microsoft Docs'
+description: Comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client pour le service Stockage Microsoft Azure avec Azure Key Vault.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27815811"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault
 ## <a name="introduction"></a>Introduction
@@ -221,7 +222,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 Vous avez terminé. Vous n’avez plus qu’à l’utiliser !
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’utilisation du Stockage Microsoft Azure avec C#, consultez [Bibliothèque cliente Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Pour plus d’informations sur l’API REST Blob, consultez [API REST du service BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).
