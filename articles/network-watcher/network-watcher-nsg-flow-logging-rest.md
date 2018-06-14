@@ -1,11 +1,11 @@
 ---
-title: "Gérer les journaux des flux de groupe de sécurité réseau avec Azure Network Watcher - API REST | Microsoft Docs"
-description: "Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’API REST"
+title: Gérer les journaux des flux de groupe de sécurité réseau avec Azure Network Watcher - API REST | Microsoft Docs
+description: Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’API REST
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774369"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuration des journaux des flux de groupe de sécurité réseau avec l’API REST
 

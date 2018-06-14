@@ -1,12 +1,12 @@
 ---
-title: "Afficher et gérer les alertes pour les appareil StorSimple 8000 Series | Microsoft Docs"
-description: "Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d’alerte et comment utiliser le service StorSimple Device Manager pour gérer les alertes."
+title: Afficher et gérer les alertes pour les appareil StorSimple 8000 Series | Microsoft Docs
+description: Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d’alerte et comment utiliser le service StorSimple Device Manager pour gérer les alertes.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745776"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 

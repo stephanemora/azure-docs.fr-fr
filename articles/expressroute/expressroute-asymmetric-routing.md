@@ -1,11 +1,11 @@
 ---
-title: "Routage asymétrique | Microsoft Docs"
-description: "Cet article vous présente des solutions aux problèmes auxquels les clients peuvent être confrontés du fait d’un routage asymétrique dans un réseau lorsqu’il existe plusieurs connexions vers une même destination."
+title: Routage asymétrique | Microsoft Docs
+description: Cet article vous présente des solutions aux problèmes auxquels les clients peuvent être confrontés du fait d’un routage asymétrique dans un réseau lorsqu’il existe plusieurs connexions vers une même destination.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710012"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
 Cet article explique comment le trafic réseau entrant et sortant peut emprunter différentes voies lorsque plusieurs chemins d’accès sont disponibles entre la source et la destination réseau.

@@ -1,11 +1,11 @@
 ---
 title: Rapports principaux de Verizon | Microsoft Docs
-description: "Vous pouvez afficher les modèles d’utilisation pour votre CDN en utilisant les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d’accès au cache, les données transférées IPV4/IPV6."
+description: 'Vous pouvez afficher les modèles d’utilisation pour votre CDN en utilisant les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d’accès au cache, les données transférées IPV4/IPV6.'
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345245"
 ---
 # <a name="core-reports-from-verizon"></a>Rapports principaux de Verizon
 
