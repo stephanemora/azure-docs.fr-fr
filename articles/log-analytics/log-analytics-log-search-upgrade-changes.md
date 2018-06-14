@@ -1,11 +1,11 @@
 ---
-title: "Qu’est-ce qui a changé dans Azure Log Analytics ? | Microsoft Docs"
-description: "Cet article fournit le forum aux questions relatives à la mise à niveau de Log Analytics au nouveau langage de requête."
+title: Qu’est-ce qui a changé dans Azure Log Analytics ? | Microsoft Docs
+description: Cet article fournit le forum aux questions relatives à la mise à niveau de Log Analytics au nouveau langage de requête.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039857"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Qu’est-ce qui a changé dans Azure Log Analytics ?
 En plus du langage de requête proprement dit, il y a plusieurs améliorations et modifications dont vous devez être informé quand votre espace de travail Log Analytics [passe au nouveau langage de requête](log-analytics-log-search-new.md).  Cet article décrit brièvement les différences entre un espace de travail hérité et un espace de travail mis à niveau, puis fournit des liens vers du contenu détaillé pour chacun. 
