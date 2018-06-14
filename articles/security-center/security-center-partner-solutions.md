@@ -1,11 +1,11 @@
 ---
-title: "Gestion des solutions de partenaire connectées dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous explique comment le Centre de sécurité Azure vous permet de surveiller en un clin d’œil l’intégrité de vos solutions de partenaires intégrées à votre abonnement Azure."
+title: Gestion des solutions de partenaire connectées dans Azure Security Center | Microsoft Docs
+description: Ce document vous explique comment le Centre de sécurité Azure vous permet de surveiller en un clin d’œil l’intégrité de vos solutions de partenaires intégrées à votre abonnement Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23454975"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gestion des solutions de partenaire connectées avec Azure Security Center
 Cet article explique comment gérer et surveiller des solutions de sécurité connectées dans Azure Security Center.
