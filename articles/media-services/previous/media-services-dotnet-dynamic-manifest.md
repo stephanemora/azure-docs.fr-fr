@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783248"
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services
 > [!div class="op_single_selector"]

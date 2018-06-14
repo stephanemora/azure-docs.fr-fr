@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785698"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestion des entités Media Services avec REST 
 > [!div class="op_single_selector"]
