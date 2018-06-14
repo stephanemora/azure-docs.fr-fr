@@ -1,12 +1,12 @@
 ---
-title: "Utiliser les infos relatives à un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit le panneau de synthèse de l’appareil offert par le service StorSimple Device Manager et explique comment l’utiliser pour afficher les métriques de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN pour un appareil."
+title: Utiliser les infos relatives à un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit le panneau de synthèse de l’appareil offert par le service StorSimple Device Manager et explique comment l’utiliser pour afficher les métriques de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN pour un appareil.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108257"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 

@@ -1,12 +1,12 @@
 ---
-title: "Déployer un appareil de la gamme StorSimple 8000 dans le portail Government | Microsoft Docs"
-description: "Décrit les procédures et meilleures pratiques de déploiement d’un appareil de la gamme StorSimple 8000 exécutant le logiciel Update 3 et versions ultérieures, et du service dans le portail Azure Government."
+title: Déployer un appareil de la gamme StorSimple 8000 dans le portail Government | Microsoft Docs
+description: Décrit les procédures et meilleures pratiques de déploiement d’un appareil de la gamme StorSimple 8000 exécutant le logiciel Update 3 et versions ultérieures, et du service dans le portail Azure Government.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108747"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Déployer votre appareil StorSimple local dans le portail Government
 

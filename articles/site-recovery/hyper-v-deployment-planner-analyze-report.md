@@ -1,6 +1,6 @@
 ---
-title: "Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure| Microsoft Docs"
-description: "Cet article décrit l’analyse d’un rapport généré du Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure."
+title: Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure| Microsoft Docs
+description: Cet article décrit l’analyse d’un rapport généré du Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466875"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
@@ -32,13 +33,13 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 
 **Average number of disks per compatible virtual machine** : le nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
 
-**Average disk size (GB)** : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
+**Average disk size (GB)**  : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
 
 **Desired RPO (minutes)** : objectif de point de récupération par défaut ou valeur transmise pour le paramètre DesiredRPO au moment de la génération de rapport afin d’estimer la bande passante requise.
 
 **Desired bandwidth (Mbps)** : valeur que vous avez transmise pour le paramètre Bandwidth au moment de la génération de rapport afin d’estimer l’objectif de point de récupération (RPO) réalisable.
 
-**Observed typical data churn per day (GB)** : l’activité moyenne des données observée tous les jours de profilage.
+**Observed typical data churn per day (GB)**  : l’activité moyenne des données observée tous les jours de profilage.
 
 ## <a name="recommendations"></a>Recommandations 
 La feuille Recommandations d’Hyper-V pour le rapport Azure présente les détails suivants selon le RPO souhaité que vous avez sélectionné :
@@ -206,7 +207,7 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **Cores** : le nombre de cœurs de processeur de la machine virtuelle.
 
-**Memory (MB)** : la mémoire RAM de la machine virtuelle.
+**Memory (MB)**  : la mémoire RAM de la machine virtuelle.
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
@@ -261,7 +262,7 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 **Cores** : le nombre de cœurs de processeur de la machine virtuelle.
 
-**Memory (MB)** : la quantité de RAM sur la machine virtuelle.
+**Memory (MB)**  : la quantité de RAM sur la machine virtuelle.
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
@@ -355,5 +356,5 @@ Chaque table de lot fournit un résumé de la consommation réseau du lot.
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur [l’estimation des coûts](hyper-v-deployment-planner-cost-estimation.md).

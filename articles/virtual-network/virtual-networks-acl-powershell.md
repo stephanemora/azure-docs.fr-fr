@@ -1,5 +1,5 @@
 ---
-title: "Gérer les listes de contrôle d’accès de point de terminaison Azure | PowerShell | Classique | Microsoft Docs"
+title: Gérer les listes de contrôle d’accès de point de terminaison Azure | PowerShell | Classique | Microsoft Docs
 description: En savoir plus sur la gestion des listes ACL avec PowerShell
 services: virtual-network
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124887"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Gérer les listes de contrôle d’accès de point de terminaison en utilisant PowerShell dans le modèle de déploiement classique
 Vous pouvez créer et gérer des listes de contrôle d’accès réseau pour les points de terminaison à l’aide d’Azure PowerShell ou du portail de gestion. Dans cette rubrique, vous trouverez des procédures pour les tâches courantes des listes de contrôle d’accès que vous pouvez effectuer à l’aide de PowerShell. Pour obtenir la liste des applets de commande Azure PowerShell, consultez [Applets de commande de gestion Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Pour plus d’informations sur les listes de contrôle d’accès, consultez [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](virtual-networks-acl.md). Si vous voulez gérer vos listes de contrôle d’accès à partir du portail de gestion, consultez [Comment configurer des points de terminaison sur une machine virtuelle](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

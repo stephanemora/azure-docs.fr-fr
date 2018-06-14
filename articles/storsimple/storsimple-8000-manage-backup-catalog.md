@@ -1,12 +1,12 @@
 ---
-title: "Gérer votre catalogue de sauvegarde StorSimple | Microsoft Docs"
-description: "Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Device Manager pour répertorier, sélectionner et supprimer des jeux de sauvegarde."
+title: Gérer votre catalogue de sauvegarde StorSimple | Microsoft Docs
+description: Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Device Manager pour répertorier, sélectionner et supprimer des jeux de sauvegarde.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108377"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utiliser le service StorSimple Device Manager pour gérer votre catalogue de sauvegarde
 ## <a name="overview"></a>Vue d'ensemble

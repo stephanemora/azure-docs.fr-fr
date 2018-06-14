@@ -1,9 +1,9 @@
 ---
-title: "Réinitialisation de votre mot de passe Azure AD | Microsoft Docs"
-description: "Utiliser la fonction de réinitialisation de mot de passe en libre-service pour récupérer l’accès à votre compte professionnel ou scolaire"
+title: Réinitialisation de votre mot de passe Azure AD | Microsoft Docs
+description: Utiliser la fonction de réinitialisation de mot de passe en libre-service pour récupérer l’accès à votre compte professionnel ou scolaire
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463776"
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
