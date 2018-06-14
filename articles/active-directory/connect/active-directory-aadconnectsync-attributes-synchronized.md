@@ -398,7 +398,7 @@ Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire 
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
-Un ordinateur (appareil) Windows 10 joint à un domaine synchronisera certains attributs sur Azure AD. Pour plus d'informations sur les scénarios, consultez [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Ces attributs sont toujours synchronisés et Windows 10 n'apparaît pas comme une application que vous pouvez désélectionner. Un ordinateur appartenant au domaine Windows 10 est identifié par l'attribut userCertificate.
+Un ordinateur (appareil) Windows 10 joint à un domaine synchronise certains attributs sur Azure AD. Pour plus d'informations sur les scénarios, consultez [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Ces attributs se synchronisent toujours et Windows 10 n'apparaît pas comme une application que vous pouvez désélectionner. Un ordinateur appartenant au domaine Windows 10 est identifié par l'attribut userCertificate.
 
 | Nom de l'attribut | Appareil | Commentaire |
 | --- |:---:| --- |
