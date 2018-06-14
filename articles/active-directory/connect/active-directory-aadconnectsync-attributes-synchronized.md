@@ -23,7 +23,7 @@ ms.locfileid: "32160053"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
-Les attributs sont regroupés selon l’application Azure AD associée.
+Les attributs sont regroupés par l’application Azure AD associée.
 
 ## <a name="attributes-to-synchronize"></a>Attributs à synchroniser
 Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Office 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ces attributs contiennent des données sensibles ou personnelles, comme dans cet exemple :   
