@@ -1,12 +1,12 @@
 ---
-title: "Utiliser la nouvelle authentification pour le service Gestionnaire de périphériques StorSimple 8000 dans Azure | Microsoft Docs"
-description: "Explique comment utiliser l’authentification AAD pour votre service, générer la nouvelle clé d’inscription et effectuer l’inscription manuelle des appareils."
+title: Utiliser la nouvelle authentification pour le service Gestionnaire de périphériques StorSimple 8000 dans Azure | Microsoft Docs
+description: Explique comment utiliser l’authentification AAD pour votre service, générer la nouvelle clé d’inscription et effectuer l’inscription manuelle des appareils.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28031040"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
@@ -93,7 +94,7 @@ Procédez comme suit pour générer une clé d’inscription du service AAD.
     > [!NOTE] 
     > Si vous créez un StorSimple Cloud Appliance sur le service inscrit à votre appareil StorSimple 8000, ne générez pas de clé d’inscription lorsque la création est en cours. Attendez que la création se termine, puis générez la clé d’inscription.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * En savoir plus sur le déploiement d’un [appareil StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

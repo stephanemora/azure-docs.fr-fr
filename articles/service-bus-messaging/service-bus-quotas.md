@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "28979205"
 ---
 # <a name="service-bus-quotas"></a>Quotas Service Bus
 Cette section répertorie les quotas de base et les seuils de limitation qui s’appliquent à la messagerie d’Azure Service Bus.

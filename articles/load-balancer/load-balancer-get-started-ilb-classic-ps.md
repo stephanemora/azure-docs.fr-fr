@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068150"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Prise en main de la création d’un équilibreur de charge interne (classique) à l’aide de PowerShell
 

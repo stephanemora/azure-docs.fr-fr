@@ -1,12 +1,12 @@
 ---
-title: "Paramètres de port d’Azure Relay | Microsoft Docs"
-description: "Fournit des informations sur les valeurs de port d’Azure Relay."
+title: Paramètres de port d’Azure Relay | Microsoft Docs
+description: Fournit des informations sur les valeurs de port d’Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28017373"
 ---
 # <a name="azure-relay-port-settings"></a>Paramètres de port d’Azure Relay
 
@@ -48,7 +49,7 @@ Les connexions hybrides font appel à WebSockets comme mécanisme de transport s
 ||" |Non |HTTP|  
 |[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (service)|Vous pouvez soit utiliser|9351/HTTP|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur Azure Relay, consultez les liens suivants :
 * [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)
 * [FAQ Relay](relay-faq.md)

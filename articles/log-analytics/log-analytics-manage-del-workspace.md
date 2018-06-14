@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938690"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Supprimer un espace de travail Azure Log Analytics avec le portail Azure
 Cet article montre comment utiliser le portail Azure pour supprimer un espace de travail Log Analytics dont vous n’aurez peut-être plus besoin. 

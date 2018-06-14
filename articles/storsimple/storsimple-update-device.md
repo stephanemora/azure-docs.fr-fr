@@ -1,11 +1,11 @@
 ---
-title: "Mettre à jour votre appareil StorSimple | Microsoft Docs"
-description: "Explique comment utiliser la fonctionnalité de mise à jour de StorSimple pour installer les mises à jour et les correctifs ordinaires et en mode Maintenance."
+title: Mettre à jour votre appareil StorSimple | Microsoft Docs
+description: Explique comment utiliser la fonctionnalité de mise à jour de StorSimple pour installer les mises à jour et les correctifs ordinaires et en mode Maintenance.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103606"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Mettre à jour votre appareil StorSimple 8000 Series
 > [!NOTE]
@@ -118,7 +119,7 @@ Les procédures suivantes expliquent comment utiliser Windows PowerShell pour St
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Que se passe-t-il pour les mises à jour si vous effectuez une réinitialisation de l’appareil aux paramètres d’usine ?
 Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à jour sont perdues. Une fois que l’appareil réinitialisé avec les paramètres par défaut est inscrit et configuré, vous devez installer manuellement les mises à jour par le biais du portail Azure Classic et/ou de Windows PowerShell pour StorSimple. Pour plus d’informations sur la réinitialisation des paramètres d’usine, consultez [Rétablissement des paramètres par défaut de l’appareil](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur [l’utilisation de Windows PowerShell pour StorSimple pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour administrer votre appareil StorSimple](storsimple-manager-service-administration.md).
 

@@ -1,11 +1,11 @@
 ---
-title: "Créer une application web HTML statique dans Azure | Microsoft Docs"
-description: "Découvrez comment exécuter des applications web dans Azure App Service en déployant un exemple d’application HTML statique."
+title: Créer une application web HTML statique dans Azure | Microsoft Docs
+description: Découvrez comment exécuter des applications web dans Azure App Service en déployant un exemple d’application HTML statique.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28918775"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Créer une application web HTML statique dans Azure
 
@@ -138,7 +139,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Mapper un domaine personnalisé](app-service-web-tutorial-custom-domain.md)

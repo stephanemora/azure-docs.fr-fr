@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010582"
 ---
 # <a name="azure-cdn-pop-locations-by-region"></a>Emplacements POP du CDN Azure par région
 > [!div class="op_single_selector"]

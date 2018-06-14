@@ -1,9 +1,9 @@
 ---
-title: "Configurer la vérification en deux étapes pour mon compte professionnel ou scolaire | Microsoft Docs"
-description: "Quand votre entreprise configure Azure Multi-Factor Authentication, vous êtes invité à vous inscrire au processus de vérification en deux étapes. Voici les étapes de configuration à suivre. "
+title: Configurer la vérification en deux étapes pour mon compte professionnel ou scolaire | Microsoft Docs
+description: 'Quand votre entreprise configure Azure Multi-Factor Authentication, vous êtes invité à vous inscrire au processus de vérification en deux étapes. Voici les étapes de configuration à suivre. '
 services: multi-factor-authentication
-keywords: "utilisation du répertoire azure, active directory dans le cloud, didacticiel sur active directory"
-documentationcenter: 
+keywords: utilisation du répertoire azure, active directory dans le cloud, didacticiel sur active directory
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198353"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
 La vérification en deux étapes est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion. Si vous lisez cet article, c’est que vous avez probablement reçu un e-mail de la part de l’administrateur de votre entreprise ou établissement scolaire concernant Multi-Factor Authentication. Ou peut-être avez-vous reçu un message vous invitant à configurer la vérification de sécurité supplémentaire à la suite d’une tentative de connexion. Si tel est le cas, **vous devez compléter le processus d’inscription automatique avant de pouvoir vous connecter**.
@@ -102,7 +103,7 @@ Si vous souhaitez ajouter manuellement un compte à l’application mobile sans 
 5. Si vous utilisez ces applications, copiez le mot de passe d’application fourni et collez-le dans votre application à la place de votre mot de passe habituel. Vous pouvez utiliser le même mot de passe d’application pour plusieurs applications. Pour plus d’informations, consultez [Définition des mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md).
 6. Cliquez sur **Done**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Modifier les options préférées et [gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 * Configurer des [mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md) pour les applications natives sur des appareils qui ne prennent pas en charge la vérification en deux étapes
 * Découvrir l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour mettre en place une authentification rapide et sécurisée, même sans accès au réseau de téléphonie mobile

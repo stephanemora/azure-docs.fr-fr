@@ -1,6 +1,6 @@
 ---
-title: "Autoriser l’accès à l’application de conteneurs DC/OS Azure"
-description: "Comment autoriser l’accès public aux conteneurs DC/OS dans Azure Container Service."
+title: Autoriser l’accès à l’application de conteneurs DC/OS Azure
+description: Comment autoriser l’accès public aux conteneurs DC/OS dans Azure Container Service.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332277"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Autoriser l’accès public à une application Azure Container Service
 

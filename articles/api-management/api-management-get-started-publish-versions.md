@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937312"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publier plusieurs versions de votre API 
 

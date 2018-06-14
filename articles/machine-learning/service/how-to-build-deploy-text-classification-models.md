@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939705"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Générer et déployer des modèles de classification de texte avec Azure Machine Learning
 
@@ -23,7 +24,7 @@ Il existe de vastes applications en matière de classification de texte, parmi c
 + Catégorisation d’articles de presse et de fils d’actualité en rubriques
 + Organisation en catégories hiérarchiques de pages web 
 + Filtrage de courrier indésirable
-+ Analyse de sentiments
++ analyse de sentiments
 + Prédiction d’intention de l’utilisateur à partir de requêtes de recherche
 + Routage de tickets de support
 + Analyse de commentaires de clients 
@@ -421,13 +422,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Examiner et définir les paramètres des différentes étapes du pipeline
 
-Bien que l’ajustement d’un modèle scikit-learn existe, le prétraitement est effectué avant cet ajustement, au moyen d’un pipeline d’étapes (de transformation) de préprocesseur et de caractériseur. D’où la référence à un « pipeline » pour la formation. Lors de l’évaluation, le pipeline complet, englobant le prétraitement et la prédiction du modèle scikit-learn, est appliqué à un jeu de données de test.
+Pendant la formation, vous devez avoir les colonnes de texte et d’étiquette. Cependant, seule la colonne de texte est nécessaire pour les prédictions. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Examiner et définir les paramètres des différentes étapes du pipeline
+    
+En règle générale, vous définissez les paramètres avant d’adapter un modèle. 
 
 ***Exemple illustré avec text_word_ngrams*** (n-grammes_mot_texte) 
-
-En règle générale, vous définissez les paramètres avant d’adapter un modèle. 
 
 Les exemples de code suivants montrent comment former le modèle à l’aide des paramètres de pipeline et de modèle par défaut. 
 
@@ -890,7 +892,7 @@ En savoir plus sur le package Azure Machine Learning pour Analyse de texte dans 
 
 + Prendre connaissance de la [vue d’ensemble du package et savoir comment l’installer](https://aka.ms/aml-packages/text).
 
-+ Explorer la [documentation de référence](https://aka.ms/aml-packages/text) pour ce package.
++ Explorer la [documentation de référence](https://aka.ms/aml-packages/text) de ce package.
 
 + En savoir plus sur les [autres packages Python pour Azure Machine Learning](reference-python-package-overview.md).
 

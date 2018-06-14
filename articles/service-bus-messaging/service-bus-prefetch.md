@@ -1,11 +1,11 @@
 ---
-title: "Prérécupérer les messages Azure Service Bus | Microsoft Docs"
-description: "Améliorez les performances en prérécupérant les messages Azure Service Bus."
+title: Prérécupérer les messages Azure Service Bus | Microsoft Docs
+description: Améliorez les performances en prérécupérant les messages Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28928159"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prérécupérer les messages Azure Service Bus
 
@@ -53,7 +54,7 @@ Si vous avez besoin d’un haut débit et que votre processus de traitement des 
 
 Le nombre maximal de prérécupérations et la durée de verrouillage configurés sur la file d’attente ou l’abonnement doivent être équilibrés, de sorte que le délai d’expiration du verrouillage dépasse au moins le temps de traitement des messages prévu cumulé pour la taille maximale de la mémoire tampon de prérécupération, plus un message. Parallèlement, il convient d’éviter que le délai d’expiration du verrouillage soit si long que les messages risquent de dépasser leur valeur [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) maximale lorsqu’ils sont accidentellement abandonnés, ce qui nécessite alors d’attendre l’arrivée à expiration du verrouillage des messages pour que ces derniers puissent faire l’objet d’une nouvelle tentative de remise.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
