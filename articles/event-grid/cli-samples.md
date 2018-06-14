@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425881"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Exemples d’interface de ligne de commande Azure pour Event Grid
 

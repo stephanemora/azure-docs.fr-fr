@@ -1,11 +1,11 @@
 ---
-title: "Gérer des machines virtuelles Windows Azure Pack à partir d’Azure Stack | Microsoft Docs"
-description: "Découvrez comment gérer des machines virtuelles Windows Azure Pack à partir du portail utilisateur dans Azure Stack."
+title: Gérer des machines virtuelles Windows Azure Pack à partir d’Azure Stack | Microsoft Docs
+description: Découvrez comment gérer des machines virtuelles Windows Azure Pack à partir du portail utilisateur dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29735822"
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Gérer des machines virtuelles Windows Azure Pack à partir d’Azure Stack
 
@@ -277,5 +278,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Pour plus d’informations sur les problèmes connus, consultez [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Utilisation des portails administrateur et utilisateur dans Azure Stack](azure-stack-manage-portals.md)
