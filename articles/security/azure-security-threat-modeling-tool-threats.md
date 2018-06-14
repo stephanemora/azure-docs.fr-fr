@@ -1,6 +1,6 @@
 ---
-title: "Menaces - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft"
-description: "Page de catégories des menaces pour l’outil Microsoft de modélisation des menaces, contenant les catégories de toutes les menaces générées exposées."
+title: Menaces - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft
+description: Page de catégories des menaces pour l’outil Microsoft de modélisation des menaces, contenant les catégories de toutes les menaces générées exposées.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043304"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Menaces de l’outil Microsoft de modélisation des menaces
 

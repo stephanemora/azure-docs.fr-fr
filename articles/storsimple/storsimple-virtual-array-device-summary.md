@@ -1,11 +1,11 @@
 ---
-title: "Panneau de synthèse de l’appareil StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit le panneau de synthèse des appareils pour StorSimple Device Manager et explique comment l’utiliser pour surveiller l’intégrité de votre instance StorSimple Virtual Array."
+title: Panneau de synthèse de l’appareil StorSimple Virtual Array | Microsoft Docs
+description: Décrit le panneau de synthèse des appareils pour StorSimple Device Manager et explique comment l’utiliser pour surveiller l’intégrité de votre instance StorSimple Virtual Array.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a13c1ea7-6428-4234-84a6-0ebf51670a85
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109637"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utiliser le panneau de synthèse des appareils pour StorSimple Device Manager connecté à StorSimple Virtual Array
 

@@ -1,12 +1,12 @@
 ---
-title: "Remplacer un PCM sur votre appareil StorSimple série 8000 | Microsoft Docs"
+title: Remplacer un PCM sur votre appareil StorSimple série 8000 | Microsoft Docs
 description: Explique comment retirer et remplacer le PCM sur votre appareil StorSimple
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108597"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble

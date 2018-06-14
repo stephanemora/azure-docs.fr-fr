@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’Hudson avec le stockage Blob | Microsoft Azure"
-description: "Description de l'utilisation de la solution Hudson avec le stockage d'objets blob Azure comme référentiel pour des artefacts de build."
+title: Utilisation d’Hudson avec le stockage Blob | Microsoft Azure
+description: Description de l'utilisation de la solution Hudson avec le stockage d'objets blob Azure comme référentiel pour des artefacts de build.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060124"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
 ## <a name="overview"></a>Vue d'ensemble
