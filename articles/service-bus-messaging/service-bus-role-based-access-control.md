@@ -1,12 +1,12 @@
 ---
-title: "Contrôle d’accès en fonction du rôle Azure Service Bus (version préliminaire) | Microsoft Docs"
-description: "Contrôle d’accès en fonction du rôle Azure Service Bus"
+title: Contrôle d’accès en fonction du rôle Azure Service Bus (version préliminaire) | Microsoft Docs
+description: Contrôle d’accès en fonction du rôle Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783355"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -75,7 +76,7 @@ Avant de pouvoir exécuter l’exemple, modifiez le fichier App.config et, selon
  
 Lorsque vous exécutez l’application console, vous êtes invité à sélectionner un scénario. Cliquez sur **Connexion interactive de l’utilisateur** en saisissant son numéro et en appuyant sur ENTRÉE. L’application affiche une fenêtre de connexion, vous demande l’autorisation d’accéder à Service Bus et utilise ensuite le service à exécuter via le scénario d’envoi/réception à l’aide de l’identité de connexion.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 

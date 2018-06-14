@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212273"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.

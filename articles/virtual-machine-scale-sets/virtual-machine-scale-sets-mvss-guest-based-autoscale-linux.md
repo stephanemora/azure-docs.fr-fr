@@ -1,11 +1,11 @@
 ---
-title: "Utiliser la mise à l’échelle automatique Azure avec des mesures invitées dans un modèle de groupe identique Linux | Microsoft Docs"
-description: "Découvrez comment effectuer la mise à l’échelle automatique en utilisant des mesures invitées dans un modèle de groupe de machines virtuelles identiques Linux"
+title: Utiliser la mise à l’échelle automatique Azure avec des mesures invitées dans un modèle de groupe identique Linux | Microsoft Docs
+description: Découvrez comment effectuer la mise à l’échelle automatique en utilisant des mesures invitées dans un modèle de groupe de machines virtuelles identiques Linux
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781426"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Mise à l’échelle automatique en utilisant des mesures invitées dans un modèle de groupe identique Linux
 
@@ -186,6 +187,6 @@ Enfin, ajoutez une ressource `autoscaleSettings` pour configurer la mise à l’
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

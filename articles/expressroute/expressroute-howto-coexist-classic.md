@@ -1,11 +1,11 @@
 ---
-title: "Configuration de connexions ExpressRoute et VPN de site à site pouvant coexister : classique : Azure | Microsoft Docs"
-description: "Cet article vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister pour le modèle de déploiement classique."
+title: 'Configuration de connexions ExpressRoute et VPN de site à site pouvant coexister : classique : Azure | Microsoft Docs'
+description: Cet article vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister pour le modèle de déploiement classique.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "22710131"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurer la coexistence de connexions de site à site et ExpressRoute (classique)
 > [!div class="op_single_selector"]

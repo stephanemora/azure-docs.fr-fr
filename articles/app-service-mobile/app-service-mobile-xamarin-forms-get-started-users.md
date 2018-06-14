@@ -1,11 +1,11 @@
 ---
-title: "Prise en main de l’authentification pour Mobile Apps dans l’application Xamarin Forms | Microsoft Docs"
-description: "Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Forms via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+title: Prise en main de l’authentification pour Mobile Apps dans l’application Xamarin Forms | Microsoft Docs
+description: Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Forms via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593396"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Ajouter l’authentification à votre application Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -332,7 +333,7 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
 
 4. Recompilez et exécutez l’application, puis connectez-vous avec le fournisseur d’authentification choisi et vérifiez que vous êtes en mesure d’accéder aux données en tant qu’utilisateur authentifié.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajouter des notifications Push à votre application Android](app-service-mobile-xamarin-forms-get-started-push.md)

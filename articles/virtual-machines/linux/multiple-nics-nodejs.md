@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365115"
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Créer une machine virtuelle Linux avec plusieurs cartes réseau à l’aide d’Azure CLI 1.0
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article fournit des commandes rapides pour créer une machine virtuelle avec plusieurs cartes d’interface réseau. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.

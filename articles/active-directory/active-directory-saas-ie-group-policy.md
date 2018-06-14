@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341004"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
 Ce didacticiel montre comment utiliser la stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs. Cette extension est requise pour les utilisateurs d’Internet Explorer qui ont besoin de se connecter à des applications configurées à l’aide de l’ [authentification unique par mot de passe](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
