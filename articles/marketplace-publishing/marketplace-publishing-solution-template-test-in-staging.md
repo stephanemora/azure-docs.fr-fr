@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937833"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Test de votre offre de modèle de solution en mode intermédiaire
 Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre offre dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant le lancement de sa production. L'offre apparaît avec le statut Intermédiaire, comme pour un client l'ayant déployée. Votre offre doit être certifiée pour passer en mode intermédiaire.

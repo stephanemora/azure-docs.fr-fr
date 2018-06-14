@@ -1,6 +1,6 @@
 ---
-title: "Architecture de réplication d’un serveur physique sur Azure avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de serveurs physiques locaux dans Azure avec le service Azure Site Recovery."
+title: Architecture de réplication d’un serveur physique sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de serveurs physiques locaux dans Azure avec le service Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
@@ -11,6 +11,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874890"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Architecture de la réplication de serveurs physiques vers Azure
 

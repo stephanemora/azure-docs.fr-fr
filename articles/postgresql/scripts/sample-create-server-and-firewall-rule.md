@@ -1,6 +1,6 @@
 ---
-title: "Script Azure CLI : Créer une instance d’Azure Database pour PostgreSQL"
-description: "Exemple de script CLI - crée un serveur Azure Database pour PostgreSQL et configure une règle de pare-feu au niveau du serveur."
+title: 'Script Azure CLI : Créer une instance d’Azure Database pour PostgreSQL'
+description: Exemple de script CLI - crée un serveur Azure Database pour PostgreSQL et configure une règle de pare-feu au niveau du serveur.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847958"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Créer un serveur Azure Database pour PostgreSQL et configurer une règle de pare-feu à l’aide de l’interface de ligne de commande Azure
 Cet exemple de script CLI crée un serveur Azure Database pour PostgreSQL et configure une règle de pare-feu au niveau du serveur. Une fois que le script a été exécuté avec succès, le serveur PostgreSQL est accessible à partir de tous les services Azure et l’adresse IP configurée.

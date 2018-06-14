@@ -1,11 +1,11 @@
 ---
-title: "Estimer la capacité de réplication dans Azure | Microsoft Docs"
-description: "Utilisez cet article pour estimer la capacité en cas de réplication avec Azure Site Recovery"
+title: Estimer la capacité de réplication dans Azure | Microsoft Docs
+description: Utilisez cet article pour estimer la capacité en cas de réplication avec Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875903"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planifier la capacité de la protection des machines virtuelles Hyper-V avec Site Recovery
 
@@ -71,9 +72,9 @@ Vous pouvez exécuter l’outil en deux modes :
 
 4. Une fois que vous avez entré les valeurs de l’environnement source, la sortie affichée inclut ce qui suit :
 
-   * **Bande passante requise pour la réplication delta (en mégabits par seconde)** : la bande passante réseau pour la réplication delta est calculée sur le taux de modification de données moyen par jour.
-   * **Bande passante requise pour la réplication initiale (en mégabits par seconde)** : la bande passante réseau pour la réplication initiale est calculée sur les valeurs de réplication initiale que vous entrez.
-   * **Stockage requis (en Go)** : stockage Azure total requis.
+   * **Bande passante requise pour la réplication delta (en mégabits par seconde)**  : la bande passante réseau pour la réplication delta est calculée sur le taux de modification de données moyen par jour.
+   * **Bande passante requise pour la réplication initiale (en mégabits par seconde)**  : la bande passante réseau pour la réplication initiale est calculée sur les valeurs de réplication initiale que vous entrez.
+   * **Stockage requis (en Go)**  : stockage Azure total requis.
    * **Nombre total d’E/S par seconde sur le compte de stockage standard** : calculé sur la base d’une taille d’unité d’E/S par seconde de 8K sur la totalité des comptes de stockage standard. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machine virtuelle sources et du taux de changement de données quotidien. Pour Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées aux machines virtuelles Azure standard et du taux de modification de données sur ces dernières.
    * **Nombre de comptes de stockage standard requis** : nombre total de comptes de stockage standard nécessaire pour protéger les machines virtuelles. Un compte de stockage standard peut prendre en charge jusqu’à 20 000 E/S par seconde sur toutes les machines virtuelles appartenant à un stockage standard. Le maximum d’E/S par seconde prises en charge par disque est de 500.
    * **Nombre de disques blob requis** : nombre de disques qui seront créés sur le stockage Azure.
