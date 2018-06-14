@@ -1,11 +1,11 @@
 ---
-title: "Personnaliser le portail des développeurs Gestion des API à l’aide de modèles - Azure | Microsoft Docs"
-description: "Apprenez à personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles."
+title: Personnaliser le portail des développeurs Gestion des API à l’aide de modèles - Azure | Microsoft Docs
+description: Apprenez à personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118222"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles
 
@@ -179,7 +180,7 @@ Pour restaurer la version par défaut de tous les modèles, cliquez sur **Restor
 
 Les modèles restaurés doivent ensuite être publiés un par un ou tous en même temps en suivant les étapes décrites dans la section [Pour publier un modèle](#to-publish-a-template).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md
