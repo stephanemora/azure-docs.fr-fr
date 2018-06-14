@@ -1,12 +1,12 @@
 ---
-title: "Considérations sur la connectivité de la frontière dans l’intégration au réseau pour les systèmes intégrés Azure Stack | Microsoft Docs"
-description: "Découvrez ce que vous pouvez faire pour planifier la connectivité du réseau frontière du centre de données avec un système Azure Stack à plusieurs nœuds."
+title: Considérations sur la connectivité de la frontière dans l’intégration au réseau pour les systèmes intégrés Azure Stack | Microsoft Docs
+description: Découvrez ce que vous pouvez faire pour planifier la connectivité du réseau frontière du centre de données avec un système Azure Stack à plusieurs nœuds.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919432"
 ---
 # <a name="border-connectivity"></a>Connectivité de la frontière 
 La planification de l’intégration au réseau est un prérequis important pour réussir le déploiement, l’exploitation et la gestion de systèmes intégrés Azure Stack. Pour commencer la planification de la connectivité de la frontière, vous devez décider si vous souhaitez utiliser ou non le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez soit affecter un numéro de système autonome BGP 16 bits (public ou privé), soit utiliser un routage statique où une route statique par défaut est affectée aux appareils frontière.

@@ -1,11 +1,11 @@
 ---
-title: "Utilisation des propriétés dans les stratégies Gestion des API Azure"
-description: "Découvrez comment utiliser les propriétés dans les stratégies Gestion des API Azure."
+title: Utilisation des propriétés dans les stratégies Gestion des API Azure
+description: Découvrez comment utiliser les propriétés dans les stratégies Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197110"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Utilisation des propriétés dans les stratégies Gestion des API Azure
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de propriétés. 
@@ -107,7 +108,7 @@ Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-i
 
 Alors que les valeurs de propriété peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres propriétés. Si le texte contenant une référence de propriété est utilisé pour une valeur de propriété, comme `Property value text {{MyProperty}}`, cette référence de propriété n’est pas remplacée et est incluse dans la valeur de propriété.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur l’utilisation des stratégies
   * [Stratégies dans Gestion des API](api-management-howto-policies.md)
   * [Référence de stratégie](https://msdn.microsoft.com/library/azure/dn894081.aspx)

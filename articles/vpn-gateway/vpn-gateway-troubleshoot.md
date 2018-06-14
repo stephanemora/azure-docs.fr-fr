@@ -1,13 +1,13 @@
 ---
-title: "Résoudre les problèmes de configuration et de connexion de la passerelle VPN | Microsoft Docs"
-description: "Cet article propose des liens vers d’autres articles pour vous aider à résoudre les problèmes de configuration et de connexion de votre passerelle VPN et à valider le débit."
+title: Résoudre les problèmes de configuration et de connexion de la passerelle VPN | Microsoft Docs
+description: Cet article propose des liens vers d’autres articles pour vous aider à résoudre les problèmes de configuration et de connexion de votre passerelle VPN et à valider le débit.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934651"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Résoudre les problèmes liés à la passerelle VPN
 
@@ -35,6 +36,6 @@ Les connexions à la passerelle VPN peuvent échouer pour diverses raisons. Cet 
 
 * [Connexions site à site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Après avoir configuré une connexion VPN de site à site entre un réseau local et un réseau virtuel Azure, la connexion VPN cesse soudainement de fonctionner et la reconnexion est impossible. Cet article fournit les étapes requises pour vous aider à résoudre ce problème.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez également utiliser ces étapes pour [valider les connexions VNet et VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
