@@ -1,12 +1,12 @@
 ---
-title: "FAQ sur les volumes StorSimple épinglés localement | Microsoft Docs"
-description: "Fournit des réponses aux questions fréquemment posées sur les volumes StorSimple épinglés localement."
+title: FAQ sur les volumes StorSimple épinglés localement | Microsoft Docs
+description: Fournit des réponses aux questions fréquemment posées sur les volumes StorSimple épinglés localement.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109467"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumes StorSimple épinglés localement : forum aux questions (FAQ)
 ## <a name="overview"></a>Vue d'ensemble
@@ -161,7 +162,7 @@ Plus d’informations sur comment [convertir un volume à plusieurs niveaux en v
 
 **Q.** Puis-je modifier le type d’un volume pendant la restauration ?
 
-**R.**Non, vous ne pouvez pas modifier le type de volume pendant la restauration.
+**R.** Non, vous ne pouvez pas modifier le type de volume pendant la restauration.
 
 * Les volumes qui ont été supprimés sont restaurés sous le type stocké dans l’instantané.
 * Les volumes existants sont restaurés en fonction de leur type actuel, quel que soit le type stocké dans l’instantané (reportez-vous aux deux questions précédentes).

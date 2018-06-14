@@ -1,17 +1,17 @@
 ---
-title: "Exemple de script CLI Azure - Équilibrer la charge de plusieurs sites web avec l’interface CLI Azure | Microsoft Docs"
-description: "Exemple de Script CLI Azure - Équilibrer la charge de plusieurs sites web sur la même machine virtuelle"
+title: Exemple de script CLI Azure - Équilibrer la charge de plusieurs sites web avec l’interface CLI Azure | Microsoft Docs
+description: Exemple de Script CLI Azure - Équilibrer la charge de plusieurs sites web sur la même machine virtuelle
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849135"
 ---
 # <a name="load-balance-multiple-websites"></a>Équilibrer la charge de plusieurs sites web
 
