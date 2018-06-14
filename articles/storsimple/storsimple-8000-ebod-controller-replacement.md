@@ -1,12 +1,12 @@
 ---
-title: "Remplacer un contrôleur EBOD sur un appareil StorSimple 8600 | Microsoft Docs"
-description: "Explique comment retirer et remplacer un contrôleur ou les deux contrôleurs EBOD sur votre appareil StorSimple 8600."
+title: Remplacer un contrôleur EBOD sur un appareil StorSimple 8600 | Microsoft Docs
+description: Explique comment retirer et remplacer un contrôleur ou les deux contrôleurs EBOD sur votre appareil StorSimple 8600.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108217"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Remplacer un contrôleur EBOD sur votre appareil StorSimple
 

@@ -1,12 +1,12 @@
 ---
-title: "Forum aux questions sur Microsoft Azure StorSimple et le programme des fournisseurs de solutions cloud pour les partenaires | Microsoft Docs"
-description: "Vous trouverez ici des réponses aux questions fréquentes relatives à StorSimple et le programme des fournisseurs de solutions cloud pour les partenaires."
+title: Forum aux questions sur Microsoft Azure StorSimple et le programme des fournisseurs de solutions cloud pour les partenaires | Microsoft Docs
+description: Vous trouverez ici des réponses aux questions fréquentes relatives à StorSimple et le programme des fournisseurs de solutions cloud pour les partenaires.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109057"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>Programme StorSimple pour les fournisseurs de solutions cloud : Forum aux questions
 

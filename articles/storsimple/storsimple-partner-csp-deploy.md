@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble du programme des fournisseurs de solutions cloud et de Microsoft Azure StorSimple | Microsoft Docs"
-description: "Vue d’ensemble de StorSimple et du programme des fournisseurs de solutions cloud pour les partenaires StorSimple."
+title: Vue d’ensemble du programme des fournisseurs de solutions cloud et de Microsoft Azure StorSimple | Microsoft Docs
+description: Vue d’ensemble de StorSimple et du programme des fournisseurs de solutions cloud pour les partenaires StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109577"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud
 
