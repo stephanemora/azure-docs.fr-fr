@@ -1,11 +1,11 @@
 ---
-title: "Mise à l’échelle géolocalisée avec les environnements App Service"
-description: "Découvrez comment mettre à l’échelle des applications horizontalement en utilisant Traffic Manager et les environnements App Service."
+title: Mise à l’échelle géolocalisée avec les environnements App Service
+description: Découvrez comment mettre à l’échelle des applications horizontalement en utilisant Traffic Manager et les environnements App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986784"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Mise à l’échelle géolocalisée avec les environnements App Service
 ## <a name="overview"></a>Vue d'ensemble

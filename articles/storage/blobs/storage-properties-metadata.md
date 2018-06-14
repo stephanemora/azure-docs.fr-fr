@@ -1,8 +1,8 @@
 ---
-title: "Définir et récupérer des propriétés et métadonnées d’objet dans Stockage Azure | Documents Microsoft"
-description: "Stockez des métadonnées personnalisées sur des objets dans Azure Storage, et définissez et récupérez les propriétés système."
+title: Définir et récupérer des propriétés et métadonnées d’objet dans Stockage Azure | Documents Microsoft
+description: Stockez des métadonnées personnalisées sur des objets dans Azure Storage, et définissez et récupérez les propriétés système.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056054"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Définir et récupérer des propriétés et métadonnées d’objet
 

@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble de la stratégie SSL pour Azure Application Gateway | Microsoft Docs"
-description: "Découvrir comme Azure Application Gateway vous permet de configurer la stratégie SSL"
+title: Vue d’ensemble de la stratégie SSL pour Azure Application Gateway | Microsoft Docs
+description: Découvrir comme Azure Application Gateway vous permet de configurer la stratégie SSL
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987074"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Vue d’ensemble de la stratégie SSL Application Gateway
 
