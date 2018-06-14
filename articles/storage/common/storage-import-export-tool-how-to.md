@@ -1,11 +1,11 @@
 ---
-title: "Utilisation de l’outil Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment utiliser l’outil d’importation/exportation pour préparer les disques durs pour un travail d’importation, réparer un travail d’importation ou un travail d’exportation."
+title: Utilisation de l’outil Azure Import/Export | Microsoft Docs
+description: Découvrez comment utiliser l’outil d’importation/exportation pour préparer les disques durs pour un travail d’importation, réparer un travail d’importation ou un travail d’exportation.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059334"
 ---
 # <a name="using-the-azure-importexport-tool"></a>Utilisation de l’outil Azure Import/Export 
 

@@ -1,11 +1,11 @@
 ---
-title: "Documentation Machines virtuelles Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux. Didacticiels, références d’API et autres documents."
+title: Documentation Machines virtuelles Azure - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux. Didacticiels, références d’API et autres documents.
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072858"
 ---
 # <a name="virtual-machines-documentation"></a>Documentation Machines virtuelles
 
