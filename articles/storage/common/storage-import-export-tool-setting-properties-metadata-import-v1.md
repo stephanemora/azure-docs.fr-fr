@@ -1,11 +1,11 @@
 ---
-title: "Définition des propriétés et des métadonnées avec Azure Import/Export - v1 | Microsoft Docs"
-description: "Découvrez comment spécifier les propriétés et les métadonnées sur les objets blob de destination lors de l’exécution de l’outil Azure Import/Export pour préparer vos disques. Cela s’applique à la version v1 de l’outil d’importation/exportation."
+title: Définition des propriétés et des métadonnées avec Azure Import/Export - v1 | Microsoft Docs
+description: Découvrez comment spécifier les propriétés et les métadonnées sur les objets blob de destination lors de l’exécution de l’outil Azure Import/Export pour préparer vos disques. Cela s’applique à la version v1 de l’outil d’importation/exportation.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e8541695-bcfb-4bf0-84d9-72c9de32a0a8
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059444"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Définition des propriétés et métadonnées pendant le processus d’importation
 Lorsque vous exécutez l’outil Microsoft Azure Import/Export pour préparer vos disques, vous pouvez spécifier des propriétés et des métadonnées à définir sur les objets blob de destination. Procédez comme suit :  

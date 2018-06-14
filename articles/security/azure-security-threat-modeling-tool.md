@@ -1,6 +1,6 @@
 ---
-title: "Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "La page principale de l’Outil Microsoft de modélisation des menaces, contenant des informations sur la prise en main de l’outil, notamment le processus de modélisation des menaces"
+title: Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+description: La page principale de l’Outil Microsoft de modélisation des menaces, contenant des informations sur la prise en main de l’outil, notamment le processus de modélisation des menaces
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043354"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Outil Microsoft de modélisation des menaces
 
