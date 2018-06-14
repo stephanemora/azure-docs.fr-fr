@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de captures instantanées incrémentielles pour la sauvegarde et la récupération de disques de machines virtuelles Linux Azure non managées | Microsoft Docs"
-description: "Créez une solution personnalisée pour la sauvegarde et la récupération de vos disques de machines virtuelles Linux Azure à l’aide de captures instantanées incrémentielles."
+title: Utilisation de captures instantanées incrémentielles pour la sauvegarde et la récupération de disques de machines virtuelles Linux Azure non managées | Microsoft Docs
+description: Créez une solution personnalisée pour la sauvegarde et la récupération de vos disques de machines virtuelles Linux Azure à l’aide de captures instantanées incrémentielles.
 services: virtual-machines-linux
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23115067"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
