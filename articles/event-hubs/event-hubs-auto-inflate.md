@@ -1,12 +1,12 @@
 ---
-title: "Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs | Microsoft Docs"
-description: "Activer la majoration automatique sur un espace de noms pour mettre automatiquement à l’échelle les unités de débit"
+title: Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs | Microsoft Docs
+description: Activer la majoration automatique sur un espace de noms pour mettre automatiquement à l’échelle les unités de débit
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018607"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
 
@@ -101,7 +102,7 @@ Vous pouvez activer la majoration automatique durant le déploiement d’un mod�
 
 Pour accéder au modèle complet, consultez le modèle [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) (Créer un espace de noms Event Hubs et activer la majoration) sur GitHub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 

@@ -1,11 +1,11 @@
 ---
-title: "Procédure détaillée d’Azure Event Hubs Capture | Microsoft Docs"
-description: "Exemple qui utilise le kit SDK Azure Python pour illustrer l’utilisation de la fonctionnalité Event Hubs Capture."
+title: Procédure détaillée d’Azure Event Hubs Capture | Microsoft Docs
+description: Exemple qui utilise le kit SDK Azure Python pour illustrer l’utilisation de la fonctionnalité Event Hubs Capture.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016455"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Procédure pas à pas d’Event Hubs Capture : Python
 

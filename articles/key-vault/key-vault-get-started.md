@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070349"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous explique en détail :
