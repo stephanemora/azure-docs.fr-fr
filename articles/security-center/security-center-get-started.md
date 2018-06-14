@@ -1,4 +1,4 @@
-﻿---
+---
 title: Démarrage rapide Azure Security Center - Intégrer un abonnement Azure à Security Center Standard | Microsoft Docs
 description: Ce guide de démarrage rapide explique comment passer au niveau tarifaire Standard de Security Center pour renforcer la sécurité.
 services: security-center
@@ -20,13 +20,14 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29531670"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guide de démarrage rapide : Intégrer un abonnement Azure à Security Center Standard
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que le niveau Gratuit offre une sécurité limitée aux seules ressources Azure, le niveau Standard étend ces fonctions aux ressources locales et à d’autres clouds. Security Center Standard aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer Security Center Standard gratuitement pendant 60 jours.
 
 Cet article montre comment passer au niveau Standard pour renforcer la sécurité et comment installer Microsoft Monitoring Agent sur les machines virtuelles pour surveiller les menaces et les failles de sécurité.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Pour mettre à niveau un abonnement et passer au niveau Standard, vous devez avoir le rôle de propriétaire de l’abonnement, de collaborateur de l’abonnement ou d’administrateur de la sécurité.

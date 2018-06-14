@@ -1,6 +1,6 @@
 ---
-title: "Exemples Azure CLI - Applications managées Azure | Microsoft Docs"
-description: "Exemples Azure CLI - Applications managées Azure"
+title: Exemples Azure CLI - Applications managées Azure | Microsoft Docs
+description: Exemples Azure CLI - Applications managées Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23632550"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 

@@ -1,6 +1,6 @@
 ---
 title: Utilisation du stockage de files d'attente (C++) | Microsoft Docs
-description: "Découvrez comment utiliser le service de stockage de files d’attente dans Azure. Les exemples sont écrits en C++."
+description: Découvrez comment utiliser le service de stockage de files d’attente dans Azure. Les exemples sont écrits en C++.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059944"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Utilisation du stockage de files d'attente à partir de C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
