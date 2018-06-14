@@ -1,12 +1,12 @@
 ---
-title: "Afficher et gérer des travaux pour la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit le panneau Travaux (jobs) du service StorSimple Device Manager et explique comment l’utiliser pour effectuer le suivi des travaux de sauvegarde planifiée, actuelle et récente."
+title: Afficher et gérer des travaux pour la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit le panneau Travaux (jobs) du service StorSimple Device Manager et explique comment l’utiliser pour effectuer le suivi des travaux de sauvegarde planifiée, actuelle et récente.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108187"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer des travaux (Update 3 et versions ultérieures)
 
