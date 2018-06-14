@@ -1,11 +1,11 @@
 ---
-title: "Installer l’interface de ligne de commande DC/OS | Microsoft Docs"
-description: "Installer l’interface de ligne de commande DC/OS."
+title: Installer l’interface de ligne de commande DC/OS | Microsoft Docs
+description: Installer l’interface de ligne de commande DC/OS.
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: rgardler
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
 keywords: Conteneurs, micro-services, DC/OS, Azure
 ms.service: container-service
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22877254"
 ---
 > [!NOTE]
 > Cela concerne l’utilisation des clusters ACS basés sur DC/OS. Cette opération est inutile pour les clusters ACS à base de Swarm.
