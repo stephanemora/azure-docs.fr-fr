@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165109"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navigateurs et périphériques pris en charge pour le portail Azure
 Le [portail Azure](https://portal.azure.com) s’exécute sur tous les ordinateurs de bureau, tablettes et navigateurs modernes.

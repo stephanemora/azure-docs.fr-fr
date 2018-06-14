@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209353"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenu du package autonome Service Fabric pour Windows Server
 Dans le package autonome Service Fabric [téléchargé](http://go.microsoft.com/fwlink/?LinkId=730690), vous trouverez les fichiers suivants :

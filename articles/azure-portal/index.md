@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163844"
 ---
 # <a name="azure-portal-documentation"></a>Documentation du portail Azure
 Découvrez les fonctionnalités à votre disposition pour déployer des ressources dans le portail Azure. Des didacticiels, des références d’API et d’autres documents vous montrent comment déployer, gérer et suivre des ressources Azure.

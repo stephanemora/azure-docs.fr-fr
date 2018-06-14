@@ -22,6 +22,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164456"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informations de référence sur les jetons Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 émet plusieurs types de jeton de sécurité dans chaque [flux d’authentification](active-directory-v2-flows.md). Ces informations de référence décrivent le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.

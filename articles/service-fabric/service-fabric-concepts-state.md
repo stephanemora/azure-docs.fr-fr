@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213093"
 ---
 # <a name="service-state"></a>État du service
 **L’état du service** correspond aux données en mémoire ou sur disque nécessaires au bon fonctionnement du service. Il comprend, par exemple, les variables membres et les structures de données que le service lit et écrit afin d’effectuer des tâches. Selon l’architecture du service, il peut aussi inclure des fichiers ou d’autres ressources stockés sur le disque, par exemple, les fichiers qu’utiliserait une base de données pour stocker les journaux des transactions et des données.

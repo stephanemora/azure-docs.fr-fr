@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200154"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indexe d’articles de résolution des problèmes avec Hadoop dans HDInsight
 Les articles sont organisés par types d’erreur.

@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199056"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accès aux journaux de diagnostic d’Azure Data Lake Store
 Découvrez comment activer la journalisation des diagnostics pour votre compte Data Lake Store et comment afficher les journaux collectés pour votre compte.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34173116"
 ---
 Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **Créer une ressource** > **Bases de données** > **Cache Redis**.
 

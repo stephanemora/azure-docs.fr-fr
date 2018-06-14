@@ -16,6 +16,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199073"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Conseils sur la récupération d’urgence des données dans Azure Data Lake Store
 

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 05/14/2018
+  ms.locfileid: "34166490"
 abstract:
   description: Les Machines virtuelles Windows Azure fournissent une infrastructure sécurisée et virtualisée à la demande et à grande échelle avec Windows Server. Découvrez comment créer, configurer, gérer et mettre à l’échelle des machines virtuelles Windows avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
   aside:

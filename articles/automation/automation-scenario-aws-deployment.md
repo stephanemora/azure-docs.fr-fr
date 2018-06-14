@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193479"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scénario Azure Automation – Approvisionner une machine virtuelle AWS
 Dans cet article, vous allez découvrir comment provisionner une machine virtuelle de votre abonnement AWS (Amazon Web Services) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique (opération appelée « balisage » dans AWS).

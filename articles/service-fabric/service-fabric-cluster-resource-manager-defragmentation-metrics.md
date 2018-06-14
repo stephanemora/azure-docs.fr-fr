@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205074"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Défragmentation des mesures et de la charge dans Service Fabric
 La stratégie par défaut de Service Fabric Cluster Resource Manager pour la gestion des mesures de charge dans le cluster consiste à répartir la charge. S’assurer que les nœuds sont utilisés de façon uniforme évite les points chauds et les points froids qui entraînent des problèmes de contention et gaspillage des ressources. La distribution des charges de travail dans le cluster est également la configuration la plus sûre afin de surmonter les défaillances, car elle permet de s’assurer qu’une défaillance n’affecte pas un trop grand pourcentage d’une charge de travail donnée. 

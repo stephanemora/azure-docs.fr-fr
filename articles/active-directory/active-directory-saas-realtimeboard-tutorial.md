@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à RealtimeBoard | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et RealtimeBoard."
+title: 'Didacticiel : Intégration d’Azure Active Directory à RealtimeBoard | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RealtimeBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f3ab54ced6376d675b9ab79aa395a95ea1c905b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34346919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Didacticiel : Intégration d’Azure Active Directory à RealtimeBoard
 
@@ -28,11 +29,12 @@ L’intégration de RealtimeBoard à Azure AD vous offre les avantages suivants�
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à RealtimeBoard.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à RealtimeBoard (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à RealtimeBoard, vous avez besoin des éléments suivants :
 
@@ -48,7 +50,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de RealtimeBoard à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +86,10 @@ Dans RealtimeBoard, assignez la valeur de **nom d’utilisateur** dans Azure AD
 
 Pour configurer et tester l’authentification unique Azure AD avec RealtimeBoard, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test RealtimeBoard](#create-a-realtimeboard-test-user)** pour avoir un équivalent de Britta Simon dans RealtimeBoard, lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -112,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://realtimeboard.com/sso/saml`
 
@@ -124,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Pour configurer l’authentification unique côté **RealtimeBoard**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique de RealtimeBoard](mailto:support@realtimeboard.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+7. Pour configurer l’authentification unique côté **RealtimeBoard**, suivez les [instructions RealtimeBoard](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-)et utilisez les données de votre fichier **XML des métadonnées** téléchargé.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -160,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-realtimeboard-test-user"></a>Créer un utilisateur RealtimeBoard de test
 
@@ -172,7 +174,7 @@ Vous n’avez aucune opération à effectuer dans cette section. S’il n’y a 
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à RealtimeBoard.
 
-![Assigner le rôle d’utilisateur][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à RealtimeBoard, procédez comme suit :**
 
@@ -208,7 +210,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

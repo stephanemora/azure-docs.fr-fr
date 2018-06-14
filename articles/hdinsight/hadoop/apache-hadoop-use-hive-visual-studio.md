@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201786"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Hive à l’aide des outils Data Lake pour Visual Studio
 

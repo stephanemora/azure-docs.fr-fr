@@ -15,6 +15,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165398"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Activer le contraste élevé ou modifier le thème dans le portail Azure
 Si vous avez besoin de plus de contraste ou si vous souhaitez modifier le jeu de couleurs dans le portail Azure, accédez aux paramètres du portail pour effectuer la modification. 

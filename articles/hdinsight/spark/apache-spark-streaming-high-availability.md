@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165313"
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Créer des travaux Spark Streaming à haute disponibilité avec YARN
 

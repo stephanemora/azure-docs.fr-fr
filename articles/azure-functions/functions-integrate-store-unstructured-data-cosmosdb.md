@@ -1,14 +1,14 @@
 ---
-title: "Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions | Microsoft Docs"
-description: "Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB"
+title: Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions | Microsoft Docs
+description: Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, fonctions, traitement des événements, Cosmos DB, calcul dynamique, architecture sans serveur"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: azure functions, fonctions, traitement des événements, Cosmos DB, calcul dynamique, architecture sans serveur
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767551"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -34,7 +35,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mé
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -141,7 +142,7 @@ Vous êtes parvenu à ajouter une liaison à votre déclencheur HTTP qui stocke 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 

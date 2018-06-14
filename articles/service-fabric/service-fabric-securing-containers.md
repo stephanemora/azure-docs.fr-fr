@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208214"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importer un fichier de certificat dans un conteneur en cours d’exécution sur Service Fabric
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213042"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Présentation des Acteurs fiables Service Fabric
 Reliable Actors est une infrastructure d’application Service Fabric reposant sur le modèle [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/). L’API Reliable Actors fournit un modèle de programmation monothread qui tire parti des garanties de fiabilité et d’évolutivité fournies par Service Fabric.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212991"
 ---
 # <a name="introduction-to-application-groups"></a>Présentation des groupes d’applications
 Service Fabric Cluster Resource Manager gère habituellement les ressources de cluster en répartissant la charge (représentée par les [métriques](service-fabric-cluster-resource-manager-metrics.md)) uniformément dans le cluster. Service Fabric gère la capacité des nœuds du cluster et le cluster dans son ensemble via la [capacité](service-fabric-cluster-resource-manager-cluster-description.md). Les mesures et la capacité sont idéales pour divers types de charges de travail, mais les modèles qui utilisent beaucoup d’instances d’application Service Fabric différentes imposent parfois des conditions supplémentaires. Par exemple, vous pouvez :

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164736"
 ---
 # <a name="bulk-load-data-into-phoenix-using-psql"></a>Charger des données en bloc dans Phoenix à l’aide de psql
 

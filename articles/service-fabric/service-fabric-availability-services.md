@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206247"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilité des services Service Fabric
 Cet article offre une vue d’ensemble de la manière dont Azure Service Fabric maintient la disponibilité d’un service.
