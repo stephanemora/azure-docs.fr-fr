@@ -1,6 +1,6 @@
 ---
-title: "Audit et journalisation - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
+title: Audit et journalisation - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+description: mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044404"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Infrastructure de sécurité : Audit et journalisation | Corrections 
 | Produit/service | Article |
