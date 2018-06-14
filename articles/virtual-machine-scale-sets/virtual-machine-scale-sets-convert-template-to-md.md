@@ -1,9 +1,9 @@
 ---
-title: "Convertir un modèle de groupe identique Azure Resource Manager pour utiliser un disque managé | Microsoft Docs"
-description: "Convertissez un modèle de groupe identique pour utiliser modèle de groupe identique de disque managé."
+title: Convertir un modèle de groupe identique Azure Resource Manager pour utiliser un disque managé | Microsoft Docs
+description: Convertissez un modèle de groupe identique pour utiliser modèle de groupe identique de disque managé.
 keywords: groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781069"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertir un modèle de groupe identique pour utiliser modèle de groupe identique de disque managé
 

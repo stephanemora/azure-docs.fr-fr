@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894158"
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>Conditions relatives aux mots de passe pour les environnements conformes à la norme PCI DSS 
 ## <a name="pci-dss-requirement-2"></a>Condition 2 de la norme PCI DSS

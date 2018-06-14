@@ -1,6 +1,6 @@
 ---
-title: "Intégrer DNS Azure avec vos ressources Azure | Documents Microsoft"
-description: "Découvrez comment utiliser DNS Azure pour fournir un DNS pour vos ressources Azure."
+title: Intégrer DNS Azure avec vos ressources Azure | Documents Microsoft
+description: Découvrez comment utiliser DNS Azure pour fournir un DNS pour vos ressources Azure.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -17,12 +17,13 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994380"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
 DNS Azure fournit un DNS pour un domaine personnalisé, pour toutes vos ressources Azure prenant en charge les domaines personnalisés ou ayant un nom de domaine complet (FQDN). C’est le cas, par exemple, si vous avez une application web Azure et souhaitez que vos utilisateurs y accèdent en utilisant soit contoso.com, soit www.contoso.com en tant que FQDN.utilisateur. Cet article vous guide tout au long de la configuration de votre service Azure avec DNS Azure pour l’utilisation de domaines personnalisés.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour pouvoir utiliser DNS Azure pour votre domaine personnalisé, vous devez tout d’abord déléguer votre domaine à DNS d’Azure. Pour obtenir des instructions sur la façon de configurer vos serveurs de noms pour la délégation, voir [Délégation de domaine à Azure DNS](./dns-delegate-domain-azure-dns.md). Une fois votre domaine délégué à votre zone DNS Azure, vous êtes en mesure de configurer les enregistrements DNS nécessaires.
 
@@ -168,6 +169,6 @@ Revenez au point de terminaison CDN en cliquant sur **Mise en réseau** > **Prof
 
 Une fois cette étape accomplie, revenez à votre zone DNS, puis créez un enregistrement CNAME sans le préfixe cdnverify.  Ensuite, vous pouvez supprimer en toute sécurité l’enregistrement CNAME avec le préfixe cdnverify. Pour plus d’informations sur le CDN et la façon de configurer un domaine personnalisé sans l’étape d’inscription intermédiaire, voir [Mapper du contenu Azure CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrir comment [Configurer des DNS inversés dans les services hébergés par Azure](dns-reverse-dns-for-azure-services.md).
