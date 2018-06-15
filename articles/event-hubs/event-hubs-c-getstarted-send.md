@@ -14,18 +14,19 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807813"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envoyer des événements vers Azure Event Hubs avec C
 
 ## <a name="introduction"></a>Introduction
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectées dans un concentrateur d’événements, les données peuvent être transformées et stockées à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d'informations, consultez la page [Vue d'ensemble des hubs d'événements](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
+Pour plus d'informations, consultez la page [Vue d'ensemble des hubs d'événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
 Ce didacticiel explique comment envoyer des événements à un hub d’événements à l’aide d’une application console en C. Pour en savoir plus sur la réception d’événements, cliquez sur le langage de réception approprié dans la table des matières de gauche.
 

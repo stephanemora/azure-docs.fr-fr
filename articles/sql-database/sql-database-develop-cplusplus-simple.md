@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.devlang: cpp
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: edmacauley
-ms.openlocfilehash: 49cbed06d92843fcf0c444e7ef2bb42df2addf7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c37fdaa9f7aa2a0d243fe6cbc175060156967c61
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644696"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 Cette publication est destinée aux développeurs C et C++ qui essaient de se connecter à Azure SQL DB. Elle est divisée en sections afin de vous permettre d’accéder directement à celle qui vous intéresse. 

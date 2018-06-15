@@ -1,24 +1,20 @@
 ---
 title: Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub (Python) | Microsoft Docs
 description: Guide d’utilisation de la gestion des appareils sur Azure IoT Hub pour lancer une mise à jour du microprogramme d’un appareil. Vous utilisez les kits Azure IoT SDK pour Python afin d’implémenter une application d’appareil simulé et une application de service qui déclenche la mise à jour du microprogramme.
-services: iot-hub
-documentationcenter: .net
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: 4a042723e6bebebb891640950e579e031e27e61d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: kgremban
+ms.openlocfilehash: d2ebdf54e595c2f02464c0c2446a6e5f5feefb9c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634639"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Utiliser la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

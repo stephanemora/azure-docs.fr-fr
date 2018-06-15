@@ -1,21 +1,23 @@
 ---
-title: Nouveautés d’Azure Machine Learning
+title: Nouveautés dans Azure Machine Learning
 description: Ce document décrit en détail les mises à jour d’Azure Machine Learning.
 services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6085762f9f3874df8dd90866e387a581915dbbaf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831599"
 ---
-# <a name="whats-new-in-azure-machine-learning"></a>Nouveautés d’Azure Machine Learning
+# <a name="whats-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
 
 Dans cet article, découvrez les nouvelles versions d’[Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
 
@@ -27,7 +29,7 @@ Avec cette version d’Azure Machine Learning, vous pouvez effectuer les opérat
 
 + Rapidement créer et déployer des modèles d’apprentissage automatique et d’apprentissage profond (deep learning) extrêmement précis à l’aide de [packages Azure Machine Learning personnalisés](../service/reference-python-package-overview.md) dans les domaines suivants :
   + [Vision par ordinateur](../service/how-to-build-deploy-image-classification-models.md)
-  + [Analytique de texte](../service/how-to-build-deploy-text-classification-models.md)
+  + [Analyse de texte](../service/how-to-build-deploy-text-classification-models.md)
   + [Prévisions](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)

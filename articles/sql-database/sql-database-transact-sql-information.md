@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a3196f1cdbebd131d6880bab6fc1468f4c1b849
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649072"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database   
 Au moment de [migrer votre base de données](sql-database-cloud-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cet article comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -32,7 +33,7 @@ Les principales instructions DDL sont disponibles, mais certaines présentent de
 
 - Les instructions CREATE et ALTER DATABASE ont plus d’une trentaine d’options. Les instructions incluent des options liées à l’emplacement des fichiers, à FILESTREAM et à Service Broker qui s’appliquent uniquement à SQL Server. Ceci peut être sans importance si vous créez des bases de données avant la migration. Mais si vous migrez du code T-SQL qui crée des bases de données, vous devez comparer [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) à la syntaxe SQL Server décrite dans [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) pour vérifier que toutes les options que vous utilisez sont prises en charge. CREATE DATABASE pour Azure SQL Database compte également des options d’objectif de service et de mise à l'échelle élastique qui s’appliquent uniquement à SQL Database.
 - Les instructions CREATE et ALTER TABLE offrent des options FileTable que vous ne pouvez pas utiliser sur SQL Database dans la mesure où FILESTREAM n’est pas pris en charge.
-- Les instructions CREATE et ALTER LOGIN sont prises en charge, mais SQL Database n’offre pas toutes les options. Pour accroître la portabilité de votre base de données, SQL Database recommande, dans la mesure du possible, de remplacer les connexions par des utilisateurs de base de données à relation contenant-contenu. Pour plus d’informations, consultez [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) et [Contrôle et octroi de l’accès à la base de données](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- Les instructions CREATE et ALTER LOGIN sont prises en charge, mais SQL Database n’offre pas toutes les options. Pour accroître la portabilité de votre base de données, SQL Database recommande, dans la mesure du possible, de remplacer les connexions par des utilisateurs de base de données autonome. Pour plus d’informations, consultez [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) et [Contrôle et octroi de l’accès à la base de données](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Syntaxe Transact-SQL non prise en charge dans Azure SQL Database   
 Outre les instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge. Si la base de données à migrer utilise les fonctionnalités et instructions T-SQL suivantes, vous devez donc changer votre code T-SQL pour les éliminer.

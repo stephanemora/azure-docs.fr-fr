@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757517"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -56,7 +57,7 @@ Azure Key Vault permet de stocker en toute sécurité des informations d’ident
 
 Pour plus d’informations sur MSI, consultez [Identité du service administré (MSI) pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-Pour plus d’informations sur l’utilisation d’AAD, consultez [Intégration d’applications dans Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Pour plus d’informations sur l’utilisation d’AAD, consultez [Intégration d’applications dans Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Avant d’utiliser des clés, des secrets ou des certificats dans votre coffre de clés, créez et gérez votre coffre de clés via CLI, PowerShell, des modèles du Gestionnaire des ressources ou REST, comme décrit dans les articles suivants :
 
@@ -102,7 +103,7 @@ Dans Node.js, l’API de gestion Key Vault et l’API des objets Key Vault sont 
 
 [Interface de ligne de commande Azure pour Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
 
-#### <a name="azure-powershell"></a>Azure PowerShell 
+#### <a name="azure-powershell"></a>Azure PowerShell 
 
 [Azure PowerShell pour Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 

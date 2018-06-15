@@ -4,17 +4,19 @@ description: Ce scénario montre comment effectuer un réglage distribué d’hy
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 70baa1160e9f521ac5533eaa15d4a9ab57433a49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832745"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Réglage distribué d’hyperparamètres à l’aide d’Azure Machine Learning Workbench
 
@@ -34,7 +36,6 @@ Une technique courante de réglage d’hyperparamètres consiste à combiner une
 La recherche par grille à l’aide de la validation croisée peut être longue. Si un algorithme comprend cinq hyperparamètres ayant chacun cinq valeurs candidates, nous utilisons K = 5 plis. Nous effectuons ensuite une recherche par grille en apprenant 5<sup>6</sup>= 15625 modèles. La recherche par grille à l’aide de la validation croisée est heureusement une procédure excessivement parallèle, ce qui permet un apprentissage en parallèle de tous ces modèles.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie d’[Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installée conformément au [guide de démarrage rapide d’installation et de création](../service/quickstart-installation.md) pour installer Workbench et créer des comptes.

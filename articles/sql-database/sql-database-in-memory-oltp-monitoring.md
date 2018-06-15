@@ -6,20 +6,21 @@ author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647338"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Surveiller le stockage OLTP In-Memory
 Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium et Critique pour l’entreprise est doté d’une taille de stockage OLTP en mémoire maximale, qui est décrite dans [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md) et [Limites de ressources basées sur des vCore](sql-database-vcore-resource-limits.md). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer en générant l’erreur 41823 pour les bases de données autonomes et l’erreur 41840 pour les pools élastiques. À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Déterminer si la taille des données est adaptée à la capacité de stockage en mémoire OLTP
-Déterminez les limites maximales de stockage des différents niveaux de service. Consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md) et [Limites de ressources basées sur des vCore](sql-database-vcore-resource-limits.md).
+Déterminez les limites maximales de stockage des différents niveaux de service. Consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md) et [Limites de ressources basées sur des vCores](sql-database-vcore-resource-limits.md).
 
 L’estimation de la mémoire requise pour une table à mémoire optimisée s’effectue de la même façon pour SQL Server que dans Base de données SQL Azure. Prenez quelques minutes pour consulter cet article sur [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

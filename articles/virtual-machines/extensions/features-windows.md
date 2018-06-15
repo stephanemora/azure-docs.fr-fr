@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945111"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809724"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
-Les extensions de machine virtuelle Azure sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle requiert l’installation d’un logiciel, une protection antivirus ou l’exécution d’un script, vous pouvez utiliser une extension de machine virtuelle. Les extensions de machine virtuelle Azure sont exécutables avec l’interface de ligne de commande Azure, PowerShell, les modèles Azure Resource Manager et le Portail Azure. Les extensions peuvent être intégrées à un nouveau déploiement de machine virtuelle ou s’exécuter sur tout système existant.
+Les extensions de machine virtuelle Azure sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle nécessite l’installation d’un logiciel, une protection antivirus ou l’exécution d’un script, vous pouvez utiliser une extension de machine virtuelle. Les extensions de machine virtuelle Azure sont exécutables avec l’interface de ligne de commande Azure, PowerShell, les modèles Azure Resource Manager et le portail Azure. Les extensions peuvent être intégrées à un nouveau déploiement de machine virtuelle ou s’exécuter sur tout système existant.
 
-Cet article offre une vue d’ensemble des extensions de machine virtuelle et des prérequis pour l’utilisation de ces extensions. Il explique également comment détecter, gérer et supprimer les extensions de machine virtuelle. Cet article fournit des informations générales, car de nombreuses extensions de machine virtuelle sont disponibles, chacune présentant une configuration potentiellement unique. Vous trouverez des informations détaillées sur une extension spécifique dans la documentation consacrée à celle-ci.
+Cet article offre une vue d’ensemble des extensions de machine virtuelle et des prérequis pour l’utilisation d’extensions de machine virtuelle Azure. Il explique également comment détecter, gérer et supprimer des extensions de machine virtuelle. Cet article fournit des informations générales, car de nombreuses extensions de machine virtuelle sont disponibles, chacune présentant une configuration potentiellement unique. Vous trouverez des informations détaillées sur une extension spécifique dans la documentation consacrée à celle-ci.
 
 ## <a name="use-cases-and-samples"></a>Cas d’utilisation et exemples
 
@@ -43,12 +43,11 @@ En plus des extensions propres à des processus, une extension de script personn
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 La gestion de l’extension sur la machine virtuelle nécessite l’installation préalable de l’agent Linux Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
 ### <a name="azure-vm-agent"></a>Agent de machine virtuelle Azure
 
-L’agent de machine virtuelle Azure gère les interactions entre une machine virtuelle Azure et le contrôleur de structure Microsoft Azure. L’agent de machine virtuelle est responsable de nombreux aspects fonctionnels liés au déploiement et à la gestion des machines virtuelles Azure, dont les extensions de machine virtuelle en cours d’exécution. L’agent de machine virtuelle Azure est préinstallé sur des images de la Place de marché Azure et peut être installé manuellement sur les systèmes d’exploitation pris en charge. L’agent de machine virtuelle Azure pour Windows est connu sous le terme d’agent invité Windows.
+L’agent de machine virtuelle Azure gère les interactions entre une machine virtuelle Azure et le contrôleur de structure Microsoft Azure. L’agent de machine virtuelle est responsable de nombreux aspects fonctionnels liés au déploiement et à la gestion des machines virtuelles Azure, notamment l’exécution des extensions de machine virtuelle. L’agent de machine virtuelle Azure est préinstallé sur des images de la Place de marché Azure et peut être installé manuellement sur les systèmes d’exploitation pris en charge. L’agent de machine virtuelle Azure pour Windows est connu sous le terme d’agent invité Windows.
 
 Pour plus d’informations sur les systèmes d’exploitation pris en charge et sur la procédure d’installation, consultez l’article [Agent de machine virtuelle et extensions Azure](agent-windows.md).
 
@@ -64,18 +63,18 @@ Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exp
 
 #### <a name="network-access"></a>Accès réseau
 
-Les paquets d’extensions sont téléchargés à partir du référentiel des extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de machine virtuelle, car vous pouvez utiliser l’agent pour rediriger la communication vers le contrôleur de structure Azure pour les communications d’agent. Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
+Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de machine virtuelle, car vous pouvez utiliser l’agent pour rediriger la communication vers le contrôleur de structure Azure pour les communications d’agent. Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
 
 > [!IMPORTANT]
-> Si vous avez bloqué l’accès à l’adresse *168.63.129.1* à l’aide du pare-feu invité, les extensions échoueront, que vous utilisiez ou non une version prise en charge.
+> Si vous avez bloqué l’accès à l’adresse *168.63.129.1* à l’aide du pare-feu invité, les extensions échouent, que vous utilisiez, ou non, une version prise en charge.
 
-Les agents sont uniquement utilisables pour le téléchargement des paquets d’extensions et le signalement d’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (extension de script personnalisé) ou accéder au service Stockage Azure (extension de sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui requièrent un accès à Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour [Stockage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui requièrent un accès à Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour [Stockage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 L’agent invité Windows ne prend pas en charge un serveur proxy vous permettant de rediriger les requêtes de trafic d’agent.
 
 ## <a name="discover-vm-extensions"></a>Détecter les extensions de machine virtuelle
 
-De nombreuses extensions de machine virtuelle différentes sont utilisables avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). L’exemple ci-après répertorie toutes les extensions disponibles à l’emplacement *WestUS* :
+De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). L’exemple ci-après répertorie toutes les extensions disponibles à l’emplacement *WestUS* :
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location "WestUS" | `
@@ -85,7 +84,7 @@ Get-AzureRmVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>Exécuter les extensions de machine virtuelle
 
-Les extensions de machine virtuelle Azure sont exécutables sur des machines virtuelles existantes, ce qui se révèle utile lorsque vous devez apporter des modifications de configuration ou restaurer la connectivité sur une machine virtuelle déjà déployée. Les extensions de machines virtuelles peuvent également être intégrées dans des déploiements de modèles Azure Resource Manager. L’utilisation d’extensions avec des modèles Resource Manager vous permet de déployer et de configurer des machines virtuelles Azure sans avoir à intervenir après le déploiement.
+Les extensions de machine virtuelle Azure s’exécutent sur des machines virtuelles existantes, ce qui se révèle utile quand vous devez apporter des changements de configuration ou restaurer la connectivité sur une machine virtuelle déjà déployée. Les extensions de machines virtuelles peuvent également être intégrées dans des déploiements de modèles Azure Resource Manager. L’utilisation d’extensions avec des modèles Resource Manager vous permet de déployer et de configurer des machines virtuelles Azure sans avoir à intervenir après le déploiement.
 
 Vous pouvez exécuter une extension sur une machine virtuelle existante à l’aide des méthodes ci-après.
 
@@ -136,12 +135,12 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour démarrer n’importe quelle extension de machine virtuelle. Pour plus d’informations, consultez [Référence Set-AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour démarrer n’importe quelle extension de machine virtuelle. Pour plus d’informations, consultez [Référence Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Vous pouvez appliquer les extensions de machine virtuelle à une machine virtuelle existante par le biais du Portail Azure. Sélectionnez la machine virtuelle dans le portail, choisissez **Extensions**, puis sélectionnez **Ajouter**. Choisissez l’extension souhaitée dans la liste des extensions disponibles, puis suivez les instructions de l’Assistant.
+Vous pouvez appliquer les extensions de machine virtuelle à une machine virtuelle existante par le biais du portail Azure. Sélectionnez la machine virtuelle dans le portail, choisissez **Extensions**, puis sélectionnez **Ajouter**. Choisissez l’extension souhaitée dans la liste des extensions disponibles, puis suivez les instructions de l’Assistant.
 
 L’exemple ci-après illustre l’installation de l’extension Microsoft Antimalware à partir du Portail Azure :
 
@@ -187,7 +186,7 @@ Pour plus d’informations sur la création de modèles Resource Manager, consul
 
 ## <a name="secure-vm-extension-data"></a>Sécuriser les données des extensions de machine virtuelle
 
-Lorsque vous exécutez une extension de machine virtuelle, vous pouvez avoir besoin d’inclure des informations sensibles telles que des informations d’identification, des noms de compte de stockage et des clés d’accès à des comptes de stockage. De nombreuses extensions de machine virtuelle comprennent une configuration protégée qui chiffre les données et les déchiffre uniquement à l’intérieur de la machine virtuelle cible. Chaque extension possède un schéma spécifique de configuration protégée, présenté en détail dans la documentation consacrée à l’extension.
+Quand vous exécutez une extension de machine virtuelle, vous pouvez avoir besoin d’inclure des informations sensibles telles que des informations d’identification, des noms de compte de stockage et des clés d’accès à des comptes de stockage. De nombreuses extensions de machine virtuelle comprennent une configuration protégée qui chiffre les données et les déchiffre uniquement à l’intérieur de la machine virtuelle cible. Chaque extension possède un schéma spécifique de configuration protégée, présenté en détail dans la documentation consacrée à l’extension.
 
 L’exemple suivant illustre une instance de l’extension de script personnalisé pour Windows. La commande à exécuter inclut un ensemble d’informations d’identification. Dans cet exemple, la commande à exécuter n’est pas chiffrée :
 
@@ -255,7 +254,7 @@ Pour sécuriser la chaîne d’exécution, déplacez la propriété **commandToE
 
 Les agents et les extensions partagent le même mécanisme de mise à jour. Certaines mises à jour ne nécessitent pas de règles de pare-feu supplémentaires.
 
-Lorsqu’une mise à jour est disponible, elle est uniquement installée sur la machine virtuelle lorsqu’une modification est apportée aux extensions, ainsi qu’en cas d’autres modifications de modèle de machine virtuelle, telles que :
+Quand une mise à jour est disponible, elle est installée sur la machine virtuelle uniquement quand un changement est apporté aux extensions, ainsi qu’en cas d’autres changements de modèle de machine virtuelle, tels que :
 
 - Disques de données
 - Extensions
@@ -289,7 +288,7 @@ Si vous souhaitez vérifier la version que vous exécutez, consultez la section 
 
 #### <a name="extension-updates"></a>Mises à jour d’extension
 
-Lorsqu’une mise à jour d’extension devient disponible, l’agent invité Windows la télécharge et met à niveau l’extension. Les mises à jour d’extension automatiques sont soit de type *Minor* (mise à jour mineure), soit de type *Hotfix* (correctif logiciel). Vous pouvez accepter ou refuser les mises à jour d’extension *Minor* lorsque vous approvisionnez l’extension. L’exemple ci-après indique comment mettre à niveau automatiquement les versions mineures dans un modèle Resource Manager avec la commande *autoUpgradeMinorVersion": true,* :
+Lorsqu’une mise à jour d’extension devient disponible, l’agent invité Windows la télécharge et met à niveau l’extension. Les mises à jour d’extension automatiques sont soit de type *Minor* (mise à jour mineure), soit de type *Hotfix* (correctif logiciel). Vous pouvez accepter ou refuser les mises à jour d’extension *Minor* quand vous provisionnez l’extension. L’exemple ci-après indique comment mettre à niveau automatiquement les versions mineures dans un modèle Resource Manager avec la commande *"autoUpgradeMinorVersion": true,* :
 
 ```json
     "properties": {
@@ -304,9 +303,9 @@ Lorsqu’une mise à jour d’extension devient disponible, l’agent invité Wi
     },
 ```
 
-Si vous souhaitez obtenir les dernières corrections de bogues des versions mineures, nous vous recommandons vivement de sélectionner l’option de mise à jour automatique dans vos déploiements d’extensions. Vous ne pouvez pas refuser les mises à jour de type correctif logiciel qui comportent des correctifs de sécurité ou des corrections de bogues clés.
+Si vous souhaitez obtenir les dernières corrections de bogues des versions mineures, nous vous recommandons vivement de toujours sélectionner l’option de mise à jour automatique dans vos déploiements d’extensions. Vous ne pouvez pas refuser les mises à jour de type correctif logiciel qui comportent des correctifs de sécurité ou des corrections de bogues clés.
 
-### <a name="how-to-identify-extension-updates"></a>Identification des mises à jour d’extension
+### <a name="how-to-identify-extension-updates"></a>Comment identifier les mises à jour d’extension
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Vérification si l’extension est définie avec la propriété autoUpgradeMinorVersion sur une machine virtuelle
 
@@ -344,7 +343,7 @@ Pour exécuter ses tâches, l’agent doit s’exécuter en tant que *Système l
 
 ## <a name="troubleshoot-vm-extensions"></a>Résoudre les problèmes liés aux extensions de machine virtuelle
 
-Chaque extension de machine virtuelle peut présenter une procédure de résolution des problèmes spécifique. Par exemple, lorsque vous utilisez l’extension de script personnalisé, les détails de l’exécution du script sont accessibles localement sur la machine virtuelle utilisée pour l’exécution de l’extension. La procédure de résolution des problèmes spécifique d’une extension est présentée en détail dans la documentation de cette dernière.
+Chaque extension de machine virtuelle peut présenter une procédure de résolution des problèmes spécifique. Par exemple, quand vous utilisez l’extension de script personnalisé, les détails de l’exécution du script sont accessibles localement sur la machine virtuelle utilisée pour l’exécution de l’extension. La procédure de résolution des problèmes spécifique d’une extension est présentée en détail dans la documentation de cette dernière.
 
 La procédure de résolution des problèmes ci-après s’applique à toutes les extensions de machine virtuelle.
 
@@ -358,11 +357,11 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="common-reasons-for-extension-failures"></a>Motifs courants des échecs d’extension
 
-1. Délai d’exécution des extensions limité à 20 minutes (étendu à 90 minutes pour les extensions CustomScript, Chef et DSC). Si votre déploiement excède ce délai, il est signalé comme dépassement de délai d’expiration. Ce dépassement peut être dû à une insuffisance de ressources sur les machines virtuelles, découlant du fait que d’autres configurations/tâches de démarrage de machine virtuelle consomment de grandes quantités de ressources alors qu’une tentative d’approvisionnement d’une extension est en cours.
+1. Délai d’exécution des extensions limité à 20 minutes (étendu à 90 minutes pour les extensions CustomScript, Chef et DSC). Si votre déploiement excède ce délai, il est signalé comme dépassement de délai d’expiration. Ce dépassement peut être dû à une insuffisance de ressources sur les machines virtuelles, découlant du fait que d’autres configurations/tâches de démarrage de machine virtuelle consomment de grandes quantités de ressources alors qu’une tentative de provisionnement d’une extension est en cours.
 
 2. Prérequis minimaux non respectés. Certaines extensions présentent des dépendances vis-à-vis des références SKU de machine virtuelle, telles que les images HPC. Les extensions peuvent imposer certaines exigences d’accès réseau, comme la communication avec le service Stockage Azure ou les services publics. D’autres exemples de prérequis concernent l’accès aux référentiels de packages, l’espace disque nécessaire ou les restrictions de sécurité.
 
-3. Accès exclusif au gestionnaire de package. Dans certains cas, une configuration de machine virtuelle de longue durée peut entrer en conflit avec l’installation d’une extension, lorsque ces deux tâches requièrent un accès exclusif au gestionnaire de package.
+3. Accès exclusif au gestionnaire de package. Dans certains cas, une configuration de machine virtuelle longue peut entrer en conflit avec l’installation d’une extension, quand ces deux tâches exigent un accès exclusif au gestionnaire de package.
 
 ### <a name="view-extension-status"></a>Afficher l’état de l’extension
 
@@ -372,7 +371,7 @@ Une fois qu’une extension de machine virtuelle a été exécutée sur une mach
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
-Le résultat obtenu ressemble à l’exemple de résultat suivant :
+Le résultat obtenu ressemble à l’exemple de sortie suivant :
 
 ```powershell
 Extensions[0]           :
@@ -408,7 +407,7 @@ Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de mac
 Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-Vous pouvez également supprimer une extension dans le Portail Azure en procédant comme suit :
+Vous pouvez également supprimer une extension dans le portail Azure en procédant comme suit :
 
 1. Sélectionnez une machine virtuelle.
 2. Choisissez **Extensions**.
@@ -421,8 +420,8 @@ Vous pouvez également supprimer une extension dans le Portail Azure en procéda
 | Extension de script personnalisé pour Windows |Exécuter des scripts sur une machine virtuelle Azure |[Extension de script personnalisé pour Windows](custom-script-windows.md) |
 | Extension DSC pour Windows |Extension PowerShell DSC (Desired State Configuration, configuration d’état souhaité) |[Extension DSC pour Windows](dsc-overview.md) |
 | Extension Diagnostics Azure |Gérer les diagnostics Azure |[Extension Diagnostics Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extension d’accès aux machines virtuelles Azure |Gérer les utilisateurs et les informations d’identification |[Extension d’accès aux machines virtuelles pour Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extension d’accès aux machines virtuelles Azure |Gérer les utilisateurs et les informations d’identification |[Extension d’accès aux machines virtuelles pour Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les extensions de machine virtuelle, consultez l’article [Azure virtual machine extensions and features overview](overview.md) (Extensions et fonctionnalités de machine virtuelle Azure).
+Pour plus d’informations sur les extensions de machine virtuelle, consultez [Vue d’ensemble des extensions et des fonctionnalités des machines virtuelles Azure](overview.md).

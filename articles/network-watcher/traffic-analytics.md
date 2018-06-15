@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715820"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -56,7 +57,6 @@ Traffic Analytics est disponible en préversion. Les fonctionnalités de la pré
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 ### <a name="enable-network-watcher"></a>Activer Network Watcher 
 
 Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou devez [activer un Network Watcher](network-watcher-create.md) dans chaque région hébergeant des groupes de sécurité réseau que vous souhaitez analyser. Traffic Analytics peut être activé pour les groupes de sécurité réseau hébergés dans les [régions prises en charge](#supported-regions).
@@ -71,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Sélectionner un groupe de sécurité réseau 
 
-Avant d’activer la journalisation de flux de groupe de sécurité réseau, vous devez disposer d’un groupe de sécurité réseau pour lequel journaliser des flux. Si vous n’en avez pas, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) pour en créer un.
+Avant d’activer la journalisation de flux de groupe de sécurité réseau, vous devez disposer d’un groupe de sécurité réseau pour lequel journaliser des flux. Si vous n’en avez pas, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/manage-network-security-group.md#create-a-network-security-group) pour en créer un.
 
 Dans la partie gauche du portail Azure, sélectionnez **Surveiller**, puis **Observateur réseau**, et enfin **Journaux de flux NSG**. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer un journal de flux de groupe de sécurité réseau, comme indiqué dans l’image suivante :
 

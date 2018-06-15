@@ -1,24 +1,20 @@
 ---
-title: "Création d’un IoT Hub Azure à l’aide de l’API REST du fournisseur de ressources | Microsoft Docs"
-description: "Utilisation de l’API REST du fournisseur de ressources pour créer un IoT Hub."
-services: iot-hub
-documentationcenter: .net
+title: Création d’un IoT Hub Azure à l’aide de l’API REST du fournisseur de ressources | Microsoft Docs
+description: Utilisation de l’API REST du fournisseur de ressources pour créer un IoT Hub.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 52814ee5-bc10-4abe-9eb2-f8973096c2d8
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: d9372f8345257c45ae6b3b915383788f698a0e35
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 06f05da839ebca2ae53e255acce7f07d1989673c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635217"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Création d’un IoT Hub à l’aide de l’API REST du fournisseur de ressources (.NET)
 
@@ -176,7 +172,7 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez déployé un IoT Hub à l’aide de l’API REST du fournisseur de ressources, vous pouvez aller encore plus loin :
 
-* Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
+* Découvrez les capacités de l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 * Pour plus d’informations sur les capacités d’Azure Resource Manager, voir [Vue d’ensemble d’Azure Resource Manager][lnk-azure-rm-overview].
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :

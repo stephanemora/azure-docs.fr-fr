@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650109"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -144,7 +145,7 @@ La fonctionnalité [Sécurité au niveau des lignes](/sql/relational-databases/s
 
 Il existe des options relatives à la gestion des clés pour Always Encrypted (chiffrement côté client) et Transparent Data Encryption (chiffrement au repos). Il est recommandé de faire tourner régulièrement les clés de chiffrement. La fréquence de rotation doit respecter à la fois la réglementation et les exigences de conformité de votre organisation interne.
 
-**TDE (Transparent Data Encryption)** : il existe une hiérarchie à deux clés dans TDE. Les données de chaque base de données utilisateur sont chiffrées par une clé de chiffrement de base de données AES-256 symétrique (spécifique à la base de données), qui est à son tour chiffrée par une clé principale RSA 2048 asymétrique (spécifique au serveur). La clé principale peut être gérée de plusieurs façons :
+**TDE (Transparent Data Encryption)**  : il existe une hiérarchie à deux clés dans TDE. Les données de chaque base de données utilisateur sont chiffrées par une clé de chiffrement de base de données AES-256 symétrique (spécifique à la base de données), qui est à son tour chiffrée par une clé principale RSA 2048 asymétrique (spécifique au serveur). La clé principale peut être gérée de plusieurs façons :
 - Automatiquement par la plateforme : SQL Database.
 - En utilisant [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) comme magasin de clés.
 

@@ -7,16 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 27d72f1b49a89929098c0cc35f92d3915fc8b0b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b87d88a5bb7846894c425e701a073707ddd1f3be
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831182"
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exemple de connexions sources personnalisées (Python) 
 Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Python](data-prep-python-extensibility-overview.md).
@@ -24,7 +26,6 @@ Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Pyt
 ## <a name="load-data-from-dataworld"></a>Charger des données à partir de data.world
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 #### <a name="register-yourself-at-dataworld"></a>Vous inscrire auprès de data.world
 Vous avez besoin d’un jeton d’API du site web data.world.

@@ -1,24 +1,19 @@
 ---
-title: "Bien démarrer avec la gestion des appareils Azure IoT Hub (Node) | Microsoft Docs"
-description: "Découvrez comment utiliser la gestion des appareils IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez le SDK Azure IoT pour Node.js afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et une application de service qui appelle la méthode directe."
-services: iot-hub
-documentationcenter: .net
+title: Bien démarrer avec la gestion des appareils Azure IoT Hub (Node) | Microsoft Docs
+description: Découvrez comment utiliser la gestion des appareils IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez le SDK Azure IoT pour Node.js afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et une application de service qui appelle la méthode directe.
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: 0aeba8560de46ae2032304f133b66ad0a70f1354
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635948"
 ---
 # <a name="get-started-with-device-management-node"></a>Prise en main de la gestion d’appareils (Node)
 

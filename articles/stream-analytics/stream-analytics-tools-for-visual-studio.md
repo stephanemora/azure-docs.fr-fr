@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bcb4302c3a237ec75ff670b322c9d068d8700de9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941834"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738511"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Utiliser Azure Stream Analytics Tools pour Visual Studio
 Les outils Azure Stream Analytics pour Visual Studio sont maintenant disponibles de manière générale. Ces outils permettent d’enrichir l’expérience de l’utilisateur Stream Analytics pour la résolution de problèmes, les requêtes complexes et même l’écriture de requêtes en local. Vous pouvez également exporter un travail Stream Analytics dans un projet Visual Studio.
@@ -31,8 +31,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 * exporter des travaux existants dans des projets.
 
 >[!IMPORTANT]
->
->En prévision du nouveau Règlement général sur la protection des données (RGPD) qui entrera en vigueur le 25 mai 2018, il est recommandé que les utilisateurs d’Azure Stream Analytics Tools pour Visual Studio passent à la version 2.3.3000.5 ou une version ultérieure. Cette version inclut des changements basés sur les exigences de protection des données les plus récentes. Notez que les versions précédentes ne sont plus disponibles au téléchargement et sont dépréciées. 
+> Microsoft recommande de mettre à niveau vers Azure Data Lake Tools pour Visual Studio version 2.3.3000.4 ou ultérieure. Notez que les versions précédentes ne peuvent plus être téléchargées et que Microsoft les déconseille. 
 >
 >**Que dois-je faire ?**
 >
@@ -45,7 +44,6 @@ Après avoir effectué ce didacticiel, vous pourrez :
 >    - [Pour Visual Studio 2013 et 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour effectuer ce didacticiel, vous avez besoin des prérequis suivants :
 
 * Accomplissez les étapes qui précèdent « Créer une tâche Stream Analytics » du didacticiel [Créer une solution IoT à l’aide de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 

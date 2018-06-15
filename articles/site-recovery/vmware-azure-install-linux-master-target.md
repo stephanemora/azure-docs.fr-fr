@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072434"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802508"
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -30,7 +30,6 @@ Cet article fournit la marche à suivre pour installer un serveur cible maître 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Pour choisir l’hôte sur lequel déployer le serveur cible maître, déterminez si la restauration automatique s’effectuera sur une machine virtuelle locale existante ou sur une nouvelle machine virtuelle. 
     * Dans le cas d’une machine virtuelle existante, l’hôte du serveur cible maître doit avoir accès aux magasins de données de celle-ci.
@@ -244,7 +243,7 @@ Pour créer un disque de rétention, procédez comme suit :
 
 2. Utilisez la commande **multipath -ll** pour obtenir l’ID multichemin du disque de rétention : **multipath -ll**
 
-    ![ID Multipath](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![ID Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formatez le disque, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4/dev/mapper/<id multichemin du disque de rétention>**.
     

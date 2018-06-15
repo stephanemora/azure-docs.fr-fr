@@ -1,8 +1,8 @@
 ---
-title: "Contrôle du trafic Azure App Service avec Azure Traffic Manager"
-description: "Cet article fournit des informations récapitulatives sur Azure Traffic Manager et son rapport à Azure App Service."
+title: Contrôle du trafic Azure App Service avec Azure Traffic Manager
+description: Cet article fournit des informations récapitulatives sur Azure Traffic Manager et son rapport à Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824038"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Contrôle du trafic Azure App Service avec Azure Traffic Manager
 > [!NOTE]
@@ -33,10 +34,10 @@ Vous pouvez utiliser Azure Traffic Manager pour contrôler la façon dont les re
 ## <a name="routing-methods"></a>Méthodes de routage
 Azure Traffic Manager utilise quatre méthodes de routage. Ces méthodes sont décrites dans la liste suivante, car elles se rapportent à Azure App Service.
 
-* **[Priorité](#priority) :** utilisez une application principale pour tout le trafic, et fournissez des sauvegardes au cas où celle-ci ou les applications de sauvegarde ne seraient pas disponibles.
-* **[Pondération](#weighted) :** répartissez le trafic sur un ensemble d’applications, uniformément ou en fonction du poids que vous définissez.
-* **[Performances](#performance) :** lorsque vous avez des applications à différents emplacements géographiques, utilisez l’application « la plus proche » en termes de latence réseau faible.
-* **[Géographique](#geographic) :** orientez les utilisateurs vers des applications spécifiques en fonction de l’emplacement géographique d’où provient leur requête DNS. 
+* **[Priorité](../traffic-manager/traffic-manager-routing-methods.md#priority) :** utilisez une application principale pour tout le trafic, et fournissez des sauvegardes au cas où celle-ci ou les applications de sauvegarde ne seraient pas disponibles.
+* **[Pondération](../traffic-manager/traffic-manager-routing-methods.md#weighted) :** répartissez le trafic sur un ensemble d’applications, uniformément ou en fonction du poids que vous définissez.
+* **[Performances](../traffic-manager/traffic-manager-routing-methods.md#performance) :** lorsque vous avez des applications à différents emplacements géographiques, utilisez l’application « la plus proche » en termes de latence réseau faible.
+* **[Géographique](../traffic-manager/traffic-manager-routing-methods.md#geographic) :** orientez les utilisateurs vers des applications spécifiques en fonction de l’emplacement géographique d’où provient leur requête DNS. 
 
 Pour plus d’informations, voir [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
