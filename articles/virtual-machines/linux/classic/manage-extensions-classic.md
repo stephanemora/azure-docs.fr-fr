@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841450"
 ---
 # <a name="manage-virtual-machine-extensions"></a>Gestion des extensions de machine virtuelle
 Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machines virtuelles Windows ou Linux dans Azure.
