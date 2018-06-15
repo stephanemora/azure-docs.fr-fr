@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246285"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques de base à l’aide de PowerShell
 Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016. Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle via RDP.

@@ -1,11 +1,11 @@
 ---
-title: "Vérifier les paramètres Azure Traffic Manager | Microsoft Docs"
-description: "Cet article vous aide à vérifier les paramètres Traffic Manager."
+title: Vérifier les paramètres Azure Traffic Manager | Microsoft Docs
+description: Cet article vous aide à vérifier les paramètres Traffic Manager.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2180b640-596e-4fb2-be59-23a38d606d12
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110717"
 ---
 # <a name="verify-traffic-manager-settings"></a>Vérifier les paramètres Traffic Manager
 

@@ -1,12 +1,12 @@
 ---
 title: Analyser un appareil de la gamme StorSimple 8000 | Microsoft Docs
-description: "Décrit comment utiliser le service StorSimple Device Manager pour surveiller l’utilisation, les performances E/S et l’utilisation de la capacité de l’appareil."
+description: Décrit comment utiliser le service StorSimple Device Manager pour surveiller l’utilisation, les performances E/S et l’utilisation de la capacité de l’appareil.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23479265"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilisation du service StorSimple Device Manager pour surveiller votre appareil StorSimple
 

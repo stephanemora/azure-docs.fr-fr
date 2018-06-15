@@ -1,11 +1,11 @@
 ---
-title: "Exemple DMZ : créer une zone DMZ pour protéger les réseaux avec un pare-feu, un itinéraire défini par l’utilisateur et un groupe de sécurité réseau | Microsoft Docs"
-description: "Créer un réseau de périmètre avec un pare-feu, un itinéraire défini par l’utilisateur (UDR) et des groupes de sécurité réseau (NSG)"
+title: 'Exemple DMZ : créer une zone DMZ pour protéger les réseaux avec un pare-feu, un itinéraire défini par l’utilisateur et un groupe de sécurité réseau | Microsoft Docs'
+description: Créer un réseau de périmètre avec un pare-feu, un itinéraire défini par l’utilisateur (UDR) et des groupes de sécurité réseau (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23127157"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemple 3 : créer un réseau de périmètre DMZ pour protéger les réseaux avec un pare-feu, un réseau défini sur l’utilisateur et un groupe de réseau
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
