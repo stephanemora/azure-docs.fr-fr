@@ -1,11 +1,11 @@
 ---
 title: Application hybride Azure WCF Relay locale/dans le cloud (.NET) | Microsoft Docs
-description: "Découvrez comment créer une application hybride locale/de cloud .NET à l’aide d’Azure WCF Relay."
+description: Découvrez comment créer une application hybride locale/de cloud .NET à l’aide d’Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus-relay
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29346439"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Application .NET locale/de cloud hybride avec Azure WCF Relay
 
@@ -451,7 +452,7 @@ Avant d’exécuter l’application dans le cloud, vous devez vous assurer que *
 
     ![][38]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Azure Relay, consultez les ressources suivantes :  
 

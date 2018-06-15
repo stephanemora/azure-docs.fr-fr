@@ -63,8 +63,6 @@
           href: dsc-template.md
     - name: Logiciel anti-programme malveillant IaaS pour Windows
       href: iaas-antimalware-windows.md
-    - name: Key Vault
-      href: key-vault-windows.md
     - name: Instantané de machine virtuelle
       items:
         - name: Linux

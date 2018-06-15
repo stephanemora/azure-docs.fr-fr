@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150955"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 

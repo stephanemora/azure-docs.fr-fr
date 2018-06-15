@@ -1,29 +1,25 @@
 ---
-title: "Points de terminaison de sécurité du service de provisionnement d’appareils IoT | Microsoft Docs"
-description: "Concepts - Comment contrôler l’accès au service de provisionnement d’appareils IoT pour les applications backend. Inclut des informations sur les jetons de sécurité."
-services: iot-dps
-documentationcenter: .net
+title: Points de terminaison de sécurité du service de provisionnement d’appareils IoT | Microsoft Docs
+description: Concepts - Comment contrôler l’accès au service de provisionnement d’appareils IoT pour les applications backend. Inclut des informations sur les jetons de sécurité.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.author: dkshir
+ms.openlocfilehash: e33f6b61f757c9d7f6a773141ad0deea363be2b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629386"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
 Cet article décrit les options permettant de sécuriser votre service de provisionnement d’appareils IoT. Le service de provisionnement utilise des *autorisations* pour accorder l’accès à chaque point de terminaison. Les autorisations limitent l’accès à une instance de service en fonction des fonctionnalités.
 
-Cet article explique :
+Cet article aborde les points suivants :
 
 * Les différentes autorisations que vous pouvez accorder à une application backend pour lui permettre d’accéder à votre service de provisionnement.
 * Le processus d’authentification et les jetons qu’il utilise pour vérifier les autorisations.
@@ -54,7 +50,7 @@ Pour plus d’informations sur la façon de construire et d’utiliser les jeton
 
 HTTP est le seul protocole pris en charge. Il implémente l’authentification en incluant un jeton valide dans l’en-tête de demande d’**autorisation**.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
 
 > [!NOTE]
@@ -79,7 +75,7 @@ Voici les valeurs attendues :
 | --- | --- |
 | {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256.|
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
-| {URL-encoded-resourceURI} | Encodage de l’URL en minuscules à partir de l’URI de ressource en minuscules. Préfixe URI (par segment) des points de terminaison accessibles avec ce jeton, en commençant par le nom d’hôte du service de provisionnement d’appareils IoT (sans protocole). Par exemple, `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Encodage de l’URL en minuscules à partir de l’URI de ressource en minuscules. Préfixe URI (par segment) des points de terminaison accessibles avec ce jeton, en commençant par le nom d’hôte du service de provisionnement d’appareils IoT (sans protocole). Par exemple : `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. |
 
 **Remarque sur le préfixe**: le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
@@ -170,7 +166,7 @@ Le résultat, qui revient à accorder l’accès en lecture à tous les dossiers
 
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=enrollmentread`
 
-## <a name="reference-topics"></a>Rubriques de référence :
+## <a name="reference-topics"></a>Rubriques de référence :
 
 Les rubriques de référence suivantes fournissent des informations supplémentaires sur le contrôle de l’accès à votre service de provisionnement d’appareils IoT.
 
@@ -178,7 +174,7 @@ Les rubriques de référence suivantes fournissent des informations supplémenta
 
 Le tableau suivant répertorie les autorisations qui vous permettent de contrôler l’accès à votre service de provisionnement d’appareils IoT.
 
-| Autorisation | Remarques |
+| Autorisation | Notes |
 | --- | --- |
 | **ServiceConfig** |Accorde l’accès pour changer les configurations du service. <br/>Cette autorisation est utilisée par les services cloud principaux. |
 | **EnrollmentRead** |Accorde l’accès en lecture aux inscriptions d’appareils et aux groupes d’inscription. <br/>Cette autorisation est utilisée par les services cloud principaux. |
