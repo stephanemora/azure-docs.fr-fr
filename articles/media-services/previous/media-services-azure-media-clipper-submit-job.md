@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783178"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envoyer des travaux de détourage d’Azure Media Clipper
 Azure Media Clipper nécessite une méthode **submitSubclipCallback** d’implémentation pour gérer la soumission de travaux de détourage. Cette fonction sert à implémenter une requête HTTP POST de la sortie Clipper à un service web. C’est dans ce service web que vous pouvez soumettre le travail d’encodage. La sortie du Clipper peut être une présélection d’encodage Media Encoder Standard pour les travaux rendus ou la charge utile API REST pour les appels filtrés du manifeste dynamique. Ce modèle de transmission directe est nécessaire, car les informations d’identification du compte Media Services ne sont pas sécurisées dans le navigateur du client.

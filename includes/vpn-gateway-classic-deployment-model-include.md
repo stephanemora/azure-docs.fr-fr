@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197905"
 ---
 > [!NOTE]
 > Cet article traite du modèle de déploiement classique. Si vous êtes un nouvel utilisateur d’Azure, nous vous recommandons plutôt d’utiliser le modèle de déploiement Resource Manager. Le modèle de déploiement Resource Manager est le modèle de déploiement le plus récent, qui propose davantage d’options et de fonctions compatibles que le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Comprendre les modèles de déploiement Azure](../articles/resource-manager-deployment-model.md).

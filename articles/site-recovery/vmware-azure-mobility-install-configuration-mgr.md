@@ -9,10 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "33942511"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisation de l’installation du service Mobilité à l’aide de System Center Configuration Manager
 
@@ -28,7 +29,6 @@ Cet article utilise System Center Configuration Manager 2012 R2 pour illustrer l
 Vous pouvez aussi automatiser l’installation du service Mobilité avec [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. Un outil de déploiement de logiciels tel que Configuration Manager qui est déjà déployé dans votre environnement.
 2. Vous devez créer deux [regroupements d’appareils](https://technet.microsoft.com/library/gg682169.aspx), un pour tous les **serveurs Windows** et l’autre pour tous les **serveurs Linux** que vous souhaitez protéger à l’aide de Site Recovery.
