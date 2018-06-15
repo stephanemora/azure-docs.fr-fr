@@ -1,11 +1,11 @@
 ---
-title: "Utilisation des services d’équilibrage de charge dans Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment créer un scénario utilisant la gamme de services d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer."
+title: Utilisation des services d’équilibrage de charge dans Azure | Microsoft Docs
+description: 'Ce didacticiel vous montre comment créer un scénario utilisant la gamme de services d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer.'
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401104"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
@@ -205,7 +206,7 @@ Nous allons maintenant configurer l’adresse IP et le port frontal de l’équ
 
 ![Volet de navigation Pool d’IP du serveur principal de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)

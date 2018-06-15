@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32777177"
 abstract:
   description: Apprenez à utiliser Azure Network Watcher. Grâce à des guides de démarrage rapide, à des didacticiels et à de nombreuses autres ressources, découvrez comment obtenir un aperçu de votre Réseau virtuel Azure avec différents outils comme la capture de paquets et les journaux de flux NSG, pour diagnostiquer les problèmes de filtrage et d’acheminement du trafic et pour surveiller les connexions.
 sections:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554566"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Ajouter des utilisateurs dans le Kit de développement Azure Stack
 

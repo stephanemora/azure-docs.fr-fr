@@ -1,6 +1,6 @@
 ---
-title: "Rechercher des données non structurées dans le stockage cloud Azure"
-description: "Recherche de données non structurées à l’aide de Recherche Azure."
+title: Rechercher des données non structurées dans le stockage cloud Azure
+description: Recherche de données non structurées à l’aide de Recherche Azure.
 author: roygara
 manager: timlt
 services: storage
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23451636"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Rechercher des données non structurées dans le stockage cloud
 

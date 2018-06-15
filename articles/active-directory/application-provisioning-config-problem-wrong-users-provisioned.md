@@ -1,11 +1,11 @@
 ---
-title: "Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD | Microsoft Docs"
-description: "Découvrez pourquoi un autre ensemble d’utilisateurs que celui que vous attendiez est affecté à une application"
+title: Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD | Microsoft Docs
+description: Découvrez pourquoi un autre ensemble d’utilisateurs que celui que vous attendiez est affecté à une application
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383135"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD
 
@@ -108,5 +109,5 @@ Si l’approvisionnement est configuré et déjà en cours d’exécution pour u
 
 Si les groupes de configuration sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu'un champ approprié est utilisé pour l’« ID correspondant ». Il peut s’agir du nom d’affichage ou de l’alias de courrier électronique, comme le groupe et ses membres qui ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas remplie pour un groupe dans Azure AD.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)

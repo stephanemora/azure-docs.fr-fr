@@ -1,6 +1,6 @@
 ---
-title: "Exclure des disques de la protection à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication pour Hyper-V vers Azure."
+title: Exclure des disques de la protection à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication pour Hyper-V vers Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466835"
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent.
@@ -225,5 +226,5 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle Azure :
 
 ![Paramètres du fichier d’échange sur la machine virtuelle Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md) .

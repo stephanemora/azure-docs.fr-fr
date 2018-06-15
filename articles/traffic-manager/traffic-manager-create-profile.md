@@ -1,12 +1,12 @@
 ---
-title: "Créer un profil Traffic Manager dans Azure| Microsoft Docs"
-description: "Cet article décrit comment créer un profil Traffic Manager"
+title: Créer un profil Traffic Manager dans Azure| Microsoft Docs
+description: Cet article décrit comment créer un profil Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397568"
 ---
 # <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
@@ -66,7 +67,7 @@ Dans cet article, deux points de terminaison Azure Web Apps créés précédemme
 ## <a name="delete-the-traffic-manager-profile"></a>Supprimer le profil Traffic Manager
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et le profil Traffic Manager que vous avez créés. Pour ce faire, sélectionnez le groupe de ressources dans le **profil Traffic Manager**, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur les [types de routage](traffic-manager-routing-methods.md).
 - En savoir plus sur les [types de point de terminaison](traffic-manager-endpoint-types.md).
