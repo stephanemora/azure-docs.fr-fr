@@ -1,8 +1,8 @@
 ---
-title: "Utiliser la CLI Databricks à partir d’Azure Cloud Shell | Microsoft Docs"
-description: "Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell."
+title: Utiliser la CLI Databricks à partir d’Azure Cloud Shell | Microsoft Docs
+description: Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,20 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8e4213813ff23586ac683556d4a3c0c587edea58
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598723"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Utiliser la CLI Databricks à partir d’Azure Cloud Shell
 
 Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell pour effectuer des opérations sur Databricks.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un cluster et un espace de travail Azure Databricks. Pour obtenir des instructions, consultez [Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure](quickstart-create-databricks-workspace-portal.md). 
 

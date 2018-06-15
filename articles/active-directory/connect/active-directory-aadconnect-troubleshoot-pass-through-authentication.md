@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect : résolution des problèmes d’authentification directe | Microsoft Docs"
-description: "Cet article décrit la résolution des problèmes d’authentification directe d’Azure Active Directory (Azure AD)."
+title: 'Azure AD Connect : résolution des problèmes d’authentification directe | Microsoft Docs'
+description: Cet article décrit la résolution des problèmes d’authentification directe d’Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "Résolution des problèmes d’authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: Résolution des problèmes d’authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 3296ee114d3e285e77070995156ef6a242c1fc87
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592195"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -117,7 +119,7 @@ Voici les problèmes courants liés à la configuration de la prise en charge Ex
 
 ### <a name="exchange-powershell-issue"></a>Problème lié à Exchange PowerShell
 
-Si le message d’erreur « **Impossible de trouver un paramètre correspondant au nom « PerTenantSwitchToESTSEnabled »\.** » quand vous exécutez la commande Exchange PowerShell `Set-OrganizationConfig`, contactez le support Microsoft.
+Si le message d’erreur « **Impossible de trouver un paramètre correspondant au nom « PerTenantSwitchToESTSEnabled »\.**  » quand vous exécutez la commande Exchange PowerShell `Set-OrganizationConfig`, contactez le support Microsoft.
 
 ### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync ne fonctionne ne pas
 
