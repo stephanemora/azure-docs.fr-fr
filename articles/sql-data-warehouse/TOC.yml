@@ -6,6 +6,12 @@
       href: sql-data-warehouse-overview-what-is.md
     - name: Aide-mémoire
       href: cheat-sheet.md
+- name: Notes de publication
+  items:
+    - name: Mai 2018
+      href: release-notes-may-2018.md
+    - name: "Avril\_2018"
+      href: release-notes-april-2018.md
 - name: Démarrages rapides
   expanded: true
   items:

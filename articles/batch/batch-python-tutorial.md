@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317036"
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Bien démarrer avec le Kit de développement logiciel (SDK)Batch pour Python
 

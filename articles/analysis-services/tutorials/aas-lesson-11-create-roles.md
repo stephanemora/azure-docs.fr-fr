@@ -3,16 +3,17 @@ title: 'Leçon 11 du didacticiel Azure Analysis Services : Créer des rôles 
 description: Explique comment créer des rôles dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7a34884482a53a9b96dac87dc30803be08fdc806
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d71edd74c26f7888fca41838f164ec896dd1d90
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596115"
 ---
 # <a name="create-roles"></a>Créer des rôles
 
@@ -23,18 +24,17 @@ Dans cette leçon, vous allez créer des rôles. Les rôles fournissent la sécu
   
 Vous devez créer trois rôles :  
   
--   **Sales Manager (Responsable des ventes)** – Ce rôle peut inclure les utilisateurs de votre organisation auxquels vous souhaitez donner un accès en lecture à l’ensemble des objets et données du modèle.  
+-   **Sales Manager (Responsable des ventes)**  – Ce rôle peut inclure les utilisateurs de votre organisation auxquels vous souhaitez donner un accès en lecture à l’ensemble des objets et données du modèle.  
   
 -   **Sales Analyst US (Analyste en ventes aux États-Unis)** – Ce rôle peut inclure les utilisateurs de votre organisation que vous souhaitez autoriser à parcourir uniquement les données relatives aux ventes aux États-Unis. Pour ce rôle, vous utilisez une formule DAX de façon à définir un *filtre de lignes*, qui limite les membres à parcourir uniquement les données concernant les États-Unis.  
   
--   **Administrator (Administrateur)** – Ce rôle peut inclure des utilisateurs auxquels vous souhaitez fournir une autorisation d’administrateur, ce qui permet un accès et des autorisations illimités pour effectuer des tâches administratives sur la base de données de modèles.  
+-   **Administrator (Administrateur)**  – Ce rôle peut inclure des utilisateurs auxquels vous souhaitez fournir une autorisation d’administrateur, ce qui permet un accès et des autorisations illimités pour effectuer des tâches administratives sur la base de données de modèles.  
   
 Étant donné que les comptes d’utilisateurs et de groupes Windows de votre organisation sont uniques, vous pouvez ajouter des comptes de votre organisation spécifique aux membres. Toutefois, pour ce didacticiel, vous pouvez également laisser les membres vides. Vous allez tester l’effet de chaque rôle ultérieurement dans la leçon 12 : Analyser dans Excel.  
   
 Durée estimée pour suivre cette leçon : **15 minutes**  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Créer des rôles  

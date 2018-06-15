@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366747"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757568"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutoriel : Appeler des API de recherche cognitive (version préliminaire)
 
@@ -34,7 +34,6 @@ La sortie obtenue est un index de recherche en texte intégral sur Recherche Azu
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Vous êtes novice en recherche cognitive ? Lisez [« Qu’est-ce que la recherche cognitive ? »](cognitive-search-concept-intro.md) pour vous y familiariser, ou essayez de suivre le [guide de démarrage rapide du portail](cognitive-search-quickstart-blob.md) pour bénéficier d’une présentation pratique des concepts importants.
 
@@ -86,7 +85,7 @@ Le pipeline d’enrichissement extrait des données des sources de données Azur
   La chaîne de connexion doit être une URL similaire à l’exemple suivant :
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 Il existe d’autres manières de spécifier la chaîne de connexion, par exemple en fournissant une signature d’accès partagé. Pour en savoir plus sur les informations d’identification de source de données, consultez [Indexation du stockage d’objets blob Azure](search-howto-indexing-azure-blob-storage.md#Credentials).

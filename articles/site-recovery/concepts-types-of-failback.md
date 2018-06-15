@@ -1,6 +1,6 @@
 ---
 title: Restauration automatique dans Azure Site Recovery | Microsoft Docs
-description: "Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration locale avec le service Azure Site Recovery."
+description: Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration locale avec le service Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29803550"
 ---
 # <a name="overview-of-failback"></a>Vue d’ensemble de la restauration automatique
 

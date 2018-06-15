@@ -2,7 +2,7 @@
 title: Surveiller les transactions B2B et configurer la journalisation - Azure Logic Apps | Microsoft Docs
 description: Surveiller les messages AS2, X12 et EDIFACT, démarrer la journalisation des diagnostics pour votre compte d’intégration
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 6afab12b9e2d6e8686ecbc95be9743afbe70d98c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 399c7b91949a854f3a152e9a3788d9163c565934
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299315"
 ---
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Surveiller et configurer la journalisation des diagnostics pour la communication B2B dans des comptes d’intégration
 
@@ -92,7 +93,7 @@ Vous pouvez activer la journalisation directement à partir de votre compte d’
 
    ![Activer Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Sélectionnez à présent l’espace de travail Log Analytics et la catégorie d'événement pour la journalisation comme illustré :
+4. Sélectionnez à présent l’espace de travail Log Analytics et la catégorie d’événement pour la journalisation, comme illustré :
 
    1. Sélectionnez **Envoyer à Log Analytics**. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 

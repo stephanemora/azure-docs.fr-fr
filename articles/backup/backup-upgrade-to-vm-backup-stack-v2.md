@@ -1,24 +1,20 @@
 ---
-title: Mise à niveau vers le modèle de déploiement Azure Resource Manager pour la pile de sauvegarde de machine virtuelle Azure | Microsoft Docs
+title: Mise à niveau vers le modèle de déploiement Azure Resource Manager pour la pile de sauvegarde de machine virtuelle Azure
 description: Processus de mise à niveau et questions fréquentes (FAQ) pour la pile de sauvegarde de machine virtuelle, modèle de déploiement Resource Manager
 services: backup, virtual-machines
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 03/08/2018
-ms.author: trinadhk, sogup
-ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: trinadhk
+ms.openlocfilehash: e822e0c354fd671ee2802506e0e268d4078b395e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764857"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606900"
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Mise à niveau vers le modèle de déploiement Azure Resource Manager pour la pile de sauvegarde de machine virtuelle Azure
 Le modèle de déploiement Resource Manager pour la mise à niveau de la pile de sauvegarde de machine virtuelle fournit les améliorations de fonctionnalités suivantes :

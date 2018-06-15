@@ -1,6 +1,6 @@
 ---
 title: Configurer et consulter les journaux du serveur pour PostgreSQL dans le portail Azure
-description: "Cet article décrit comment configurer et consulter les journaux du serveur dans Azure Database pour PostgreSQL à partir du portail Azure."
+description: Cet article décrit comment configurer et consulter les journaux du serveur dans Azure Database pour PostgreSQL à partir du portail Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692162"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux du serveur dans le portail Azure
 
@@ -66,7 +67,7 @@ Une fois que la journalisation commence, vous pouvez afficher la liste des journ
 
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour découvrir comment télécharger des journaux par programme, voir [Accéder aux journaux du serveur à l’aide de l’interface de ligne de commande](howto-configure-server-logs-using-cli.md).
 - Apprenez-en davantage sur les [Journaux du serveur](concepts-server-logs.md) dans Azure Database pour PostgreSQL. 
 - Pour plus d’informations sur les définitions de paramètres et la journalisation de PostgreSQL, voir la documentation de PostgreSQL concernant [le signalement et la journalisation des erreurs](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).

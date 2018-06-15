@@ -1,27 +1,28 @@
 ---
-title: "Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL"
-description: "Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL."
+title: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
+description: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL.
 services: mysql
 author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: MySQL
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 7961da65abacf6058b4b0ece4e9cbe7b8d1ef254
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 127255514c434717be07886b1b1739027d3a14ea
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263562"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
 
-Cette vue d’ensemble décrit les fonctionnalités d’Azure Database pour MySQL en matière de continuité d’activité et de récupération d’urgence. Découvrez les options de récupération à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
+Cette vue d’ensemble décrit les fonctionnalités d’Azure Database pour MySQL en matière de continuité d’activité et de récupération d’urgence. Découvrez les options de reprise à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
 
-## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités que vous pouvez utiliser pour garantir une continuité d’activité
+## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités que vous pouvez utiliser pour garantir la continuité d’activité
 
-Azure Database pour MySQL propose des fonctionnalités de continuité d’activité, notamment des sauvegardes automatisées et la possibilité pour les utilisateurs de lancer une géorestauration. Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et les utiliser ensemble dans différents scénarios. Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption, c’est-à-dire votre objectif de délai de récupération (RTO). Vous devez aussi comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la récupération après l’événement d’interruption, c’est-à-dire votre objectif de point de récupération (RPO).
+Azure Database pour MySQL propose des fonctionnalités de continuité d’activité, notamment des sauvegardes automatisées et la possibilité pour les utilisateurs de lancer une géorestauration. Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et les utiliser ensemble dans différents scénarios. Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption, c’est-à-dire votre objectif de délai de récupération (RTO). Vous devez aussi comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la reprise après l’événement d’interruption, c’est-à-dire votre objectif de point de récupération (RPO).
 
 Le tableau suivant compare l’ERT et le RPO pour les fonctionnalités disponibles :
 
@@ -48,7 +49,7 @@ Vous pouvez attendre que votre serveur redevienne disponible une fois la panne r
 L’autre solution consiste à utiliser la fonctionnalité de géorestauration d’Azure Database pour MySQL qui restaure le serveur à partir de sauvegardes géoredondantes. Ces sauvegardes sont accessibles même en cas de non-connexion de la région dans laquelle votre serveur est hébergé. Vous pouvez effectuer une restauration à partir de ces sauvegardes dans n’importe quelle autre région et remettre votre serveur en ligne.
 
 > [!IMPORTANT]
-> La géorestauration n’est possible que si vous avez approvisionné le serveur avec le stockage de sauvegardes géoredondantes.
+> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

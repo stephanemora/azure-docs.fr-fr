@@ -1,22 +1,20 @@
 ---
 title: Rechercher un itinéraire avec Azure Maps | Microsoft Docs
 description: Établir un itinéraire vers un point d’intérêt avec Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 73ca61140f05a65ca75cd703ed226773b9a43dfa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc5dfafec303a439d8a1092771fd2247ab305172
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601341"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -28,7 +26,6 @@ Ce didacticiel montre comment utiliser votre compte Azure Maps et le SDK Route S
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de continuer, exécutez les étapes du didacticiel précédent afin de [créer votre compte Azure Maps](./tutorial-search-location.md#createaccount) et d’[obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey). 
 

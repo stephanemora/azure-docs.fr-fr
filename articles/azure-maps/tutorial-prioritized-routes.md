@@ -1,22 +1,20 @@
 ---
 title: Itinéraires multiples avec Azure Maps | Microsoft Docs
 description: Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b45394cedcb7bbcb46b9730b7e445b04c8cf4f18
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601409"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -29,7 +27,6 @@ Ce didacticiel montre comment utiliser votre compte Azure Maps et Route Service 
 > * Afficher plusieurs itinéraires sur votre carte
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de continuer, exécutez les étapes du premier didacticiel afin de [créer votre compte Azure Maps](./tutorial-search-location.md#createaccount) et d’[obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey). 
 

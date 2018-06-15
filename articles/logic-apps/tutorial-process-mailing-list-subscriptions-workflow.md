@@ -2,7 +2,7 @@
 title: Générer des flux de travail d’approbation pour traiter les requêtes de liste de diffusion - Azure Logic Apps | Microsoft Docs
 description: Ce didacticiel montre comment créer des flux de travail d’approbation automatisés pour le traitement des abonnements aux listes de diffusion avec Azure Logic Apps
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300672"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gérer les requêtes de liste de diffusion avec une application logique
 
@@ -55,7 +56,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
-1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Enterprise Integration** > **Application logique**.
+1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration Entreprise** > **Application logique**.
 
    ![Créer une application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 
@@ -323,7 +324,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez créé une application logique qui gère des approbations pour les requêtes de liste de diffusion. Maintenant, découvrez comment créer une application logique qui traite et stocke les pièces jointes des e-mails en intégrant des services Azure, tels que Stockage Azure et Azure Functions.
 

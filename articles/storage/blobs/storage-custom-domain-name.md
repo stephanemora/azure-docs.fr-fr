@@ -1,5 +1,5 @@
 ---
-title: "Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob Azure | Microsoft Docs"
+title: Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob Azure | Microsoft Docs
 description: Utilisez le portail Azure pour mapper votre propre nom canonique (CNAME) au point de terminaison de stockage Blob dans un compte de stockage Azure.
 services: storage
 author: tamram
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559925"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob
 
@@ -154,6 +155,6 @@ Utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershe
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Mapper un domaine personnalisé à un point de terminaison Azure CDN (Content Delivery Network)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)

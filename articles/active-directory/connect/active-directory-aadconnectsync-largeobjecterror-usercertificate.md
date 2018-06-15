@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect : erreurs LargeObject provoquées par l’attribut userCertificate | Microsoft Docs"
-description: "Cette rubrique propose une procédure de correction des erreurs LargeObject provoquées par l’attribut userCertificate."
+title: 'Azure AD Connect : erreurs LargeObject provoquées par l’attribut userCertificate | Microsoft Docs'
+description: Cette rubrique propose une procédure de correction des erreurs LargeObject provoquées par l’attribut userCertificate.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9866454735b33239a812dca238006299c74e5ae2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592804"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
 

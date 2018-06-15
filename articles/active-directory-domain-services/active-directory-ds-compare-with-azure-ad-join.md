@@ -1,24 +1,26 @@
 ---
-title: "Comparer la jonction à Azure AD avec Azure Active Directory Domain Services | Microsoft Docs"
+title: Comparer la jonction à Azure AD avec Azure Active Directory Domain Services | Microsoft Docs
 description: Choix entre la jonction Azure AD et Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f2d09e896a41647ef3211a754a4c7aa403d8cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587853"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Choisir entre la jonction Azure Active Directory et Azure Active Directory Domain Services
 Cet article explique les différences qui existent entre la jonction Azure Active Directory (AD) et Azure AD Domain Services, afin de vous aider à choisir en fonction de vos cas d’usage.
@@ -57,7 +59,7 @@ Sur une machine jointe au domaine, l’authentification de l’utilisateur s’e
 | Appareil contrôlé par | Azure AD | Domaine managé par Azure AD Domain Services |
 | Représentation dans l’annuaire | Objets appareil dans l’annuaire Azure AD. | Objets ordinateur dans le domaine managé AAD-DS. |
 | Authentification | Protocoles OAuth/OpenID Connect | Protocoles Kerberos, NTLM |
-| Gestion | Logiciels de gestion des appareils mobiles (GAM) tels qu’Intune | Stratégie de groupe |
+| gestion | Logiciels de gestion des appareils mobiles (GAM) tels qu’Intune | Stratégie de groupe |
 | Mise en réseau | Fonctionne sur Internet | Exige que les machines soient sur le même réseau virtuel que le domaine managé.|
 | Idéal pour... | Appareils mobiles ou de bureau des utilisateurs finaux | Machines virtuelles en serveur déployées sur Azure |
 

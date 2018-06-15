@@ -1,10 +1,10 @@
 ---
-title: "Créer des solutions B2B - Azure Logic Apps | Microsoft Docs"
-description: "Recevoir des données dans des applications logiques à l’aide des fonctionnalités B2B dans Enterprise Integration Pack"
+title: Créer des solutions B2B - Azure Logic Apps | Microsoft Docs
+description: Recevoir des données dans des applications logiques à l’aide des fonctionnalités B2B dans Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.service: logic-apps
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a27a413ba9a0d974cf90fe842d5fc325ab308a56
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298115"
 ---
 # <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>Recevoir des données dans des applications logiques à l’aide des fonctionnalités B2B dans Enterprise Integration Pack
 
 Après avoir créé un compte d’intégration comportant des partenaires et des contrats, vous êtes prêt à créer un workflow interentreprises (B2B) pour votre application logique avec [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser les actions AS2 et X12, vous devez disposer d’un compte Enterprise Integration. Découvrez [comment créer un compte Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 

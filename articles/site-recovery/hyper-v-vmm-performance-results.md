@@ -1,6 +1,6 @@
 ---
-title: "Résultats des tests sur la réplication des machines virtuelles Hyper-V de clouds VMM vers un site secondaire avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article fournit des informations sur les tests de performance liés à la réplication des machines virtuelles Hyper-V de clouds VMM vers un site secondaire à l’aide d’Azure Site Recovery."
+title: Résultats des tests sur la réplication des machines virtuelles Hyper-V de clouds VMM vers un site secondaire avec Azure Site Recovery | Microsoft Docs
+description: Cet article fournit des informations sur les tests de performance liés à la réplication des machines virtuelles Hyper-V de clouds VMM vers un site secondaire à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378684"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
 
@@ -179,6 +180,6 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 | Débit de lecture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
 | Débit d’écriture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Configurer la réplication](hyper-v-vmm-disaster-recovery.md)
