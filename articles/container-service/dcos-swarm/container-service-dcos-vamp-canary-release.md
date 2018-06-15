@@ -1,19 +1,20 @@
 ---
-title: "Contrôler la validité d’une mise en production avec Vamp sur un cluster DC/OS Azure"
-description: "Comment utiliser Vamp pour contrôler la validité de services de mise en production et appliquer un filtrage de trafic intelligent sur un cluster de contrôleur de domaine/système d’exploitation Azure Container Service"
+title: Contrôler la validité d’une mise en production avec Vamp sur un cluster DC/OS Azure
+description: Comment utiliser Vamp pour contrôler la validité de services de mise en production et appliquer un filtrage de trafic intelligent sur un cluster de contrôleur de domaine/système d’exploitation Azure Container Service
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177799"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Contrôler la validité de microservices de mise en production avec Vamp sur un cluster de contrôleur de domaine/système d’exploitation Azure Container Service
 
@@ -41,7 +42,7 @@ Le [contrôle de la validité des mises en production](https://martinfowler.com/
 
 ## <a name="set-up-vamp"></a>Configurer Vamp
 
-À présent que vous avez un cluster de contrôleur de domaine/système d’exploitation opérationnel, vous pouvez installer Vamp à partir de l’interface utilisateur du contrôleur de domaine/système d’exploitation (http://localhost:80). 
+À présent que vous avez un cluster de contrôleur de domaine/système d’exploitation opérationnel, vous pouvez installer Vamp à partir de l’interface utilisateur DC/OS (http://localhost:80)). 
 
 ![IU DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -151,7 +152,7 @@ Ce scénario utilise un exemple d’application monolithique appelé [ **sava**]
               webport: 8080/http # cluster endpoint, used for canary releasing
   ```
 
-4. Cliquez sur **Save**. Vamp entame le déploiement.
+4. Cliquez sur **Enregistrer**. Vamp entame le déploiement.
 
 Le déploiement est décrit dans la page **Déploiements**. Pour contrôler son état, cliquez dessus.
 
@@ -212,7 +213,7 @@ Pour fusionner le nouveau service sava 1.1 avec le déploiement en cours d’ex�
               webport: 8080/http # cluster endpoint to update
   ```
   
-3. Cliquez sur **Save**. Le schéma est stocké et répertorié dans la page **Schémas**.
+3. Cliquez sur **Enregistrer**. Le schéma est stocké et répertorié dans la page **Schémas**.
 
 4. Ouvrez le menu action sur le schéma sava:1.1 et cliquez sur **Fusionner vers**.
 
