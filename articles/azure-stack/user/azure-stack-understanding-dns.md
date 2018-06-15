@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: 9123160f42adea57c28dff265bd5b5dbbcbb7918
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196693"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724256"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Présentation d’iDNS pour Azure Stack
 
@@ -31,9 +31,9 @@ iDNS est une fonctionnalité de mise en réseau Azure Stack qui vous permet de r
 
 Avec iDNS dans Azure Stack, vous obtenez les fonctionnalités suivantes, sans avoir à spécifier d’entrées de serveur DNS personnalisées.
 
-* Services de résolution de noms DNS partagés pour les charges de travail de locataire.
-* Service DNS faisant autorité pour la résolution de noms et l’enregistrement DNS dans le réseau virtuel du locataire.
-* Service DNS récursif pour la résolution de noms Internet à partir de machines virtuelles de locataire. Les locataires n’ont plus besoin de spécifier des entrées DNS personnalisées pour résoudre les noms Internet (par exemple, www.bing.com).
+- Services de résolution de noms DNS partagés pour les charges de travail de locataire.
+- Service DNS faisant autorité pour la résolution de noms et l’enregistrement DNS dans le réseau virtuel du locataire.
+- Service DNS récursif pour la résolution de noms Internet à partir de machines virtuelles de locataire. Les locataires n’ont plus besoin de spécifier des entrées DNS personnalisées pour résoudre les noms Internet (par exemple, www.bing.com).
 
 Vous pouvez toujours configurer votre propre DNS et utiliser des serveurs DNS personnalisés. Toutefois, en utilisant iDNS, vous pouvez résoudre les noms DNS Internet et vous connecter à d’autres machines virtuelles du même réseau virtuel sans avoir à créer d’entrées DNS personnalisées.
 
@@ -49,10 +49,10 @@ Dans l’image ci-dessus, Azure crée un enregistrement « A » dans DNS pour l�
 
 Azure Stack prend en charge iDNS uniquement pour l’enregistrement de noms internes. Dans ce sens, il ne peut pas effectuer les opérations suivantes :
 
-* Créer un enregistrement DNS dans une zone DNS hébergée existante (par exemple, local.azurestack.external).
-* Créer une zone DNS (par exemple, Contoso.com).
-* Créer un enregistrement dans votre propre zone DNS personnalisée.
-* Prendre en charge l’achat de noms de domaine.
+- Créer un enregistrement DNS dans une zone DNS hébergée existante (par exemple, local.azurestack.external).
+- Créer une zone DNS (par exemple, Contoso.com).
+- Créer un enregistrement dans votre propre zone DNS personnalisée.
+- Prendre en charge l’achat de noms de domaine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

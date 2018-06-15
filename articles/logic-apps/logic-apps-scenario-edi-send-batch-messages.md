@@ -1,13 +1,13 @@
 ---
 title: Traiter des messages EDI par lots (groupe ou collection de messages) - Azure Logic Apps | Microsoft Docs
-description: "Envoyer des messages EDI à traiter par lots dans les applications logiques"
+description: Envoyer des messages EDI à traiter par lots dans les applications logiques
 keywords: lot, traitement par lots, encodage par lots
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299288"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Envoyer des messages X12 par lots à des partenaires commerciaux
 
@@ -38,7 +39,7 @@ Cette rubrique explique comment vous pouvez traiter des messages X12 sous forme 
 * [Créer une application logique qui envoie les éléments vers un lot](#sender). Cette application logique « expéditrice » spécifie l’emplacement où envoyer les éléments à traiter par lots, qui doit se trouver dans une application logique réceptrice existante.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet exemple, vous avez besoin de ce qui suit :
 

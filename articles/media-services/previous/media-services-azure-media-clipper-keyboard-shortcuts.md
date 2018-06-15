@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782578"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Configurer des raccourcis clavier Azure Media Clipper
 Azure Media Clipper prend en charge la personnalisation des raccourcis clavier par défaut en fournissant un paramètre JSON `keymap` facultatif.

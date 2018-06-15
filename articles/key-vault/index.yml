@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32180791"
 abstract:
   description: Apprenez à utiliser Key Vault pour protéger et gérer les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Des didacticiels, références d’API et autres documents vous montrent comment créer et gérer des clés d’accès et de chiffrement pour vos ressources et solutions.
 sections:

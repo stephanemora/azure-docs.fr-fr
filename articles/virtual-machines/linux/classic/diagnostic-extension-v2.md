@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32193027"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux
 
@@ -60,7 +61,6 @@ Cet article se concentre sur la procédure permettant d’activer et de configur
 Sachez que les méthodes de configuration décrites ici ne fonctionnent pas pour le portail Azure. Pour afficher et configurer les données sur les performances et système directement depuis le portail Azure, vous devez activer cette extension via le portail.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * **Agent Microsoft Azure Linux version 2.0.6 ou ultérieure**.
 
