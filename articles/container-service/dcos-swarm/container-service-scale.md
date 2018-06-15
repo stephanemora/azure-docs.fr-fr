@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162566"
 ---
 # <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Mettre à l’échelle des nœuds d’agent dans un cluster Container Service
 

@@ -1,23 +1,24 @@
 ---
-title: "Choisir une solution d’identité hybride Azure | Documents Microsoft"
-description: "Acquérez une compréhension élémentaire des solutions et recommandations liées aux identités hybrides afin de pouvoir prendre une décision optimale en matière de gouvernance des identités pour votre organisation."
-keywords: 
+title: Choisir une solution d’identité hybride Azure | Documents Microsoft
+description: Acquérez une compréhension élémentaire des solutions et recommandations liées aux identités hybrides afin de pouvoir prendre une décision optimale en matière de gouvernance des identités pour votre organisation.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800735"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Solutions d'identité hybride Microsoft
 Les solutions d’identité hybride [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permettent de synchroniser des objets de répertoire locaux avec Azure AD tout en gérant vos utilisateurs locaux. La première décision à prendre lorsque vous envisagez de synchroniser votre Active Directory Windows Server local avec Azure AD est de savoir si vous souhaitez utiliser une identité synchronisée ou une identité fédérée. Les identités synchronisées et éventuellement les hachages du mot de passe, permettent à vos utilisateurs d’utiliser le même mot de passe pour accéder aux ressources de l’organisation locales et sur le cloud. Pour obtenir des spécifications de scénario plus avancées, telles que l’authentification unique (SSO) ou l’authentification multifacteur locale, vous devez déployer Active Directory Federation Services (AD FS) pour fédérer les identités. 

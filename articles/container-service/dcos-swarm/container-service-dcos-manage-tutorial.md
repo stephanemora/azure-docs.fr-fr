@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168936"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Didacticiel Azure Container Service - Gérer DC/OS
 

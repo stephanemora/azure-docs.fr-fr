@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760287"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 Cet article explique l’inscription en libre-service et comment la prendre en charge dans Azure Active Directory (Azure AD). Si vous souhaitez prendre le contrôle d’un nom de domaine d’un locataire Azure AD non géré, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur](domains-admin-takeover.md).

@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185958"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DWU, cDWU) pour optimiser le prix et la performance ainsi que la manière de modifier leur nombre. 
@@ -36,19 +37,19 @@ Augmentation du nombre de DWU :
 - Augmentation du nombre maximal de requêtes simultanées et d’emplacements de concurrence
 
 ## <a name="service-level-objective"></a>Objectif de niveau de service
-L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour l’échelle de niveau de performance Optimisé pour le calcul sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000c. Les niveaux de service Optimisé pour l’élasticité sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000. 
+L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour Gen2 sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000C. Les niveaux de service Gen1 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000. 
 
 Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre entrepôt de données.
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -60,12 +61,12 @@ WITH
 
 Chaque niveau de performances utilise une unité de mesure légèrement différente pour ses DWU. Cette différence est répercutée sur la facture, car l’unité d’échelle s’applique directement à la facturation.
 
-- Le niveau de performances optimisé pour l’élasticité est mesuré en Data Warehouse Units (DWU).
-- Le niveau de performances optimisé pour le calcul est mesuré en Data Warehouse Units de calcul (cDWU). 
+- Les entrepôts de données Gen1 sont mesurés en unités DWU.
+- Les entrepôts de données Gen2 sont mesurés en unités cDWU. 
 
-Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Le niveau de performances optimisé pour le calcul utilise également un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
+Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
 
-Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Le niveau de performances optimisé pour le calcul offre les meilleures performances de requête et la plus grande échelle, mais à un prix d’entrée plus élevé. Il est conçu pour les entreprises en demande constante de performances élevées. Ces systèmes exploitent au maximum le cache. 
+Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 offre les meilleures performances de requête et la plus grande échelle, mais à un prix d’entrée plus élevé. Il est conçu pour les entreprises en demande constante de performances élevées. Ces systèmes exploitent au maximum le cache. 
 
 ### <a name="capacity-limits"></a>Limites de capacité
 Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../sql-database/sql-database-what-is-a-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -76,10 +77,9 @@ Le nombre idéal de DWU dépend en grande partie de votre charge de travail et d
 
 Étapes pour rechercher la DWU la mieux adaptée à votre charge de travail :
 
-1. Pendant le développement, commencez par sélectionner une petite DWU avec le niveau de performances optimisé pour l’élasticité.  Le critère à ce stade étant la validation fonctionnelle, le niveau de performances optimisé pour l’élasticité est une option raisonnable. La DW200 est un bon point de départ. 
+1. Commencez par sélectionner une DWU plus petite. 
 2. Surveillez les performances de votre application pendant le test des charges de données dans le système, en observant notamment le nombre de DWU sélectionné.
-3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Si la charge de travail montre d’importants pics et creux d’activité, et qu’il existe une bonne raison d’effectuer une mise à l’échelle fréquemment, préférez le niveau de performances optimisé pour l’élasticité.
-4. Si vous avez besoin de plus de 1 000 DWU, choisissez le niveau de performances optimisé pour le calcul, car il offre de meilleures performances.
+3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Si la charge de travail montre d’importants pics et creux d’activité, et qu’il existe une bonne raison d’effectuer une mise à l’échelle fréquemment.
 
 SQL Data Warehouse est un système de montée en puissance parallèle qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données. Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
 

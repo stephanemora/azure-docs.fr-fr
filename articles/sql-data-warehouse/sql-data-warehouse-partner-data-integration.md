@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188512"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données prenant en charge Azure SQL Data Warehouse.
