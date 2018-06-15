@@ -6,15 +6,16 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266004"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -22,7 +23,6 @@ ms.lasthandoff: 05/01/2018
 Les serveurs Azure Database pour MySQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
