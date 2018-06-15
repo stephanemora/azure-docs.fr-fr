@@ -1,19 +1,20 @@
 ---
 title: Déployer Azure Machine Learning avec Azure IoT Edge | Microsoft Docs
 description: Déployer Azure Machine Learning en tant que module sur un appareil Edge
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/12/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 6062d8193ce8cf7edaff3187f5c0f7dd9968658b
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 248bc97c214c013d10f1839201ce2f572cb854ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631171"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - version préliminaire
 
@@ -30,7 +31,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Le module Azure Machine Learning que vous créez dans ce didacticiel lit les données de l’environnement générées par votre appareil et étiquette les messages comme étant anormaux ou pas.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * L’appareil Azure IoT Edge que vous avez créé dans le démarrage rapide ou le premier didacticiel.
 * La chaîne de connexion IoT Hub pour l’IoT Hub auquel votre appareil IoT Edge se connecte.

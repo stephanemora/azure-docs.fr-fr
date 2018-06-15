@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913619"
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Redimensionner une machine virtuelle Windows créée avec le modèle de déploiement classique
 Cet article vous montre comment redimensionner une machine virtuelle Windows créée avec le modèle de déploiement classique à l’aide d’Azure PowerShell.

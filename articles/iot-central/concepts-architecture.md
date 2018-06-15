@@ -1,19 +1,19 @@
 ---
 title: Concepts d’architecture dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à l’architecture d’Azure IoT Central
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: conceptual
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: c97db3eb2c0fe1a5ec3c743ca75c595ec127823e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 44408e7b6ad1a068f265bf7b78d973e6aae3001b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200086"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628757"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
 
@@ -55,7 +55,7 @@ Azure IoT Central stocke les données d’application dans le cloud. Les donnée
 
 Azure IoT Central utilise un magasin de séries chronologiques pour les données de mesure envoyées depuis vos appareils. Données de séries chronologiques provenant d’appareils utilisés par le service d’analytique.
 
-## <a name="analytics"></a>Analytique
+## <a name="analytics"></a>Analytics
 
 Le service d’analytique est chargé de générer les données des rapports personnalisés montrés par l’application. Un opérateur peut [personnaliser l’analytique](howto-create-analytics.md) affichée dans l’application. Le service d’analytique utilise la technologie [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) et traite les données de mesure envoyées depuis vos appareils.
 

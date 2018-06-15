@@ -2,25 +2,23 @@
 title: Comment interroger des données de table dans Azure Cosmos DB ? | Microsoft Docs
 description: Apprendre à interroger des données de table dans Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: kanshiG
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: d3b46169f7cc175d1959ecaa7184faa0fd81590c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a629a7b1340547f43919a1e88abbda53e9e2ae0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763389"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API Table
 
@@ -44,7 +42,6 @@ Consultez [Interrogation des tables et des entités](https://docs.microsoft.com/
 Pour plus d’informations sur les fonctionnalités étendues offertes par Azure Cosmos DB, consultez [Azure Cosmos DB : API Table](table-introduction.md) et [Développer avec l’API Table en utilisant .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour le bon fonctionnement de ces requêtes, vous devez disposer d’un compte Azure Cosmos DB et de données d’entité dans le conteneur. Cela n’est pas le cas ? Lancez le [démarrage rapide en 5 minutes](create-table-dotnet.md) ou le [didacticiel destiné aux développeurs](tutorial-develop-table-dotnet.md) pour créer un compte et alimenter votre base de données.
 

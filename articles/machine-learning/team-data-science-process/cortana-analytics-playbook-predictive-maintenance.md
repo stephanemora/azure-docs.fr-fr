@@ -2,10 +2,9 @@
 title: Guide Azure AI pour les solutions de maintenance prédictive | Microsoft Docs
 description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: machine-learning
-documentationcenter: ''
 author: fboylu
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+editor: ''
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 581e9d586f007fe0cd28d60b5558594777656ca8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248535"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -350,7 +350,7 @@ Dans les problèmes de classification, s'il y a plus d'exemples pour une classe 
 Il faut composer avec ces jeux de données déséquilibrés, où une classe est nettement sous-représentée par rapport à une autre, lors de la résolution de nombreux problèmes de PdM. Dans certains cas, la classe minoritaire peut ne représenter que 0,001 % du total des points de données. Le déséquilibre des classes ne concerne pas uniquement la PdM. On rencontre des problèmes similaires dans d’autres domaines où les défaillances et les anomalies sont rares, par exemple, la détection des fraudes et l’intrusion dans des réseaux. Ces défaillances sont à l’origine des exemples de classes minoritaires.
 
 Le déséquilibre des classes dans les données compromet les performances de la plupart des algorithmes d’apprentissage standard, car ils tendent à minimiser le taux d’erreur global. Pour un jeu de données avec 99 % d’exemples négatifs et 1 % d’exemples positifs, un modèle peut avoir une précision de 99 % en étiquetant toutes les instances comme négatives. Mais le modèle classifiera mal tous les exemples positifs. Ainsi, malgré une très grande précision, l’algorithme ne sera pas utile. Par conséquent, les mesures d'évaluation classiques, telles que la _précision globale sur le taux d'erreur_, sont insuffisantes pour un apprentissage déséquilibré. Face à des jeux de données déséquilibrés, d’autres métriques sont utilisés pour l’évaluation du modèle :
-- Précision
+- Precision
 - Rappel
 - Score F1
 - ROC (caractéristiques d’opération du destinataire) ajustées aux coûts

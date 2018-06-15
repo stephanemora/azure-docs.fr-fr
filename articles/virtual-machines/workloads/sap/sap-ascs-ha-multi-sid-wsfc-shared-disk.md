@@ -1,13 +1,13 @@
 ---
-title: "Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure | Microsoft Docs"
-description: "Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure"
+title: Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure | Microsoft Docs
+description: Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656728"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -217,14 +218,14 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 > [!NOTE]
 > Cette fonctionnalité est disponible uniquement dans le modèle de déploiement Azure Resource Manager.
 >
->Il existe une limite au nombre d’adresses IP frontales privées pour chaque équilibrage de charge interne Azure.
+>Le nombre d’adresses IP frontales privées est limité pour chaque équilibreur de charge interne Azure.
 >
 >Le nombre maximal d’instances SAP ASCS/SCS dans un cluster WSFC est égal au nombre maximal d’adresses IP frontales privées pour chaque équilibrage de charge interne Azure.
 >
 
-Pour plus d’informations sur les limites de l’équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » dans [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
+Pour plus d’informations sur les limites de l’équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » dans[Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Vous avez déjà configuré un cluster WSFC à utiliser pour une instance SAP ASCS/SCS à l’aide du **partage de fichiers**, comme illustré dans ce diagramme.
 
@@ -242,7 +243,7 @@ L’objectif est d’installer plusieurs instances en cluster SAP ABAP ASCS ou S
 
 ![Plusieurs instances SAP ASCS/SCS en cluster dans Azure][sap-ha-guide-figure-6002]
 
-Pour plus d’informations sur les limites de l’équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » dans [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
+Pour plus d’informations sur les limites de l’équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » dans[Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Voici une vue d’ensemble avec deux systèmes SAP à haute disponibilité :
 

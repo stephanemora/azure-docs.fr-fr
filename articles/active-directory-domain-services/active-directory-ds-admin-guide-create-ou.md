@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services : guide d’administration | Microsoft Docs"
-description: "Créer une UO sur des domaines gérés par les services de domaine Azure Active Directory"
+title: 'Azure Active Directory Domain Services : guide d’administration | Microsoft Docs'
+description: Créer une UO sur des domaines gérés par les services de domaine Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 197696d737e56cbdc9fe925b6fa5b9e4134e1539
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 49123a47d90970d1a99276521b5aa1d516f509ab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587587"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
 Les domaines gérés par les services de domaine Azure Active Directory incluent deux conteneurs intégrés, appelés « Ordinateurs AADDC » et « Utilisateurs AADDC », respectivement. Le conteneur « Ordinateurs AADDC » inclut des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine géré. Le conteneur « Utilisateurs AADDC » comprend les utilisateurs et les groupes du client Azure AD. Parfois, il peut être nécessaire de créer des comptes de service sur le domaine géré, afin de déployer des charges de travail. Pour cela, vous pouvez créer une unité d’organisation (UO) personnalisée dans le domaine géré, puis générer des comptes de service dans cette UO. Cet article vous explique comment créer une UO dans votre domaine géré.
@@ -48,7 +50,7 @@ Maintenant que les outils d’administration AD sont installés sur la machine v
     ![Outils d’administration installés sur le serveur](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Cliquez sur **Centre d’administration Active Directory**.
 
-    ![Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
+    ![Centre d'administration Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. Pour afficher le domaine, cliquez sur son nom dans le volet gauche (par exemple, contoso100.com).
 
     ![ADAC - Affichage du domaine](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)

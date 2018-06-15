@@ -3,16 +3,17 @@ title: Didacticiel Adventure Works d’Azure Analysis Services | Microsoft Docs
 description: Présente le didacticiel Adventure Works d’Azure Analysis Services
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c95e755c66cfd1bc0a4e4e55bf1d05f08214925
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb0cd89cb90b78bc7d5a68a1f7249fb82528db11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596149"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
 
@@ -38,8 +39,7 @@ Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce di
   
 -   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un **serveur SQL Server Analysis Services 2017** à l’aide de SSDT.  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :  
   
 -   Un serveur Azure Analysis Services. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). 

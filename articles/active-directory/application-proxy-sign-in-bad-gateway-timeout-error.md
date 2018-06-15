@@ -3,22 +3,24 @@ title: Erreur « Impossible d’accéder à cette application d’entreprise » 
 description: Comment résoudre les problèmes d’accès courants avec les applications Proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: 1c6c6f56f8e4d8d1d7a10bd07679732d64b86e23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156090"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292301"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
@@ -108,7 +110,7 @@ Si votre application est configurée pour utiliser l’authentification Windows 
 
 Si l’erreur persiste, accédez à l’ordinateur sur lequel le connecteur est installé, ouvrez un navigateur et essayez d’atteindre l’URL interne utilisée pour l’application. Le connecteur agit comme un autre client à partir du même ordinateur. Si vous ne pouvez pas atteindre l’application, cherchez à savoir pourquoi cet ordinateur vous en empêche ou utilisez un connecteur sur un serveur capable d’accéder à l’application.
 
-Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont listées dans le [document de dépannage](active-directory-application-proxy-troubleshoot.md#connector-errors). Vous pouvez également consulter directement les journaux du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux, consultez [notre documentation sur les connecteurs](manage-apps/application-proxy-connectors.md#under-the-hood).
+Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont listées dans le [document de dépannage](manage-apps/application-proxy-troubleshoot.md#connector-errors). Vous pouvez également consulter directement les journaux du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux, consultez [notre documentation sur les connecteurs](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](manage-apps/application-proxy-connectors.md)

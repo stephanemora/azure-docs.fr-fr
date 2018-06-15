@@ -1,25 +1,20 @@
 ---
 title: Configurer les rapports pour la Sauvegarde Azure
-description: "Cet article traite de la configuration des rapports Power BI pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services."
+description: Cet article traite de la configuration des rapports Power BI pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605227"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article détaille la procédure permettant de configurer les rapports pour Sauvegarde Azure à l’aide d’un coffre Recovery Services, et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
@@ -153,7 +148,7 @@ Une fois le compte de stockage configuré pour les rapports à l’aide du coffr
 | Une fois que vous avez configuré le compte de stockage pour les rapports de sauvegarde, **Compte de stockage** indique toujours **Non configuré**. | Si vous avez configuré correctement le compte de stockage, vos données de rapport arrivent malgré ce problème. Pour résoudre ce problème, accédez au portail Azure > Tous les services > Paramètres de diagnostic > Coffre Recovery Services > Modifier le paramètre. Supprimez le paramètre configuré et créez un paramètre dans le même panneau. Cette fois-ci, définissez le champ **Nom** sur **service**. Le compte de stockage configuré doit s’afficher. |
 |Après avoir importé le pack de contenu de la Sauvegarde Azure dans Power BI, l’erreur **404 : Le conteneur est introuvable** s’affiche. | Comme indiqué dans ce document, après avoir configuré les rapports dans le coffre Recovery Services, vous devez attendre 24 heures pour les afficher correctement dans Power BI. Si vous essayez d’accéder aux rapports avant le terme de ce délai, vous obtenez cette erreur, car il manque des données pour afficher des rapports valides. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez configuré le compte de stockage et importé le pack de contenu de la Sauvegarde Azure, la prochaine étape consiste à personnaliser ces rapports et à utiliser le modèle de données de rapports pour créer des rapports. Pour plus d’informations, consultez les articles suivants.
 
 * [Utiliser le modèle de données de rapports de la Sauvegarde Azure](backup-azure-reports-data-model.md)

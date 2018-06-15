@@ -1,11 +1,11 @@
 ---
-title: "Conception d’identités hybrides : stratégie de protection des données Azure | Microsoft Docs"
-description: "Vous définissez la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise que vous avez définies."
-documentationcenter: 
+title: 'Conception d’identités hybrides : stratégie de protection des données Azure | Microsoft Docs'
+description: Vous définissez la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise que vous avez définies.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824166"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :
@@ -115,22 +117,21 @@ Une fois que l’utilisateur est authentifié à l’aide d’Azure AD, il est i
 
 Chaque interaction du schéma présenté dans la Figure X représente un scénario de contrôle d’accès qui peut être couvert par Azure AD. Une description de chaque scénario est disponible ci-dessous :
 
-1. Accès conditionnel aux applications hébergées en local : vous pouvez utiliser des appareils inscrits avec des stratégies d’accès pour les applications qui sont configurées de manière à utiliser les services AD FS avec Windows Server 2012 R2. Pour plus d’informations sur la configuration d’un accès conditionnel en local, consultez la rubrique [Configuration d'un accès conditionnel en local à l'aide du service d'inscription d'appareils Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+  1. Accès conditionnel aux applications hébergées en local : vous pouvez utiliser des appareils inscrits avec des stratégies d’accès pour les applications qui sont configurées de manière à utiliser les services AD FS avec Windows Server 2012 R2. Pour plus d’informations sur la configuration d’un accès conditionnel en local, consultez la rubrique [Configuration d'un accès conditionnel en local à l'aide du service d'inscription d'appareils Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-2. Contrôle d’accès au portail Azure : Azure vous permet également de contrôler l’accès au portail à l’aide du contrôle d’accès en fonction du rôle (RBAC). Cette méthode permet aux entreprises de limiter le nombre d’opérations qu’un individu peut effectuer dans le portail Azure. En utilisant le contrôle d’accès en fonction du rôle pour contrôler l’accès au portail, les administrateurs informatiques peuvent déléguer l’accès à l’aide des approches de gestion de l’accès suivantes :
+  2. Contrôle d’accès au portail Azure : Azure vous permet également de contrôler l’accès au portail à l’aide du contrôle d’accès en fonction du rôle (RBAC). Cette méthode permet aux entreprises de limiter le nombre d’opérations qu’un individu peut effectuer dans le portail Azure. En utilisant le contrôle d’accès en fonction du rôle pour contrôler l’accès au portail, les administrateurs informatiques peuvent déléguer l’accès à l’aide des approches de gestion de l’accès suivantes :
 
-    * Affectation de rôles basés sur les groupes : vous pouvez affecter l’accès aux groupes Azure AD qui peuvent être synchronisés à partir de votre Active Directory local. Cela vous permet d’exploiter les investissements existants effectués par votre organisation dans les outils et processus pour la gestion des groupes. Vous pouvez également utiliser la fonctionnalité de gestion déléguée des groupes d’Azure AD Premium.
-    * Rôles intégrés dans Azure : vous pouvez utiliser trois rôles (Propriétaire, Contributeur et Lecteur), pour vous assurer que les utilisateurs et groupes sont uniquement autorisés à effectuer les tâches dont ils ont besoin pour faire leur travail.
-    * Accès granulaire aux ressources : vous pouvez affecter des rôles aux utilisateurs et aux groupes pour un abonnement spécifique, un groupe de ressources ou une ressource Azure individuelle comme un site web ou une base de données. De cette façon, vous pouvez vous assurer que les utilisateurs ont accès à toutes les ressources dont ils ont besoin, et non aux ressources qu’ils n’ont pas besoin de gérer.
+   - Affectation de rôles basés sur les groupes : vous pouvez affecter l’accès aux groupes Azure AD qui peuvent être synchronisés à partir de votre Active Directory local. Cela vous permet d’exploiter les investissements existants effectués par votre organisation dans les outils et processus pour la gestion des groupes. Vous pouvez également utiliser la fonctionnalité de gestion déléguée des groupes d’Azure AD Premium.
+   - Rôles intégrés dans Azure : vous pouvez utiliser trois rôles (Propriétaire, Contributeur et Lecteur), pour vous assurer que les utilisateurs et groupes sont uniquement autorisés à effectuer les tâches dont ils ont besoin pour faire leur travail.
+   -  Accès granulaire aux ressources : vous pouvez affecter des rôles aux utilisateurs et aux groupes pour un abonnement spécifique, un groupe de ressources ou une ressource Azure individuelle comme un site web ou une base de données. De cette façon, vous pouvez vous assurer que les utilisateurs ont accès à toutes les ressources dont ils ont besoin, et non aux ressources qu’ils n’ont pas besoin de gérer.
 
-> [!NOTE]
-> Si vous créez des applications et souhaitez personnaliser le contrôle d’accès pour celles-ci, il est également possible d’utiliser les rôles d’application Azure AD pour l’autorisation. Passez en revue cet [exemple WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sur la manière de créer votre application de sorte qu’elle utilise cette fonctionnalité.
->
->
+   > [!NOTE]
+   > Si vous créez des applications et souhaitez personnaliser le contrôle d’accès pour celles-ci, il est également possible d’utiliser les rôles d’application Azure AD pour l’autorisation. Passez en revue cet [exemple WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sur la manière de créer votre application de sorte qu’elle utilise cette fonctionnalité.
 
-3. Accès conditionnel pour les applications Office 365 avec Microsoft Intune : les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information à accéder aux services sur les appareils conformes. Pour plus d’informations, consultez la rubrique [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md).
 
-4. Accès conditionnel pour les applications SaaS : [cette fonctionnalité](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
+  3. Accès conditionnel pour les applications Office 365 avec Microsoft Intune : les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information à accéder aux services sur les appareils conformes. Pour plus d’informations, consultez la rubrique [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md).
+
+  4. Accès conditionnel pour les applications SaaS : [cette fonctionnalité](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
 
 Étant donné que les options de contrôle d’accès utilisent une approche multicouche, la comparaison entre ces options n’est pas pertinente pour cette tâche. Assurez-vous que vous exploitez toutes les options disponibles pour chaque scénario dont vous devez contrôler l’accès à vos ressources.
 

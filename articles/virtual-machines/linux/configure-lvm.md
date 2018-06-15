@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30912227"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurer LVM sur une machine virtuelle Linux dans Azure
 Ce document vous explique comment configurer le gestionnaire de volume logique (LVM) sur votre machine virtuelle Azure. Bien qu’il soit possible de configurer LVM sur tout disque connecté à la machine virtuelle, par défaut la plupart des images cloud n’auront pas LVM configuré sur le disque du système d’exploitation. Cela vise à éviter les problèmes liés aux groupes de volumes en double si le disque du système d’exploitation est joint à une autre machine virtuelle de la distribution et du même type, par exemple lors d’un scénario de récupération. Par conséquent, il est recommandé de n’utiliser LVM que sur les disques de données.

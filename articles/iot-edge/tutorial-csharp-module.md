@@ -1,19 +1,20 @@
 ---
 title: Module C# d’Azure IoT Edge | Microsoft Docs
 description: Créer un module IoT Edge avec du code C# et le déployer sur un appareil Edge
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 1caa887a13453ce2b2b07e83b74f0ed57535b026
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 1da3a246a2ad33a4563f491058f5d4d115f3954d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631069"
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Développer et déployer un module C# IoT Edge sur votre appareil simulé - Aperçu
 
@@ -29,7 +30,6 @@ Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente
 Le module IoT Edge que vous créez dans ce didacticiel filtre les données de température générées par votre appareil. Il envoie uniquement des messages en amont lorsque la température dépasse un seuil spécifié. Ce type d’analyse à la périphérie est utile pour réduire la quantité de données communiquées et stockées dans le cloud. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * L’appareil Azure IoT Edge que vous avez créé dans le démarrage rapide ou le premier didacticiel.
 * Chaîne de connexion de clé primaire de l’appareil IoT Edge.  

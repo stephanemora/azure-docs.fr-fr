@@ -3,17 +3,18 @@ title: Surveiller Azure SQL Data Sync (préversion) avec Log Analytics | Microso
 description: Découvrez comment surveiller Azure SQL Data Sync (préversion) à l’aide de Log Analytics
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650245"
 ---
 # <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Surveiller SQL Data Sync (préversion) avec Log Analytics 
 
@@ -54,7 +55,6 @@ Téléchargez les deux exemples suivants :
 -   [Vue Log Analytics Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 Vérifiez que vous avez configuré les éléments suivants :
 

@@ -1,24 +1,19 @@
 ---
-title: Diffuser en continu les journaux de diagnostic Azure vers Log Analytics | Microsoft Docs
+title: Diffuser en continu les journaux de diagnostic Azure vers Log Analytics
 description: Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un espace de travail Log Analytics.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: logs
+ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263505"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diffuser en continu les journaux de diagnostic Azure vers Log Analytics
 
@@ -40,9 +35,9 @@ Vous pouvez activer la diffusion en continu des journaux de diagnostic par progr
 Il n’est pas nécessaire que l’espace de travail Log Analytics se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 > [!NOTE]
-> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, et agrégées entre les valeurs de la dimension.
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
-> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous forme de tous les messages entrants dans toutes les files d’attente de l’Event Hub.
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 
@@ -97,7 +92,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 Vous pouvez ajouter des catégories supplémentaires dans le journal de diagnostic en adjoignant des dictionnaires au tableau JSON transmis en tant que paramètre `--logs`.
 
-L’argument `--resource-group` n’est nécessaire que si `--workspace` n’est pas un ID d’objet.
+L’argument `--resource-group` est obligatoire seulement si `--workspace` n’est pas un ID d’objet.
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Comment faire pour interroger les données dans Log Analytics ?
 

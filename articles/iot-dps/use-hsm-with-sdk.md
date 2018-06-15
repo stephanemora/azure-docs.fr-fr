@@ -1,29 +1,26 @@
 ---
 title: Procédure Azure - Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure
 description: Procédure Azure - Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 03/30/2018
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: ''
-ms.devlang: na
+services: iot-dps
+manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 14c9bc0dd82575783a5af7293b48f56b36110f9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34630423"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 
 Cet article explique comment utiliser différents [mécanismes d’attestation](concepts-security.md#attestation-mechanism) avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Vous pouvez choisir d’utiliser un appareil physique ou un simulateur. Le service d’approvisionnement prend en charge l’authentification pour deux types de mécanismes d’attestation : X **.** 509 et Module de plateforme sécurisée (TPM).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Préparez votre environnement de développement en suivant la section intitulée « Préparer l’environnement de développement » du guide [Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel C de périphérique pour le service IoT Hub Device Provisioning](./quick-create-simulated-device.md).
 

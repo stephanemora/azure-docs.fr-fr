@@ -3,22 +3,19 @@ title: Aide-mémoires pour les requêtes PDF Azure Cosmos DB | Microsoft Docs
 description: Aide-mémoires en version PDF imprimable qui vous permettent d’utiliser les API SQL, MongoDB, Graph et de Table Azure Cosmos DB pour interroger vos données
 keywords: aide-mémoire sql, aide-mémoire pdf sql, aide-mémoire de requête sql
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: fdbdbc39-5a46-4129-b4ed-b049d1c9ccab
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 765da315919b16e9f4b27fa891e2072dcddd377b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 10ee398bce30b82d1e199a12cd471ae52d4fae21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614116"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Aide-mémoires pour les requêtes Azure Cosmos DB
 

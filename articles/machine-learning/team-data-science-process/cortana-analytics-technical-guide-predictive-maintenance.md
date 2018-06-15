@@ -1,24 +1,25 @@
 ---
 title: Maintenance prédictive dans l’industrie aérospatiale avec Azure - Guide technique de la solution Cortana Intelligence | Microsoft Docs
 description: Guide technique d’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
-ms.service: cortana-analytics
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248382"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
 
@@ -71,7 +72,7 @@ Exécutez des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013
 Prédisez la durée de vie restante (RUL) d’un moteur d’avion donné en utilisant les entrées reçues par le [service Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orchestré par Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publication des données
-### <a name="azure-sql-database"></a>Base de données SQL Azure
+### <a name="azure-sql-database"></a>Azure SQL Database
 Utilisez le service [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) pour stocker les prédictions reçues par le service Azure Machine Learning, qui sont ensuite utilisées dans le tableau de bord [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Consommation des données

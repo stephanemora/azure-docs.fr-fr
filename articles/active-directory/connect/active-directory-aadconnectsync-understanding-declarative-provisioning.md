@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect : Présentation de l’approvisionnement déclaratif | Microsoft Docs"
-description: "Explique le modèle de configuration de l’approvisionnement déclaratif dans Azure AD Connect."
+title: 'Azure AD Connect : Présentation de l’approvisionnement déclaratif | Microsoft Docs'
+description: Explique le modèle de configuration de l’approvisionnement déclaratif dans Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6a0c16322884afba3d306c491c3cd592fc8595
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593189"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync : présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 L’approvisionnement déclaratif correspond au traitement des objets provenant d’un répertoire source connecté. Il détermine comment l’objet et les attributs doivent être transformés à partir d’une source vers une cible. Les objets sont traités dans un pipeline de synchronisation identique pour les règles de trafic entrant et sortant. Les règles de trafic entrant vont d’un espace de connecteur au métaverse et les règles de trafic sortant vont du métaverse vers un espace de connecteur.
 
 ![Pipeline de synchronisation](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  

@@ -1,25 +1,21 @@
 ---
 title: Gestion des appareils Azure IoT avec iothub-explorer | Microsoft Docs
 description: Utilisez l’outil de ligne de commande iothub-explorer pour la gestion des appareils Azure IoT Hub, avec les méthodes directes et les options de gestion des propriétés de votre choix pour la représentation.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: nasing
 keywords: gestion des appareils iot azure, gestion des appareils azure iot hub, gestion des appareils iot, gestion des appareils iot hub
-ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 26e08c3d6b1c96e2d508c87f188118aec02bab6a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0603976312ecab4f6974f51f0e181d2438681255
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634197"
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Utilisation de iothub-explorer pour la gestion des appareils Azure IoT Hub
 
