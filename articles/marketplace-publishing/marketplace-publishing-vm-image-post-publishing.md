@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29949019"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guide de post-production pour les offres de machine virtuelle dans Azure Marketplace
 Cet article explique comment vous mettre à jour une offre de machine virtuelle active dans la Place de marché Azure. Il vous guide dans le processus d’ajout d’une ou plusieurs références (SKU) à une offre existante. Il vous guide également dans le processus de suppression d’une offre de machine virtuelle active ou d’une référence (SKU) de la Place de marché.

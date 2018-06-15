@@ -1,6 +1,6 @@
 ---
-title: "ROYAUME-UNI-OFFICIEL Vue d’ensemble de l’automatisation des applications Web à trois niveaux"
-description: "ROYAUME-UNI-OFFICIEL Vue d’ensemble de l’automatisation des applications Web à trois niveaux"
+title: ROYAUME-UNI-OFFICIEL Vue d’ensemble de l’automatisation des applications Web à trois niveaux
+description: ROYAUME-UNI-OFFICIEL Vue d’ensemble de l’automatisation des applications Web à trois niveaux
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151376"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Vue d’ensemble des principes de sécurité du cloud du National Cyber Security Centre
 

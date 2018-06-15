@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939867"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’[Azure Log Analytics](log-analytics-overview.md), vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
