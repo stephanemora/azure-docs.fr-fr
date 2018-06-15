@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786534"
 abstract:
   description: Microsoft Azure Stack est une plateforme cloud hybride permettant de fournir des services Azure à partir de votre centre de données. Découvrez comment gérer l’infrastructure des systèmes intégrés Azure Stack et offrir des services à l’aide de nos Démarrages rapides et didacticiels.<br/><br/>Si vous êtes un utilisateur Azure Stack utilisant des services ou créant des applications pour Azure Stack, consultez notre <a href="/azure/azure-stack/user">documentation pour utilisateur</a>.<br/><br/>Si vous êtes un opérateur Azure Stack intéressé par le Kit de développement Azure Stack (ASDK), un déploiement à nœud unique d’Azure Stack que vous pouvez télécharger et utiliser gratuitement, consultez notre <a href="/azure/azure-stack/asdk">Documentation ASDK</a>.
 sections:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192942"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Intégration continue dans Visual Studio Team Services à l’aide de projets de déploiement de groupe de ressources Azure
 Pour déployer un modèle Azure, vous devez effectuer les tâches en différentes étapes : Générer, Tester, Copier sur Azure (également appelé « gestion intermédiaire ») et Déployer le modèle. Il existe deux façons de déployer des modèles sur Visual Studio Team Services (VS Team Services). Les deux méthodes fournissent les mêmes résultats. Par conséquent, choisissez celle qui convient le mieux à votre flux de travail.
