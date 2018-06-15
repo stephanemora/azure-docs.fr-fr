@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31590783"
 abstract:
   description: Les machines virtuelles de science des données et d’apprentissage profond sont des images de machine virtuelle personnalisées sur Azure, chargées avec des outils de science des données utilisés pour créer des applications intelligentes d’analytique avancée.
 sections:
