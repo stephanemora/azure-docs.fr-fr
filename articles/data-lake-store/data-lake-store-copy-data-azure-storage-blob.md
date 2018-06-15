@@ -10,14 +10,14 @@ ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7422c84851c766b608bc5951ec0472c8976e7ec0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197152"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624265"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copier des données d’objets blob Azure Storage vers Data Lake Store
 > [!div class="op_single_selector"]
@@ -37,7 +37,6 @@ Vous pouvez également utiliser l’outil AdlCopy dans deux modes différents :
 * **À l’aide d’un compte Data Lake Analytics**: les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

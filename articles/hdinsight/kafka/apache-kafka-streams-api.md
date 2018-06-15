@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626392"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Didacticiel : API Apache Kafka Streams
 
@@ -40,7 +41,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Exécuter le code
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un cluster Kafka sur HDInsight 3.6. Pour découvrir comment créer un cluster Kafka sur HDInsight, consultez le document [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
 
@@ -253,7 +253,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
         jumped  13641
    
     > [!NOTE]
-    > Le paramètre `--from-beggining` configure le lancement du consommateur au début des enregistrements stockés dans la rubrique. Le nombre est incrémenté chaque fois qu’un mot est rencontré. Par conséquent, la rubrique contient plusieurs entrées pour chaque mot, affichant un nombre croissant.
+    > Le paramètre `--from-beginning` configure le lancement du consommateur au début des enregistrements stockés dans la rubrique. Le nombre est incrémenté chaque fois qu’un mot est rencontré. Par conséquent, la rubrique contient plusieurs entrées pour chaque mot, affichant un nombre croissant.
 
 7. Utilisez __Ctrl + C__ pour quitter le producteur. Continuez à utiliser __Ctrl + C__ pour quitter l’application et le consommateur.
 

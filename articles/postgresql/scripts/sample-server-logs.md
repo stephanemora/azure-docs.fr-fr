@@ -1,6 +1,6 @@
 ---
-title: "Script Azure CLI : Télécharger des journaux de serveurs dans Azure Database pour PostgreSQL"
-description: "Cet exemple de script Azure CLI montre comment activer et télécharger les journaux d’un serveur Azure Database pour PostgreSQL."
+title: 'Script Azure CLI : Télécharger des journaux de serveurs dans Azure Database pour PostgreSQL'
+description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux d’un serveur Azure Database pour PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849560"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Activer et télécharger les journaux de requêtes lentes d’un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux de requêtes lentes d’un seul serveur Azure Database pour PostgreSQL.

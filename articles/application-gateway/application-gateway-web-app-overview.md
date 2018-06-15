@@ -18,6 +18,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200992"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Prise en charge des serveurs principaux multilocataires par Application Gateway
 
