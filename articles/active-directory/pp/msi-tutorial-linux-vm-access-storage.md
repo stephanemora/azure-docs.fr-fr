@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513922"
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Utiliser une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux pour accéder au stockage Azure
 

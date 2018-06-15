@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30929408"
 ---
 1. Dans le portail, sur le côté gauche, cliquez sur **+Créer une ressource**, puis entrez « passerelle de réseau virtuel » dans la recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Sur la page de la **Passerelle de réseau virtuel**, cliquez sur **Créer** en bas de la page pour ouvrir la page **Créer une passerelle de réseau virtuel**.
 2. Sur la page **Créer une passerelle de réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.

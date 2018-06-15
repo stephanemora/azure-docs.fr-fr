@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833582"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Intégrer votre environnement App Service ILB à l’aide de la passerelle d’application Azure #
 

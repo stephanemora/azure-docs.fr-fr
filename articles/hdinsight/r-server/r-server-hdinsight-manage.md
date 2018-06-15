@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31414923"
 ---
 # <a name="manage-r-server-cluster-on-azure-hdinsight"></a>Gérer un cluster R Server sur Azure HDInsight
 
@@ -37,7 +38,7 @@ Vous pouvez autoriser plusieurs utilisateurs simultanés pour le cluster R Serve
 ![Utilisateur simultané n° 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
 - **Nom d’utilisateur de connexion du cluster** : un utilisateur HTTP pour l’authentification via la passerelle HDInsight qui est utilisée pour protéger les clusters HDInsight que vous avez créés. Cet utilisateur HTTP est utilisé pour accéder à l’IU Ambari, l’IU YARN, ainsi qu’à d’autres composants d’interface utilisateur.
-- **Nom d’utilisateur Secure Shell (SSH)** : un utilisateur SSH pour l’accès au cluster via Secure Shell. Ce dernier correspond à un utilisateur dans le système Linux pour tous les nœuds principaux, les nœuds Worker et les nœuds de périmètre. Par conséquent, vous pouvez utiliser Secure Shell pour accéder à n’importe quel nœud dans un cluster distant.
+- **Nom d’utilisateur Secure Shell (SSH)**  : un utilisateur SSH pour l’accès au cluster via Secure Shell. Ce dernier correspond à un utilisateur dans le système Linux pour tous les nœuds principaux, les nœuds Worker et les nœuds de périmètre. Par conséquent, vous pouvez utiliser Secure Shell pour accéder à n’importe quel nœud dans un cluster distant.
 
 La version de RStudio Server Community utilisée dans le cluster R Server sur HDInsight n’accepte comme mécanisme de connexion que les noms d’utilisateur et mots de passe Linux. Elle ne prend pas en charge le passage de jetons. Par conséquent, quand vous essayez d’accéder à R Studio pour la première fois sur un cluster R Server, vous devez vous connecter deux fois.
 

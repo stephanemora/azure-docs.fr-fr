@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30832939"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Installer des applications dans des groupes de machines virtuelles identiques avec Azure CLI 2.0
 Ce script crée un groupe de machines virtuelles identiques exécutant Ubuntu et utilisant l’extension de script personnalisé pour installer une application web de base. Une fois que vous avez exécuté le script, vous pouvez accéder à l’application web via un navigateur web.

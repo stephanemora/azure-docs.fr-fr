@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409753"
 ---
 # <a name="os-patching-for-hdinsight"></a>Mise à jour corrective du système d’exploitation pour HDInsight 
 En tant que service géré Hadoop, HDInsight assure la mise à jour corrective du système d’exploitation des machines virtuelles sous-jacentes utilisées par les clusters HDInsight. Depuis le 1er août 2016, nous avons modifié la stratégie de gestion des mises à jour correctives du système d’exploitation invité pour les clusters HDInsight sous Linux (version 3.4 ou supérieure). L’objectif de la nouvelle stratégie est de réduire considérablement le nombre de redémarrages dus à la mise à jour corrective. La nouvelle stratégie exécutera les correctifs sur des machines virtuelles dans des clusters Linux chaque lundi ou un jeudi à partir de minuit (UTC) de manière échelonnée sur les nœuds dans tout cluster donné. Toutefois, toute machine virtuelle donnée ne redémarrera qu’une fois tous les 30 jours au maximum en raison de la mise à jour corrective du système d’exploitation invité. En outre, le premier redémarrage d’un cluster nouvellement créé aura lieu au plus tôt 30 jours après la date de création du cluster. Les correctifs seront appliqués une fois les machines virtuelles redémarrées.

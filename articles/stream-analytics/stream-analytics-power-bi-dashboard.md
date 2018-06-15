@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418452"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Didacticiel : Stream Analytics et Power BI : tableau de bord d’analyse en temps réel pour les données de streaming
 Azure Stream Analytics vous permet de tirer parti de [Microsoft Power BI](https://powerbi.com/), l’un des principaux outils d’analyse décisionnelle. Dans cet article, vous allez découvrir comment créer des outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics. Vous allez également découvrir comment créer et utiliser un tableau de bord en temps réel.

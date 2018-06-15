@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409413"
 ---
 # <a name="introduction-to-object-storage-in-azure"></a>Introduction au stockage d’objets dans Azure
 

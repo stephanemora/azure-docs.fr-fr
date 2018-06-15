@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31415294"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Didacticiel : fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
 

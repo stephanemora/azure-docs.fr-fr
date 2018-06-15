@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406505"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows
 L’interface utilisateur Tez permet de déboguer des travaux Hive qui utilisent Tez en tant que moteur d’exécution. L’interface utilisateur Tez visualise le travail sous forme de graphique d’éléments connectés, peut explorer chacun d’entre eux et extraire des statistiques et des informations de journalisation.

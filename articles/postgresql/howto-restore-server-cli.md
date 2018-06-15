@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31411496"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI
 

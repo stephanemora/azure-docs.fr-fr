@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425076"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
 > [!IMPORTANT] 

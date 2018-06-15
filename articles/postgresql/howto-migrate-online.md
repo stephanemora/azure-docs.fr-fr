@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692087"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL
 Pour migrer votre base de données PostgreSQL existante vers Azure Database pour PostgreSQL, utilisez Attunity Replicate pour Microsoft Migrations. Attunity Replicate est une offre commune d’Attunity et de Microsoft. Fournie avec Azure Database Migration Service, cette solution est offerte sans frais supplémentaires aux clients Microsoft. 

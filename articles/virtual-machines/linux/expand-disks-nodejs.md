@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905331"
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Développer le disque de système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface Azure CLI 1.0
 La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer le disque du système d’exploitation. Cet article vous explique comment développer le disque du système d’exploitation sur une machine virtuelle Linux à l’aide de disques non managés avec l’interface Azure CLI 1.0.

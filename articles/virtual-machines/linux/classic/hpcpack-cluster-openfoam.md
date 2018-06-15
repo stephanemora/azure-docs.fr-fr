@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841909"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Exécuter OpenFoam avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure
 Cet article vous montre une méthode d’exécution d’OpenFoam dans des machines virtuelles Azure. Ici, vous déployez un cluster Microsoft HPC Pack avec des nœuds de calcul Linux sur Azure, et exécutez une tâche [OpenFoam](http://openfoam.com/) avec Intel MPI. Vous pouvez utiliser des machines virtuelles Azure prenant en charge RDMA pour les nœuds de calcul, de sorte que ceux-ci communiquent sur le réseau RDMA Azure. Les autres options d’exécution d’OpenFoam dans Azure incluent des images commerciales entièrement configurées disponibles sur le Marketplace, notamment [OpenFoam 2.3 sur CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) d’UberCloud, et l’exécution sur [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905144"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
@@ -157,7 +158,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
     5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)**.
     
-    6. Sélectionnez une version de chiffrement dans la liste **Encryption Version (Version de chiffrement)** : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). 
+    6. Sélectionnez une version de chiffrement dans la liste **Encryption Version (Version de chiffrement)**  : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). 
 
     7. Sélectionnez **Encrypt (Chiffrer)** pour générer le jeton.
 

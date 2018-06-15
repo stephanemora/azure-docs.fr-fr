@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840226"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Créer un réseau pour des exemples de script d’applications multiniveau
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425178"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../../billing/billing-understand-your-bill.md).
