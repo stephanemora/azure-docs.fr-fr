@@ -157,6 +157,8 @@
       href: /rest/api/appservice/
 - name: Ressources
   items:
+    - name: FAQ pour App Service sur Linux
+      href: app-service-linux-faq.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Tarifs

@@ -4,18 +4,19 @@ description: Exécutez un exemple d’application de bureau ASP.NET qui utilise 
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: d0e50d0a81a3230558da42ab6678c3c354ce0e01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 4e82699b29a0333fae66fefdac8f5326c7e34e11
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712468"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guide de démarrage rapide : Configurer la connexion pour une application de bureau à l’aide d’Azure Active Directory B2C 
 
@@ -26,7 +27,6 @@ Dans ce démarrage rapide, vous utilisez un exemple d’application de bureau Wi
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**. 
 * Un compte de réseau social Facebook, Google, Microsoft ou Twitter.
