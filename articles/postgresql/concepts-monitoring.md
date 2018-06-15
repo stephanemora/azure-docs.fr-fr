@@ -1,6 +1,6 @@
 ---
 title: Surveillance dans Azure Database pour PostgreSQL
-description: "Cet article décrit les métriques de surveillance et d’alerte pour Azure Database pour PostgreSQL, notamment les statistiques sur l’UC, le stockage et la connexion."
+description: Cet article décrit les métriques de surveillance et d’alerte pour Azure Database pour PostgreSQL, notamment les statistiques sur l’UC, le stockage et la connexion.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687606"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Surveillance dans Azure Database pour PostgreSQL
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose diverses métriques qui donnent des informations sur le comportement des ressources prenant en charge le serveur PostgreSQL. 

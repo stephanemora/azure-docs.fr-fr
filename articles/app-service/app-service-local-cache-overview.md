@@ -1,13 +1,13 @@
 ---
-title: "Présentation du cache local d’Azure App Service | Microsoft Docs"
-description: "Cet article décrit comment activer et redimensionner le cache local d’Azure App Service, puis comment interroger l’état de cette fonctionnalité."
+title: Présentation du cache local d’Azure App Service | Microsoft Docs
+description: Cet article décrit comment activer et redimensionner le cache local d’Azure App Service, puis comment interroger l’état de cette fonctionnalité.
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985944"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 Le contenu des applications web Azure est stocké sur Azure Storage et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  

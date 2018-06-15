@@ -1,11 +1,11 @@
 ---
-title: "Récupération des informations d’état d’un travail Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment obtenir les informations d’état des travaux du service Microsoft Azure Import/Export."
+title: Récupération des informations d’état d’un travail Azure Import/Export | Microsoft Docs
+description: Découvrez comment obtenir les informations d’état des travaux du service Microsoft Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059904"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Récupération des informations d’état d’un travail Import/Export
 Vous pouvez appeler l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) pour récupérer des informations sur les travaux d’importation et d’exportation. Les informations renvoyées incluent :

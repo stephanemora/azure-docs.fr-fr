@@ -1,12 +1,12 @@
 ---
-title: "Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système avec Batch | Microsoft Docs"
+title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système avec Batch | Microsoft Docs
 description: Comment tirer parti des tailles de machines virtuelles compatibles RDMA ou GPU dans les pools Azure Batch
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762439"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utiliser des instances compatibles RDMA ou GPU dans les pools Batch
 

@@ -1,25 +1,24 @@
 ---
 title: Débogage des modules C# avec Azure IoT Edge | Microsoft Docs
 description: Utiliser Visual Studio Code pour déboguer un module C# avec Azure IoT Edge dans Visual Studio Code.
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 035cb129bc3933c10f430b593226108f5d160972
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 5d521a4e5b22222f0b0a5505f14684598d7d5b0a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631392"
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Utiliser Visual Studio Code pour déboguer un module C# avec Azure IoT Edge
 Cet article fournit des instructions détaillées pour l’utilisation de [Visual Studio (VS) Code](https://code.visualstudio.com/) comme principal outil de développement pour déboguer vos modules Azure IoT Edge.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows ou Linux comme machine de développement. Votre appareil IoT Edge peut être un autre appareil physique, ou vous pouvez simuler votre appareil IoT Edge sur votre machine de développement.
 
 > [!NOTE]

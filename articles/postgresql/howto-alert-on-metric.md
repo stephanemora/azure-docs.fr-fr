@@ -1,6 +1,6 @@
 ---
-title: "Configurer des alertes sur les métriques pour Azure Database pour PostgreSQL dans le portail Azure"
-description: "Cet article décrit comment configurer des alertes sur les métriques, et y accéder, dans Azure Database pour PostgreSQL à partir du portail Azure."
+title: Configurer des alertes sur les métriques pour Azure Database pour PostgreSQL dans le portail Azure
+description: Cet article décrit comment configurer des alertes sur les métriques, et y accéder, dans Azure Database pour PostgreSQL à partir du portail Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690251"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utiliser le portail Azure pour configurer des alertes sur les métriques pour Azure Database pour PostgreSQL 
 

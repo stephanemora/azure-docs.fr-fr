@@ -1,11 +1,11 @@
 ---
-title: "Aperçu de l’utilisation d’un lecteur pour un travail d’exportation Azure Import/Export - v1 | Microsoft Docs"
-description: "Découvrez comment afficher un aperçu de la liste d’objets blob que vous avez sélectionnés pour un travail d’exportation dans le service Azure Import-Export."
+title: Aperçu de l’utilisation d’un lecteur pour un travail d’exportation Azure Import/Export - v1 | Microsoft Docs
+description: Découvrez comment afficher un aperçu de la liste d’objets blob que vous avez sélectionnés pour un travail d’exportation dans le service Azure Import-Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059294"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Aperçu de l’utilisation des lecteurs pour un travail d’exportation
 Avant de créer un travail d’exportation, vous devez choisir un ensemble d’objets blob à exporter. Le service Microsoft Azure Import/Export vous permet d’utiliser une liste de chemins d’accès ou de préfixes d’objets blob pour représenter les objets blob que vous avez sélectionnés.  

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363942"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640504"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
@@ -249,4 +249,4 @@ Dans les cas d’erreur suivants, aucun élément n’est extrait.
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
-+ [Créer un indexeur (REST)](ref-create-indexer.md)
++ [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

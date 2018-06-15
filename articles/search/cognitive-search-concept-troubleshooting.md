@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786828"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640963"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Conseils de dépannage pour la recherche cognitive
 
@@ -99,7 +99,7 @@ Pour une indexation basée sur le portail (telle que décrite dans le démarrage
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Conseil 7 : augmentez le débit d’indexation
 
-Pour une [indexation parallèle](search-howto-reindex.md#parallel-indexing), placez vos données dans plusieurs conteneurs ou dans plusieurs dossiers virtuels au sein du même conteneur. Créez ensuite plusieurs paires source de données et indexeur. Tous les indexeurs pouvant utiliser le même jeu de compétences et écrire dans le même index de recherche cible, votre application de recherche n’a pas besoin d’être informée de ce partitionnement.
+Pour une [indexation parallèle](search-howto-large-index.md), placez vos données dans plusieurs conteneurs ou dans plusieurs dossiers virtuels au sein du même conteneur. Créez ensuite plusieurs paires source de données et indexeur. Tous les indexeurs pouvant utiliser le même jeu de compétences et écrire dans le même index de recherche cible, votre application de recherche n’a pas besoin d’être informée de ce partitionnement.
 Pour plus d’informations, voir [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Voir aussi

@@ -1,26 +1,25 @@
 ---
 title: Modules de fonctions de débogage pour Azure IoT Edge | Microsoft Docs
 description: Utiliser Visual Studio Code pour déboguer des fonctions Azure Functions C# avec Azure IoT Edge
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
-ms.date: 3/20/2018
-ms.topic: article
+ms.date: 03/20/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: cd870d8f5c3fff87b121ab777a086f21df07cfbc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 52c5afbd37459267181cfc1d8d8d2620aff37913
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630780"
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Utiliser Visual Studio Code pour déboguer des fonctions Azure Functions avec Azure IoT Edge | Microsoft Docs
 
 Cet article fournit des instructions détaillées pour l’utilisation de [Visual Studio (VS) Code](https://code.visualstudio.com/) pour déboguer vos fonctions Azure Functions sur IoT Edge.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows ou Linux comme machine de développement. Votre appareil IoT Edge peut être un autre appareil physique, ou vous pouvez simuler votre appareil IoT Edge sur votre machine de développement.
 
 > [!NOTE]

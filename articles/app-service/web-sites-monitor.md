@@ -1,11 +1,11 @@
 ---
 title: Analyser les application dans Azure App Service | Microsoft Docs
-description: "Découvrez comment surveiller les applications dans Azure App Service à l’aide du portail Azure."
+description: Découvrez comment surveiller les applications dans Azure App Service à l’aide du portail Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29573801"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Surveillance des applications dans Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [portail Azure](https://portal.azure.com).

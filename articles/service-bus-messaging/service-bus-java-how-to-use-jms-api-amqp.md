@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’AMQP 1.0 avec l’API Java Service Bus | Microsoft Docs"
-description: "Découvrez comment utiliser Java Message Service (JMS) avec Azure Service Bus et le protocole Advanced Message Queuing Protocol (AMQP) 1.0."
+title: Utilisation d’AMQP 1.0 avec l’API Java Service Bus | Microsoft Docs
+description: Découvrez comment utiliser Java Message Service (JMS) avec Azure Service Bus et le protocole Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044174"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie « wire-level » efficace et fiable qui peut être utilisé pour créer des applications de messagerie interplateforme robustes.
@@ -71,8 +72,8 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 
 Où **[jndi_name]** et **[ConnectionURL]** ont les significations suivantes :
 
-* **[jndi_name]** : nom logique de la ConnectionFactory. Ce nom est résolu dans l’application Java à l’aide de la méthode JNDI IntialContext.lookup().
-* **[ConnectionURL]** : URL fournissant à la bibliothèque JMS les informations nécessaires au répartiteur AMQP.
+* **[jndi_name]**  : nom logique de la ConnectionFactory. Ce nom est résolu dans l’application Java à l’aide de la méthode JNDI IntialContext.lookup().
+* **[ConnectionURL]**  : URL fournissant à la bibliothèque JMS les informations nécessaires au répartiteur AMQP.
 
 Le format de **ConnectionURL** est le suivant :
 
@@ -81,9 +82,9 @@ amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
 Où **[namespace]**, **[SASPolicyName]** et **[SASPolicyKey]** ont les significations suivantes :
 
-* **[namespace]** : espace de noms Service Bus.
-* **[SASPolicyName]** : nom de la stratégie de signature d’accès partagé de la file d’attente.
-* **[SASPolicyKey]** : clé de la stratégie de signature d’accès partagé de la file d’attente.
+* **[namespace]**  : espace de noms Service Bus.
+* **[SASPolicyName]**  : nom de la stratégie de signature d’accès partagé de la file d’attente.
+* **[SASPolicyKey]**  : clé de la stratégie de signature d’accès partagé de la file d’attente.
 
 > [!NOTE]
 > vous devez encoder manuellement le mot de passe dans une URL. Un utilitaire efficace d’encodage dans une URL est disponible à l’adresse [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
@@ -105,8 +106,8 @@ topic.[jndi_name] = [physical_name]
 
 Où **[jndi\_name]** et **[physical\_name]** ont les significations suivantes :
 
-* **[jndi_name]** : nom logique de la destination. Ce nom est résolu dans l’application Java à l’aide de la méthode JNDI IntialContext.lookup().
-* **[physical_name]** : nom de l’entité Service Bus avec laquelle l’application échange des messages.
+* **[jndi_name]**  : nom logique de la destination. Ce nom est résolu dans l’application Java à l’aide de la méthode JNDI IntialContext.lookup().
+* **[physical_name]**  : nom de l’entité Service Bus avec laquelle l’application échange des messages.
 
 > [!NOTE]
 > lors de la réception d’un abonnement à une rubrique Service Bus, le nom physique spécifié dans JNDI doit être le nom de la rubrique. Le nom de l’abonnement est fourni lors de la création de l’abonnement durable dans le code d’application JMS. Le [guide du développeur sur l’utilisation de Service Bus avec AMQP 1.0](service-bus-amqp-dotnet.md) fournit des informations détaillées sur l’utilisation des rubriques Service Bus à partir de JMS.
