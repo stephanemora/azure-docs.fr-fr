@@ -1,11 +1,11 @@
 ---
-title: "Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1"
-description: "Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1"
+title: Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
+description: Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/03/2017
+ms.locfileid: "23957413"
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 Ce document contient les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.5.1. 

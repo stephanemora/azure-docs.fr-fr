@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599830"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Intégrer d’autres services dans SQL Data Warehouse
 Outre ses fonctionnalités principales, SQL Data Warehouse permet aux utilisateurs d’intégrer de nombreux autres services dans Azure. Ces services comprennent notamment :

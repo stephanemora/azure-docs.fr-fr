@@ -2,10 +2,10 @@
 title: Tailles de processeur virtuel restreintes par Azure - Windows | Microsoft Docs
 description: Liste les tailles de machine virtuelle compatibles avec un nombre restreint de processeurs virtuels.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877032"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tailles de machine virtuelle compatibles avec des processeurs virtuels restreints
 

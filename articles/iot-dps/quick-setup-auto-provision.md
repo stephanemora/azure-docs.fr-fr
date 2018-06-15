@@ -1,22 +1,20 @@
 ---
-title: "Configurer l’approvisionnement de votre appareil dans le portail Azure | Microsoft Docs"
-description: "Démarrage rapide d’Azure : Configurer le service d’approvisionnement d’appareil Azure IoT Hub dans le portail Azure"
-services: iot-dps
-keywords: 
+title: Configurer l’approvisionnement de votre appareil dans le portail Azure | Microsoft Docs
+description: 'Démarrage rapide d’Azure : Configurer le service d’approvisionnement d’appareil Azure IoT Hub dans le portail Azure'
 author: dsk-2015
 ms.author: dkshir
 ms.date: 09/05/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 276bd33f5724db4d67da0cc31b16297915c9a417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629437"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure
 
@@ -25,7 +23,7 @@ Ces étapes indiquent comment configurer les ressources cloud Azure dans le port
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 

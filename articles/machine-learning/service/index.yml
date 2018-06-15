@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33774905"
 abstract:
   description: Les services Microsoft Azure Machine Learning permettent de générer, de déployer et de gérer des modèles AI et Machine Learning à l’aide des outils Python et des bibliothèques. Vous pouvez utiliser une grande variété de données et de services de calcul dans Azure pour stocker et traiter vos données.
 sections:

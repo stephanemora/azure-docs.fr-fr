@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783868"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services
 Cette spécification décrit le protocole et le format requis pour l’ingestion de streaming en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Media Services fournit le service de streaming en direct que les clients peuvent utiliser pour diffuser en continu des événements en direct et diffuser du contenu en temps réel en utilisant Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées pour créer des mécanismes d’ingestion en direct extrêmement redondants et robustes.

@@ -7,15 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: ea76bc4cc182902fb5618d23358579ec229a5ef4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a40ca715c15540bf7048fae8b5dde152890eb1c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189715"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648324"
 ---
 # <a name="securing-your-sql-database"></a>Sécurisation de votre base de données SQL
 
@@ -79,7 +79,7 @@ L’audit SQL Database suit les activités de base de données et vous aide à m
 La fonctionnalité de détection des menaces complète celle d’audit en fournissant une couche supplémentaire d’informations de sécurité intégrée au service Azure SQL Database, lequel vise à détecter les tentatives inhabituelles ou potentiellement dangereuses d’accès à des bases de données ou d’exploitation des failles de sécurité de celles-ci. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes Threat Detection peuvent être consultées à partir d’[Azure Security Center](https://azure.microsoft.com/services/security-center/). Elles fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et prévenir la menace. La fonctionnalité Threat Detection coûte 15 USD/serveur/mois. Elle est gratuite pendant les 60 premiers jours. Pour en savoir plus, consultez [Prise en main de Threat Detection pour la base de données SQL](sql-database-threat-detection.md).
  
 ## <a name="compliance"></a>Conformité
-Non seulement Azure SQL Database propose les fonctions ci-dessus et des fonctionnalités permettant à votre application de répondre à différentes exigences en matière de sécurité, mais il participe également à des audits réguliers et est certifié conforme à de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://azure.microsoft.com/support/trust-center/services/).
+Non seulement Azure SQL Database propose les fonctions ci-dessus et des fonctionnalités permettant à votre application de répondre à différentes exigences en matière de sécurité, mais il participe également à des audits réguliers et est certifié conforme à de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings/).
 
 
 ## <a name="security-management"></a>Gestion de la sécurité

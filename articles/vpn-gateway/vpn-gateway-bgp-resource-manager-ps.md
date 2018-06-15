@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603215"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configurer BGP sur des passerelles VPN Azure à l’aide de PowerShell
 Cet article vous guide pas à pas dans l’activation de BGP sur une connexion VPN de site à site (S2S) et une connexion de réseau virtuel à réseau virtuel, à l’aide du modèle de déploiement de Resource Manager et de PowerShell.

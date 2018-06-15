@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777890"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 ## <a name="overview"></a>Vue d'ensemble

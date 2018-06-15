@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597365"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Collecter des données dans Log Analytics avec un runbook Azure Automation
 Vous pouvez collecter une quantité importante de données dans Log Analytics à partir de diverses sources, y compris des [sources de données](../log-analytics/log-analytics-data-sources.md) sur les agents et les [données recueillies à partir d’Azure](../log-analytics/log-analytics-azure-storage.md).  Il existe cependant des cas où vous devez recueillir des données qui ne sont pas accessibles via ces sources standard.  Dans ce cas, vous pouvez utiliser l’[API Collecte de données HTTP](../log-analytics/log-analytics-data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client API REST.  Une méthode courante pour effectuer cette collecte de données consiste à utiliser un runbook dans Azure Automation.   

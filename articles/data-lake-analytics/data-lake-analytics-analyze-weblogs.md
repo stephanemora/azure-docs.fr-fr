@@ -1,29 +1,26 @@
 ---
-title: "Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics | Microsoft Docs"
-description: "Apprendre à analyser les journaux des sites web à l'aide de Data Lake Analytics. "
+title: Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics
+description: Apprendre à analyser les journaux des sites web à l'aide de Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
 manager: saveenr
-editor: cgronlun
+editor: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623364"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics
 Découvrez comment analyser les journaux des sites web à l'aide de Data Lake Analytics, en particulier pour découvrir quels points d'accès ont rencontré des erreurs lorsqu'ils ont essayé de visiter le site web.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 * **Visual Studio 2015 ou Visual Studio 2013**.
 * **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -156,7 +153,7 @@ Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application.
         USING Outputters.Tsv();
 6. Revenez au premier script U-SQL, puis, à côté du bouton **Soumettre** , spécifiez votre compte Analytics.
 7. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**. Vérifiez les résultats dans le volet Sortie.
-8. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**.
+8. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**.
 9. Vérifiez que le **compte Analytics** est celui où vous souhaitez exécuter la tâche, puis cliquez sur **Soumettre**. Les résultats de la soumission et le lien vers la tâche sont disponibles dans la fenêtre Résultats de Data Lake Tools pour Visual Studio à l'issue de la soumission.
 10. Attendez que la tâche soit terminée avec succès.  Si la tâche a échoué, le fichier source est probablement manquant.  Consultez la section Configuration requise de ce didacticiel. Pour plus d'informations de dépannage, consultez [Analyser et résoudre les problèmes des tâches Azure Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 

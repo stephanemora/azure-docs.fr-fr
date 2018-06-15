@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: f6096238deb2186edfac2eb9d1c9a9e76db07553
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33776632"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -339,7 +340,7 @@ Normalement, les notifications doivent être envoyées par un service principal.
 Dans ce didacticiel, vous avez envoyé des notifications de diffusion à des appareils iOS spécifiques que sont enregistrés pour les catégories. Pour savoir comment envoyer (push) des notifications localisées, passez au didacticiel suivant : 
 
 > [!div class="nextstepaction"]
->[Notifications Push localisées](notification-hubs-ios-xplat-localized-apns-push-notification.md)
+>[Notifications push localisées](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 
 <!-- Images. -->

@@ -1,13 +1,13 @@
 ---
-title: "Créer et modifier un circuit Azure ExpressRoute : CLI | Microsoft Docs"
-description: "Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute à l’aide de l’interface de ligne de commande."
+title: 'Créer et modifier un circuit Azure ExpressRoute : CLI | Microsoft Docs'
+description: Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute à l’aide de l’interface de ligne de commande.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23479608"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782898"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Chargement d’actifs dans Azure Media Clipper
 Il existe deux méthodes pour charger des actifs dans Azure Media Clipper :

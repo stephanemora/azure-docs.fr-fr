@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782788"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Créer des clips avec Azure Media Clipper dans le portail
 Vous pouvez utiliser Azure Media Clipper dans le portail pour créer des clips à partir d’éléments multimédias dans vos comptes de services de média. Pour commencer, accédez à votre compte de services de média dans le portail. Sélectionnez ensuite l’onglet **Sous-clip**.

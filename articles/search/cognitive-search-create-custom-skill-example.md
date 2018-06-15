@@ -8,19 +8,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: a295bf741862bb58a86234b5c85f48d7a1b52be7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 056cff192b25068fa2e895fd46d143a834b7af0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786858"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641082"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemple : créer une compétence personnalisée à l’aide de l’API Traduire le texte
 
 Cet exemple montre comment créer une compétence personnalisée d’API web qui accepte un texte dans une langue quelconque et le traduit en anglais. L’exemple utilise une [Fonction Azure](https://azure.microsoft.com/services/functions/) pour inclure dans un wrapper l’[API Traduire le texte](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) de façon à ce qu’elle implémente l’interface de la compétence personnalisée.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 + Si vous ne connaissez pas l’interface d’entrée/sortie qu’une compétence personnalisée doit implémenter, lisez l’article sur l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
@@ -323,5 +322,5 @@ Félicitations ! Vous avez créé votre premier enrichisseur personnalisé. Vou
 
 + [Ajouter une compétence personnalisée à un pipeline de recherche cognitive](cognitive-search-custom-skill-interface.md)
 + [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
-+ [Créer un jeu de compétences (REST)](ref-create-skillset.md)
++ [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

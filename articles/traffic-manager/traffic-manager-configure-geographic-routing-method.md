@@ -1,12 +1,12 @@
 ---
-title: "Configurer la méthode de routage du trafic géographique à l’aide d’Azure Traffic Manager | Microsoft Docs"
-description: "Cet article explique comment configurer la méthode de routage du trafic géographique à l’aide d’Azure Traffic Manager"
+title: Configurer la méthode de routage du trafic géographique à l’aide d’Azure Traffic Manager | Microsoft Docs
+description: Cet article explique comment configurer la méthode de routage du trafic géographique à l’aide d’Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397801"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
 
@@ -59,7 +60,7 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 2. Cliquez sur **Overview**.
 3. Le **profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage.  Dans le cas du routage géographique, Traffic Manager examine l’adresse IP source de la demande entrante et détermine la région d’où elle provient. Si cette région est mappée à un point de terminaison, le trafic est acheminé vers cet emplacement. Si cette région n’est pas mappée à un point de terminaison, Traffic Manager renvoie une réponse NODATA.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez-en davantage sur la [méthode de routage du trafic géographique](traffic-manager-routing-methods.md#geographic).
 - Découvrez comment [tester les paramètres Traffic Manager](traffic-manager-testing-settings.md).
