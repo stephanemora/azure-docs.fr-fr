@@ -1,8 +1,8 @@
 ---
 title: Surveillance des performances des applications web - Azure Application Insights | Microsoft Docs
-description: "Comment Application Insights s’intègre dans le cycle des opérations de développement"
+description: Comment Application Insights s’intègre dans le cycle des opérations de développement
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294909"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Pourquoi ai-je besoin d’Application Insights ?
@@ -113,10 +114,10 @@ Et vous permet d’inspecter immédiatement un échantillon des échecs ou excep
 
 ![Événements d’échec en direct](./media/app-insights-devops/live-stream-failures.png)
 
-## <a name="application-map"></a>Plan de l’application
+## <a name="application-map"></a>Mise en correspondance d'applications
 Application Map (Mise en correspondance d’applications) détecte automatiquement la topologie de votre application et place les informations de performances sur celle-ci pour vous permettre d’identifier facilement les goulots d’étranglement et les flux problématiques dans votre environnement distribué. Elle vous permet de découvrir les dépendances des applications sur les Services Azure. Vous pouvez catégoriser le problème déterminant s’il est lié au code ou aux dépendances et, à partir d’un emplacement unique, effectuer des diagnostics. Par exemple, votre application peut dysfonctionner en raison d’une chute des performances du SQL. Application Map (Mise en correspondance d’applications) vous permet de visualiser le phénomène immédiatement et d’utiliser SQL Index Advisor ou Query Insights.
 
-![Plan de l’application](./media/app-insights-devops/050.png)
+![Mise en correspondance d'applications](./media/app-insights-devops/050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
 Avec [Analytics](app-insights-analytics.md), vous pouvez écrire des requêtes arbitraires dans un puissant langage de type SQL.  Diagnostiquer toute la pile de l’application devient facile, car plusieurs perspectives sont mises en relation, et vous pouvez poser les bonnes questions pour mettre en corrélation les performances du service avec les mesures de l’activité et l’expérience client. 

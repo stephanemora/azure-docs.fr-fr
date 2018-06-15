@@ -1,24 +1,19 @@
 ---
-title: "Créer une alerte de journal d’activité avec un modèle Resource Manager | Documents Microsoft"
-description: "Soyez informé lorsque vos ressources Azure sont créées."
+title: Créer une alerte de journal d’activité avec un modèle Resource Manager
+description: Soyez informé lorsque vos ressources Azure sont créées.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.component: alerts
+ms.openlocfilehash: a1e28f08231ae1fbef3e0d0306e986c1dc9d1d1c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262988"
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal d’activité avec un modèle Resource Manager
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) pour configurer les alertes de journal d’activité. À l’aide de modèles, vous pouvez facilement configurer des nombreuses alertes activées selon des conditions de journal d’événements d’activité spécifiques dans le cadre de votre processus de déploiement automatisé.

@@ -1,26 +1,24 @@
 ---
-title: "Utiliser le service IoT Hub Device Provisioning pour approvisionner des appareils sur des hubs IoT à charge équilibrée | Microsoft Docs"
-description: "Approvisionnement automatique d’appareils DPS sur des hubs IoT à charge équilibrée dans le portail Azure"
-services: iot-dps
-keywords: 
+title: Utiliser le service IoT Hub Device Provisioning pour approvisionner des appareils sur des hubs IoT à charge équilibrée | Microsoft Docs
+description: Approvisionnement automatique d’appareils DPS sur des hubs IoT à charge équilibrée dans le portail Azure
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0a3720fe729d5e260bbe5b0902460c8c7cfc7cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629624"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Approvisionner des appareils sur des hubs IoT à charge équilibrée
 
-Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning (DPS). Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning (DPS). Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour approvisionner un deuxième appareil sur un deuxième hub IoT 
@@ -30,7 +28,7 @@ Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs Io
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel s’appuie sur le précédent didacticiel [Approvisionner un appareil sur un hub](tutorial-provision-device-to-hub.md).
 
@@ -72,7 +70,7 @@ Liez le service DPS et le hub IoT afin que le service puisse enregistrer des app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour approvisionner un deuxième appareil sur un deuxième hub IoT 

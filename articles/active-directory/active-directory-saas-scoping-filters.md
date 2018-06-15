@@ -1,8 +1,8 @@
 ---
-title: "Approvisionner des applications avec filtres d’étendue | Microsoft Docs"
-description: "Découvrez comment utiliser des filtres d’étendue pour empêcher les objets dans les applications qui prennent en charge l’approvisionnement automatisé des utilisateurs d’être approvisionnés si un objet n’est pas conforme à vos besoins."
+title: Approvisionner des applications avec filtres d’étendue | Microsoft Docs
+description: Découvrez comment utiliser des filtres d’étendue pour empêcher les objets dans les applications qui prennent en charge l’approvisionnement automatisé des utilisateurs d’être approvisionnés si un objet n’est pas conforme à vos besoins.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293073"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -29,7 +30,7 @@ Un filtre d’étendue permet au service d’approvisionnement Azure Active Dire
 
 Les filtres d’étendue peuvent être utilisés différemment en fonction du type du connecteur d’approvisionnement :
 
-* **Approvisionnement sortant d’Azure AD vers des applications SaaS**. Quand Azure AD est le système source, [les affectations d’utilisateur et de groupe](active-directory-coreapps-assign-user-azure-portal.md) sont les méthodes les plus courantes pour déterminer les utilisateurs sujets à un approvisionnement. Ces affectations sont également utilisées pour activer l’authentification unique et fournissent une méthode unique pour gérer l’accès et l’approvisionnement. Les filtres d’étendue peuvent être utilisés si vous le souhaitez, en plus des affectations ou à leur place, afin de filtrer les utilisateurs selon des valeurs d’attribut.
+* **Approvisionnement sortant d’Azure AD vers des applications SaaS**. Quand Azure AD est le système source, [les affectations d’utilisateur et de groupe](manage-apps/assign-user-or-group-access-portal.md) sont les méthodes les plus courantes pour déterminer les utilisateurs sujets à un approvisionnement. Ces affectations sont également utilisées pour activer l’authentification unique et fournissent une méthode unique pour gérer l’accès et l’approvisionnement. Les filtres d’étendue peuvent être utilisés si vous le souhaitez, en plus des affectations ou à leur place, afin de filtrer les utilisateurs selon des valeurs d’attribut.
 
     >[!TIP]
     > Vous pouvez désactiver l’approvisionnement basé sur des affectations pour une application d’entreprise en changeant le menu [Étendue](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sous les paramètres d’approvisionnement sur **Synchroniser tous les utilisateurs et groupes**. L’utilisation de cette option alliée aux filtres d’étendue basés sur les attributs offre de meilleures performances qu’en utilisant des affectations de groupe.  
@@ -115,6 +116,6 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 * [Personnaliser les mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 * [Écrire des expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
-* [Utiliser SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
+* [Utiliser SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 

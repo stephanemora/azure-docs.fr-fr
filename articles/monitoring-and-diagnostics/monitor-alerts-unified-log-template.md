@@ -1,25 +1,19 @@
 ---
-title: Créer une alerte de journal avec un modèle Resource Manager | Microsoft Docs
+title: Créer une alerte de journal avec un modèle Resource Manager
 description: Découvrez comment créer une alerte de journal à l’aide d’un modèle Azure Resource Manager et d’une API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 14a2560d91fd0f8dcc729b32c7155c4b74aa8aa1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204156"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263199"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal avec un modèle Resource Manager
 Cet article explique comment gérer des [alertes de journal](monitor-alerts-unified-log.md) par programmation à grande l’échelle, dans Azure à l’aide d’un [modèle Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) par le biais d’[Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) et [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Actuellement, Azure Alerts prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) et d’[Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
@@ -28,7 +22,7 @@ Cet article explique comment gérer des [alertes de journal](monitor-alerts-unif
 Les alertes de journal pour [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) sont intégrées dans la [nouvelle expérience d’alertes Azure](monitoring-overview-unified-alerts.md). Elles font toujours appel aux API Log Analytics et restent compatibles avec le schéma utilisé précédemment pour gérer les [alertes dans le portail OMS](..//log-analytics/log-analytics-alerts-creating.md).
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes d’un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre (copier) des alertes du portail OMS dans Azure](monitoring-alerts-extend.md). 
+> À compter du 14 mai 2018, toutes les alertes d’un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). 
 
 ### <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
 Les alertes de journal pour Log Analytics sont créées par le biais de règles d’alerte exécutant une recherche enregistrée à intervalles réguliers. Si les résultats de la requête correspondent aux critères spécifiés, un enregistrement d’alerte est créé et une ou plusieurs actions sont exécutées. 

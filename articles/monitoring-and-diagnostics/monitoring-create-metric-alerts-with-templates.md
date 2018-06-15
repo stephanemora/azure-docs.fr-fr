@@ -1,25 +1,19 @@
 ---
-title: Créer une alerte de métrique dans Azure avec un modèle Resource Manager | Microsoft Docs
+title: Créer une alerte de mesure avec un modèle Resource Manager
 description: Découvrez comment utiliser un modèle Resource Manager pour créer une alerte de métrique.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
-ms.openlocfilehash: 4b8b5c8d1991cc65c1efe11c930ddb8956c895ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182149"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263444"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les [alertes de métriques plus récentes](monitoring-near-real-time-metric-alerts.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de métrique plus récentes sont disponibles pour [cet ensemble de types de ressources](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).

@@ -8,16 +8,17 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 3efc351861a7d5b3c02c08b96494e83a3ccb99f6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 233ae50246619c3e503e42081c3b4de88090f411
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362139"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835030"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Informations de référence sur l’API de compte de gestion des services Azure Machine Learning
 
@@ -33,7 +34,6 @@ L’API de compte Gestion des modèles Azure Machine Learning implémente les op
 Vous pouvez utiliser cette image pour créer un service web localement, sur un cluster Azure Container Service distant ou dans un autre environnement compatible avec Docker.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Veillez à parcourir les étapes d’installation dans le document [Guide de démarrage rapide d’installation et de création](../service/quickstart-installation.md).
 
 Avant de poursuivre, vous devez disposer des éléments suivants :

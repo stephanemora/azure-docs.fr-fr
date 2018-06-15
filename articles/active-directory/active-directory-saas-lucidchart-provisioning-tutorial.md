@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: ccc876b2421641271e73ad72ec0c00a10792f8b3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3a77393f01fd5b6e2d2280b52bd45c6b6f61f7d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293056"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : configurer LucidChart pour l’approvisionnement automatique d’utilisateurs
 
@@ -26,7 +27,6 @@ ms.lasthandoff: 05/20/2018
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans LucidChart et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD sur LucidChart. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -40,7 +40,7 @@ Azure Active Directory utilise un concept appelé « affectations » pour dét
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD représentent les utilisateurs qui ont besoin d’accéder à votre application LucidChart. Dès que vous avez fait votre choix, vous pouvez assigner ces utilisateurs à votre application LucidChart en suivant les instructions disponibles à la page suivante :
 
-[Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
+[Affecter un utilisateur ou un groupe à une application d’entreprise](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Conseils importants concernant l’assignation d’utilisateurs à LucidChart
 
@@ -95,7 +95,7 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

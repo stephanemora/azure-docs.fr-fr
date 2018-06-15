@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9d2043808cbd61d5e2a69cbe0f2a5a611e3afa31
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34839756"
 ---
 # <a name="team-lead-tasks"></a>Tâches du responsable d’équipe
 
@@ -65,7 +67,6 @@ Dans tous les cas, les responsables d’équipe doivent indiquer aux membres de 
 
 
 ## <a name="0-prerequisites"></a>0. Prérequis
-
 
 Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. Pour résumer, avant de commencer les tâches du responsable d’équipe, voici les conditions qui doivent être remplies : 
 

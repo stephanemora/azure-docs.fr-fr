@@ -1,24 +1,19 @@
 ---
-title: Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements | Microsoft Docs
+title: Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements
 description: Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un hub d’événements.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 1f5a97f5af47a3c5731d5c5d4d5e8cf17097ae60
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 18b385edc7efed20d940be96670b8c40ce66ddfd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264321"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements
 Les **[journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)** peuvent être diffusés pratiquement en temps réel vers n’importe quelle application, à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’ID de règle d’autorisation Event Hubs dans un paramètre de diagnostic via les cmdlets Azure PowerShell ou Azure CLI 2.0.
@@ -54,9 +49,9 @@ Vous pouvez activer la diffusion en continu des journaux de diagnostic par progr
 Il n’est pas nécessaire que l’espace de noms Event Hubs se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur configurant le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 > [!NOTE]
-> L’envoi de métriques multidimensionnels par le biais des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
-> *Par exemple* : le métrique « Messages entrants » sur un hub d’événements peut être examiné et représenté sur un niveau par file d’attente. Toutefois, lors de son exportation par le biais des paramètres de diagnostic, le métrique est représenté sous forme de tous les messages entrants dans toutes les files d’attente du hub d’événements.
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 
@@ -96,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 L’ID de règle d’autorisation du concentrateur d’événements est une chaîne au format suivant : `{Event Hub namespace resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Actuellement, il est impossible de sélectionner un nom de hub d’événements particulier avec PowerShell.
 
-### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
+### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
 
-Pour activer le streaming par le biais de l’interface [Azure CLI 2.0](insights-cli-samples.md), utilisez la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Pour activer la diffusion en continu via [Azure CLI 2.0](insights-cli-samples.md), vous pouvez utiliser la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

@@ -4,7 +4,7 @@ description: Créez des applications logiques avec Azure App Service. Le connect
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 493ee8a961e5d5a57c6276868a55b524dec28018
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 268fa6d260f1107659208ea07ce3e43c27eca2d3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295725"
 ---
 # <a name="get-started-with-the-rss-connector"></a>Prise en main du connecteur RSS
 RSS est un format de syndication populaire web utilisé pour publier du contenu fréquemment mise à jour, tel que des entrées de blog et des titres d’actualité.  De nombreux éditeurs de contenu fournissent un flux RSS pour permettre aux utilisateurs d’y souscrire.  Le connecteur RSS permet de récupérer le flux d’informations et de déclencher des flux lorsque de nouveaux éléments sont publiés dans un flux RSS.

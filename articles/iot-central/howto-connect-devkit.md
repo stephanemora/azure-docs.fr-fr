@@ -1,19 +1,19 @@
 ---
 title: Connecter un appareil DevKit à votre application Azure IoT Central | Microsoft Docs
 description: En tant que développeur d’appareils, apprenez à connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200739"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261574"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -28,57 +28,62 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 Une application créée à partir du modèle d’application **Exemples de Devkits** comprend un modèle d’appareil **MXChip** qui présente les caractéristiques suivantes :
 
-### <a name="telemetry-measurements"></a>Mesures télémétriques
+### <a name="measurements"></a>Mesures
 
-| Nom du champ     | Unités  | Minimale | Maximale | Nombre de décimales |
+#### <a name="telemetry"></a>Télémétrie 
+
+| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
-| humidité       | %      | 0       | 100     | 0              |
+| humidity       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
-| pression       | hPa    | 260     | 1 260    | 0              |
-| magnetometerX  | mgauss | -1 000   | 1 000    | 0              |
-| magnetometerY  | mgauss | -1 000   | 1 000    | 0              |
-| magnetometerZ  | mgauss | -1 000   | 1 000    | 0              |
-| accelerometerX | mg     | -2 000   | 2 000    | 0              |
-| accelerometerY | mg     | -2 000   | 2 000    | 0              |
-| accelerometerZ | mg     | -2 000   | 2 000    | 0              |
-| gyroscopeX     | mdps   | -2 000   | 2 000    | 0              |
-| gyroscopeY     | mdps   | -2 000   | 2 000    | 0              |
-| gyroscopeZ     | mdps   | -2 000   | 2 000    | 0              |
+| pressure       | hPa    | 260     | 1 260    | 0              |
+| magnetometerX  | mgauss | -1 000   | 1 000    | 0              |
+| magnetometerY  | mgauss | -1 000   | 1 000    | 0              |
+| magnetometerZ  | mgauss | -1 000   | 1 000    | 0              |
+| accelerometerX | mg     | -2 000   | 2000    | 0              |
+| accelerometerY | mg     | -2 000   | 2000    | 0              |
+| accelerometerZ | mg     | -2 000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2 000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2 000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2 000   | 2000    | 0              |
+
+#### <a name="states"></a>États 
+
+| NOM          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
+
+#### <a name="events"></a>Événements 
+
+| NOM             | Nom complet      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Bouton B enfoncé  | 
+
+
 
 ### <a name="settings"></a>Paramètres
 
 Paramètres numériques
 
-| Nom complet | Nom du champ | Unités | Nombre de décimales | Minimale | Maximale | Valeur initiale |
+| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Courant      | setCurrent | Ampères  | 0              | 0       | 100     | 0       |
-| Vitesse du ventilateur    | fanSpeed   | Tr/min   | 0              | 0       | 1 000    | 0       |
+| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Vitesse du ventilateur    | fanSpeed   | TR/MIN   | 0              | 0       | 1 000    | 0       |
 
 Paramètres de bascule
 
-| Nom complet | Nom du champ | Texte pour Activé | Texte pour Désactivé | Valeur initiale |
+| Nom complet | Nom du champ | Texte pour Activé | Texte pour Désactivé | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | Off     |
+| IR           | activateIR | ACTIVÉ      | ÉTEINT      | Off     |
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 
-| Type            | Nom complet | Nom du champ | Type de données |
+| type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
-| Propriété de l’appareil | Numéro gravé   | dieNumber  | numéro    |
-| Texte            | Emplacement     | location   | N/A       |
+| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
+| Texte            | Lieu     | location   | N/A       |
 
-### <a name="states"></a>États 
-
-| Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
-
-### <a name="events"></a>Événements 
-
-| Nom             | Nom complet      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Bouton B enfoncé  | 
 
 ### <a name="add-a-real-device"></a>Ajouter un appareil réel
 
