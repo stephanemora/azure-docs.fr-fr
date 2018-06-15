@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936937"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Test de votre offre de machine virtuelle pour Azure Marketplace en mode intermédiaire
 Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre référence SKU dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant son déploiement dans Marketplace. La référence apparaît avec le statut Intermédiaire, comme pour un client l’ayant déployée. Votre image de machine virtuelle doit être certifiée pour passer en mode Intermédiaire.
