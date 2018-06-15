@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896127"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652989"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installer et configurer Ansible pour gérer des machines virtuelles dans Azure
 
@@ -150,7 +150,7 @@ Passez maintenant à [Créer des informations d’identification Azure](#create-
 
 Ansible communique avec Azure en utilisant un nom d’utilisateur et un mot de passe, ou un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Ansible. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure. Pour renforcer la sécurité par rapport à la simple saisie d’un nom d’utilisateur et d’un mot de passe, cet exemple crée un principal de service de base.
 
-Sur votre ordinateur hôte ou dans Azure Cloud Shell, créez un principal de service à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). Les informations d’identification dont Ansible a besoin sont affichées sur l’écran :
+Sur votre ordinateur hôte ou dans Azure Cloud Shell, créez un principal de service à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Les informations d’identification dont Ansible a besoin sont affichées sur l’écran :
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -166,7 +166,7 @@ Voici un exemple de la sortie des commandes précédentes :
 }
 ```
 
-Pour s’authentifier auprès d’Azure, vous devez également obtenir votre ID d’abonnement Azure à l’aide de la commande [az account show](/cli/azure/account#az_account_show) :
+Pour s’authentifier auprès d’Azure, vous devez également obtenir votre ID d’abonnement Azure à l’aide de la commande [az account show](/cli/azure/account#az-account-show) :
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

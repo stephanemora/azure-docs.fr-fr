@@ -6,21 +6,21 @@ manager: craigg
 author: anumjs
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: anjangsh
-ms.openlocfilehash: fa6899b285bcd1d3f2d4c1e17e3fbab7a6e0f839
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf180149ceb0b6c88fab8a0a7bb58a84d25b1b9c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647229"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
 Ce document présente l’expérience du développeur dans la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) en vous aidant à exécuter un exemple d’application. L’exemple d’application crée une application partitionnée simple et explore les fonctionnalités clés des outils de base de données élastique d’Azure SQL Database. Il s’intéresse aux cas d’utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et [l’interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). La bibliothèque cliente est disponible pour .NET ainsi que Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
 ### <a name="prerequisites"></a>Prérequis
-
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
 * [Maven](http://maven.apache.org/download.cgi)
 * Serveur logique dans Azure ou instance SQL Server locale
@@ -64,7 +64,6 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 
 ## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET 
 ### <a name="prerequisites"></a>Prérequis
-
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 

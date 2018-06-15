@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636968"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Collecter les journaux d’activité Azure de différents abonnements dans Log Analytics
 
@@ -113,7 +114,7 @@ Avant de créer votre application logique, vérifiez que vous disposez des infor
 - ID d’espace de travail Log Analytics
 - Clé partagée Log Analytics
 
-Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme décrit dans [Vérifier les autorisations d’espace de noms Event Hubs et rechercher la chaîne de connexion](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
+Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme décrit dans [Vérifier les autorisations d’espace de noms Event Hubs et rechercher la chaîne de connexion](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Créer une application logique vide
@@ -324,7 +325,7 @@ Pour afficher des informations détaillées sur chaque étape, cliquez sur le no
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Étape 5 : Afficher le journal d’activité Azure dans Log Analytics
 La dernière étape consiste à consulter l’espace de travail Log Analytics pour vérifier que les données sont collectées comme prévu.
 
-1. Dans le portail Azure, cliquez sur **All services** (Tous les services) en haut à gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, cliquez sur **Tous les services** en haut à gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans votre liste d’espaces de travail Log Analytics, sélectionnez votre espace de travail.
 3.  Cliquez sur la vignette **Recherche dans les journaux**. Ensuite, dans le volet Recherche dans les journaux, dans le champ de requête, tapez `AzureActivity_CL`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête. Si vous n’avez pas nommé votre journal personnalisé *AzureActivity*, entrez le nom choisi et ajoutez `_CL`.
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154526"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>La taille par défaut du dossier TEMP est trop petite pour un rôle web/de travail de service cloud
 Le répertoire temporaire par défaut d'un rôle web ou de travail de service cloud a une taille maximale de 100 Mo, et risque d’être saturé à un moment donné. Cet article décrit comment éviter de manquer d'espace sur le répertoire temporaire.

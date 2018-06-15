@@ -6,21 +6,21 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8ee8dcfddda01b16f18a14f445a2639cc56ee44d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: de25b3318a91a5dbf99a5a9c26af209224177f0f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649847"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Charger des données à partir d’un fichier CSV une base de données SQL Azure (fichiers plats)
 Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des données à partir d’un fichier CSV dans la base de données SQL Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 ### <a name="prerequisites"></a>Prérequis
-
 Pour accomplir les étapes décrites dans cet article, vous avez besoin de ce qui suit :
 
 * Serveur logique et base de données SQL Azure

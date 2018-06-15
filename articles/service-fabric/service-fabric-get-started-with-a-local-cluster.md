@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205244"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643241"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Prise en main avec le déploiement et la mise à niveau d’applications sur votre cluster local
 Le kit de développement logiciel Fabric Service comprend un environnement de développement local complet que vous pouvez utiliser pour rapidement maîtriser le déploiement et la gestion des applications sur un cluster local. Dans cet article, vous créez un cluster local, déployez une application existante, puis mettez à niveau cette application vers une nouvelle version, le tout à partir de Windows PowerShell.

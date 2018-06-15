@@ -12,15 +12,15 @@ ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: anjangsh
-ms.openlocfilehash: dd51480f30187456104a0f9d72ec17082dc1e39e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33208054"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643999"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
 
@@ -69,7 +69,6 @@ Ce didacticiel fournit des exemples simples d’informations que vous pouvez rec
 ## <a name="setup"></a>Paramétrage
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 > [!NOTE]
 > Ce didacticiel utilise des fonctionnalités de Azure Data Factory qui sont actuellement en version préliminaire limitée (paramétrage du service lié). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Nous vous enverrons une confirmation dès l’activation de votre abonnement.

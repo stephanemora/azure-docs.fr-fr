@@ -1,13 +1,13 @@
 ---
-title: "Exemple de script Azure CLI - Monter un disque de système d’exploitation | Microsoft Docs"
-description: "Exemple de script Azure CLI - Monter un disque de système d’exploitation"
+title: Exemple de script Azure CLI - Monter un disque de système d’exploitation | Microsoft Docs
+description: Exemple de script Azure CLI - Monter un disque de système d’exploitation
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9f1624426c7f401756310cd4fbe2789c29999d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 996fd1be24abea240d2c2a1a53769b663fef6bde
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656039"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Résoudre les problèmes liés au disque du système d’exploitation de machines virtuelles
 

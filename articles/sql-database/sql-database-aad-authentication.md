@@ -6,14 +6,15 @@ author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c016d593f62e2f0616b426a87baf8d9390645b4a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645063"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database, de Managed Instance ou de SQL Data Warehouse
 L’authentification Azure Active Directory est un mécanisme servant à se connecter aux services Base de données SQL Microsoft Azure et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure AD, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations. Les avantages suivants sont inclus :
@@ -23,7 +24,7 @@ L’authentification Azure Active Directory est un mécanisme servant à se conn
 * Permet une rotation du mot de passe dans un emplacement unique.
 * Les clients peuvent gérer les autorisations de base de données à l’aide des groupes (Azure AD) externes.
 * Il peut éliminer le stockage des mots de passe en activant l’authentification intégrée Windows et les autres formes d’authentification prises en charge par Azure Active Directory.
-* L’authentification Azure AD utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
+* L’authentification Azure AD utilise les utilisateurs de base de données autonome pour authentifier les identités au niveau de la base de données.
 * Azure AD prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Database.
 * L’authentification Azure AD prend en charge ADFS (fédération de domaine) ou l’authentification utilisateur natif/mot de passe pour un répertoire Azure Active Directory local sans synchronisation du domaine.  
 * Azure AD prend en charge les connexions à partir de SQL Server Management Studio qui utilisent l’authentification universelle Active Directory, et notamment Multi-Factor Authentication (MFA).  MFA comprend une authentification forte avec une gamme d’options de vérification simples (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). Pour plus d’informations, voir [Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
@@ -37,7 +38,7 @@ Les étapes de configuration incluent les procédures suivantes pour configurer 
 2. Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure.
 3. Créez un administrateur Azure Active Directory pour le serveur Azure SQL Database, Managed Instance ou [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 4. Configurer vos ordinateurs clients.
-5. Créer des utilisateurs de base de données à relation contenant-contenu dans votre base de données mappés sur les identités Azure AD.
+5. Créer des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD.
 6. Se connecter à la base de données à l’aide des identités Azure AD.
 
 > [!NOTE]
@@ -54,14 +55,14 @@ Le diagramme suivant indique la fédération, l’approbation et les relations d
 ![relation abonnement][2]
 
 ## <a name="administrator-structure"></a>Structure de l’administrateur
-En cas d’utilisation de l’authentification Azure AD, il existe deux comptes administrateur pour le serveur SQL Database ; l’administrateur de SQL Server d’origine et l’administrateur Azure AD. Les mêmes concepts s’appliquent à SQL Data Warehouse. Seul l’administrateur basé sur un compte Azure AD peut créer le premier utilisateur de la base de données Azure AD à relation contenant-contenu dans une base de données utilisateur. La connexion d’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Lorsque l’administrateur est un compte de groupe, il peut être utilisé par n’importe quel membre du groupe, ce qui permet à plusieurs administrateurs Azure AD pour l’instance de SQL Server. L’utilisation d’un compte de groupe en tant qu’administrateur facilite la gestion en vous permettant d’ajouter et de supprimer des membres du groupe dans Azure AD sans modifier les utilisateurs ou les autorisations de base de données SQL. Seul un administrateur Azure AD (utilisateur ou groupe) peut être configuré à tout moment.
+En cas d’utilisation de l’authentification Azure AD, il existe deux comptes administrateur pour le serveur SQL Database ; l’administrateur de SQL Server d’origine et l’administrateur Azure AD. Les mêmes concepts s’appliquent à SQL Data Warehouse. Seul l’administrateur basé sur un compte Azure AD peut créer le premier utilisateur de la base de données autonome Azure AD dans une base de données utilisateur. La connexion d’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Lorsque l’administrateur est un compte de groupe, il peut être utilisé par n’importe quel membre du groupe, ce qui permet à plusieurs administrateurs Azure AD pour l’instance de SQL Server. L’utilisation d’un compte de groupe en tant qu’administrateur facilite la gestion en vous permettant d’ajouter et de supprimer des membres du groupe dans Azure AD sans modifier les utilisateurs ou les autorisations de base de données SQL. Seul un administrateur Azure AD (utilisateur ou groupe) peut être configuré à tout moment.
 
 ![structure admin][3]
 
 ## <a name="permissions"></a>Autorisations
 Pour créer de nouveaux utilisateurs, vous devez disposer de l’autorisation `ALTER ANY USER` dans la base de données. L’autorisation `ALTER ANY USER` peut être octroyée à un utilisateur de base de données. L’autorisation `ALTER ANY USER` est également détenue par les comptes d’administrateur de serveur et les utilisateurs de base de données avec les autorisations `CONTROL ON DATABASE` ou `ALTER ON DATABASE` pour cette base de données et par les membres du rôle de base de données `db_owner`.
 
-Pour créer un utilisateur de base de données à relation contenant-contenu dans le service Azure SQL Database, Managed Instance ou SQL Data Warehouse, vous devez vous connecter à la base de données à l’aide d’une identité Azure AD. Pour créer le premier utilisateur de la base de données à relation contenant-contenu, vous devez vous connecter à la base de données à l’aide d’un administrateur Azure AD (le propriétaire de la base de données). Cette procédure est expliquée dans [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md). L’authentification Azure AD n’est possible que si l’administrateur Azure AD a été créé pour le serveur Azure SQL Database ou SQL Data Warehouse. Si l’administrateur Azure Active Directory a été supprimé du serveur, les utilisateurs Azure Active Directory existants créés précédemment dans le serveur SQL Server ne peuvent plus se connecter à la base de données à l’aide de leurs informations d’identification Azure Active Directory.
+Pour créer un utilisateur de base de données autonome dans le service Azure SQL Database, Managed Instance ou SQL Data Warehouse, vous devez vous connecter à la base de données à l’aide d’une identité Azure AD. Pour créer le premier utilisateur de la base de données autonome, vous devez vous connecter à la base de données à l’aide d’un administrateur Azure AD (le propriétaire de la base de données). Cette procédure est expliquée dans [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md). L’authentification Azure AD n’est possible que si l’administrateur Azure AD a été créé pour le serveur Azure SQL Database ou SQL Data Warehouse. Si l’administrateur Azure Active Directory a été supprimé du serveur, les utilisateurs Azure Active Directory existants créés précédemment dans le serveur SQL Server ne peuvent plus se connecter à la base de données à l’aide de leurs informations d’identification Azure Active Directory.
 
 ## <a name="azure-ad-features-and-limitations"></a>Limitations et fonctionnalités azure AD
 Les membres suivants d’Azure AD peuvent être configurés dans le serveur Azure SQL Server ou dans SQL Data Warehouse :

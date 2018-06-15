@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152117"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle Windows Server à l’aide de PowerShell dans Azure Stack
 

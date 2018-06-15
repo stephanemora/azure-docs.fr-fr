@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: bbf69bdcc92316642f6b37d267cdea2aad920316
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640887"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Exemples de l’interface de ligne de commande Azure pour Azure Media Services
 
@@ -36,3 +37,6 @@ Le tableau suivant comprend des liens vers des exemples de l’interface de lign
 | [Créer des travaux](./scripts/cli-create-jobs.md)|Soumet un travail à une transformation de codage simple à l’aide d’URL HTTPs.|
 | [Créer un Event Grid](./scripts/cli-create-event-grid.md)|Crée un abonnement Event Grid au niveau du compte pour les modifications de l’état du travail.|
 
+## <a name="see-also"></a>Voir aussi
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

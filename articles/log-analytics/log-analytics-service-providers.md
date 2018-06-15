@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593047"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Fonctionnalités de Log Analytics pour les fournisseurs de services
 Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 

@@ -6,14 +6,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: c8a8561c6241968419c5014bf2a37cca05723e81
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b905c921ae967d7f755f084bd6b9b30de34f76b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649633"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
 
@@ -32,7 +33,6 @@ Cette rubrique présente un exemple de code en deux phases :
   * Pour créer et démarrer la session d’événement, etc.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Une base de données dans laquelle vous pouvez créer une table.

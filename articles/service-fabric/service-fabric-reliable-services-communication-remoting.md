@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: d9ba650549d313a4ecc9ceae5eb05e1cde727892
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 672bdd3ddb5b32b82d83322eadce2a594b13ce5b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643530"
 ---
 # <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
 Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, Windows Communication Foundation (WCF) ou autres, l’infrastructure Reliable Services fournit un mécanisme de communication à distance pour configurer rapidement et facilement un appel de procédure distante pour les services.
@@ -52,7 +53,7 @@ class MyService : StatelessService, IMyService
     {
     }
 
-    public Task HelloWorldAsync()
+    public Task<string> HelloWorldAsync()
     {
         return Task.FromResult("Hello!");
     }
@@ -391,3 +392,4 @@ L’exemple suivant utilise la sérialisation Json avec Remoting V2.
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Communication WCF avec Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)
+

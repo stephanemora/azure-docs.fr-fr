@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152009"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Charger un certificat de gestion de service Azure
 Les certificats de gestion vous permettent de vous authentifier dans le modèle de déploiement classique fourni par Azure. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. 

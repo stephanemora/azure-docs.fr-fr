@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201235"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 2.0
 
@@ -55,7 +56,7 @@ L’exemple suivant crée un enregistrement A appelé *www* dans la zone *contos
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "@" (guillemets compris) :
+Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "\@\" (guillemets compris) :
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -140,7 +141,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Création d’un enregistrement SRV
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "\@\" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

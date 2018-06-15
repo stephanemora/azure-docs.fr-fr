@@ -8,12 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942157"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641109"
 ---
 # <a name="what-is-cognitive-search"></a>Qu’est-ce que la recherche cognitive ?
 
@@ -71,7 +71,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 | Concept | Description| Liens |
 |---------|------------|-------|
 | Ensemble de compétences | Une ressource nommée de niveau supérieur comprenant une collection de compétences. Un ensemble de compétences correspond au pipeline d’enrichissement. Il est appelé lors de l’indexation par un indexeur. | [How to create a skillset in an enrichment pipeline](cognitive-search-defining-skillset.md) (Créer un ensemble de compétences dans un pipeline d’enrichissement) |
-| Compétence cognitive | Une transformation atomique dans un pipeline d’enrichissement. Souvent, il s’agit d’un composant qui effectue des extractions ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. La sortie est presque toujours textuelle et le traitement est de type traitement en langage naturel ou traitement d’images qui extrait ou génère du texte à partir d’entrées d’images. La sortie d’une compétence peut être mappée à un champ dans un index ou utilisée en tant qu’entrée pour un enrichissement en aval. Une compétence est soit prédéfinie et fournie par Microsoft, soit personnalisée, c’est-à-dire créée et déployée par vous. | [Predefined skills for content enrichment (Azure Search)](cognitive-search-predefined-skills.md) (Compétences prédéfinies pour l’enrichissement de contenu (Recherche Azure)) |
+| Compétence cognitive | Une transformation atomique dans un pipeline d’enrichissement. Souvent, il s’agit d’un composant qui effectue des extractions ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. La sortie est presque toujours textuelle et le traitement est de type traitement en langage naturel ou traitement d’images qui extrait ou génère du texte à partir d’entrées d’images. La sortie d’une compétence peut être mappée à un champ dans un index ou utilisée en tant qu’entrée pour un enrichissement en aval. Une compétence est soit prédéfinie et fournie par Microsoft, soit personnalisée, c’est-à-dire créée et déployée par vous. | [Compétences prédéfinies](cognitive-search-predefined-skills.md) |
 | Extraction de données | Couvre une large gamme de traitements, mais dans le cadre de la recherche cognitive, la compétence de reconnaissance d’entité nommée est plus généralement utilisée pour extraire des données (une entité) d’une source qui ne fournit pas ces informations en natif. | [Named Entity Recognition cognitive skill](cognitive-search-skill-named-entity-recognition.md) (Compétence cognitive de reconnaissance d’entité nommée)| 
 | Traitement des images | Déduit du texte à partir d’une image, par exemple reconnaître un repère, ou extrait du texte d’une image. Parmi les exemples courants, on trouve l’OCR qui permet de copier des caractères d’un fichier de document numérisé (JPEG) ou de reconnaître un nom de rue dans une photographie sur laquelle se trouve un panneau de rue. | [Compétence d’analyse d’image](cognitive-search-skill-image-analysis.md) ou [compétence OCR](cognitive-search-skill-ocr.md)
 | Traitement en langage naturel | Traitement de texte pour des insights et des informations sur les entrées de texte. La détection de langue, l’analyse des sentiments et l’extraction de phrases clés sont des compétences qui se trouvent dans le traitement en langage naturel.  | [Key Phrase Extraction cognitive skill](cognitive-search-skill-keyphrases.md) (Compétence cognitive d’extraction de phrases clés), [Language detection cognitive skill](cognitive-search-skill-language-detection.md) (Compétence cognitive de détection de langue), [Sentiment cognitive skill](cognitive-search-skill-sentiment.md) (Compétence cognitive d’analyse des sentiments) |
@@ -103,9 +103,9 @@ Actuellement, seules les API REST sont fournies. Utilisez `api-version=2017-11-1
 | de l’API REST | Description |
 |-----|-------------|
 | [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Une ressource identifiant une source de données externes fournissant des données sources utilisées pour créer des documents enrichis.  |
-| [Créer un ensemble de compétences (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | Une ressource coordonnant l’utilisation de [compétences prédéfinies](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d’enrichissement lors de l’indexation. |
+| [Créer un ensemble de compétences (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource coordonnant l’utilisation de [compétences prédéfinies](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d’enrichissement lors de l’indexation. |
 | [Création d'index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Un schéma exprimant un index Recherche Azure. Des champs dans l’index sont mappés à des champs dans les données sources ou à des champs créés lors de la phase d’enrichissement (par exemple, un champ pour les noms de l’organisation créé par la reconnaissance d’entité). |
-| [Créer un indexeur (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | Une ressource définissant les composants utilisés lors de l’indexation : notamment une source de données, un ensemble de compétences, des associations de champs à partir de structures de données sources et intermédiaires pour cibler l’index, et l’index lui-même. L’exécution de l’index est le déclencheur de l’ingestion des données et de l’enrichissement. La sortie est un corpus de recherche basé sur le schéma d’index, rempli avec les données sources, enrichies via des ensembles de compétences.  |
+| [Créer un indexeur (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource définissant les composants utilisés lors de l’indexation : notamment une source de données, un ensemble de compétences, des associations de champs à partir de structures de données sources et intermédiaires pour cibler l’index, et l’index lui-même. L’exécution de l’index est le déclencheur de l’ingestion des données et de l’enrichissement. La sortie est un corpus de recherche basé sur le schéma d’index, rempli avec les données sources, enrichies via des ensembles de compétences.  |
 
 **Liste de vérification : un flux de travail typique**
 
@@ -113,11 +113,11 @@ Actuellement, seules les API REST sont fournies. Utilisez `api-version=2017-11-1
 
 1. Créez un [objet source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) dans Recherche Azure pour fournir une chaîne de connexion pour l’extraction de données.
 
-1. Créez un [ensemble de compétences](ref-create-skillset.md) avec les étapes d’enrichissement.
+1. Créez un [ensemble de compétences](https://docs.microsoft.com/rest/api/searchservice/create-skillset) avec les étapes d’enrichissement.
 
 1. Définissez le [schéma d’index](https://docs.microsoft.com/rest/api/searchservice/create-index). La collection *Champs* inclut des champs issus des données sources. Vous devez également écraser les champs supplémentaires pour stocker des valeurs générées pour le contenu créé au cours de l’enrichissement.
 
-1. Définissez [l’indexeur](ref-create-skillset.md) faisant référence à la source de données, à l’ensemble de compétences et à l’index.
+1. Définissez [l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-skillset) faisant référence à la source de données, à l’ensemble de compétences et à l’index.
 
 1. Dans l’indexeur, ajoutez *outputFieldMappings*. Cette section mappe la sortie de l’ensemble de compétences (à l’étape 3) aux champs d’entrées dans le schéma d’index (à l’étape 4).
 

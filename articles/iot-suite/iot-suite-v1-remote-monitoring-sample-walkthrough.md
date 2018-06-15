@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638073"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Présentation de la solution préconfigurée de surveillance à distance
 
@@ -35,7 +36,7 @@ Cet article vous familiarise avec les éléments clés de la solution de surveil
 
 Le schéma suivant décrit les composants logiques de la solution préconfigurée :
 
-![Architecture logique](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![Architecture logique](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>Microservices & Conteneurs Docker
 La surveillance à distance est la première de nos solutions préconfigurées pour tirer parti d’une architecture de microservices. La solution est disponible en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) et [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).

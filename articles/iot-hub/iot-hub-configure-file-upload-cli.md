@@ -1,24 +1,19 @@
 ---
-title: "Configurer le téléchargement de fichiers vers IoT Hub à l’aide d’Azure CLI (az.py) | Microsoft Docs"
-description: "Découvrez comment configurer les téléchargements de fichiers vers Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py)."
-services: iot-hub
-documentationcenter: 
+title: Configurer le téléchargement de fichiers vers IoT Hub à l’aide d’Azure CLI (az.py) | Microsoft Docs
+description: Découvrez comment configurer les téléchargements de fichiers vers Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py).
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633850"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurer les chargements de fichiers IoT Hub à l’aide d’Azure CLI
 
@@ -143,7 +138,7 @@ Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 * [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 * [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
