@@ -6,14 +6,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: a1e74e9fd2f1ed5eec27d6ede9ba51a7ba93263d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cb9bc6dc21d043bfa2d5b278eec4d91494263515
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647525"
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Bibliothèques et frameworks de connectivité pour SQL Server
 
@@ -23,12 +24,12 @@ Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* 
 
 | Langage | Plateforme | Ressources supplémentaires | Download | Prise en main |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Démarrer](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Pilote Microsoft JDBC pour SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Télécharger](https://go.microsoft.com/fwlink/?linkid=852460) |  [Démarrer](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Système d’exploitation : <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Démarrer](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [Pilote Node.js pour SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installer](https://msdn.microsoft.com/library/mt652094.aspx) |  [Démarrer](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Pilote Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Démarrer](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) | [Démarrer](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Pilote Microsoft ODBC pour SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Télécharger](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 Le tableau suivant répertorie des exemples de frameworks de mappage relationnel objet (ORM) et de frameworks web que les applications clientes peuvent utiliser avec SQL Server exécuté localement ou dans le cloud. Vous pouvez utiliser les frameworks sur Linux, Windows ou Docker, pour vous connecter à SQL Database et SQL Data Warehouse. 
