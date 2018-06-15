@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195802"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Didacticiel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
