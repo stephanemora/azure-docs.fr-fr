@@ -1,30 +1,25 @@
 ---
 title: Messages cloud-à-appareil avec Azure IoT Hub (iOS) | Microsoft Docs
 description: Envoi de messages cloud-à-appareil vers un appareil depuis un Azure IoT Hub à l’aide des kits de développement logiciel Azure IoT pour iOS.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634276"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envoi de messages cloud à appareil avec IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
-Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. L’article [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)] explique comment créer un IoT Hub, y approvisionner une identité d’appareil et coder une application d’appareil simulé qui envoie des messages d’appareil-à-cloud.
+Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. L’article [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie depuis un appareil à un IoT Hub)] explique comment créer un IoT Hub, y approvisionner une identité d’appareil et coder une application d’appareil simulé qui envoie des messages d’appareil-à-cloud.
 
 Cet article vous montre comment procéder.
 
@@ -36,7 +31,7 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 À la fin de cet article, vous exécutez deux projets iOS Swift :
 
-* **sample-device**, la même application créée dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)], qui se connecte à votre IoT Hub et reçoit des messages cloud-à-appareil.
+* **sample-device**, la même application créée dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie depuis un appareil à un IoT Hub)], qui se connecte à votre IoT Hub et reçoit des messages cloud-à-appareil.
 * **sample-service**, qui envoie un message cloud-à-appareil à l’application d’appareil simulé par le biais d’IoT Hub, puis reçoit son accusé de réception.
 
 > [!NOTE]
@@ -54,7 +49,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 ## <a name="simulate-an-iot-device"></a>Simuler un appareil IoT
 Dans cette section, vous simulez un appareil iOS exécutant une application Swift pour recevoir des messages cloud-à-appareil provenant de l’Iot Hub. 
 
-Il s’agit de l’exemple d’appareil que vous créez dans l’article [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)]. Si vous avez déjà cet appareil, vous pouvez ignorer cette section.
+Il s’agit de l’exemple d’appareil que vous créez dans l’article [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie depuis un appareil à un IoT Hub)]. Si vous avez déjà cet appareil, vous pouvez ignorer cette section.
 
 ### <a name="install-cocoapods"></a>Installer les CocoaPods
 
@@ -168,7 +163,7 @@ Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-
 
 Pour voir des exemples de solutions de bout en bout qui utilisent IoT Hub, consultez [Accélérateur de solution de surveillance à distance Azure IoT].
 
-Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur IoT Hub].
+Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur d’IoT Hub].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
@@ -176,10 +171,10 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)]: quickstart-send-telemetry-ios.md
+[Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie depuis un appareil à un IoT Hub)]: quickstart-send-telemetry-ios.md
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[Guide du développeur IoT Hub]: iot-hub-devguide.md
+[Guide du développeur d’IoT Hub]: iot-hub-devguide.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md

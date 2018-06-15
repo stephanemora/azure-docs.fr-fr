@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837930"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Déploiement d’un service web Azure Machine Learning
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
@@ -26,8 +28,8 @@ Microsoft Azure Machine Learning vous permet de générer, tester et déployer 
 D'un point de vue très général, cela s'effectue en trois étapes :
 
 * **[Créez une expérience d'apprentissage]** : Azure Machine Learning Studio est un environnement de développement visuel collaboratif qui vous permet d'effectuer l'apprentissage et de tester un modèle d'analyse prédictive à l'aide de données d'apprentissage que vous fournissez.
-* **[Convertissez-la en expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
-* **[Déployez-la en tant que service web]** : vous pouvez déployer votre expérience prédictive sous la forme d’un [nouveau] service web Azure ou d’un service web Azure [classique]. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
+* **[Convertissez-la en une expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
+* **[Déployez-la en tant que service web]**  : vous pouvez déployer votre expérience prédictive sous la forme d’un [nouveau] service web Azure ou d’un service web Azure [classique]. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -183,7 +185,7 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 
 <!-- internal links -->
 [Créez une expérience d'apprentissage]: #create-a-training-experiment
-[Convertissez-la en expérience prédictive]: #convert-the-training-experiment-to-a-predictive-experiment.
+[Convertissez-la en une expérience prédictive]: #convert-the-training-experiment-to-a-predictive-experiment.
 [Déployez-la en tant que service web]: #deploy-it-as-a-web-service.
 [nouveau]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [classique]: #deploy-the-predictive-experiment-as-a-new-Web-service
