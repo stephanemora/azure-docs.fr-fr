@@ -1,6 +1,6 @@
 ---
-title: "Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement avec Azure Site Recovery | Microsoft Docs"
-description: "Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles dans un site local secondaire après un basculement Azure Site Recovery."
+title: Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement avec Azure Site Recovery | Microsoft Docs
+description: Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles dans un site local secondaire après un basculement Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378674"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement
 
@@ -125,7 +126,7 @@ Dans cet exemple, nous avons des adresses IP différentes entre le site principa
 ![Adresse IP différente - après le basculement](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Exécuter un basculement](hyper-v-vmm-failover-failback.md)
 

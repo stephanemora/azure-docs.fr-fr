@@ -1,12 +1,12 @@
 ---
-title: "Utiliser la boîte à outils Place de Marché pour créer et publier des éléments de Place de Marché | Microsoft Docs"
-description: "Découvrez comment créer rapidement des éléments de Place de Marché avec la boîte à outils de publication."
+title: Utiliser la boîte à outils Place de Marché pour créer et publier des éléments de Place de Marché | Microsoft Docs
+description: Découvrez comment créer rapidement des éléments de Place de Marché avec la boîte à outils de publication.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,12 +20,13 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386875"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Ajouter des éléments de Place de Marché à l’aide de l’outil de publication
 L’ajout de votre contenu à la [Place de Marché Azure Stack](azure-stack-marketplace.md) met vos solutions à disposition de vos locataires (et de vous-même) pour le déploiement.  La boîte à outils Place de Marché crée des fichiers de packages Place de Marché Azure (.azpkg) basés sur vos extensions de machine virtuelle ou vos modèles IaaS Azure Resource Manager.  Vous pouvez également utiliser la boîte à outils Place de Marché pour publier des fichiers .azpkg créés avec l’outil ou par le biais d’étapes [manuelles](azure-stack-create-and-publish-marketplace-item.md).  Cette rubrique vous montre comment télécharger l’outil, créer un élément de Place de Marché basé sur un modèle de machine virtuelle, puis publier cet élément sur la Place de Marché Azure Stack.     
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
  - Vous devez exécuter la boîte à outils sur l’hôte Azure Stack ou disposer d’une connectivité [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) à partir de l’ordinateur sur lequel vous exécutez l’outil.
 
  - Téléchargez les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) et effectuez leur extraction.

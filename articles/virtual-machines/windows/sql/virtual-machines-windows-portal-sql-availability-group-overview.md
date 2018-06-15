@@ -1,6 +1,6 @@
 ---
-title: "Groupes de disponibilité SQL Server - Machines virtuelles Azure - Vue d’ensemble | Microsoft Docs"
-description: "Cet article présente les groupes de disponibilité de SQL Server sur les machines virtuelles Azure."
+title: Groupes de disponibilité SQL Server - Machines virtuelles Azure - Vue d’ensemble | Microsoft Docs
+description: Cet article présente les groupes de disponibilité de SQL Server sur les machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396429"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Présentation des groupes de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure #
 
@@ -47,6 +48,6 @@ Vous pouvez également créer les machines virtuelles vous-même sans le modèle
 
 - [Créer un groupe de disponibilité AlwaysOn pour améliorer la disponibilité et la récupération d’urgence](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Configurer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles dans différentes régions](virtual-machines-windows-portal-sql-availability-group-dr.md).

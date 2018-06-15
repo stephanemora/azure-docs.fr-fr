@@ -1,12 +1,12 @@
 ---
-title: "Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack | Microsoft Docs"
-description: "Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack"
+title: Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack | Microsoft Docs
+description: Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388581"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -99,6 +100,6 @@ Dans les environnements de production, le rôle de serveur de fichiers fait face
 - Un cluster de serveur de fichiers
 - Un périphérique NAS (Network Attached Storage). Pour plus d’informations, consultez [Approvisionner un serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)

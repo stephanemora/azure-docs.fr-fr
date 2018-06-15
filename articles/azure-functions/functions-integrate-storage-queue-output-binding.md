@@ -1,12 +1,12 @@
 ---
-title: "Ajouter des messages à une file d’attente de Stockage Azure à l’aide d’Azure Functions | Microsoft Docs"
-description: "Utilisez Azure Functions pour créer une fonction sans serveur appelée par une requête HTTP et qui crée un message dans une file d’attente de Stockage Azure."
+title: Ajouter des messages à une file d’attente de Stockage Azure à l’aide d’Azure Functions | Microsoft Docs
+description: Utilisez Azure Functions pour créer une fonction sans serveur appelée par une requête HTTP et qui crée un message dans une file d’attente de Stockage Azure.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387062"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -28,7 +29,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mét
 
 ![Message de file d’attente affiché dans l’Explorateur Stockage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour effectuer ce démarrage rapide :
 
@@ -153,7 +154,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce démarrage rapide, vous avez ajouté une liaison de sortie à une fonction existante. Pour en savoir plus sur la liaison vers le stockage de files d’attente, consultez la page [Liaisons de file d’attente de stockage Azure Functions](functions-bindings-storage-queue.md). 
 

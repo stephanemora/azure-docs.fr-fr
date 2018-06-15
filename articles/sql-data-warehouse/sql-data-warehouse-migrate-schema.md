@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525163"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Migration de votre schéma vers SQL Data Warehouse
 Conseils pour la migration de vos schémas SQL vers SQL Data Warehouse. 

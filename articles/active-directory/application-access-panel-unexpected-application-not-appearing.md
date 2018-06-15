@@ -1,11 +1,11 @@
 ---
-title: "Une application affectée n’apparaît pas sur le volet d’accès | Microsoft Docs"
-description: "Identifier pourquoi une application n’apparaît pas sur le volet d’accès"
+title: Une application affectée n’apparaît pas sur le volet d’accès | Microsoft Docs
+description: Identifier pourquoi une application n’apparaît pas sur le volet d’accès
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384114"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Une application affectée n’apparaît pas sur le volet d’accès
 
@@ -667,6 +668,6 @@ Pour affecter une licence à un groupe, effectuez les étapes suivantes :
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-azure-portal.md)
 

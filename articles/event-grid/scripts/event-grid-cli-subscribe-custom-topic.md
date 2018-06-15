@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425873"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>S’inscrire aux événements d’une rubrique personnalisée avec Azure CLI
 

@@ -1,8 +1,8 @@
 ---
-title: "Mettre à l’échelle des déploiements Jenkins avec des agents de machines virtuelles Azure."
-description: "Dotez vos pipelines Jenkins d’une capacité supplémentaire en utilisant des machines virtuelles Azure avec le plug-in Jenkins Azure VM Agents."
+title: Mettre à l’échelle des déploiements Jenkins avec des agents de machines virtuelles Azure.
+description: Dotez vos pipelines Jenkins d’une capacité supplémentaire en utilisant des machines virtuelles Azure avec le plug-in Jenkins Azure VM Agents.
 services: multiple
-documentationcenter: 
+documentationcenter: ''
 author: rloutlaw
 manager: justhe
 ms.service: multiple
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29392638"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Mettre à l’échelle vos déploiements Jenkins pour répondre à la demande avec des agents de machines virtuelles Azure
 
@@ -142,7 +143,7 @@ Sélectionnez **Verify Template** (Vérifier le modèle) pour vérifier la confi
 
 ![Sortie de la console](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [CI/CD vers Azure App Service](java-deploy-webapp-tutorial.md)

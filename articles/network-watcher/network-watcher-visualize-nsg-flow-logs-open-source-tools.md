@@ -1,11 +1,11 @@
 ---
-title: "Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source | Microsoft Docs"
-description: "Cette page décrit comment utiliser des outils open source pour visualiser les journaux de flux NSG."
+title: Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source | Microsoft Docs
+description: Cette page décrit comment utiliser des outils open source pour visualiser les journaux de flux NSG.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394168"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 
@@ -241,7 +242,7 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 
 En combinant les journaux des flux de groupe de sécurité réseau avec la Suite Elastic, nous bénéficions d’une solution puissante et personnalisable permettant de visualiser le trafic de notre réseau. Ces tableaux de bord vous permettent d’obtenir et de partager rapidement des analyses sur le trafic de votre réseau, mais aussi de filtrer et d’examiner toute anomalie potentielle. Grâce à Kibana, vous pouvez adapter ces tableaux de bord et créer des visualisations spécifiques pour répondre à tous vos besoins en matière de sécurité, d’audit et de conformité.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualiser les journaux de flux NSG avec Power BI)
 

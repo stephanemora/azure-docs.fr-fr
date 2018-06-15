@@ -1,6 +1,6 @@
 ---
-title: "Exécuter une restauration automatique sur un site local pour les machines virtuelles Hyper-V | Microsoft Docs"
-description: "Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Découvrez comment effectuer une restauration automatique à partir d’Azure vers un centre de données local."
+title: Exécuter une restauration automatique sur un site local pour les machines virtuelles Hyper-V | Microsoft Docs
+description: Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Découvrez comment effectuer une restauration automatique à partir d’Azure vers un centre de données local.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466745"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Exécuter une restauration automatique pour les machines virtuelles Hyper-V
 
@@ -28,7 +29,7 @@ Après le basculement du site principal vers l’emplacement secondaire, les mac
 1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Planned Type de basculement**.
 2. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement.
 3. Si vous effectuez la restauration à partir de Microsoft Azure, sélectionnez différents paramètres dans la zone **Synchronisation des données**:
-    - **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)** : cette option minimise le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Elle effectue les étapes suivantes :
+    - **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)**  : cette option minimise le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Elle effectue les étapes suivantes :
         - Phase 1 : Un instantané de la machine virtuelle est créé dans Microsoft Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
         - Phase 2 : La machine virtuelle est arrêtée dans Microsoft Azure, afin de ne faire l’objet d’aucune nouvelle modification. Le jeu final de modifications d’ordre différentiel est transféré vers le serveur local ; la machine virtuelle locale est démarrée.
 

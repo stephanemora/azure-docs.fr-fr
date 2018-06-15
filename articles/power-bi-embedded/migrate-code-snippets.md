@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407712"
 ---
 # <a name="code-snippets-for-migrating-content-from-power-bi-workspace-collections"></a>Extraits de code pour la migration de contenu à partir des collections d’espaces de travail Power BI
 

@@ -1,11 +1,11 @@
 ---
-title: "Problème rencontré lors de l’utilisation de l’accès aux applications en libre-service | Microsoft Docs"
-description: "Résoudre les problèmes liés à l’accès aux applications en libre-service"
+title: Problème rencontré lors de l’utilisation de l’accès aux applications en libre-service | Microsoft Docs
+description: Résoudre les problèmes liés à l’accès aux applications en libre-service
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382353"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problème lié à l’accès aux applications en libre-service
 
@@ -95,5 +96,5 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
