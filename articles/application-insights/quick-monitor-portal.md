@@ -1,8 +1,8 @@
 ---
-title: "Surveiller votre application web ASP.NET avec Azure Application Insights | Microsoft Docs"
+title: Surveiller votre application web ASP.NET avec Azure Application Insights | Microsoft Docs
 description: Fournit des instructions pour configurer rapidement une application web ASP.NET pour la surveillance avec Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660547"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
