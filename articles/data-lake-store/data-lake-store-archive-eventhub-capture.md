@@ -9,20 +9,20 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624659"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Utiliser Azure Data Lake Store pour capturer des données Event Hubs
 
 Découvrez comment utiliser Azure Data Lake Store pour capturer les données reçues par Azure Event Hubs.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -57,12 +57,12 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     c. Sous **Affecter des autorisations**, cliquez sur **Sélectionner des autorisations**. Définissez **Autorisations** à **Exécuter**. Définissez **Ajouter à** sur **Ce dossier et tous ses enfants**. Définissez **Ajouter en tant que** sur **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut**.
 
-> [!IMPORTANT]
-> Lorsque vous créez une nouvelle hiérarchie de dossiers pour la capture des données reçues par Azure Event Hubs, cela permet d’accéder facilement au dossier de destination.  Toutefois, l’ajout d’autorisations à tous les enfants d’un dossier de niveau supérieur avec de nombreux fichiers et dossiers enfants peut prendre beaucoup de temps.  Si votre dossier racine contient un grand nombre de fichiers et dossiers, il peut être plus rapide d’ajouter des autorisations **Execute** pour `Microsoft.EventHubs` individuellement dans chaque dossier dans le chemin d’accès à votre dossier de destination finale. 
+    > [!IMPORTANT]
+    > Lorsque vous créez une nouvelle hiérarchie de dossiers pour la capture des données reçues par Azure Event Hubs, cela permet d’accéder facilement au dossier de destination.  Toutefois, l’ajout d’autorisations à tous les enfants d’un dossier de niveau supérieur avec de nombreux fichiers et dossiers enfants peut prendre beaucoup de temps.  Si votre dossier racine contient un grand nombre de fichiers et dossiers, il peut être plus rapide d’ajouter des autorisations **Execute** pour `Microsoft.EventHubs` individuellement dans chaque dossier dans le chemin d’accès à votre dossier de destination finale. 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![Affecter des autorisations pour la racine de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Affecter des autorisations pour la racine de Data Lake Store")
 
-    Click **OK**.
+    Cliquez sur **OK**.
 
 4. Affectez des autorisations pour le dossier situé dans le compte Data Lake Store où vous voulez capturer des données.
 

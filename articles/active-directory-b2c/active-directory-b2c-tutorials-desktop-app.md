@@ -2,18 +2,20 @@
 title: Didacticiel - Activer l’authentification d’application de bureau avec des comptes à l’aide d’Azure Active Directory B2C | Microsoft Docs
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application de bureau .NET.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: parja
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 2/28/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 86d8b105828bdb2a83eac24aebf227b9ae7615e2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: ff9cfd0f1f3d8ee62b7f93d88023b3dedce3e7be
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711730"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification d’application de bureau avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -29,7 +31,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Utiliser votre propre [locataire Azure AD B2C](active-directory-b2c-get-started.md)
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail **Développement Bureau .NET** et **Développement web et ASP.NET**.

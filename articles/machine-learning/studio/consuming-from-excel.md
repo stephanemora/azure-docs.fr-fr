@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: 2c415f62a8ef28b1dfe185fcd1543cd2c4a63138
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14621e50a397bc1f1922a4c8fae638d6b42ab8ba
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837063"
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.
  Microsoft Azure Machine Learning Studio permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.

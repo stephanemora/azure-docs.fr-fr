@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622762"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +35,6 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 Vous pouvez copier et coller les données d’un magasin de données PostgreSQL local dans tout magasin de données récepteur pris en charge. Consultez les [magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, les fabriques de données prennent en charge le déplacement des données d’une base de données PostgreSQL vers d’autres magasins de données, mais non l’inverse. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Le service Data Factory prend en charge la connexion à des sources PostgreSQL locales à l'aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle.
 
@@ -52,8 +52,8 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline : 
     - Portail Azure
-    - Visual Studio
-    - Azure PowerShell
+    - Visual Studio
+    - Azure PowerShell
     - Modèle Azure Resource Manager
     - API .NET
     - de l’API REST
@@ -76,7 +76,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Le type de propriété doit être défini sur : **OnPremisesPostgreSql** |OUI |
-| server |Nom du serveur PostgreSQL. |OUI |
+| serveur |Nom du serveur PostgreSQL. |OUI |
 | database |Nom de la base de données PostgreSQL. |OUI |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |

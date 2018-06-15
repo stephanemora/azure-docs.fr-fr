@@ -1,8 +1,8 @@
 ---
-title: "Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory | Microsoft Docs"
-description: "En savoir plus sur le rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory"
+title: Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory | Microsoft Docs
+description: En savoir plus sur le rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: rolyon
 manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -10,14 +10,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 11/14/2017
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dca87eef3026ef43c0548a73f1b071b56e410e90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9bc717aa6a9d1913409deccb639b34acbb4e105
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589710"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -55,12 +57,12 @@ Toutefois, le niveau de granularité d’un rapport varie entre les éditions :
 Le rapport sur les utilisateurs avec indicateur de risque dans les éditions gratuites et de base d’Azure Active Directory vous fournit une liste de comptes d’utilisateurs qui ont peut-être été compromis. 
 
 
-![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/03.png)
+![les connexions risquées.](./media/active-directory-reporting-security-user-at-risk/03.png)
 
 La sélection d’un utilisateur ouvre le panneau des données utilisateur correspondant.
 Vous pouvez vérifier l’historique des connexions d’un utilisateur à risque et réinitialiser son mot de passe, le cas échéant.
 
-![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/46.png)
+![les connexions risquées.](./media/active-directory-reporting-security-user-at-risk/46.png)
 
 
 Cette boîte de dialogue fournit une option permettant de :
@@ -69,7 +71,7 @@ Cette boîte de dialogue fournit une option permettant de :
 
 - Rechercher des utilisateurs
 
-![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/16.png)
+![les connexions risquées.](./media/active-directory-reporting-security-user-at-risk/16.png)
 
 
 ## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
@@ -85,7 +87,7 @@ Le rapport sur les utilisateurs avec indicateur de risque dans les éditions Pre
 - Une option pour configurer une [stratégie de résolution du risque utilisateur](active-directory-identityprotection.md#user-risk-security-policy)  
 
 
-![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/71.png)
+![les connexions risquées.](./media/active-directory-reporting-security-user-at-risk/71.png)
 
 Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport détaillé pour cet utilisateur qui vous permet d’effectuer les opérations suivantes :
 
@@ -98,13 +100,13 @@ Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport déta
 - Analysez les événements à risque signalés pour l’utilisateur. 
 
 
-![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/324.png)
+![les connexions risquées.](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
 Pour analyser un événement à risque, sélectionnez-en un depuis la liste pour ouvrir le panneau **Détails** de cet événement à risque. Dans le panneau **Détails**, vous avez le choix entre [fermer manuelle un événement à risque](active-directory-identityprotection.md#closing-risk-events-manually) ou réactiver un événement à risque fermé manuellement. 
 
 
-![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/325.png)
+![les connexions risquées.](./media/active-directory-reporting-security-user-at-risk/325.png)
 
 
 

@@ -1,26 +1,21 @@
 ---
-title: "Récupérer des fichiers à partir d’Azure vers un serveur Windows Server | Microsoft Docs"
-description: "Ce didacticiel détaille les éléments de récupération d’Azure vers un serveur Windows Server."
+title: Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
+description: Ce didacticiel détaille les éléments de récupération d’Azure vers un serveur Windows Server.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-keywords: "sauvegarde windows server;restaurer des fichiers windows server;sauvegarde et récupération d’urgence"
-ms.assetid: 
+keywords: sauvegarde windows server;restaurer des fichiers windows server;sauvegarde et récupération d’urgence
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607019"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
 

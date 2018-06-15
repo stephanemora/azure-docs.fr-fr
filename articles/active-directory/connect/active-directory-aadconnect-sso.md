@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11a04d40a403231db728d6bf0caade5969bba84d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593657"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -28,7 +30,7 @@ L’authentification unique transparente Azure Active Directory connecte automat
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-L’authentification unique transparente peut être combinée avec la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) et [l’authentification directe](active-directory-aadconnect-pass-through-authentication.md).
+L’authentification unique transparente peut être combinée avec la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) et [l’authentification directe](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Authentification unique transparente](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +44,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
   - Les utilisateurs n’ont pas à saisir leur mot de passe plusieurs fois.
 - *Facile à déployer et à gérer*
   - Aucun composant local supplémentaire n’est nécessaire pour que cela fonctionne.
-  - Fonctionne avec n’importe quelle méthode d’authentification cloud - [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Authentification directe](active-directory-aadconnect-pass-through-authentication.md).
+  - Fonctionne avec n’importe quelle méthode d’authentification cloud - [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou [Authentification directe](active-directory-aadconnect-pass-through-authentication.md).
   - Peut être déployée pour certains utilisateurs ou pour l’ensemble de vos utilisateurs à l’aide d’une stratégie de groupe.
   - Inscrivez des appareils non-Windows 10 auprès d’Azure AD sans avoir besoin d’une infrastructure AD FS. Cette fonctionnalité exige que vous utilisiez la version 2.1 ou supérieure du [client workplace-join](https://www.microsoft.com/download/details.aspx?id=53554).
 

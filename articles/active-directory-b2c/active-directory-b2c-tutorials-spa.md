@@ -2,18 +2,20 @@
 title: Didacticiel - Activer l’authentification d’application à page unique avec des comptes à l’aide d’Azure Active Directory B2C | Microsoft Docs
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application à page unique (JavaScript).
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: paraj
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 9f5f98ae5798cabd90c453221fe36f17052f77aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712519"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Activer l’authentification d’application à page unique avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -30,10 +32,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Utiliser votre propre [locataire Azure AD B2C](active-directory-b2c-get-started.md)
 * Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
-* [Kit de développement logiciel (SDK) NET Core 2.0.0](https://www.microsoft.com/net/core) ou ultérieur
+* [Kit de développement logiciel (SDK) .NET Core 2.0.0](https://www.microsoft.com/net/core) ou version ultérieure
 * Installez [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Inscrire une application à page unique
@@ -137,7 +138,7 @@ L’exemple d’application montre comment une application à page unique peut u
 
 Pour modifier les paramètres d’application :
 
-1. Ouvrez le fichier `index.html` dans l’exemple d’application à page unique Node.js.
+1. Ouvrez le fichier `index.html` dans l’exemple d’application monopage Node.js.
 2. Configurez l’exemple avec les informations d’inscription des locataires Azure AD B2C. Modifiez les lignes de code suivantes :
 
     ```javascript
@@ -162,7 +163,7 @@ Pour modifier les paramètres d’application :
     node server.js
     ```
 
-    La fenêtre de console affiche le numéro de port de l’emplacement sur lequel l’application est hébergée.
+    La fenêtre de console affiche le numéro de port sur lequel l’application est hébergée.
     
     ```
     Listening on port 6420...
@@ -174,7 +175,7 @@ L’exemple d’application prend en charge l’inscription et la connexion des 
 
 ### <a name="sign-up-using-an-email-address"></a>S’inscrire au moyen d’une adresse e-mail
 
-1. Cliquez sur **Connexion** pour vous inscrire en tant qu’utilisateur de l’application SPA. Cette méthode utilise la stratégie **B2C_1_SiUpIn** que vous avez définie dans une étape précédente.
+1. Cliquez sur **Connexion** pour vous inscrire en tant qu’utilisateur de l’application SPA. Cette méthode utilise la stratégie **B2C_1_SiUpIn** que vous avez définie à l’étape précédente.
 
 2. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Si vous ne possédez pas encore de compte, cliquez sur le lien **Inscrivez-vous maintenant**. 
 

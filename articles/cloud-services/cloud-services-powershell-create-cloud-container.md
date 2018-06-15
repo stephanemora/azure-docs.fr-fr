@@ -1,11 +1,11 @@
 ---
-title: "Créer un conteneur de service cloud avec PowerShell | Microsoft Docs"
-description: "Cet article explique comment créer un conteneur de service cloud avec PowerShell. Le conteneur héberge les rôles Web et de travail."
+title: Créer un conteneur de service cloud avec PowerShell | Microsoft Docs
+description: Cet article explique comment créer un conteneur de service cloud avec PowerShell. Le conteneur héberge les rôles Web et de travail.
 services: cloud-services
 documentationcenter: .net
 author: cawaMS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29376131"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Utiliser une commande Azure PowerShell pour créer un conteneur de service cloud vide
 Cet article explique comment créer rapidement un conteneur Cloud Services à l’aide d’applets de commande Azure PowerShell. Procédez comme suit :
@@ -49,6 +50,6 @@ Pour plus d’informations sur la création du service cloud Azure, exécutez :
 Get-help New-AzureService
 ```
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>étapes suivantes
 * Pour gérer le déploiement du service cloud, reportez-vous aux rubriques relatives aux commandes [Get-AzureService](/powershell/module/Azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/Azure/Remove-AzureService?view=azuresmps-4.0.0) et [Set-AzureService](/powershell/module/azure/set-azureservice?view=azuresmps-4.0.0). Pour plus d’informations, vous pouvez également consulter l’article [Configuration des services cloud](cloud-services-how-to-configure-portal.md) .
 * Pour publier votre projet de service cloud dans Azure, consultez l’exemple de code **PublishCloudService.ps1** issu du [référentiel de services cloud archivé](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

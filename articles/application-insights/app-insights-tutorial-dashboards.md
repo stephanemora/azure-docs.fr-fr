@@ -1,7 +1,7 @@
 ---
-title: "Créer des tableaux de bord personnalisés dans Azure Application Insights | Microsoft Docs"
-description: "Didacticiel concernant la création de tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights."
-keywords: 
+title: Créer des tableaux de bord personnalisés dans Azure Application Insights | Microsoft Docs
+description: Didacticiel concernant la création de tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29178190"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -162,7 +163,7 @@ Azure Application Insights Analytics étant un service distinct, vous devez part
 5. Cliquez sur **Publier les modifications** pour valider les modifications apportées à votre tableau de bord qui comprend désormais une série de graphiques et de visualisations d’Application Insights.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 À présent que vous avez appris à créer des tableaux de bord personnalisés, jetez un coup d’œil au reste de la documentation d’Application Insights, notamment à une étude de cas.
 
 > [!div class="nextstepaction"]
