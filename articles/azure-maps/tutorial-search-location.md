@@ -1,22 +1,20 @@
 ---
 title: Rechercher avec Azure Maps | Microsoft Docs
 description: Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a4479ceebd4c8aad477b5f13a5bcc06d24c1202d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4a414b5b865d31dd99b54ef9693abafb5490a50f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601783"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -40,9 +38,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 Créez un compte Maps en suivant la procédure suivante :
 
 1. En haut à gauche du [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource**.
-2. Dans la zone *Rechercher dans le marketplace*, saisissez **Maps**.
+2. Dans la zone *Rechercher sur la Place de marché*, tapez **Maps**.
 3. Dans les *Résultats*, sélectionnez **Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte. 
-4. Sur la page **Create Maps Account** (Créer un compte Maps), saisissez les valeurs suivantes :
+4. Sur la page **Créer un compte Maps**, entrez les valeurs suivantes :
     - Le *Nom* de votre nouveau compte. 
     - *L’Abonnement* à utiliser pour ce compte.
     - Le *Groupe de ressources* pour ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant*.
@@ -50,7 +48,7 @@ Créez un compte Maps en suivant la procédure suivante :
     - Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions. 
     - Cliquez sur le bouton **Créer** .
    
-    ![Créer un compte Maps dans le portail](./media/tutorial-search-location/create-account.png)
+    ![Créer un compte Maps sur le Portail](./media/tutorial-search-location/create-account.png)
 
 
 <a id="getkey"></a>

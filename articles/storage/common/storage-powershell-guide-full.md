@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652499"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -214,7 +215,7 @@ Maintenant que vous savez comment gérer votre compte de stockage avec PowerShel
 * [Comment gérer les objets Blob avec PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Comment gérer les fichiers avec PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Comment gérer les files d’attente avec PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Effectuer des opérations sur Stockage Table Azure avec PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Effectuer des opérations sur Stockage Table Azure avec PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 L’API Table Azure Cosmos DB fournit des fonctionnalités premium pour le stockage des tables, telles que la distribution globale clé en main, les opérations de lecture et d’écriture à faible latence, l’indexation secondaire automatique et un débit dédié. 
 

@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: adegeo
-ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b5d706f82dd41f0c271aa5f67676bba08cceb3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011313"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608591"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
@@ -30,7 +30,6 @@ Voici une capture d’écran de l’application terminée :
 ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]  
 
 ## <a name="prerequisites"></a>Prérequis
-
 Assurez-vous que les versions et les produits suivants sont installés pour mener à bien l'exemple dans cet article :
 
 * Installez [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -153,9 +152,9 @@ Votre application s'exécute à présent dans Azure, et peut transmettre des mes
 ## <a name="next-steps"></a>Étapes suivantes
 Ce didacticiel vous a montré comment créer une application de conversation instantanée de base, hébergée dans un service cloud Azure. Pour plus d’informations sur l’hébergement de cette application sur un site web Azure, consultez la page [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][chatwebsite].
 
-Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js](/develop/nodejs/).
+Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

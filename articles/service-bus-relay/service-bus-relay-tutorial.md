@@ -1,11 +1,11 @@
 ---
 title: Didacticiel Azure Service Bus WCF Relay | Microsoft Docs
-description: "Créez une application cliente et un service à l’aide de WCF Relay."
+description: Créez une application cliente et un service à l’aide de WCF Relay.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642306"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Didacticiel Azure WCF Relay
 
-Ce didacticiel vous montre comment créer une application cliente et un service WCF Relay simples à l’aide d’Azure Relay. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Ce didacticiel vous montre comment créer une application cliente et un service WCF Relay simples à l’aide d’Azure Relay. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Ce didacticiel vous offre une présentation des étapes requises pour créer une application cliente et une application de service WCF Relay. À l’instar de leurs homologues WCF d’origine, un service est une construction qui expose un ou plusieurs points de terminaison, chacun d’entre eux exposant une ou plusieurs opérations de service. Le point de terminaison de service spécifie une adresse où le service peut être trouvé, une liaison contenant les informations qu’un client doit communiquer avec le service et le contrat qui définit la fonctionnalité fournie par le service à ses clients. La principale différence entre WCF et WCF Relay est que le point de terminaison est exposé dans le cloud et non localement sur votre ordinateur.
 
@@ -30,7 +31,7 @@ Lorsque vous avez exécuté la suite des rubriques présentes dans ce tutoriel, 
 
 Les trois dernières étapes expliquent comment créer une application cliente, la configurer et créer et utiliser un client pouvant accéder à la fonctionnalité de l’hôte.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
@@ -98,7 +99,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
     Un canal est l’objet WCF par le biais duquel l’hôte et le client se transmettent des informations. Par la suite , vous allez écrire du code par rapport au canal pour reprendre les informations entre les deux applications.
 10. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur **Ctrl+Maj+B** pour confirmer que votre travail est correct jusqu’à présent.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Le code suivant montre une interface de base qui définit un contrat WCF Relay.
 
@@ -192,7 +193,7 @@ La création d’un relais Azure nécessite la création au préalable du contra
     Le point de terminaison définit l’emplacement où le client recherchera l’application hôte. Plus tard, le didacticiel utilise cette étape pour créer une URI qui expose entièrement l’hôte via Azure Relay. La liaison déclare que nous utilisons TCP comme protocole pour communiquer avec le service de relais.
 7. Dans le menu **Générer**, cliquez sur **Générer la solution** pour confirmer que votre travail est correct.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Le code suivant illustre l’implémentation du contrat de service.
 
@@ -327,7 +328,7 @@ Pour ce didacticiel, l’URI est `sb://putServiceNamespaceHere.windows.net/EchoS
     ```
 4. Appuyez sur **Ctrl+Maj+B** pour générer le projet.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Une fois terminé, votre code de service doit se présenter ainsi. Il comprend le contrat de service et l’implémentation des étapes précédentes du didacticiel, et héberge le service dans une application console.
 
@@ -439,7 +440,7 @@ L’étape suivante consiste à créer une application cliente et à définir le
     ```
 7. Appuyez sur **Ctrl+Maj+B** pour générer le client.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Le code suivant montre l’état actuel du fichier Program.cs dans le projet **EchoClient**.
 
@@ -500,7 +501,7 @@ Dans cette étape, vous allez créer une application cliente de base qui accède
     Cette étape définit le nom du point de terminaison, le contrat défini dans le service et le fait que l’application cliente utilise TCP pour communiquer avec Azure Relay. Le nom de point de terminaison est utilisé dans l’étape suivante pour associer cette configuration de point de terminaison à l’URI de service.
 5. Cliquez sur **Fichier**, puis sur **Tout enregistrer**.
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Le code suivant montre le fichier App.config correspondant au client Echo.
 
@@ -606,7 +607,7 @@ Toutefois, une des principales différences réside dans le fait que l’applica
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Une fois terminé, votre code doit se présenter ainsi : il montre comment créer une application client, comment appeler les opérations du service et comment fermer le client une fois l’appel d’opération terminé.
 
@@ -714,11 +715,11 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a montré comment créer une application cliente et un service Azure Relay à l’aide des fonctionnalités WCF Relay de Service Bus. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Ce didacticiel vous a montré comment créer une application cliente et un service Azure Relay à l’aide des fonctionnalités WCF Relay de Service Bus. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Pour en savoir plus sur Azure Relay, consultez les rubriques suivantes.
 
-* [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Présentation de l’architecture d’Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Vue d’ensemble d’Azure Relay](relay-what-is-it.md)
 * [Guide pratique pour utiliser le service WCF Relay avec .NET](relay-wcf-dotnet-get-started.md)
 

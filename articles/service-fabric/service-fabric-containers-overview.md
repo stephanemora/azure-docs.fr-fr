@@ -12,22 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
-ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641909"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
-> [!NOTE]
-> Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 ou avec Docker CE n’est pas pris en charge. 
->   
-
-> [!NOTE]
-> Service Fabric version 6.1 prend en charge la version préliminaire de Windows Server version 1709. La mise en réseau ouvert et le service DNS dans Service Fabric ne fonctionnent pas avec Windows Server version 1709. 
-> 
 
 ## <a name="introduction"></a>Introduction
 Azure Service Fabric est un [orchestrateur](service-fabric-cluster-resource-manager-introduction.md) de services sur un cluster de machines. Il profite des nombreuses années d’expérience de Microsoft en matière d’utilisation et d’optimisation de services à très grande échelle. Les services peuvent être développés de nombreuses façons, via des [modèles de programmation de Service Fabric](service-fabric-choose-framework.md) ou via le déploiement [d’exécutables invités](service-fabric-guest-executables-introduction.md). Par défaut, Service Fabric déploie et active ces services en tant que processus. Ces processus assurent l’activation la plus rapide et offrent la densité la plus élevée en matière de ressources dans un cluster. Service Fabric peut également déployer des services dans les images de conteneur. Important : dans les conteneurs, vous pouvez combiner des processus et des services au sein de la même application.   
@@ -44,10 +38,6 @@ La technologie d’un conteneur virtualise le système d’exploitation sous-jac
 
 ## <a name="container-types-and-supported-environments"></a>Types de conteneurs et environnements pris en charge
 Service Fabric prend en charge les conteneurs à la fois sur Linux et Windows, et prend également en charge le mode d’isolation Hyper-V sur ce dernier. 
-
-> [!NOTE]
-> Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 n’est pas pris en charge actuellement. 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Conteneurs Docker sur Linux
 Docker fournit des API de haut niveau pour créer et gérer des conteneurs en plus des conteneurs du noyau Linux. Docker Hub est un référentiel central permettant de stocker et de récupérer des images de conteneur.

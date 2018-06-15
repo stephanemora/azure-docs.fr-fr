@@ -3,16 +3,17 @@ title: 'Leçon 8 du didacticiel Azure Analysis Services : Créer des perspective
 description: Explique comment créer des perspectives dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bb6599fefaa03e2ca0fec2788dca27240dbad8c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 865959a5595de7b5ac65a9915e484182a820b5b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598706"
 ---
 # <a name="create-perspectives"></a>Créer des perspectives
 
@@ -24,8 +25,7 @@ L’objectif de cette leçon est de décrire comment créer des perspectives et 
   
 Durée estimée pour suivre cette leçon : **5 minutes**  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 7 : Créer des indicateurs de performance clés](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Créer des perspectives  
