@@ -18,6 +18,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323302"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -276,7 +277,7 @@ Nous allons ensuite regrouper et filtrer les données de journal pour rechercher
 1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Group (Grouper)**.
 2. Effectuez ensuite un regroupement sur la colonne **ClientRequestId** . Vous pouvez constater que les données dans la grille d'analyse sont désormais organisées par code d'état et par ID de demande client.
 3. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)**, puis **View Filter (Filtre d’affichage)**.
-4. Pour filtrer les données de journal de manière à n’afficher que les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **View Filter (Filtre d’affichage)**, puis cliquez sur **Apply (Appliquer)** :
+4. Pour filtrer les données de journal de manière à n’afficher que les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **View Filter (Filtre d’affichage)**, puis cliquez sur **Apply (Appliquer)**  :
 
     ```   
     (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)

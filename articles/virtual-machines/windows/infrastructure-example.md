@@ -21,6 +21,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809867"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Windows
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -53,7 +54,7 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
   * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement
-* Les réseaux virtuels utilisent AZOS-USE-VN**[numéro]**
+* Les réseaux virtuels utilisent AZOS-USE-VN **[numéro]**
 * Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
 * Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
 

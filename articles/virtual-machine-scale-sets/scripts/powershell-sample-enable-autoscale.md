@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246353"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec PowerShell
 Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016 et utilise des métriques basées sur l’hôte pour mettre à l’échelle automatiquement tandis que la charge du processeur change.

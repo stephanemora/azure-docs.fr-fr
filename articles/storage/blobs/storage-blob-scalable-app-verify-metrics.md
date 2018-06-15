@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30237499"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Vérifier les métriques de débit et de latence d’un compte de stockage
 

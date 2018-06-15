@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33870020"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Déploiement rapide de la réinitialisation de mot de passe en libre-service Azure AD
 

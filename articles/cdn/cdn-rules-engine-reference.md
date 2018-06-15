@@ -1,11 +1,11 @@
 ---
-title: "Référence du moteur de règles Azure CDN | Microsoft Docs"
-description: "Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN."
+title: Référence du moteur de règles Azure CDN | Microsoft Docs
+description: Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733677"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Référence du moteur de règles Azure CDN
 Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).

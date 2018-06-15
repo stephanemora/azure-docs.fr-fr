@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30231274"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction de script C# est créée selon un modèle de déclencheur du minuteur prédéfini dans le Portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
