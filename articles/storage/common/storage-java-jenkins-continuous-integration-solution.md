@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins | Microsoft Docs"
-description: "Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins."
+title: Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins | Microsoft Docs
+description: Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060064"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins
 ## <a name="overview"></a>Vue d'ensemble
@@ -134,7 +135,7 @@ Après avoir exécuté une build, vous pouvez vérifier la sortie de la console 
 ## <a name="components-used-by-the-blob-service"></a>Composants utilisés par le service BLOB
 La section suivante présente les composants du service BLOB.
 
-* **Compte de stockage :**tout accès au stockage Azure s'effectue via un compte de stockage. Il s'agit du plus haut niveau d'espace de noms permettant d'accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
+* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Il s'agit du plus haut niveau d'espace de noms permettant d'accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
 * **Conteneur**: conteneur regroupant un ensemble d’objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob.
 * **Objet blob**: fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d’objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d’octets dans un fichier sont modifiées fréquemment. Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Format d'URL**: les objets blob sont adressables à l'aide du format d'URL suivant :

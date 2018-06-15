@@ -1,19 +1,19 @@
 ---
-title: "Sécurité dans Azure IoT Edge | Microsoft Docs"
-description: "Sécurité, authentification et autorisation des appareils IoT Edge"
-services: iot-edge
-keywords: 
+title: Sécurité dans Azure IoT Edge | Microsoft Docs
+description: Sécurité, authentification et autorisation des appareils IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631426"
 ---
 # <a name="securing-azure-iot-edge---preview"></a>Sécurisation d’Azure IoT Edge - préversion
 
@@ -36,7 +36,7 @@ Une connaissance sans faille des acteurs, appareils et composants qui participen
 
 L’infrastructure de sécurité Azure IoT Edge exige des identités de certificats uniques pour tous les appareils, modules (conteneurs qui encapsulent la logique au sein de l’appareil) et acteurs qui interagissent avec l’appareil Azure IoT Edge, que ce soit physiquement ou par le biais d’une connexion réseau.  Tous les scénarios ou composants ne se prêtent pas nécessairement à l’authentification basée sur certificat, que l’extensibilité de l’infrastructure de sécurité gère de manière sécurisée. 
 
-## <a name="authorization"></a>Autorisation
+## <a name="authorization"></a>Authorization
 
 La capacité à déléguer l’autorité et à contrôler l’accès est cruciale si l’on souhaite bénéficier d’un principe de sécurité fondamental : le principe du moindre privilège.  Les appareils, modules et acteurs peuvent accéder uniquement aux ressources et aux données qui se trouvent dans leur étendue d’autorisation, et uniquement quand l’architecture l’autorise.  Cela signifie que certaines autorisations sont configurables avec des privilèges suffisants, et que d’autres sont appliquées de manière architecturale.  Par exemple, alors qu’un module peut être autorisé par une configuration privilégiée à établir une connexion à Azure IoT Hub, il n’y a aucune raison pour laquelle un module dans un appareil Azure IoT Edge doit accéder au jumeau d’un module dans un autre appareil Azure IoT Edge.  Pour cette raison, ce dernier serait exclu de manière architecturale. 
 
