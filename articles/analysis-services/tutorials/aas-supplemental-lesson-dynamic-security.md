@@ -3,16 +3,17 @@ title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Sécuri
 description: Explique comment utiliser la sécurité dynamique à l’aide de filtres de lignes dans le didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5084bb0785e22a4b38f7f80f4c3b29a0ad92dadb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a9a6c36863f7e30c803eecfe793c879d72eb249
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596938"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Leçon supplémentaire – Sécurité dynamique
 
@@ -26,8 +27,7 @@ Les tâches qui sont propres à ce scénario de modèle tabulaire Adventure Work
   
 Durée estimée pour suivre cette leçon : **30 minutes**  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Cette rubrique de leçon supplémentaire fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon supplémentaire, vous devez avoir suivi toutes les leçons précédentes.  
   
 ## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>Ajouter la table DimSalesTerritory au projet de modèle tabulaire AW Internet Sales  

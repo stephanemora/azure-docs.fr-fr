@@ -3,16 +3,17 @@ title: Sources de données prises en charge par Azure Analysis Services | Micro
 description: Décrit les sources de données prises en charge pour les modèles de données dans Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595629"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -22,7 +23,7 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 
 |Source de données  |En mémoire  |DirectQuery  |
 |---------|---------|---------|
-|Base de données SQL Azure     |   OUI      |    OUI      |
+|Azure SQL Database     |   OUI      |    OUI      |
 |Azure SQL Data Warehouse     |   OUI      |   OUI       |
 |Stockage Blob Azure*     |   OUI       |    Non       |
 |Stockage de tables Azure*    |   OUI       |    Non       |

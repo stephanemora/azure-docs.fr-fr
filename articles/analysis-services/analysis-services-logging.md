@@ -3,16 +3,17 @@ title: Journalisation des diagnostics pour Azure Analysis Services | Microsoft D
 description: En savoir plus sur la configuration de journalisation des diagnostics pour Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0baeca982cc19d327a58b7223555f2afcb4c35e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596717"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
@@ -194,7 +195,6 @@ Pour plus d’informations sur l’utilisation du nouveau langage de requête Re
 Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Ensuite, vous utilisez la requête Set-AzureRmDiagnosticSetting pour activer la journalisation des diagnostics et envoyer la sortie au nouveau compte de stockage.
 
 ### <a name="prerequisites"></a>Prérequis
-
 Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un serveur Azure Analysis Services. Pour plus d’informations sur la création d’une ressource du serveur, consultez [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md) ou [Créer un serveur Azure Analysis Services à l’aide de PowerShell](analysis-services-create-powershell.md).

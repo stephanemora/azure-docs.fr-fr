@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 1e3ecd27ce7ec2e2763a7249428875e51872bf63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6c352298c701c827cd01c0ed7f427b7ed6015e29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646675"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
 
@@ -87,7 +88,7 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
     - **Application autonome :** serveurs avec des clients individuels (ex. *contosoconcerthall-&lt;Utilisateur&gt;.database.windows.net*) 
     - **Base de données par client :** *tenants1-dpt-&lt;Utilisateur&gt;.database.windows.net*
     - **Base de données mutualisée :** *tenants1-mt-&lt;Utilisateur&gt;.database.windows.net* 
-2. Cliquez sur **Connexion** > **Moteur de base de données...** :
+2. Cliquez sur **Connexion** > **Moteur de base de données...**  :
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

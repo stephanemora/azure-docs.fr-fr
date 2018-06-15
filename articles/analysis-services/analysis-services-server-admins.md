@@ -3,16 +3,17 @@ title: Gérer les administrateurs de serveur dans Azure Analysis Services | Micr
 description: Apprenez à gérer des administrateurs de serveur pour un serveur Analysis Services dans Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59aaf07edf387d40f47d7d82dcb116802a003dc1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596166"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 Un administrateur de serveur doit être un utilisateur ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le client disposant du serveur. Pour gérer les administrateurs de serveur, vous pouvez utiliser les **Administrateurs Analysis Services** pour votre serveur dans le portail Azure, ou Propriétés du serveur dans SQL Server Management Studio (SSMS). 

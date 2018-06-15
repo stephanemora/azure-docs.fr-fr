@@ -7,14 +7,15 @@ manager: craigg
 author: tmullaney
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: thmullan
-ms.openlocfilehash: 151a21a60b6205ca9a454faaaeff65330d9b57ec
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645808"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
@@ -35,7 +36,6 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 ## <a name="download-the-sample-project"></a>Téléchargement de l’exemple de projet
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 - Exécuter Visual Studio version 2012 ou plus 
 - Créer trois bases de données SQL Microsoft Azure 

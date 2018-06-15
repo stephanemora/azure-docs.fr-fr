@@ -1,25 +1,20 @@
 ---
-title: "Modèle de données pour la sauvegarde Azure"
-description: "Cet article présente des informations détaillées sur le modèle de données Power BI pour les rapports de sauvegarde Azure."
+title: Modèle de données pour la sauvegarde Azure
+description: Cet article présente des informations détaillées sur le modèle de données Power BI pour les rapports de sauvegarde Azure.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17e011452f9b87c1201cea12f394a9cdd18e54b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606220"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modèle de données pour les rapports de sauvegarde Azure
 Cet article décrit le modèle de données Power BI utilisé pour créer des rapports de sauvegarde Azure. À l’aide de ce modèle de données, vous pouvez filtrer les rapports existants sur les champs appropriés et surtout, créer vos propres rapports en utilisant des tables et des champs du modèle. 
@@ -155,7 +150,7 @@ Ce tableau fournit les champs de base et les agrégations des différents champs
 | ProtectedServerName |Texte |Nom du serveur protégé auquel l’élément de sauvegarde appartient |
 | RegisteredContainerId |Texte |ID du conteneur inscrit pour la sauvegarde |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Stockage
 Ce tableau fournit les champs de base et les agrégations des différents champs liés au stockage.
 
 | Champ | Type de données | Description |

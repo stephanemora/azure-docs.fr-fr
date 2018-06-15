@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140080"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588860"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
@@ -203,7 +203,6 @@ Dans les exemples, vous pouvez apprendre à :
 * Gérer une stratégie avancée
 
 ### <a name="prerequisites"></a>Prérequis
-
 Dans les exemples suivants, vous allez créer, mettre à jour, lier et supprimer des stratégies pour les applications, les principaux de service et votre organisation globale. Si vous débutez avec Azure AD, nous vous recommandons de vous documenter sur [l’obtention d’un client Azure Active Directory](active-directory-howto-tenant.md) avant de continuer avec ces exemples.  
 
 Pour commencer, suivez les étapes ci-dessous :
@@ -280,7 +279,7 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
 
 2.  Affectez la stratégie au principal de service. Vous devez également obtenir **l’ID d’objet** de votre principal de service. 
 
-    1.  Pour afficher tous les principaux de service de votre organisation, vous pouvez interroger [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez par ailleurs effectuer des tests dans [l’Afficheur Azure AD Graph](https://graphexplorer.cloudapp.net/) et [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) avec votre compte Azure AD.
+    1.  Pour afficher tous les principaux de service de votre organisation, vous pouvez interroger [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez par ailleurs effectuer des tests dans [l’Afficheur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) avec votre compte Azure AD.
 
     2.  Une fois que vous disposez de **l’ID d’objet**  de votre principal de service, exécutez la commande suivante :
 
