@@ -1,23 +1,20 @@
 ---
 title: Vue d’ensemble d’Azure Maps | Microsoft Docs
 description: Présentation d’Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193949"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600059"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Présentation d’Azure Maps
 Azure Maps est un portefeuille de services géospatiaux comprenant différentes API de services : cartes, recherche, création d’itinéraires, trafic et fuseaux horaires. Le portefeuille de services vous permet d’utiliser vos outils habituels pour développer et mettre à l’échelle rapidement des solutions Azure intégrant des informations de localisation. Azure Maps offre aux développeurs de tous les secteurs de puissantes fonctionnalités géospatiales, avec les données de cartographie actualisées nécessaires pour fournir un contexte géographique à des applications mobiles et web. Cet ensemble d’API REST s’accompagne d’un contrôle JavaScript web, qui garantit un développement simplifié, flexible et portable sur plusieurs supports. 

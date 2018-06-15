@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622310"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -102,8 +103,8 @@ Une **unité de déplacement de données cloud** est une mesure qui représente 
 
 | Scénario de copie | Unités de déplacement de données cloud par défaut déterminées par le service |
 |:--- |:--- |
-| Copie de données entre des magasins basés sur des fichiers | Entre 2 et 16 selon le nombre et la taille des fichiers. |
-| Tous les autres scénarios de copie | 2 |
+| Copie de données entre des magasins basés sur des fichiers | Entre 4 et 16 selon le nombre et la taille des fichiers. |
+| Tous les autres scénarios de copie | 4 |
 
 Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
 
@@ -368,15 +369,15 @@ Si la taille des données à copier est importante, vous pouvez ajuster votre lo
 Faites attention au nombre de jeux de données et d’activités de copie nécessitant que Data Factory se connecte à la même banque de données en même temps. De nombreux travaux de copie simultanés peuvent limiter une banque de données, et entraîner une dégradation des performances, une multiplication des tentatives internes de travail de copie et, dans certains cas, des échecs d’exécution.
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exemple de scénario : copie depuis un SQL Server local pour le stockage Blob
-**Scénario :**un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
+**Scénario :** un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
 
-**Test et analyse :**le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
+**Test et analyse :** le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
 
-**Analyse des performances et réglage :**pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
+**Analyse des performances et réglage :** pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
 
-1. **Lecture des données :**la passerelle ouvre la connexion à SQL Server et envoie la requête. SQL Server répond en envoyant le flux de données à la passerelle via l’intranet.
+1. **Lecture des données :** la passerelle ouvre la connexion à SQL Server et envoie la requête. SQL Server répond en envoyant le flux de données à la passerelle via l’intranet.
 2. **Sérialiser et compresser les données**: la passerelle sérialise le flux de données au format CSV, et compresse les données dans un flux bzip2.
-3. **Écriture des données :**la passerelle charge le flux bzip2 vers le stockage Blob via Internet.
+3. **Écriture des données :** la passerelle charge le flux bzip2 vers le stockage Blob via Internet.
 
 Comme vous pouvez le voir, les données sont traitées et déplacées de manière séquentielle en continu : SQL Server > LAN > Passerelle > WAN > Stockage Blob. **Les performances globales sont contrôlées par le débit minimum sur le pipeline**.
 
@@ -384,11 +385,11 @@ Comme vous pouvez le voir, les données sont traitées et déplacées de manièr
 
 Un ou plusieurs des facteurs suivants peuvent entraîner un goulot d’étranglement des performances :
 
-* **Source :**SQL Server offre lui-même un faible débit en raison des charges lourdes.
+* **Source :** SQL Server offre lui-même un faible débit en raison des charges lourdes.
 * **Passerelle de gestion des données**:
   * **LAN**: la passerelle est éloignée de l’ordinateur SQL Server et dispose d’une connexion à faible bande passante.
   * **Passerelle**: la passerelle a atteint ses limites de charge pour effectuer les opérations suivantes :
-    * **Sérialisation :**la sérialisation du flux de données au format CSV présente un débit lent.
+    * **Sérialisation :** la sérialisation du flux de données au format CSV présente un débit lent.
     * **Compression**: vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mbits/s avec Core i7).
   * **WAN**: la bande passante entre le réseau d’entreprise et vos services Azure est faible (par exemple, T1 = 1 544 Kbits/s ; T2 = 6 312 Kbits/s).
 * **Récepteur**: le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mbits/s.)
@@ -398,11 +399,11 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 ## <a name="sample-scenarios-use-parallel-copy"></a>Exemples de scénarios : utilisation de la copie en parallèle
 **Scénario I :** copiez 1 000 fichiers de 1 Mo d’un système de fichiers local vers le stockage Blob.
 
-**Analyse des performances et réglage :**par exemple, si vous avez installé la passerelle sur un ordinateur à quatre cœurs, Data Factory utilise 16 copies en parallèle pour déplacer simultanément les fichiers du système de fichiers vers le stockage blob. Cette exécution parallèle doit aboutir à un débit élevé. Vous pouvez également spécifier explicitement le nombre de copies parallèles. Lorsque vous copiez plusieurs petits fichiers, les copies parallèles aident considérablement le débit en utilisant les ressources plus efficacement.
+**Analyse des performances et réglage :** par exemple, si vous avez installé la passerelle sur un ordinateur à quatre cœurs, Data Factory utilise 16 copies en parallèle pour déplacer simultanément les fichiers du système de fichiers vers le stockage blob. Cette exécution parallèle doit aboutir à un débit élevé. Vous pouvez également spécifier explicitement le nombre de copies parallèles. Lorsque vous copiez plusieurs petits fichiers, les copies parallèles aident considérablement le débit en utilisant les ressources plus efficacement.
 
 ![Scénario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
-**Scénario II :**copiez 20 blobs de 500 Mo chacun depuis le stockage Blob vers Data Lake Store Analysis, puis réglez les performances.
+**Scénario II :** copiez 20 blobs de 500 Mo chacun depuis le stockage Blob vers Data Lake Store Analysis, puis réglez les performances.
 
 **Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données depuis le stockage Blob de Data Lake Store en utilisant ///la copie unique (valeur **parallelCopies** définie sur 1) et les unités uniques de déplacement de données cloud. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).   
 
