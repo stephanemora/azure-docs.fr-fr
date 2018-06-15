@@ -14,12 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354513"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292889"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
 Avec l’authentification unique, vous pouvez accéder à toutes les applications et toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte utilisateur. Une fois connecté, vous pouvez accéder à toutes les applications dont vous avez besoin sans devoir vous authentifier à nouveau (par exemple, taper un mot de passe).
@@ -59,7 +59,7 @@ Dans ce scénario, lorsque vous avez déjà été connecté à Azure AD et que 
 
 Azure AD peut prendre en charge l’authentification unique fédérée avec les applications qui prennent en charge les protocoles de connexion SAML 2.0, WS-Federation ou OpenID.
 
-Voir aussi : [Gestion des certificats pour l’authentification unique fédérée](../active-directory-sso-certs.md)
+Voir aussi : [Gestion des certificats pour l’authentification unique fédérée](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Authentification unique par mot de passe
 La configuration de l’authentification unique par mot de passe permet aux utilisateurs de votre organisation de se connecter automatiquement aux applications SaaS tierces via Azure AD, avec leurs informations de compte d’utilisateur de l’application SaaS tierce. Lorsque vous activez cette fonctionnalité, Azure AD recueille et stocke en toute sécurité les informations du compte d’utilisateur et le mot de passe qui y est associé.
@@ -194,7 +194,7 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Détection des applications cloud non approuvées avec Cloud App Discovery](cloud-app-discovery.md)
-* [Introduction à la gestion de l'accès aux applications](../active-directory-managing-access-to-apps.md)
+* [Introduction à la gestion de l'accès aux applications](what-is-access-management.md)
 * [Comparaison des capacités de gestion des identités externes dans Azure AD](../active-directory-b2b-compare-b2c.md)
 
 

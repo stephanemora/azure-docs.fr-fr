@@ -7,14 +7,16 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: dddf6af506269c7f22cea69e39b55effa2f14d63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831863"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Guide pratique pour utiliser l’historique des exécutions et les métriques de modèles dans Azure Machine Learning Workbench
 
@@ -24,7 +26,6 @@ Les **métriques de modèles** peuvent être enregistrées à partir de n’impo
 Cet article décrit comment tirer parti de ces fonctionnalités pour augmenter la vitesse et la qualité de votre expérimentation de la science des données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour parcourir ce guide pratique, vous devez :
 * [Créer et installer Azure Machine Learning](../service/quickstart-installation.md)
 - [Créer un projet](../service/quickstart-installation.md)

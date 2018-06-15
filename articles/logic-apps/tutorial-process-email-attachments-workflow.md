@@ -1,12 +1,12 @@
 ---
-title: "Générer des flux de travail pour traiter les e-mails et les pièces jointes : Azure Logic Apps | Microsoft Docs"
-description: "Ce didacticiel montre comment créer des flux de travail automatisés pour le traitement des e-mails et des pièces jointes avec Azure Logic Apps, Stockage Azure et Azure Functions"
+title: 'Générer des flux de travail pour traiter les e-mails et les pièces jointes : Azure Logic Apps | Microsoft Docs'
+description: Ce didacticiel montre comment créer des flux de travail automatisés pour le traitement des e-mails et des pièces jointes avec Azure Logic Apps, Stockage Azure et Azure Functions
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300631"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Traiter les e-mails et les pièces jointes à l’aide d’une application logique
 
@@ -43,7 +44,7 @@ Lorsque vous avez terminé, votre application logique ressemble à ce flux de tr
 
 Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">créez un compte Azure gratuit</a> avant de commencer. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte de messagerie d’un fournisseur de messagerie pris en charge par Azure Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/).
 

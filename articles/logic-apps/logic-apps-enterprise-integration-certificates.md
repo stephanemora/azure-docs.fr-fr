@@ -1,11 +1,11 @@
 ---
-title: "Sécurisation de messages B2B à l’aide de certificats dans Azure Logic Apps | Microsoft Docs"
-description: "Ajouter des certificats pour sécuriser les messages B2B avec le pack Enterprise Integration Pack"
+title: Sécurisation de messages B2B à l’aide de certificats dans Azure Logic Apps | Microsoft Docs
+description: Ajouter des certificats pour sécuriser les messages B2B avec le pack Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 708bdcddede71186c48ae7d4034cc9df0bd61391
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7ba76a15792fe40b2a628b030f06930641d197a3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299332"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Sécuriser les messages B2B à l’aide de certificats
 
@@ -39,7 +40,7 @@ Pour utiliser un *certificat public* dans vos applications logiques avec fonctio
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Dans le menu principal Azure, sélectionnez **Tous les services**. Entrez « intégration » dans la zone de recherche, puis sélectionnez **Comptes d’intégration**.
+2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
    ![Chercher votre compte d’intégration](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 
@@ -87,7 +88,7 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
  
 3. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-4. Dans le menu principal Azure, sélectionnez **Tous les services**. Entrez « intégration » dans la zone de recherche, puis sélectionnez **Comptes d’intégration**.
+4. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
    ![Chercher votre compte d’intégration](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
 

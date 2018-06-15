@@ -1,11 +1,11 @@
 ---
-title: "Planifier l’exécution régulière de tâches et flux de travail - Azure Logic Apps | Microsoft Docs"
-description: "Créer et planifier l’exécution régulière de tâches, actions, flux de travail, processus et charges de travail avec des applications logiques"
+title: Planifier l’exécution régulière de tâches et flux de travail - Azure Logic Apps | Microsoft Docs
+description: Créer et planifier l’exécution régulière de tâches, actions, flux de travail, processus et charges de travail avec des applications logiques
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296785"
 ---
 # <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Créer et planifier l’exécution régulière de tâches avec Azure Logic Apps
 
@@ -200,7 +201,7 @@ Dans ce scénario, le moteur Logic Apps calcule les heures d’exécution en fon
 
 Par conséquent, pour ce scénario, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première heure d’exécution est la même.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Actions et déclencheurs de flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Connecteurs](../connectors/apis-list.md)

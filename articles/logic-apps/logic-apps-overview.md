@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble - Intégration d’entreprise avec Azure Logic Apps | Microsoft Docs"
-description: "Générez des flux de travail et des processus d’entreprise automatisés et intégrant des données, des services, des applications et des systèmes entre des entreprises et des organisations. Créez des solutions pour l’intégration de données, l’intégration de systèmes, l’intégration des applications de l’entreprise (EAI) et les scénarios d’orchestration."
-keywords: "automatiser, flux de travail, intégration des applications de l’entreprise, EAI, intégration de systèmes, intégration de données, orchestration, services d’intégration, iPaaS"
+title: Vue d’ensemble - Intégration d’entreprise avec Azure Logic Apps | Microsoft Docs
+description: Générez des flux de travail et des processus d’entreprise automatisés et intégrant des données, des services, des applications et des systèmes entre des entreprises et des organisations. Créez des solutions pour l’intégration de données, l’intégration de systèmes, l’intégration des applications de l’entreprise (EAI) et les scénarios d’orchestration.
+keywords: automatiser, flux de travail, intégration des applications de l’entreprise, EAI, intégration de systèmes, intégration de données, orchestration, services d’intégration, iPaaS
 services: logic-apps
 author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6c88c51eb4def92164e221efa5c6293f9b2247e4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299237"
 ---
 # <a name="what-is-azure-logic-apps"></a>Qu’est-ce qu’Azure Logic Apps ?
 
