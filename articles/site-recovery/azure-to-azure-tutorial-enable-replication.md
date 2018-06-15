@@ -37,7 +37,7 @@ Pour suivre ce didacticiel :
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](concepts-azure-to-azure-architecture.md).
 - Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-azure-to-azure.md) pour tous les composants.
 
-## <a name="create-a-vault"></a>création d'un coffre
+## <a name="create-a-vault"></a>Création d'un coffre
 
 Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
