@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838474"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plateformes et outils pour les projets d’équipe de science des données
 
@@ -27,7 +29,7 @@ Les équipes de science des données qui utilisent le processus TDSP ont accès 
 
 - Instances Data Science Virtual Machine (Windows et CentOS Linux)
 - Clusters HDInsight Spark
-- SQL Data Warehouse
+- SQL Data Warehouse
 - Azure Data Lake
 - Clusters HDInsight Hive
 - Stockage Fichier Azure

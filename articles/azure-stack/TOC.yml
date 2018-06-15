@@ -191,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: Faire pivoter les clés secrètes
           href: azure-stack-rotate-secrets.md
+        - name: Mettre à jour l’antivirus
+          href: azure-stack-security-av.md
     - name: Proposer des services
       items:
         - name: Vue d’ensemble des services proposés

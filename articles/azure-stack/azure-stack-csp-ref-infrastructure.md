@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 4ac808e0e85b1daeb54a3f2fd7bec0a7c10aa13e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fe2a6444e605f388df68803b89643420b19fb54
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823484"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
 
@@ -65,4 +66,4 @@ Les termes et concepts suivants sont utilisés pour l’utilisation et la factur
 ## <a name="next-steps"></a>Étapes suivantes
 
  - Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Utilisation et facturation dans Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Utilisation et facturation dans Azure Stack](azure-stack-billing-and-chargeback.md).

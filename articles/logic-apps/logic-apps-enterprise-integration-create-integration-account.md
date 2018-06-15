@@ -4,7 +4,7 @@ description: Créer, lier, déplacer et supprimer des comptes d’intégration p
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166233"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297986"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Créer et gérer des comptes d’intégration pour des solutions B2B avec des applications logiques
 
@@ -58,7 +58,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
    | Abonnement | OUI | <*Azure-subscription-name*> | Nom de l’abonnement Azure à utiliser. | 
    | Groupe de ressources | OUI | test-integration-account-rg | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. Pour cet exemple, créez un groupe de ressources portant le nom spécifié. | 
    | Niveau de tarification | OUI | Gratuit | Niveau tarifaire que vous souhaitez utiliser. Pour cet exemple, sélectionnez **Gratuit** mais, pour plus d’informations, voir [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) et [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Lieu | OUI | États-Unis de l’Ouest | Région dans laquelle stocker les informations sur votre compte d’intégration. Sélectionnez l’emplacement de votre application logique ou créez une application logique dans l’emplacement de votre compte d’intégration. Pour cet exemple : | 
+   | Lieu | OUI | États-Unis de l’Ouest | Région dans laquelle stocker les informations sur votre compte d’intégration. Sélectionnez l’emplacement de votre application logique ou créez une application logique dans l’emplacement de votre compte d’intégration. | 
    | Log Analytics | Non  | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
    ||||| 
 

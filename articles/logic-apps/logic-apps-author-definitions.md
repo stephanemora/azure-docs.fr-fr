@@ -2,7 +2,7 @@
 title: Créer, modifier ou étendre JSON pour des définitions d’application logique - Azure Logic Apps | Microsoft Docs
 description: Créer et personnaliser des définitions d’application logique en JSON
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f37f600d001b110775d8ca0e78950e3b8743df82
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9793fdf2bd351bd1f15bcb88ffd25d6b19485303
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297850"
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Créer, modifier ou personnaliser JSON pour des définitions d’application logique
 

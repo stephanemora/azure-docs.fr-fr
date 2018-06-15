@@ -59,16 +59,16 @@
       href: create-account-cli-how-to.md
     - name: Accéder aux API - CLI
       href: access-api-cli-how-to.md
-    - name: Événements d’état de travail - CLI
+    - name: Surveiller les événements d’état de travail - CLI
       href: job-state-events-cli-how-to.md
+    - name: Personnaliser les paramètres de transformation prédéfinis - .NET Core
+      href: customize-encoder-presets-how-to.md
     - name: Téléchargement de contenu
       items:
         - name: À partir de HTTP - .NET
           href: job-input-from-http-how-to.md
         - name: À partir d’un fichier local - .NET
           href: job-input-from-local-file-how-to.md
-    - name: Personnaliser les paramètres de transformation prédéfinis - .NET Core
-      href: customize-encoder-presets-how-to.md
 - name: Informations de référence
   items:
     - name: Spécification OpenAPI (Swagger)

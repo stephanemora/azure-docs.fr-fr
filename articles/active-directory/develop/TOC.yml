@@ -81,7 +81,7 @@
           href: active-directory-protocols-openid-connect-code.md
         - name: Octroi du code d’authentification OAuth 2.0
           href: active-directory-protocols-oauth-code.md
-        - name: Octroi implicite Oauth 2.0
+        - name: Octroi implicite OAuth 2.0
           href: active-directory-dev-understanding-oauth2-implicit-grant.md
     - name: "SAML\_2.0"
       href: active-directory-saml-protocol-reference.md
@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: Informations d’identification de certificat
               href: active-directory-certificate-credentials.md
+            - name: Exemple de code Oauth 2.0
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Jetons
           href: active-directory-v2-tokens.md
         - name: Étendues et consentement
