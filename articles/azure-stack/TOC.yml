@@ -130,8 +130,6 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Changer d’utilisateur propriétaire de l’abonnement
           href: azure-stack-change-subscription-owner.md
-        - name: Gérer les machines virtuelles Windows Azure Pack
-          href: azure-stack-manage-windows-azure-pack.md
         - name: Démarrer et arrêter Azure Stack
           href: azure-stack-start-and-stop.md
         - name: Gérer la capacité
