@@ -201,7 +201,13 @@
         - name: Utiliser le Bureau à distance
           href: use-remote-desktop.md
         - name: "Joindre la machine virtuelle à Azure\_Active\_Directory"
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+          items:
+            - name: Red Hat Enterprise Linux
+              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
         - name: Se connecter avec des informations d’identification Azure Active Directory
           href: login-using-aad.md
         - name: Mises à jour et correctifs

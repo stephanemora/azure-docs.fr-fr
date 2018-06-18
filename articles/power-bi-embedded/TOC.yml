@@ -4,12 +4,14 @@
   items:
     - name: Présentation de Power BI Embedded
       href: what-is-power-bi-embedded.md
-- name: Prise en main
+- name: Didacticiels
+  items:
+    - name: Incorporer du contenu pour l’exemple de clients
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Concepts
   items:
     - name: Prise en main de Power BI Embedded
       href: get-started.md
-    - name: Prise en main d’un exemple
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
 - name: Procédures
   items:
     - name: Gérer la capacité

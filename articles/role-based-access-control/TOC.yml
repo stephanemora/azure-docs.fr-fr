@@ -1,51 +1,57 @@
 - name: Présentation de la gestion des accès
   href: manage-access-to-azure-resources.md
-- name: Accès aux ressources dans Azure
-  href: rbac-and-directory-admin-roles.md
-- name: Contrôle d’accès en fonction du rôle
-  href: overview.md
+  items: null
+- name: Vue d'ensemble
   items:
-    - name: Démarrages rapides
-      items:
-        - name: Accorder l’accès à un utilisateur - Portail
-          href: quickstart-assign-role-user-portal.md
-    - name: Didacticiels
-      items:
-        - name: Accorder l’accès à un utilisateur - PowerShell
-          href: tutorial-role-assignments-user-powershell.md
-        - name: Accorder l’accès à un groupe - PowerShell
-          href: tutorial-role-assignments-group-powershell.md
-        - name: Créer un rôle personnalisé - PowerShell
-          href: tutorial-custom-role-powershell.md
-        - name: Créer un rôle personnalisé - CLI
-          href: tutorial-custom-role-cli.md
-    - name: Gérer les attributions de rôles
-      items:
-        - name: Portail
-          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
-        - name: Azure CLI
-          href: role-assignments-cli.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: REST
-          href: role-assignments-rest.md
+    - name: "Qu’est-ce que RBAC\_?"
+      href: overview.md
+    - name: Comprendre les différents rôles
+      href: rbac-and-directory-admin-roles.md
+- name: Démarrages rapides
+  items:
+    - name: Accorder l’accès à un utilisateur
+      href: quickstart-assign-role-user-portal.md
+- name: Didacticiels
+  items:
+    - name: Accorder l’accès à un utilisateur - PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: Accorder l’accès à un groupe - PowerShell
+      href: tutorial-role-assignments-group-powershell.md
+    - name: Créer un rôle personnalisé - PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: Créer un rôle personnalisé - CLI
+      href: tutorial-custom-role-cli.md
+- name: Concepts
+  items:
     - name: Comprendre les définitions de rôles
       href: role-definitions.md
     - name: Rôles intégrés
       href: built-in-roles.md
     - name: Rôles personnalisés
       href: custom-roles.md
-    - name: Gérer les affectations de rôles pour les utilisateurs externes
-      href: role-assignments-external-users.md
+    - name: Opérations de fournisseur de ressources
+      href: resource-provider-operations.md
+    - name: Privileged Identity Management (PIM) pour RBAC
+      href: pim-azure-resource.md
+    - name: Accès conditionnel pour la gestion Azure
+      href: conditional-access-azure-management.md
+- name: Procédures
+  items:
+    - name: Gérer l’accès
+      items:
+        - name: Portail
+          href: role-assignments-portal.md
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
     - name: Journaux d’activité
       href: change-history-report.md
     - name: Élever l’accès d’administrateur général
       href: elevate-access-global-admin.md
+    - name: Gérer l’accès pour les utilisateurs externes
+      href: role-assignments-external-users.md
     - name: Résolution des problèmes
       href: troubleshooting.md
-    - name: Opérations de fournisseur de ressources
-      href: resource-provider-operations.md
-- name: Privileged Identity Management (PIM) pour RBAC
-  href: pim-azure-resource.md
-- name: Accès conditionnel pour la gestion Azure
-  href: conditional-access-azure-management.md

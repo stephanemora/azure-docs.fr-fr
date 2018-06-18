@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: Surveiller en mémoire
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: Tâches de base de données élastique
+      items:
+        - name: Vue d'ensemble
+          href: elastic-jobs-overview.md
+        - name: Créer et gérer (PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: Créer et gérer (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: Migrer (à partir d’anciens travaux élastiques)
+          href: elastic-jobs-migrate.md
+        - name: Travaux élastiques (déconseillé)
+          items:
+            - name: Vue d’ensemble (déconseillé)
+              href: sql-database-elastic-jobs-overview.md
+            - name: Installer une tâche élastique (déconseillé)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: Créer une tâche -Portail (déconseillé)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: Créer une tâche -Azure PowerShell (déconseillé)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: Créer une tâche -Exemple d’application (déconseillé)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: Désinstaller une tâche élastique (déconseillé)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: Montée en charge
       items:
         - name: Vue d'ensemble
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: Transactions élastiques
           href: sql-database-elastic-transactions-overview.md
-        - name: Tâches élastiques
-          href: sql-database-elastic-jobs-overview.md
         - name: Cartes de partition
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routage des requêtes
@@ -276,16 +298,6 @@
       items:
         - name: Mettre à niveau la bibliothèque cliente de base de données élastique
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Installer un travail élastique
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Créer un travail - Portail
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Créer un travail - Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Créer un travail - Échantillon d’application
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Désinstaller un travail élastique
-          href: sql-database-elastic-jobs-uninstall.md
         - name: Interroger les données partitionnées verticalement
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: Créer des rapports sur des couches de données montées en charge
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (base de données élastique)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: "Azure CLI\_2.0"
       href: /cli/azure/sql
     - name: .NET

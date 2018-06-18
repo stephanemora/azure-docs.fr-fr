@@ -1,22 +1,22 @@
 # [Documentation Azure Active Directory](index.md)
 
 # Vue d'ensemble
-## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+## [Qu’est-ce qu’Azure Active Directory ?](fundamentals/active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](fundamentals/identity-fundamentals.md)
 ## [Comprendre les solutions d’identité Azure](fundamentals/understand-azure-identity-solutions.md)
 ## [Choisir une solution d’identité hybride](choose-hybrid-identity-solution.md)
-## [Associer les abonnements Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Associer les abonnements Azure](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Résidence et considérations relatives aux données](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQ](fundamentals/active-directory-faq.md)
 ## [Nouveautés](fundamentals/whats-new.md)
 
 
 # Prise en main
-## [Prise en main d'Azure AD](get-started-azure-ad.md)
+## [Prise en main d'Azure AD](fundamentals/get-started-azure-ad.md)
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
-## [Ajouter un nom de domaine personnalisé](add-custom-domain.md)
-## [Configurer la marque de la société](customize-branding.md)
-## [Ajouter des utilisateurs dans Azure AD](add-users-azure-active-directory.md)
+## [Ajouter un nom de domaine personnalisé](fundamentals/add-custom-domain.md)
+## [Configurer la marque de la société](fundamentals/customize-branding.md)
+## [Ajouter des utilisateurs dans Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [Attribuer des licences à des utilisateurs](fundamentals/license-users-groups.md)
 ## [Configurer la réinitialisation du mot de passe libre-service](authentication/quickstart-sspr.md)
 ## [Ajouter les informations de confidentialité de votre organisation dans Azure AD](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [Comparaison d’outils](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gestion des utilisateurs
-### [Ajouter de nouveaux utilisateurs dans Azure AD](add-users-azure-active-directory.md)
-### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
+### [Ajouter de nouveaux utilisateurs dans Azure AD](fundamentals/add-users-azure-active-directory.md)
+### [Gérer les profils utilisateur](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Partager des comptes](active-directory-sharing-accounts.md)
-### [Affecter des utilisateurs aux rôles d’administration](active-directory-users-assign-role-azure-portal.md)
-### [Restaurer un utilisateur supprimé](active-directory-users-restore.md)
+### [Affecter des utilisateurs aux rôles d’administration](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Restaurer un utilisateur supprimé](fundamentals/active-directory-users-restore.md)
 ### [Ajouter des utilisateurs invités à partir d’un autre répertoire (B2B)](b2b/what-is-b2b.md)
 #### [Ajout d’utilisateurs B2B par des administrateurs](b2b/add-users-administrator.md)
 #### [Ajout d’utilisateurs B2B par des membres de l’équipe informatique](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [Comparer la collaboration B2B et B2C](b2b/compare-with-b2c.md)
 #### [Obtenir une assistance pour B2B](b2b/get-support.md)
 
-## [Gérer les groupes et les membres](active-directory-manage-groups.md)
+## [Gérer les groupes et les membres](fundamentals/active-directory-manage-groups.md)
 ### Gérer les groupes
 #### [Portail Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell pour Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
-### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
+### [Gérer les propriétaires de groupe](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Ajouter une appartenance à un groupe](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Attribuer des licences à l’aide de groupes](active-directory-licensing-whatis-azure-portal.md)
+### [Attribuer des licences à l’aide de groupes](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Référence pour les produits et les plans de service dans Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configurer l’expiration des groupes Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Appliquer une stratégie d’affectation de noms pour les groupes](groups-naming-policy.md)
-### [Afficher tous les groupes](active-directory-groups-view-azure-portal.md)
+### [Afficher tous les groupes](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Ajouter l’accès de groupe aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurer un groupe Office 365 supprimé](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Gérer les paramètres de groupe](active-directory-groups-settings-azure-portal.md) 
+### [Gérer les paramètres de groupe](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Créer des règles avancées
 #### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurer des groupes libre-service](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [Spécifications des données SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
-#### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
+#### [Portail Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Licence SSPR](authentication/concept-sspr-licensing.md)
 ### [Réécriture du mot de passe](authentication/howto-sspr-writeback.md)
 ### [Résolution des problèmes](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## Gérer votre répertoire
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Noms de domaine personnalisés
-#### [Démarrage rapide](add-custom-domain.md)
+#### [Démarrage rapide](fundamentals/add-custom-domain.md)
 #### [Ajouter des noms de domaines personnalisés](active-directory-domains-manage-azure-portal.md)
 ### [Administration de votre annuaire](fundamentals/active-directory-administer.md)
 ### [Supprimer un répertoire](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Gérer l’accès à Azure](../role-based-access-control/toc.yml)
-
 ## Déléguer l’accès aux ressources
 ### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
-#### [Affecter un rôle d’administrateur à un utilisateur](active-directory-users-assign-role-azure-portal.md) 
+#### [Affecter un rôle d’administrateur à un utilisateur](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Comparer les autorisations des invités et des membres](fundamentals/users-default-permissions.md) 
 ### [Sécurisation de l’accès privilégié](admin-roles-best-practices.md)  
 ### [Créer les comptes d’administration d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### Démarrages rapides
 ##### [Configurer une MFA par application cloud](active-directory-conditional-access-app-based-mfa.md)
+##### [Exiger l’acceptation des conditions d’utilisation](active-directory-conditional-access-tou.md)
 #### Didacticiels
 ##### [Migrer une stratégie MFA classique](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
@@ -371,7 +370,7 @@
 ### [Haute disponibilité](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Algorithme de hachage de signature de modification](active-directory-federation-sha256-guidance.md)
 
-## [Résolution des problèmes](active-directory-troubleshooting-support-howto.md)
+## [Résolution des problèmes](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Déploiement de la preuve de concept (POC) d’Azure AD
 ### [Manuel POC : Introduction](active-directory-playbook-intro.md)
