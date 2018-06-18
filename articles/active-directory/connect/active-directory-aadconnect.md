@@ -82,7 +82,7 @@ Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de t
 |Après l’installation | [Vérification de l’installation et affectation des licences ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>En savoir plus sur l’installation d’Azure AD Connect
-Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](active-directory-aadconnectsync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](active-directory-aadconnectsync-operations.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode) .
+Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](active-directory-aadconnectsync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](active-directory-aadconnectsync-operations.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode) .
 
 |Rubrique |Lien|  
 | --- | --- |
@@ -130,7 +130,7 @@ Le modèle de configuration dans la synchronisation est appelé [Approvisionneme
 |Rubrique |Lien|  
 | --- | --- |
 |Tous les articles sur la synchronisation Azure AD Connect | [Synchronisation d’Azure AD Connect](active-directory-aadconnectsync-whatis.md)|
-|concepts techniques | [Azure AD Connect Sync : Concepts techniques](active-directory-aadconnectsync-technical-concepts.md)|
+|Concepts techniques | [Azure AD Connect Sync : Concepts techniques](active-directory-aadconnectsync-technical-concepts.md)|
 |Présentation de la configuration par défaut | [Azure AD Connect Sync : présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md)|
 |Présentation des utilisateurs et des contacts | [Azure AD Connect Sync : Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)|
 |Approvisionnement déclaratif | [Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)|

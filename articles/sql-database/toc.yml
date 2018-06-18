@@ -343,7 +343,7 @@
         - name: Chargement des données avec BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Chargement des données avec ADF
-          href: ../data-factory/connector-azure-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: Synchroniser les données
           href: sql-database-get-started-sql-data-sync.md
     - name: Surveiller et régler
