@@ -1,23 +1,24 @@
 ---
-title: "Importer vos données dans Analytics dans Azure Application Insights | Microsoft Docs"
-description: "Importez des données statiques à associer à la télémétrie de l’application ou importez un flux de données distinct à interroger avec Analytics."
+title: Importer vos données dans Analytics dans Azure Application Insights | Microsoft Docs
+description: Importez des données statiques à associer à la télémétrie de l’application ou importez un flux de données distinct à interroger avec Analytics.
 services: application-insights
-keywords: "schéma ouvert, importation de données"
-documentationcenter: 
+keywords: schéma ouvert, importation de données
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293619"
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
 

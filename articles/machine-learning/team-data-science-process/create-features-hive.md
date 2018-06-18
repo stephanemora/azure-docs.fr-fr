@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: a22ce30833102767c5652ddb29c8ea4b4ac83624
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0e46ce327bb4beffd631ef6369864a0888580c11
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836661"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -32,10 +34,9 @@ Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de don
 Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article suppose que vous avez :
 
-* Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Créé un compte de stockage Azure. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Approvisionné un cluster Hadoop personnalisé avec le service HDInsight.  Si vous avez besoin d'aide, consultez [Personnaliser des clusters Hadoop Azure HDInsight pour l'analyse avancée](customize-hadoop-cluster.md).
 * Chargé les données dans les tables Hive de clusters Hadoop Azure HDInsight. Si tel n’est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](move-hive-tables.md).
 * Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](customize-hadoop-cluster.md).
@@ -137,7 +138,7 @@ Les champs utilisés dans cette requête sont des coordonnées GPS des emplacem
 
 Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lon*pi/180*, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
-![Create workspace](./media/create-features-hive/atan2new.png)
+![Créer un espace de travail](./media/create-features-hive/atan2new.png)
 
 La liste complète des FDU Hive intégrées est disponible dans la section **Fonctions intégrées** du <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki Apache Hive</a>.  
 

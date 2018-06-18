@@ -2,7 +2,7 @@
 title: Schémas de suivi X12 pour la surveillance B2B - Azure Logic Apps | Microsoft Docs
 description: Utilisez des schémas de suivi X12 pour surveiller les messages B2B des transactions de votre compte d’intégration Azure.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5a43b9bdf522b6b26f27c082f5cb623f7a76a8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 385ff73d780f62f19af2face591cd0b2291ef396
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300971"
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Démarrage ou activation du suivi des messages X12 pour surveiller la réussite, les erreurs et les propriétés de message
 Vous pouvez utiliser ces schémas de suivi X12 dans votre compte d’intégration Azure pour surveiller les transactions B2B :

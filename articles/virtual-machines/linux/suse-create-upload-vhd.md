@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653431"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="sles--opensuse-installation-notes"></a>Notes d'installation SLES/openSUSE
@@ -94,9 +94,9 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
      ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## REMARQUE : définissez ces valeurs en fonction de vos besoins.
 15. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 - - -
@@ -129,7 +129,7 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
         # sudo zypper update
 5. Installez l'agent Linux Azure.
    
-   # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper install WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
    
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -151,9 +151,9 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
      ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## REMARQUE : définissez ces valeurs en fonction de vos besoins.
 11. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Vérifiez que l'agent Linux Azure est exécuté au démarrage :
     
         # sudo systemctl enable waagent.service

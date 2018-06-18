@@ -2,23 +2,24 @@
 title: Tableau de bord Power BI pour l’état des véhicules et les habitudes de conduite - Azure | Microsoft Docs
 description: Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite.
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 2689e87dd41aa4494cf63c9ead1d1ca011b0b720
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8544c400fdb7d4f00a4946aba321fec3568d024a
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248450"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instructions de configuration du tableau de bord Power BI pour le modèle de la solution Vehicle Telemetry Analytics
 Ce menu contient des liens vers les chapitres de ce manuel : 
@@ -28,7 +29,6 @@ Ce menu contient des liens vers les chapitres de ce manuel :
 La solution Analytics des données de télémétrie du véhicule présente comment les concessions, les fabricants d’automobiles et les compagnies d’assurance peuvent utiliser les fonctionnalités de Cortana Intelligence. Ils peuvent obtenir des analyses prédictives et en temps réel sur l’intégrité des véhicules et les habitudes de conduite afin d’améliorer l’expérience utilisateur, la recherche et le développement et les campagnes marketing. Ces instructions pas à pas montrent comment configurer le tableau de bord et les rapports Power BI après avoir déployé la solution dans votre abonnement. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Déployez la solution [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Installez Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenez un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous n’avez pas d’abonnement Azure, commencez par un abonnement Azure gratuit.

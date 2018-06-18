@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 4f07defd3df3a7933a69463729240d856f6282d4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a7d2d1e46847f6126ad2905e9f2d3ce52957dad5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833358"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.

@@ -1,11 +1,11 @@
 ---
-title: "Présentation de la capture de paquets dans Azure Network Watcher | Microsoft Docs"
-description: "Cette page fournit une vue d’ensemble de la fonctionnalité de capture de paquets de Network Watcher."
+title: Présentation de la capture de paquets dans Azure Network Watcher | Microsoft Docs
+description: Cette page fournit une vue d’ensemble de la fonctionnalité de capture de paquets de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036834"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Présentation de la capture de paquets variable dans Azure Network Watcher
 

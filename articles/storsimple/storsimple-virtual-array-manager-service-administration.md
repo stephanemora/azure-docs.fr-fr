@@ -1,11 +1,11 @@
 ---
-title: "Administration de Microsoft Azure StorSimple Manager Virtual Array | Microsoft Docs"
-description: "Découvrez comment gérer votre StorSimple Virtual Array local à l’aide du service StorSimple Device Manager dans le portail Azure."
+title: Administration de Microsoft Azure StorSimple Manager Virtual Array | Microsoft Docs
+description: Découvrez comment gérer votre StorSimple Virtual Array local à l’aide du service StorSimple Device Manager dans le portail Azure.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 958244a5-f9f5-455e-b7ef-71a65558872e
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109897"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer votre StorSimple Virtual Array
 ![flux du processus d'installation](./media/storsimple-virtual-array-manager-service-administration/manage4.png)

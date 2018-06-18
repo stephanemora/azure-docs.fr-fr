@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323652"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Ouvrir un ticket de support pour un travail Import/Export
 

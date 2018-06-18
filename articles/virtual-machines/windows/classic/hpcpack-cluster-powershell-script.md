@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914839"
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Créer un cluster de calcul haute performance (HPC) Windows avec le script de déploiement du HPC Pack IaaS
 Exécutez le script PowerShell de déploiement du HPC Pack IaaS pour déployer un cluster HPC Pack 2012 R2 complet pour les charges de travail Windows sur les machines virtuelles Azure. Le cluster se compose d’un nœud principal joint à Active Directory, exécutant Windows Server et Microsoft HPC Pack, et de ressources de calcul Windows supplémentaires que vous spécifiez. Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Linux, consultez [Créer un cluster HPC Linux avec le script de déploiement du HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
@@ -257,7 +258,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 ```
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
-* **Erreur « Le réseau virtuel n’existe pas »** : si vous exécutez le script pour déployer plusieurs clusters dans Azure simultanément sous un même abonnement, un ou plusieurs déploiements peuvent échouer avec l’erreur « Le réseau virtuel *nom\_VNet* n’existe pas ».
+* **Erreur « Le réseau virtuel n’existe pas »**  : si vous exécutez le script pour déployer plusieurs clusters dans Azure simultanément sous un même abonnement, un ou plusieurs déploiements peuvent échouer avec l’erreur « Le réseau virtuel *nom\_VNet* n’existe pas ».
   Si cette erreur se produit, réexécutez le script de déploiement qui a échoué.
 * **Problème d’accès à Internet à partir du réseau virtuel Azure** : si vous créez un cluster avec un nouveau contrôleur de domaine en utilisant le script de déploiement, ou si vous promouvez manuellement une machine virtuelle de nœud principal en contrôleur de domaine, vous pouvez rencontrer des problèmes de connexion des machines virtuelles à Internet. Ce problème peut se produire si un serveur DNS redirecteur est automatiquement configuré sur le contrôleur de domaine et si ce serveur DNS redirecteur ne se résout pas correctement.
   

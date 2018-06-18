@@ -1,6 +1,6 @@
 ---
-title: "Configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre des sites locaux et Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre vos sites locaux et Azure Site Recovery."
+title: Configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre des sites locaux et Azure Site Recovery | Microsoft Docs
+description: Découvrez comment configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre vos sites locaux et Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843457"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 

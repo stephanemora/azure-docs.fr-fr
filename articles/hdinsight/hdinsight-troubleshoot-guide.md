@@ -1,11 +1,11 @@
 ---
-title: "Guides de résolution des problèmes Azure HDInsight | Documents Microsoft"
-description: "Résoudre des problèmes de charges de travail Hadoop à l’aide d’Azure HDInsight. La documentation pas à pas vous indique comment utiliser HDInsight pour résoudre les problèmes courants liés à Hive, Spark, YARN, HBase, HDFS et Storm."
+title: Guides de résolution des problèmes Azure HDInsight | Documents Microsoft
+description: Résoudre des problèmes de charges de travail Hadoop à l’aide d’Azure HDInsight. La documentation pas à pas vous indique comment utiliser HDInsight pour résoudre les problèmes courants liés à Hive, Spark, YARN, HBase, HDFS et Storm.
 services: hdinsight
 author: arijitt
 manager: arijitt
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984715"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Résoudre des problèmes à l’aide d’Azure HDInsight
 

@@ -1,11 +1,11 @@
 ---
-title: "Surveillance et traitement des événements de sécurité dans Azure Security Center | Microsoft Docs"
-description: "Découvrez comment vous pouvez utiliser le tableau de bord des événements de Security Center pour voir les événements de sécurité de vos machines virtuelles Azure et ordinateurs autres qu’Azure."
+title: Surveillance et traitement des événements de sécurité dans Azure Security Center | Microsoft Docs
+description: Découvrez comment vous pouvez utiliser le tableau de bord des événements de Security Center pour voir les événements de sécurité de vos machines virtuelles Azure et ordinateurs autres qu’Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040654"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Surveillance et traitement des événements de sécurité dans Azure Security Center
 Le tableau de bord Événements fournit une vue d’ensemble sur le nombre d’événements de sécurité collectés au fil du temps et une liste d’événements notables qui peuvent nécessiter votre attention.  

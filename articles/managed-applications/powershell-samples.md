@@ -1,6 +1,6 @@
 ---
-title: "Exemples Azure PowerShell - Applications managées Azure | Microsoft Docs"
-description: "Exemples Azure PowerShell - Applications managées Azure"
+title: Exemples Azure PowerShell - Applications managées Azure | Microsoft Docs
+description: Exemples Azure PowerShell - Applications managées Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636979"
 ---
 # <a name="azure-powershell-samples"></a>Exemples Azure PowerShell
 

@@ -10,15 +10,16 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193231"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutoriel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
-Ce tutoriel utilise PolyBase pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse. Ce tutoriel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
+Ce tutoriel utilise PolyBase pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
 > [!div class="checklist"]
 > * Créer un entrepôt de données dans le portail Azure
@@ -77,9 +78,9 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 5. Cliquez sur **Sélectionner**.
 
-6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est optimisé pour l’élasticité ou le calcul, et indiquer le nombre d’unités d’entrepôt de données. 
+6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est de type Gen1 ou Gen2, et indiquer le nombre d’unités d’entrepôt de données. 
 
-7. Pour ce didacticiel, sélectionnez le niveau de service **Optimisé pour l’élasticité**. Par défaut, le curseur est défini sur **DW400**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+7. Pour ce tutoriel, sélectionnez **Gen1** de SQL Data Warehouse. Par défaut, le curseur est défini sur **DW1000c**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
 
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -102,7 +103,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 > SQL Data Warehouse communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom de serveur complet (par exemple **mynewserver-20171113.database.windows.net**) et fournit des options pour poursuivre la configuration. 
+1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
 2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. Ensuite, cliquez sur le nom du serveur pour ouvrir les paramètres du serveur.
 
@@ -132,8 +133,8 @@ Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de don
 Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utilisez le nom complet du serveur par la suite pour vous connecter au serveur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20171113.database.windows.net. 
+2. Sélectionnez **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Entrepôts de données SQL Data Warehouse**. 
+3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20180430.database.windows.net. 
 
     ![informations de connexion](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -148,7 +149,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
     | Paramètre      | Valeur suggérée | Description | 
     | ------------ | --------------- | ----------- | 
     | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
-    | Nom du serveur | Nom complet du serveur | Le nom doit ressembler à : **mynewserver-20171113.database.windows.net**. |
+    | Nom du serveur | Nom complet du serveur | Le nom doit ressembler à : **mynewserver-20180430.database.windows.net**. |
     | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
     | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
     | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
@@ -163,7 +164,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
-Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies conformément au [niveau de performance](memory-and-concurrency-limits.md#performance-tiers), aux valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
+Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies en fonction de la génération de SQL Data Warehouse que vous provisionnez, des [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md) et des [classes de ressources](resource-classes-for-workload-management.md). 
 
 Il est préférable de créer une connexion et un utilisateur dédiés au chargement des données. Ensuite, ajoutez l’utilisateur de chargement à une [classe de ressource](resource-classes-for-workload-management.md) qui permet une allocation de mémoire maximale appropriée.
 
@@ -588,7 +589,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
-4. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20171113.database.windows.net** dans l’image précédente, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime toutes les bases de données attribuées au serveur.
+4. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20180430.database.windows.net** dans l’image précédente, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime toutes les bases de données attribuées au serveur.
 
 5. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 

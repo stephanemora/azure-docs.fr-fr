@@ -1,6 +1,6 @@
 ---
-title: "Groupes de disponibilité SQL Server - Machines virtuelles Azure - Récupération d’urgence | Microsoft Docs"
-description: "Cet article explique comment configurer un groupe de disponibilité SQL Server sur des machines virtuelles avec un réplica dans une autre région."
+title: Groupes de disponibilité SQL Server - Machines virtuelles Azure - Récupération d’urgence | Microsoft Docs
+description: Cet article explique comment configurer un groupe de disponibilité SQL Server sur des machines virtuelles avec un réplica dans une autre région.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852827"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure dans des emplacements différents
 

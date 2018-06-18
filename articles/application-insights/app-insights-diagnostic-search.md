@@ -1,8 +1,8 @@
 ---
 title: Utilisation de la recherche dans Azure Application Insights | Microsoft Docs
-description: "Recherchez et filtrez la télémétrie brute envoyée par votre application web."
+description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294382"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 Recherche (Search) est la fonctionnalité [d’Application Insights](app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
@@ -113,7 +114,7 @@ Vous pouvez définir une durée, car les recherches sur les plages courtes sont 
 
 Recherchez des mots entiers, pas des sous-chaînes. Utilisez des guillemets pour délimiter les caractères spéciaux.
 
-| string | n’est *pas* trouvé par | mais ceux-ci la trouvent |
+| chaîne | n’est *pas* trouvé par | mais ceux-ci la trouvent |
 | --- | --- | --- |
 | HomeController.About |home<br/>contrôleur<br/>out | homecontroller<br/>about<br/>« homecontroller.about »|
 |États-Unis|Uni<br/>ted|états<br/>unis<br/>états ET unis<br/>« états-unis »
@@ -182,4 +183,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 * [Écrire des requêtes complexes dans Analytics](app-insights-analytics-tour.md)
 * [Envoi des journaux et de la télémétrie personnalisée à Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](app-insights-monitor-web-app-availability.md)
-* [Dépannage](app-insights-troubleshoot-faq.md)
+* [Résolution des problèmes](app-insights-troubleshoot-faq.md)

@@ -2,24 +2,22 @@
 title: Didacticiels MongoDB, Angular et Node pour Azure - Partie 6 | Microsoft Docs
 description: Il s’agit de la partie 6 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 00a8cfebbd995d9a1bb99a691fd84bd742855f78
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3e13ba48e3c8bfe94fb8f6bb5afd02852e1a5da
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798047"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 6 : ajouter des fonctions Publier, Placer et Supprimer à l’application
 
@@ -34,7 +32,6 @@ La partie 6 de ce didacticiel est basée sur la [partie 5](tutorial-develop-mo
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué les étapes de la [partie 5](tutorial-develop-mongodb-nodejs-part5.md) du didacticiel.
 

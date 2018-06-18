@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657823"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Étapes de dépannage détaillées pour les problèmes de connexion du Bureau à distance aux machines virtuelles Windows dans Azure
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées Azure sur Windows.
@@ -112,7 +113,7 @@ Pour vérifier si le point de terminaison est la source du problème, supprimez 
 ## <a name="source-4-network-security-groups"></a>Source 4 : groupes de sécurité réseau
 Les groupes de sécurité réseau vous permettent de contrôler plus précisément le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure.
 
-Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port RDP (par défaut, 3389). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port RDP (par défaut, 3389). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Source 5 : Machine virtuelle Azure Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

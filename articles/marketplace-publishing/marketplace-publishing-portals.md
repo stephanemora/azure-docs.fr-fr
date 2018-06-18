@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938642"
 ---
 # <a name="portals-you-will-need"></a>Portails dont vous aurez besoin
 Avant le lancement du processus de publication d’une offre, nous allons vous présenter les différents portails dont vous aurez besoin. Vous trouverez ci-dessous un résumé des portails (Centre de développement, portail de publication Azure et portail Azure) avec lesquels vous pourrez interagir.                                                                            

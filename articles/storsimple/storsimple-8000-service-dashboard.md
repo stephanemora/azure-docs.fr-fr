@@ -1,12 +1,12 @@
 ---
-title: "Utiliser les infos relatives à un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit le panneau de synthèse du service StorSimple Manager, et explique comment l’utiliser pour surveiller l’intégrité de votre solution StorSimple."
+title: Utiliser les infos relatives à un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit le panneau de synthèse du service StorSimple Manager, et explique comment l’utiliser pour surveiller l’intégrité de votre solution StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108207"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utiliser le panneau de synthèse du service pour un appareil de la gamme StorSimple 8000
 

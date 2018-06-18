@@ -1,11 +1,11 @@
 ---
-title: "Haute disponibilité et récupération d’urgence pour SQL Server | Microsoft Docs"
-description: "Une analyse des différents types de stratégies HADR pour SQL Server s’exécutant dans des machines virtuelles Azure."
+title: Haute disponibilité et récupération d’urgence pour SQL Server | Microsoft Docs
+description: Une analyse des différents types de stratégies HADR pour SQL Server s’exécutant dans des machines virtuelles Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401257"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
 
@@ -129,7 +130,7 @@ Vous devez déployer votre solution HADR en partant du principe qu’il peut y a
 ### <a name="geo-replication-support"></a>Prise en charge de la géo-réplication
 La géo-réplication dans les disques Azure ne prend pas en charge le fichier de données et le fichier journal de la même base de données à stocker sur des disques distincts. GRS réplique les modifications sur chaque disque indépendamment et de manière asynchrone. Ce mécanisme garantit l’ordre d’écriture dans un seul disque sur la copie géo-répliquée, mais pas entre les copies géo-répliquées de plusieurs disques. Si vous configurez une base de données pour stocker le fichier de données et le fichier journal sur les disques distincts, les disques récupérés après sinistre peuvent contenir une copie plus à jour du fichier de données que le fichier journal, ce qui interrompt l’écriture préalable du journal dans SQL Server et des propriétés ACID des transactions. Si vous n’avez pas l’option de désactiver la géo-réplication sur le compte de stockage, vous devez conserver tous les fichiers de données et fichiers journaux pour une base de données spécifique sur le même disque. Si vous devez utiliser plusieurs disques en raison de la taille de la base de données, vous devez déployer une des solutions de récupération d’urgence répertoriées ci-dessus pour assurer la redondance des données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Si vous devez créer une machine virtuelle Azure avec SQL Server, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Pour obtenir des performances optimales de SQL Server dans Azure, voir les indications de [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).

@@ -1,11 +1,11 @@
 ---
-title: "Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : Azure CLI | Microsoft Docs"
-description: "Connectez des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et Azure CLI."
+title: 'Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : Azure CLI | Microsoft Docs'
+description: Connectez des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et Azure CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400315"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
@@ -381,7 +382,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 ## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).

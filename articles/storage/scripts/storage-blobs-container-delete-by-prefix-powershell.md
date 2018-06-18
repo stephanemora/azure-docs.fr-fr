@@ -1,12 +1,12 @@
 ---
-title: "Exemple de script Azure PowerShell - Supprimer des conteneurs par préfixe | Microsoft Docs"
-description: "Supprimez des conteneurs d’objets blob Stockage Azure selon un préfixe de nom de conteneur."
+title: Exemple de script Azure PowerShell - Supprimer des conteneurs par préfixe | Microsoft Docs
+description: Supprimez des conteneurs d’objets blob Stockage Azure selon un préfixe de nom de conteneur.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25983896"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Supprimer des conteneurs selon un préfixe de nom de conteneur
 

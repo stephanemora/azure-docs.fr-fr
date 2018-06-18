@@ -1,4 +1,20 @@
-
+---
+title: Fichier Include
+description: Fichier Include
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/25/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f27dbf20eab5866ac3061d888c17e970a1d197f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666753"
+---
 # <a name="azure-and-the-internet-of-things"></a>Azure et l’Internet des objets
 
 Bienvenue dans Microsoft Azure et l'Internet des objets (IoT) Cet article décrit les caractéristiques communes d’une solution IoT dans le cloud. Les solutions IoT nécessitent de sécuriser la communication bidirectionnelle entre les appareils, pouvant se chiffrer par millions, et un serveur principal de solution. Par exemple, une solution peut utiliser l’analyse prédictive automatisée pour découvrir des informations à partir de votre flux d’événements de l’appareil vers le cloud.
@@ -58,14 +74,14 @@ Par exemple, dans le scénario de maintenance prédictive, le serveur principal 
 
 ### <a name="presentation-and-business-connectivity"></a>Présentation et connectivité d’entreprise
 
-Grâce à la couche de présentation et de connectivité d’entreprise, les utilisateurs finaux peuvent interagir avec la solution IoT et les appareils. Les utilisateurs peuvent ainsi afficher et analyser les données collectées à partir de leurs appareils. Ces vues peuvent prendre la forme de tableaux de bord ou de rapports BI qui affichent les données historiques ou les données quasiment en temps réel. Par exemple, un opérateur peut vérifier l’état d’une station de pompage spécifique et voir les alertes éventuellement déclenchées par le système. Cette couche permet également d’intégrer le serveur principal de solution IoT aux applications métier existantes pour une adaptation optimale aux flux de travail et processus d’entreprise. Par exemple, une solution de maintenance prédictive peut intégrer un système de planification qui prévoit une visite d’un ingénieur sur une station de pompage quand elle identifie un besoin de maintenance sur une pompe.
+Grâce à la couche de présentation et de connectivité d’entreprise, les utilisateurs finaux peuvent interagir avec la solution IoT et les appareils. Les utilisateurs peuvent ainsi afficher et analyser les données collectées à partir de leurs appareils. Ces vues peuvent prendre la forme de tableaux de bord ou de rapports BI qui affichent les données historiques ou les données quasiment en temps réel. Par exemple, un opérateur peut vérifier l’état d’une station de pompage spécifique et voir les alertes éventuellement déclenchées par le système. Cette couche permet également d’intégrer le serveur principal de solution IoT aux applications métier existantes pour une adaptation optimale aux flux de travail et processus d’entreprise. Par exemple, un accélérateur de solution de maintenance prédictive peut intégrer un système de planification qui prévoit la visite d’un ingénieur sur une station de pompage quand il identifie un besoin de maintenance sur une pompe.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
+[lnk-iot-suite]: ../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
+[Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

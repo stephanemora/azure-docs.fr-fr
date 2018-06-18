@@ -5,7 +5,7 @@ documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23012974"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemples de configuration de routeur pour configurer et gérer des NAT
 Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper SRX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau. 

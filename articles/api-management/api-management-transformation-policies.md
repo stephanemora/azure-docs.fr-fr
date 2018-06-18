@@ -18,6 +18,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30233783"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).

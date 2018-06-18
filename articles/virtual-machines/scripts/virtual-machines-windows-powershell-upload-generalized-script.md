@@ -1,26 +1,27 @@
 ---
-title: "Exemple de script PowerShell - Chargement d’un disque dur virtuel généralisé sur Azure | Microsoft Docs"
-description: "Exemple de script PowerShell pour charger un disque dur virtuel généralisé sur Azure et créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager et de Managed Disks."
+title: Exemple de script PowerShell - Chargement d’un disque dur virtuel généralisé sur Azure | Microsoft Docs
+description: Exemple de script PowerShell pour charger un disque dur virtuel généralisé sur Azure et créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager et de Managed Disks.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/02/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: c1887bc7dc3cddce7f1c9f91f077388df2e73e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716769"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exemple de script pour charger un disque dur virtuel spécialisé sur Azure et créer une machine virtuelle
 

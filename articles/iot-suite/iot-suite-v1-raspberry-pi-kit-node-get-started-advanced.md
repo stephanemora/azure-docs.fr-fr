@@ -1,12 +1,12 @@
 ---
-title: "Connexion d’un Raspberry Pi à Azure IoT Suite à l’aide de Node.js pour prendre en charge les mises à jour du microprogramme | Microsoft Docs"
-description: "Utilisez le Kit de démarrage Microsoft Azure IoT pour le Raspberry Pi 3 et IoT Azure Suite. Utilisez Node.js pour connecter votre Raspberry Pi à la solution de surveillance à distance, envoyer la télémétrie des capteurs dans le cloud et effectuer une mise à jour du microprogramme à distance."
-services: 
+title: Connexion d’un Raspberry Pi à Azure IoT Suite à l’aide de Node.js pour prendre en charge les mises à jour du microprogramme | Microsoft Docs
+description: Utilisez le Kit de démarrage Microsoft Azure IoT pour le Raspberry Pi 3 et IoT Azure Suite. Utilisez Node.js pour connecter votre Raspberry Pi à la solution de surveillance à distance, envoyer la télémétrie des capteurs dans le cloud et effectuer une mise à jour du microprogramme à distance.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: nodejs
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010872"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Connexion de votre Raspberry Pi 3 à la solution de surveillance à distance et activation des mises à jour de microprogramme à distance à l’aide de Node.js
 

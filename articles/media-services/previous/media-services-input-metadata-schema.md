@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783818"
 ---
 # <a name="input-metadata"></a>Métadonnées d'entrée
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage.  À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite. Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : &lt;asset_id&gt;_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), où &lt;asset_id&gt; est la valeur AssetId de l’élément multimédia d’entrée.  

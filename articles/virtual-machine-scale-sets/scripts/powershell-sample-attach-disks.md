@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246523"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Attacher et utiliser des disques de données avec un groupe de machines virtuelles identiques avec PowerShell
 Ce script crée un groupe de machines virtuelles identiques, puis attache et prépare les disques de données.

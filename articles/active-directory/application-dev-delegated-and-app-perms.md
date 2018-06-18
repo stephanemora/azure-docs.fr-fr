@@ -1,11 +1,11 @@
 ---
-title: "Comment reconnaître les différences entre les autorisations déléguées et d’application | Microsoft Docs"
-description: "Apprenez-en davantage sur les autorisations déléguées et d’application, la façon dont elles sont utilisées par les clients et exposées par des ressources pour les applications que vous développez avec Azure AD"
+title: Comment reconnaître les différences entre les autorisations déléguées et d’application | Microsoft Docs
+description: Apprenez-en davantage sur les autorisations déléguées et d’application, la façon dont elles sont utilisées par les clients et exposées par des ressources pour les applications que vous développez avec Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26612885"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Comment reconnaître les différences entre les autorisations déléguées et d’application
 

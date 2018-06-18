@@ -1,11 +1,11 @@
 ---
-title: "Prise en main des commandes Batch de la CLI Azure | Microsoft Docs"
-description: "Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch."
+title: Prise en main des commandes Batch de la CLI Azure | Microsoft Docs
+description: Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch.
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847615"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 

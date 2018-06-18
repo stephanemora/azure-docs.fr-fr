@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949886"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : créer et déployer une application avec un service frontal API Web Java et un service principal avec état
 Ce didacticiel est la première partie d’une série d’étapes. Lorsque vous avez terminé, vous disposez d’une application Voting avec un service frontal Java qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Cette série de didacticiels nécessite une machine de développeur Mac OSX ou Linux. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source pour obtenir l’application terminée](https://github.com/Azure-Samples/service-fabric-java-quickstart) et passer directement au [Guide de l’exemple d’application de vote](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).

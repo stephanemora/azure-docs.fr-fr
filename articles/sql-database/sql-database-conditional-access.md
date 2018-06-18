@@ -6,21 +6,21 @@ author: GithubMirek
 manager: johammer
 ms.custom: security
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: f7f34bc7a28cdf3a23af54785002b12fba4baf1d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647457"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accès conditionnel (MFA) avec Azure SQL Database et Data Warehouse  
 
 SQL Database et SQL Data Warehouse prennent tous deux en charge l’accès conditionnel Microsoft. Les étapes suivantes montrent comment configurer SQL Database pour appliquer une stratégie d’accès conditionnel.  
 
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 - Vous devez configurer SQL Database ou SQL Data Warehouse pour prendre en charge l’authentification Azure Active Directory. Pour connaître la procédure spécifique, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - Quand Multi-Factor Authentication est activé, vous devez vous connecter avec un outil pris en charge, tel que la dernière version de SSMS. Pour plus d’informations, consultez [Configurer Azure SQL Database Multi-Factor Authentication pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 

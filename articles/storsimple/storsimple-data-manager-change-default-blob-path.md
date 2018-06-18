@@ -1,12 +1,12 @@
 ---
-title: "Modifier le chemin d’accès d’objet blob par défaut | Microsoft Docs"
-description: "Découvrez comment configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob"
+title: Modifier le chemin d’accès d’objet blob par défaut | Microsoft Docs
+description: Découvrez comment configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862398"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Modifier le chemin d’accès d’objet blob par défaut
 
@@ -222,6 +223,6 @@ Pour créer une fonction Azure, procédez comme suit :
 
 Vous avez créé une fonction Azure. Cette fonction est déclenchée à chaque fois qu’un nouvel objet blob est généré par le travail de transformation des données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md)

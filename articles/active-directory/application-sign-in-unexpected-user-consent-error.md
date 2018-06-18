@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "26617075"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 

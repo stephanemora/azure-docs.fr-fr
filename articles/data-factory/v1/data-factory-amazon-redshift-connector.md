@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619522"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +37,6 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données d’Amazon Redshift, utilisez le mécanisme Redshift intégré **UNLOAD** via Amazon Simple Storage Service (Amazon S3). Pour plus d’informations, consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Pour déplacer des données vers une banque de données Azure, procédez de la manière décrite dans [calcul de l’adresse IP et des plages SQL utilisés par les centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 

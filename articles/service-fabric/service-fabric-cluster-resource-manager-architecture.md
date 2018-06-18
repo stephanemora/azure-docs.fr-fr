@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211427"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Vue d’ensemble de l’architecture Cluster Resource Manager
 Service Fabric Cluster Resource Manager est un service central qui s’exécute dans le cluster. Il gère l’état souhaité des services dans le cluster, notamment au niveau de la consommation des ressources et des règles de placement. 

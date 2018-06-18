@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12d7e997d82c0ac15d1c81b92491e0a16f4c214e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593671"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
 Azure AD Connect sync s’appuie sur l’approvisionnement déclaratif introduit pour la première fois dans Forefront Identity Manager 2010. Il vous permet d’implémenter toute votre logique métier d’intégration des identités sans avoir à écrire de code compilé.
@@ -38,7 +40,7 @@ Les attributs sont fortement typés. Une fonction accepte uniquement les attribu
 * Les valeurs booléennes sont exprimées avec des constantes : True, False.
 * Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Fonctions
 L’approvisionnement déclaratif utilise de nombreuses fonctions pour permettre de transformer les valeurs d’attribut. Elles peuvent être imbriquées. Le résultat d’une fonction est alors transmis à une autre fonction.
 
 `Function1(Function2(Function3()))`

@@ -1,11 +1,11 @@
 ---
-title: "Modèle d'application web mutualisée | Microsoft Docs"
-description: "Trouvez des présentations et des modèles de conception architecturaux qui décrivent comment implémenter une application web mutualisée dans Azure."
-services: 
+title: Modèle d'application web mutualisée | Microsoft Docs
+description: Trouvez des présentations et des modèles de conception architecturaux qui décrivent comment implémenter une application web mutualisée dans Azure.
+services: ''
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013024"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applications mutualisées dans Azure
 Une application mutualisée est une ressource partagée qui autorise des utilisateurs distincts, appelés « locataires », à afficher l'application comme s'il s'agissait de la leur. Un scénario typique qui se prête à une application mutualisée est celui dans lequel tous les utilisateurs de l'application peuvent personnaliser leur expérience utilisateur, tout en ayant les mêmes besoins professionnels de base. Exemples d'applications mutualisées : Office 365, Outlook.com et visualstudio.com.

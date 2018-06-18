@@ -16,6 +16,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32160254"
 abstract:
   description: Apprenez à déployer Application Gateway, un contrôleur de remise d’applications sous forme de service. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des services d’équilibrage de charge et de routage au niveau de l’application qui vous permettent de créer un serveur frontal web évolutif et hautement disponible.
 sections:

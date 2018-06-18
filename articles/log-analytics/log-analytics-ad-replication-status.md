@@ -1,11 +1,11 @@
 ---
-title: "Surveiller l’état de la réplication Active Directory avec Azure Log Analytics | Microsoft Docs"
-description: "Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent."
+title: Surveiller l’état de la réplication Active Directory avec Azure Log Analytics | Microsoft Docs
+description: Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179332"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Surveiller l’état de la réplication Active Directory avec Log Analytics
 
@@ -152,5 +153,5 @@ Pour obtenir de l’aide sur la connexion d’un contrôleur de domaine, consult
 
 Si vous ne souhaitez connecter aucun de vos contrôleurs de domaine directement à Log Analytics ou à SCOM, consultez la page [Autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer des données AD à Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.

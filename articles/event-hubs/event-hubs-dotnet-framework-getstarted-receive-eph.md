@@ -1,11 +1,11 @@
 ---
-title: "Recevoir des événements provenant des hubs d’événements Azure avec .NET Framework | Microsoft Docs"
-description: "Suivez ce didacticiel pour recevoir des événements provenant des hubs d’événements Azure avec .NET Framework."
+title: Recevoir des événements provenant des hubs d’événements Azure avec .NET Framework | Microsoft Docs
+description: Suivez ce didacticiel pour recevoir des événements provenant des hubs d’événements Azure avec .NET Framework.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29393216"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Recevoir des événements provenant d’Azure Event Hubs avec .NET Framework
 
@@ -163,7 +164,7 @@ Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Pour en savoir plus, consultez les liens suivants :
 

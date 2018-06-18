@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157603"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Effectuer une migration à partir d’Azure Access Control Service
 

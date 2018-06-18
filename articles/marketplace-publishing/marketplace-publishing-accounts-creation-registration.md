@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179331"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 Cet article décrit la procédure de création de compte et d’inscription que vous devez suivre pour devenir un développeur Microsoft agréé pour Azure Marketplace.

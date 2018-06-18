@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653791"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Linux avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous expliquons comment utiliser les stratégies d’Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
@@ -211,4 +212,4 @@ Vous pouvez interdire l’utilisation de certains types d’extensions. Par exem
 ## <a name="next-steps"></a>Étapes suivantes
 * Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour assigner des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](../../azure-policy/assign-policy-definition.md), [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant PowerShell](../../azure-policy/assign-policy-definition-ps.md) et [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant l’interface de ligne de commande Azure](../../azure-policy/assign-policy-definition-cli.md).
 * Pour une introduction aux stratégies de ressources, consultez la page [Qu’est-ce qu’Azure Policy ?](../../azure-policy/azure-policy-introduction.md).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).

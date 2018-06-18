@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793271"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Intégrer l’authentification RADIUS de la passerelle VPN Azure avec un serveur NPS pour l’authentification multifacteur 
 

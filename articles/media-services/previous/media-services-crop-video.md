@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782948"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Rogner des vidéos avec l’encodeur multimédia standard
 Vous pouvez utiliser Media Encoder Standard (MES) pour rogner votre vidéo d’entrée. Le rognage consiste à sélectionner une fenêtre rectangulaire dans l’image vidéo et à encoder uniquement les pixels dans cette fenêtre. Le schéma suivant permet d’illustrer le processus.

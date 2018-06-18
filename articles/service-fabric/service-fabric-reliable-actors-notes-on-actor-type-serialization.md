@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209050"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Remarques sur la sérialisation de type Reliable Actors Service Fabric
 Les arguments de toutes les méthodes, les types de résultats des tâches retournées par chaque méthode dans une interface d’acteur et les objets stockés dans le Gestionnaire d’état d’un acteur doivent être [sérialisables en contrat de données](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Cela s’applique également aux arguments des méthodes définies dans les [interfaces d’événement d’acteur](service-fabric-reliable-actors-events.md). (Les méthodes d’interface d’événement d’acteur retournent toujours la valeur nulle.)

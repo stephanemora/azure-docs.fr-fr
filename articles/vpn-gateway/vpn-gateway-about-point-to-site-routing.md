@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702174"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>À propos du routage VPN point à site
 
@@ -51,7 +52,7 @@ La connexion de passerelle VPN point à site de cet exemple est pour un réseau 
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1
 
@@ -81,7 +82,7 @@ Les clients utilisant Windows peuvent accéder directement aux réseaux virtuels
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1, VNet2 et VNet4, mais le client VPN doit être retéléchargé pour que les changements de topologie prennent effet.
 
@@ -109,7 +110,7 @@ Les clients utilisant Windows ou un autre système d’exploitation pris en char
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1 uniquement
 
@@ -137,7 +138,7 @@ Les clients utilisant Windows ou un autre système d’exploitation pris en char
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1, VNet2 et VNet3, mais les routes vers VNet2 et VNet3 doivent être ajoutées manuellement.
 
@@ -163,7 +164,7 @@ Les clients Windows peuvent accéder à VNet1 et à la filiale (Site1), mais les
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1 uniquement
 
@@ -189,7 +190,7 @@ Les clients Windows peuvent accéder au réseau virtuel et à la filiale (Site1)
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1 et à Site1, mais les routes vers Site1 doivent être ajoutées manuellement.
 
@@ -220,7 +221,7 @@ Tous les clients peuvent accéder à VNet1 uniquement.
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1 uniquement
 
@@ -228,7 +229,7 @@ Tous les clients peuvent accéder à VNet1 uniquement.
 
 ## <a name="multivnets2sbranchbgp"></a>Plusieurs réseaux virtuels connectés avec S2S et une filiale (BGP)
 
-Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est connecté à VNet2 avec une connexion VPN site à site. VNet2 est connecté à VNet3 avec une connexion VPN site à site. Il n’existe aucun appairage direct ni aucun tunnel VPN site à site entre les réseaux VNet1 et VNet3. VNet3 est connecté à une filiale (Site1) avec une connexion VPN site à site. Toutes les connexions VPN n’exécutent pas BGP. Toutes les connexions VPN exécutent BGP.
+Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est connecté à VNet2 avec une connexion VPN site à site. VNet2 est connecté à VNet3 avec une connexion VPN site à site. Il n’existe aucun appairage direct ni aucun tunnel VPN site à site entre les réseaux VNet1 et VNet3. VNet3 est connecté à une filiale (Site1) avec une connexion VPN site à site. Toutes les connexions VPN exécutent BGP.
 
 Les clients utilisant Windows peuvent accéder aux réseaux virtuels et aux sites qui sont connectés avec une connexion VPN site à site, mais les routes vers VNet2, VNet3 et Site1 doivent être ajoutées manuellement dans le client. Les clients non-Windows peuvent accéder aux réseaux virtuels et aux sites qui sont connectés avec une connexion VPN site à site sans aucune intervention manuelle. L’accès est transitif et les clients peuvent accéder aux ressources de tous les réseaux virtuels et sites (locaux) connectés.
 
@@ -250,7 +251,7 @@ Les clients utilisant Windows peuvent accéder aux réseaux virtuels et aux site
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accès
+### <a name="access"></a>Access
 
 * Les clients Windows peuvent accéder à VNet1, VNet2, VNet3 et Site1, mais les routes vers VNet2, VNet3 et Site1 doivent être ajoutées manuellement dans le client.
 

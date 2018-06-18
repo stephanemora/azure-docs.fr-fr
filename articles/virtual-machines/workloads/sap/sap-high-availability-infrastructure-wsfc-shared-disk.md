@@ -4,7 +4,7 @@ description: Découvrez comment préparer l’infrastructure Azure pour la haute
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25d3d01e12132165cc9e12032ba0f6e7a2f15070
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 223c038155d16f41f1599aa76081560739cd7095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657374"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -166,7 +167,6 @@ ms.lasthandoff: 04/28/2018
 Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’un système SAP à haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option de clustering d’une instance ASCS SAP.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer l’installation, consultez cet article :
 

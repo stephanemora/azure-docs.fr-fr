@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418784"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d’objets blob à partir de C++
 

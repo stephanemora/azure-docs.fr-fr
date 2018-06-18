@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869265"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 

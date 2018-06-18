@@ -8,18 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361369"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830535"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Environnement AI et Team Analytics basé sur les machines virtuelles de science des données 
 La [machine virtuelle de science des données](overview.md) (DSVM) fournit un environnement riche dans Azure Cloud avec des logiciels prédéfinis pour l’analyse des données et AI. En règle générale, la machine virtuelle DSVM est utilisée comme bureau individuel d’analyse, et les chercheurs de données gagnent en productivité avec cette notion partagée de leur environnement d’analyse prédéfini. Lorsque des équipes d’analyse de grande taille planifient leurs environnements d’analyse pour leurs chercheurs de données et développeurs AI, l’un des thèmes récurrents concerne l’infrastructure de développement et d’expérimentation d’analyse partagée qui est gérée conformément aux stratégies informatiques d’entreprise et qui facilite également la collaboration et la cohérence entre les équipes de science des données et d’analyse. Une infrastructure partagée permet également au département informatique de mieux utiliser l’environnement d’analyse. L’infrastructure d’analyse et de science des données basée sur une équipe est également appelée par certaines organisations « bac à sable (sandbox) d’analyse » qui permet aux chercheurs de données de comprendre rapidement les données, d’effectuer des expériences, de valider des hypothèses, de créer des modèles prédictifs de manière sécurisée sans impacter l’environnement de production tout en ayant accès aux différentes ressources de données. 

@@ -6,14 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 58f10f0a0938da5887d44959f65b9016dfa88f2c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 90dc603c0ee520774bd22531c7136e0949f6cf90
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264178"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concepts de haute disponibilité dans Azure Database pour MySQL
 Le service Azure Database pour MySQL fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % en disponibilité générale. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.
@@ -33,5 +34,5 @@ Comme pour le modèle de haute disponibilité, quand une base de données Azure 
 
 Pendant l’opération de mise à l’échelle, une interruption se produit pour les connexions de base de données. Les applications clientes sont déconnectées, et les transactions non validées en cours sont annulées. Une fois que l’application cliente réessaie d’établir la connexion ou établit une nouvelle connexion, la passerelle dirige la connexion vers l’instance qui vient d’être dimensionnée. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Vous trouverez une vue d’ensemble du service à la page [Vue d’ensemble de la base de données Azure pour MySQL](overview.md).

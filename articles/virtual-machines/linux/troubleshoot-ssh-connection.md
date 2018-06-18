@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9db1252ffdb705308c6bdaf77f394a0e57145fb5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365676"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701919"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
 Il existe différentes raisons pour lesquelles des erreurs SSH (Secure Shell) se produisent, la connexion SSH échoue ou cette connexion est refusée lorsque vous tentez de vous connecter à une machine virtuelle Linux. Cet article vous aide à identifier et à corriger ces problèmes. Vous pouvez utiliser le portail Azure, l’interface de ligne de commande Azure ou l’extension d’accès aux machines virtuelles pour Linux pour dépanner et résoudre des problèmes de connexion.
@@ -72,11 +72,11 @@ Vous pouvez également créer un utilisateur avec des privilèges sudo sur la ma
 
 ### <a name="check-security-rules"></a>Vérifier les règles de sécurité
 
-Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port SSH (par défaut, 22). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port SSH (par défaut, 22). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ### <a name="check-routing"></a>Vérifier le routage
 
-Utilisez la fonction [Tronçon suivant](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher pour confirmer qu’un itinéraire n’empêche pas le trafic d’être routé vers ou à partir d’une machine virtuelle. Vous pouvez également examiner les itinéraires effectifs pour voir tous les itinéraires effectifs pour une interface réseau. Pour plus d’informations, consultez [Utilisation d’itinéraires effectifs pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+Utilisez la fonction [Tronçon suivant](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher pour confirmer qu’un itinéraire n’empêche pas le trafic d’être routé vers ou à partir d’une machine virtuelle. Vous pouvez également examiner les itinéraires effectifs pour voir tous les itinéraires effectifs pour une interface réseau. Pour plus d’informations, consultez [Utilisation d’itinéraires effectifs pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli-20"></a>Utiliser Azure CLI 2.0
 Si ce n’est déjà fait, installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à votre compte Azure avec [az login](/cli/azure/reference-index#az_login).

@@ -1,6 +1,7 @@
 - name: Azure Blockchain Workbench (préversion publique)
   href: index.yml
 - name: Vue d'ensemble
+  expanded: true
   items:
     - name: À propos d’Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -11,6 +12,7 @@
     - name: Modèles d’intégration
       href: blockchain-workbench-integration-patterns.md
 - name: Procédures
+  expanded: true
   items:
     - name: Déployer Workbench
       href: blockchain-workbench-deploy.md
@@ -48,3 +50,9 @@
       href: blockchain-workbench-messages-overview.md
     - name: de l’API REST
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: Modèles de solution
+      items:
+        - name: Consortium de preuve de travail Ethereum
+          href: ethereum-deployment-guide.md
+        - name: Consortium de Fabric Hyperledger
+          href: hyperledger-fabric-single-member-blockchain.md

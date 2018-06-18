@@ -1,12 +1,12 @@
 ---
-title: "Résolution des problèmes de performances du réseau virtuel Azure | Microsoft Docs"
-description: "Cette page fournit une méthode standardisée pour tester le niveau de performance de la liaison réseau Azure."
+title: Résolution des problèmes de performances du réseau virtuel Azure | Microsoft Docs
+description: Cette page fournit une méthode standardisée pour tester le niveau de performance de la liaison réseau Azure.
 services: expressroute
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27318772"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
 ## <a name="overview"></a>Vue d’ensemble
@@ -202,7 +203,7 @@ Configuration des tests :
 
 \* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [http://aka.ms/AzCT][ACT].
 2. Suivre les instructions pour [tester le niveau de performance des liaisons][Performance Doc].
 

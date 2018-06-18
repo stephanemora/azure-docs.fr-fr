@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 7d105e8e8cf67cd28c0be8a02b26913a25eed023
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 99e54400b070a03744c4d4504fa4c89ad6dc097d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837444"
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas
 Ce document montre comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/) . Après avoir décrit le chargement des données dans une trame de données Pandas, il montre comment générer des fonctionnalités catégorielles à l’aide de scripts Python avec des valeurs d’indicateur et des caractéristiques de compartimentage.
@@ -28,7 +30,6 @@ Ce document montre comment créer des fonctionnalités pour les données stocké
 Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article part du principe que vous avez créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’instructions pour configurer un compte, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Chargement des données dans une trame de données Pandas

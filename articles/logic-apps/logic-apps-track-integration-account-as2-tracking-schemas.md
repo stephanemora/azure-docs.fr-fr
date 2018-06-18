@@ -2,7 +2,7 @@
 title: Schémas de suivi AS2 pour la surveillance B2B - Azure Logic Apps | Microsoft Docs
 description: Utilisez des schémas de suivi AS2 pour surveiller les messages B2B des transactions de votre compte d’intégration Azure.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300879"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Démarrage ou activation du suivi des messages AS2 et des MDN pour surveiller la réussite, les erreurs et les propriétés de message
 Vous pouvez utiliser ces schémas de suivi AS2 dans votre compte d’intégration d’Azure pour surveiller les transactions B2B :

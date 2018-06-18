@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30839549"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

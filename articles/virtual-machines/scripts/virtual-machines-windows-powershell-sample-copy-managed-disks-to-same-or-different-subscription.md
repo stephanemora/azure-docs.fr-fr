@@ -1,13 +1,13 @@
 ---
-title: "Exemple de script Azure PowerShell : Copier (déplacer) des disques gérés vers un abonnement identique ou différent | Microsoft Docs"
-description: "Exemple de script Azure PowerShell : Copier (déplacer) des disques gérés vers un abonnement identique ou différent"
+title: 'Exemple de script Azure PowerShell : Copier (déplacer) des disques gérés vers un abonnement identique ou différent | Microsoft Docs'
+description: 'Exemple de script Azure PowerShell : Copier (déplacer) des disques gérés vers un abonnement identique ou différent'
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116457"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copier des disques gérés dans un abonnement unique ou différent avec PowerShell
 

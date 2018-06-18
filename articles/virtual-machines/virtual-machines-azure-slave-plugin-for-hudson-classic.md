@@ -1,11 +1,11 @@
 ---
-title: "Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Hudson | Microsoft Docs"
-description: "Décrit l’utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson"
+title: Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Hudson | Microsoft Docs
+description: Décrit l’utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27704420"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
 Le plug-in subordonné Azure pour Hudson vous permet d’approvisionner des nœuds subordonnés sur Azure lors de l'exécution de builds distribués.

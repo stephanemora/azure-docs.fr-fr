@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d'Azure App Service Mobile Apps pour les applications Xamarin.iOS | Microsoft Docs"
-description: "Suivez ce didacticiel pour commencer à utiliser Mobile Apps pour le développement Xamarin.iOS."
+title: Prise en main d'Azure App Service Mobile Apps pour les applications Xamarin.iOS | Microsoft Docs
+description: Suivez ce didacticiel pour commencer à utiliser Mobile Apps pour le développement Xamarin.iOS.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592709"
 ---
 # <a name="create-a-xamarinios-app"></a>Création d’une application Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -69,7 +70,7 @@ Suivez les étapes suivantes pour configurer le projet de serveur de sorte qu’
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Ajout de l'authentification à votre application ](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-ios-get-started-push.md)

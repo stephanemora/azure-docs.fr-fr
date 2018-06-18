@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205363"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
 Cet article explique comment configurer un cluster Azure Service Fabric autonome à l’aide du fichier ClusterConfig.json. Utilisez ce fichier pour spécifier les informations sur les nœuds de cluster, les configurations de la sécurité ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau.

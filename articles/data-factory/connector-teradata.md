@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 287fc502a0a538660da86e028a81fba04bcac903
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4360ff12a435afc4347fa97bba4506ccd81618aa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618978"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copier des données à partir de Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +41,6 @@ Plus précisément, ce connecteur Teradata prend en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour utiliser ce connecteur Teradata, vous devez :
 
 - Configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
@@ -59,7 +59,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Teradata 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Teradata**. | OUI |
-| server | Nom du serveur Teradata. | OUI |
+| serveur | Nom du serveur Teradata. | OUI |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Teradata.<br/>Les valeurs autorisées sont **De base** et **Windows**. | OUI |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. | OUI |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |

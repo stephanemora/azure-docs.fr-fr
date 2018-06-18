@@ -4,17 +4,17 @@
 |---------------------|-------------------------|
 | Est des États-Unis             | 3                       |
 | Est des États-Unis 2           | 3                       |
-| Ouest des États-Unis             | 3                       |
+| États-Unis de l’Ouest             | 3                       |
 | Ouest des États-Unis 2           | 2                       |
 | Centre des États-Unis          | 3                       |
 | États-Unis - partie centrale septentrionale    | 3                       |
 | États-Unis - partie centrale méridionale    | 3                       |
 | Centre-Ouest des États-Unis     | 2                       |
-| Centre du Canada      | 2                       |
+| Centre du Canada      | 3                      |
 | Est du Canada         | 2                       |
 |                     |                         |
 | Europe du Nord        | 3                       |
-| Europe de l’Ouest         | 3                       |
+| Europe de l'Ouest         | 3                       |
 | Sud du Royaume-Uni            | 2                       |
 | Ouest du Royaume-Uni             | 2                       |
 |                     |                         |

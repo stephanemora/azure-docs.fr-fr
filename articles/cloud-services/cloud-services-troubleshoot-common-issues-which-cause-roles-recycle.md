@@ -1,11 +1,11 @@
 ---
-title: "Causes courantes de recyclage des rôles de service cloud | Microsoft Docs"
-description: "Le recyclage soudain d’un rôle de service cloud peut entraîner d’importants temps d’arrêt. Voici quelques problèmes courants entraînant le recyclage des rôles, qui peuvent vous aider à réduire les temps d’arrêt."
+title: Causes courantes de recyclage des rôles de service cloud | Microsoft Docs
+description: Le recyclage soudain d’un rôle de service cloud peut entraîner d’importants temps d’arrêt. Voici quelques problèmes courants entraînant le recyclage des rôles, qui peuvent vous aider à réduire les temps d’arrêt.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984284"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problèmes courants provoquant le recyclage des rôles
 Cet article examine certaines des causes courantes entraînant des problèmes de déploiement, et indique des conseils de dépannage pour vous aider à résoudre ces problèmes. Une instance de rôle qui ne démarre pas ou qui est recyclée entre les états Initialisation, Occupée et Arrêt indique un problème au niveau de l’application.

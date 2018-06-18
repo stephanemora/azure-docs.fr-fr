@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398155"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Utiliser Hive avec HDInsight Windows pour analyser les journaux de site web
 Découvrez comment utiliser HiveQL avec HDInsight pour analyser les journaux d'un site web. L’analyse des journaux de site web permet de segmenter votre public en fonction d’activités similaires, de classer les visiteurs d’un site sur la base de données démographiques, d’identifier le contenu qu’ils affichent, les sites web qu’ils ont visités avant, etc.

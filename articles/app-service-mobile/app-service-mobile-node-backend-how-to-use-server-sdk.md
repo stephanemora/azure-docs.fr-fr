@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598077"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -130,7 +131,7 @@ Dans le volet **Prise en main**, sous **Create a table API** (Créer une API de 
 Cochez la case **Je reconnais que cette opération va remplacer tout le contenu du site.**, puis sélectionnez sur **Créer une table TodoItem**.
 
 ### <a name="download-quickstart"></a>Télécharger le projet de code de démarrage rapide du serveur principal Node.js à l’aide de Git
-Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du volet **Démarrage rapide** du portail, un projet Node.js est créé et déployé sur votre site. Dans le portail, vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal, afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le guide [ guide Déploiement Git local vers Azure App Service]. 
+Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du volet **Démarrage rapide** du portail, un projet Node.js est créé et déployé sur votre site. Dans le portail, vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal, afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le guide [Déploiement Git local vers Azure App Service]. 
 
 La procédure suivante utilise un référentiel Git pour télécharger le code de projet de démarrage rapide :
 
@@ -151,7 +152,7 @@ La procédure suivante utilise un référentiel Git pour télécharger le code d
 Le site est republié chaque fois qu’un nouvel ensemble de validations est transmis au site.
 
 ### <a name="howto-publish-to-azure"></a>Publier votre serveur principal Node.js dans Azure
-Microsoft Azure propose plusieurs mécanismes permettant de publier votre serveur principal Node.js pour Mobile Apps sur le service Azure. Ces mécanismes incluent des outils de déploiement intégrés à Visual Studio, des outils de ligne de commande et des options de déploiement continu en fonction du contrôle de la source. Pour plus d’informations, consultez le [ guide Déploiement Git local vers Azure App Service].
+Microsoft Azure propose plusieurs mécanismes permettant de publier votre serveur principal Node.js pour Mobile Apps sur le service Azure. Ces mécanismes incluent des outils de déploiement intégrés à Visual Studio, des outils de ligne de commande et des options de déploiement continu en fonction du contrôle de la source. Pour plus d’informations, consultez le [Déploiement Git local vers Azure App Service].
 
 Avant de publier le serveur principal, vous devriez prendre connaissance des recommandations suivantes pour l’application Node.js avec Azure App Service :
 
@@ -243,7 +244,7 @@ Le Kit de développement logiciel (SDK) Node.js dans Mobile Apps fournit trois o
 * Utilisez le pilote **mssql** pour fournir un magasin de données SQL Express utilisé pour le développement.
 * Utilisez le pilote **mssql** pour fournir un magasin de données Azure SQL Database utilisé pour la production.
 
-Le Kit de développement logiciel (SDK) Node.js pour Mobile Apps utilise le [package mssql Node.js] pour établir et utiliser une connexion à SQL Server Express et à SQL Database. Ce package nécessite l’activation de connexions TCP sur votre instance SQL Server Express.
+Le Kit de développement logiciel (SDK) Node.js pour Mobile Apps utilise le [package mssql Node] pour établir et utiliser une connexion à SQL Server Express et à SQL Database. Ce package nécessite l’activation de connexions TCP sur votre instance SQL Server Express.
 
 > [!TIP]
 > Le pilote memory ne fournit pas un ensemble complet de fonctionnalités à des fins de test. Si vous souhaitez tester localement votre serveur principal, nous vous recommandons d’utiliser un magasin de données SQL Server Express et le pilote mssql.
@@ -346,7 +347,7 @@ La plupart des paramètres du fichier azureMobile.js ont un paramètre équivale
 
 Pour définir un paramètre d’application :
 
-1. Connectez-vous au [portail Azure].
+1. Connectez-vous au [Portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis sélectionnez le nom de votre application mobile.
 3. Le volet **Paramètres** s’ouvre par défaut. Si ce n’est pas le cas, sélectionnez **Paramètres**.
 4. Dans le menu **GÉNÉRAL**, sélectionnez **Paramètres de l’application**.
@@ -362,7 +363,7 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 
 L’utilisation de la base de données SQL Azure en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
 
-1. Connectez-vous au [portail Azure].
+1. Connectez-vous au [Portail Azure].
 2. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
 3. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 4. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
@@ -881,7 +882,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Comment configurer votre application App Service de manière à utiliser la connexion via Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Comment configurer votre application App Service de manière à utiliser la connexion via Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[ guide Déploiement Git local vers Azure App Service]: ../app-service/app-service-deploy-local-git.md
+[Déploiement Git local vers Azure App Service]: ../app-service/app-service-deploy-local-git.md
 [Surveillance des applications dans Azure App Service]: ../app-service/web-sites-monitor.md
 [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
 [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -892,7 +893,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemple basicapp sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
@@ -901,7 +902,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 pour Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[package mssql Node.js]: https://www.npmjs.com/package/mssql
+[package mssql Node]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

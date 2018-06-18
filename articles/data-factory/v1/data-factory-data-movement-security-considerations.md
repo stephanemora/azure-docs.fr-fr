@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cad363309b6086197ced1a5d1c1793995db11228
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621612"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -62,7 +63,7 @@ Certaines banques de données prennent en charge le chiffrement des données au 
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 Dans Microsoft Azure SQL Data Warehouse, TDE (Transparent Data Encryption) contribue à vous protéger contre les activités malveillantes par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Base de données SQL Azure
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous protège contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527152"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexation de tables dans SQL Data Warehouse
 Recommandations et exemples relatifs à l’indexation de tables dans Azure SQL Data Warehouse.

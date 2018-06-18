@@ -6,14 +6,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: e9e0588cc38bc7c29e81a1ae288ae116e3d50279
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e2393980d966d5a476a2fedf0e70b0614e803e06
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646437"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
 Vous pouvez créer des rapports tirés de plusieurs bases de données SQL Azure à partir d’un point de connexion unique par le biais d’une [requête élastique](sql-database-elastic-query-overview.md). Les bases de données doivent être partitionnées horizontalement.
@@ -23,7 +24,6 @@ Si vous avez déjà une base de données, consultez [Migrer des bases de donnée
 Pour connaître les objets SQL requis dans le cadre d’une requête, consultez [Interroger plusieurs bases de données partitionnées horizontalement](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application

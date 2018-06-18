@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33951502"
 ---
 Voici les contraintes d’utilisation pour le service Azure Maps. Pour plus d’informations sur le coût, consultez la page [Tarification Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). [Contactez-nous](https://azure.microsoft.com/overview/sales-number/) afin d’augmenter le taux de requête maximal pour votre abonnement.
 

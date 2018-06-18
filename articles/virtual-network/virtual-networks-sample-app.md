@@ -1,11 +1,11 @@
 ---
-title: "Exemple d’application Azure pour une utilisation avec des réseaux de périmètre | Microsoft Docs"
-description: "Déployez cette application web simple pour tester des scénarios de flux de trafic suite à la création d’un réseau de périmètre."
+title: Exemple d’application Azure pour une utilisation avec des réseaux de périmètre | Microsoft Docs
+description: Déployez cette application web simple pour tester des scénarios de flux de trafic suite à la création d’un réseau de périmètre.
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124347"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemple d’application pour une utilisation avec des réseaux de périmètre
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]

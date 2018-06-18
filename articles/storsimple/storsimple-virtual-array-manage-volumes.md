@@ -1,11 +1,11 @@
 ---
-title: "Gérer des volumes sur StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit le service StorSimple Device Manager et vous explique comment l’utiliser pour gérer des volumes sur votre instance StorSimple Virtual Array."
+title: Gérer des volumes sur StorSimple Virtual Array | Microsoft Docs
+description: Décrit le service StorSimple Device Manager et vous explique comment l’utiliser pour gérer des volumes sur votre instance StorSimple Virtual Array.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110207"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer les volumes sur l’instance StorSimple Virtual Array
 

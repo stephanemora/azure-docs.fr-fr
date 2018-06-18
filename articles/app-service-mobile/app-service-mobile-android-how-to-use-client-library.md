@@ -18,6 +18,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869714"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
 

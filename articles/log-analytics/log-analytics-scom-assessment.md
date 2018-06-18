@@ -1,8 +1,8 @@
 ---
 title: Optimisation de votre environnement System Center Operations Manager avec Azure Log Analytics | Microsoft Docs
-description: "La solution System Center Operations Manager Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers."
+description: La solution System Center Operations Manager Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180034"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -303,6 +304,6 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 *Est-il possible d'ignorer une recommandation ?* Oui, consultez [Ignorer les recommandations](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

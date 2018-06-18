@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840325"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Exemple de script : Filtrer le trafic réseau de machine virtuelle entrant et sortant
 

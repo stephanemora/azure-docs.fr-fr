@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783118"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Découvrez comment les clients passent des jetons au service de remise de clés d’Azure Media Services
 Les clients s’interrogent souvent sur la manière dont lecteur peut transmettre des jetons au service de remise de clés d’Azure Media Services à des fins de vérification afin que le lecteur puisse obtenir la clé. Media Services prend en charge les formats SWT (Simple Web Tokens) et JWT (JSON Web Token). L’authentification par jeton est appliquée à tout type de clé, que vous utilisiez un chiffrement commun ou un chiffrement d’enveloppe AES (Advanced Encryption Standard) dans le système.

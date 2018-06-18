@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : sécuriser votre service RESTful à l’aide de certificats clients'
+title: Sécuriser votre service RESTful en utilisant les certificats clients dans Azure Active Directory B2C | Microsoft Docs
 description: Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de certificats clients
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 004577ead56befce02771b82ace088706e8f0c3c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709204"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
 

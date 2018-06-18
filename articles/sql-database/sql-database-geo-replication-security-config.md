@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sashan
-ms.openlocfilehash: 6b4b599fee9a8ff5b4674cf26ca19b22230d6364
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0796e5900bc67d93e51a0ce377ef5d1144346e2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646862"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement 
 
@@ -24,7 +25,7 @@ Cette rubrique décrit les exigences d’authentification requises pour configur
 >  
 
 ## <a name="disaster-recovery-with-contained-users"></a>Récupération d’urgence avec des utilisateurs contenus
-Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 L’inconvénient principal est que la gestion du processus de récupération d’urgence à grande échelle est plus difficile. Lorsque plusieurs de vos bases de données utilisent la même connexion, maintenir les informations d’identification avec des utilisateurs contenus dans plusieurs bases de données peut anéantir les avantages des utilisateurs contenus. Par exemple, la stratégie de rotation des mots de passe nécessite de faire les modifications de façon cohérente dans plusieurs bases de données plutôt que de modifier le mot de passe de l’identifiant de connexion une fois dans la base de données principale. Pour cette raison, si vous avez plusieurs bases de données qui utilisent le même nom d’utilisateur et le même mot de passe, l’utilisation d’utilisateurs contenus est déconseillée. 
 
@@ -92,7 +93,7 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la gestion de l’accès aux bases de données et des identifiants de connexion, consultez [Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données](sql-database-manage-logins.md).
-* Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+* Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 * Pour plus d’informations sur l’utilisation et la configuration de la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
 * Pour plus d’informations sur l’utilisation de la géorestauration, voir [Géorestauration](sql-database-recovery-using-backups.md#geo-restore).
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598130"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 

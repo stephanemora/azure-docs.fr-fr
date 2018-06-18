@@ -1,11 +1,11 @@
 ---
-title: "Messages X12 pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs"
-description: "Échangez des messages X12 au format EDI dans le cadre d’une intégration d’entreprise B2B avec Azure Logic Apps"
+title: Messages X12 pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
+description: Échangez des messages X12 au format EDI dans le cadre d’une intégration d’entreprise B2B avec Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299077"
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Échangez des messages X12 dans le cadre d’une intégration d’entreprise avec Logic Apps
 
@@ -46,7 +47,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
    ![Recherche du compte d’intégration](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
    > [!TIP]
-   > Si l’option **Tous les services** n’est pas visible, vous devez peut-être d’abord développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
+   > Si l’option **Tous les services** n’est pas visible, vous devez d’abord peut-être développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
 
 3. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter le contrat.
 

@@ -1,11 +1,11 @@
 ---
 title: Ajouter des solutions de gestion Azure Log Analytics | Microsoft Docs
-description: "Les solutions de gestion dans Azure représentent une collection de règles logiques, de visualisation et d'acquisition des données qui fournissent des mesures cernant un domaine problématique en particulier."
+description: Les solutions de gestion dans Azure représentent une collection de règles logiques, de visualisation et d'acquisition des données qui fournissent des mesures cernant un domaine problématique en particulier.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29395460"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Ajouter des solutions de gestion Azure Log Analytics dans votre espace de travail
 
@@ -277,5 +278,5 @@ La nature de la préversion privée détermine la forme de l’invitation.
 * Vous pouvez vous inscrire en fonction des détails publiés sur twitter [msopsmgmt](https://twitter.com/msopsmgmt).
 * Vous pouvez vous inscrire en fonction des détails partagés à l’occasion d’événements communautaires : recherchez-nous dans les rencontres, conférences et communautés en ligne.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Recherchez dans les journaux](log-analytics-log-searches.md) les informations détaillées collectées par les solutions de gestion.

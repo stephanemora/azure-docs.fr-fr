@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 99e429a2f82d1a9b8d9a87fb3eb4102183c19fe8
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 4a49c3db52e3cce37101836f7233ba8e3f5380c1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826573"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Régions et disponibilité des machines virtuelles dans Azure
 Azure fonctionne dans plusieurs centres de données à travers le monde. Ces centres de données sont regroupés en régions géographiques, ce qui vous donne une certaine flexibilité dans le choix de l’emplacement où vous créez vos applications. Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.
@@ -102,7 +103,7 @@ Un domaine d’erreur est un groupe logique de matériels sous-jacents qui parta
 Un domaine de mise à jour est un groupe logique de matériels sous-jacents qui peuvent faire l’objet d’une opération de maintenance ou être redémarrés en même temps. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines de mise à jour. Cette approche garantit qu’au moins une instance de votre application reste toujours en cours d’exécution, car la plateforme Azure fait l’objet d’une maintenance périodique. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois.
 
 ### <a name="managed-disk-fault-domains"></a>Domaines d’erreur des disques gérés
-Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/virtual-machines/windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/virtual-machines/windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 
 ## <a name="availability-zones"></a>Zones de disponibilité
 

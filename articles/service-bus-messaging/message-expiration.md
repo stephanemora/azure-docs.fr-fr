@@ -1,11 +1,11 @@
 ---
 title: Expiration des messages Azure Service Bus | Microsoft Docs
-description: "Expiration et durée de vie des messages Azure Service Bus"
+description: Expiration et durée de vie des messages Azure Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28196766"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 
@@ -54,7 +55,7 @@ Vous activez la fonctionnalité à l’aide de la propriété [autoDeleteOnIdle]
 La propriété **autoDeleteOnIdle** doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Elle ne peut pas être définie dans le portail.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

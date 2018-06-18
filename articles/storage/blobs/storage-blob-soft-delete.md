@@ -1,24 +1,25 @@
 ---
 title: Suppression réversible pour objets blob de Stockage Azure (préversion) | Documents Microsoft
-description: Le Stockage Azure offre désormais fonctionnalité de une suppression réversible (préversion) pour les objets blob, de sorte que vous pouvez plus facilement récupérer vos données en cas de modification ou de suppression erronées par une application ou un autre utilisateur du compte de stockage.
+description: Le Stockage Azure offre désormais une fonctionnalité de suppression réversible (préversion) pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
 services: storage
 author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34701681"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Suppression réversible pour objets blob de Stockage Azure (préversion)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Le Stockage Azure offre désormais une fonctionnalité de suppression réversible (préversion) pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
+Le Stockage Azure offre désormais une fonctionnalité de suppression réversible pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
@@ -29,10 +30,6 @@ Vous pouvez configurer la durée pendant laquelle les données supprimées de ma
 
 La suppression réversible étant rétrocompatible, il est inutile d’apporter des modifications à vos applications pour tirer parti des protections qu’offre cette fonctionnalité. Toutefois, la fonctionnalité de [récupération des données](#recovery) introduit une nouvelle API de **rétablissement d’objet blob supprimé**.
 
-> [!NOTE]
-> Durant la période de préversion publique, l’appel de la commande Définir le niveau du blob sur un objet blob avec des instantanés n’est pas autorisé.
-La suppression réversible génère des instantanés pour protéger vos données en cas de remplacement de celles-ci. Nous travaillons activement sur une solution qui permette de hiérarchiser les objets blob avec des instantanés.
-
 ### <a name="configuration-settings"></a>Paramètres de configuration
 
 Lorsque vous créez un compte, la suppression réversible est désactivée par défaut. Elle est également désactivée par défaut pour les comptes de stockage existants. Vous pouvez activer ou désactiver la fonctionnalité à tout moment pendant la durée de vie d’un compte de stockage.
@@ -41,7 +38,7 @@ Vous pouvez toujours accéder aux données supprimées de manière réversible p
 
 La période de rétention indique la durée pendant laquelle les données supprimées de manière réversible sont stockées et disponibles pour récupération. Pour les objets blob et instantanés d’objets blob supprimés explicitement, l’horloge de la période de rétention démarre dès la suppression des données. Pour les instantanés supprimés de manière réversible générés par la fonctionnalité de suppression réversible lors du remplacement de données, l’horloge démarre lors de la génération de l’instantané. Actuellement, vous pouvez conserver des données supprimées de manière réversible pendant une période de 1 à 365 jours.
 
-Vous pouvez modifier la période de rétention de suppression réversible à tout moment. Une mise à jour de la période de rétention s’applique uniquement aux données supprimées par la suite. Les données supprimées antérieurement expireront à l’issue de la période de rétention qui était configurée lors de leur suppression.
+Vous pouvez modifier la période de rétention de suppression réversible à tout moment. Une mise à jour de la période de rétention s’applique uniquement aux données supprimées par la suite. Les données supprimées antérieurement expireront à l’issue de la période de rétention qui était configurée lors de leur suppression. Une tentative de suppression d’un objet supprimé de manière réversible n’affecte pas son délai d’expiration.
 
 ### <a name="saving-deleted-data"></a>Enregistrement de données supprimées
 
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-Pour obtenir un pointeur vers l’application qui a produit cette sortie, voir la section [Étapes suivantes](#Next steps).
+Pour obtenir un pointeur vers l’application qui a produit cette sortie, voir la section [Étapes suivantes](#next-steps).
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Azure CLI 
+Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Pour vérifier si la suppression réversible est activée, utilisez la commande suivante : 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Bibliothèque cliente Python
 
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
@@ -276,11 +286,15 @@ Actuellement, la suppression réversible est disponible uniquement pour le stock
 
 **La suppression réversible est-elle disponible pour tous les types de comptes de stockage ?**
 
-Oui, la suppression réversible est disponible pour les comptes de stockage d’objets blob, ainsi que pour les objets blob figurant dans des comptes de stockage à usage général. Cela s’applique aux comptes Standard et Premium. La suppression réversible n’est pas disponible pour les disques managés.
+Oui, la suppression réversible est disponible pour les comptes de stockage d’objets blob, ainsi que pour les objets blob figurant dans des comptes de stockage (GPv1 et GPv2) à usage général. Cela s’applique aux comptes Standard et Premium. La suppression réversible n’est pas disponible pour les disques managés.
 
 **La suppression réversible est-elle disponible pour tous les niveaux de stockage ?**
 
 Oui, la suppression réversible est disponible pour tous les niveaux de stockage : chaud, froid et archive. Toutefois, la suppression réversible n’offre de protection contre le remplacement pour les objets blob au niveau archive.
+
+**Puis-je utiliser l’API de niveau objet Blob défini pour différencier des objets Blob avec des instantanés supprimés de manière réversible ?**
+
+Oui. Les instantanés supprimés de manière réversible restent dans le niveau d’origine, mais l’objet blob de base est déplacé dans le nouveau niveau. 
 
 **Les comptes de stockage Premium sont limités à 100 suppressions réversibles par instantané d’objet blob. Les instantanés d’objets blob supprimés de manière réversible sont-ils pris en compte par rapport à cette limite ?**
 

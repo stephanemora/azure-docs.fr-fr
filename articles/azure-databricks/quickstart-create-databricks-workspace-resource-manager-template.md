@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30233674"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Démarrage rapide : Exécuter un travail Spark sur Azure Databricks à l’aide d’un modèle Azure Resource Manager
 

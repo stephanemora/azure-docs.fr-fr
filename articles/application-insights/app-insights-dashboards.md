@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296398"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigation et tableaux de bord dans le portail Application Insights
 Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
@@ -159,7 +160,7 @@ PARAMÈTRES
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 |  |  |
 | --- | --- |

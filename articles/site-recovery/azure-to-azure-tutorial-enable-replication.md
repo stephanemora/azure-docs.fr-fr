@@ -1,4 +1,4 @@
----
+﻿---
 title: Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence pour des machines virtuelles Azure vers une autre région Azure avec le service Azure Site Recovery.
 services: site-recovery
@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5cfca7f0413a680369c926f58d0a4e15f182a5b3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211665"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716480"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -28,9 +28,8 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Configurer un accès sortant pour les machines virtuelles
 > * Activer la réplication pour une machine virtuelle
 
-La réplication Azure vers Azure est actuellement disponible en préversion.
-## <a name="prerequisites"></a>Prérequis
 
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 

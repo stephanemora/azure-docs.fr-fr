@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31606518"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850169"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
 
@@ -46,7 +47,6 @@ Bien qu’une expérience antérieure de l’apprentissage automatique (« mach
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -244,15 +244,20 @@ Dans la première capture d’écran, l’affinement du réseau de neurones prof
 
 
 ### <a name="parameter-tuning"></a>Réglage des paramètres
+
 Comme c’est le cas pour la plupart des projets d’apprentissage automatique (« machine learning »), l’obtention de bons résultats pour un nouveau jeu de données nécessite un réglage minutieux des paramètres, ainsi qu’une évaluation pertinente des différents choix de conception. Pour vous faciliter la tâche, tous les paramètres importants sont spécifiés et une brève explication est fournie au même endroit, dans le fichier `PARAMETERS.py`.
 
 Certaines des pistes d’amélioration les plus prometteuses sont :
 
 - Qualité des données : vérifiez que les jeux d’apprentissage et de test sont de haute qualité. En d’autres termes, vérifiez que les images sont annotées correctement, que les images ambiguës sont supprimées (par exemple les vêtements comportant à la fois des rayures et des pois) et que les attributs sont mutuellement exclusifs (c’est-à-dire qu’ils sont choisis de telle sorte que chaque image appartient à un seul attribut).
+
 - Si l’objet d’intérêt est petit sur l’image, les approches de classification d’images sont généralement moins efficaces. Dans ce cas, utilisez l’une des approches de détection d’objet décrites dans ce [didacticiel](https://github.com/Azure/ObjectDetectionUsingCntk).
 - Affinement du réseau de neurones profond : le paramètre éventuellement le plus important pour obtenir un bon résultat est le taux d’apprentissage `rf_lrPerMb`. Si la précision du jeu d’apprentissage (première figure de la partie 2) n’est pas proche d’une valeur comprise entre 0 et 5 %, cela est très probablement dû à un mauvais taux d’apprentissage. Les autres paramètres commençant par `rf_` sont moins importants. En règle générale, l’erreur d’apprentissage doit diminuer de façon exponentielle et se rapprocher de 0 % après l’apprentissage.
+
 - Résolution d’entrée : la résolution d’image par défaut est de 224 x 224 pixels. L’utilisation d’une résolution d’image plus élevée (paramètre : `rf_inputResoluton`), par exemple 448 x 448 pixels ou 896 x 896 pixels, améliore souvent la précision de façon importante mais ralentit l’affinement du réseau de neurones profond. **L’utilisation d’une résolution d’image plus élevée ne coûte quasiment rien et améliore presque toujours la précision**.
+
 - Surapprentissage du réseau de neurones profond : évitez un écart important entre la précision de l’apprentissage et la précision des tests durant l’affinement du réseau de neurones profond (première figure de la partie 2). Vous pouvez réduire cet écart en utilisant des taux d’abandon (`rf_dropoutRate`) de 0,5 ou plus, et en augmentant le poids du régulateur `rf_l2RegWeight`. L’utilisation d’un taux d’abandon élevé peut être particulièrement utile si la résolution d’image d’entrée du réseau de neurones profond est élevée.
+
 - Essayez d’utiliser des réseaux de neurones profonds encore plus profonds en changeant `rf_pretrainedModelFilename` et en remplaçant `ResNet_18.model` par `ResNet_34.model` ou `ResNet_50.model`. Non seulement le modèle Resnet-50 est plus profond, mais sa sortie de l’avant-dernière couche a une taille de 2 048 floats (contre 512 floats pour les modèles ResNet-18 et ResNet-34). Cette dimension accrue peut s’avérer particulièrement intéressante pour l’apprentissage d’un classifieur de machine à vecteurs de support.
 
 ## <a name="part-3---custom-dataset"></a>Partie 3 - Jeu de données personnalisé

@@ -1,11 +1,11 @@
 ---
-title: "Diagnostics et traçage de bout en bout d’Azure Service Bus | Microsoft Docs"
-description: "Vue d’ensemble des diagnostics et du traçage de bout en bout du client Service Bus"
+title: Diagnostics et traçage de bout en bout d’Azure Service Bus | Microsoft Docs
+description: Vue d’ensemble des diagnostics et du traçage de bout en bout du client Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741216"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
 
@@ -224,7 +225,7 @@ Vous pouvez également utiliser `IsEnabled` pour implémenter des stratégies d�
 
 En présence de plusieurs écouteurs `DiagnosticSource` pour la même source, il suffit qu’un seul écouteur accepte l’événement. L’appel de `IsEnabled` n’est donc pas garanti.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Corrélation dans Application Insights](../application-insights/application-insights-correlation.md)

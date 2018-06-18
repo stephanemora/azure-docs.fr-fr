@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371318"
 ---
 Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support.
 

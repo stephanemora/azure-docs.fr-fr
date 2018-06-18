@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267439"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
 
@@ -22,8 +23,8 @@ AzCopy est un outil en ligne de commande qui vous permet de copier des données 
 
 Vous pouvez télécharger deux versions d’AzCopy :
 
-* [AzCopy sur Linux](storage-use-azcopy.md) est basé sur .NET Core Framework. Il cible les plateformes Linux en fournissant des options de ligne de commande de style POSIX. 
-* [AzCopy sur Windows](../storage-use-azcopy.md) est basé sur .NET Framework. Il fournit des options de ligne de commande de style Windows. 
+* [AzCopy sur Linux](storage-use-azcopy-linux.md) est basé sur .NET Core Framework. Il cible les plateformes Linux en fournissant des options de ligne de commande de style POSIX. 
+* [AzCopy sur Windows](storage-use-azcopy.md) est basé sur .NET Framework. Il fournit des options de ligne de commande de style Windows. 
  
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -34,7 +35,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créez une tâche planifiée ou un travail Cron pour identifier les nouveaux fichiers à charger.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, téléchargez la dernière version d’AzCopy sur [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) ou [Windows](http://aka.ms/downloadazcopy). 
 

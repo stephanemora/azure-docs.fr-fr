@@ -21,6 +21,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779554"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Exemples de modèles de stratégie Azure pour un réseau virtuel
 

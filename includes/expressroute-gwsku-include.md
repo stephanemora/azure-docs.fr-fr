@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30197531"
 ---
 Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Si vous sélectionnez une référence SKU de passerelle supérieure, la quantité de ressources processeur et de bande passante réseau allouées à la passerelle augmente. Par conséquent, la passerelle peut prendre en charge un débit réseau plus élevé sur le réseau virtuel. 
 

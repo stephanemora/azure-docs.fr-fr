@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: a685043f0bc9841d2cc86f2c49469e8287a03b78
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "33780226"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Prendre en main la diffusion de contenus à la demande à l’aide du Kit de développement logiciel (SDK) .NET
@@ -27,7 +27,6 @@ ms.locfileid: "33780226"
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel (SDK) .NET Azure Media Services.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937565"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure 
 Utilisez l’outil Azure Stack Readiness Checker (AzsReadinessChecker) pour vérifier que votre abonnement Azure est prêt à être utilisé avec Azure Stack. Validez l’inscription avant de commencer un déploiement d’Azure Stack. L’outil Readiness Checker valide ce qui suit :

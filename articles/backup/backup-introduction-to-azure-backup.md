@@ -1,26 +1,21 @@
 ---
-title: Qu’est-ce qu’Azure Backup ? | Microsoft Docs
+title: Qu’est-ce qu’Azure Backup ?
 description: Utilisez la sauvegarde Azure pour sauvegarder et restaurer les données et les charges de travail depuis les serveurs Windows Server, les stations de travail Windows, les serveurs System Center DPM et les machines virtuelles Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: sauvegarde et restauration ; services de restauration ; solutions de sauvegarde
-ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;anuragm
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607097"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).

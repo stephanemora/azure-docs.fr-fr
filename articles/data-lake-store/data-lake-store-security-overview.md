@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198155"
 ---
 # <a name="security-in-azure-data-lake-store"></a>Sécurité dans Azure Data Lake Store
 Un grand nombre d’entreprises tirent parti de l’analyse du Big Data pour bénéficier d’informations métier afin de prendre des décisions éclairées. Une organisation peut évoluer dans un environnement complexe et réglementé, avec un nombre croissant d’utilisateurs divers. Il est essentiel pour une entreprise de garantir que les données métier critiques sont stockées de manière plus sécurisée, avec le niveau d’accès adéquat pour chaque utilisateur. Azure Data Lake Store vous permet de respecter ces exigences de sécurité. Dans cet article, découvrez les fonctionnalités de sécurité de Data Lake Store, notamment :

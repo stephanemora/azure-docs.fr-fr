@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205584"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.

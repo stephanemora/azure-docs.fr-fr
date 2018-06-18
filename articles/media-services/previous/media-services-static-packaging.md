@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: 808f25ee2c0b72f557ec72d159318e25cb7387ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "33786128"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique
 > [!NOTE]

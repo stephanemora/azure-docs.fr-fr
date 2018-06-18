@@ -3,23 +3,20 @@ title: Gestion d’un compte Azure Cosmos DB via le portail Azure | Microsof
 description: Apprenez à gérer votre compte Azure Cosmos DB via le portail Azure. Trouvez un guide vous expliquant comment utiliser le portail Azure pour afficher, copier, supprimer et accéder aux comptes.
 keywords: Portail Azure, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: kirillg
 manager: kfile
 editor: cgronlun
-ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 9c8126c7f902beec348419c0362722a692cb393e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b28143dc92fa526b631baf6d47e4a9f2367ee0e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612154"
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Comment gérer un compte Azure Cosmos DB
 Découvrez comment définir la cohérence globale, utiliser les clés et supprimer un compte Azure Cosmos DB dans le portail Azure.

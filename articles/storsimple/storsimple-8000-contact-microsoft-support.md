@@ -1,12 +1,12 @@
 ---
-title: "Créer un ticket ou cas de support pour la gamme StorSimple 8000 | Microsoft Docs"
-description: "Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil de la gamme StorSimple 8000."
+title: Créer un ticket ou cas de support pour la gamme StorSimple 8000 | Microsoft Docs
+description: Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil de la gamme StorSimple 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743044"
 ---
 # <a name="contact-microsoft-support"></a>Contacter le support Microsoft
 
@@ -113,6 +114,6 @@ Procédez comme suit pour démarrer une session de support :
 > Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment [diagnostiquer et résoudre les problèmes liés à votre appareil de la gamme StorSimple 8000](storsimple-8000-troubleshoot-deployment.md).

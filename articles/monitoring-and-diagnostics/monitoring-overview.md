@@ -1,25 +1,19 @@
 ---
-title: Surveillance des applications et des ressources Azure | Microsoft Docs
+title: Surveillance des applications et des ressources Azure
 description: Vue d’ensemble des services et fonctionnalités Microsoft qui contribuent à une stratégie de surveillance complète de vos services et applications Azure.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777550"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265130"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Surveillance des applications et des ressources Azure
 
@@ -56,7 +50,7 @@ Les [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) s
 ## <a name="core-monitoring"></a>Analyse principale
 L’analyse principale assure la surveillance essentielle et obligatoire des ressources Azure. Ces services nécessitent une configuration minimale et collectent des données de télémétrie de base utilisées par les services de surveillance Premium.    
 
-### <a name="azure-monitor"></a>Azure Monitor
+### <a name="azure-monitor"></a>Azure Monitor
 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) active l’analyse principale des services Azure en permettant la collecte de [mesures](../monitoring-and-diagnostics/monitoring-overview-metrics.md), de [journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) et de [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Par exemple, le journal d’activité indique quand des ressources sont créées ou modifiées.
 
 Les métriques fournissent des statistiques sur les performances pour différentes ressources, voire pour le système d’exploitation à l’intérieur d’une machine virtuelle. Vous pouvez afficher ces données avec un des explorateurs dans le portail Azure et créer des alertes en fonction de leurs mesures. Azure Monitor fournit les pipelines de mesures les plus rapides (de 5 minutes à 1 minute), vous devez ainsi l’utiliser pour les notifications et les alertes critiques de temps.
@@ -118,9 +112,9 @@ Il existe plusieurs outils qui fonctionnent de concert afin d’analyser divers 
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) fournit une surveillance et des diagnostics basés sur un scénario pour différents scénarios réseau dans Azure. Il stocke des données dans les métriques et diagnostics Azure pour une analyse plus approfondie. Il fonctionne avec les solutions suivantes pour analyser les différents aspects de votre réseau.
 
-[Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) : est une solution d’analyse réseau basée sur le cloud, qui surveille la connectivité sur les clouds publics, les centres de données et les environnements locaux.
+[Network Performance Monitor (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) : est une solution d’analyse réseau basée sur le cloud, qui surveille la connectivité sur les clouds publics, les centres de données et les environnements locaux.
 
-[Analyse ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) est une fonctionnalité NPM qui surveille la connectivité et les performances de bout en bout sur les circuits Azure ExpressRoute.
+[Analyse ExpressRoute](../expressroute/how-to-npm.md) est une fonctionnalité NPM qui surveille la connectivité et les performances de bout en bout sur les circuits Azure ExpressRoute.
 
 [DNS Analytics](../log-analytics/log-analytics-dns.md) est une solution qui fournit la sécurité, les performances et des analyses relatives aux opérations, en fonction de vos serveurs DNS.
 

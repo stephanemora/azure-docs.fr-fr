@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30837436"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Plans et facturation dans Azure Scheduler
 ## <a name="job-collection-plans"></a>Plans de collections de travaux

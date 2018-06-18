@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: adhurwit
-ms.openlocfilehash: de8276b22377db37075c6793d0710bb18625446c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802100"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilisation d'Azure Key Vault à partir d'une application web
 
@@ -28,7 +29,6 @@ Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Ke
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -261,7 +261,7 @@ Au lieu de charger votre certificat directement sur le service d’application w
 
 ## <a id="next"></a>Étapes suivantes
 
-Pour les références de programmation, consultez la page [Référence de l'API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Pour les références de programmation, consultez la page [Référence de l'API cliente C# du coffre de clés](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

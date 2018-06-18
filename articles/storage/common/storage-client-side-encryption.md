@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30245445"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +66,7 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 > 
 > 
 
-Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **DownloadTo***/**BlobReadStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
+Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **DownloadTo***/** BlobReadStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
 Le téléchargement d’une plage arbitraire (méthodes**DownloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
 

@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626288"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Didacticiel : utiliser Apache Storm avec Kafka sur HDInsight
 
@@ -38,7 +39,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Supprimer des ressources
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Connaissances sur la création des rubriques Kafka. Pour plus d’informations, consultez le document [Démarrer avec Apache Kafka sur HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -60,7 +60,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
     * Répertoire d’installation de Maven.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un groupe de ressources Azure contenant à la fois un Storm sur HDInsight et un Kafka sur un cluster HDInsight. Ces clusters sont tous deux situés dans un réseau virtuel Azure, ce qui permet au cluster Spark de communiquer directement avec le cluster Kafka.
+> Les étapes décrites dans ce document nécessitent un groupe de ressources Azure contenant à la fois un Storm sur HDInsight et un Kafka sur un cluster HDInsight. Ces clusters sont tous deux situés dans un réseau virtuel Azure, ce qui permet au cluster Storm de communiquer directement avec le cluster Kafka.
 > 
 > Pour des raisons pratiques, ce document renvoie à un modèle permettant de créer toutes les ressources Azure requises. 
 >

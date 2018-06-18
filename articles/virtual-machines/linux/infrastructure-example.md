@@ -1,11 +1,11 @@
 ---
-title: "Procédure pas à pas d’exemple d’infrastructure Azure | Microsoft Docs"
-description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un exemple d’infrastructure dans Azure."
-documentationcenter: 
+title: Procédure pas à pas d’exemple d’infrastructure Azure | Microsoft Docs
+description: Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un exemple d’infrastructure dans Azure.
+documentationcenter: ''
 services: virtual-machines-linux
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745773"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -53,7 +54,7 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
   * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement
-* Les réseaux virtuels utilisent AZOS-USE-VN**[numéro]**
+* Les réseaux virtuels utilisent AZOS-USE-VN **[numéro]**
 * Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
 * Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
 

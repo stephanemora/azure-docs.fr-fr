@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195292"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.

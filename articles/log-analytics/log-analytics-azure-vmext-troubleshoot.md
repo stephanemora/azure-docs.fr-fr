@@ -1,12 +1,12 @@
 ---
-title: "Résoudre les problèmes d’extension de machine virtuelle Azure Log Analytics | Microsoft Docs"
-description: "Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’extension de machine virtuelle Log Analytics pour les machines virtuelles Azure Windows et Linux."
+title: Résoudre les problèmes d’extension de machine virtuelle Azure Log Analytics | Microsoft Docs
+description: Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’extension de machine virtuelle Log Analytics pour les machines virtuelles Azure Windows et Linux.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394984"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Dépannage de l’extension de machine virtuelle Log Analytics
 Cet article présente les problèmes qui peuvent survenir avec l’extension de machine virtuelle Log Analytics sur les machines virtuelles Windows et Linux en cours d’exécution sur Microsoft Azure, puis propose des solutions possibles pour les résoudre.
@@ -69,6 +70,6 @@ Si l’extension de machine virtuelle *Agent OMS pour Linux* ne s’installe pas
 
 Pour plus d’informations, consultez [Résolution des problèmes des extensions Linux](../virtual-machines/linux/extensions-oms.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour obtenir d’autres conseils de dépannage de l’Agent OMS pour Linux hébergé sur des ordinateurs en dehors d’Azure, consultez [Dépanner l’agent Linux Azure Log Analytics](log-analytics-agent-linux-support.md).  

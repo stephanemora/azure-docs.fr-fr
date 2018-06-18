@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206680"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
 Cet article explique comment migrer vos rôles web et de travail des services cloud vers les services sans état Service Fabric. Il s’agit de la manière la plus simple de migrer des applications dont l’architecture globale va rester quasi identique des services cloud vers Service Fabric.

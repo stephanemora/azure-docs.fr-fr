@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213144"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
 Service Fabric Cluster Resource Manager permet de modifier la charge dynamique, de réagir aux ajouts ou aux suppressions de nœuds ou de services. Il corrige également automatiquement les violations de contrainte et rééquilibre de façon proactive le cluster. Mais à quelle fréquence ces actions sont-elles effectuées, et quel en est l’élément déclencheur ?

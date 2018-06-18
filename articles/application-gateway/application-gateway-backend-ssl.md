@@ -1,6 +1,6 @@
 ---
 title: Activation du chiffrement SSL de bout en bout sur la passerelle Azure Application Gateway | Microsoft Docs
-description: "Cette page fournit une vue d’ensemble de la prise en charge du chiffrement SSL de bout en bout pour la passerelle Application Gateway."
+description: Cette page fournit une vue d’ensemble de la prise en charge du chiffrement SSL de bout en bout pour la passerelle Application Gateway.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704708"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway
 

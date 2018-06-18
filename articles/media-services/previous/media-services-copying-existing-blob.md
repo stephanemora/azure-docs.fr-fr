@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783388"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copie d’objets blob dans un élément multimédia Media Services
 Cet article montre comment copier des objets blob à partir d’un compte de stockage dans un nouvel élément multimédia Azure Media Services (AMS) à l’aide des [extensions du kit SDK Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).

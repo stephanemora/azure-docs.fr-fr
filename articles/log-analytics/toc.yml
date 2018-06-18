@@ -23,10 +23,16 @@
       href: log-analytics-tutorial-response.md
 - name: Exemples
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
+    - name: Transition de portail OMS
+      items:
+        - name: Vue d'ensemble
+          href: log-analytics-oms-portal-transition.md
+        - name: Questions courantes
+          href: log-analytics-oms-portal-faq.md
     - name: Mise à niveau de l’espace de travail
       items:
         - name: Présentation de la mise à niveau
@@ -137,24 +143,20 @@
           href: log-analytics-powerbi.md
     - name: Créez des alertes
       items:
-        - name: Présentation des alertes
-          href: log-analytics-alerts.md
-        - name: Actions d’alerte
-          href: log-analytics-alerts-actions.md
-        - name: Créer des règles d'alerte
-          items:
-            - name: Portail OMS
-              href: log-analytics-alerts-creating.md
-            - name: de l’API REST
-              href: log-analytics-api-alerts.md
-            - name: Modèle Resource Manager
-              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
-        - name: Exemple d’action webhook
-          href: log-analytics-alerts-webhooks.md
-        - name: Solution Alert Management
-          href: log-analytics-solution-alert-management.md
+        - name: Comprendre les alertes de journal
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+        - name: Créer une alerte de journal
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+        - name: Actions Webhook pour les alertes de journal
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+        - name: Créer une alerte de journal avec un modèle Resource Manager
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+        - name: Copier des alertes de Log Analytics à Alertes Azure
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
     - name: gérer
       items:
+        - name: Gestion des données personnelles
+          href: log-analytics-personal-data-mgmt.md
         - name: Gestion des agents
           href: log-analytics-agent-manage.md
         - name: Gérer les coûts des espaces de travail
@@ -179,7 +181,7 @@
           href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Journaux d’activité Azure
           items:
-            - name: Analyse
+            - name: Analytics
               href: log-analytics-activity.md
             - name: Collection entre des abonnements
               href: log-analytics-activity-logs-subscriptions.md
@@ -218,8 +220,6 @@
               href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
             - name: "Schéma de suivi personnalisé Logic\_Apps\_B2B"
               href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Évaluation des logiciels malveillants
-          href: log-analytics-malware.md
         - name: Analyse de mise en réseau
           href: log-analytics-azure-networking-analytics.md
         - name: Network Performance Monitor
@@ -239,7 +239,7 @@
         - name: Contrôle d’intégrité de SCOM
           href: log-analytics-scom-assessment.md
         - name: Audit de la sécurité
-          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../security-center/security-center-intro.md
         - name: Service Fabric avec Azure PowerShell
           href: log-analytics-service-fabric.md
           items:
@@ -275,7 +275,7 @@
   items:
     - name: Référence sur le langage
       href: 'https://docs.loganalytics.io/docs/Language-Reference'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics

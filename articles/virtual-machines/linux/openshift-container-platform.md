@@ -1,25 +1,26 @@
 ---
-title: "Déployer OpenShift Container Platform dans Azure | Microsoft Docs"
-description: "Déployez OpenShift Container Platform dans Azure."
+title: Déployer OpenShift Container Platform dans Azure | Microsoft Docs
+description: Déployez OpenShift Container Platform dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
 ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
 ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29125739"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Déployer OpenShift Container Platform dans Azure
 
@@ -185,7 +186,7 @@ Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour su
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Tâches de post-déploiement](./openshift-post-deployment.md)
 - [Résoudre les problèmes de déploiement d’OpenShift dans Azure](./openshift-troubleshooting.md)

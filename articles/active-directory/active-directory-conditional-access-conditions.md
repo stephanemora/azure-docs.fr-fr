@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770619"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735139"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Conditions dans l’accès conditionnel Azure Active Directory 
 
@@ -149,7 +150,7 @@ La condition d’applications client vous permet d’appliquer une stratégie à
 - Sites et services web
 - Applications mobiles et de bureau. 
 
-![Conditions](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Une application est classée comme :
 
@@ -157,7 +158,7 @@ Une application est classée comme :
 
 - Une application de bureau si elle utilise l’application mobile OpenID Connect pour un client natif.
 
-Pour obtenir la liste complète des applications clientes utilisables dans une stratégie d’accès conditionnel, consultez la [référence technique sur l’accès conditionnel Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Pour obtenir la liste complète des applications clientes utilisables dans une stratégie d’accès conditionnel, consultez [Client apps condition](active-directory-conditional-access-technical-reference.md#client-apps-condition) (Condition des applications clientes) dans la référence technique sur l’accès conditionnel Azure Active Directory.
 
 Les cas d’utilisation courants pour cette condition sont des stratégies qui :
 
@@ -167,6 +168,20 @@ Les cas d’utilisation courants pour cette condition sont des stratégies qui 
 
 Outre l’utilisation de l’authentification unique web et des protocoles d’authentification modernes, vous pouvez appliquer cette condition aux applications de messagerie qui utilisent Exchange ActiveSync, comme les applications de messagerie natives sur la plupart des smartphones. Actuellement, les applications clientes utilisant des protocoles hérités doivent être sécurisées à l’aide d’AD FS.
 
+Vous ne pouvez sélectionner cette condition que si **Office 365 Exchange Online** est la seule application cloud que vous avez sélectionnée.
+
+![Applications cloud](./media/active-directory-conditional-access-conditions/32.png)
+
+La sélection d’**Exchange ActiveSync** comme condition des applications clientes n’est prise en charge que si vous n’avez pas d’autres conditions configurées dans une stratégie. Vous pouvez toutefois limiter l’étendue de cette condition pour qu’elle ne s’applique qu’aux plateformes prises en charge.
+
+ 
+![Plateformes prises en charge](./media/active-directory-conditional-access-conditions/33.png)
+
+L’application de cette condition aux plateformes prises en charge uniquement équivaut à toutes les plateformes d’appareils dans un [condition de plateforme d’appareil](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Plateformes prises en charge](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Pour plus d'informations, consultez les pages suivantes :
 
 - [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
@@ -174,9 +189,53 @@ Outre l’utilisation de l’authentification unique web et des protocoles d’a
 - [Accès conditionnel basé sur les applications Azure Active Directory](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Authentification héritée  
+
+L’accès conditionnel s’applique désormais aux anciens clients Office qui ne prennent pas en charge l’authentification moderne, ainsi qu’aux clients qui utilisent des protocoles de messagerie tels que POP, IMAP, SMTP, etc. Cela vous permet de configurer des stratégies telles que **bloquer l’accès d’autres clients**.
+
+
+![Authentification héritée](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Problèmes connus
+
+- La configuration d’une stratégie pour **d’autres clients** bloque l’organisation entière à partir de certains clients tels que SPConnect. Ceci est dû au fait que ces anciens clients s’authentifient de manière inattendue. Ce problème ne s’applique pas aux principales applications Office telles que les anciens clients Office. 
+
+- L’entrée en application de la stratégie peut prendre jusqu’à 24 heures. 
+
+
+#### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+**Exchange Web Services (EWS) sera-t-il bloqué ?**
+
+Cela dépend du protocole d’authentification utilisé par EWS. Si l’application EWS utilise une authentification moderne, elle sera couverte par l’application cliente « Applications mobiles et clients de bureau ». Si l’application EWS utilise une authentification de base, elle sera couverte par l’application cliente « Autres clients ».
+
+
+**Quels contrôles puis-je utiliser pour les autres clients ?**
+
+N’importe quel contrôle peut être configuré pour « Autres clients ». Toutefois, l’expérience de l’utilisateur final bloquera l’accès dans tous les cas. Les « Autres clients » ne gèrent pas les contrôles tels que l’authentification multifacteur, la conformité de l’appareil, la jonction de domaine, etc. 
+ 
+**Quelles conditions puis-je utiliser pour les autres clients ?**
+
+N’importe quelle condition peut être configurée pour « Autres clients ».
+
+**Exchange ActiveSync prend-il en charge toutes les conditions et tous les contrôles ?**
+
+Non. Voici le résumé de la prise en charge Exchange ActiveSync (EAS) :
+
+- EAS prend uniquement en charge le ciblage d’utilisateur et de groupe. Il ne prend pas en charge les invités et les rôles. Si la condition invité/rôle est configurée, tous les utilisateurs seront bloqués dans la mesure où nous ne pouvons pas déterminer si la stratégie doit s’appliquer à l’utilisateur ou non.
+
+- EAS ne fonctionne qu’avec Exchange en tant qu’application cloud. 
+
+- EAS ne prend pas en charge toute condition à l’exception de l’application cliente elle-même.
+
+- EAS peut être configuré avec n’importe quel contrôle (tous sauf la conformité de l’appareil qui entraîne un blocage).
+
+**Les stratégies s’appliquent-elles par défaut à toutes les applications clientes à venir ?**
+
+Non. Il n’existe aucun changement de comportement dans la stratégie par défaut. Les stratégies continuent de s’appliquer au navigateur et aux applications mobiles/clients bureau par défaut.
 
 
 

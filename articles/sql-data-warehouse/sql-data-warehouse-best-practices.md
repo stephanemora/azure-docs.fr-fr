@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798690"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
 Cet article rassemble les meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre instance Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.

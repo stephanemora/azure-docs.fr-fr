@@ -15,7 +15,7 @@
   OS.UpdateRdmaDriver=y
   ```
 
-3. Ajoutez ou modifiez les paramètres de mémoire suivants en Ko dans le fichier /etc/security/limits.conf. Un accès racine est requis pour modifier ce fichier. À des fins de test, vous pouvez définir pour memlock une valeur illimitée. Par exemple : `<User or group name>   hard    memlock   unlimited`.
+3. Ajoutez ou modifiez les paramètres de mémoire suivants en Ko dans le fichier /etc/security/limits.conf. Un accès racine est requis pour modifier ce fichier. À des fins de test, vous pouvez définir pour memlock une valeur illimitée. Par exemple : `<User or group name>   hard    memlock   unlimited`.
 
   ```
   <User or group name> hard    memlock <memory required for your application in KB>
@@ -26,8 +26,10 @@
 4. Installez la bibliothèque Intel MPI. [Achetez et téléchargez](https://software.intel.com/intel-mpi-library/) la bibliothèque auprès d’Intel ou téléchargez la [version d’évaluation gratuite](https://registrationcenter.intel.com/en/forms/?productid=1740).
 
   ```bash
- wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/11595/l_mpi_2017.3.196.tgz
+ wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
    ```
+ 
+ Seuls les runtimes Intel MPI 5.x sont pris en charge.
  
  Pour les étapes d’installation, consultez le [Guide d’installation de la bibliothèque Intel MPI](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 

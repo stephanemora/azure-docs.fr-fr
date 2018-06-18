@@ -1,10 +1,10 @@
 ---
-title: "Ajout de notifications Push à votre application Android à l’aide de Mobile Apps | Microsoft Docs"
-description: "Découvrez comment utiliser Mobile Apps pour envoyer des notifications Push à votre application Android."
+title: Ajout de notifications Push à votre application Android à l’aide de Mobile Apps | Microsoft Docs
+description: Découvrez comment utiliser Mobile Apps pour envoyer des notifications Push à votre application Android.
 services: app-service\mobile
 documentationcenter: android
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593026"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Ajout de notifications Push à votre application Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -69,7 +70,7 @@ Si vous procédez à un test avec un appareil ancien, consultez la rubrique [Ajo
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Test de l'application avec le service mobile publié
 Vous pouvez tester l’application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l’émulateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez terminé ce didacticiel, vous pouvez passer à l’un des didacticiels suivants :
 
 * [Ajout de l’authentification à votre application Android](app-service-mobile-android-get-started-users.md).

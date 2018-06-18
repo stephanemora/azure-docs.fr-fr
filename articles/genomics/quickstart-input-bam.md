@@ -1,7 +1,7 @@
 ---
-title: "Démarrage rapide : Soumettre un workflow à l’aide d’une entrée de fichier BAM | Microsoft Docs"
+title: 'Démarrage rapide : Soumettre un workflow à l’aide d’une entrée de fichier BAM | Microsoft Docs'
 titleSuffix: Azure
-description: "Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’exemple de données dans le service."
+description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’exemple de données dans le service.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684515"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Soumettre un workflow à l’aide d’une entrée de fichier BAM
 

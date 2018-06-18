@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911197"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Intégration de Machine Learning dans Stream Analytics
 Stream Analytics prend en charge les fonctions définies par l’utilisateur qui appellent des points de terminaison Azure Machine Learning. Prise en charge de l’API REST de cette fonctionnalité est détaillée dans la [bibliothèque de l’API REST Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Cet article fournit les informations supplémentaires nécessaires à la mise en œuvre réussie de cette fonctionnalité dans Stream Analytics. Un didacticiel a également été validé et est disponible [ici](stream-analytics-machine-learning-integration-tutorial.md).

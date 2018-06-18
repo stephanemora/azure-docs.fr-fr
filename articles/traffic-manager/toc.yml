@@ -22,7 +22,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
@@ -41,6 +41,10 @@
       href: traffic-manager-rum-overview.md
     - name: Affichage du trafic
       href: traffic-manager-traffic-view-overview.md
+    - name: Métriques et alertes
+      href: traffic-manager-metrics-alerts.md
+    - name: Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: FAQ
       href: traffic-manager-FAQs.md
 - name: Procédure
@@ -73,7 +77,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.trafficmanager
     - name: Azure CLI
       href: /cli/azure/network/traffic-manager
@@ -91,9 +95,9 @@
   items:
     - name: Application Gateway
       href: /azure/application-gateway/
-    - name: Équilibreur de charge
+    - name: Load Balancer
       href: /azure/load-balancer/
-    - name: DNS Azure
+    - name: Azure DNS
       href: /azure/dns/
 - name: Ressources
   items:

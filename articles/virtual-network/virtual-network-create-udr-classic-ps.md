@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791999"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de PowerShell
 

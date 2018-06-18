@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: kumud
 ms.openlocfilehash: 511af342727dc46369ae70d60a7e9a3171bf986d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "32778833"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
@@ -118,7 +119,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements MX avec un seul enregistrement
 
-Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour créer un enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
+Dans cet exemple, nous utilisons le nom de jeu d’enregistrements \« \@ \» pour créer un enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
 
 
 ```powershell
@@ -141,7 +142,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements SRV avec un seul enregistrement
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure « @ » dans le nom du jeu d’enregistrements lors de la création d’un jeu d’enregistrements SRV à l’apex de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure \« \@\ » dans le nom du jeu d’enregistrements lors de la création d’un jeu d’enregistrements SRV à l’apex de la zone.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30242048"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery  
 

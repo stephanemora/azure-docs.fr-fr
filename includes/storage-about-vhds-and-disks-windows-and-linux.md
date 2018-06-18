@@ -2,24 +2,23 @@
 title: Fichier Include
 description: Fichier Include
 services: storage
-author: tamram
+author: rogara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b8b61f2a512cca2a88274b93d04a1fdc8893a88f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f64645db782b055e1c544f257149411f29fc99d7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34222911"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806313"
 ---
 ## <a name="about-vhds"></a>À propos des VHD
-
 Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Pour plus d’informations sur le stockage Premium, consultez [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Stockage Premium hautes performances et machines virtuelles Azure).
 
-Azure prend en charge le format VHD de disque fixe. Le format fixe définit linéairement le disque logique dans le fichier de façon que l'offset du disque X soit stocké à l'offset de l'objet blob X. Un petit pied de page à la fin de l'objet blob décrit les propriétés du disque dur virtuel. Souvent, le format fixe gaspille de l'espace du fait que la plupart des disques comportent de grandes plages inutilisées. Cependant, Azure stocke les fichiers .vhd dans un format fragmenté : vous profitez donc en même temps de disques fixes et dynamiques. Pour plus d’informations, consultez [Prise en main des disques durs virtuels](https://technet.microsoft.com/library/dd979539.aspx).
+Azure prend en charge le format VHD de disque fixe. Le format fixe définit linéairement le disque logique dans le fichier de façon que l'offset du disque X soit stocké à l'offset de l'objet blob X. Un petit pied de page à la fin de l'objet blob décrit les propriétés du disque dur virtuel. Souvent, le format fixe gaspille de l’espace du fait que la plupart des disques comportent de grandes plages inutilisées. Cependant, Azure stocke les fichiers .vhd dans un format fragmenté : vous profitez donc en même temps de disques fixes et dynamiques. Pour plus d’informations, consultez la page [Prise en main des disques durs virtuels](https://technet.microsoft.com/library/dd979539.aspx).
 
 Dans Azure, tous les fichiers VHD que vous souhaitez utiliser comme source pour créer des disques ou des images sont en lecture seule, à l’exception des fichiers .vhd chargés ou copiés vers le stockage Azure par l’utilisateur (en lecture seule ou en lecture-écriture). Lorsque vous créez un disque ou une image, Azure copie les fichiers .vhd source. Ces copies peuvent être accessibles en lecture seule et en lecture/écriture selon votre utilisation du VHD.
 
@@ -31,44 +30,39 @@ Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail
 > Si vous supprimez un fichier .vhd source d’un stockage ou si vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
 
 ## <a name="types-of-disks"></a>Types de disques 
-
 Les disques Azure sont conçus pour offrir une disponibilité de 99,999 %. Les disques Azure ont toujours fourni une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel inégalé dans le secteur de zéro %.
 
-Lorsque vous créez vos disques, vous avez le choix entre deux niveaux de performances : stockage Standard et stockage Premium. Deux types de disques, gérés et non gérés, sont également proposés pour l’un ou l’autre de ces niveaux de performances.
+Lorsque vous créez vos disques, vous avez le choix entre trois niveaux de performances : disques SSD Premium, SSD Standard (préversion) et stockage HDD Premium. Il existe également deux types de disques : non managés et managés.
 
+### <a name="standard-hdd-disks"></a>Disques HDD Standard
+Les disques SSD Standard s’appuient sur des HDD et offrent un stockage économique. Le stockage HDD Standard peut être répliqué localement dans un centre de données ou être géoredondant avec des centres de données principal et secondaire. Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](../articles/storage/common/storage-redundancy.md). 
 
-### <a name="standard-storage"></a>Stockage Standard 
+Pour plus d’informations sur l’utilisation des disques HDD Standard, consultez [Stockage Standard et disques](../articles/virtual-machines/windows/standard-storage.md).
 
-Le stockage Standard s’appuie sur des disques durs et offre un stockage économique qui n’en est pas moins performant. Le stockage Standard peut être répliqué localement dans un centre de données ou être géoredondant avec des centres de données principal et secondaire. Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](../articles/storage/common/storage-redundancy.md). 
+### <a name="standard-ssd-disks-preview"></a>Disques SSD Standard (préversion)
+Les disques SSD Standard sont conçus pour traiter le même type de charges de travail que les disques HDD Standard, mais offrent des performances et une fiabilité plus homogènes que les HDD. Les disques SSD Standard combinent des éléments de disques SSD Premium et de disques HDD Standard pour former une solution économique parfaitement adaptée aux applications telles que les serveurs web n’ayant pas besoin d’E/S élevées sur les disques. Si applicable, les disques SSD Standard sont l’option de déploiement recommandé pour la plupart des charges de travail. Les disques SSD Standard ne sont disponibles qu’en tant que disques managés et, en préversion, ils ne sont disponibles que dans les [régions sélectionnées](../articles/virtual-machines/windows/faq-for-disks.md) et avec le type de résilience de stockage localement redondant (LRS).
 
-Pour plus d’informations sur l’utilisation du stockage Standard avec des disques de machine virtuelle, consultez [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md) (Stockage Standard et disques).
-
-### <a name="premium-storage"></a>Stockage Premium 
-
-Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Généralement, vous pouvez utiliser le Stockage Premium avec des tailles dont le nom de série comporte un « s ». Par exemple, pour les noms de série Dv3 et Dsv3, vous pouvez utiliser la taille de série Dsv3 avec le Stockage Premium.  Pour plus d’informations, consultez [Stockage Premium](../articles/virtual-machines/windows/premium-storage.md).
+### <a name="premium-ssd-disks"></a>Disques SSD Premium 
+Les disques SSD Premium s’appuient sur des SSD, et offrent de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Généralement, vous pouvez utiliser les disques SSD Premium avec des tailles dont le nom de série comporte un « s ». Par exemple, pour les noms de série Dv3 et Dsv3, vous pouvez utiliser la taille de série Dsv3 avec des disques SSD Premium.  Pour plus d’informations, consultez [Stockage Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Disques non gérés
-
-Les disques non gérés sont le type de disques utilisé traditionnellement par les machines virtuelles. Avec ces disques, vous créez votre propre compte de stockage et spécifiez ce dernier lors de la création du disque. Vous devez vous assurer que vous ne placez un trop grand nombre de disques dans le même compte de stockage, car vous risquez de dépasser les [objectifs d’extensibilité](../articles/storage/common/storage-scalability-targets.md) du compte de stockage (20 000 E/S par seconde, par exemple), avec pour conséquence la limitation des machines virtuelles. Avec les disques non gérés, vous devez déterminer comment maximiser l’utilisation d’un ou plusieurs comptes de stockage pour obtenir des performances optimales de vos machines virtuelles.
+Les disques non gérés sont le type de disques utilisé traditionnellement par les machines virtuelles. Avec ces disques, vous créez votre propre compte de stockage et spécifiez ce dernier lors de la création du disque. Veillez à ne pas placer un trop grand nombre de disques dans le même compte de stockage, car vous risquez de dépasser les [objectifs d’extensibilité](../articles/storage/common/storage-scalability-targets.md) du compte de stockage (20 000 E/S par seconde, par exemple), avec pour conséquence la limitation des machines virtuelles. Avec les disques non gérés, vous devez déterminer comment maximiser l’utilisation d’un ou plusieurs comptes de stockage pour obtenir des performances optimales de vos machines virtuelles.
 
 ### <a name="managed-disks"></a>Disques gérés 
+Managed Disks gère la création/gestion du compte de stockage en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard/Premium) et Azure crée et gère le disque pour vous. Lorsque vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. 
 
-Managed Disks gère la création/gestion du compte de stockage en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard/Premium) et Azure crée et gère le disque pour vous. Même si vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. 
-
-Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble des disques gérés](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 Nous vous recommandons d’utiliser Azure Managed Disks pour les nouvelles machines virtuelles et de convertir vos anciens disques non gérés en disques gérés afin de tirer parti des nombreuses fonctionnalités disponibles dans Managed Disks.
 
 ### <a name="disk-comparison"></a>Comparaison des disques
+Le tableau suivant offre une comparaison des niveaux HDD Standard, SSD Standard et SSD Premium pour les disques managés et non managés afin de vous aider dans votre choix.
 
-Le tableau suivant offre une comparaison des niveaux Premium et Standard pour les disques gérés et non gérés afin de vous aider dans votre choix.
-
-|    | Disque Premium Azure | Disque Standard Azure |
-|--- | ------------------ | ------------------- |
-| Type de disque | SSD (Solid State Drive) | Disques durs  |
-| Vue d'ensemble  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique | Stockage économique sur disque dur pour les machines virtuelles utilisées à des fins de développement/test |
-| Scénario  | Charges de travail de production et sensibles aux performances | Développement/test, non stratégique, <br>accès peu fréquent |
-| Taille du disque | P4 : 32 Go (Disques gérés uniquement)<br>P6 : 64 Go (Disques gérés uniquement)<br>P10 : 128 Go<br>P20 : 512 Go<br>P30 : 1 024 Go<br>P40 : 2 048 GO<br>P50 : 4095 GO | Disques non gérés : 1 Go – 4 To (4095 GO) <br><br>Disques gérés :<br> S4 : 32 Go <br>S6 : 64 Go <br>S10 : 128 Go <br>S20 : 512 Go <br>S30 : 1 024 Go <br>S40 : 2 048 GO<br>S50 : 4095 GO| 
-| Débit max. par disque | 250 Mo/s | 60 Mo/s | 
-| Nb max. d’E/S par seconde par disque | 7 500 E/S PAR SECONDE | 500 E/S par seconde | 
-
+|    | Disque Premium Azure |Disque SSD Standard Azure (préversion)| Disque HDD Standard Azure 
+|--- | ------------------ | ------------------------------- | ----------------------- 
+| Type de disque | SSD (Solid State Drive) | SSD (Solid State Drive) | Disques durs  
+| Vue d'ensemble  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique |Performances et fiabilité plus homogènes qu’un HDD. Optimisé pour les charges de travail à faibles E/S| Disque basé sur HDD économique pour l’accès peu fréquent
+| Scénario  | Charges de travail de production et sensibles aux performances |Serveurs web, applications d’entreprise peu utilisées et Dev/Test| Sauvegarde, non critique, accès peu fréquent 
+| Taille du disque | P4 : 32 Gio (Disques managés uniquement)<br>P6 : 64 Gio (Disques managés uniquement)<br>P10 : 128 Gio<br>P15 : 256 Gio (Disques managés uniquement)<br>P20 : 512 Gio<br>P30 : 1 024 Gio<br>P40 : 2 048 Gio<br>P50 : 4 095 Gio |Disques managés uniquement :<br>E10 : 128 Gio<br>E15 : 256 Gio<br>E20 : 512 Gio<br>E30 : 1 024 Gio<br>E40 : 2 048 Gio<br>E50 : 4 095 Gio | Disques non managés : 1 Gio – 4 Tio (4 095 Gio) <br><br>Disques gérés :<br> S4 : 32 Gio <br>S6 : 64 Gio <br>S10 : 128 Gio <br>S15 : 256 Gio <br>S20 : 512 Gio <br>S30 : 1 024 Gio <br>S40 : 2 048 Gio<br>S50 : 4 095 Gio
+| Débit max. par disque | 250 Mio/s | Jusqu’à 60 Mio/s | Jusqu’à 60 Mio/s 
+| Nb max. d’E/S par seconde par disque | 7 500 E/S PAR SECONDE | Jusqu’à 500 E/S par seconde | Jusqu’à 500 E/S par seconde 

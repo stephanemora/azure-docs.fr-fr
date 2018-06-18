@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 41948d8141d0f3c0e41b95f169bcec6c4b641106
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622463"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.

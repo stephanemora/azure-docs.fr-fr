@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31411479"
 ---
 # <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Prise en main du cluster R Server sur Azure HDInsight
 
@@ -45,7 +46,7 @@ Azure HDInsight inclut une option R Server à intégrer dans votre cluster HDIns
     * **Nom du cluster** : nom du cluster HDInsight.
     * **Abonnement** : sélectionnez l'abonnement souhaité.
     * **Nom d’utilisateur de connexion du cluster** et **Mot de passe de connexion du cluster** : les informations de connexion lors de l’accès au cluster sur HTTPS. Vous utilisez ces informations d’identification pour accéder aux services tels que l’interface utilisateur Ambari Web ou l’API REST.
-    * **Nom d’utilisateur Secure Shell (SSH)** : information de connexion utilisée lors de l’accès au cluster sur SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
+    * **Nom d’utilisateur Secure Shell (SSH)**  : information de connexion utilisée lors de l’accès au cluster sur SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
     * **Groupe de ressources** : groupe de ressources dans lequel créer le cluster.
     * **Emplacement** : la région Azure dans laquelle créer le cluster.
 

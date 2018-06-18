@@ -2,7 +2,7 @@
 title: Conditions d’utilisation d’Azure Active Directory | Microsoft Docs
 description: Les conditions d’utilisation d’Azure AD vous permettent, ainsi qu’à votre entreprise, de définir les conditions d’utilisation que doivent accepter les utilisateurs des services Azure AD.
 services: active-directory
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/15/2018
-ms.author: billmath
-ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 8fea445a4cd02da3cf3c3239a119b491327abf54
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192953"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234115"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
@@ -37,7 +38,6 @@ Vous pouvez utiliser la fonctionnalité Conditions d’utilisation d’Azure Act
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour configurer les conditions d’utilisation d’Azure AD, effectuez les étapes suivantes :
 
 1. Connectez-vous à Azure AD en tant qu’administrateur général, administrateur de la sécurité ou administrateur à accès conditionnel de l’annuaire pour lequel vous souhaitez configurer les conditions d’utilisation d’Azure AD.

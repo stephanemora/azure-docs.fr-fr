@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’un Stockage Blob pour IIS et d’un Stockage Table pour les événements dans Azure Log Analytics | Microsoft Docs"
-description: "Log Analytics peut lire les journaux pour des services Azure qui écrivent des diagnostics dans un Stockage Table ou des journaux IIS écrits dans un Stockage Blob."
+title: Utilisation d’un Stockage Blob pour IIS et d’un Stockage Table pour les événements dans Azure Log Analytics | Microsoft Docs
+description: Log Analytics peut lire les journaux pour des services Azure qui écrivent des diagnostics dans un Stockage Table ou des journaux IIS écrits dans un Stockage Blob.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23021344"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilisation d’un Stockage Blob Azure pour IIS et d’un Stockage Table Azure pour les événements avec Log Analytics
 

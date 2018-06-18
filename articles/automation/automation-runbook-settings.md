@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194194"
 ---
 # <a name="runbook-settings"></a>Paramètres du Runbook
 Chaque Runbook dans Azure Automation a plusieurs paramètres qui lui permettent d'être identifié et de modifier son comportement de journalisation. Chacun de ces paramètres est décrit ci-dessous, suivi des procédures sur la façon de les modifier.

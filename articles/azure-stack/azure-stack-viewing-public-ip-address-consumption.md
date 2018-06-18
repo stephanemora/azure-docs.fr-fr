@@ -1,11 +1,11 @@
 ---
-title: "Afficher la consommation d’adresses IP publiques dans Azure Stack | Microsoft Docs"
-description: "Les administrateurs peuvent afficher la consommation d’adresses IP publiques dans une région"
+title: Afficher la consommation d’adresses IP publiques dans Azure Stack | Microsoft Docs
+description: Les administrateurs peuvent afficher la consommation d’adresses IP publiques dans une région
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742456"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Afficher la consommation d’adresses IP publiques dans Azure Stack
 
@@ -66,5 +67,5 @@ Quand une adresse IP publique est affectée, elle apparaît dans une liste ou da
 | Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |OUI |Non  |
 | Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |OUI |Non  |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Gérer les comptes de stockage dans Azure Stack](azure-stack-manage-storage-accounts.md)

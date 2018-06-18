@@ -1,11 +1,11 @@
 ---
 title: Forum aux questions pour la nouvelle recherche dans les journaux Log Analytics | Documents Microsoft
-description: "Cet article fournit le forum aux questions relatives à la mise à niveau de Log Analytics au nouveau langage de requête."
+description: Cet article fournit le forum aux questions relatives à la mise à niveau de Log Analytics au nouveau langage de requête.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993867"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics et problèmes connus
 
@@ -166,6 +167,6 @@ Avant la disponibilité générale, vous pouviez revenir à la dernière version
 Avant la mise à niveau, il était possible de créer une vue avec le Concepteur de vues à partir d’une vignette du tableau de bord principal dans le portail OMS.  Quand l’espace de travail est mis à niveau, cette vignette est supprimée.  Vous pouvez créer une vue à l’aide du Concepteur de vues dans le portail OMS en cliquant sur le bouton + vert dans le menu de gauche.  Vous continuez à créer une nouvelle vue avec le portail Azure en cliquant sur la vignette Concepteur de vues.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Plus d’informations sur la [mise à niveau de votre espace de travail vers le nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md).

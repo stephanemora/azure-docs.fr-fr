@@ -1,11 +1,11 @@
 ---
-title: "Activation ou désactivation de votre appareil StorSimple 8000 | Microsoft Docs"
-description: "Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d'exécution."
+title: Activation ou désactivation de votre appareil StorSimple 8000 | Microsoft Docs
+description: Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d'exécution.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779446"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activation ou désactivation de votre appareil StorSimple série 8000
 
@@ -171,6 +172,6 @@ Une fois que vous accédez à Windows PowerShell pour StorSimple ou au portail A
 > [!NOTE]
 > Les câbles SAS qui sont utilisés pour connecter le boîtier EBOD au boîtier principal ne doivent pas être retirés tant que le système n'a pas été arrêté.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Contactez le support Microsoft](storsimple-8000-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 

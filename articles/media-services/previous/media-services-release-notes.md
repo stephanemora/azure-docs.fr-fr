@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942409"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.

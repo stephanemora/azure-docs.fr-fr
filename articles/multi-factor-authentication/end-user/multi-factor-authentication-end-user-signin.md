@@ -1,9 +1,9 @@
 ---
-title: "Connexion Azure MFA à l’aide de la vérification en deux étapes | Microsoft Docs"
-description: "Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA."
-keywords: "authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau"
+title: Connexion Azure MFA à l’aide de la vérification en deux étapes | Microsoft Docs
+description: Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA.
+keywords: authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628412"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Expérience de connexion avec Azure Multi-Factor Authentication
 > [!NOTE]

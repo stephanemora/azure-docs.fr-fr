@@ -1,12 +1,12 @@
 ---
-title: "Installation du runtime d’Azure Functions | Microsoft Docs"
-description: "Installation de la préversion 2 du runtime Azure Functions"
+title: Installation du runtime d’Azure Functions | Microsoft Docs
+description: Installation de la préversion 2 du runtime Azure Functions
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290655"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installer la préversion 2 du runtime Azure Functions
 

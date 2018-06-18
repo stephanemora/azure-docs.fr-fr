@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156889"
 ---
 # <a name="permissions-in-azure-ad"></a>Autorisations dans Azure AD
 Azure Active Directory (Azure AD) utilise très souvent des autorisations pour les flux OAuth et OpenID Connect (OIDC). Quand votre application reçoit un jeton d’accès provenant d’Azure AD, ce dernier inclut des revendications qui décrivent les autorisations (également appelées étendues) que votre application possède par rapport à une ressource particulière. Le processus d’autorisation est ainsi facilité pour la ressource, car il a uniquement besoin de vérifier que votre jeton contient l’autorisation appropriée à l’API que vous appelez. 

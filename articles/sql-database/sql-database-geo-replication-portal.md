@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 09672c9f8ba725e46f2cdbb1a13de101137cb718
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e6c699fdd57eecc31c51b26ccb7c06c6edbcfd03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646896"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
@@ -33,7 +34,7 @@ Les étapes suivantes créent une nouvelle base de données secondaire dans un p
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
-La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être une base de données autonome ou une base de données dans un pool élastique. Pour en savoir plus, consultez [Niveaux de service](sql-database-service-tiers.md).
+La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être une base de données autonome ou une base de données dans un pool élastique. Pour plus d’informations, consultez [Modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur vCore (préversion)](sql-database-service-tiers-vcore.md).
 Une fois la base de données secondaire créée et amorcée, une réplication des données de la base de données primaire vers la base de données secondaire commence.
 
 > [!NOTE]

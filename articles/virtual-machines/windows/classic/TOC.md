@@ -33,7 +33,6 @@
 ### [Gérer vos machines virtuelles à l'aide d'Azure PowerShell](manage-psh-classic.md)
 ### [À propos de l’agent et des extensions de machine virtuelle](agents-and-extensions-classic.md)
 ### [Gérer les extensions de machine virtuelle](manage-extensions-classic.md)
-### [Extension de script personnalisé pour les machines virtuelles](extensions-customscript-classic.md)
 
 ## Gérer des charges de travail
 ### [HPC (High-Performance Computing, calcul haute performance)](../../virtual-machines-windows-hpcpack-cluster-options.md)
@@ -53,7 +52,7 @@
 ### [Réinitialiser le mot de passe RDP](reset-rdp.md)
 ### [Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle](troubleshoot-recovery-disks-portal.md)
 
-# Référence
+# Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)

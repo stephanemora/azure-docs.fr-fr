@@ -1,6 +1,6 @@
 ---
-title: "Enregistrer un ticket de support d’événement de sécurité - Azure | Microsoft Docs"
-description: "En tant que vendeur sur Azure Marketplace, après avoir identifié un événement de sécurité potentiel, j’ai besoin de savoir comment enregistrer un ticket approprié."
+title: Enregistrer un ticket de support d’événement de sécurité - Azure | Microsoft Docs
+description: En tant que vendeur sur Azure Marketplace, après avoir identifié un événement de sécurité potentiel, j’ai besoin de savoir comment enregistrer un ticket approprié.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129938"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Enregistrer un ticket de support d’événement de sécurité
 

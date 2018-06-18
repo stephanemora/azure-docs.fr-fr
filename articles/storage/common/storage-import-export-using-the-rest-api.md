@@ -1,11 +1,11 @@
 ---
-title: "Utilisation de l’API REST du service Azure Import/Export | Microsoft Docs"
-description: "Découvrez où se trouvent les ressources pour l’utilisation de l’API REST du service Azure Import/Export, y compris des documents de référence et de procédure."
+title: Utilisation de l’API REST du service Azure Import/Export | Microsoft Docs
+description: Découvrez où se trouvent les ressources pour l’utilisation de l’API REST du service Azure Import/Export, y compris des documents de référence et de procédure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 233f80e9-2e7f-48e0-9639-5c7785e7d743
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26690175"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Utilisation de l’API REST du service Azure Import/Export
 

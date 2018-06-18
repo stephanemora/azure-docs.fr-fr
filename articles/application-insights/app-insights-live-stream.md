@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/24/2018
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352fff53d9e35ddd8d8e0c107e969357d9c766b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193425"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599233"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde 
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
 Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](app-insights-profiler.md), le [débogueur d’instantané](app-insights-snapshot-debugger.md) et les [tests de performances](app-insights-monitor-web-app-availability.md#performance-tests), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
 
@@ -35,8 +35,6 @@ Avec les flux de métriques temps réel, vous pouvez :
 * Identifiez plus facilement un serveur qui rencontre des problèmes et filtrez tous les indicateurs de performance clés/flux en temps réel sur ce serveur uniquement.
 
 [![Vidéo sur les flux de métriques temps réel](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
-
-Les flux de métriques temps réel sont actuellement disponibles sur les applications ASP.NET exécutées localement ou dans le cloud. 
 
 ## <a name="get-started"></a>Prise en main
 

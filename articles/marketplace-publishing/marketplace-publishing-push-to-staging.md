@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947268"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Compléter la création d’offre avec du contenu marketing
 Dans cette étape du processus de publication, vous devez fournir du contenu marketing et des informations sur votre offre et/ou vos références SKU dans Azure Marketplace. Par exemple, vous devez fournir une description de votre produit, le logo de votre entreprise, les offres tarifaires, le détail des offres et d’autres informations nécessaires pour envoyer votre offre et/ou référence SKU dans l’environnement intermédiaire. Ces informations sont utilisées comme contenu marketing dans le portail Azure. Vous allez commencer ce processus dans le [portail de publication][link-pubportal].

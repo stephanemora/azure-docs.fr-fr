@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783768"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexation de fichiers multimédias avec Azure Media Indexer
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.  

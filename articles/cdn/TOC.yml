@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: gérer
       items:
+        - name: Création d’un point de terminaison
+          href: cdn-create-endpoint-how-to.md
         - name: Gérer avec Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Restreindre l’accès par pays
@@ -116,6 +118,8 @@
           href: cdn-troubleshoot-endpoint.md
         - name: Compression de fichiers
           href: cdn-troubleshoot-compression.md
+        - name: Autorités de certification autorisées
+          href: cdn-troubleshoot-allowed-ca.md
 - name: Informations de référence
   items:
     - name: Informations de référence du moteur de règles

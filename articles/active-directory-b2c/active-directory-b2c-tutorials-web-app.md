@@ -3,16 +3,19 @@ title: Didacticiel - Autoriser une application web à effectuer l’authentifica
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711611"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Autoriser une application web à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -28,7 +31,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Utiliser votre propre [locataire Azure AD B2C](active-directory-b2c-get-started.md)
 * Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.

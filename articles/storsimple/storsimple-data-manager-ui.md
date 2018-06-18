@@ -1,12 +1,12 @@
 ---
 title: Interface utilisateur Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: "Décrit comment utiliser l’interface utilisateur du service StorSimple Data Manager"
+description: Décrit comment utiliser l’interface utilisateur du service StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862255"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gérer le service StorSimple Data Manager dans le portail Azure
 
@@ -159,6 +160,6 @@ Chaque fois qu’il vous est nécessaire de transférer des données de StorSimp
     ![Lancer l’exécution du travail 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Utilisez .NET SDK pour lancer les travaux StorSimple Data Manager](storsimple-data-manager-dotnet-jobs.md).

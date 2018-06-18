@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207908"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
 Une architecture de microservices peut présenter de [nombreux avantages](service-fabric-overview-microservices.md). Cependant, la gestion de la sécurité des microservices représente un défi autrement plus complexe que celui constitué par la gestion de la sécurité des applications monolithiques traditionnelles. 

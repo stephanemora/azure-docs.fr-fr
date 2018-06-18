@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768029"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics
 Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte utilisant des règles configurables basées sur un seuil dans Azure Stream Analytics.

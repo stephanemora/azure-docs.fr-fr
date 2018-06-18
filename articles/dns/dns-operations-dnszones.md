@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32772651"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Gestion des zones DNS à l'aide de PowerShell
 

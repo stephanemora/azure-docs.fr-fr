@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Configurer la connectivité de cloud hybride
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: S’abonner à une offre
+      href: azure-stack-subscribe-services.md
+    - name: Créer une machine virtuelle à partir d’un modèle
+      href: azure-stack-create-vm-template.md
 - name: Procédures
   items:
     - name: Utiliser le portail Azure Stack

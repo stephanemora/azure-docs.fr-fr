@@ -1,11 +1,11 @@
 ---
-title: "Résolution des problèmes et surveillance de SAP HANA sur Azure (grandes instances) | Microsoft Docs"
-description: "Résolvez les problèmes et surveillez SAP HANA sur Azure (grandes instances)."
+title: Résolution des problèmes et surveillance de SAP HANA sur Azure (grandes instances) | Microsoft Docs
+description: Résolvez les problèmes et surveillez SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 41fbeb848d7d97e5ee41a2221b69cc88380dc1e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657194"
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Guide pratique de résolution des problèmes et de surveillance de SAP HANA (grandes instances) sur Azure
 
@@ -125,10 +126,10 @@ Reportez-vous au site [Dépannage SAP HANA : problèmes de mémoire](http://help
 Reportez-vous à la [Note SAP #2081065 – Résolution des problèmes de réseau SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) et suivez les étapes de dépannage réseau qui y sont décrites.
 
 1. Analyse des temps d’aller-retour entre le client et le serveur.
-  A. Exécutez le script SQL [_HANA\_Réseau\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Exécutez le script SQL [_HANA\_Réseau\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analysez la communication entre les nœuds.
-  A. Exécutez le script SQL [_HANA\_Réseau\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Exécutez le script SQL [_HANA\_Réseau\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Exécutez la commande Linux **ifconfig** (la sortie indique si des pertes de paquets se produisent).
 4. Exécutez la commande Linux **tcpdump**.

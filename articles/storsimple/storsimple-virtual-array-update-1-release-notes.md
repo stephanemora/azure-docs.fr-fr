@@ -1,12 +1,12 @@
 ---
-title: "Notes de version de StorSimple Virtual Array Update 1.0 | Microsoft Docs"
-description: "Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array exécutant Update 1.0."
+title: Notes de version de StorSimple Virtual Array Update 1.0 | Microsoft Docs
+description: Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array exécutant Update 1.0.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010862"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.0
 
@@ -45,7 +46,7 @@ Update 1.0 correspond à la version logicielle **10.0.10296.0**.
 
  - **Amélioration des performances** – Plusieurs bogues ont été résolus pour améliorer la vitesse de lecture dans le cloud et de hiérarchisation. Les performances de sauvegarde et de restauration s’en trouvent ainsi améliorées sur les appareils utilisés comme serveurs iSCSI ou serveurs de fichiers.
 
- - **Amélioration du nettoyage de la mémoire (garbage collection)** – Cette version présente des résolutions de bogues qui améliorent les performances du cycle de nettoyage de la mémoire quand l’appareil et le compte de stockage se trouvent dans deux régions distantes.
+ - **Amélioration du nettoyage de la mémoire (garbage collection)**  – Cette version présente des résolutions de bogues qui améliorent les performances du cycle de nettoyage de la mémoire quand l’appareil et le compte de stockage se trouvent dans deux régions distantes.
 
  - **Amélioration de la journalisation** – Cette version présente des améliorations de la journalisation liée au nettoyage de la mémoire et au chemin d’accès d’E/S.
 

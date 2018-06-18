@@ -1,13 +1,13 @@
 ---
 title: Journaux de diagnostic Azure Event Hubs | Microsoft Docs
-description: "Découvrez comment configurer les journaux de diagnostic pour Event Hubs dans Azure."
-keywords: 
-documentationcenter: 
+description: Découvrez comment configurer les journaux de diagnostic pour Event Hubs dans Azure.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932713"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Journaux de diagnostic d’Event Hubs
 
@@ -136,7 +137,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
 * [Prise en main des hubs d’événements](event-hubs-dotnet-standard-getstarted-send.md)

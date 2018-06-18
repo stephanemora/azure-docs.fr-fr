@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433247"
 ---
 Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Le contrôle d’accès en fonction du rôle (RBAC) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue. Un rôle définit un ensemble d’actions autorisées. Vous attribuez le rôle à une étendue et spécifiez les utilisateurs qui appartiennent à ce rôle pour l’étendue.
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797700"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Didacticiel : surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
 Ce didacticiel est la cinquième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 

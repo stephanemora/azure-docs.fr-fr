@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28981283"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Utiliser une MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 

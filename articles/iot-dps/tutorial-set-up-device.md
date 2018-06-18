@@ -1,22 +1,20 @@
 ---
 title: Configurer un appareil pour le service Azure IoT Hub Device Provisioning Service
 description: Configurer un appareil à provisionner par le biais du service IoT Hub Device Provisioning pendant le processus de fabrication de l’appareil
-services: iot-dps
-keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631266"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
@@ -28,7 +26,6 @@ Dans le didacticiel précédent, vous avez appris à configurer le service IoT H
 > * Créer le logiciel d’inscription d’appareils
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de continuer, créez votre instance du service Device Provisioning Service et un IoT Hub en suivant les instructions indiquées dans le didacticiel précédent [1 - Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning](./tutorial-set-up-cloud.md).
 
@@ -106,7 +103,7 @@ Si vous avez généré le Kit de développement logiciel (SDK) pour utiliser l�
       .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
       ```
 
-   2. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommé `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
+   2. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommée `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
 
    3. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet **tpm_device_provision** et sélectionnez **Définir comme projet de démarrage**. 
 

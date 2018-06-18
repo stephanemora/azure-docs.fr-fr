@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157685"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293107"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -58,7 +58,7 @@ Temps approximatif d’accomplissement : une heure pour moins de 1 000 utilis
 | --- | --- |
 | Serveur pour exécuter Azure AD Connect | [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 | Utilisateurs POC cibles, dans le même domaine et faisant partie d’un groupe de sécurité, et unité d’organisation | [Installation personnalisée d’Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| Les fonctionnalités Azure AD Connect requises pour la POC sont identifiées | [Connecter Active Directory à Azure Active Directory - Configuration de fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Les fonctionnalités Azure AD Connect requises pour la POC sont identifiées | [Connecter Active Directory à Azure Active Directory - Configuration des fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Vous disposez des informations d’identification nécessaires pour les environnements locaux et cloud  | [Autorisations et comptes Azure AD Connect](./connect/active-directory-aadconnect-accounts-permissions.md) |
 
 ### <a name="steps"></a>Étapes
@@ -66,7 +66,7 @@ Temps approximatif d’accomplissement : une heure pour moins de 1 000 utilis
 | Étape | Ressources |
 | --- | --- |
 | Téléchargez la dernière version d’Azure AD Connect | [Téléchargez Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Installez Azure AD Connect de la manière la plus simple : Express <br/>1. Filtrez les données en fonction de l’unité d’organisation cible afin de réduire le cycle de synchronisation<br/>2. Choisissez le jeu d’utilisateurs cible dans le groupe local<br/>3. Déployez les fonctionnalités requises par les autres thèmes POC | [Azure AD Connect : Installation personnalisée : Filtrage domaine et unité organisationnelle](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect : Installation personnalisée : Filtrage de synchronisation basé sur les groupes](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect : Intégration de vos identités locales avec Azure Active Directory : Configuration de fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Installez Azure AD Connect de la manière la plus simple : Express <br/>1. Filtrez les données en fonction de l’unité d’organisation cible afin de réduire le cycle de synchronisation<br/>2. Choisissez le jeu d’utilisateurs cible dans le groupe local<br/>3. Déployez les fonctionnalités requises par les autres thèmes POC | [Azure AD Connect : Installation personnalisée : Filtrage domaine et unité organisationnelle](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect : Installation personnalisée : Filtrage de synchronisation basé sur les groupes](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect : Intégration de vos identités locales avec Azure Active Directory : Configuration des fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Ouvrez l’interface utilisateur Azure AD Connect et observez les profils d’exécution terminés (importation, synchronisation et exportation) | [Planificateur Azure AD Connect Sync](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Ouvrez le [portail de gestion Azure AD](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), accédez au panneau Tous les utilisateurs et ajoutez la colonne Source d’autorité. Les utilisateurs s’affichent avec l’indication de leur origine : Windows Server AD. | [Portail de gestion Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
@@ -141,7 +141,7 @@ Temps approximatif d’accomplissement : 60 minutes
 | --- | --- |
 | Environnement de test de l’application SaaS disponible. Dans ce guide, nous prenons pour exemple ServiceNow.<br/>Nous vous recommandons vivement d’utiliser une instance de test afin de limiter les problèmes de navigation concernant les mappages et la qualité des données existantes. | Accédez à https://developer.servicenow.com/app.do#!/home pour démarrer le processus d’obtention d’une instance de test |
 | Accès administrateur à la console de gestion ServiceNow | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Jeu d’utilisateurs cible auquel affecter l’application. Un groupe de sécurité contenant les utilisateurs POC est recommandé. <br/>S’il est impossible de créer le groupe, affectez directement les utilisateurs à l’application pour la POC | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
+| Jeu d’utilisateurs cible auquel affecter l’application. Un groupe de sécurité contenant les utilisateurs POC est recommandé. <br/>S’il est impossible de créer le groupe, affectez directement les utilisateurs à l’application pour la POC | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Étapes
 
@@ -149,13 +149,13 @@ Temps approximatif d’accomplissement : 60 minutes
 | --- | --- |
 | Partagez le didacticiel avec tous les acteurs de la documentation Microsoft  | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Organisez une réunion de travail et suivez les étapes du didacticiel avec chaque acteur. | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Affectez l’application au groupe identifié dans les conditions préalables. Si la POC dispose d’un accès conditionnel dans l’étendue, vous pouvez y revenir ultérieurement et ajouter une authentification MFA ou autre. <br/>Cela lancera le processus d’approvisionnement (s’il a été configuré) |  [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Affectez l’application au groupe identifié dans les conditions préalables. Si la POC dispose d’un accès conditionnel dans l’étendue, vous pouvez y revenir ultérieurement et ajouter une authentification MFA ou autre. <br/>Cela lancera le processus d’approvisionnement (s’il a été configuré) |  [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Utilisez le portail de gestion Azure AD pour ajouter l’application ServiceNow à partir de la galerie| [Portail de gestion Azure AD : Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Nouveautés relatives à la gestion des applications d’entreprise dans Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Dans le panneau « Authentification unique » de l’application ServiceNow, activez « Authentification basée sur SAML » |  |
 | Complétez les champs URL de connexion et Identificateur avec votre URL ServiceNow<br/>Cochez la case Activer le nouveau certificat<br/>et enregistrez les paramètres |  |
 | Ouvrez le panneau Configurer ServiceNow en bas du volet pour afficher les instructions personnalisées vous permettant de configurer ServiceNow |  |
 | Suivez les instructions de configuration de ServiceNow |  |
-| Dans le panneau Approvisionnement de l’application ServiceNow, activez l’approvisionnement Automatique | [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le nouveau portail Azure](active-directory-enterprise-apps-manage-provisioning.md) |
+| Dans le panneau Approvisionnement de l’application ServiceNow, activez l’approvisionnement Automatique | [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le nouveau portail Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Patientez quelques minutes pour que la configuration se termine.  En attendant, vous pouvez vérifier les rapports d’approvisionnement |  |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. Confirmez l’accès |  |
@@ -176,7 +176,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | --- | --- |
 | Environnement de test pour les applications SaaS. HipChat et Twitter sont des exemples d’authentification unique par mot de passe. Pour toute autre application, vous avez besoin de l’URL exacte de la page avec le formulaire d’inscription html. | [Twitter sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Testez les comptes pour les applications. | [S’inscrire sur Twitter](https://twitter.com/signup?lang=en)<br/>[S’inscrire gratuitement sur HipChat](https://www.hipchat.com/sign_up) |
-| Jeu d’utilisateurs cible auquel affecter l’application. Un groupe de sécurité contenant les utilisateurs est recommandé. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
+| Jeu d’utilisateurs cible auquel affecter l’application. Un groupe de sécurité contenant les utilisateurs est recommandé. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Accès administrateur local à un ordinateur afin de déployer l’extension du volet d’accès pour Internet Explorer, Chrome ou Firefox | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Étapes
@@ -185,8 +185,8 @@ Temps approximatif d’accomplissement : 15 minutes
 | --- | --- |
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès |  |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fournissez les informations d’identification de l’application | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +211,7 @@ Temps approximatif d’accomplissement : 30 minutes
 | --- | --- |
 | Liste des applications cibles et URL de connexion exactes au préalable. Par exemple, vous pouvez utiliser Twitter. | [Twitter sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[S’inscrire sur Twitter](https://twitter.com/signup?lang=en) |
 | Informations d’identification partagées pour cette application SaaS. | [Partage de comptes à l’aide d’Azure AD](active-directory-sharing-accounts.md)<br/>[Version préliminaire de la substitution automatisée du mot de passe Azure AD pour Facebook, Twitter et LinkedIn ! – Blog Enterprise Mobility + Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Informations d’identification pour au moins deux membres de l’équipe qui ont le même compte d’accès. Ils doivent faire partie d’un groupe de sécurité. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
+| Informations d’identification pour au moins deux membres de l’équipe qui ont le même compte d’accès. Ils doivent faire partie d’un groupe de sécurité. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Accès administrateur local à un ordinateur afin de déployer l’extension du volet d’accès pour Internet Explorer, Chrome ou Firefox | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Étapes
@@ -220,8 +220,8 @@ Temps approximatif d’accomplissement : 30 minutes
 | --- | --- |
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Affectez l’application au groupe identifié dans les conditions préalables lorsque vous leur affectez des informations d’identification | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Affectez l’application au groupe identifié dans les conditions préalables lorsque vous leur affectez des informations d’identification | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Connectez-vous en tant qu’utilisateurs différents en mesure d’accéder à l’application par le biais d’un **même compte partagé.**  |  |
 | Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
 

@@ -1,11 +1,11 @@
 ---
 title: Utilisation des diagnostics (.NET) Azure avec Cloud Services | Microsoft Docs
-description: "Utilisation des diagnostics Azure pour rassembler des données à partir d’Azure Cloud Services pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic, etc."
+description: Utilisation des diagnostics Azure pour rassembler des données à partir d’Azure Cloud Services pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic, etc.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460894"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Activation des diagnostics Azure dans Azure Cloud Services
 Consultez la page [Présentation des diagnostics Azure](../azure-diagnostics.md) pour obtenir des informations sur les diagnostics Azure.

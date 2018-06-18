@@ -15,42 +15,43 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 53e09498324f802ce1839d262999657d37ee973b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169116"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
 Azure Standard Load Balancer vous permet d’équilibrer la charge des flux TCP et UDP sur tous les ports simultanément quand vous utilisez un équilibreur de charge interne. 
 
-Une règle de ports haute disponibilité est une variante d’une règle d’équilibrage de charge configurée sur un équilibreur de charge standard interne. Vous pouvez simplifier l’utilisation de votre équilibreur de charge en fournissant une seule règle pour équilibrer la charge de tous les flux TCP et UDP arrivant sur tous les ports d’un équilibreur de charge standard interne. La décision d’équilibrage de charge est prise par flux. Elle est basée sur la connexion à 5 tuples suivante : adresse IP source, port source, adresse IP de destination, port de destination et protocole.
+Une règle de ports haute disponibilité est une variante d’une règle d’équilibrage de charge configurée sur un équilibreur de charge standard interne. Vous pouvez simplifier l’utilisation d’un équilibreur de charge en fournissant une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un équilibreur de charge standard interne. La décision d’équilibrage de charge est prise par flux. Cette action est basée sur la connexion à 5 tuples suivante : adresse IP source, port source, adresse IP de destination, port de destination et protocole.
 
-La fonctionnalité des ports haute disponibilité est utile dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. Elle peut également servir quand un grand nombre de ports doit avoir une charge équilibrée. 
+La fonctionnalité des ports haute disponibilité est utile dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut également servir quand un grand nombre de ports doit avoir une charge équilibrée. 
 
-La fonctionnalité des ports haute disponibilité est configurée quand vous définissez les ports frontaux et principaux sur **0**, et le protocole sur **Tous**. La ressource d’équilibreur de charge interne équilibre alors tous les flux TCP et UDP, quel que soit le nombre de ports.
+La fonctionnalité des ports haute disponibilité est configurée quand vous affectez la valeur **0** aux ports frontend et backend, et la valeur **Tous** au protocole. La ressource d’équilibreur de charge interne équilibre alors tous les flux TCP et UDP, quel que soit le nombre de ports.
 
 ## <a name="why-use-ha-ports"></a>Pourquoi utiliser des ports haute disponibilité ?
 
 ### <a name="nva"></a>Appliances virtuelles réseau
 
-Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Quand des appliances virtuelles réseau sont utilisées dans ces scénarios, elles doivent être fiables, hautement disponibles et s’adapter à la demande.
+Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Quand vous utilisez des appliances virtuelles réseau dans ces scénarios, elles doivent être fiables, hautement disponibles et s’adapter à la demande.
 
-Vous pouvez atteindre ces objectifs en ajoutant simplement des instances d’appliances virtuelles réseau au pool principal de l’équilibreur de charge interne Azure et en configurant une règle d’équilibreur de charge pour les ports haute disponibilité.
+Vous pouvez atteindre ces objectifs en ajoutant simplement des instances d’appliances virtuelles réseau au pool backend de votre équilibreur de charge interne et en configurant une règle d’équilibreur de charge pour les ports haute disponibilité.
 
-Les ports haute disponibilité présentent plusieurs avantages pour les scénarios de haute disponibilité des appliances virtuelles réseau :
+Les ports haute disponibilité présentent les avantages suivants pour les scénarios de haute disponibilité des appliances virtuelles réseau :
 - Basculement rapide sur des instances saines, avec des sondes d’intégrité par instance
-- Meilleures performances avec la montée en puissance vers *n* instances actives
-- Scénarios *n*-actif et actif-passif
-- Plus besoin d’utiliser des solutions complexes comme les nœuds Apache Zookeeper pour le monitoring des appliances
+- Meilleures performances avec scale-out vers des instances en mode *n*-actif
+- Scénarios en mode *n*-actif et actif-passif
+- Plus besoin d’utiliser des solutions complexes comme les nœuds Apache Zookeeper pour la surveillance des appliances
 
 Le diagramme suivant présente un déploiement de réseau virtuel hub-and-spoke. Les spokes forcent le tunneling de leur trafic vers le réseau virtuel du hub et via l’appliance virtuelle réseau avant de quitter l’espace de confiance. Les appliances virtuelles réseau se trouvent derrière un équilibreur de charge standard interne avec une configuration de ports haute disponibilité. Tout le trafic peut être traité et transféré en conséquence.
 
 ![Diagramme d’un réseau virtuel hub-and-spoke avec des appliances virtuelles réseau déployées en mode de haute disponibilité](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
-> Si vous utilisez des appliances virtuelles réseau, renseignez-vous auprès des fournisseurs respectifs sur l’utilisation des ports haute disponibilité et les scénarios pris en charge.
+> Si vous utilisez des appliances virtuelles réseau, renseignez-vous auprès de leurs fournisseurs sur l’utilisation optimale des ports haute disponibilité et les scénarios pris en charge.
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Équilibrage de charge d’un grand nombre de ports
 
@@ -62,39 +63,39 @@ La fonctionnalité de ports haute disponibilité est disponible dans toutes les 
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 
-### <a name="one-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Une seule configuration de ports haute disponibilité d’adresse IP non flottante (pas de retour direct du serveur) sur l’équilibreur de charge standard interne
+### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Une seule configuration de ports haute disponibilité d’adresse IP non flottante (pas de retour direct du serveur) sur un équilibreur de charge standard interne
 
-Il s’agit d’une configuration de ports haute disponibilité de base. La configuration suivante vous permet de configurer un équilibrage de charge de ports haute disponibilité sur une seule adresse IP frontale :
-- Lors de la configuration de votre équilibreur de charge standard, cochez la case **Ports HA** dans la configuration de règle d’équilibreur de charge. 
-- Vérifiez que l’option **IP flottante** est définie sur **Désactivée**.
+Il s’agit d’une configuration de ports haute disponibilité de base. Vous pouvez configurer une règle d’équilibrage de charge de ports haute disponibilité sur une seule adresse IP frontend en effectuant les opérations suivantes :
+1. Lors de la configuration de l’équilibreur de charge standard, cochez la case **Ports HA** dans la configuration de règle d’équilibreur de charge.
+2. Pour **IP flottante**, sélectionnez **Désactivée**.
 
-Cette configuration n’autorise pas d’autre configuration de règle d’équilibrage de charge sur la ressource d’équilibreur de charge actuelle, ni d’autre configuration de ressource d’équilibreur de charge interne pour l’ensemble donné d’instances de serveur principal.
+Cette configuration n’autorise pas d’autre configuration de règle d’équilibrage de charge sur la ressource d’équilibreur de charge actuelle, ni d’autre configuration de ressource d’équilibreur de charge interne pour l’ensemble donné d’instances backend.
 
-Vous pouvez toutefois configurer un équilibreur de charge standard public pour les instances de serveur principal en plus de cette règle de port haute disponibilité.
+Vous pouvez toutefois configurer un équilibreur de charge standard public pour les instances backend en plus de cette règle de ports haute disponibilité.
 
-### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Une seule configuration de ports haute disponibilité d’adresse IP flottante (retour direct du serveur) sur l’équilibreur de charge standard interne
+### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Une seule configuration de ports haute disponibilité d’adresse IP flottante (retour direct du serveur) sur un équilibreur de charge standard interne
 
-De la même façon, vous pouvez configurer votre équilibreur de charge pour utiliser une règle d’équilibrage de charge avec **Port HA** avec un seul serveur frontal et l’option **IP flottante** définie sur **Activée**. 
+De la même façon, vous pouvez configurer votre équilibreur de charge pour utiliser une règle d’équilibrage de charge avec **Port HA** avec un seul frontend en affectant à l’option **IP flottante** la valeur **Activée**. 
 
-Cette configuration vous permet d’ajouter des règles d’équilibrage de charge d’adresse IP flottante et/ou un équilibreur de charge public. Toutefois, vous ne pouvez pas utiliser de configuration d’équilibrage de charge de port haute disponibilité d’adresse IP non flottante en plus de cette configuration.
+Cette configuration vous permet d’ajouter d’autres règles d’équilibrage de charge d’adresse IP flottante et/ou un équilibreur de charge public. Toutefois, vous ne pouvez pas utiliser de configuration d’équilibrage de charge de ports haute disponibilité d’adresse IP non flottante en plus de cette configuration.
 
-### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Plusieurs configurations de ports haute disponibilité sur l’équilibreur de charge standard interne
+### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Plusieurs configurations de ports haute disponibilité sur un équilibreur de charge standard interne
 
-Si votre scénario requiert que vous configuriez plusieurs serveurs frontaux de ports haute disponibilité pour le même pool principal, vous pouvez y parvenir en : 
-- configurant plusieurs adresses IP privées frontales pour une ressource d’équilibreur de charge standard interne ;
-- configurant plusieurs règles d’équilibrage de charge, où chaque règle a une adresse IP frontale unique sélectionnée ;
+Si votre scénario nécessite la configuration de plusieurs frontends de ports haute disponibilité pour le même pool backend, vous pouvez y parvenir en : 
+- configurant plusieurs adresses IP privées frontend pour une ressource d’équilibreur de charge standard interne ;
+- configurant plusieurs règles d’équilibrage de charge, où chaque règle a une adresse IP frontend unique sélectionnée ;
 - sélectionnant l’option **Ports HA** et en définissant l’option **IP flottante** sur **Activée** pour toutes les règles d’équilibrage de charge.
 
-### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Équilibreur de charge interne avec ports haute disponibilité et équilibreur de charge public sur les mêmes instances de serveur principal
+### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Équilibreur de charge interne avec ports haute disponibilité et équilibreur de charge public sur la même instance backend
 
-Vous pouvez configurer **une** ressource d’équilibreur de charge standard publique pour les ressources de serveur principal, ainsi qu’un seul équilibreur de charge standard interne avec des ports haute disponibilité.
+Vous pouvez configurer *une* ressource d’équilibreur de charge standard public pour les ressources backend ainsi qu’un seul équilibreur de charge standard interne avec des ports haute disponibilité.
 
 >[!NOTE]
->Actuellement, cette fonctionnalité est disponible via les modèles Azure Resource Manager, mais pas via le portail Azure.
+>Cette fonctionnalité est actuellement disponible via les modèles Azure Resource Manager, mais pas via le portail Azure.
 
 ## <a name="limitations"></a>Limites
 
-- La configuration des ports haute disponibilité est disponible uniquement pour l’équilibreur de charge interne ; elle n’est pas disponible pour un équilibreur de charge public.
+- La configuration des ports haute disponibilité est disponible uniquement pour les équilibreurs de charge internes. Elle n’est pas disponible pour les équilibreurs de charge publics.
 
 - La combinaison d’une règle d’équilibrage de charge de ports haute disponibilité et d’une règle d’équilibrage de charge sans ports haute disponibilité n’est pas prise en charge.
 
@@ -105,5 +106,5 @@ Vous pouvez configurer **une** ressource d’équilibreur de charge standard pub
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer des ports haute disponibilité pour un équilibreur de charge interne](load-balancer-configure-ha-ports.md)
+- [Configurer des ports haute disponibilité sur un équilibreur de charge standard interne](load-balancer-configure-ha-ports.md)
 - [Présentation de la référence Standard d’Azure Load Balancer (préversion)](load-balancer-standard-overview.md)

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9fcf751d1b7655cf38bbcaca0aa8c918e38e4fda
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619063"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 
@@ -47,8 +48,8 @@ Les propriétés prises en charge pour le service lié ServiceNow sont les suiva
 | Type | La propriété type doit être définie sur : **ServiceNow** | OUI |
 | endpoint | Point de terminaison du serveur ServiceNow (`http://<instance>.service-now.com`).  | OUI |
 | authenticationType | Type d’authentification à utiliser. <br/>Valeurs autorisées : **De base**, **OAuth2** | OUI |
-| username | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | Non  |
-| password | Mot de passe correspondant au nom d’utilisateur pour l’authentification De base et OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
+| username | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | OUI |
+| password | Mot de passe correspondant au nom d’utilisateur pour l’authentification De base et OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | clientId | ID client pour l’authentification OAuth2.  | Non  |
 | clientSecret | Secret client pour l’authentification OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |

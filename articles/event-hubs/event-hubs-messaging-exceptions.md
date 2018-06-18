@@ -1,11 +1,11 @@
 ---
 title: Exceptions de la messagerie Azure Event Hubs | Microsoft Docs
-description: "Liste des exceptions de la messagerie Azure Event Hubs et les actions suggérées."
+description: Liste des exceptions de la messagerie Azure Event Hubs et les actions suggérées.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783126"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceptions de la messagerie Event Hubs
 
@@ -93,7 +94,7 @@ Cette erreur peut se produire pour deux raisons :
 Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibrage de charge des Event Hubs commence.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)

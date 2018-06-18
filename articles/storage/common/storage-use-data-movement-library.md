@@ -1,12 +1,12 @@
 ---
-title: "Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure | Microsoft Docs"
-description: "Utilisez la bibliothèque de déplacement des données pour déplacer ou copier des données vers ou à partir du contenu d'objets blob et de fichiers. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage."
+title: Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure | Microsoft Docs
+description: Utilisez la bibliothèque de déplacement des données pour déplacer ou copier des données vers ou à partir du contenu d'objets blob et de fichiers. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/02/2018
+ms.locfileid: "27564737"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure
 
@@ -565,7 +566,7 @@ Dans cet exemple, nous donnons la valeur `false` au paramètre booléen `Transfe
 ## <a name="conclusion"></a>Conclusion
 Notre application de déplacement des données est à présent terminée. [L’exemple de code complet est disponible sur GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de prise en main, nous avons créé une application qui interagit avec le Stockage Azure et s’exécute sur Windows, Linux et macOS. Il se concentre sur le Stockage Blob. Toutefois, ces mêmes connaissances peuvent s’appliquer au Stockage Fichier. Pour plus d’informations, consultez la [Documentation de référence de la bibliothèque de déplacement des données du Stockage Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

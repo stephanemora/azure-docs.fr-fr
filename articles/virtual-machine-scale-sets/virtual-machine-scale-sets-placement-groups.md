@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941126"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Utilisation de grands groupes de machines virtuelles identiques
 Vous pouvez désormais créer des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure d’une capacité maximum de 1 000 machines virtuelles. Dans ce document, un _grand groupe de machines virtuelles identiques_ est défini comme un groupe identique pouvant contenir plus de 100 machines virtuelles. Cette fonctionnalité est définie par une propriété de groupe identique (_singlePlacementGroup=False_). 

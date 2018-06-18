@@ -1,11 +1,11 @@
 ---
-title: "Étendre des groupes de disponibilité Always On locaux à Azure | Microsoft Docs"
-description: "Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité Always On dans Azure."
+title: Étendre des groupes de disponibilité Always On locaux à Azure | Microsoft Docs
+description: Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité Always On dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400475"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Étendre des groupes de disponibilité Always On locaux à Azure
 Les groupes de disponibilité Always On fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.
@@ -89,7 +90,7 @@ Cette section vous indique comment utiliser l’ **Assistant Ajout d’un répli
 ## <a name="create-an-availability-group-listener"></a>Créer un écouteur de groupe de disponibilité
 Après avoir créé le groupe de disponibilité, vous devez créer un écouteur pour que les clients puissent se connecter aux réplicas. Les écouteurs dirigent les connexions entrantes vers le réplica principal ou un réplica secondaire en lecture seule. Pour plus d’informations sur les écouteurs, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](../classic/ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En plus d’utiliser l’ **Assistant Ajout d’un réplica Azure** pour étendre votre groupe de disponibilité Always On dans Azure, vous pouvez également déplacer entièrement des charges de travail SQL Server vers Azure. Pour commencer, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

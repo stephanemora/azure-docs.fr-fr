@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique pour utiliser l’accès aux applications en libre-service | Microsoft Docs"
-description: "Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications."
+title: Guide pratique pour utiliser l’accès aux applications en libre-service | Microsoft Docs
+description: Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383186"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Guide pratique pour utiliser l’accès aux applications en libre-service
 
@@ -82,5 +83,5 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut approuver l’accès à l’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)

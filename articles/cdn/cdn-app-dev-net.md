@@ -1,11 +1,11 @@
 ---
-title: "Prise en main de la bibliothèque Azure CDN pour .NET | Microsoft Docs"
-description: "Apprenez à écrire des applications .NET pour gérer Azure CDN à l’aide de Visual Studio."
+title: Prise en main de la bibliothèque Azure CDN pour .NET | Microsoft Docs
+description: Apprenez à écrire des applications .NET pour gérer Azure CDN à l’aide de Visual Studio.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998174"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Prise en main du développement Azure CDN
 > [!div class="op_single_selector"]

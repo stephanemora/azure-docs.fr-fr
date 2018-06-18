@@ -1,22 +1,19 @@
 ---
 title: Comparer Event Grid et le routage pour IoT Hub | Microsoft Docs
-description: "IoT Hub offre son propre service de routage de messages, mais il s’intègre également à Event Grid pour la publication d’événement. Comparez les deux fonctionnalités."
-services: iot-hub
-documentationcenter: 
+description: IoT Hub offre son propre service de routage de messages, mais il s’intègre également à Event Grid pour la publication d’événement. Comparez les deux fonctionnalités.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 5a0a97ccf033b2981ba13be455482146ba212228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636169"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparer le routage des messages et Event Grid pour IoT Hub
 
@@ -35,8 +32,8 @@ Le routage des messages et Event Grid permettent tous deux de configurer des ale
 | **Type d’événement** | Oui, le routage des messages peut signaler les modifications de jumeau et les événements de cycle de vie d’appareil. | Oui, Event Grid peut signaler quand des appareils sont inscrits auprès d’un IoT Hub et quand des appareils sont supprimés. |
 | **Ordonnancement** | Oui, l’ordonnancement des événements est conservé.  | Non, l’ordonnancement des événements n’est pas garanti. | 
 | **Taille de message maximale** | 256 Ko, appareil-à-cloud | 64 Ko |
-| **Filtrage** | Filtrage enrichi grâce au langage de type SQL, avec prise en charge du filtrage sur les corps et les en-têtes de messages. Pour obtenir des exemples, consultez [Langage de requête IoT Hub](iot-hub-devguide-query-language.md). | Filtrage basé sur le suffixe/préfixe d’ID d’appareil, qui fonctionne bien pour les services hiérarchiques tels que le stockage. |
-| **Points de terminaison** | <ul><li>Hub d’événements</li> <li>Objet blob de stockage</li> <li>File d’attente Service Bus</li> <li>Rubriques Service Bus</li></ul><br>Les références SKU IoT Hub payantes (S1, S2 et S3) sont limitées à 10 points de terminaison personnalisés. Vous pouvez créer 100 itinéraires par hub IoT. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hub</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>Services tiers par le biais de WebHooks</li></ul><br>Pour obtenir la liste la plus récente des points de terminaison, consultez [Gestionnaires d’événements Event Grid](../event-grid/overview.md#event-handlers). |
+| **Filtering** | Filtrage enrichi grâce au langage de type SQL, avec prise en charge du filtrage sur les corps et les en-têtes de messages. Pour obtenir des exemples, consultez [Langage de requête IoT Hub](iot-hub-devguide-query-language.md). | Filtrage basé sur le suffixe/préfixe d’ID d’appareil, qui fonctionne bien pour les services hiérarchiques tels que le stockage. |
+| **Points de terminaison** | <ul><li>Event Hub</li> <li>Objet blob de stockage</li> <li>File d’attente Service Bus</li> <li>Rubriques Service Bus</li></ul><br>Les références SKU IoT Hub payantes (S1, S2 et S3) sont limitées à 10 points de terminaison personnalisés. Vous pouvez créer 100 itinéraires par hub IoT. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hub</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>Services tiers par le biais de WebHooks</li></ul><br>Pour obtenir la liste la plus récente des points de terminaison, consultez [Gestionnaires d’événements Event Grid](../event-grid/overview.md#event-handlers). |
 | **Coût** | Le routage des messages n’est pas facturé séparément. Seule l’entrée de télémétrie dans IoT Hub est facturée. Par exemple, si vous avez un message acheminé vers trois points de terminaison différents, un seul message vous est facturé. | Aucun frais IoT Hub n’est facturé. Avec Event Grid, les 100 000 premières opérations par mois sont gratuites. Ensuite, le coût est de 0,60 $ par million d’opérations. |
 
 Le routage des messages IoT Hub et Event Grid offrent aussi quelques similitudes, dont certaines sont détaillées dans le tableau suivant :
@@ -44,7 +41,7 @@ Le routage des messages IoT Hub et Event Grid offrent aussi quelques similitudes
 | Fonctionnalité | Routage des messages IoT Hub | Intégration d’IoT Hub avec Event Grid |
 | ------- | --------------- | ---------- |
 | **Fiabilité** | Élevée : remet chaque message au point de terminaison au moins une fois pour chaque itinéraire. Provoque l’expiration de tous les messages qui ne sont pas remis dans l’heure. | Élevée : remet chaque message au webhook au moins une fois pour chaque abonnement. Provoque l’expiration de tous les événements qui ne sont pas remis dans les 24 heures. | 
-| **Scalabilité** | Élevée : optimisé pour prendre en charge des millions d’appareils connectés simultanément et envoyant plusieurs millions de messages. | Élevée : capable d’acheminer 10 000 000 d’événements par seconde et par région. |
+| **Extensibilité** | Élevée : optimisé pour prendre en charge des millions d’appareils connectés simultanément et envoyant plusieurs millions de messages. | Élevée : capable d’acheminer 10 000 000 d’événements par seconde et par région. |
 | **Latence** | Faible : quasiment en temps réel. | Faible : quasiment en temps réel. |
 | **Envoi à plusieurs points de terminaison** | Oui, envoi d’un message unique à plusieurs points de terminaison. | Oui, envoi d’un message unique à plusieurs points de terminaison.  | 
 | **Sécurité** | Iot Hub fournit une identité par appareil et un contrôle d’accès révocable. Pour plus d’informations, consultez [Contrôle d’accès IoT Hub](iot-hub-devguide-security.md). | Event Grid fournit une validation à trois points : abonnements aux événements, publication d’événements et remise d’événements webhook. Pour en savoir plus, consultez la page [Sécurité et authentification pour Event Grid](../event-grid/security-authentication.md). |

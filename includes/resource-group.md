@@ -13,5 +13,6 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29953854"
 ---
 Un [groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md#terminology) est un conteneur logique dans lequel les ressources Azure comme les applications web, les bases de données et les comptes de stockage sont déployés et gérés. Par exemple, vous pouvez choisir de supprimer le groupe de ressources complet ultérieurement en une seule étape.

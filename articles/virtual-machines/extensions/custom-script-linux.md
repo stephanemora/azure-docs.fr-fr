@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 3977aa16878ea1e2d808376165f551ce5fb8d00f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 89b3f1184254964a32073c63de3fe69d8a51e292
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944981"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652955"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux
 L’extension de script personnalisé version 2 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -30,38 +30,38 @@ L’extension de script personnalisé est compatible avec les modèles Azure Res
 Cet article explique en détail comment utiliser l’extension de script personnalisé avec Azure CLI et l’exécuter à l’aide d’un modèle Azure Resource Manager. Il indique également la procédure de résolution des problèmes pour les systèmes Linux.
 
 
-Il existe deux extensions de script personnalisé Linux :
-* Version 1 : Microsoft.OSTCExtensions.CustomScriptForLinux
+Il existe deux extensions de script personnalisé Linux :
+* Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2 : Microsoft.Azure.Extensions.CustomScript
 
-Basculez entre les déploiements existant et nouveau pour utiliser plutôt la nouvelle version 2. Cette nouvelle version est prévue comme un remplacement instantané. Par conséquent, pour procéder à la migration, il vous suffit de changer le nom et la version. Il est inutile de modifier la configuration de l’extension.
+Basculez entre les déploiements existant et nouveau pour utiliser plutôt la nouvelle version 2. Cette nouvelle version est prévue comme un remplacement instantané. Ainsi, pour procéder à la migration, il vous suffit de changer le nom et la version ; il est inutile de modifier la configuration de l’extension.
 
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de script personnalisé pour Linux s’exécute sur les systèmes d’exploitation pris en charge par l’extension. Pour en savoir plus, consultez cet [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L’extension de script personnalisé pour Linux s’exécute sur les systèmes d’exploitation pris en charge par l’extension. Pour en savoir plus, voir cet [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Emplacement du script
 
 L’extension vous permet d’utiliser vos informations d’identification de stockage d’objets blob Azure pour accéder au stockage d’objets blob Azure. Par ailleurs, le script peut être placé n’importe où, tant que la machine virtuelle peut effectuer le routage vers ce point de terminaison, par exemple GitHub, un serveur de fichiers interne, etc.
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
-Si vous devez télécharger un script en externe, par exemple à partir de GitHub ou du stockage Azure, vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau supplémentaires. Par exemple, si votre script se trouve dans Stockage Azure, vous pouvez en autoriser l’accès à l’aide de balises de service du groupe de sécurité réseau Azure pour [Stockage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Si vous devez télécharger un script en externe, par exemple à partir de GitHub ou du stockage Azure, vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau supplémentaires. Par exemple, si votre script se trouve dans le Stockage Azure, vous pouvez en autoriser l’accès à l’aide de balises de service du groupe de sécurité réseau Azure pour le [Stockage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
-Si votre script se trouve sur un serveur local, vous devrez peut-être toujours ouvrir des ports de pare-feu/groupe de sécurité réseau supplémentaires.
+Si votre script se trouve sur un serveur local, vous devrez peut-être encore ouvrir des ports de pare-feu/de groupe de sécurité réseau supplémentaires.
 
 ### <a name="tips-and-tricks"></a>Astuces et conseils
-* Le taux d’échec plus élevé de cette extension est dû aux erreurs de syntaxe contenues dans le script. Testez les exécutions de script sans erreur et insérez également un enregistrement supplémentaire dans le script pour trouver plus facilement l’emplacement de l’échec.
-* Écrivez des scripts idempotents. De cette façon, s’ils sont exécutés plusieurs fois par erreur, cela n’entraîne pas de modifications du système.
+* Le taux d’échec le plus élevé de cette extension est dû aux erreurs de syntaxe contenues dans le script. Testez les exécutions de script sans erreur et insérez également une journalisation supplémentaire dans le script pour trouver plus facilement l’emplacement de l’échec.
+* Écrivez des scripts idempotents ; s’ils sont exécutés plusieurs fois par erreur, ils n’entraîneront pas de modification du système.
 * Vérifiez que l’exécution des scripts ne nécessite pas d’entrée utilisateur.
-* L’exécution du script est autorisée pendant 90 minutes. Toute exécution d’une durée supérieure entraînera l’échec de l’approvisionnement de l’extension.
-* N’insérez pas de redémarrages dans le script, car cela entraîne des problèmes avec les autres extensions en cours d’installation, et après le redémarrage, l’extension s’arrête. 
-* Si l’un de vos scripts provoque un redémarrage, installez des applications, puis exécutez des scripts, etc. Vous devez planifier le redémarrage à l’aide d’un travail Cron, d’outils tels que DSC ou d’extensions Chef ou Puppet.
+* L’exécution du script est autorisée pendant 90 minutes. Toute exécution d’une durée supérieure entraîne l’échec du provisionnement de l’extension.
+* N’insérez pas de redémarrages dans le script, car cela entraîne des problèmes avec d’autres extensions en cours d’installation : après un redémarrage, l’extension ne poursuit pas son exécution. 
+* Si l’un de vos scripts provoque un redémarrage, installez des applications, puis exécutez des scripts, etc. Vous devez planifier le redémarrage à l’aide d’une tâche Cron, d’outils tels que DSC ou d’extensions Chef ou Puppet.
 * L’extension n’exécute un script qu’une seule fois. Si vous souhaitez exécuter un script à chaque démarrage, vous pouvez utiliser [une image cloud-init](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init) et utiliser un module [Scripts au démarrage](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Vous pouvez également utiliser le script pour créer une unité de service Systemd.
-* Si vous souhaitez planifier le moment de l’exécution d’un script, vous devez utiliser l’extension pour créer un travail Cron. 
+* Si vous souhaitez planifier le moment de l’exécution d’un script, vous devez utiliser l’extension pour créer une tâche Cron. 
 * Lors de l’exécution du script, vous voyez seulement l’état de l’extension « transition en cours » dans le portail Azure ou l’interface Azure CLI. Si vous souhaitez que les mises à jour de l’état d’un script en cours d’exécution soient plus fréquentes, vous devez créer votre propre solution.
-* L’extension de script personnalisé ne prend pas en charge les serveurs proxy en mode natif, mais vous pouvez utiliser un outil de transfert de fichiers prenant en charge les serveurs proxy dans votre script, par exemple *Curl*. 
-* Ayez connaissance des emplacements des répertoires, autres que par défaut, susceptibles d’être utilisés pour vos scripts ou commandes. Gérez cette situation de façon logique.
+* L’extension de script personnalisé ne prend pas en charge les serveurs proxy en mode natif, en revanche vous pouvez utiliser un outil de transfert de fichiers qui prend en charge les serveurs proxy dans votre script, par exemple *Curl*. 
+* Tenez compte des emplacements de répertoire autres que par défaut, et qui sont susceptibles d’être utilisés pour vos scripts ou commandes. Gérez cette situation de façon logique.
 
 
 
@@ -76,7 +76,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 ```json
 {
   "name": "config-app",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -121,13 +121,13 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | storageAccountName (p. ex.) | examplestorageacct | chaîne |
 | storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | chaîne |
 
-### <a name="property-value-details"></a>Détails des valeurs de propriétés
+### <a name="property-value-details"></a>Détails des valeurs de propriété
 * `skipDos2Unix` : (facultatif, booléen) ignore la conversion dos2unix d’un script ou des URL de fichier basé sur un script.
 * `timestamp` : (facultatif, entier 32 bits) utilisez ce champ uniquement pour déclencher la réexécution du script en modifiant la valeur de ce champ.  Toutes les valeurs sont autorisées pour l’entier. Cette valeur doit uniquement être différente de la valeur précédente.
  * `commandToExecute` : (**obligatoire** si aucun script défini, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
 * `script` : (**obligatoire** si la propriété commandToExecute n’est pas définie, chaîne) script codé en Base64 (et éventuellement compressé au format GZip) exécuté par /bin/sh.
 * `fileUris` : (facultatif, tableau de chaînes) URL des fichiers à télécharger.
-* `storageAccountName` : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, toutes les propriétés `fileUris` doivent être des URL pour les objets blob Azure.
+* `storageAccountName` : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, toutes les propriétés `fileUris` doivent être des URL d’objets blob Azure.
 * `storageAccountKey` : (facultatif, chaîne) clé d’accès du compte de stockage.
 
 
@@ -138,7 +138,7 @@ Les valeurs suivantes peuvent être définies dans les paramètres publics ou pr
 
 L’utilisation des paramètres publics peut être utile pour le débogage, mais il est vivement recommandé d’utiliser les paramètres protégés.
 
-Les paramètres publics sont envoyés en texte clair sur la machine virtuelle sur laquelle le script est exécuté.  Les paramètres protégés sont chiffrés à l’aide d’une clé connue uniquement d’Azure et de la machine virtuelle. Les paramètres sont enregistrés sur la machine virtuelle tels qu’ils ont été envoyés. Ainsi, si les paramètres ont été chiffrés, ils sont enregistrés chiffrés sur la machine virtuelle. Le certificat utilisé pour déchiffrer les valeurs chiffrées est stocké sur la machine virtuelle et permet de déchiffrer les paramètres (si nécessaire) lors de l’exécution.
+Les paramètres publics sont envoyés en texte clair à la machine virtuelle sur laquelle le script est exécuté.  Les paramètres protégés sont chiffrés à l’aide d’une clé connue uniquement d’Azure et de la machine virtuelle. Les paramètres sont enregistrés sur la machine virtuelle tels qu’ils ont été envoyés. Autrement dit, si les paramètres ont été chiffrés, ils sont enregistrés chiffrés sur la machine virtuelle. Le certificat utilisé pour déchiffrer les valeurs chiffrées est stocké sur la machine virtuelle et permet de déchiffrer les paramètres (si nécessaire) lors de l’exécution.
 
 #### <a name="property-skipdos2unix"></a>Propriété : skipDos2Unix
 
@@ -336,13 +336,13 @@ Lors de l’exécution de l’extension de script personnalisé, le script est c
 /var/lib/waagent/custom-script/download/0/
 ```
 
-Pour résoudre les problèmes, recherchez d’abord le journal de l’agent Linux, assurez-vous que l’extension a été exécutée, puis vérifiez :
+Pour résoudre les problèmes, recherchez d’abord le journal de l’agent Linux, assurez-vous de l’exécution de l’extension, puis vérifiez :
 
 ```bash
 /var/log/waagent.log 
 ```
 
-Vous devez rechercher l’exécution de l’extension, qui doit se présenter ainsi :
+Vous devez rechercher l’exécution de l’extension, qui doit se présenter ainsi :
 ```text
 2018/04/26 17:47:22.110231 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] [Enable] current handler state is: notinstalled
 2018/04/26 17:47:22.306407 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Download, message=Download succeeded, duration=167
@@ -353,9 +353,9 @@ Vous devez rechercher l’exécution de l’extension, qui doit se présenter ai
 2018/04/26 17:47:23.476151 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] Enable extension [bin/custom-script-shim enable]
 2018/04/26 17:47:24.516444 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Enable, message=Launch command succeeded: bin/custom-sc
 ```
-Points à noter :
+Points à noter :
 1. La commande Enable correspond au début de l’exécution de la commande.
-2. La commande Download concerne le téléchargement du package d’extension CustomScript à partir d’Azure, et non celui des fichiers de script spécifiés dans fileUris.
+2. La commande Download se rapporte au téléchargement du package d’extension CustomScript à partir d’Azure, et non aux fichiers de script spécifiés dans fileUris.
 
 
 L’extension de script Azure génère un journal qui se trouve à cet emplacement :
@@ -364,7 +364,7 @@ L’extension de script Azure génère un journal qui se trouve à cet emplaceme
 /var/log/azure/custom-script/handler.log
 ```
 
-Vous devez rechercher l’exécution d’individuelle, qui doit se présenter ainsi :
+Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check
@@ -389,11 +389,11 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=enabled
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=end
 ```
-Là, vous pouvez voir :
-* la commande Enable démarrant dans ce journal ;
-* les paramètres transmis à l’extension ;
-* l’extension téléchargeant le fichier et le résultat de cette opération ;
-* la commande exécutée et le résultat.
+Là, vous pouvez voir :
+* La commande Enable démarrant dans ce journal
+* Les paramètres transmis à l’extension
+* L’extension téléchargeant des fichiers et le résultat de cette opération
+* La commande en cours d’exécution et le résultat
 
 Il est également possible de récupérer l’état d’exécution de l’extension de script personnalisé avec Azure CLI :
 

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619131"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +68,7 @@ Certaines banques de données prennent en charge le chiffrement des données au 
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 Transparent Data Encryption (TDE) de Microsoft Azure SQL Data Warehouse vous aide à vous protéger contre les menaces d’activités malveillantes, par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Base de données SQL Azure
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous permet de vous protéger contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec SQL Database et Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store

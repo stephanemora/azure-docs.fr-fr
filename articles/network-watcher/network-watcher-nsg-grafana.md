@@ -1,13 +1,13 @@
 ---
-title: "Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana | Microsoft Docs"
-description: "Gérez et analysez les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Grafana."
+title: Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana | Microsoft Docs
+description: Gérez et analysez les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Grafana.
 services: network-watcher
 documentationcenter: na
 author: kumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036524"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana
 

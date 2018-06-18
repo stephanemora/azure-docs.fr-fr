@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213195"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduction à la mise à l’échelle automatique
 La mise à l’échelle automatique est une fonctionnalité supplémentaire de Service Fabric pour mettre dynamiquement à l’échelle vos services selon la charge qu’ils présentent ou leur utilisation des ressources. La mise à l’échelle automatique offre une extensibilité idéale et permet le provisionnement d’instances ou de partitions supplémentaires de votre service à la demande. Tout le processus de mise à l’échelle automatique est automatisé et fluide, et après avoir configuré vos stratégies sur un service, aucune opération de mise à l’échelle manuelle n’est nécessaire au niveau du service. La mise à l’échelle automatique peut être activée au moment de la création du service ou à tout moment par la mise à jour du service.

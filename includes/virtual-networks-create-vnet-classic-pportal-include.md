@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805299"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Création d'un réseau virtuel classique dans le portail Azure
 Pour créer un réseau virtuel classique reposant sur le scénario précédent, procédez comme suit.

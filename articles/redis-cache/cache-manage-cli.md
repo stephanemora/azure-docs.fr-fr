@@ -1,11 +1,11 @@
 ---
-title: "Gérer le Cache Redis Azure à l’aide d’Azure CLI | Microsoft Docs"
-description: "Cette rubrique décrit comment installer l’interface de ligne de commande Azure sur toute plateforme, comment l’utiliser pour se connecter à un compte Azure et comment créer un cache Redis à partir de cette interface."
+title: Gérer le Cache Redis Azure à l’aide d’Azure CLI | Microsoft Docs
+description: Cette rubrique décrit comment installer l’interface de ligne de commande Azure sur toute plateforme, comment l’utiliser pour se connecter à un compte Azure et comment créer un cache Redis à partir de cette interface.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911276"
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -34,7 +35,7 @@ L'interface de ligne de commande Azure est un excellent moyen de gérer votre in
 > 
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour créer et gérer des instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure, vous devez procéder comme suit.
 
 * Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.

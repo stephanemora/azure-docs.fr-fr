@@ -4,17 +4,17 @@ description: Utilisez une stratégie Azure pour appliquer des normes, se conform
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1d13c5c0099b8e4c9ed83221edf6a2ee92fc3c8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5a26a07bae46fb62e067853b9d85dc905f63d5f8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194867"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602157"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 

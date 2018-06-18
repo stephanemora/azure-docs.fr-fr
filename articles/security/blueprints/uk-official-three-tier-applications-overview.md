@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757193"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Programme Blueprint Security & Compliance Azure - Automatisation des applications Web à trois niveaux UK-OFFICIAL
 
@@ -109,7 +110,7 @@ Groupes à haute disponibilité
 - (1) Groupe de machines virtuelles de couche Métier - 2 machines virtuelles
 - (1) Groupe de machines virtuelles de couche Données - 2 machines virtuelles
 
-Équilibreur de charge
+Load Balancer
 - (1) Équilibreur de charge de couche Web
 - (1) Équilibreur de charge de couche Métier
 - (1) Équilibreur de charge de couche Données
@@ -148,7 +149,7 @@ Stockage
 
 **Passerelle Internet et adresse IP publique** : la passerelle Internet expose les services d’application aux utilisateurs via Internet. Le trafic qui accède à ces services est sécurisé avec [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), qui propose des fonctionnalités de routage de couche 7 et des fonctionnalités d’équilibrage de charge avec la protection par pare-feu d’applications web (WAF).
 
-**Réseau virtuel de gestion** : ce [réseau virtuel](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contient des ressources qui implémentent des fonctionnalités de gestion et de surveillance pour les charges de travail exécutées dans le réseau virtuel de production.
+**Réseau virtuel de gestion** : ce [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contient des ressources qui implémentent des fonctionnalités de gestion et de surveillance pour les charges de travail exécutées dans le réseau virtuel de production.
 
 **Serveur de rebond (jumpbox)** : aussi appelé [hôte bastion](https://en.wikipedia.org/wiki/Bastion_host). Il s’agit d’une machine virtuelle sécurisée située sur le réseau, que les administrateurs utilisent pour se connecter aux machines virtuelles du réseau virtuel de production. Le serveur de rebond a un groupe de sécurité réseau qui autorise le trafic distant provenant uniquement d’adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic RDP (Remote Desktop Protocol), la source du trafic doit être définie dans le groupe de sécurité réseau. La gestion des ressources de production est réalisée via le protocole RDP, à l’aide d’une machine virtuelle serveur de rebond sécurisée.
 

@@ -1,8 +1,8 @@
 ---
 title: Collecter et analyser les compteurs de performances dans Azure Log Analytics | Microsoft Docs
-description: "Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure."
+description: Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783160"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Sources de données de performance Windows et Linux dans Log Analytics
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Log Analytics peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -223,7 +224,7 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Collectez des compteurs de performances à partir d’applications Linux](log-analytics-data-sources-linux-applications.md), y compris Apache HTTP Server et MySQL.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Exporter les données collectées vers [Power BI](log-analytics-powerbi.md) à des fins d’analyse et de visualisation.

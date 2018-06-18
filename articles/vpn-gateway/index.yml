@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779486"
 abstract:
   description: Apprenez à configurer, créer et gérer une passerelle VPN Azure. Créez des connexions chiffrées intersites vers votre réseau virtuel à partir d’emplacements locaux, ou créez des connexions chiffrées entre des réseaux virtuels.
 sections:

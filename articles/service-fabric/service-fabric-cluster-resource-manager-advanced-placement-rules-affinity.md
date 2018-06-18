@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204853"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuration et utilisation de l’affinité de service dans Service Fabric
 L’affinité est un contrôle qui permet principalement de faciliter la transition d’applications volumineuses monolithiques vers le cloud et les microservices. Elle peut également servir pour améliorer les performances des services, même si cela peut avoir des conséquences.

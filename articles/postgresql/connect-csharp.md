@@ -1,6 +1,6 @@
 ---
-title: "Se connecter à Azure Database pour PostgreSQL à partir de C#"
-description: "Ce guide de démarrage rapide fournit un exemple de code C# (.Net), que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour PostgreSQL."
+title: Se connecter à Azure Database pour PostgreSQL à partir de C#
+description: Ce guide de démarrage rapide fournit un exemple de code C# (.Net), que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692349"
 ---
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de .NET (C#) pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application C#. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Les étapes de cet article supposent que vous connaissez le développement avec C#, mais que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
@@ -312,6 +313,6 @@ namespace Driver
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)

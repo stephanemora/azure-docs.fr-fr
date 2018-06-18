@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805180"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Création d'un réseau virtuel classique à l'aide de l'interface de ligne de commande Azure
 Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ressources Azure à partir de l'invite de commande sur n'importe quel ordinateur exécutant Windows, Linux ou OSX.

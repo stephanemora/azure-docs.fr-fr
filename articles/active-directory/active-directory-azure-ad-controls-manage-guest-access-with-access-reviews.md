@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: dbb139081e1eb84ea64a187b7fec0d9cb159653c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192436"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235003"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -32,14 +33,10 @@ Vous pouvez également facilement vous assurer que les utilisateurs invités dis
 >
 >
 
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 
 
 Les révisions d’accès sont disponibles dans l’édition Premium P2 de Azure AD, incluse dans Microsoft Enterprise Mobility + Security, E5. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md). Chaque utilisateur interagissant avec cette fonctionnalité, notamment pour créer une révision, la remplir ou vérifier son accès, doit disposer d’une licence. 
-
-Les révisions d’accès sont disponibles dans l’édition Premium P2 de Azure AD, incluse dans Microsoft Enterprise Mobility + Security, E5. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-whatis.md). Chaque utilisateur interagissant avec cette fonctionnalité pour créer une révision, y accéder ou bien l’appliquer, doit disposer d’une licence.
-
 
 Si vous envisagez de demander aux utilisateurs invités de revoir leur propre accès, apprenez-en davantage sur les licences d’utilisateur invité. Pour plus d’informations, consultez l’article [Affectation de licences Azure Active Directory B2B Collaboration](active-directory-b2b-licensing.md).
 

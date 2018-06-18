@@ -1,11 +1,11 @@
 ---
-title: "Évaluer des applications Service Fabric avec Log Analytics à l’aide du portail Azure | Microsoft Docs"
-description: "Vous pouvez utiliser la solution Service Fabric dans Log Analytics, à l’aide du portail Azure, pour évaluer les risques et l’intégrité de vos applications, micro-services, nœuds et clusters Service Fabric."
+title: Évaluer des applications Service Fabric avec Log Analytics à l’aide du portail Azure | Microsoft Docs
+description: Vous pouvez utiliser la solution Service Fabric dans Log Analytics, à l’aide du portail Azure, pour évaluer les risques et l’intégrité de vos applications, micro-services, nœuds et clusters Service Fabric.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932679"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Évaluer les micro-services et applications Service Fabric avec le portail Azure | Microsoft Docs
 
@@ -161,6 +162,6 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur les événements Service Fabric.

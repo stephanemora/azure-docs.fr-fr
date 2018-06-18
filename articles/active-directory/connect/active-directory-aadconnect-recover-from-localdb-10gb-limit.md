@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect : Comment récupérer de la limite de 10 Go de base de données locale | Microsoft Docs"
-description: "Cette rubrique décrit comment récupérer le service de synchronisation Azure AD Connect lorsque celui-ci rencontre un problème lié à la limite de 10 Go de base de données locale."
+title: 'Azure AD Connect : Comment récupérer de la limite de 10 Go de base de données locale | Microsoft Docs'
+description: Cette rubrique décrit comment récupérer le service de synchronisation Azure AD Connect lorsque celui-ci rencontre un problème lié à la limite de 10 Go de base de données locale.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b72f6730d32a71146781420923226fc521b5982b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3ba491902444c9c05f997f854353206d78f2957d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591270"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer de la limite de 10 Go de base de données locale
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Vous pouvez utiliser la base de données locale par défaut de SQL Server 2012 installée avec Azure AD Connect ou utiliser votre propre base de données SQL complète. SQL Server Express impose une limite de taille de 10 Go. Lorsque vous utilisez la base de données locale et que cette limite est atteinte, le service de synchronisation Azure AD Connect ne peut plus démarrer ou se synchroniser correctement. Cet article indique les étapes de récupération.

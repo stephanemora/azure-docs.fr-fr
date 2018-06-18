@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble des versions du runtime Azure Functions"
-description: "Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient."
+title: Vue d’ensemble des versions du runtime Azure Functions
+description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919353"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -62,7 +63,7 @@ Le tableau suivant indique les liaisons prises en charge dans chaque version du 
 
 Pour plus d’informations sur la prise en charge des liaisons et d’autres écarts fonctionnels dans la version 2.x, consultez [Runtime 2.0 known issues (Problèmes connus dans le runtime 2.0)](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Cibler le runtime 2.0 dans votre environnement de développement local](functions-run-local.md)

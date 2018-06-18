@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 4b5ab13904fad4319a8a5baf48dd27a716c3c6d0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cbb0f703f61b6c15b3a827dc75821286b7914c21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623959"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Authentification des utilisateurs finaux auprès de Data Lake Store avec le Kit SDK .NET
 > [!div class="op_single_selector"]
@@ -29,7 +30,6 @@ ms.lasthandoff: 05/16/2018
 Dans cet article, vous allez apprendre à utiliser le Kit SDK .NET pour authentifier les utilisateurs finaux auprès d’’Azure Data Lake Store. Pour plus d’informations sur l’authentification de service à service auprès de Data Lake Store à l’aide du Kit SDK .NET, consultez l’article [Authentification de service à service auprès de Data Lake Store à l’aide du Kit SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

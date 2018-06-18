@@ -1,11 +1,11 @@
 ---
 title: Configuration requise de QoS pour ExpressRoute | Microsoft Docs
-description: "Cette page fournit des informations détaillées sur la configuration et la gestion de QoS pour des circuits ExpressRoute."
+description: Cette page fournit des informations détaillées sur la configuration et la gestion de QoS pour des circuits ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709910"
 ---
 # <a name="expressroute-qos-requirements"></a>Configuration requise pour ExpressRoute QoS
 Skype Entreprise a différentes charges de travail nécessitant un traitement QoS différencié. Si vous envisagez d’utiliser des services vocaux via ExpressRoute, vous devez respecter les conditions requises décrites ci-dessous.

@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de captures instantanées incrémentielles pour la sauvegarde et la récupération de disques de machines virtuelles Windows Azure non gérés | Microsoft Docs"
-description: "Créez une solution personnalisée pour la sauvegarde et la récupération de vos disques de machine virtuelle Windows Azure à l’aide d’instantanés incrémentiels."
+title: Utilisation de captures instantanées incrémentielles pour la sauvegarde et la récupération de disques de machines virtuelles Windows Azure non gérés | Microsoft Docs
+description: Créez une solution personnalisée pour la sauvegarde et la récupération de vos disques de machine virtuelle Windows Azure à l’aide d’instantanés incrémentiels.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116877"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

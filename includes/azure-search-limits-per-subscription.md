@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844075"
 ---
 Vous pouvez créer plusieurs services au sein d’un abonnement (chacun d’eux étant approvisionné à un niveau spécifique) en leur affectant uniquement la limite du nombre de services autorisé à chaque niveau. Ainsi, vous pouvez créer jusqu’à 12 services au niveau de base et 12 autres au niveau S1 au sein du même abonnement. Pour en savoir plus sur ces niveaux, voir [Choisir une référence (SKU) ou un niveau tarifaire pour Azure Search](../articles/search/search-sku-tier.md).
 

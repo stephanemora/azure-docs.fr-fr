@@ -1,11 +1,11 @@
 ---
-title: "Tâches courantes de gestion de service cloud | Microsoft Docs"
-description: "Découvrez comment gérer Azure Cloud Services dans le portail Azure. Ces exemples utilisent le portail Azure."
+title: Tâches courantes de gestion de service cloud | Microsoft Docs
+description: Découvrez comment gérer Azure Cloud Services dans le portail Azure. Ces exemples utilisent le portail Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121193"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gérer Azure Cloud Services dans le portail Azure
 Dans la zone **Services cloud** du portail Azure, vous pouvez :

@@ -2,25 +2,22 @@
 title: Comment effectuer des interrogation avec le langage SQL dans Azure Cosmos DB ? | Microsoft Docs
 description: Apprendre à effectuer des interrogations avec le langage SQL dans Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2febb0a358a27db3d83e95930b7a56e6a67b7e3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615051"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
@@ -71,7 +68,6 @@ Pour plus d’informations sur les requêtes SQL, consultez :
 * [Requête SQL et syntaxe SQL](sql-api-sql-query.md)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Procédez au [démarrage rapide en 5 minutes](create-mongodb-nodejs.md).
 

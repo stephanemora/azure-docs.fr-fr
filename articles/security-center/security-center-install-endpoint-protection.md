@@ -1,11 +1,11 @@
 ---
-title: "Gérer les problèmes de protection du point de terminaison avec Azure Security Center | Microsoft Docs"
-description: "Découvrez comment gérer les problèmes de protection du point de terminaison dans Azure Security Center."
+title: Gérer les problèmes de protection du point de terminaison avec Azure Security Center | Microsoft Docs
+description: Découvrez comment gérer les problèmes de protection du point de terminaison dans Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23497347"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
 Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.

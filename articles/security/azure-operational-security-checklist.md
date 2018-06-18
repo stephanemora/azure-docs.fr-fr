@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894747"
 ---
 # <a name="azure-operational-security-checklist"></a>Liste de contrôle de la sécurité opérationnelle Azure
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer une application cloud en production, il peut être judicieux de disposer d’une liste de contrôle pour vous aider à évaluer votre application par rapport à une liste d’actions de sécurité opérationnelle essentielles et recommandées à prendre en compte.

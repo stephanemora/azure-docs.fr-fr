@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653499"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier son parcours de migration pour que tout se passe sans heurts. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration. 
 
 > [!NOTE] 
-> L’aide suivante a majoritairement été rédigée par l’équipe Azure Customer Advisory et les architectes de solutions Cloud qui travaillent avec les clients sur la migration d’environnements de grande taille. De ce fait, ce document sera mis à jour au fil de l’émergence de nouveaux modèles de réussite : revenez régulièrement voir s’il comporte de nouvelles recommandations.
+> L’aide suivante a majoritairement été rédigée par l’équipe Azure Customer Advisory et les architectes de solutions cloud qui travaillent avec les clients sur la migration d’environnements de grande taille. De ce fait, ce document sera mis à jour au fil de l’émergence de nouveaux modèles de réussite : revenez régulièrement voir s’il comporte de nouvelles recommandations.
 
 Le parcours de migration comprend quatre étapes générales :
 
@@ -51,7 +52,7 @@ Selon la dimension de vos spécifications techniques, vos zones géographiques e
 
 ### <a name="patterns-of-success"></a>Modèles de réussite
 
-Les clients les plus efficaces disposent de plans détaillés qui abordent, documentent et régissent les questions ci-dessus.  Veillez à diffuser largement les plans de migration auprès des commanditaires et des parties prenantes.  Informez-vous sur les options de migration à votre disposition ; il est fortement recommandé de lire cet ensemble de documents sur la migration.
+Les clients les plus efficaces disposent de plans détaillés qui abordent, documentent et régissent les questions précédentes.  Veillez à diffuser largement les plans de migration auprès des commanditaires et des parties prenantes.  Informez-vous sur les options de migration à votre disposition ; il est fortement recommandé de lire cet ensemble de documents sur la migration.
 
 * [Vue d’ensemble de la migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -79,7 +80,7 @@ Les clients les plus efficaces disposent de plans détaillés qui abordent, docu
   La meilleure solution pour garantir une migration sans heurts est de mener un test en labo de votre scénario en particulier (calcul, mise en réseau et stockage), afin de garantir :
 
   - Un laboratoire totalement distinct ou un environnement hors production existant pour les tests. Nous recommandons un laboratoire totalement distinct qui peut faire l’objet de plusieurs migrations et de modifications destructrices.  Les scripts pour collecter/sérialiser les métadonnées à partir des abonnements réels sont listés ci-dessous.
-  - Il est judicieux de créer le laboratoire dans un abonnement distinct. La raison en est que le labo sera détruit à plusieurs reprises ; le fait de disposer d’un abonnement distinct et isolé réduit le risque de supprimer accidentellement des données réelles.
+  - Il est judicieux de créer le laboratoire dans un abonnement distinct. En effet, le labo sera détruit à plusieurs reprises, et le fait de disposer d’un abonnement distinct et isolé réduit le risque de supprimer accidentellement des données réelles.
 
   Pour cela, vous pouvez utiliser l’outil AsmMetadataParser. [En savoir plus sur cet outil](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 

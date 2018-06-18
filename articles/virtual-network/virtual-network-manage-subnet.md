@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894455"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702072"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
@@ -32,10 +32,10 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel exige la version 5.7.0 ou une version ultérieure du module Azure PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel exige la version 2.0.31 ou une version ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
-Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) assigné aux actions appropriées répertoriées dans [Autorisations](#permissions).
+Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
 
 ## <a name="add-a-subnet"></a>Ajouter un sous-réseau
 
@@ -52,7 +52,7 @@ Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azur
 
     Pour supprimer un point de terminaison de service, désélectionnez le service dont vous souhaitez supprimer le point de terminaison de service. Pour en savoir plus sur les points de terminaison de service et sur les services pour lesquels ils peuvent être activés, consultez [Vue d’ensemble des points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md). Après avoir activé un point de terminaison de service pour un service spécifique, vous devez également activer l’accès réseau du sous-réseau pour une ressource créée avec le service. Par exemple, si vous activez le point de terminaison de service *Microsoft.Storage*, vous devez également activer l’accès réseau à tous les comptes de stockage Azure auxquels vous souhaitez accorder l’accès réseau. Pour plus d’informations sur l’activation de l’accès réseau à des sous-réseaux pour lesquels un point de terminaison de service est activé, consultez la documentation relative au service particulier pour lequel vous avez activé le point de terminaison de service.
 
-    Pour vérifier qu’un point de terminaison de service est activé pour un sous-réseau, affichez les [routages effectifs](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) sur les interfaces réseau dans le sous-réseau. Quand un point de terminaison est configuré, vous voyez un routage *par défaut* avec les préfixes d’adresse du service, et le type de tronçon suivant (nextHopType) **VirtualNetworkServiceEndpoint**. Pour en savoir plus sur le routage, consultez la [vue d’ensemble du routage](virtual-networks-udr-overview.md).
+    Pour vérifier qu’un point de terminaison de service est activé pour un sous-réseau, affichez les [routages effectifs](diagnose-network-routing-problem.md) sur les interfaces réseau dans le sous-réseau. Quand un point de terminaison est configuré, vous voyez un routage *par défaut* avec les préfixes d’adresse du service, et le type de tronçon suivant (nextHopType) **VirtualNetworkServiceEndpoint**. Pour en savoir plus sur le routage, consultez la [vue d’ensemble du routage](virtual-networks-udr-overview.md).
 6. Pour ajouter le sous-réseau au réseau virtuel que vous avez sélectionné, cliquez sur **OK**.
 
 **Commandes**

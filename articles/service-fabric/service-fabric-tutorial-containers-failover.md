@@ -1,14 +1,14 @@
 ---
-title: "Basculer et mettre à l’échelle une application de conteneurs Azure Service Fabric | Microsoft Docs"
-description: "Dans ce didacticiel, vous apprenez la gestion du basculement dans une application de conteneurs Azure Service Fabric.  Sachez également mettre à l’échelle les conteneurs et les services qui s’exécutent dans un cluster."
+title: Basculer et mettre à l’échelle une application de conteneurs Azure Service Fabric | Microsoft Docs
+description: Dans ce didacticiel, vous apprenez la gestion du basculement dans une application de conteneurs Azure Service Fabric.  Sachez également mettre à l’échelle les conteneurs et les services qui s’exécutent dans un cluster.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Conteneurs, Microservices, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555480"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
 
@@ -68,7 +69,7 @@ Vous constatez désormais que le service possède deux instances. Dans l’arbor
 
 Par cette tâche de gestion simple, nous avons doublé les ressources disponibles pour permettre à notre service frontal de traiter la charge utilisateur. Il est important de comprendre que vous n’avez pas besoin de plusieurs instances d’un service pour que celui-ci s’exécute de manière fiable. En cas de défaillance d’un service, Service Fabric veille à ce qu'une nouvelle instance du service s’exécute dans le cluster.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a présenté le basculement d’un conteneur ainsi que la mise à l’échelle d’une application. Les étapes suivantes ont été effectuées :
 

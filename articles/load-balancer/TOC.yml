@@ -74,6 +74,8 @@
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: Équilibrer la charge de machines virtuelles au sein d’une zone (CLI)
       href: load-balancer-standard-public-zonal-cli.md
+    - name: Créer un équilibreur de charge Azure Load Balancer à l’aide de l’API REST
+      href: create-load-balancer-rest-api.md
     - name: Créer un équilibrage de charge de base (modèle)
       href: load-balancer-get-started-internet-arm-template.md
     - name: Créer un équilibreur de charge public avec IPv6
@@ -106,6 +108,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: Analyse des journaux de l'équilibreur de charge Azure
       href: load-balancer-monitor-log.md
+    - name: Obtenir les métriques d’équilibreur de charge Load Balancer avec REST
+      href: load-balancer-query-metrics-rest-api.md
     - name: Configurer des ports à haute disponibilité pour l’équilibrage de charge interne
       href: load-balancer-configure-ha-ports.md
     - name: Résolution des problèmes

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765949"
 ---
 > [!IMPORTANT]
 > BizTalk Services est déconseillé dans le portail Azure. Pour gérer vos instances MABS, consultez [API REST pour la gestion de BizTalk Services sur Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).

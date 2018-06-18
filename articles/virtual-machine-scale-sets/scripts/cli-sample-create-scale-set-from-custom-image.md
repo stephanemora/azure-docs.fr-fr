@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246336"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>Créer un groupe de machines virtuelles identiques à partir d’une image de machine virtuelle personnalisée avec Azure CLI 2.0
 Ce script permet de créer un groupe de machines virtuelles identiques qui utilise une image de machine virtuelle personnalisée comme source pour les instances de machine virtuelle.

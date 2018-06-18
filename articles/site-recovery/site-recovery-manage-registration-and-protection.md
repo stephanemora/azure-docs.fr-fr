@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29806413"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Supprimer des serveurs et désactiver la protection
 

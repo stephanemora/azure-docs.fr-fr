@@ -1,25 +1,27 @@
 ---
-title: "Installer Azure AD Connect à l’aide d’une base de données ADSync existante | Microsoft Docs"
-description: "Cette rubrique décrit comment utiliser une base de données ADSync existante."
+title: Installer Azure AD Connect à l’aide d’une base de données ADSync existante | Microsoft Docs
+description: Cette rubrique décrit comment utiliser une base de données ADSync existante.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b28d4cc6b10b0fd47a67cfefa7cf1022921a5d96
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591767"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installer Azure AD Connect à l’aide d’une base de données ADSync existante
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données. Vous pouvez utiliser la Base de données locale (LocalDB) par défaut de SQL Server 2012 Express installée avec Azure AD Connect ou utiliser votre propre version complète de SQL. Auparavant, quand vous installiez Azure AD Connect, une nouvelle base de données nommée ADSync était toujours créée. Avec Azure AD Connect version 1.1.613.0 (ou ultérieure), vous pouvez installer Azure AD Connect en le pointant sur une base de données ADSync existante.
@@ -60,7 +62,7 @@ Remarques importantes avant de continuer :
 ![PowerShell](media/active-directory-aadconnect-existing-database/db2.png)
 4.  L’écran d’accueil d’Azure AD Connect s’affiche. Après avoir accepté les termes du contrat de licence et la déclaration de confidentialité, cliquez sur **Continuer**.
 ![Bienvenue](media/active-directory-aadconnect-existing-database/db3.png)
-5.  Dans l’écran **Installer les composants nécessaires**, l’option **Utiliser un SQL Server existant** est activée. Spécifiez le nom du serveur SQL qui héberge la base de données ADSync. Si l’instance du moteur SQL utilisée pour héberger la base de données ADSync n’est pas l’instance par défaut sur le serveur SQL, vous devez spécifier le nom de l’instance du moteur SQL. De plus, si l’exploration SQL n’est pas activée, vous devez également spécifier le numéro de port de l’instance du moteur SQL. Par exemple :         
+5.  Dans l’écran **Installer les composants nécessaires**, l’option **Utiliser un SQL Server existant** est activée. Spécifiez le nom du serveur SQL qui héberge la base de données ADSync. Si l’instance du moteur SQL utilisée pour héberger la base de données ADSync n’est pas l’instance par défaut sur le serveur SQL, vous devez spécifier le nom de l’instance du moteur SQL. De plus, si l’exploration SQL n’est pas activée, vous devez également spécifier le numéro de port de l’instance du moteur SQL. Par exemple :          
 ![Bienvenue](media/active-directory-aadconnect-existing-database/db4.png)           
 
 6.  Dans l’écran **Se connecter à Azure AD**, vous devez fournir les informations d’identification d’un administrateur général de votre annuaire Azure AD. Nous vous recommandons d’utiliser un compte du domaine onmicrosoft.com par défaut. Ce compte est uniquement utilisé pour créer un compte de service dans Azure AD et n’est plus utilisé une fois l’assistant terminé.

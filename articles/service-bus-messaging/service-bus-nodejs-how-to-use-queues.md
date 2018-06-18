@@ -1,11 +1,11 @@
 ---
-title: "Utilisation des files d’attente Service Bus dans Node.js | Microsoft Docs"
-description: "Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js."
+title: Utilisation des files d’attente Service Bus dans Node.js | Microsoft Docs
+description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5b309534f7aef602610cfdb6aa784d180551e1ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc291c3a453b4dec5e6c47ab4a7f2e2ac2b9967
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641439"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Utilisation des files d’attente Service Bus avec Node.js
 
@@ -65,11 +66,9 @@ var azure = require('azure');
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configuration d’une connexion Service Bus Azure
 Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour obtenir les informations nécessaires pour se connecter à Service Bus. Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
 
-Pour consulter un exemple de paramétrage de variables d’environnement dans un fichier de configuration pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Node.js Cloud Service with Storage].
-
 Pour un exemple de configuration des variables d’environnement dans le [portail Azure][Azure portal] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
 
-## <a name="create-a-queue"></a>Création d’une file d’attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 L’objet **ServiceBusService** permet d’utiliser des files d’attente Service Bus. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l’instruction relative à l’importation du module Azure :
 
 ```javascript
@@ -141,7 +140,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et d’1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
+Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Réception des messages d'une file d'attente
 La méthode `receiveQueueMessage` de l’objet **ServiceBusService** permet de recevoir les messages d’une file d’attente. Par défaut, les messages sont supprimés de la file d’attente au fur et à mesure de leur lecture. Cependant, vous pouvez lire et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre facultatif `isPeekLock` sur **true**.
@@ -182,7 +181,7 @@ Pour en savoir plus sur les files d’attente, consultez les ressources suivante
 
 * [Files d’attente, rubriques et abonnements][Queues, topics, and subscriptions]
 * Référentiel du [Kit de développement logiciel (SDK) Azure pour Node][Azure SDK for Node] sur GitHub
-* [Centre pour développeurs Node.js](https://azure.microsoft.com/develop/nodejs/)
+* [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com
@@ -190,6 +189,5 @@ Pour en savoir plus sur les files d’attente, consultez les ressources suivante
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

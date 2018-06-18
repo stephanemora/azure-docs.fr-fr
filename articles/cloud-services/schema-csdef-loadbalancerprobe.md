@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360051"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services
 La sonde d’équilibreur de charge est une sonde d’intégrité définie par le client qui vérifie les points de terminaison UDP et les points de terminaison dans les instances de rôle. Le `LoadBalancerProbe` n’est pas un élément autonome ; il est associé au rôle web ou au rôle de travail dans un fichier de définition de service. Un `LoadBalancerProbe` peut être utilisé par plusieurs rôles.

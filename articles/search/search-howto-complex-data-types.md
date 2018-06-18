@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799071"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modélisation de types de données complexes dans Recherche Azure
 Les jeux de données externes utilisés pour remplir un index Recherche Azure inclut parfois des sous-structures hiérarchiques ou imbriquées qui ne sont pas réparties proprement en un ensemble de lignes tabulaire. Des exemples de telles structures incluent les emplacements et les numéros de téléphone multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de *types de données complexes*, *types de données composées*, *types de données composites* ou *types de données agrégées*, entre autres.

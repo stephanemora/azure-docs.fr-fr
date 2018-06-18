@@ -3,23 +3,21 @@ title: 'Didacticiel ASP.NET MVC pour Azure Cosmos DB : développement d’appli
 description: Didacticiel ASP.NET MVC pour créer une application web MVC à l’aide d’Azure Cosmos DB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure - Didacticiel étape par étape ASP NET MVC.
 keywords: didacticiel asp.net mvc, développement d’application web, application web mvc, didacticiel mvc asp net étape par étape
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796993"
 ---
 # <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’applications web avec Azure Cosmos DB
 > [!div class="op_single_selector"]

@@ -1,12 +1,12 @@
 ---
-title: "Restauration d’un volume à partir d’une sauvegarde sur un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Explique comment utiliser le Catalogue de sauvegarde du service StorSimple Device Manager pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
+title: Restauration d’un volume à partir d’une sauvegarde sur un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Explique comment utiliser le Catalogue de sauvegarde du service StorSimple Device Manager pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109257"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 

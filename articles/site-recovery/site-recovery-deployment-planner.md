@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894355"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planificateur de déploiement Azure Site Recovery de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.

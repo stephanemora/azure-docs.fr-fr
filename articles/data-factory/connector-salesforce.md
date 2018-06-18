@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: f4de97ef2df5351ac7e8574717ee1439b54a90e8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 99429b8090eca6d8633abfb1309f02168f1d06fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176896"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618308"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,6 @@ Ce connecteur Salesforce prend en charge :
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 L’autorisation de l’API doit être activée dans Salesforce. Pour plus d’informations, consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/) (Comment activer l’accès à l’API dans Salesforce par jeu d’autorisations ?)
 
@@ -289,7 +288,7 @@ Vous pouvez récupérer des données à partir de rapports Salesforce en spécif
 Pour interroger les enregistrements supprimés de manière réversible dans la Corbeille Salesforce, vous pouvez spécifier **« IsDeleted = 1 »** dans votre requête. Par exemple : 
 
 * Pour interroger uniquement les enregistrements supprimés, spécifiez « select \* from MyTable__c **where IsDeleted= 1**. »
-* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
+* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Récupérer des données à l’aide d’une clause where sur la colonne DateTime
 

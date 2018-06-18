@@ -1,6 +1,6 @@
 ---
-title: "Création d’un instantané en lecture seule d’un objet blob dans le stockage Azure | Microsoft Docs"
-description: "Apprenez à créer un instantané d’un objet blob pour sauvegarder ses données à un moment donné. Découvrez comment les instantanés sont facturés et comment les utiliser pour réduire les frais de capacité."
+title: Création d’un instantané en lecture seule d’un objet blob dans le stockage Azure | Microsoft Docs
+description: Apprenez à créer un instantané d’un objet blob pour sauvegarder ses données à un moment donné. Découvrez comment les instantanés sont facturés et comment les utiliser pour réduire les frais de capacité.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852929"
 ---
 # <a name="create-a-blob-snapshot"></a>Création d’un instantané d’objet blob
 

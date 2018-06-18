@@ -1,11 +1,11 @@
 ---
-title: "Transfert automatique d’entités de messagerie Azure Service Bus | Microsoft Docs"
-description: "Guide pratique pour chaîner une file d’attente ou un abonnement Service Bus à une autre file d’attente ou rubrique."
+title: Transfert automatique d’entités de messagerie Azure Service Bus | Microsoft Docs
+description: Guide pratique pour chaîner une file d’attente ou un abonnement Service Bus à une autre file d’attente ou rubrique.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558090"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Chaînage des entités Service Bus avec transfert automatique
 
@@ -56,7 +57,7 @@ Service Bus facture une opération pour chaque message transféré. Par exemple,
 
 Pour créer un abonnement qui est chaîné à une autre file d’attente ou rubrique, le créateur de l’abonnement doit disposer des autorisations de **gestion** de l’entité source et l’entité de destination. L’envoi de messages à la rubrique source ne nécessite que des autorisations **d’envoi** sur la rubrique source.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur le transfert automatique, consultez les rubriques de référence suivantes :
 

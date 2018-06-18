@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405702"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 

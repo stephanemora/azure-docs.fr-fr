@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33901327"
 ---
 Quand vous créez une machine virtuelle, redémarrez des machines virtuelles ayant été arrêtées (libérées) ou redimensionnez une machine virtuelle, Microsoft Azure alloue des ressources de calcul à votre abonnement. Nous investissons constamment dans l’infrastructure et dans l’ajout de fonctionnalités afin de garantir la disponibilité de tous les types de machines virtuelles et de répondre aux besoins des clients. Toutefois, il est possible que vous rencontriez des échecs d’allocation de ressources en raison d’une augmentation sans précédent de la demande de services Azure dans certaines régions. Ce problème peut se produire lorsque vous essayez de créer ou de démarrer des machines virtuelles dans une région, et que celles-ci affichent le code d’erreur et le message suivants :
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212736"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Résoudre les problèmes de mise à niveau d'application
 Cet article aborde certains des problèmes courants relatifs à la mise à niveau d’une application Azure Service Fabric et la manière de les résoudre.

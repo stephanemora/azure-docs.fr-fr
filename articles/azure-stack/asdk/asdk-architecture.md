@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29974137"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architecture du Kit de développement Microsoft Azure Stack
 Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique d’Azure Stack. Tous les composants sont installés sur des machines virtuelles exécutées sur un ordinateur hôte unique. 

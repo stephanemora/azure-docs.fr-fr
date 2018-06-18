@@ -1,11 +1,11 @@
 ---
-title: "Format de fichier journal d’Azure Import/Export | Microsoft Docs"
-description: "Découvrez-en davantage sur le format des fichiers journaux créés lors de l’exécution des étapes d’un travail du service d’importation/exportation."
+title: Format de fichier journal d’Azure Import/Export | Microsoft Docs
+description: Découvrez-en davantage sur le format des fichiers journaux créés lors de l’exécution des étapes d’un travail du service d’importation/exportation.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060004"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  

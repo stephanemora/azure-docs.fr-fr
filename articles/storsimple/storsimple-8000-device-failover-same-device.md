@@ -1,12 +1,12 @@
 ---
-title: "Basculement et récupération d’urgence pour les appareils de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Découvrez comment basculer votre appareil StorSimple vers le même appareil."
+title: Basculement et récupération d’urgence pour les appareils de la gamme StorSimple 8000 | Microsoft Docs
+description: Découvrez comment basculer votre appareil StorSimple vers le même appareil.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108197"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Basculer votre appareil physique StorSimple vers le même appareil
 

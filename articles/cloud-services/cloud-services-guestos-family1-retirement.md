@@ -1,11 +1,11 @@
 ---
-title: "Informations relatives à la suppression de la famille 1 des systèmes d’exploitation invités | Microsoft Docs"
-description: "Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné"
+title: Informations relatives à la suppression de la famille 1 des systèmes d’exploitation invités | Microsoft Docs
+description: Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998294"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Informations relatives à la suppression de la famille 1 des systèmes d’exploitation invités
 La suppression de la famille 1 des systèmes d'exploitation a été annoncée le 1er juin 2013.

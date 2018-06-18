@@ -6,15 +6,15 @@ author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a0cb3d69cd161a409d0a035be783bb255a83036
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194247"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644363"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL Database, Managed Instance ou SQL Data Warehouse
 
@@ -36,7 +36,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
    **Additional information :** chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même annuaire, mais un abonnement n’approuve qu’un seul annuaire. Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire. Pour plus d’informations sur les ressources, consultez [Comprendre l’accès aux ressources dans Azure](../active-directory/active-directory-b2b-admin-add-users.md). Pour en savoir plus sur cette relation approuvée, consultez [Comment associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Créer un administrateur d’Azure AD pour le serveur SQL Azure
-Chaque serveur Azure SQL Server (qui héberge une base de données SQL ou un entrepôt SQL Data Warehouse) démarre avec un compte d’administrateur de serveur unique, qui est l’administrateur du serveur Azure SQL Server entier. Un deuxième administrateur SQL Server doit être créé. Il s’agit d’un compte Azure AD. Cet utilisateur principal est créé en tant qu’utilisateur de base de données à relation contenant-contenu dans la base de données master. En tant qu’administrateurs, les comptes d’administrateur de serveur sont des membres du rôle **db_owner** de chaque base de données utilisateur, puis saisissez chaque base de données utilisateur en tant utilisateur **dbo**. Pour plus d’informations sur les comptes d’administrateur de serveur, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md).
+Chaque serveur Azure SQL Server (qui héberge une base de données SQL ou un entrepôt SQL Data Warehouse) démarre avec un compte d’administrateur de serveur unique, qui est l’administrateur du serveur Azure SQL Server entier. Un deuxième administrateur SQL Server doit être créé. Il s’agit d’un compte Azure AD. Cet utilisateur principal est créé en tant qu’utilisateur de base de données autonome dans la base de données master. En tant qu’administrateurs, les comptes d’administrateur de serveur sont des membres du rôle **db_owner** de chaque base de données utilisateur, puis saisissez chaque base de données utilisateur en tant utilisateur **dbo**. Pour plus d’informations sur les comptes d’administrateur de serveur, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md).
 
 Lorsque vous utilisez Azure Active Directory avec la géo-réplication, le compte administrateur de Microsoft Azure Active Directory doit être configuré pour le serveur principal et le serveur secondaire. Si un serveur ne dispose pas d’un administrateur Azure Active Directory, les utilisateurs Azure Active Directory reçoivent un message d’erreur « Impossible de se connecter au serveur ».
 
@@ -211,15 +211,15 @@ Vous pouvez répondre à ces exigences en procédant comme suit :
 * SSDT installe la version amd64 de **ADALSQL. DLL**.
 * La dernière version de Visual Studio de [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n'installe pas la version requise amd64 de **ADALSQL.DLL**.
 
-## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Créer des utilisateurs de base de données à relation contenant-contenu dans votre base de données mappés sur les identités Azure AD
+## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Créer des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD
 
-L’authentification Azure Active Directory nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données à relation contenant-contenu. Un utilisateur de base de données à relation contenant-contenu sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données MASTER, et qui est mappé à une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d'informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+L’authentification Azure Active Directory nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données autonome. Un utilisateur de base de données autonome sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données MASTER, et qui est mappé à une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
 > Il n’est pas possible de créer des utilisateurs de base de données (à l’exception d’administrateurs) via le portail Azure. Les rôles RBAC ne sont pas propagés à SQL Server, Base de données SQL ou SQL Data Warehouse. Les rôles RBAC Azure sont utilisés pour la gestion des ressources Azure et ne s’appliquent pas aux autorisations de base de données. Par exemple, le rôle **Contributeur de SQL Server** ne permet pas de se connecter à Base de données SQL ou à SQL Data Warehouse. L’accès doit être accordé directement dans la base de données à l’aide d’instructions Transact-SQL.
 >
 
-Pour créer un utilisateur de base de données à relation contenant-contenu Azure AD (autre que l’administrateur du serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD en tant qu’utilisateur avec au moins l’autorisation **MODIFIER UN UTILISATEUR** . Utilisez ensuite la syntaxe Transact-SQL suivante :
+Pour créer un utilisateur de base de données autonome Azure AD (autre que l’administrateur du serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD en tant qu’utilisateur avec au moins l’autorisation **MODIFIER UN UTILISATEUR**. Utilisez ensuite la syntaxe Transact-SQL suivante :
 
 ```
 CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
@@ -227,27 +227,28 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name* peut être le nom d’utilisateur principal d’un utilisateur Azure AD ou le nom d’affichage d’un groupe Azure AD.
 
-**Exemples :** pour créer une base de données à relation contenant-contenu représentant un utilisateur de domaine fédéré ou géré Azure AD :
+
+  **Exemples :** pour créer une base de données autonome représentant un utilisateur de domaine fédéré ou géré Azure AD :
 ```
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
 CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
 ```
 
-Pour créer un utilisateur de base de données à relation contenant-contenu représentant un groupe de domaine Azure AD ou fédéré, définissez le nom complet d’un groupe de sécurité :
+Pour créer un utilisateur de base de données autonome représentant un groupe de domaine Azure AD ou fédéré, définissez le nom complet d’un groupe de sécurité :
 ```
 CREATE USER [ICU Nurses] FROM EXTERNAL PROVIDER;
 ```
 
-Pour créer un utilisateur de base de données à relation contenant-contenu représentant une application qui se connecte à l’aide d’un jeton Azure AD :
+Pour créer un utilisateur de base de données autonome représentant une application qui se connecte à l’aide d’un jeton Azure AD :
 
 ```
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 >  [!TIP]
->  Vous ne pouvez pas créer directement un utilisateur à partir d’un annuaire Azure Active Directory autre que l’annuaire Azure Active Directory associé à votre abonnement Azure. Toutefois, les membres d’autres annuaires Active Directory qui sont des utilisateurs importés dans l’annuaire Active Directory associé (appelés utilisateurs externes) peuvent être ajoutés à un groupe Active Directory dans le client Active Directory. En créant un utilisateur de base de données à relation contenant-contenu pour ce groupe AD, les utilisateurs de l’annuaire Active Directory externe peuvent accéder SQL Database.   
+>  Vous ne pouvez pas créer directement un utilisateur à partir d’un annuaire Azure Active Directory autre que l’annuaire Azure Active Directory associé à votre abonnement Azure. Toutefois, les membres d’autres annuaires Active Directory qui sont des utilisateurs importés dans l’annuaire Active Directory associé (appelés utilisateurs externes) peuvent être ajoutés à un groupe Active Directory dans le client Active Directory. En créant un utilisateur de base de données autonome pour ce groupe AD, les utilisateurs de l’annuaire Active Directory externe peuvent accéder SQL Database.   
 
-Pour plus d’informations sur la création d’utilisateurs de base de données à relation contenant-contenu basés sur des identités Azure Active Directory, voir [CRÉER UN UTILISATEUR (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Pour plus d’informations sur la création d’utilisateurs de base de données autonome basés sur des identités Azure Active Directory, voir [CRÉER UN UTILISATEUR (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
 > La suppression de l’administrateur Azure Active Directory pour le serveur Azure SQL Server empêche tout utilisateur de l’authentification Azure AD de se connecter au serveur. Si nécessaire, des utilisateurs Azure AD inutilisables peuvent être supprimés manuellement par un administrateur du service Base de données SQL.   
@@ -256,7 +257,7 @@ Pour plus d’informations sur la création d’utilisateurs de base de données
 >  Si vous recevez le message **Délai d’expiration de la connexion dépassé**, vous devrez peut-être définir le paramètre `TransparentNetworkIPResolution` de la chaîne de connexion sur la valeur false. Pour plus d’informations, consultez [Problème lié au délai d’expiration de la connexion avec .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).   
 
    
-Lorsque vous créez un utilisateur de base de données, il reçoit l’autorisation **CONNECT** et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC**. À l'origine, les seules autorisations disponibles pour l'utilisateur sont celles qui sont accordées au rôle **PUBLIC** ou aux groupes Azure AD dont il est membre. Une fois que vous avez configuré un utilisateur de base de données Azure à relation contenant-contenu, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d’informations, consultez [Notions de base sur les autorisations de moteur de base de données](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d'informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md).
+Lorsque vous créez un utilisateur de base de données, il reçoit l’autorisation **CONNECT** et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC**. À l'origine, les seules autorisations disponibles pour l'utilisateur sont celles qui sont accordées au rôle **PUBLIC** ou aux groupes Azure AD dont il est membre. Une fois que vous avez configuré un utilisateur de base de données autonome Azure AD, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d’informations, consultez [Notions de base sur les autorisations de moteur de base de données](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d'informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md).
 Un compte d’utilisateur de domaine fédéré importé dans un domaine managé comme utilisateur externe doit utiliser l’identité de domaine managé.
 
 > [!NOTE]
@@ -265,7 +266,7 @@ Un compte d’utilisateur de domaine fédéré importé dans un domaine managé 
 
 ## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Se connecter à la base de données utilisateur ou à l’entrepôt de données à l’aide de SSMS ou de SSDT  
 Pour vérifier que l’administrateur Azure AD est correctement configuré, connectez-vous à la base de données **master** en utilisant un compte d’administrateur Azure AD.
-Pour configurer un utilisateur de base de données à relation contenant-contenu Azure AD (autre que l’administrateur de serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD ayant accès à la base de données.
+Pour configurer un utilisateur de base de données autonome Azure AD (autre que l’administrateur de serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD ayant accès à la base de données.
 
 > [!IMPORTANT]
 > La prise en charge de l’authentification Azure Active Directory est disponible avec [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) et [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) dans Visual Studio 2015. La version d’août 2016 de SSMS inclut également la prise en charge de l’authentification universelle Active Directory, qui permet aux administrateurs d’exiger l’authentification multifacteur par appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile.

@@ -3,22 +3,20 @@ title: Chaîne de connexion MongoDB pour un compte Azure Cosmos DB | Microsoft D
 description: Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB.
 keywords: chaîne de connexion mongodb
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: anhoh
-ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 441f6725b96dc7a099304e06db6d46a65e7f9c81
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795956"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
 Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos DB en tant que magasin de données pour votre application MongoDB. 
@@ -29,7 +27,6 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 - [Méthode de la chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) dès maintenant. 
 - Un compte Azure Cosmos DB. Pour des instructions, voir [Développer une application web API MongoDB avec .NET et le portail Azure](create-mongodb-dotnet.md).

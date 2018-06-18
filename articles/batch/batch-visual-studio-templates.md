@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316747"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
 

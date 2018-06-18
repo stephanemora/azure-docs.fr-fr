@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915325"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Création de cartes d’interface réseau virtuelle et d’utilisation des DNS internes pour la résolution des noms de machine virtuelle sur Azure
 Cet article explique comment définir des noms DNS internes statiques pour les machines virtuelles Linux à l’aide de cartes réseau virtuelles (VNic) et de noms d’étiquette DNS avec Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les noms DNS statiques sont utilisés pour les services d’infrastructure permanents comme un serveur de builds Jenkins, qui est utilisé pour ce document, ou un serveur Git.

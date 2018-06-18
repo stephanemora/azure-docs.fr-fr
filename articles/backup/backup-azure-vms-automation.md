@@ -1,25 +1,20 @@
 ---
-title: Déploiement et gestion des sauvegardes de machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell | Microsoft Docs
+title: Déploiement et gestion des sauvegardes pour les machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell
 description: Utilisation de PowerShell pour déployer et gérer des sauvegardes dans Azure pour les machines virtuelles déployées avec le modèle Resource Manager
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk;pullabhk
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4d3c0d08b2a34313c10ab89f2972894ffabe19d2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606237"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles
 
@@ -92,13 +87,11 @@ Pour commencer :
 
     ```PS
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. Vous pouvez vérifier que les fournisseurs ont été correctement inscrits à l’aide des commandes suivantes :
     ```PS
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 Dans la sortie de commande, **RegistrationState** doit avoir la valeur **Inscrit**. Dans le cas contraire, réexécutez l’applet de commande **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** indiquée ci-dessus.
 

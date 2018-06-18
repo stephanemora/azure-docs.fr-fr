@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921441"
 ---
 Dans le portail Azure, vous pouvez afficher l’état de la connexion d’une passerelle VPN Resource Manager en accédant à cette connexion. Les étapes suivantes montrent un moyen d’accéder à votre connexion pour la vérifier.
 

@@ -1,4 +1,4 @@
-|Nom du paramètre| Type | Description| Valeurs possibles|
+|Nom du paramètre| type | Description| Valeurs possibles|
 |-|-|-|-|
 | /ServerMode|Obligatoire|Spécifie si les serveurs de configuration et de processus doivent être installés ou si seul le serveur de processus doit être installé|CS<br>PS|
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|

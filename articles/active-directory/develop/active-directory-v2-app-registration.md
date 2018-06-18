@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157841"
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Inscription d’une application avec le point de terminaison v2.0
 Pour générer une application prenant en charge à la fois les connexions aux comptes Microsoft personnels (MSA) et aux comptes éducatifs (Azure AD), vous devez d’abord l’inscrire auprès de Microsoft. Pour le moment, vous ne pouvez pas utiliser les applications existantes avec Azure AD ou MSA. Vous devez en créer une.

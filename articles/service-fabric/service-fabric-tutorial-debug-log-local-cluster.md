@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949801"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Didacticiel : Déboguer une application Java déployée sur un cluster Service Fabric local 
 Ce didacticiel est le deuxième d’une série. Vous découvrez comment attacher un débogueur distant à l’aide d’Eclipse pour l’application Service Fabric. En outre, vous apprenez à rediriger les journaux des applications en cours d’exécution vers un emplacement pratique pour le développeur.

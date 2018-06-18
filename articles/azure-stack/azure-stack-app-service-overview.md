@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble d’App Service : Azure Stack | Microsoft Docs"
-description: "Vue d’ensemble d’App Service sur Azure Stack"
+title: 'Vue d’ensemble d’App Service : Azure Stack | Microsoft Docs'
+description: Vue d’ensemble d’App Service sur Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386073"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Vue d’ensemble d’App Service sur Azure Stack
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -61,7 +62,7 @@ Dans Azure, il existe des Workers partagés et dédiés. Un Worker partagé pren
 
 App Service sur Azure Stack utilise la même interface utilisateur que celle utilisée par Azure App Service, ce qui est également le cas du serveur principal. Certaines fonctionnalités sont désactivées et ne sont pas fonctionnelles dans Azure Stack. Les exigences ou les services spécifiques à Azure dont ces fonctionnalités ont besoin ne sont pas encore disponibles dans Azure Stack.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 
 - [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)

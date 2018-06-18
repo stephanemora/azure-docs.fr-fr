@@ -9,10 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "33942133"
 ---
 # <a name="install-the-mobility-service"></a>Installer le service Mobilité 
 
@@ -30,7 +31,6 @@ Le service Mobilité d’Azure Site Recovery est installé sur les machines virt
 > À compter de la version 9.7.0.0, sur les machines virtuelles Windows, le programme d’installation du service Mobilité installe également [l’agent de machine virtuelle Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) le plus récent. Lorsqu’un ordinateur bascule vers Azure, l’ordinateur répond aux conditions requises d’installation de l’agent pour l’utilisation de n’importe quelle extension de machine virtuelle.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Effectuez ces étapes préalables avant d’installer manuellement le service Mobilité sur votre serveur :
 1. Connectez-vous à votre serveur de configuration, puis ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
 2. Indiquez le dossier bin, puis créez un fichier de phrase secrète.

@@ -1,24 +1,19 @@
 ---
 title: Comparaison entre Azure IoT Hub et Azure Event Hub | Microsoft Docs
 description: Comparaison des services Azure IoT Hub et Azure Event Hubs mettant en avant les différences de fonction et des exemples d’utilisation. La comparaison inclut les protocoles pris en charge, la surveillance, la gestion des appareils et les téléchargements de fichiers.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: b86132b42aef981e6218b27e271e6db645d14071
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9ad95071de07777e38533ecec9e8558841d8b1ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633959"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Connexion des appareils IoT à Azure : IoT Hub et Event Hubs
 
@@ -42,7 +37,7 @@ La table suivante fournit des détails sur le mode de comparaison entre les deux
 | Service Device Provisioning | ![Vérification][1] | ![Vérification][1] |  |
 | Messages de cloud-à-appareil | ![Vérification][1] |  |  |
 | Gestion des jumeaux d'appareils et des appareils | ![Vérification][1] |  |  |
-| IoT Edge | ![Vérification][1] |  |  |
+| IoT Edge | ![Vérification][1] |  |  |
 
 Même si le seul cas d’usage est l’ingestion de données appareil-à-cloud, nous recommandons fortement l’utilisation d’IoT Hub car il fournit un service conçu pour la connectivité des appareils IoT. 
 

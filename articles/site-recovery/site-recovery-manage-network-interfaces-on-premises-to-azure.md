@@ -13,6 +13,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072468"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gérer les interfaces réseau des machines virtuelles pour la réplication d’un emplacement local sur Azure
 

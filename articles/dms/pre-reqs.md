@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: b480ca189b3d63d92c48abf8d9c398c1c9b22241
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 04/22/2018
+ms.openlocfilehash: b3fe97343d844eb5c030cf0aaa9da2a6f54a2472
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168205"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Vue d’ensemble des conditions préalables pour l’utilisation d’Azure Database Migration Service
 Il existe plusieurs conditions préalables requises pour vous garantir qu’Azure Database Migration Service s’exécute correctement lors de la migration de bases de données. Certaines des conditions préalables s’appliquent à tous les scénarios (paires source-cible) pris en charge par le service, tandis que d’autres sont propres à un scénario spécifique.
@@ -54,7 +55,7 @@ Lorsque vous utilisez Azure Database Migration Service pour exécuter SQL Server
 - Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
 - Vérifiez que les informations d’identification utilisées pour se connecter à l’instance source SQL Server et à l’instance cible Managed Instance appartiennent à des membres du rôle serveur sysadmin.
 - Créez un partage réseau qu’Azure Database Migration Service peut utiliser pour sauvegarder la base de données source.
-- Vérifiez que le compte de service qui exécute l’instance source de SQL Server dispose de privilèges d’écriture pour le partage réseau que vous avez créé.
+- Assurez-vous que le compte de service exécutant l’instance SQL Server source dispose de privilèges en écriture sur le partage réseau que vous avez créé et que le compte d’ordinateur pour le serveur source a accès en lecture/écriture au même partage.
 - Notez l’utilisateur Windows (et son mot de passe) qui dispose d’un contrôle total sur le partage réseau que vous avez créé précédemment. Azure Database Migration Service emprunte l’identité de l’utilisateur pour charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l’opération de restauration.
 - Créez un conteneur d’objets blob et récupérez son URI SAP en suivant les étapes de l’article [Gérer les ressources Stockage Blob Azure avec l’Explorateur de stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Veillez à sélectionner toutes les autorisations (lecture, écriture, suppression, liste) dans la fenêtre de la stratégie lorsque vous créez l’URI SAP.
 

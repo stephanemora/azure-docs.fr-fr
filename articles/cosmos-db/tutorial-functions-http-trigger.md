@@ -2,29 +2,26 @@
 title: Créer un déclencheur HTTP avec une liaison d’entrée Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment utiliser Azure Functions avec des déclencheurs HTTP pour interroger Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818897"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB
 
 Azure Cosmos DB est un service de base de données multimodèle mondialement distribué sans schéma ni serveur. Une Azure Function est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande. Associez ces deux services Azure pour disposer d’une base pour une architecture sans serveur qui vous permet de vous concentrer sur la création de superbes applications sans vous soucier de l’approvisionnement et de la maintenance des serveurs pour répondre à vos besoins de calcul et de base de données.
 
-Ce didacticiel s’appuie sur le code créé dans [API Graph - Démarrage rapide pour .NET](create-graph-dotnet.md). Ce didacticiel ajoute une Azure Function qui contient un [déclencheur HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). Le déclencheur HTTP utilise une [liaison d’entrée](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) Azure Cosmos DB pour récupérer des données dans la base de données graphique créée dans le démarrage rapide. Ce déclencheur HTTP particulier recherche des données dans Azure Cosmos DB, mais les liaisons d’entrée d’Azure Cosmos DB peuvent être utilisées pour récupérer des valeurs d’entrée de données dont votre fonction a besoin.
+Ce didacticiel s’appuie sur le code créé dans [API Graph - Démarrage rapide pour .NET](create-graph-dotnet.md). Ce didacticiel ajoute une Azure Function qui contient un [déclencheur HTTP](../azure-functions/functions-bindings-http-webhook.md). Le déclencheur HTTP utilise une [liaison d’entrée](../azure-functions/functions-triggers-bindings.md) Azure Cosmos DB pour récupérer des données dans la base de données graphique créée dans le démarrage rapide. Ce déclencheur HTTP particulier recherche des données dans Azure Cosmos DB, mais les liaisons d’entrée d’Azure Cosmos DB peuvent être utilisées pour récupérer des valeurs d’entrée de données dont votre fonction a besoin.
 
 Ce didacticiel décrit les tâches suivantes :
 
@@ -35,7 +32,6 @@ Ce didacticiel décrit les tâches suivantes :
 > * Connecter Azure Function à la base de données Azure Cosmos DB
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), y compris la charge de travail de **développement Azure**.
 

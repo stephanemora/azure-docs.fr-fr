@@ -1,11 +1,11 @@
 ---
-title: "Appel téléphonique à partir de Twilio (.NET) | Microsoft Docs"
-description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET."
-services: 
+title: Appel téléphonique à partir de Twilio (.NET) | Microsoft Docs
+description: Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET.
+services: ''
 documentationcenter: .net
 author: devinrader
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 789185ad-69dc-4e9e-a936-42e0a25315c8
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26366002"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Exécution d'un appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure
 Ce guide montre comment utiliser Twilio pour passer un appel à partir d'une page Web hébergée dans Azure. L’application obtenue invite l’utilisateur à passer un appel avec le numéro et le message donnés, comme illustré dans la capture d’écran suivante.

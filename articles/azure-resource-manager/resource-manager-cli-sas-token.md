@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b97fdea36eab914926ff91e1f27bdab0fb8a3930
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d09aa46eabe705082edafe12da8442a79d1080b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603194"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Déployer un modèle Resource Manager privé avec un jeton SAP et Azure CLI
 
@@ -88,4 +89,3 @@ Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles l
 * Pour une introduction au déploiement de modèles, voir [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](resource-group-template-deploy-cli.md).
 * Pour accéder à un exemple de script complet qui déploie un modèle, consultez la page [Azure Resource Manager template deployment - PowerShell script](resource-manager-samples-cli-deploy.md) (Déploiement d’un modèle Azure Resource Manager - Script PowerShell)
 * Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).

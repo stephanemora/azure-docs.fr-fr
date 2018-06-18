@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33949445"
 ---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 

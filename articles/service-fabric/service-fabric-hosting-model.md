@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206318"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.

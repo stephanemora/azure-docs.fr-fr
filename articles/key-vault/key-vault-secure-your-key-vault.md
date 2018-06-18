@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070377"
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.

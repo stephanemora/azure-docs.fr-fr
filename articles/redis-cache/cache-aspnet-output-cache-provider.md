@@ -1,6 +1,6 @@
 ---
 title: Mise en cache du fournisseur de caches de sortie ASP.NET
-description: "Découvrez comment mettre en cache les sortie de pages ASP.NET à l’aide du Cache Redis Azure"
+description: Découvrez comment mettre en cache les sortie de pages ASP.NET à l’aide du Cache Redis Azure
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909820"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Fournisseur de caches de sortie ASP.NET pour le Cache Redis Azure
 Le fournisseur de caches de sortie Redis est un mécanisme de stockage hors processus pour les données de cache de sortie. Ces données concernent spécialement les réponses HTTP complètes (mise en cache de la sortie de pages). Le fournisseur se connecte au nouveau point d'extension du fournisseur de caches de sortie introduit dans ASP.NET 4.
@@ -89,6 +90,6 @@ Dans l’exemple précédent, les données de page mises en cache resteront dans
 
 Une fois ces étapes effectuées, votre application est configurée pour utiliser le fournisseur de caches de sortie Redis.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez la page [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md)(en anglais).
 

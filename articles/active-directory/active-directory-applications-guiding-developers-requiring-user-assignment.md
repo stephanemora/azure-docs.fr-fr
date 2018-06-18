@@ -1,11 +1,11 @@
 ---
-title: "Demander l’affectation d’utilisateurs - Azure AD | Microsoft Docs"
-description: "Demande de l’affectation d’utilisateurs pour les applications Azure."
+title: Demander l’affectation d’utilisateurs - Azure AD | Microsoft Docs
+description: Demande de l’affectation d’utilisateurs pour les applications Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598827"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD et applications : Demander l’affectation d’utilisateurs
 ## <a name="requiring-user-assignment"></a>Demande de l’affectation de l’utilisateur

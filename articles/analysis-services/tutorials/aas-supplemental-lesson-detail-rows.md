@@ -3,16 +3,17 @@ title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Lignes 
 description: Explique comment créer une expression de lignes de détails dans le didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6e15788992e66fdb8e742b290e5bcf5bce8d20fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596098"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Leçon supplémentaire – Lignes de détails
 
@@ -20,8 +21,7 @@ Dans cette leçon supplémentaire, vous allez utiliser l’éditeur DAX pour dé
   
 Durée estimée pour suivre cette leçon : **10 minutes**  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Cette leçon supplémentaire fait partie d’un didacticiel de modélisation tabulaire. Avant d’effectuer les tâches de cette leçon supplémentaire, vous devez avoir effectué toutes les leçons précédentes ou disposer d’un exemple de projet de modèle de ventes sur Internet Adventure Works.  
   
 ## <a name="whats-the-issue"></a>Quel est le problème ?

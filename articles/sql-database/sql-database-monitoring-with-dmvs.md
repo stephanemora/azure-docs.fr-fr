@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 96255ed92e0dc05aa5a215a78a070f60f001e8bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a1333680225923a4e27f96e61a5b6530f32a9329
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647882"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique
 La Base de données SQL Microsoft Azure active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.

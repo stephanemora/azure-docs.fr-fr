@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: Calculs d’évaluation
       href: concepts-assessment-calculation.md
-    - name: Visualisation de dépendance
+    - name: À propos de la visualisation de dépendance
       href: concepts-dependency-visualization.md
 - name: Procédures
   items:
@@ -25,9 +25,17 @@
         - name: 2. Contoso - Configurer une infrastructure Azure
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso - Évaluer les ressources locales à migrer vers Azure
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso - Réhéberger sur des machines virtuelles Azure et Azure SQL Database Managed Instance
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso - Réhéberger une application sur des machines virtuelles Azure et Azure SQL Database Managed Instance
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso - Ré-héberger une application sur des machines virtuelles Azure
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso - Réhéberger une application sur des machines virtuelles Azure et Azure SQL AlwaysOn
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso - Réhéberger une application Linux sur des machines virtuelles Azure
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso - Réhéberger une application Linux sur des machines virtuelles Azure et Azure MySQL
+          href: contoso-migration-rehost-linux-vm-mysql.md
     - name: Découvrir et évaluer un environnement de grande taille
       href: how-to-scale-assessment.md
     - name: Regrouper des machines
@@ -48,3 +56,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Forum Aux Questions
+      href: resources-faq.md

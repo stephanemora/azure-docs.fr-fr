@@ -1,11 +1,11 @@
 ---
 title: Parcours des messages Azure Service Bus | Microsoft Docs
-description: "Parcours et aperçu des messages Service Bus"
+description: Parcours et aperçu des messages Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28196618"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
@@ -41,7 +42,7 @@ Quand elle est appelée à plusieurs reprises, la méthode Peek énumère tous l
 
 Vous pouvez également amorcer une surcharge de la méthode en définissant un [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) de démarrage, puis appeler la surcharge de la méthode sans paramètre pour continuer l’énumération. **PeekBatch** fonctionne de façon équivalente, mais récupère tout un ensemble de messages à la fois.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

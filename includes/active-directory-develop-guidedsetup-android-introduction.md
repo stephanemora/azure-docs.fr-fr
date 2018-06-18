@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32202666"
 ---
 # <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 

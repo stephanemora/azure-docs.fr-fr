@@ -3,18 +3,18 @@ title: Générez et déployez un modèle de prévision à l’aide du package Az
 description: Découvrez comment générer, former, tester et déployer un modèle de prévision à l’aide du package Azure Machine Learning de la prévision.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.component: service
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 160ea82177368ce9b47f298cca661c40599b3bbe
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886559"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833527"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Générer et déployer des modèles de prévision avec Azure Machine Learning
 
@@ -28,7 +28,6 @@ Découvrez dans cet article comment utiliser AMLPF, le **package Azure Machine L
 Consultez la [documentation de référence du package](https://aka.ms/aml-packages/forecasting) pour obtenir la liste complète des transformateurs et des modèles, ainsi que les informations détaillées sur chaque module et chaque classe.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

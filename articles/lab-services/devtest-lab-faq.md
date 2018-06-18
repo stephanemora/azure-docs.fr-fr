@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782008"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.

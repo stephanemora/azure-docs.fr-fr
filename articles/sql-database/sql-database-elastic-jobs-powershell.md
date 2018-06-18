@@ -6,21 +6,21 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 425213f66a4b9960cf68a40c935fedff12f9f75d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648684"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
 
 Les API PowerShell pour les **tâches de bases de données élastiques** (en version préliminaire) vous permettent de définir quels scripts seront exécutés pour quel groupe de bases de données. Cet article vous montre comment créer et gérer des **tâches de bases de données élastiques** à l’aide de PowerShell. Voir [Vue d’ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un ensemble de bases de données créé avec les outils de bases de données élastiques. Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).

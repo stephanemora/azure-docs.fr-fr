@@ -7,14 +7,14 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: bsiva
-ms.openlocfilehash: e12d19612e10885f97d4a8023967fb9ba2d1f8cb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3fa9ee27a1b9717d8011b7b46a1116f1f1ac1df5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209863"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716327"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 
@@ -33,12 +33,11 @@ Vous allez apprendre à effectuer les actions suivantes :
 > - Basculez vers la région de récupération.
 
 > [!NOTE]
-> La prise en charge du scénario *Récupération d’urgence pour les machines virtuelles Azure* par Azure Site Recovery PowerShell est actuellement en préversion. Toutes les fonctionnalités de scénario disponibles via le portail ne seront pas forcément disponibles via Azure PowerShell. Voici quelques-unes des fonctionnalités du scénario actuellement non prises en charge via Azure PowerShell :
+> Toutes les fonctionnalités de scénario disponibles via le portail ne seront pas forcément disponibles via Azure PowerShell. Voici quelques-unes des fonctionnalités du scénario actuellement non prises en charge via Azure PowerShell :
 > - La capacité à répliquer des machines virtuelles qui utilisent des disques managés.
 > - La capacité à spécifier que tous les disques d’une machine virtuelle doivent être répliqués sans avoir à spécifier explicitement chaque disque de cette machine.  
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer :
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).

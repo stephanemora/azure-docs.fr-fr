@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29956187"
 ---
 Pour ajouter deux balises à un groupe de ressources, utilisez la commande [az group update](/cli/azure/group#az_group_update) :
 

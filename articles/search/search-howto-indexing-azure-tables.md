@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182070"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexer le stockage de tables Azure avec Azure Search
 Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.

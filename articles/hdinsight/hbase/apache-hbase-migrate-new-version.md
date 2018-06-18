@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165092"
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Migrer un cluster HBase vers une nouvelle version
 

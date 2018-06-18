@@ -1,8 +1,8 @@
 ---
 title: Gestion des alertes dans les produits Microsoft Monitoring | Microsoft Docs
-description: "Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Cet article décrit les différences relatives à la création et à la gestion des alertes dans System Center Operations Manager (SCOM) et Log Analytics et indique les meilleures pratiques en tirant parti de ces deux produits pour une stratégie de gestion des alertes hybride."
+description: Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Cet article décrit les différences relatives à la création et à la gestion des alertes dans System Center Operations Manager (SCOM) et Log Analytics et indique les meilleures pratiques en tirant parti de ces deux produits pour une stratégie de gestion des alertes hybride.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039284"
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Gestion des alertes à l’aide de Microsoft Monitoring
 Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Il existe des différences entre System Center Operations Manager (SCOM) et Log Analytics dans Operations Management Suite (OMS) en termes de création, de gestion et d’analyse des alertes et de notification en cas de détection d’un problème critique.

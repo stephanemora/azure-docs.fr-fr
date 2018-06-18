@@ -1,13 +1,13 @@
 ---
-title: "Migrer des réseaux virtuels associés à ExpressRoute d’un déploiement classique vers Resource Manager - Azure : PowerShell | Microsoft Docs"
-description: "Cette page explique comment migrer des réseaux virtuels associés vers Resource Manager après avoir déplacé votre circuit."
+title: 'Migrer des réseaux virtuels associés à ExpressRoute d’un déploiement classique vers Resource Manager - Azure : PowerShell | Microsoft Docs'
+description: Cette page explique comment migrer des réseaux virtuels associés vers Resource Manager après avoir déplacé votre circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013204"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrer des réseaux virtuels associés à ExpressRoute d’un déploiement classique vers Resource Manager
 

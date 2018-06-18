@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783268"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestion des éléments multimédias Media Services sur plusieurs comptes de stockage
 À partir de Microsoft Azure Media Services 2.2, vous pouvez associer plusieurs comptes de stockage à un seul compte Media Services. L’option d’association de plusieurs comptes de stockage à un compte Media Services offre les avantages suivants :

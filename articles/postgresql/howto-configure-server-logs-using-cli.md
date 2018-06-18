@@ -15,6 +15,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235523"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. 

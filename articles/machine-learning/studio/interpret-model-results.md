@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e8f6d3accc7ad8de1161f08cceb0e856cf764255
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837002"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Interprétation des résultats de modèle dans Azure Machine Learning
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.

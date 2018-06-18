@@ -1,13 +1,13 @@
 ---
-title: "Réinitialiser votre mot de passe Linux local sur les machines virtuelles Azure | Microsoft Docs"
-description: "Introduction des étapes pour réinitialiser votre mot de passe Linux local sur la machine virtuelle Azure"
+title: Réinitialiser votre mot de passe Linux local sur les machines virtuelles Azure | Microsoft Docs
+description: Introduction des étapes pour réinitialiser votre mot de passe Linux local sur la machine virtuelle Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27578360"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Réinitialiser votre mot de passe Linux local sur les machines virtuelles Azure
 
@@ -104,7 +105,7 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
 
 12. Recréez la machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Résoudre les problèmes de machine virtuelle Azure en attachant le disque du système d’exploitation à une autre machine virtuelle Azure](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 

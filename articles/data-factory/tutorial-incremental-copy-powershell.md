@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30182896"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31531733"
 ---
 > [!div class="op_single_selector"]
 > * [Portail Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)

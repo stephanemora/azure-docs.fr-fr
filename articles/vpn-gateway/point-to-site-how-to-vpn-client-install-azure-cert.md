@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317991"
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Installer un certificat client pour des connexions point à site avec authentification par certificat Azure
 

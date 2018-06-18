@@ -1,11 +1,11 @@
 ---
-title: "Dépannage des erreurs du client Docker sur Windows avec Visual Studio | Microsoft Docs"
-description: "Résolvez les problèmes d’utilisation de Visual Studio pour créer et déployer des applications web dans Docker sur Windows avec Visual Studio 2017."
+title: Dépannage des erreurs du client Docker sur Windows avec Visual Studio | Microsoft Docs
+description: Résolvez les problèmes d’utilisation de Visual Studio pour créer et déployer des applications web dans Docker sur Windows avec Visual Studio 2017.
 services: azure-container-service
 documentationcenter: na
 author: devinb
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 346f70b9-7b52-4688-a8e8-8f53869618d3
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24002928"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Résoudre des problèmes de développement Visual Studio 2017 avec Docker
 

@@ -1,11 +1,11 @@
 ---
 title: Application web Django sur une machine virtuelle Windows Server Azure | Microsoft Docs
-description: "Découvrez comment héberger un site web Django dans Azure avec une machine virtuelle Windows Server 2012 R2 Datacenter à l’aide du modèle de déploiement classique."
+description: Découvrez comment héberger un site web Django dans Azure avec une machine virtuelle Windows Server 2012 R2 Datacenter à l’aide du modèle de déploiement classique.
 services: virtual-machines-windows
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: e36484d1-afbf-47f5-b755-5e65397dc1c3
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057016"
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Application web Django Hello World sur une machine virtuelle Windows Server
 

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 68e3775be36b434acb5c25b522f9e28bec1b6125
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 95b0440dbec1a13096928bdefd31383d07a1f86d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618570"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copier des données de SAP ECC à l’aide d’Azure Data Factory
 
@@ -37,7 +38,6 @@ Plus précisément, ce connecteur SAP ECC prend en charge ce qui suit :
 - Copie de données en utilisant une authentification de base.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 En règle générale, SAP ECC expose des entités par le biais de services OData via la passerelle SAP. Pour utiliser ce connecteur SAP ECC, vous devez :
 

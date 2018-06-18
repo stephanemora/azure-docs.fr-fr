@@ -1,12 +1,12 @@
 ---
 title: Nouvelle authentification pour StorSimple Virtual Arrays | Microsoft Docs
-description: "Explique comment utiliser l’authentification AAD pour votre service, générer la nouvelle clé d’inscription et effectuer l’inscription manuelle des appareils."
+description: Explique comment utiliser l’authentification AAD pour votre service, générer la nouvelle clé d’inscription et effectuer l’inscription manuelle des appareils.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28031050"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
@@ -89,6 +90,6 @@ Procédez comme suit pour générer une clé d’inscription au service AAD.
 
     ![Confirmer la régénération](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * En savoir plus sur le déploiement de [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

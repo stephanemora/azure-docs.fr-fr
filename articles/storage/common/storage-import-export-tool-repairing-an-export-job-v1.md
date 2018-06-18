@@ -1,11 +1,11 @@
 ---
-title: "Réparation d’un travail d’exportation Azure Import/Export - v1 | Microsoft Docs"
-description: "Apprenez à réparer un travail d’exportation qui a été créé et exécuté à l’aide du service Azure Import/Export."
+title: Réparation d’un travail d’exportation Azure Import/Export - v1 | Microsoft Docs
+description: Apprenez à réparer un travail d’exportation qui a été créé et exécuté à l’aide du service Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059674"
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
 Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  

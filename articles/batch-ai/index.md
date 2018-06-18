@@ -17,6 +17,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "30149914"
 ---
 # <a name="batch-ai-documentation-preview"></a>Documentation Batch AI (préversion)
 

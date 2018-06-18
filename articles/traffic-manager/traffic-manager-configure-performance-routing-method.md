@@ -1,11 +1,11 @@
 ---
-title: "Configurer la méthode de routage du trafic selon les performances à l’aide d’Azure Traffic Manager | Microsoft Docs"
-description: "Cet article explique comment configurer Traffic Manager pour router le trafic vers le point de terminaison présentant la latence plus faible."
+title: Configurer la méthode de routage du trafic selon les performances à l’aide d’Azure Traffic Manager | Microsoft Docs
+description: Cet article explique comment configurer Traffic Manager pour router le trafic vers le point de terminaison présentant la latence plus faible.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110657"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurer la méthode de routage en fonction des performances
 

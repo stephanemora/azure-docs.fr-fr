@@ -1,12 +1,12 @@
 ---
-title: "Remplacer la batterie d’un appareil de la gamme Microsoft Azure StorSimple 8000 | Microsoft Docs"
-description: "Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple."
+title: Remplacer la batterie d’un appareil de la gamme Microsoft Azure StorSimple 8000 | Microsoft Docs
+description: Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742811"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Remplacer le module de batterie de secours sur votre appareil StorSimple
 
@@ -105,6 +106,6 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 > [!IMPORTANT]
 > Jetez la batterie en panne en respectant les réglementations nationales et locales applicables.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-8000-hardware-component-replacement.md).
 

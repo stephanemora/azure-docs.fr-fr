@@ -1,12 +1,12 @@
 ---
-title: "Utiliser PowerShell pour gérer les ressources Azure Service Bus | Microsoft Docs"
-description: "Utiliser le module PowerShell pour créer et gérer les ressources Service Bus"
+title: Utiliser PowerShell pour gérer les ressources Azure Service Bus | Microsoft Docs
+description: Utiliser le module PowerShell pour créer et gérer les ressources Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159736"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 
@@ -159,7 +160,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 Vous pouvez utiliser le [module PowerShell de Service Bus](/powershell/module/azurerm.servicebus) pour approvisionner d’autres entités, telles que des rubriques et abonnements. La syntaxe de ces applets de commande est similaire à celle des applets de commande de création de file d’attente décrites dans la section précédente.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Service Bus [ici](/powershell/module/azurerm.servicebus). Cette page répertorie toutes les applets de commande disponibles.
 - Pour plus d’informations sur l’utilisation des modèles Azure Resource Manager, consultez l’article [Création de ressources Service Bus à l’aide de modèles Azure Resource Manager](service-bus-resource-manager-overview.md).

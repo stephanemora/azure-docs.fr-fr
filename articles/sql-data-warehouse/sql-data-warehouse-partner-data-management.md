@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187366"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partenaires de SQL Data Warehouse en matière de gestion de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des outils et solutions de gestion de données prenant en charge Azure SQL Data Warehouse.

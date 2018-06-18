@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: df7cc8c978dfa215a79d087d2aa1f0dea258d6b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591641"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Sélectionner le type d’installation à utiliser pour Azure AD Connect
 Azure AD Connect a deux types d’installation pour une nouvelle installation : Express et personnalisée. Cette rubrique vous aide à choisir l’option à utiliser lors de l’installation.

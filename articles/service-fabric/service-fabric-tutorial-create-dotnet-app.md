@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312693"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder un [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce didacticiel.

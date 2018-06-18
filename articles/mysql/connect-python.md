@@ -6,22 +6,22 @@ author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7eef3d71a35b5016e48e519b95c2573fbe3390e7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265103"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)

@@ -18,4 +18,4 @@
    Patientez quelques minutes jusqu’au déploiement de la base de données, puis continuez.
 
 <!-- URLs. -->
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/

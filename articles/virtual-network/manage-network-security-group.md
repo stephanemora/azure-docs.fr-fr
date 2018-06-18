@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894227"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658670"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -66,7 +66,7 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
 ### <a name="view-details-of-a-network-security-group"></a>Voir les détails d’un groupe de sécurité réseau
 
 1. Dans la zone de recherche située en haut du portail, entrez *groupes de sécurité réseau*. Quand la mention **groupes de sécurité réseau** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Dans la liste, sélectionnez le groupe de sécurité réseau dont vous souhaitez voir les détails. Sous **PARAMÈTRES** vous pouvez voir les **Règles de sécurité de trafic entrant**, les **Règles de sécurité de trafic sortant**, les **Interfaces réseau** et les **Sous-réseaux** auxquels le groupe de sécurité réseau est associé. Vous pouvez également activer ou désactiver les **Journaux de diagnostic** et afficher les **Règles de sécurité effectives**. Pour plus d’informations, consultez [Journaux de diagnostic](virtual-network-nsg-manage-log.md) et [Afficher les règles de sécurité effectives](virtual-network-nsg-troubleshoot-portal.md).
+2. Dans la liste, sélectionnez le groupe de sécurité réseau dont vous souhaitez voir les détails. Sous **PARAMÈTRES** vous pouvez voir les **Règles de sécurité de trafic entrant**, les **Règles de sécurité de trafic sortant**, les **Interfaces réseau** et les **Sous-réseaux** auxquels le groupe de sécurité réseau est associé. Vous pouvez également activer ou désactiver les **Journaux de diagnostic** et afficher les **Règles de sécurité effectives**. Pour plus d’informations, consultez [Journaux de diagnostic](virtual-network-nsg-manage-log.md) et [Afficher les règles de sécurité effectives](diagnose-network-traffic-filter-problem.md).
 3. Pour en savoir plus sur les paramètres Azure courants répertoriés, consultez les articles suivants :
     *   [Journal d’activité](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Contrôle d’accès (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

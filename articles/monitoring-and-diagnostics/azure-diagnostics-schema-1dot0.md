@@ -1,24 +1,20 @@
 ---
-title: "Schéma de configuration Azure Diagnostics 1.0 | Microsoft Docs"
-description: "Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.4 et les versions antérieures avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Schéma de configuration Azure Diagnostics 1.0
+description: Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.4 et les versions antérieures avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: diagnostic-extension
+ms.openlocfilehash: 916e2123262402e23f35778e66683ecce2cec4b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262583"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.0
 > [!NOTE]
@@ -105,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 Attributs :
 
-|Attribut  |Type   |Requis| Default | Description|  
+|Attribut  |type   |Obligatoire| Default | Description|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Facultatif | PT1M| Spécifie l’intervalle auquel le moniteur de diagnostic s’enquiert des modifications de configuration de diagnostic.|  
 |**overallQuotaInMB**|unsignedInt|Facultatif| 4 000 Mo. La valeur indiquée ne doit pas dépasser ce montant |Quantité totale de stockage du système de fichiers allouée pour la journalisation de toutes les mémoires tampons.|  
@@ -117,10 +113,10 @@ Définit la configuration de la mémoire tampon pour les journaux générés par
 
 Attributs :
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|string|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
+|**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="logs-element"></a>Élément Logs  
@@ -130,10 +126,10 @@ Attributs :
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|string|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
+|**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="directories-element"></a>Élément Directories  
@@ -144,7 +140,7 @@ Définit la configuration de la mémoire tampon pour les journaux basés sur des
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
@@ -156,9 +152,9 @@ Attributs :
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Élément FailedRequestLogs  
@@ -168,9 +164,9 @@ Attributs :
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ##  <a name="iislogs-element"></a>Élément IISLogs  
@@ -180,9 +176,9 @@ Attributs :
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="datasources-element"></a>Élément DataSources  
@@ -197,9 +193,9 @@ Attributs :
 
 Attributs :
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="absolute-element"></a>Élément Absolute  
@@ -209,10 +205,10 @@ Attributs :
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**path**|string|Obligatoire. Chemin d’accès absolu au répertoire à surveiller.|  
-|**expandEnvironment**|booléenne|Obligatoire. Si la valeur **true** est attribuée, les variables d’environnement du chemin d’accès sont développées.|  
+|**path**|chaîne|Requis. Chemin d’accès absolu au répertoire à surveiller.|  
+|**expandEnvironment**|booléenne|Requis. Si la valeur **true** est attribuée, les variables d’environnement du chemin d’accès sont développées.|  
 
 ## <a name="localresource-element"></a>Élément LocalResource  
  Définit un chemin d’accès relatif à une ressource locale spécifiée dans la définition de service.
@@ -221,10 +217,10 @@ Attributs :
 
 Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**name**|string|Obligatoire. Nom de la ressource locale qui contient le répertoire à surveiller.|  
-|**relativePath**|string|Obligatoire. Chemin d’accès relatif à la ressource locale à surveiller.|  
+|**name**|chaîne|Requis. Nom de la ressource locale qui contient le répertoire à surveiller.|  
+|**relativePath**|chaîne|Requis. Chemin d’accès relatif à la ressource locale à surveiller.|  
 
 ## <a name="performancecounters-element"></a>Élément PerformanceCounters  
  Définit le chemin d’accès au compteur de performance à collecter.
@@ -234,7 +230,7 @@ Attributs :
 
  Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
@@ -246,10 +242,10 @@ Attributs :
 
  Attributs :  
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|Obligatoire. Chemin d’accès au compteur de performance à collecter.|  
-|**sampleRate**|duration|Obligatoire. Vitesse à laquelle le compteur de performance doit être collecté.|  
+|**counterSpecifier**|chaîne|Requis. Chemin d’accès au compteur de performance à collecter.|  
+|**sampleRate**|duration|Requis. Vitesse à laquelle le compteur de performance doit être collecté.|  
 
 ## <a name="windowseventlog-element"></a>Élément WindowsEventLog  
  Définit les journaux des événements à surveiller.
@@ -258,10 +254,10 @@ Attributs :
 
   Attributs :
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|string|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
+|**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="datasource-element"></a>Élément DataSource  
@@ -271,6 +267,6 @@ Attributs :
 
  Attributs :
 
-|Attribut|Type|Description|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
-|**name**|string|Obligatoire. Expression XPath spécifiant le journal à collecter.|  
+|**name**|chaîne|Requis. Expression XPath spécifiant le journal à collecter.|  

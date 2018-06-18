@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211648"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configuration de la mise à niveau d’une application Service Fabric dans Visual Studio
 Les outils Visual Studio pour Azure Service Fabric fournissent une prise en charge des mises à niveau pour la publication vers des clusters locaux ou distants. Voici les trois cas dans lesquels vous devriez mettre à niveau votre application vers une version plus récente au lieu de la remplacer durant les tests et le débogage :

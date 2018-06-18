@@ -1,8 +1,8 @@
 ---
 title: Toutes les rubriques pour le service SQL Server Stretch Database | Microsoft Docs
-description: "Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
+description: Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description.
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23055524"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
 Cette rubrique répertorie toutes les rubriques qui s’appliquent directement au service **Azure SQL Server Stretch Database** . Pour trouver les rubriques qui vous intéressent, vous pouvez rechercher des mots clés sur cette page web à l'aide de la combinaison de touches **Ctrl+F**.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599609"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
 Cet article fournit une vue d’ensemble de la configuration des appareils VPN locaux pour une connexion à des passerelles VPN Azure. Un exemple de configuration de réseau virtuel Azure et de passerelle VPN est utilisé pour vous montrer comment établir une connexion à différentes configurations d’appareils VPN locaux en utilisant les mêmes paramètres.

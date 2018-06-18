@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194044"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI 2.0.

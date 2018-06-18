@@ -1,11 +1,11 @@
 ---
-title: "Gestion d’Azure Cloud Services à l’aide d’Azure Automation | Microsoft Docs"
-description: "Découvrez comment le service Azure Automation peut être utilisé pour gérer les services de cloud computing Azure à grande échelle."
+title: Gestion d’Azure Cloud Services à l’aide d’Azure Automation | Microsoft Docs
+description: Découvrez comment le service Azure Automation peut être utilisé pour gérer les services de cloud computing Azure à grande échelle.
 services: cloud-services, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997984"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gestion d'Azure Cloud Services à l'aide d'Azure Automation
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos services de cloud computing Azure.

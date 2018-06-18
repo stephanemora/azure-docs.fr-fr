@@ -1,11 +1,11 @@
 ---
-title: "Gestion d'Azure Storage à l'aide d'Azure Automation"
-description: "Découvrez comment le service Azure Automation peut être utilisé pour gérer Azure Storage à grande échelle."
+title: Gestion d'Azure Storage à l'aide d'Azure Automation
+description: Découvrez comment le service Azure Automation peut être utilisé pour gérer Azure Storage à grande échelle.
 services: storage, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059544"
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Gestion d'Azure Storage à l'aide d'Azure Automation
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos objets blob, vos tables et vos files d'attente Azure Storage.

@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes de déploiement de machines virtuelles Windows - Classic | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes de déploiement Classic lorsque vous créez une machine virtuelle Windows dans Azure."
+title: Résoudre les problèmes de déploiement de machines virtuelles Windows - Classic | Microsoft Docs
+description: Découvrez comment résoudre les problèmes de déploiement Classic lorsque vous créez une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24056643"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement Classic liés à la création d’une machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072107"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Résolution de problème : impossible de supprimer un réseau virtuel dans Azure
 

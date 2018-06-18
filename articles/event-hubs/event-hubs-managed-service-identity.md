@@ -1,12 +1,12 @@
 ---
-title: "Managed Service Identity avec Azure Event Hubs (préversion) | Microsoft Docs"
-description: "Utiliser des identités du service managé avec Azure Event Hubs"
+title: Managed Service Identity avec Azure Event Hubs (préversion) | Microsoft Docs
+description: Utiliser des identités du service managé avec Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783346"
 ---
 # <a name="managed-service-identity-preview"></a>Managed Service Identity (préversion)
 
@@ -76,7 +77,7 @@ Pour envoyer ou recevoir des messages, entrez le nom de l’espace de noms et le
  
 Notez que l’identité du service managé fonctionne uniquement à l’intérieur de l’environnement Azure et seulement dans le déploiement App Service dans lequel vous l’avez configurée. Notez également que les identités du service managé ne fonctionnent pas avec les emplacements de déploiement App Service pour l’instant.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 

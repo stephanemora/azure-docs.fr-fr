@@ -1,22 +1,20 @@
 ---
 title: Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
 description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle'
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 02/26/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4ce906e903b4825e698d02cbf8cb2d18581df468
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630287"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
@@ -24,7 +22,6 @@ Vous pouvez utiliser [Azure Resource Manager](https://docs.microsoft.com/azure/a
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Ce démarrage rapide nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).

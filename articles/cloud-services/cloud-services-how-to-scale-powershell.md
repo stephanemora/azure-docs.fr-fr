@@ -1,11 +1,11 @@
 ---
-title: "Mise à l’échelle d’un service cloud Azure dans Windows PowerShell | Microsoft Docs"
-description: "(classique) Découvrez comment utiliser PowerShell pour mettre à l’échelle un rôle web ou un rôle de travail dans Azure."
+title: Mise à l’échelle d’un service cloud Azure dans Windows PowerShell | Microsoft Docs
+description: (classique) Découvrez comment utiliser PowerShell pour mettre à l’échelle un rôle web ou un rôle de travail dans Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998004"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Mise à l’échelle d’un service cloud dans PowerShell
 

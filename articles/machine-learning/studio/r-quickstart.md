@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836373"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
 
@@ -866,7 +868,7 @@ Le code suivant permet d’extraire les valeurs de décalage de la liste d’obj
 
 La première ligne de code est un peu compliquée et vous pourriez avoir besoin d’une explication vous aider à la comprendre. Voici ce que l'on a :
 
-1. L’opérateur « **[[** » associé à l’argument « **1** » sélectionne le vecteur de corrélations au niveau des décalages dans le premier élément de la liste d’objets ccf.
+1. L’opérateur «  **[[**  » associé à l’argument « **1** » sélectionne le vecteur de corrélations au niveau des décalages dans le premier élément de la liste d’objets ccf.
 2. La fonction `do.call()` applique la fonction `rbind()` aux éléments de la liste renvoyée par `lapply()`.
 3. La fonction `data.frame()` convertit de force le résultat généré par `do.call()` en tableau de données.
 

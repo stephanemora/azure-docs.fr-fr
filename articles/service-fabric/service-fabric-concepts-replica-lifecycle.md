@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211386"
 ---
 # <a name="replicas-and-instances"></a>Réplicas et instances 
 Cet article donne une vue d’ensemble du cycle de vie des réplicas de services avec état et des instances de services sans état.

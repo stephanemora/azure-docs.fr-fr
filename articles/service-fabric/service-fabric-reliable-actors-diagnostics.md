@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 03c8bf129bcb8bf1b8af4bb7d189f1a38ba8f503
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809088"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostics et surveillance des performances pour Reliable Actors
 Le runtime Reliable Actors émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) et les [compteurs de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Ils fournissent des informations sur le fonctionnement du runtime et permettent de résoudre les problèmes et de surveiller les performances.
@@ -170,5 +171,5 @@ Lorsqu'un client appelle une méthode via un objet proxy d'acteur, un message de
 ## <a name="next-steps"></a>Étapes suivantes
 * [Comment les Acteurs fiables utilisent la plateforme Service Fabric](service-fabric-reliable-actors-platform.md)
 * [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemple de code](https://github.com/Azure/servicefabric-samples)
+* [Exemple de code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Fournisseurs EventSource dans PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

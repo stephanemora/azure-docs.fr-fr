@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887399"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Ciblage des solutions de gestion dans Azure (préversion)
 Quand vous ajoutez une solution de gestion à votre abonnement, elle est déployée automatiquement par défaut sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.

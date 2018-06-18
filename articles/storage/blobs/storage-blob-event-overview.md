@@ -8,11 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650126"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -118,7 +119,7 @@ Pour faire correspondre les événements d’objet Blob créés dans un conteneu
 
 Pour faire correspondre les événements d’objet Blob créés dans un conteneur spécifique partageant un suffixe d’objet Blob, utilisez un filtre `subjectEndsWith`, comme « .log » ou « .jpg »
 
-Pour plus d’informations, consultez [Concepts d’Event Grid](../../event-grid/concepts.md#filters).
+Pour plus d’informations, consultez [Concepts d’Event Grid](../../event-grid/concepts.md#event-subscriptions).
 
 ## <a name="practices-for-consuming-events"></a>Pratiques pour la consommation d’événements
 Les applications qui gèrent des événements de stockage d’objets Blob doivent suivre certaines pratiques recommandées :

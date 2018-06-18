@@ -6,15 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 948b8c2c7eac7306336e5dacafffb62a337b8191
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 52973758404faa4158afe81a92079c1acdb4cfd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645461"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Exécution d'un exercice de récupération d'urgence
 Nous recommandons de valider régulièrement la préparation des applications à la récupération. La vérification du comportement de l'application et des implications en matière de pertes de données et/ou d'interruptions en cas basculement constitue une bonne pratique. Il s'agit également d'une exigence figurant dans la plupart des normes industrielles dans le cadre d'une certification de la continuité des activités.
@@ -33,7 +34,7 @@ Afin d’éviter la perte potentielle de données lors d’un exercice de récup
 #### <a name="outage-simulation"></a>Simulation d'une défaillance
 Pour simuler la défaillance, vous pouvez renommer la base de données source. Cela entraîne des échecs de connexion de l’application.
 
-#### <a name="recovery"></a>Récupérer
+#### <a name="recovery"></a>Récupération
 * Effectuez la géorestauration de la base de données sur un autre serveur, comme décrit [ici](sql-database-disaster-recovery.md).
 * Modifiez la configuration de l’application pour établir une connexion aux bases de données récupérées, puis suivez le guide [Configurer une base de données après récupération](sql-database-disaster-recovery.md) pour achever la récupération.
 
@@ -46,7 +47,7 @@ Pour une base de données protégée à l’aide de groupes de basculement, l’
 #### <a name="outage-simulation"></a>Simulation d'une défaillance
 Pour simuler la défaillance, vous pouvez désactiver l’application web ou une machine virtuelle connectée à la base de données. Cela entraîne des échecs de connectivité des clients web.
 
-#### <a name="recovery"></a>Récupérer
+#### <a name="recovery"></a>Récupération
 * Vérifiez que la configuration de l’application dans la région de récupération d’urgence pointe vers l’ancienne base de données secondaire qui devient la nouvelle base de données primaire entièrement accessible.
 * Lancez le [basculement planifié](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) du groupe de basculement sur le serveur secondaire.
 * Suivez le guide [Configure a database after recovery](sql-database-disaster-recovery.md) pour effectuer la restauration.

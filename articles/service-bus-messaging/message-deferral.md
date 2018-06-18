@@ -2,10 +2,10 @@
 title: Report des messages Azure Service Bus | Microsoft Docs
 description: Reporter la remise de messages Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28196973"
 ---
 # <a name="message-deferral"></a>Report de message
 
@@ -41,7 +42,7 @@ Si un message ne peut pas être traité en raison de l’indisponibilité tempor
 
 Le report des messages n’affecte pas l’expiration du message, ce qui signifie que des messages reportés expirent toujours à la date et à l’heure prévues initialement et sont déplacés dans la file d’attente de lettres mortes, le cas échéant.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

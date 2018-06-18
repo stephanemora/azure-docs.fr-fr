@@ -14,6 +14,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600899"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Surveillance et gestion des travaux Stream Analytics à l’aide des applets de commande Azure PowerShell
 Découvrez comment surveiller et gérer les ressources Stream Analytics à l’aide d’applets de commande Azure PowerShell et de scripts PowerShell qui exécutent les tâches Stream Analytics de base.

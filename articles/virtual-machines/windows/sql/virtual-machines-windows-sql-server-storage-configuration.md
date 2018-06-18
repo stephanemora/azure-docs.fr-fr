@@ -1,6 +1,6 @@
 ---
 title: Configuration du stockage pour les machines virtuelles SQL Server | Microsoft Docs
-description: "Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors de la configuration (modèle de déploiement Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes."
+description: Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors de la configuration (modèle de déploiement Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399081"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 Lorsque vous configurez une image de machine virtuelle SQL Server dans Azure, le portail permet d’automatiser la configuration de votre stockage. Cela inclut l’attachement du stockage à la machine virtuelle, ce qui permet à SQL Server d’y accéder et le configure de façon à l’optimiser en fonction de vos besoins spécifiques.
@@ -27,7 +28,7 @@ Cette rubrique explique comment Azure configure le stockage pour vos machines vi
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser les paramètres de configuration automatisée du stockage, votre machine virtuelle doit répondre aux conditions suivantes :
 
 * Configurée avec une [image de galerie SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo);
@@ -141,5 +142,5 @@ Le tableau suivant décrit les trois options de type de charge de travail dispon
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).

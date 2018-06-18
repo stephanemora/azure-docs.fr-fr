@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207525"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Vue d’ensemble de la surveillance des conteneurs dans Azure
 Avec Azure, vous pouvez surveiller et gérer efficacement vos charges de travail déployées dans des conteneurs Azure qui exécutent Kubernetes ou Docker. Il est important de comprendre le fonctionnement des conteneurs avec plusieurs applications de microservices afin de fournir un service fiable à grande échelle et de prendre en charge votre plan de surveillance. Cet article fournit une vue d’ensemble des fonctionnalités de gestion et de surveillance dans Azure pour vous aider à utiliser chacune de ces fonctionnalités selon vos besoins.

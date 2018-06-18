@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31389710"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.

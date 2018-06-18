@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 936f0a25b101e82f3c0e3ae7e1e3183b9ee38393
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a25a35bc05781c6a52e21d697233ba1187ebeccf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838413"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy
 AzCopy est un utilitaire de ligne de commande conçu pour charger, télécharger et copier des données vers et à partir d'un stockage de fichiers, d'objets blob et de tables Microsoft Azure.
@@ -36,7 +38,6 @@ Pour obtenir des instructions sur l’installation d’AzCopy et des information
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
 * Pour configurer un abonnement Azure, consultez [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).

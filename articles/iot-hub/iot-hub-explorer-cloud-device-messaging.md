@@ -1,25 +1,21 @@
 ---
 title: Gérer la messagerie cloud à appareil d’Azure IoT Hub avec iothub-explorer | Microsoft Docs
 description: Découvrez comment utiliser l’outil d’interface de ligne de commande iothub-explorer pour surveiller les messages appareil vers Cloud (D2C) et l’envoi de messages Cloud vers appareil C2D dans Azure IoT Hub.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: iothub explorer, messagerie cloud à appareil, iot hub cloud vers appareil, messagerie cloud vers appareil
-ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: ed15f7749676d8a7f0c2ef8b23e238f7bc90e341
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd8456efb4d8e0b84695f97d379a1ea83e19aba2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634231"
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utiliser Iothub-explorer pour envoyer et recevoir des messages entre votre appareil et IoT Hub
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915308"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée à l’aide de la Azure CLI 1.0
 Cet article indique comment charger un disque dur virtuel dans Azure à l’aide du modèle de déploiement Resource Manager, et comment créer des machines virtuelles Linux à partir de cette image personnalisée. Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.

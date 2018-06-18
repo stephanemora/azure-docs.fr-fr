@@ -12,13 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: fe13f8441bd91d0defebd0fa94bdb716b7ab9ca6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194666"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transférer des données avec AzCopy sur Linux
 
@@ -34,7 +35,7 @@ Il existe deux versions d’AzCopy que vous pouvez télécharger. AzCopy sur Lin
 ### <a name="installation-on-linux"></a>Installation sur Linux
 
 > [!NOTE]
-> Vous pouvez avoir besoin d’installer les dépendances .NET Core 2.1 répertoriées dans cet [article relatif aux prérequis pour .NET Core](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x) en fonction de votre distribution. Pour les distributions standard telles qu’Ubuntu 16.04 et RHEL 7, cette opération n’est généralement pas nécessaire.
+> Vous pouvez avoir besoin d’installer les dépendances .NET Core 2.1 répertoriées dans cet [article relatif aux prérequis pour .NET Core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) en fonction de votre distribution. Pour les distributions standard telles qu’Ubuntu 16.04 et RHEL 7, cette opération n’est généralement pas nécessaire.
 
 L’installation d’AzCopy sur Linux (v7.2 ou ultérieure) consiste tout simplement à extraire un package tar et à exécuter le script d’installation. 
 
@@ -61,7 +62,7 @@ Vous pouvez supprimer les fichiers extraits une fois qu’AzCopy sur Linux est i
 Ajoutez une source apt pour le référentiel de produit Microsoft Linux et installez AzCopy :
 
 ```bash
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```
@@ -76,7 +77,7 @@ sudo apt-get install azcopy
 Ajoutez une source apt pour le référentiel de produit Microsoft Linux et installez AzCopy :
 
 ```bash
-sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```

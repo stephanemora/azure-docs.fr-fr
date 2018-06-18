@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206026"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Guide pratique pour spécifier des variables d’environnement pour des services dans Service Fabric
 

@@ -1,11 +1,11 @@
 ---
-title: "Ajout de authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs"
-description: "Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+title: Ajout de authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs
+description: Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft.
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592142"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Ajout de l'authentification à votre application Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -155,7 +156,7 @@ L’exemple précédent montrait une connexion standard, qui nécessite que le c
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajouter des notifications Push à votre application Android](app-service-mobile-windows-store-dotnet-get-started-push.md)  

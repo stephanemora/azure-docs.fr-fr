@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect : Fonctionnement de l’authentification directe | Microsoft Docs"
-description: "Cet article décrit le fonctionnement de l’authentification directe Azure Active Directory"
+title: 'Azure AD Connect : Fonctionnement de l’authentification directe | Microsoft Docs'
+description: Cet article décrit le fonctionnement de l’authentification directe Azure Active Directory
 services: active-directory
-keywords: "Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca501bb3ad37353f00ffe5d46f72822c7c5487bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591393"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentification directe Azure Active Directory : immersion technique
 Cet article propose une vue d’ensemble du fonctionnement de l’authentification directe Azure Active directory (Azure AD). Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez l’article [Présentation approfondie des fonctions de sécurité](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302659"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schéma des événements Azure Event Grid des hubs d’événements
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31522470"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 Cet article décrit comment utiliser des vues de gestion dynamique (DMV) pour surveiller votre charge de travail. Cela inclut l’examen de l’exécution des requêtes dans Azure SQL Data Warehouse.

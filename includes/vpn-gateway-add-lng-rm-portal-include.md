@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196909"
 ---
 1. Dans le portail, à partir de **Toutes les ressources**, cliquez sur **+ Ajouter**.
 2. Dans la zone de recherche de la page **Tout**, tapez **passerelle de réseau local**, puis cliquez pour obtenir une liste de ressources. Cliquez sur **Passerelle de réseau local** pour ouvrir la page correspondante, puis cliquez sur **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.

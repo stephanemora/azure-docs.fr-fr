@@ -1,11 +1,11 @@
 ---
-title: "Création et gestion des connexions hybrides | Microsoft Docs"
-description: "Découvrez comment créer une connexion hybride, gérer la connexion et installer le Gestionnaire de connexions hybrides. MABS, WABS"
+title: Création et gestion des connexions hybrides | Microsoft Docs
+description: Découvrez comment créer une connexion hybride, gérer la connexion et installer le Gestionnaire de connexions hybrides. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aac0546b-3bae-41e0-b874-583491a395ea
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628843"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Création et gestion des connexions hybrides
 

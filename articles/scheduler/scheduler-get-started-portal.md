@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413428"
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Prise en main d’Azure Scheduler dans le portail Azure
 Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce didacticiel vous guide dans la création d’un travail. Vous y découvrirez également les fonctionnalités de gestion et de surveillance de Scheduler.

@@ -7,15 +7,17 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 791c34785fa817fd68d0bec8111bf23e606c9b64
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832694"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Maintenance prédictive pour scénarios réels
 
@@ -37,7 +39,6 @@ Ce scénario s’appuie sur le [manuel de maintenance prédictive](https://docs.
 Le problème métier pour ces données simulées consiste à prédire les problèmes causés par les échecs de composants. La question qui se pose est donc la suivante : « *Quelle est la probabilité qu’une machine tombe en panne en raison d’un échec de composant* ? » Ce problème est représenté sous la forme d’un problème de classification multiclasse (plusieurs composants par machine). Un algorithme d’apprentissage automatique est utilisé pour créer le modèle prédictif. L’apprentissage du modèle est effectué à partir de données d’historique collectées sur des machines. Dans ce scénario, l’utilisateur suit différentes étapes d’implémentation du modèle dans l’environnement Machine Learning Workbench.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie installée [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Pour installer le programme et créer un espace de travail, consultez le [guide de démarrage rapide relatif à l’installation](../service/quickstart-installation.md).

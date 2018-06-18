@@ -1,12 +1,12 @@
 ---
 title: Tarifs Azure Cloud Shell | Microsoft Docs
-description: "Vue d’ensemble des prix d’Azure Cloud Shell"
-services: 
-documentationcenter: 
+description: Vue d’ensemble des prix d’Azure Cloud Shell
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24809864"
 ---
 # <a name="pricing"></a>Tarification
 Bash dans Cloud Shell et PowerShell dans Cloud Shell (préversion) font l’objet des informations ci-dessous.

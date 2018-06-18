@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622497"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +42,7 @@ Vous utilisez des activités de transformation dans un [pipeline](data-factory-c
 
 Vous pouvez utiliser l’activité de procédure stockée pour appeler une procédure stockée dans l’une des banques de données suivantes dans votre entreprise ou sur une machine virtuelle Azure : 
 
-- Base de données SQL Azure
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - Base de données SQL Server  Si vous utilisez SQL Server, installez la passerelle de gestion des données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur ayant accès à la base de données. La passerelle de gestion des données est un composant qui connecte des sources de données locales ou se trouvant sur une machine virtuelle Azure à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour plus d’informations sur la passerelle.
 
@@ -161,7 +162,7 @@ Notez les propriétés suivantes :
 
 - La propriété **type** doit être définie sur **SqlServerStoredProcedure**. 
 - Le paramètre **storedProcedureName** dans les propriétés type est défini sur **sp_sample** (nom de la procédure stockée).
-- La section **storedProcedureParameters** contient un paramètre nommé **DataTime**. Le nom et la casse du paramètre dans JSON doivent correspondre à ceux du paramètre dans la définition de procédure stockée. Si vous avez besoin d’utiliser la valeur null pour un paramètre, utilisez la syntaxe : `"param1": null` (tout en minuscules).
+- La section **storedProcedureParameters** contient un paramètre nommé **DateTime**. Le nom et la casse du paramètre dans JSON doivent correspondre à ceux du paramètre dans la définition de procédure stockée. Si vous avez besoin d’utiliser la valeur null pour un paramètre, utilisez la syntaxe : `"param1": null` (tout en minuscules).
  
 1. Si ce bouton n'est pas affiché dans la barre d'outils, cliquez sur **... Plus** dans la barre de commandes et sur **Nouveau pipeline**.
 2. Copiez-collez l’extrait de code JSON suivant :   

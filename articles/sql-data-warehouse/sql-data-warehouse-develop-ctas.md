@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599082"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Utilisation de l’instruction CREATE TABLE AS SELECT (CTAS) dans Azure SQL Data Warehouse
 Conseils de codage à l’aide de l’instruction T-SQL CREATE TABLE AS SELECT (CTAS) dans Azure SQL Data Warehouse pour le développement de solutions.

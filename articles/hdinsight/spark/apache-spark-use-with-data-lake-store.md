@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31517622"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store
 

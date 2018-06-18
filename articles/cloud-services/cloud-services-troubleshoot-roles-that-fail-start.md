@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875332"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Résoudre les problèmes de démarrage des rôles de service cloud
 Voici des solutions à quelques problèmes courants liés à l’échec du démarrage des rôles Azure Cloud Services.

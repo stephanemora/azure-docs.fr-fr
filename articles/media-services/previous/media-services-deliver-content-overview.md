@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783748"
 ---
 # <a name="deliver-content-to-customers"></a>Fournir du contenu aux clients
 Quand vous distribuez votre contenu de diffusion en continu ou de vidéo à la demande aux clients, votre objectif est de fournir une vidéo de haute qualité à divers appareils dans différentes conditions de réseau.

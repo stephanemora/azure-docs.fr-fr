@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809435"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrer une base de données SQL Server vers SQL Server dans une machine virtuelle Azure
 

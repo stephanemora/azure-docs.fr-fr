@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e7239ae88c6b4e56fa7c49f64c30fe602d8ec5fe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5e85a551181a3dd4618db2611a99675329cfabd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148843"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592007"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Liste de compatibilité de fédération Azure AD
 Azure Active Directory fournit l’authentification unique et une sécurité de l’accès aux applications améliorée pour Office 365 et d’autres ressources de Microsoft Online Services pour des implémentations hybrides et uniquement dans le cloud, sans nécessiter de solution tierce. À l’instar de la plupart des services Microsoft Online, Office 365 est intégré à Azure Active Directory pour les services de répertoire, l’authentification et l’autorisation. En outre, Azure Active Directory fournit l’authentification unique à des milliers d’applications SaaS et à des applications web locales. Consultez la [galerie d’applications](https://azuremarketplace.microsoft.com/marketplace/apps) Azure Active Directory pour connaître les applications SaaS prises en charge. 

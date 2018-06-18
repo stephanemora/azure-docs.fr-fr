@@ -1,12 +1,12 @@
 ---
-title: "Présentation du manuel de preuve de concept Azure Active Directory | Microsoft Docs"
-description: "Explorer et implémenter rapidement des scénarios de gestion des identités et des accès"
+title: Présentation du manuel de preuve de concept Azure Active Directory | Microsoft Docs
+description: Explorer et implémenter rapidement des scénarios de gestion des identités et des accès
 services: active-directory
 keywords: azure active directory, manuel, preuve de concept, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26601207"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-introduction"></a>Manuel de preuve de concept Azure Active Directory : Présentation
 

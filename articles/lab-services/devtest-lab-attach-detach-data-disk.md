@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781888"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
 [Les disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gèrent les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.

@@ -16,6 +16,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905372"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrer l’instance SQL Server locale vers la base de données SQL Azure à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.

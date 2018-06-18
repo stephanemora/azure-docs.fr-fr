@@ -1,11 +1,11 @@
 ---
-title: "Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD | Microsoft Docs"
-description: "Résolution des problèmes courants rencontrés lorsque les utilisateurs ne figurent pas dans une application de la galerie Azure AD pour que vous avez configurée pour l’approvisionnement d’utilisateurs avec Azure AD"
+title: Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD | Microsoft Docs
+description: Résolution des problèmes courants rencontrés lorsque les utilisateurs ne figurent pas dans une application de la galerie Azure AD pour que vous avez configurée pour l’approvisionnement d’utilisateurs avec Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26616291"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD
 

@@ -6,14 +6,15 @@ manager: craigg
 author: ddove
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4aeb18a4cdd0fc115c0d604797cf60c867455337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645610"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
 Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overview.md) peut être installée à l’aide de PowerShell ou du portail Azure. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
@@ -21,7 +22,6 @@ Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overvi
 Si vous avez déjà installé **Tâche de base de données élastique** via le portail à partir d’un **pool élastique** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installez la dernière version via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 * [utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d’informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.

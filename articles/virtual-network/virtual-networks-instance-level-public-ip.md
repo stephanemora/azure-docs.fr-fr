@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796018"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Vue d’ensemble des adresses IP publiques de niveau d’instance (classique)
 Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à une machine virtuelle ou instance de rôle de services cloud, plutôt qu’au service cloud dans lequel réside cette machine ou cette instance. Une adresse ILPIP ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.

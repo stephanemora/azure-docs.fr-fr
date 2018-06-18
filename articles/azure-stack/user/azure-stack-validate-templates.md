@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 88fac41ce2c9fa0c5569beae02ab90a507c89a34
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358640"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294478"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Vérifier vos modèles pour Azure Stack avec l’outil de validation des modèles
 
@@ -32,8 +32,8 @@ Vous pouvez utiliser l’outil de validation des modèles pour vérifier si vos 
 
 Pour valider un modèle, vous devez d’abord générer un fichier des fonctionnalités du cloud, puis exécuter l’outil de validation. Vous utilisez les modules PowerShell suivants à partir des outils Azure Stack :
 
-- Dans le dossier **TemplateValidator** :<br>         AzureRM.CloudCapabilities.psm1 crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack.
-- Dans le dossier **CloudCapabilities** :<br>
+- Dans le dossier **CloudCapabilities** :<br>         AzureRM.CloudCapabilities.psm1 crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack.
+- Dans le dossier **TemplateValidator** :<br>
 AzureRM.TemplateValidator.psm1 utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Générer le fichier des fonctionnalités du cloud
@@ -79,7 +79,7 @@ Les avertissements ou erreurs de validation de modèle sont journalisés sur la 
 
 ![Rapport de validation de modèle](./media/azure-stack-validate-templates/image1.png)
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 Le validateur de modèle prend en charge les paramètres suivants.
 
@@ -99,7 +99,7 @@ Cet exemple valide tous les [modèles de démarrage rapide Azure Stack](https://
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
--CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json.json `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json`
 -IncludeComputeCapabilities`
 -Report TemplateReport.html

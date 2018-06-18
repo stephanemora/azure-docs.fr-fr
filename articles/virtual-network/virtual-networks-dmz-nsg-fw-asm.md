@@ -1,11 +1,11 @@
 ---
-title: "Exemple DMZ : créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau | Microsoft Docs"
-description: "Créer une zone DMZ avec un pare-feu et des groupes de sécurité réseau (NSG)"
+title: 'Exemple DMZ : créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau | Microsoft Docs'
+description: Créer une zone DMZ avec un pare-feu et des groupes de sécurité réseau (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126927"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemple 2 : Créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]

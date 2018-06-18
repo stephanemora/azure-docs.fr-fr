@@ -1,13 +1,13 @@
 ---
-title: "Analyser les journaux de flux des groupes de sécurité réseau Azure - Graylog | Microsoft Docs"
-description: "Découvrez comment gérer et analyser les journaux de flux des groupes de sécurité réseau dans Azure à l’aide de Network Watcher et de Graylog."
+title: Analyser les journaux de flux des groupes de sécurité réseau Azure - Graylog | Microsoft Docs
+description: Découvrez comment gérer et analyser les journaux de flux des groupes de sécurité réseau dans Azure à l’aide de Network Watcher et de Graylog.
 services: network-watcher
 documentationcenter: na
 author: mareat
 manager: vitinnan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26639283"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 

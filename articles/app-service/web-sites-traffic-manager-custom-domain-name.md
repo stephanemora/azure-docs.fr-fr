@@ -1,11 +1,11 @@
 ---
-title: "Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager pour l’équilibrage de charge."
-description: "Utilisation d’un nom de domaine personnalisé pour une application web dans Azure App Service intégrant Traffic Manager pour équilibrer la charge."
+title: Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager pour l’équilibrage de charge.
+description: Utilisation d’un nom de domaine personnalisé pour une application web dans Azure App Service intégrant Traffic Manager pour équilibrer la charge.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713849"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -67,7 +68,7 @@ Quand vous avez terminé l’ajout ou la modification des enregistrements DNS au
 ## <a name="enable-traffic-manager"></a>Activation de Traffic Manager
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

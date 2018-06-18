@@ -1,12 +1,12 @@
 ---
-title: "Décisions de déploiement connecté à Azure pour les systèmes intégrés Azure Stack | Microsoft Docs"
-description: "Déterminez les décisions relatives à la planification du déploiement pour les déploiements à plusieurs nœuds de Azure Stack connectés à Azure."
+title: Décisions de déploiement connecté à Azure pour les systèmes intégrés Azure Stack | Microsoft Docs
+description: Déterminez les décisions relatives à la planification du déploiement pour les déploiements à plusieurs nœuds de Azure Stack connectés à Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120384"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement connecté à Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -70,5 +71,5 @@ La facturation selon la capacité nécessite un abonnement Azure EA (Enterprise 
 - Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Pour en savoir plus sur l’empaquetage et la tarification de Microsoft Azure Stack, [téléchargez le fichier PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Intégration au réseau du centre de données](azure-stack-network.md)

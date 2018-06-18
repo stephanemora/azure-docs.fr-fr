@@ -1,10 +1,10 @@
 ---
-title: "Intégration d’entreprise pour B2B - Azure Logic Apps | Microsoft Docs"
-description: "Créer des workflows B2B et prendre en charge des scénarios d’intégration d’entreprise pour les applications logiques avec Enterprise Integration Pack"
+title: Intégration d’entreprise pour B2B - Azure Logic Apps | Microsoft Docs
+description: Créer des workflows B2B et prendre en charge des scénarios d’intégration d’entreprise pour les applications logiques avec Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9462707db03ecfcc3d5186ce7ded8655ad3bdcc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298635"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Vue d’ensemble : scénarios B2B et communication avec Enterprise Integration Pack
 

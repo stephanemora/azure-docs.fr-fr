@@ -1,11 +1,11 @@
 ---
 title: Format de fichier de manifeste du service Azure Import/Export | Microsoft Docs
-description: "Découvrez le format du fichier de manifeste de disque qui décrit le mappage entre les objets blob dans le stockage Blob Azure et les fichiers sur un disque dans un travail d’importation ou d’exportation dans le service Import/Export."
+description: Découvrez le format du fichier de manifeste de disque qui décrit le mappage entre les objets blob dans le stockage Blob Azure et les fichiers sur un disque dans un travail d’importation ou d’exportation dans le service Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059734"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Format de fichier de manifeste du service Azure Import/Export
 Le fichier de manifeste de disque décrit le mappage entre les objets blob dans le stockage Blob Azure et les fichiers sur le disque comprenant un travail d’importation ou d’exportation. Pour une opération d’importation, le fichier de manifeste est créé dans le cadre du processus de préparation du disque et est stocké sur le disque avant d’envoyer le disque vers le centre de données Azure. Pendant une opération d’exportation, le manifeste est créé et stocké sur le disque par le service d’importation/exportation Azure.  

@@ -4,20 +4,18 @@ description: Découvrez comment importer des données à utiliser avec l’API T
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 25e922e211304774462c747ea6a003e47fb38736
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797768"
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importer des données à utiliser avec l’API Table Azure Cosmos DB
 
@@ -31,7 +29,6 @@ Ce didacticiel décrit les tâches suivantes :
 > * Migration depuis une API Table (préversion) vers une autre 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
 

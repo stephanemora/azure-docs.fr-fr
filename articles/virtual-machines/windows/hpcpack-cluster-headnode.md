@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915257"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Créer le nœud principal d’un cluster HPC Pack dans une machine virtuelle Azure avec une image Marketplace
 Utilisez une [image de machine virtuelle Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) à partir de la Place de marché Azure et du portail Azure pour créer le nœud principal d’un cluster HPC. Cette image de machine virtuelle HPC Pack est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3 préinstallé. Utilisez ce nœud principal pour un déploiement preuve de concept de HPC Pack dans Azure. Vous pouvez ensuite ajouter des nœuds de calcul au cluster pour exécuter des charges de travail HPC.

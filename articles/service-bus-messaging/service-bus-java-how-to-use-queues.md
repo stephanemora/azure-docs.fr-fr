@@ -1,6 +1,6 @@
 ---
-title: "Utilisation des files d’attente Azure Service Bus avec Java | Microsoft Docs"
-description: "Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Java."
+title: Utilisation des files d’attente Azure Service Bus avec Java | Microsoft Docs
+description: Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Java.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044254"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Utilisation des files d’attente Service Bus avec Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

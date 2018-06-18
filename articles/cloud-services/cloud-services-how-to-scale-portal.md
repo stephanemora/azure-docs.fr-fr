@@ -1,11 +1,11 @@
 ---
-title: "Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs"
-description: "Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure."
+title: Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs
+description: Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27992270"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
 

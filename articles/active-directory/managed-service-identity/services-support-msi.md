@@ -9,11 +9,12 @@ ms.topic: reference
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d31c169600c594fc4764262cb8d080e9aee96b21
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d896b11ae94355eb2bdcfa8bc3a647f96fd8caf
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723760"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Services qui prennent en charge l’identité du service administré 
 
@@ -29,7 +30,7 @@ Les services Azure suivants prennent en charge l’identité du service administ
 | Azure App Service | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Functions | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | VERSION PRÉLIMINAIRE | Novembre 2017 | [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Foundation](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Gestion des API Azure | VERSION PRÉLIMINAIRE | Octobre 2017 | [Modèle Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity) |
+
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
 
@@ -43,3 +44,4 @@ Les services suivants prennent en charge l’authentification Azure AD et ont é
 | Azure SQL | https://database.windows.net/ | Disponible | Octobre 2017 | |
 | Hubs d'événements Azure | https://eventhubs.azure.net | Disponible | Décembre 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Disponible | Décembre 2017 | |
+| Stockage Azure | https://storage.azure.com/ | VERSION PRÉLIMINAIRE | Mai 2018 | |

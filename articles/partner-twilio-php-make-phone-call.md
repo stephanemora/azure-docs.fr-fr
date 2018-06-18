@@ -1,8 +1,8 @@
 ---
-title: "Appel téléphonique à partir de Twilio (PHP) | Microsoft Docs"
-description: "Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Les exemples concernent une applications PHP."
+title: Appel téléphonique à partir de Twilio (PHP) | Microsoft Docs
+description: Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Les exemples concernent une applications PHP.
 documentationcenter: php
-services: 
+services: ''
 author: devinrader
 manager: twilio
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039264"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure
 L'exemple qui suit montre comment utiliser Twilio pour passer un appel depuis une page web PHP hébergée sur Azure. L'application finale demande à l'utilisateur les valeurs de l'appel téléphonique, comme illustré dans la capture d'écran qui suit.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165415"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Raccourcis clavier du portail Azure
 Cet article indique les raccourcis clavier qui fonctionnent sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier.

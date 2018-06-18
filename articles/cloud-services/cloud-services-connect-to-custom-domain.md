@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845653"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Connexion des rôles de services cloud Azure à un contrôleur de domaine Active Directory personnalisé hébergé dans Azure
 Nous allons tout d’abord définir un réseau virtuel (VNet) dans Azure. Nous allons ensuite ajouter un contrôleur de domaine Active Directory (hébergé sur une machine virtuelle Azure) sur le réseau virtuel. Ensuite, nous ajouterons des rôles de service cloud existants sur le réseau virtuel créé au préalable, puis les connecterons au contrôleur de domaine.

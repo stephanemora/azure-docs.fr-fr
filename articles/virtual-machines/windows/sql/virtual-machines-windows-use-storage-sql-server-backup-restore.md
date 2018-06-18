@@ -1,8 +1,8 @@
 ---
-title: "Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server | Microsoft Docs"
-description: "Découvrez comment sauvegarder SQL Server avec Azure Storage. Explique les avantages de la sauvegarde des bases de données SQL sur le stockage Azure."
+title: Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server | Microsoft Docs
+description: Découvrez comment sauvegarder SQL Server avec Azure Storage. Explique les avantages de la sauvegarde des bases de données SQL sur le stockage Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399047"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server
 ## <a name="overview"></a>Vue d'ensemble
@@ -65,7 +66,7 @@ Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le se
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 1. Création d’un compte Azure si vous n’en avez pas encore. Si vous évaluez Azure, envisagez l’ [essai gratuit](https://azure.microsoft.com/free/).
 2. Consultez ensuite un des didacticiels suivants pour créer un compte de stockage et effectuez une restauration.
    

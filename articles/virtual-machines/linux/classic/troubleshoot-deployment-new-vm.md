@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes de déploiement de machines virtuelles Linux - Classic | Microsoft Docs"
-description: "Résoudre les problèmes de déploiement classiques lorsque vous créez une machine virtuelle Linux dans Azure"
+title: Résoudre les problèmes de déploiement de machines virtuelles Linux - Classic | Microsoft Docs
+description: Résoudre les problèmes de déploiement classiques lorsque vous créez une machine virtuelle Linux dans Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27965966"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement classiques liés à la création d’une machine virtuelle Linux dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -88,6 +89,6 @@ Selon les contraintes du service cloud que vous utilisez pour créer la machine 
 * Créez la machine virtuelle dans le nouveau réseau virtuel.
 * [Connectez votre réseau virtuel existant](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) au nouveau réseau virtuel. Consultez plus d’informations sur les [réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Une autre possibilité consiste à [effectuer la migration de votre réseau virtuel basé sur un groupe d’affinités vers un réseau virtuel régional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), puis à créer la machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Linux arrêtée ou que vous redimensionnez une machine virtuelle Linux existante dans Azure, consultez [Résoudre les problèmes de déploiement classique liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](restart-resize-error-troubleshooting.md).
 

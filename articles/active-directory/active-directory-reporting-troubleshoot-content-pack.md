@@ -1,25 +1,27 @@
 ---
-title: "Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory | Microsoft Docs"
-description: "Fournit la liste des messages d’erreur du pack de contenu d’activité Azure Active Directory et les étapes à suivre pour les corriger."
+title: Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory | Microsoft Docs
+description: Fournit la liste des messages d’erreur du pack de contenu d’activité Azure Active Directory et les étapes à suivre pour les corriger.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b22f387a0338246c7586f0f0735b4612a796691a
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 801c425d0d467f8df63f981a1a03c6d202b4c3c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589217"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory 
 
@@ -57,7 +59,7 @@ Cette rubrique traite des causes possibles de ces erreurs et explique comment le
 
 ## <a name="importing-of-data-is-taking-too-long"></a>L’importation de données prend trop de temps 
  
-**Circonstances de l’apparition de cette erreur** : dans Power BI, une fois que vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure Active Directory. Vous obtenez le message suivant : « *L’importation de données...* »  
+**Circonstances de l’apparition de cette erreur** : dans Power BI, une fois que vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure Active Directory. Vous obtenez le message suivant : « *L’importation de données...*  »  
 
 | Cause : | Procédure de résolution |
 | ---   | ---        |

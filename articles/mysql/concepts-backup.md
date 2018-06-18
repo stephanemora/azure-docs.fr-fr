@@ -6,14 +6,15 @@ author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1cc2c6ccb4459c5c942297cab46378502b63c5bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264474"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 
@@ -25,7 +26,7 @@ Azure Database pour MySQL accepte les sauvegardes complètes, différentielles e
 
 ### <a name="backup-frequency"></a>Fréquence de sauvegarde
 
-En règle générale, les sauvegardes complètes se produisent une fois par semaine, les sauvegardes différentielles ont lieu deux fois par jour, et les sauvegardes de fichier journal se déroulent toutes les cinq minutes. La première sauvegarde complète est planifiée immédiatement après la création d’un serveur. La sauvegarde initiale peut prendre plus de temps sur un serveur restauré volumineux. Le point dans le temps le plus ancien vers lequel un nouveau serveur peut être restauré est le moment où la sauvegarde complète initiale est terminée.
+En règle générale, les sauvegardes complètes se produisent une fois par semaine, les sauvegardes différentielles ont lieu deux fois par jour, et les sauvegardes du journal des transactions se déroulent toutes les cinq minutes. La première sauvegarde complète est planifiée immédiatement après la création d’un serveur. La sauvegarde initiale peut prendre plus de temps sur un serveur restauré volumineux. Le point dans le temps le plus ancien vers lequel un nouveau serveur peut être restauré est le moment où la sauvegarde complète initiale est terminée.
 
 ### <a name="backup-redundancy-options"></a>Options de redondance de sauvegarde
 
@@ -46,7 +47,7 @@ Dans Azure Database pour MySQL, l’exécution d’une restauration crée un ser
 
 Deux types de restauration sont disponibles :
 
-- La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde, et crée un serveur dans la même région que votre serveur d’origine.
+- La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde et crée un serveur dans la même région que votre serveur d’origine.
 - La **géorestauration** est disponible uniquement si vous avez configuré votre serveur pour le stockage géoredondant ; elle vous permet de restaurer votre serveur dans une autre région.
 
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
@@ -60,7 +61,7 @@ Quelle que soit l’option de redondance de sauvegarde, vous pouvez effectuer un
 
 La restauration à un point dans le temps est utile dans plusieurs scénarios. Par exemple, lorsqu’un utilisateur supprime accidentellement des données, perd une base de données ou une table importante ou si une application remplace accidentellement des données correctes par des données erronées en raison d’un défaut de l’application.
 
-Vous devez peut-être attendre la prochaine sauvegarde de fichier journal avant de pouvoir restaurer à un point dans le temps dans les cinq dernières minutes.
+Vous devez peut-être attendre la prochaine sauvegarde du journal des transactions avant de pouvoir restaurer à un point dans le temps dans les cinq dernières minutes.
 
 ### <a name="geo-restore"></a>Géo-restauration
 
@@ -78,5 +79,5 @@ Après une restauration à l’aide d’un de ces mécanismes de récupération,
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la continuité d’activité, consultez la  [vue d’ensemble de la continuité d’activité](concepts-business-continuity.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Sauvegarde et restauration d’un serveur Azure Database pour MySQL à l’aide du portail Azure](howto-restore-server-portal.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide de l’interface de ligne de commande Azure, consultez  [Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI](howto-restore-server-cli.md).
+- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).
+- Pour effectuer une restauration à un point dans le temps à l’aide de l’interface de ligne de commande Azure, consultez  [Restaurer une base de données à un point dans le temps à l’aide de l’interface CLI](howto-restore-server-cli.md).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068878"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Démarrage rapide : créer un coffre de clés Key Vault à l’aide du portail Azure
 

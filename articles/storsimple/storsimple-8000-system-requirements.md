@@ -1,12 +1,12 @@
 ---
-title: "Configuration requise pour StorSimple 8000 Series | Microsoft Docs"
-description: "Décrit la configuration requise et les meilleures pratiques en matière de logiciel, de mise en réseau et de haute disponibilité pour une solution Microsoft Azure StorSimple."
+title: Configuration requise pour StorSimple 8000 Series | Microsoft Docs
+description: Décrit la configuration requise et les meilleures pratiques en matière de logiciel, de mise en réseau et de haute disponibilité pour une solution Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28011059"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Configurations logicielles, de haute disponibilité et réseau requises pour StorSimple 8000 Series
 
@@ -241,7 +242,7 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 * Configurez StorSimple avec des [configurations de cluster de serveur de fichiers à deux nœuds][1]. En supprimant les points de défaillance uniques et en assurant la redondance côté hôte, l’ensemble de la solution devient hautement disponible.
 * Utilisez des partages disponibles en continu avec Windows Server 2012 (SMB 3.0) pour bénéficier d’un haut niveau de disponibilité lors du basculement des contrôleurs de stockage. Pour plus d’informations sur la configuration de clusters de serveurs de fichiers et de partages disponibles en continu avec Windows Server 2012, consultez cette [vidéo de démonstration](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [En savoir plus sur les limites du système StorSimple](storsimple-8000-limits.md).
 * [Découvrez comment déployer votre solution StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

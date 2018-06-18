@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32187814"
 abstract:
   description: Apprenez à utiliser le Réseau virtuel Microsoft Azure. Les démarrages rapides, tutoriels, exemples et autres informations vous apprennent à déployer un réseau virtuel, contrôler le filtrage et le routage du trafic et connecter un réseau virtuel à d’autres réseaux virtuels.
 sections:

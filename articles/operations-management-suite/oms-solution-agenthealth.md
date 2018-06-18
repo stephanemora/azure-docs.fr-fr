@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30182726"
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solution Agent Health pour OMS
 La solution Agent Health pour OMS vous permet de savoir quels agents, au service de cet espace de travail ou d’un groupe d’administration System Center Operations Manager connecté à OMS, ne répondent pas et renvoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    

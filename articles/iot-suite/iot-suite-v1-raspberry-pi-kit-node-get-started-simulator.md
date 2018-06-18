@@ -1,12 +1,12 @@
 ---
-title: "Connexion d’un Raspberry Pi à Azure IoT Suite à l’aide de Node.js avec la télémétrie simulée | Microsoft Docs"
-description: "Utilisez le Kit de démarrage Microsoft Azure IoT pour le Raspberry Pi 3 et IoT Azure Suite. Utiliser C pour connecter votre Raspberry Pi à la solution de surveillance à distance, envoyer la télémétrie simulée dans le cloud et répondre aux méthodes appelées à partir du tableau de bord de la solution."
-services: 
+title: Connexion d’un Raspberry Pi à Azure IoT Suite à l’aide de Node.js avec la télémétrie simulée | Microsoft Docs
+description: Utilisez le Kit de démarrage Microsoft Azure IoT pour le Raspberry Pi 3 et IoT Azure Suite. Utiliser C pour connecter votre Raspberry Pi à la solution de surveillance à distance, envoyer la télémétrie simulée dans le cloud et répondre aux méthodes appelées à partir du tableau de bord de la solution.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: node.js
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010652"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Connecter votre Raspberry Pi 3 à la solution de surveillance à distance et envoyer la télémétrie simulée à l’aide de Node.js
 

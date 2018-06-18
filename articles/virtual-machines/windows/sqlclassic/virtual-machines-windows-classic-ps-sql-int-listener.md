@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240746"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour configurer MSI sur une machine virtuelle Azure à l’aide de PowerShell
-description: Instructions détaillées sur la configuration d’une identité MSI (Managed Service Identity) sur une machine virtuelle Azure, à l’aide de PowerShell.
+title: Comment configurer la MSI sur une machine virtuelle Azure à l’aide de PowerShell
+description: Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide de PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,17 +15,17 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
 ms.openlocfilehash: 6981c0f917fb7175f444ceca8c55c0df186774db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "33932317"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurer une identité MSI de machine virtuelle à l’aide de PowerShell
+# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurer une identité du service administré (MSI) de machine virtuelle à l’aide de PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed Service Identity fournit des services Azure avec une identité automatiquement gérée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
+L’identité du service administré fournit des services Azure avec une identité automatiquement gérée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
 <a name="in-this-article-you-learn-how-to-perform-the-following-managed-service-identity-operations-on-an-azure-vm-using-powershell"></a>Dans cet article, vous allez découvrir comment effectuer les opérations Managed Service Identity suivantes sur une machine virtuelle Azure à l’aide de PowerShell :
 - 
@@ -33,7 +33,7 @@ Managed Service Identity fournit des services Azure avec une identité automatiq
 ## <a name="prerequisites"></a>Prérequis
 
 
-- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Installez [la dernière version d’Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) si ce n’est déjà fait.
 
@@ -63,7 +63,7 @@ Pour créer une machine virtuelle Azure avec l’identité attribuée au systèm
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
     > [!NOTE]
-    > Cette étape est facultative car vous pouvez également utiliser le point de terminaison d’identité Azure IMDS (Instance Metadata Service) pour récupérer des jetons.
+    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Activer une identité attribuée au système sur une machine virtuelle Azure existante
 
@@ -75,7 +75,7 @@ Si vous devez activer une identité attribuée au système sur une machine virtu
    Login-AzureRmAccount
    ```
 
-2. Commencez par récupérer les propriétés de la machine virtuelle à l’aide de l’applet de commande `Get-AzureRmVM`. Ensuite, pour activer une identité attribuée au système, utilisez le commutateur `-AssignIdentity` de l’applet de commande [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) :
+2. Commencez par récupérer les propriétés de la machine virtuelle à l’aide de la cmdlet `Get-AzureRmVM`. Ensuite, pour activer une identité attribuée par le système, utilisez le commutateur `-AssignIdentity` sur l’applet de commande [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) :
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
@@ -89,7 +89,7 @@ Si vous devez activer une identité attribuée au système sur une machine virtu
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
     > [!NOTE]
-    > Cette étape est facultative car vous pouvez également utiliser le point de terminaison d’identité Azure IMDS (Instance Metadata Service) pour récupérer des jetons.
+    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.
 
 ## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Désactiver l’identité attribuée au système à partir d’une machine virtuelle Azure
 
@@ -135,7 +135,7 @@ Pour attribuer une identité attribuée à l’utilisateur à une machine virtue
 
 2. (Facultatif) Ajoutez l’extension de machine virtuelle MSI à l’aide du paramètre `-Type` dans l’applet de commande [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Vous pouvez transmettre « ManagedIdentityExtensionForWindows » ou « ManagedIdentityExtensionForLinux », selon le type de machine virtuelle, et nommez-le à l’aide paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton. Veillez à indiquer le paramètre `-Location` approprié, correspondant à l’emplacement de la machine virtuelle existante :
       > [!NOTE]
-    > Cette étape est facultative car vous pouvez également utiliser le point de terminaison d’identité Azure IMDS (Instance Metadata Service) pour récupérer des jetons.
+    > Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -155,7 +155,7 @@ Pour attribuer une identité attribuée à l’utilisateur à une machine virtue
 2. Créez une identité attribuée à l’utilisateur à l’aide de l’applet de commande [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity).  Notez la valeur `Id` dans la sortie, car vous en aurez besoin à l’étape suivante.
 
     > [!IMPORTANT]
-    > La création d’identités attribuées à l’utilisateur ne prend en charge que les caractères alphanumériques et le trait d’union (0-9 ou a-z ou A-Z ou -). En outre, le nom doit être limité à 24 caractères pour que l’attribution à la machine virtuelle/au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, consultez [FAQ et problèmes connus](known-issues.md)
+    > La création d’identités attribuées à l’utilisateur ne prend en charge que les caractères alphanumériques et le trait d’union (0-9 ou a-z ou A-Z ou -). De plus, le nom doit être limité à 24 caractères pour que l’attribution à la machine virtuelle/au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, consultez [FAQ et problèmes connus](known-issues.md)
 
 
   ```powershell

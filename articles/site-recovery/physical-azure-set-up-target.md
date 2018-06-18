@@ -1,6 +1,6 @@
 ---
-title: "Préparer la cible (Physique vers Azure) | Microsoft Docs"
-description: "Cet article décrit comment préparer votre environnement Azure pour lancer la réplication des serveurs physiques exécutant Windows ou Linux vers Azure."
+title: Préparer la cible (Physique vers Azure) | Microsoft Docs
+description: Cet article décrit comment préparer votre environnement Azure pour lancer la réplication des serveurs physiques exécutant Windows ou Linux vers Azure.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811056"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 

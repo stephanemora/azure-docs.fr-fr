@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207221"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :

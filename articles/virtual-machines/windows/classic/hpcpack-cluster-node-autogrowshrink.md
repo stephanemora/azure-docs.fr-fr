@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603842"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Augmenter ou diminuer automatiquement les ressources du cluster HPC Pack dans Azure en fonction de la charge de travail du cluster
 Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de diminuer automatiquement les ressources du cluster, comme des nœuds ou des cœurs, en fonction de la charge de travail du cluster peut s’avérer utile. En mettant à l’échelle les ressources du cluster de cette façon, vous pouvez utiliser vos ressources Azure plus efficacement et contrôler leurs coûts.
@@ -200,7 +201,7 @@ Par défaut, **SoaJobGrowThreshold** est réglé sur 50000 et **SoaRequestsPerCo
 
     Pour plus d’informations sur **ConfigARMAutoGrowShrinkCert.ps1**, exécutez `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
-* **Pour un cluster déployé sur des machines virtuelles Azure (modèle de déploiement Classic)** : exécutez le script sur la machine virtuelle à nœud principal, car il repose sur les scripts **Start-HpcIaaSNode.ps1** et **Stop-HpcIaaSNode.ps1** qui sont installés sur cette machine. En outre, ces scripts nécessitent un certificat de gestion Azure ou un fichier de paramètres de publication (consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](hpcpack-cluster-node-manage.md)). Vérifiez que toutes les machines virtuelles à nœud de calcul dont vous avez besoin sont déjà ajoutées au cluster. Elles peuvent être à l’état Arrêté.
+* **Pour un cluster déployé sur des machines virtuelles Azure (modèle de déploiement Classic)**  : exécutez le script sur la machine virtuelle à nœud principal, car il repose sur les scripts **Start-HpcIaaSNode.ps1** et **Stop-HpcIaaSNode.ps1** qui sont installés sur cette machine. En outre, ces scripts nécessitent un certificat de gestion Azure ou un fichier de paramètres de publication (consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](hpcpack-cluster-node-manage.md)). Vérifiez que toutes les machines virtuelles à nœud de calcul dont vous avez besoin sont déjà ajoutées au cluster. Elles peuvent être à l’état Arrêté.
 
 
 

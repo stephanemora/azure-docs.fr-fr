@@ -1,24 +1,25 @@
 ---
-title: "Connecter des applications à Azure Database pour MySQL"
-description: "Ce document répertorie les chaînes de connexion actuellement prises en charge pour les applications qui se connectent à Azure Database pour MySQL, notamment ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python et Ruby."
+title: Connecter des applications à Azure Database pour MySQL
+description: Ce document répertorie les chaînes de connexion actuellement prises en charge pour les applications qui se connectent à la base de données Azure pour MySQL, notamment ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python et Ruby.
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 083c6850151340ba8cb307a237f489e5923761a5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265681"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Connexion d’applications à Azure Database pour MySQL
 Cette rubrique répertorie les types de chaînes de connexion pris en charge par Azure Database pour MySQL, ainsi que des modèles et des exemples. Vous pouvez avoir des paramètres et des réglages différents dans votre chaîne de connexion.
 
-- Pour obtenir le certificat, consultez [Guide pratique pour configurer SSL](./howto-configure-ssl.md).
+- Pour obtenir le certificat, consultez [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à la base de données Azure pour MySQL](./howto-configure-ssl.md).
 - {votre_hôte} = <servername>.mysql.database.azure.com
 - {votre_utilisateur}@{nomserveur} = format ID utilisateur pour une authentification correcte.  Si vous utilisez uniquement l’ID utilisateur, l’authentification échoue.
 

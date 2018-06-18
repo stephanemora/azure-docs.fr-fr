@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207993"
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Sécurisation des communications pour les services dans Azure Service Fabric
 > [!div class="op_single_selector"]

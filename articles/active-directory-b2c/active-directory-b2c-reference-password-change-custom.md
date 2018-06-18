@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : changement de mot de passe libre-service | Microsoft Docs'
-description: Rubrique montrant comment configurer un changement de mot de passe libre-service pour vos consommateurs dans Azure Active Directory B2C
+title: Changer le mot de passe en libre service dans Azure Active Directory B2C | Microsoft Docs
+description: Cette rubrique montre comment configurer un changement de mot de passe en libre-service pour vos clients dans Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: davidmu
-ms.openlocfilehash: 4c54abe8c3375b49b786c7849c7e963e5849fa3a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 5474f469c6271a0c1348004664ead8b190de08c7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709136"
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C : Configurer la modification du mot de passe dans des stratégies personnalisées  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

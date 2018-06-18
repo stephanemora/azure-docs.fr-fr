@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4d483f045a8e778953ddb578dd7bb81fdb05fdf2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292406"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer pour provisionner et annuler le provisionnement automatiquement de comptes utilisateur d’Azure Active Directory (Azure AD) vers Pingboard.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -43,7 +43,7 @@ Azure AD utilise un concept appelé « affectations » pour déterminer les ut
 
 Avant de configurer et d’activer le service de provisionnement, vous devez déterminer quels utilisateurs dans Azure AD ont besoin d’accéder à votre application Pingboard. Vous pouvez ensuite affecter ces utilisateurs à votre application Pingboard en suivant les instructions fournies ici :
 
-[Affecter un utilisateur à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
+[Affecter un utilisateur à une application d’entreprise](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Conseils importants pour l’affectation d’utilisateurs à Pingboard
 
@@ -100,6 +100,6 @@ Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](active-directory-saas-pingboard-tutorial.md)

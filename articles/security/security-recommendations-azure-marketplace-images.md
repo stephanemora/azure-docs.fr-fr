@@ -1,11 +1,11 @@
 ---
-title: "Recommandations de sécurité pour les images Place de marché Microsoft Azure | Microsoft Docs"
-description: "Cet article fournit des recommandations pour les images incluses sur la Place de marché"
+title: Recommandations de sécurité pour les images Place de marché Microsoft Azure | Microsoft Docs
+description: Cet article fournit des recommandations pour les images incluses sur la Place de marché
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23465404"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recommandations de sécurité pour les images Place de marché Microsoft Azure
 

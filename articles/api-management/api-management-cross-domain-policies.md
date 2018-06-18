@@ -1,11 +1,11 @@
 ---
-title: "Stratégies inter-domaines dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez les stratégies inter-domaines disponibles dans Gestion des API Azure."
+title: Stratégies inter-domaines dans Gestion des API Azure | Microsoft Docs
+description: Découvrez les stratégies inter-domaines disponibles dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129032"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  

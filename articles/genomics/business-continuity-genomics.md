@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426434"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Vue d’ensemble de la continuité d’activité avec Microsoft Genomics
 Cette vue d’ensemble décrit les fonctionnalités de Microsoft Genomics en matière de continuité d’activité et de récupération d’urgence. En savoir plus sur les options de récupération après des événements d’interruption, comme la panne d’une région Azure, pouvant entraîner des pertes de données. 

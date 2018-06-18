@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776285"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des utilisateurs spécifiques d’une application Android à l’aide de Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]

@@ -1,8 +1,8 @@
 ---
-title: "Créer votre première fonction à l’aide d’Azure CLI | Microsoft Docs"
-description: "Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide d’Azure CLI."
+title: Créer votre première fonction à l’aide d’Azure CLI | Microsoft Docs
+description: Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide d’Azure CLI.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118769"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Créer votre première fonction à l’aide d’Azure CLI
 

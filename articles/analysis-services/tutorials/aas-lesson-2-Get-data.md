@@ -3,16 +3,17 @@ title: 'Leçon 2 du didacticiel Azure Analysis Services : Obtenir des données |
 description: Explique comment obtenir et importer des données dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: be3368b5207669d7cc5b03e7eeb6953b757c786d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d66b3f303ab4e19ee645be8768512a451454769b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596972"
 ---
 # <a name="get-data"></a>Obtention des données
 
@@ -25,8 +26,7 @@ L’option Obtenir des données vous permet d’importer des données à partir 
   
 Durée estimée pour suivre cette leçon : **10 minutes**  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Créer une connexion  

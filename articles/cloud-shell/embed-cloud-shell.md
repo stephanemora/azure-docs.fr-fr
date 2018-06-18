@@ -1,12 +1,12 @@
 ---
 title: Incorporer Azure Cloud Shell | Microsoft Docs
-description: "Découvrez comment incorporer Azure Cloud Shell."
+description: Découvrez comment incorporer Azure Cloud Shell.
 services: cloud-shell
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27864882"
 ---
 # <a name="embed-azure-cloud-shell"></a>Incorporer Azure Cloud Shell
 
@@ -54,6 +55,6 @@ Définissez une expérience Cloud Shell spécifique en augmentant votre URL.
 |Bash                       |shell.azure.com/bash       |
 |PowerShell                 |shell.azure.com/powershell |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md)<br>
 [Démarrage rapide de PowerShell dans Cloud Shell](quickstart-powershell.md)

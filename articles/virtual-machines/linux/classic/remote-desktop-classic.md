@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30238611"
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure.
 > [!IMPORTANT] 

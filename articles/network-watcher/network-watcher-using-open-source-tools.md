@@ -1,11 +1,11 @@
 ---
-title: "Visualiser les modèles de trafic réseau à l’aide d’Azure Network Watcher et d’outils open source | Microsoft Docs"
-description: "Cette page explique comment utiliser la capture de paquets Network Watcher avec Capanalysis pour visualiser les modèles de trafic depuis et vers les machines virtuelles."
+title: Visualiser les modèles de trafic réseau à l’aide d’Azure Network Watcher et d’outils open source | Microsoft Docs
+description: Cette page explique comment utiliser la capture de paquets Network Watcher avec Capanalysis pour visualiser les modèles de trafic depuis et vers les machines virtuelles.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036394"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
 

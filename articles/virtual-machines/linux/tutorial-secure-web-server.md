@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32313356"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Didacticiel : sécuriser un serveur web sur une machine virtuelle Linux dans Azure avec les certificats SSL stockés dans Key Vault
 Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure Sockets Layer) et chiffrer ainsi le trafic web. Ces certificats SSL peuvent être stockés dans Azure Key Vault et autoriser des déploiements sécurisés de certificats sur des machines virtuelles Linux dans Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :

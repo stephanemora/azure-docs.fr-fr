@@ -1,11 +1,11 @@
 ---
-title: "Connecter un réseau virtuel à plusieurs sites en utilisant une passerelle VPN et PowerShell : Classic | Microsoft Docs"
-description: "Connectez plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN."
+title: 'Connecter un réseau virtuel à plusieurs sites en utilisant une passerelle VPN et PowerShell : Classic | Microsoft Docs'
+description: Connectez plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399370"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
@@ -206,6 +207,6 @@ L’exemple renvoie :
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).

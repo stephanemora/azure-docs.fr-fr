@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7dc4af39a659a9c3c910c835265886b79ad5cf62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5787f944211c5dd6c0c83e7dc10170d8a0cd9a23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616608"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +42,6 @@ Plus précisément, ce connecteur Amazon Redshift prend en charge la récupérat
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Si vous copiez des données vers une banque de données locale à l’aide du [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md), accordez au runtime d’intégration (en utilisant l’adresse IP de l’ordinateur) l’accès au cluster Amazon Redshift. Pour davantage d’instructions, consultez la rubrique [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autoriser l’accès au cluster).
 * Si vous copiez des données vers une banque de données Azure, consultez la page [Plages IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour connaître les plages d’adresses IP de calcul et SQL utilisées par les centres de données Azure.
 
@@ -58,7 +58,7 @@ Les propriétés prises en charge pour le service lié Amazon Redshift sont les 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **AmazonRedshift** | OUI |
-| server |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
+| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non, la valeur par défaut est 5439 |
 | database |Nom de la base de données Amazon Redshift. |OUI |
 | username |Nom d’utilisateur ayant accès à la base de données. |OUI |

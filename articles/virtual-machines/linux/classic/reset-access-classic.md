@@ -21,6 +21,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071508"
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Réinitialiser un mot de passe de machine virtuelle Linux ou une clé SSH, corriger la configuration SSH et vérifier la cohérence des disques à l’aide de l’extension VMAccess
 Si vous ne pouvez pas vous connecter à une machine virtuelle Linux sur Azure en raison d'un mot de passe oublié, d'une clé SSH (Secure Shell) incorrecte ou d'un problème lié à la configuration SSH, utilisez l'extension VMAccessForLinux avec l'interface de ligne de commande Azure pour réinitialiser le mot de passe ou la clé SSH, corriger la configuration SSH et vérifier la cohérence des disques. 

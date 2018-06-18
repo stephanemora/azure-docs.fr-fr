@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30266136"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
 ## <a name="overview"></a>Vue d'ensemble
@@ -683,7 +684,7 @@ En outre, vous n’avez pas besoin d’utiliser ASP.NET ou le suivi `System.Diag
 Pour plus d'informations sur l'analyse des journaux de serveur Web, consultez les ressources suivantes :
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Un outil pour afficher les données des journaux de serveur Web (fichiers*.log* ).
+  Un outil pour afficher les données des journaux de serveur Web (fichiers *.log* ).
 * [Dépannage des problèmes de performances IIS ou des erreurs d’application à l’aide de LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Une introduction à l'outil LogParser que vous pouvez utiliser pour analyser les journaux de serveur Web.
 * [Billets du blog de Robert McMurray sur l’utilisation de LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

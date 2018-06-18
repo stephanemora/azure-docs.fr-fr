@@ -1,7 +1,7 @@
 ---
-title: "Appel téléphonique à partir de Twilio (Java) | Microsoft Docs"
-description: "Apprenez à passer un appel téléphonique à partir d'une page web à l'aide de Twilio dans une application Java sur Azure."
-services: 
+title: Appel téléphonique à partir de Twilio (Java) | Microsoft Docs
+description: Apprenez à passer un appel téléphonique à partir d'une page web à l'aide de Twilio dans une application Java sur Azure.
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039624"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Exécution d'un appel téléphonique à l'aide de Twilio dans une application Java sur Azure
 L'exemple qui suit montre comment utiliser Twilio pour passer un appel depuis une page Web hébergée sur Azure. L'application finale demande à l'utilisateur les valeurs de l'appel téléphonique, comme illustré dans la capture d'écran qui suit.

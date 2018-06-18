@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33940708"
 abstract:
   description: Découvrez comment diffuser des vidéos en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 sections:

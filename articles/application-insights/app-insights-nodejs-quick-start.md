@@ -1,8 +1,8 @@
 ---
-title: "Démarrage rapide avec Azure Application Insights | Microsoft Docs"
-description: "Fournit des instructions permettant de configurer rapidement une application web Node.js pour l’analyse avec Application Insights."
+title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
+description: Fournit des instructions permettant de configurer rapidement une application web Node.js pour l’analyse avec Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386535"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Démarrer l’analyse de votre application web Node.js
 
@@ -22,7 +23,7 @@ Azure Application Insights vous permet d’analyser facilement la disponibilité
 
 Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit de développement logiciel (SDK) Application Insights version 0.22 pour Node.js dans une application web Node.js existante.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -132,7 +133,7 @@ Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les did
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Rechercher et diagnostiquer des problèmes de performances](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

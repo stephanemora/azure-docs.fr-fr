@@ -1,11 +1,11 @@
 ---
-title: "Mise à jour d’un service cloud | Microsoft Docs"
-description: "Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité."
+title: Mise à jour d’un service cloud | Microsoft Docs
+description: Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860669"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400841"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Installer une application publiée : CDAP (Cask Data Application Platform)
 
@@ -44,7 +45,7 @@ L’exemple suivant montre un pipeline de données qui reçoit des données Twit
 
 ![Pipeline CDAP](./media/hdinsight-apps-install-cask/pipeline.png)
 
-Ce pipeline complet est construit à l’aide de l**’interface utilisateur Cask Hydrator**, en utilisant son interface plug-in et sa fonctionnalité de glisser-déposer pour établir des connexions entre les différentes étapes. Vous pouvez isoler et modifier les fonctionnalités de chaque plug-in de manière indépendante. À l’aide de CDAP, des pipelines similaires peuvent être générés et validés en quelques heures. Dans l’environnement Hadoop classique, la construction de telles solutions peut prendre plusieurs jours.
+Ce pipeline complet est construit à l’aide de l **’interface utilisateur Cask Hydrator**, en utilisant son interface plug-in et sa fonctionnalité de glisser-déposer pour établir des connexions entre les différentes étapes. Vous pouvez isoler et modifier les fonctionnalités de chaque plug-in de manière indépendante. À l’aide de CDAP, des pipelines similaires peuvent être générés et validés en quelques heures. Dans l’environnement Hadoop classique, la construction de telles solutions peut prendre plusieurs jours.
 
 CDAP fournit également une extension appelée [Cask Tracker](http://cask.co/products/tracker/) pour suivre visuellement les données à mesure qu’elles transitent par l’application. Cask Tracker ajoute une *gouvernance des données* au système afin que les ressources de données soient gérées de manière formelle dans toute l’application. Vous pouvez suivre le lignage de chaque point de données, collecter des mesures pertinentes et effectuer l’audit des données tout au long du processus.
 

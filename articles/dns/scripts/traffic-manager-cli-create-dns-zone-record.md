@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32773125"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemple de script Azure CLI : créer une zone et un enregistrement DNS
 

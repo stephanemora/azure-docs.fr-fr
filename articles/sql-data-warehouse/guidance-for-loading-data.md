@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 48b0f0300ab563e8388c9e99f4f90cd24c56678d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701516"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Meilleures pratiques de chargement de données dans Azure SQL Data Warehouse
 Recommandations et optimisation des performances pour le chargement de données dans Azure SQL Data Warehouse. 
@@ -68,7 +69,7 @@ Par exemple, les schémas de base de données schema_A pour le service A et sche
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
-```   
+```
 
 user_A et user_B ne doivent maintenant plus avoir accès au schéma de l’autre service.
 
@@ -121,15 +122,15 @@ Exemple :
 
 Une clé d’origine est créée
 
-    ```sql
-    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-    ``` 
+```sql
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+``` 
 
 Passer de la clé 1 à la clé 2
 
-    ```sq;
-    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
-    ```
+```sql
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+```
 
 Aucune autre modification des sources de données externes sous-jacentes n’est nécessaire.
 

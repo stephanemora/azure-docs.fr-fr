@@ -1,8 +1,8 @@
 ---
-title: "Champs personnalisés dans Azure Log Analytics | Microsoft Docs"
-description: "La fonction Champs personnalisés de Log Analytics vous permet de créer vos propres champs autorisant les recherches, à partir des données Log Analytics qui s’ajoutent aux propriétés d’un enregistrement collecté.  Cet article décrit la création d’un champ personnalisé et fournit une procédure détaillée avec un exemple d’événement."
+title: Champs personnalisés dans Azure Log Analytics | Microsoft Docs
+description: La fonction Champs personnalisés de Log Analytics vous permet de créer vos propres champs autorisant les recherches, à partir des données Log Analytics qui s’ajoutent aux propriétés d’un enregistrement collecté.  Cet article décrit la création d’un champ personnalisé et fournit une procédure détaillée avec un exemple d’événement.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030692"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Champs personnalisés dans Log Analytics
 La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
@@ -137,7 +138,7 @@ Nous pouvons maintenant utiliser le champ personnalisé comme n’importe quelle
 
 ![Regrouper par requête](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 * Surveillez les [fichiers journaux personnalisés](log-analytics-data-sources-custom-logs.md) que vous analysez à l’aide de champs personnalisés.
 

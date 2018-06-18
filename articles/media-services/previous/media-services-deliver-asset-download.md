@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782798"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Fourniture d’un élément multimédia par téléchargement
 Cet article présente les options disponibles pour fournir des éléments multimédias chargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Après l’encodage, téléchargez les éléments multimédias générés ou accédez-y à l’aide d’un localisateur de diffusion en continu. Pour améliorer les performances et l’évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN).

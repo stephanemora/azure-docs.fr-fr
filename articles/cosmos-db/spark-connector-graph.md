@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPop Gremlin | Microsoft Docs'
 description: Cet article présente les instructions de configuration et d’exécution des analyses graphiques et du calcul parallèle dans Azure Cosmos DB avec Spark et TinkerPop SparkGraphComputer.
 services: cosmosdb
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: gremlin
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: sngun
-ms.openlocfilehash: f44c7d432ac9c07daf9b99dd922f1dcd5de5d58e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7cc68bfabff5a3afafb89bdb6bb393480946a7a7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796037"
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPop Gremlin
 
@@ -29,7 +27,6 @@ ms.lasthandoff: 04/06/2018
 En associant Azure Cosmos DB et Spark, vous pouvez exécuter des charges de travail OLTP et OLAP lorsque vous utilisez Gremlin. Cet article de démarrage rapide montre comment exécuter des requêtes Gremlin dans Azure Cosmos DB sur un cluster Azure HDInsight Spark.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
 * Cluster Azure HDInsight Spark 2.0

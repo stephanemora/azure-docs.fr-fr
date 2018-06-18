@@ -1,11 +1,11 @@
 ---
-title: "Afficher et gérer les alertes Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit les conditions et la gravité des alertes StorSimple Virtual Array et comment utiliser le service StorSimple Manager pour gérer les alertes."
+title: Afficher et gérer les alertes Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+description: Décrit les conditions et la gravité des alertes StorSimple Virtual Array et comment utiliser le service StorSimple Manager pour gérer les alertes.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27786405"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
@@ -164,7 +165,7 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 |:--- |:--- |:--- |
 | Le mot de passe pour <*nom de l’appareil*> expirera dans <*nombre*> jours. |Avertissement de mot de passe. |Votre mot de passe expire dans <nombre> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
 

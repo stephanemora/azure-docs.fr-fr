@@ -1,24 +1,20 @@
 ---
 title: Charger des fichiers sur Azure IoT Hub à partir d’appareils en Java | Microsoft Docs
 description: Guide pratique pour charger des fichiers sur le cloud à partir d’un appareil avec Azure IoT device SDK pour Java. Les fichiers téléchargés sont stockés dans un conteneur d’objets blob de stockage Azure.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 794ebd3b2d25f6b7d5dcb86b0834380fce9b9a27
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807575"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -29,7 +25,7 @@ Ce didacticiel s’appuie sur le code du didacticiel [Envoyer des messages du cl
 - Fournissez en toute sécurité à un appareil un URI d’objet blob Azure pour le chargement d’un fichier.
 - Utilisez les notifications de chargement de fichier IoT Hub pour déclencher le traitement du fichier dans votre serveur principal d’application.
 
-Les didacticiels [Bien démarrer avec IoT Hub](iot-hub-java-java-getstarted.md) et [Envoyer des messages du cloud vers un appareil avec IoT Hub](iot-hub-java-java-c2d.md) illustrent les fonctionnalités de base de la messagerie d’un appareil vers le cloud et du cloud vers un appareil offertes par IoT Hub. Le didacticiel [Traiter les messages appareil-à-cloud](iot-hub-java-java-process-d2c.md) décrit un moyen de stocker en toute fiabilité les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
+Les didacticiels [Bien démarrer avec IoT Hub](iot-hub-java-java-getstarted.md) et [Envoyer des messages du cloud vers un appareil avec IoT Hub](iot-hub-java-java-c2d.md) illustrent les fonctionnalités de base de la messagerie d’un appareil vers le cloud et du cloud vers un appareil offertes par IoT Hub. Le didacticiel [Traiter les messages appareil-à-cloud](tutorial-routing.md) décrit un moyen de stocker en toute fiabilité les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
 
 * Fichiers volumineux qui contiennent des images
 * vidéos

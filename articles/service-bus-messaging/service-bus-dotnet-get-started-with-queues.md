@@ -1,11 +1,11 @@
 ---
-title: "Prise en main des files d’attente Azure Service Bus | Microsoft Docs"
-description: "Écrire une application console C# qui utilise les files d’attente de messagerie Service Bus."
+title: Prise en main des files d’attente Azure Service Bus | Microsoft Docs
+description: Écrire une application console C# qui utilise les files d’attente de messagerie Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26642458"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 

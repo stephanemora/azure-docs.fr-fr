@@ -1,19 +1,19 @@
 ---
 title: Présentation du runtime Azure IoT Edge | Microsoft Docs
 description: En savoir plus sur le runtime Azure IoT Edge et les fonctionnalités qu’il procure à vos appareils Edge.
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632072"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Présentation du runtime Azure IoT Edge et de son architecture - préversion
 
@@ -118,7 +118,7 @@ L’agent IoT Edge joue un rôle essentiel dans la sécurité d’un appareil Io
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation des modules Azure IoT Edge][lnk-modules]
 

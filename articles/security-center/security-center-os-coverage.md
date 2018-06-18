@@ -1,11 +1,11 @@
 ---
 title: Plateformes prises en charge dans Azure Security Center | Microsoft Docs
-description: "Ce document fournit une liste des systèmes d’exploitation Windows et Linux pris en charge dans Azure Security Center."
+description: Ce document fournit une liste des systèmes d’exploitation Windows et Linux pris en charge dans Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756899"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plateformes prises en charge dans Azure Security Center
 La surveillance de l’état de la sécurité et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des modèles de déploiement classique et Resource Manager, ainsi que des ordinateurs.
@@ -59,6 +60,6 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception
-- [Alertes de sécurité par type dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) : en savoir plus sur l’analytique comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center
+- [Alertes de sécurité par type dans Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) : en savoir plus sur l’analytique comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure

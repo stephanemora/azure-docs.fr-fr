@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 928d29da4388372ccc3721c4bcccba5d2bbf5c48
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9760144630cfce03471b3ae8fa4487e0392bfa7b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839671"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -36,7 +38,6 @@ Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cl
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
 2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 

@@ -15,21 +15,15 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7bf08849cd03a77095ffe717c8387d79d1961b06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: baaa53b04f608e2cb3546fcac6a6eb4eda4d3c4b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640752"
 ---
 # <a name="quickstart-create-a-aspnet-web-app-with-redis-cache"></a>Démarrage rapide : Créer une application web ASP.NET avec le Cache Redis
 
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.JS](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
->
 
 ## <a name="introduction"></a>Introduction
 
@@ -37,16 +31,15 @@ Ce guide de démarrage rapide explique comment créer et déployer une applicati
 
 ![Test simple terminé dans Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide, vous devez disposer des éléments suivants :
 
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     * Développement web et ASP.NET
     * Développement Azure
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 
@@ -323,7 +316,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions relatives à cette rubrique utilisaient un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
 
 ![Supprimer](./media/cache-web-app-howto/cache-delete-resource-group.png)
 

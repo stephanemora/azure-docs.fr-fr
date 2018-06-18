@@ -1,12 +1,12 @@
 ---
-title: "Intégrer Azure Automation à Event Grid | Microsoft Docs"
-description: "Découvrez comment ajouter automatiquement une balise lors de la création d’une nouvelle machine virtuelle et envoyer une notification à Microsoft Teams."
+title: Intégrer Azure Automation à Event Grid | Microsoft Docs
+description: Découvrez comment ajouter automatiquement une balise lors de la création d’une nouvelle machine virtuelle et envoyer une notification à Microsoft Teams.
 keywords: automation, runbook, teams, event grid, machine virtuelle, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349067"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Intégrer Azure Automation à Event Grid et Microsoft Teams
 

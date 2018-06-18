@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b18fa2879056600cfc9c6a85afc599e2695af711
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6f3259170a1b3fe0bbd33899a74863f5e71a49f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618451"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
@@ -67,7 +68,6 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 - Les tâches risquent d’échouer dans un runtime d’intégration auto-hébergé installé sur un serveur Windows sur lequel le chiffrement compatible FIPS est activé. Pour contourner ce problème, désactivez le chiffrement compatible FIPS sur le serveur. Pour désactiver le chiffrement compatible FIPS, modifiez la valeur de registre suivante de 1 (activé) à 0 (désactivé) : `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Les versions de **système d’exploitation** prises en charge sont Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016. L’installation du runtime d’intégration autohébergé sur un **contrôleur de domaine n’est pas prise en charge**.
 - **.NET Framework 4.6.1 ou version ultérieure** est requis. Si vous installez un runtime d’intégration autohébergé sur un ordinateur Windows 7, installez .NET Framework 4.6.1 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.

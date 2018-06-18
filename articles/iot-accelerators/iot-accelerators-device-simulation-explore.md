@@ -1,22 +1,19 @@
 ---
 title: Prise en main de la solution de simulation d’appareil - Azure | Microsoft Docs
 description: La solution de simulation d’accélérateur de solution IoT Suite est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. Le service de simulation constitue une offre autonome, que vous pouvez utiliser avec d’autres accélérateurs de solution ou avec vos propres solutions personnalisées.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627123"
 ---
 # <a name="device-simulation-walkthrough"></a>Présentation de la simulation d’appareil
 
@@ -39,7 +36,7 @@ Si vous n’avez pas encore déployé la simulation d’appareil, vous devez sui
 
 ## <a name="configuring-device-simulation"></a>Configuration de la simulation d’appareil
 
-Vous pouvez configurer et exécuter la simulation d’appareil intégralement à partir du tableau de bord. Ouvrez le tableau de bord dans la page [Solutions approvisionnées](https://www.azureiotsuite.com/) de l’accélérateur de solution IoT. Cliquez sur **Lancer** sous votre nouveau déploiement de simulation d’appareil.
+Vous pouvez configurer et exécuter la simulation d’appareil intégralement à partir du tableau de bord. Ouvrez le tableau de bord dans la page [Solutions approvisionnées](https://www.azureiotsolutions.com/) de l’accélérateur de solution IoT. Cliquez sur **Lancer** sous votre nouveau déploiement de simulation d’appareil.
 
 ### <a name="target-iot-hub"></a>IoT Hub cible
 

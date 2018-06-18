@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921422"
 ---
 1. Sur la page **Paramètres** de votre réseau virtuel, accédez à la section **Serveurs DNS** et cliquez dessus pour ouvrir la page **correspondante**.
 

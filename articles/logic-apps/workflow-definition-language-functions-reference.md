@@ -3,7 +3,7 @@ title: Fonctions du langage de définition du flux de travail - Azure Logic Apps
 description: En savoir plus sur les fonctions de création d’applications logiques avec le langage de définition de flux de travail
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886610"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301386"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Informations de référence des fonctions du langage de définition du flux de travail pour Azure Logic Apps
 

@@ -2,25 +2,22 @@
 title: Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous utiliserez l’API SQL Azure Cosmos DB et le portail Azure pour créer une application web .NET
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: a9f33cb87149575af4549a6e4da793852b7d18ba
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f4391ebde6c7c7775c7c916de206ddb398bde1ef
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359371"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795429"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure
 
@@ -31,7 +28,6 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 ![Application To-Do avec des exemples de données](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 

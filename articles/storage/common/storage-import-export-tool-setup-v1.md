@@ -1,11 +1,11 @@
 ---
-title: "Configuration de l’outil Azure Import-Export v1 | Microsoft Docs"
-description: "Découvrez comment configurer l’outil de préparation et de réparation de disques pour le service Azure Import/Export. Cela s’applique à la version v1 de l’outil d’importation/exportation."
+title: Configuration de l’outil Azure Import-Export v1 | Microsoft Docs
+description: Découvrez comment configurer l’outil de préparation et de réparation de disques pour le service Azure Import/Export. Cela s’applique à la version v1 de l’outil d’importation/exportation.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059784"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configuration de l’outil Azure Import/Export
 L’outil Microsoft Azure Import/Export est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Vous pouvez utiliser l’outil pour les fonctions suivantes :  

@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649150"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 Les tâches de base de données élastique (préversion) pour Azure SQL Database vous permettent d’exécuter, de manière efficace, des scripts T-SQL qui s’étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement final. Pour plus d’informations sur la fonctionnalité Tâches de base de données élastique, voir [Travaux élastiques](sql-database-elastic-jobs-overview.md).
@@ -21,7 +22,6 @@ Les tâches de base de données élastique (préversion) pour Azure SQL Database
 Cet article développe l’exemple présenté dans [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). Il explique comment créer et gérer des tâches qui gèrent un groupe de bases de données associées. Il n’est pas nécessaire d’utiliser les outils de mise à l’échelle élastique pour tirer parti des avantages des tâches élastiques.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205125"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitations de Service Fabric Cluster Resource Manager
 Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple, il peut y avoir des défaillances de nœud et de domaine d’erreur simultanées. Que se passe-t-il alors si cela se produit pendant une mise à niveau ? Le Gestionnaire de ressources de cluster essaie de résoudre tous les problèmes en utilisant des ressources du cluster pour tenter de réparer et réorganiser le cluster. Les limitations servent de filet de sécurité afin que le cluster puisse utiliser des ressources pour se stabiliser. Les nœuds reviennent, les partitions réseau sont réparées et les bits corrigés sont déployés.

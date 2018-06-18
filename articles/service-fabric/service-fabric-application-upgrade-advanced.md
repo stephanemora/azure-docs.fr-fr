@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212321"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau d’une application Service Fabric : rubriques avancées
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Ajout ou suppression de types de services pendant la mise à niveau d’une application

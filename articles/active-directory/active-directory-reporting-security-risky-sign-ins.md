@@ -1,8 +1,8 @@
 ---
-title: "Rapport de connexions risquées dans le portail Azure Active Directory | Microsoft Docs"
-description: "En savoir plus sur le rapport des connexions risquées dans le portail Azure Active Directory"
+title: Rapport de connexions risquées dans le portail Azure Active Directory | Microsoft Docs
+description: En savoir plus sur le rapport des connexions risquées dans le portail Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: rolyon
 manager: mtillman
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -10,14 +10,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 11/14/2017
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 542a111ea5227db727deeac9c56b9f4b4a9f694c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 16b0f9fd240f393c23bc33ac0c9f5d024c3cb42e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589421"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
@@ -60,7 +62,7 @@ La version gratuite et la version de base d’Azure Active Directory proposent
 - **État** : état de la connexion.
 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/01.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
 Selon votre analyse de la connexion à risque, vous pouvez envoyer des commentaires à Azure Active Directory par l’intermédiaire des actions suivantes :
 
@@ -69,7 +71,7 @@ Selon votre analyse de la connexion à risque, vous pouvez envoyer des commentai
 - Ignorer
 - Réactiver
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/21.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Pour en savoir plus, voir [Fermeture manuelle des événements à risque](active-directory-identityprotection.md#closing-risk-events-manually).
 
@@ -79,7 +81,7 @@ Ce rapport fournit une option permettant de :
 - Télécharger les données du rapport
 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/93.png)
 
 
 ## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
@@ -91,7 +93,7 @@ Le rapport des connexions risquées dans les éditions Premium d’Azure Active 
 - Une option pour télécharger le rapport
 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/456.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/456.png)
 
 
 Lorsque vous sélectionnez un événement à risque, vous obtenez une vue de rapport détaillé pour cet événement à risque qui vous permet d’effectuer les opérations suivantes :
@@ -105,7 +107,7 @@ Lorsque vous sélectionnez un événement à risque, vous obtenez une vue de rap
 - [Fermer manuellement les événements à risque](active-directory-identityprotection.md#closing-risk-events-manually) ou réactiver un événement à risque fermé manuellement. 
 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/457.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/457.png)
 
 Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport détaillé pour cet utilisateur qui vous permet d’effectuer les opérations suivantes :
 
@@ -118,14 +120,14 @@ Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport déta
 - Analysez les événements à risque signalés pour l’utilisateur. 
 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/324.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/324.png)
 
 
 Pour analyser un événement à risque, sélectionnez-en un dans la liste.  
 Cette opération ouvre le panneau **Détails** pour cet événement à risque. Dans le panneau **Détails**, vous avez le choix entre [fermer manuelle un événement à risque](active-directory-identityprotection.md#closing-risk-events-manually) ou réactiver un événement à risque fermé manuellement. 
 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/325.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/325.png)
 
 
 

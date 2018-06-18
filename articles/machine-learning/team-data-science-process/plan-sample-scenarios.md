@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a194061bf443f50bed673a518ab62746f67b4a78
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838157"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scénarios d’analyses avancées dans Azure Machine Learning
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus [TDSP (Team Data Science Process)](overview.md). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.

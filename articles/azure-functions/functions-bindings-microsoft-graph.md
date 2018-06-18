@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 2de80760484ae1869b340898ea1e5f740fbc2883
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3b9a7d998e7153318b21adcada7c143b428e591f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724772"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -39,7 +40,7 @@ L’extension Microsoft Graph fournit les liaisons suivantes :
 
 La liaison d’entrée du jeton d’authentification est fournie dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/). Les autres liaisons Microsoft Graph sont fournies dans le package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/). Le code source du package se trouve dans le référentiel GitHub [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/).
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Configuration des extensions
 
@@ -214,7 +215,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison d’entrée de jeton d’authentification à partir du code](#token-input-code).|
 |**type**||Obligatoire : doit être défini sur `token`.|
 |**direction**||Obligatoire : doit être défini sur `in`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**Ressource**|**resource**|Obligatoire : URL de la ressource Azure AD pour laquelle le jeton est demandé.|
@@ -347,7 +348,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le tableau Excel. Voir [Utilisation d’une liaison d’entrée de tableau Excel à partir du code](#excel-input-code).|
 |**type**||Obligatoire : doit être défini sur `excel`.|
 |**direction**||Obligatoire : doit être défini sur `in`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
@@ -507,7 +508,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison de sortie de tableau Excel à partir du code](#excel-output-code).|
 |**type**||Obligatoire : doit être défini sur `excel`.|
 |**direction**||Obligatoire : doit être défini sur `out`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**UserId** |**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
@@ -651,7 +652,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison d’entrée de fichier OneDrive à partir du code](#onedrive-input-code).|
 |**type**||Obligatoire : doit être défini sur `onedrive`.|
 |**direction**||Obligatoire : doit être défini sur `in`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au fichier sur OneDrive.|
@@ -796,7 +797,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison de sortie de fichier OneDrive à partir du code](#onedrive-output-code).|
 |**type**||Obligatoire : doit être défini sur `onedrive`.|
 |**direction**||Obligatoire : doit être défini sur `out`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**UserId** |**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au fichier sur OneDrive.|
@@ -945,7 +946,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
 |**type**||Obligatoire : doit être défini sur `outlook`.|
 |**direction**||Obligatoire : doit être défini sur `out`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 
@@ -1377,7 +1378,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
 |**type**||Obligatoire : doit être défini sur `graphWebhookSubscription`.|
 |**direction**||Obligatoire : doit être défini sur `out`.|
-|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [Déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
 |**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
 |**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**action**|**Action**|Obligatoire : spécifie l’action que la liaison doit effectuer. Peut être l’une des valeurs suivantes :<ul><li><code>create</code> : inscrit un nouvel abonnement.</li><li><code>delete</code> : supprime un abonnement spécifié.</li><li><code>refresh</code> : actualise un abonnement spécifié pour empêcher son expiration.</li></ul>|
@@ -1575,5 +1576,5 @@ public class UserSubscription {
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
 
-[déclencheur HTTP]: functions-bindings-http-webhook.md
+[Déclencheur HTTP]: functions-bindings-http-webhook.md
 [Utilisation de webhooks dans Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

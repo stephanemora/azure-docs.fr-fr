@@ -1,11 +1,11 @@
 ---
-title: "Ressources du modèle Gestion des API Azure | Microsoft Docs"
-description: "Découvrez les types de ressources utilisables dans les modèles du portail des développeurs dans la Gestion des API Azure."
+title: Ressources du modèle Gestion des API Azure | Microsoft Docs
+description: Découvrez les types de ressources utilisables dans les modèles du portail des développeurs dans la Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22983784"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  

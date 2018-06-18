@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235017"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Activation du chiffrement pour le compte de stockage Azure dans Azure Security Center | Microsoft Docs
 Azure Security Center peut vous recommander d’activer le chiffrement du service Azure Storage pour les données au repos.

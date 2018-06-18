@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896419"
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Exigences de chiffrement pour les environnements conformes à la norme PCI DSS 
 ## <a name="pci-dss-requirement-4"></a>Condition 4 de la norme PCI DSS

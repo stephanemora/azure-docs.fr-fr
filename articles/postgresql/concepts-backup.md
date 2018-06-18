@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693047"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL
 
@@ -75,7 +76,7 @@ Après une restauration à l’aide d’un de ces mécanismes de récupération,
 - Assurez-vous que les connexions et les autorisations appropriées au niveau de la base de données sont en place
 - Configurer les alertes, selon les besoins
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour en savoir plus sur la continuité d’activité, consultez la  [vue d’ensemble de la continuité d’activité](concepts-business-continuity.md).
 - Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).

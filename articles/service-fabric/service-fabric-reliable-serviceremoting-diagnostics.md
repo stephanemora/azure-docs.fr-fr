@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206417"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostics et surveillance des performances pour Reliable Service Remoting
 Le runtime Reliable Service Remoting émet des [compteur de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Ils fournissent des informations sur le fonctionnement du runtime Service Remoting et permettent de résoudre les problèmes et de surveiller les performances.

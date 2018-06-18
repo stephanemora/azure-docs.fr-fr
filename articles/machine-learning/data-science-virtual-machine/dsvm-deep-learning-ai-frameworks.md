@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160748"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 

@@ -1,8 +1,8 @@
 ---
-title: "Dépannage d’Analytics dans Azure Application Insights | Microsoft Docs"
-description: "Des problèmes avec Application Insights Analytics ? Démarrer ici. "
+title: Dépannage d’Analytics dans Azure Application Insights | Microsoft Docs
+description: 'Des problèmes avec Application Insights Analytics ? Démarrer ici. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -10,21 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294157"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Dépannage d’Analytics dans Application Insights
 Des problèmes avec [Application Insights Analytics](app-insights-analytics.md)? Démarrer ici. Analytics est le puissant outil de recherche d’Azure Application Insights.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 * Les résultats de requête sont actuellement limités à une seule semaine de données d’historique.
-* Navigateurs que nous testons : dernières versions d’Internet Explorer, Chrome et Microsoft Edge.
+* Navigateurs que nous testons : dernières versions d’Internet Explorer, Chrome et Edge.
 
 ## <a name="known-incompatible-browser-extensions"></a>Extensions du navigateur incompatibles connues
 * Ghostery

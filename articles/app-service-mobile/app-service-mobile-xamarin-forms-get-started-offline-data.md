@@ -1,10 +1,10 @@
 ---
 title: Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Xamarin.Forms) | Microsoft Docs
-description: "Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Xamarin.Forms"
+description: Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Xamarin.Forms
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594715"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Activer la synchronisation hors connexion pour votre application mobile Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

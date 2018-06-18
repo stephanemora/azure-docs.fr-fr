@@ -1,6 +1,6 @@
 ---
-title: "Créer un écouteur de groupe de disponibilité SQL Server dans des machines virtuelles Azure | Microsoft Docs"
-description: "Instructions pas à pas pour la création d’un écouteur pour un groupe de disponibilité AlwaysOn pour SQL Server dans des machines virtuelles Azure"
+title: Créer un écouteur de groupe de disponibilité SQL Server dans des machines virtuelles Azure | Microsoft Docs
+description: Instructions pas à pas pour la création d’un écouteur pour un groupe de disponibilité AlwaysOn pour SQL Server dans des machines virtuelles Azure
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400628"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurer un équilibreur de charge pour un groupe de disponibilité AlwaysOn dans Azure
 Cet article explique comment créer un équilibreur de charge pour un groupe de disponibilité SQL Server AlwaysOn dans des machines virtuelles Azure s’exécutant avec Azure Resource Manager. Un groupe de disponibilité nécessite un équilibreur de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chaque région a besoin d’un équilibreur de charge.
@@ -298,6 +299,6 @@ Si un groupe de disponibilité participe à un groupe de disponibilité distribu
 
 Répétez ces étapes pour l’équilibrage de charge sur les autres groupes de disponibilité qui participent aux groupes de disponibilité distribués.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Configurer un groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure dans des régions différentes](virtual-machines-windows-portal-sql-availability-group-dr.md)

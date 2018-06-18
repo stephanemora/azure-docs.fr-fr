@@ -2,10 +2,10 @@
 title: Exemple de script Azure PowerShell - Supprimer une sauvegarde pour une application web | Microsoft Docs
 description: Exemple de script Azure PowerShell - Supprimer une sauvegarde pour une application web
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
 ms.service: app-service-web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23644393"
 ---
 # <a name="delete-a-backup-for-a-web-app"></a>Supprimer une sauvegarde pour une application web
 

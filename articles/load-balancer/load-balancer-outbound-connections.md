@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361945"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824997"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -141,7 +141,7 @@ Un nombre identique de ports SNAT est préalloué pour UDP et TCP respectivement
 >[!IMPORTANT]
 >La programmation SKU SNAT standard s’effectue par protocole de transport IP et est dérivée de la règle d’équilibrage de charge.  Si seulement une règle d’équilibrage de charge TCP existe, SNAT est disponible exclusivement pour TCP. Si vous posséder uniquement une règle d’équilibrage de charge TCP et avez besoin d’une instance SNAT sortante pour UDP, créez une règle d’équilibrage de charge UDP du même pool frontal vers le même pool principal.  Cette opération déclenchera la programmation SNAT pour UDP.  Aucune règle de travail ou sonde d’intégrité ne sont requises.  La programmation SKU SNAT de base programme toujours SNAT pour les 2 protocoles de transport IP, indépendamment du protocole de transport spécifié dans la règle d’équilibrage de charge.
 
-Azure préaffecte des ports de traduction d’adresses réseau sources à la configuration IP de la carte d’interface réseau de chaque machine virtuelle. Quand une configuration IP est ajoutée au pool, les ports de traduction d’adresses réseau sources sont préaffectés pour cette configuration IP en fonction de la taille du pool principal. Au moment où les flux sortants sont créés, la [traduction d’adresse de port](#pat) consomme (jusqu’à la limite préaffectée) et libère dynamiquement ces ports quand le flux se ferme ou en cas de [délais d’inactivité](#ideltimeout).
+Azure préaffecte des ports de traduction d’adresses réseau sources à la configuration IP de la carte d’interface réseau de chaque machine virtuelle. Quand une configuration IP est ajoutée au pool, les ports de traduction d’adresses réseau sources sont préaffectés pour cette configuration IP en fonction de la taille du pool principal. Au moment où les flux sortants sont créés, la [traduction d’adresse de port](#pat) consomme (jusqu’à la limite préaffectée) et libère dynamiquement ces ports quand le flux se ferme ou en cas de [délais d’inactivité](#idletimeout).
 
 Le tableau suivant présente les préaffectations de ports SNAT pour les différents niveaux de tailles de pool backend :
 
@@ -244,7 +244,7 @@ Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrit
 
 ## <a name="limitations"></a>Limites
 - DisableOutboundSnat n’est pas disponible en tant qu’option lors de la configuration d’une règle d’équilibrage de charge dans le portail.  Utilisez les outils REST, modèle ou client à la place.
-- Les rôles de travail web sans un réseau virtuel et d’autres services Microsoft peuvent être accessibles lorsque seul un équilibreur de charge standard interne est utilisé en raison d’un effet secondaire du fonctionnement des services de pre-réseau virtuel et des services d’autres plateformes. Vous ne devez pas compter sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peut changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
+- Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Vous ne devez pas compter sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peut changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

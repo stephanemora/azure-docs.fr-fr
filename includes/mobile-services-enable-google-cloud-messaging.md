@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33836526"
 ---
 1. Accédez à la [Console Google Cloud](https://console.developers.google.com/cloud-resource-manager)et connectez-vous avec les informations d’identification de votre compte Google. 
 2. Sélectionnez **Create Project** dans la barre d’outils. 

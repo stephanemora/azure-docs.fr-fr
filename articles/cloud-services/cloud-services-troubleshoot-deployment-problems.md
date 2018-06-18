@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes de déploiement de service cloud | Microsoft Docs"
-description: "Vous pouvez rencontrer quelques problèmes courants lors du déploiement d’un service cloud sur Azure. Cet article fournit des solutions pour certains d’entre eux."
+title: Résoudre les problèmes de déploiement de service cloud | Microsoft Docs
+description: Vous pouvez rencontrer quelques problèmes courants lors du déploiement d’un service cloud sur Azure. Cet article fournit des solutions pour certains d’entre eux.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26408177"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
 Lorsque vous déployez un package d’application de service cloud sur Azure, vous pouvez obtenir des informations concernant le déploiement dans le volet **Propriétés** du portail Azure. Vous pouvez utiliser les détails figurant dans ce volet pour faciliter la résolution des problèmes du service cloud, et vous pouvez fournir ces informations au support Azure lors de l’ouverture d’une nouvelle demande de support.

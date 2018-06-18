@@ -1,11 +1,11 @@
 ---
-title: "Interruption d’entités de messagerie Azure Service Bus | Microsoft Docs"
-description: "Interrompre et réactiver des entités de messagerie Azure Service Bus."
+title: Interruption d’entités de messagerie Azure Service Bus | Microsoft Docs
+description: Interrompre et réactiver des entités de messagerie Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197024"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Interrompre et réactiver des entités de messagerie (désactiver)
 
@@ -54,7 +55,7 @@ $q.Status = "Disabled"
 Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

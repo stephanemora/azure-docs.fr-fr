@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29688120"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Exemples Azure CLI pour base de données pour PostgreSQL 
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour PostgreSQL.

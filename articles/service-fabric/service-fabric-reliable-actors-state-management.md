@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206196"
 ---
 # <a name="reliable-actors-state-management"></a>Gestion des états de Reliable Actors
 Reliable Actors désignent des objets monothread capables d’encapsuler la logique et l’état. Étant donné que les acteurs s’exécutent sur Reliable Services, ils peuvent conserver leur état de façon fiable à l’aide des mêmes mécanismes de persistance et de réplication. De cette façon, les acteurs ne perdent pas leur état après des incidents, après une réactivation consécutive à un nettoyage de la mémoire, ou encore après leur déplacement entre des nœuds d’un cluster dans le cadre d’un équilibrage des ressources ou de mises à niveau.

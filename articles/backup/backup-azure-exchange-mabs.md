@@ -1,29 +1,24 @@
 ---
-title: "Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure | Microsoft Docs"
-description: "Découvrez comment sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure."
+title: Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
+description: Découvrez comment sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure.
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: e46557e8-2eaf-4ee0-99ea-00fbb8687dca
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d64c273a189b1fe2337c4430b156874e0adf54b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605958"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Avant de continuer, assurez-vous que le serveur de sauvegarde Azure est [installé et prêt](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="mabs-protection-agent"></a>Agent de protection du serveur de sauvegarde Azure
@@ -73,10 +68,10 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
 11. Vérifiez l’espace disque disponible, puis cliquez sur **Suivant**.
 12. Sélectionnez l’heure à laquelle le serveur de sauvegarde Azure doit créer la réplication initiale, puis cliquez sur **Suivant**.
 13. Sélectionnez les options de vérification de cohérence, puis cliquez sur **Suivant**.
-14. Choisissez la base de données que vous souhaitez sauvegarder sur Azure, puis cliquez sur **Suivant**. Par exemple :
+14. Choisissez la base de données que vous souhaitez sauvegarder sur Azure, puis cliquez sur **Suivant**. Par exemple : 
 
     ![Spécifier les données de protection en ligne](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Définissez la planification pour **Azure Backup**, puis cliquez sur **Suivant**. Par exemple :
+15. Définissez la planification pour **Azure Backup**, puis cliquez sur **Suivant**. Par exemple : 
 
     ![Spécifier la planification de sauvegarde en ligne](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

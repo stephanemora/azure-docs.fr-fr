@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault - Utilisation de la suppression réversible avec l’interface CLI"
-description: "Exemples d’utilisation de la suppression réversible avec extraits de code CLI"
+ms.assetid: ''
+title: Azure Key Vault - Utilisation de la suppression réversible avec l’interface CLI
+description: Exemples d’utilisation de la suppression réversible avec extraits de code CLI
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927972"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -22,7 +23,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Azure CLI 2.0 - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0](key-vault-manage-with-cli2.md).
 

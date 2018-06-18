@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30247373"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Que sont les groupes de machines virtuelles identiques ?
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles identiques et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée un grand nombre de machines virtuelles. Avec les groupes identiques de machines virtuelles, vous pouvez créer des services à grande échelle pour des zones telles que le calcul, Big Data et des charges de travail de conteneur.

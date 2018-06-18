@@ -1,12 +1,12 @@
 ---
-title: "Remplacer un lecteur de disque sur un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Explique comment remplacer un lecteur de disque sur un boîtier principal ou EBOD StorSimple."
+title: Remplacer un lecteur de disque sur un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Explique comment remplacer un lecteur de disque sur un boîtier principal ou EBOD StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108317"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Remplacer un lecteur de disque sur votre appareil de la gamme StorSimple 8000
 

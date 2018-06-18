@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0267296348821ee94dfa90b0b58c517ff7d79697
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cccbf8d74af7cd15a834899110a19c5c2823cb9f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618223"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +41,6 @@ Plus précisément, ce connecteur Sybase prend en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour utiliser ce connecteur Sybase, vous devez :
 
 - Configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
@@ -59,7 +59,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Sybase :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Sybase**. | OUI |
-| server | Nom du serveur Sybase. |OUI |
+| serveur | Nom du serveur Sybase. |OUI |
 | database | Nom de la base de données Sybase. |OUI |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Sybase.<br/>Les valeurs autorisées sont **De base** et **Windows**. |OUI |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Sybase. |OUI |

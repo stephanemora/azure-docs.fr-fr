@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195503"
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Authentification des Runbooks avec le déploiement Azure Classic et Resource Manager
 Cet article décrit les étapes à effectuer pour configurer un compte d’utilisateur Azure AD pour les runbooks Azure Automation en cours d’exécution sur des ressources du modèle de déploiement Azure Classic ou Azure Resource Manager. Même si cette procédure est toujours prise en charge comme identité d’authentification pour vos Runbooks Azure Resource Manager, il est recommandé d’utiliser un compte d’identification Azure.       

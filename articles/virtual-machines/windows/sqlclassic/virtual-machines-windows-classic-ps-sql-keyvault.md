@@ -1,11 +1,11 @@
 ---
-title: "Intégrer Key Vault à SQL Server sur des machines virtuelles Windows dans Azure (Classic) | Microsoft Docs"
-description: "Apprenez à automatiser la configuration du chiffrement de SQL Server pour une utilisation avec Azure Key Vault. Cette rubrique explique comment utiliser l’intégration Azure Key Vault avec des machines virtuelles SQL Server créées avec un modèle de déploiement classique."
+title: Intégrer Key Vault à SQL Server sur des machines virtuelles Windows dans Azure (Classic) | Microsoft Docs
+description: Apprenez à automatiser la configuration du chiffrement de SQL Server pour une utilisation avec Azure Key Vault. Cette rubrique explique comment utiliser l’intégration Azure Key Vault avec des machines virtuelles SQL Server créées avec un modèle de déploiement classique.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399727"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurer Azure Key Vault Integration pour SQL Server sur des machines virtuelles Azure (Classic)
 > [!div class="op_single_selector"]

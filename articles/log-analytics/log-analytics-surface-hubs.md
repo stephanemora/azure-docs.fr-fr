@@ -1,11 +1,11 @@
 ---
-title: "Surveiller les Surface Hubs avec Azure Log Analytics | Microsoft Docs"
-description: "La solution Surface Hub permet de suivre l’intégrité de vos Surface Hubs et de comprendre comment ils sont utilisés."
+title: Surveiller les Surface Hubs avec Azure Log Analytics | Microsoft Docs
+description: La solution Surface Hub permet de suivre l’intégrité de vos Surface Hubs et de comprendre comment ils sont utilisés.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179223"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surveiller les Surface Hubs avec Log Analytics pour suivre leur intégrité
 
@@ -85,6 +86,6 @@ L’analyse de vos Surface Hubs à l’aide de Log Analytics est très similaire
 
 Vous pouvez créer des [alertes](log-analytics-alerts.md) basées sur des recherches de journal existantes ou personnalisées. En utilisant les données que Log Analytics collecte à partir de vos Surface Hubs, vous pouvez rechercher des problèmes et générer des alertes sur les conditions que vous définissez pour vos appareils.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utiliser des [recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées de Surface Hub.
 * Créer des [alertes](log-analytics-alerts.md) pour être averti en cas de problèmes avec vos Surface Hubs.

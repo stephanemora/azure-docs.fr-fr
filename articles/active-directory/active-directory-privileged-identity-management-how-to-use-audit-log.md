@@ -3,21 +3,22 @@ title: Comment utiliser le journal d’audit dans Azure AD Privileged Identity M
 description: Découvrez comment utiliser le journal d’audit dans l’extension Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 02/14/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20fd9c5ee90947cc2d3816a0590d4780408baa2f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 05a70874367d578beee1dc605510f9370b6abd42
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232990"
 ---
 # <a name="using-the-audit-log-in-pim"></a>Utilisation du journal d’audit dans PIM
 Vous pouvez utiliser le journal d’audit Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](active-directory-view-access-usage-reports.md)

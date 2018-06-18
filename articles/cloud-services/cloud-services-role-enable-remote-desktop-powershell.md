@@ -1,11 +1,11 @@
 ---
-title: "Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell"
-description: "Configuration de l’application de service cloud Azure à l’aide de PowerShell pour autoriser les connexions Bureau à distance"
+title: Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
+description: Configuration de l’application de service cloud Azure à l’aide de PowerShell pour autoriser les connexions Bureau à distance
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874138"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
 

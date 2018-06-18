@@ -13,14 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850625"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Qu’est-ce que le Kit de développement Azure Stack ?
 Les [systèmes intégrés Microsoft Azure Stack](.\.\azure-stack-poc.md) présentent une taille comprise entre 4 et 12 nœuds et sont pris en charge conjointement par un fournisseur de matériel partenaire et Microsoft. Utilisez des systèmes intégrés Azure Stack pour autoriser de nouveaux scénarios pour vos charges de travail de production. Si vous êtes un opérateur Azure Stack gérant l’infrastructure de systèmes intégrés et proposant des offres, consultez la [documentation destinée à l’opérateur](https://docs.microsoft.com/azure/azure-stack).
@@ -79,4 +80,4 @@ Azure Stack continuera à prendre en charge de nouveaux services Azure. Pour en 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour démarrer l’évaluation d’Azure Stack, vous devez préparer l’ordinateur serveur hôte du Kit de développement, puis [installer l’ASDK](asdk-deploy.md). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
+Pour démarrer l’évaluation d’Azure Stack, vous devez préparer l’ordinateur serveur hôte du Kit de développement, puis [installer l’ASDK](asdk-install.md). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.

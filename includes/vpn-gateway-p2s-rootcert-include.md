@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197042"
 ---
 Vous pouvez utiliser un certificat racine qui a été généré à l’aide d’une solution d’entreprise (recommandée), ou vous pouvez générer un certificat auto-signé. Après avoir créé le certificat racine, exportez les données de certificat public (et non la clé privée) sous la forme d’un fichier .cer X.509 encodé en base 64, puis chargez les données de certificat public dans Azure.
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603383"
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gérer les ressources Azure sur le portail
 
@@ -130,5 +131,5 @@ La suppression d’un groupe de ressources supprime toutes les ressources qu’i
 * Pour plus d’informations sur le déploiement, consultez la page [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour déployer des ressources via le portail, voir [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md).
 * Pour gérer l’accès aux ressources, voir [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
+* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

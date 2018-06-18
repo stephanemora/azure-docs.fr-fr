@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072349"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux
 

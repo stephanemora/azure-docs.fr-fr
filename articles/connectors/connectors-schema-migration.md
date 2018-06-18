@@ -1,11 +1,11 @@
 ---
-title: "Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015 | Microsoft Docs"
-description: "Vous pouvez facilement migrer vos applications logiques vers la dernière version du schéma. Suivez simplement cette procédure."
+title: Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015 | Microsoft Docs
+description: Vous pouvez facilement migrer vos applications logiques vers la dernière version du schéma. Suivez simplement cette procédure.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707122"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015
 Pour migrer vos applications logiques existantes vers le nouveau schéma, procédez comme suit :  

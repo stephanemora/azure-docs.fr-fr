@@ -1,12 +1,12 @@
 ---
-title: "Métadonnées d’informations sur l’appareil dans la solution de surveillance à distance | Microsoft Docs"
-description: "Description de la solution préconfigurée de surveillance à distance Azure IoT et de son architecture"
-services: 
+title: Métadonnées d’informations sur l’appareil dans la solution de surveillance à distance | Microsoft Docs
+description: Description de la solution préconfigurée de surveillance à distance Azure IoT et de son architecture
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 5ada9413b1bb0923df96cfd93c3a0a875e80dd28
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636094"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance
 
@@ -32,10 +33,10 @@ La solution préconfigurée de surveillance à distance Azure IoT Suite montre u
 
 La solution préconfigurée de surveillance à distance utilise [Azure IoT Hub][lnk-iot-hub] pour permettre à vos appareils d’envoyer des données vers le cloud. La solution stocke des informations sur les appareils dans trois emplacements différents :
 
-| Emplacement | Informations stockées | Implémentation |
+| Lieu | Informations stockées | Implémentation |
 | -------- | ------------------ | -------------- |
 | Registre des identités | ID de l’appareil, clés d’authentification, état Activé | Intégré à IoT Hub |
-| Représentations d’appareil physique | Métadonnées : propriétés signalées, propriétés souhaitées, balises | Intégré à IoT Hub |
+| Jumeaux d’appareil | Métadonnées : propriétés signalées, propriétés souhaitées, balises | Intégré à IoT Hub |
 | Cosmos DB | Historique des commandes et méthodes | Personnalisé pour la solution |
 
 IoT Hub inclut un [registre des identités des appareils][lnk-identity-registry] pour gérer l’accès à un IoT Hub et utilise des [jumeaux d’appareil][lnk-device-twin] pour gérer les métadonnées de l’appareil. Il inclut également un *registre des appareils* spécifique à la solution de surveillance à distance qui stocke l’historique des commandes et méthodes. La solution de surveillance à distance utilise une base de données [Cosmos DB][lnk-docdb] afin d’implémenter un magasin personnalisé pour l’historique des commandes et méthodes.
@@ -129,6 +130,6 @@ Maintenant que vous savez comment personnaliser les solutions préconfigurées, 
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dynamic-telemetry]: iot-suite-v1-dynamic-telemetry.md
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md

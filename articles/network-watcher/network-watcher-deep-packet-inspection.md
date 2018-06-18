@@ -1,11 +1,11 @@
 ---
 title: Inspection de paquets avec Azure Network Watcher | Microsoft Docs
-description: "Cet article explique comment utiliser Network Watcher pour effectuer une inspection approfondie des paquets collectés à partir d’une machine virtuelle"
+description: Cet article explique comment utiliser Network Watcher pour effectuer une inspection approfondie des paquets collectés à partir d’une machine virtuelle
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036334"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspection de paquets avec Azure Network Watcher
 

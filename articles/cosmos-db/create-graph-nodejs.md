@@ -2,23 +2,21 @@
 title: Créer une application Node.js Azure Cosmos DB à l’aide de l’API Graph | Microsoft Docs
 description: Cet article présente un exemple de code Node.js que vous pouvez utiliser pour vous connecter à Azure Cosmos DB, et pour interroger les données.
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 66b12b25787fc029b1f20b78cac578b7cc18c9b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7cd652231b461236510a1a4fc35734afdb06e501
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798149"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB : Créer une application Node.js à l’aide de l’API Graph
 
@@ -27,7 +25,6 @@ Azure Cosmos DB est le service de base de données multi-modèle distribué mo
 Ce guide de démarrage rapide explique comment créer un compte, une base de données et un graphique [API Graph](graph-introduction.md) Azure Cosmos DB à l’aide du portail Azure. Par la suite, vous allez créer et exécuter une application console en utilisant le pilote [Gremlin Node.js](https://www.npmjs.com/package/gremlin) open-source.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
 * [Node.js](https://nodejs.org/en/) version 0.10.29 ou supérieure

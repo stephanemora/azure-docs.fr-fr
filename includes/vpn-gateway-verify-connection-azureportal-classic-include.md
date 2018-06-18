@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196899"
 ---
 Dans le portail Azure, vous pouvez afficher l’état de la connexion pour une passerelle VPN de réseau virtuel classique en accédant à cette dernière. Les étapes suivantes montrent un moyen d’accéder à votre connexion pour la vérifier.
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27740099"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 

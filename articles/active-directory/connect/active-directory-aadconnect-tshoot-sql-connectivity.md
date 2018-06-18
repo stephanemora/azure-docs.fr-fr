@@ -11,13 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a8b105d7a374e281e46064f83a6e103c2a7cf84f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ad1e5d176caff6553159c5f35fe2b199ba50769f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166519"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592379"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité SQL liés à Azure AD Connect
 Cet article explique comment résoudre les problèmes de connectivité entre Azure AD Connect et SQL Server. 
@@ -39,7 +40,7 @@ Ou installez [Modules PowerShell PackageManagement Preview - Mars 2016 pour Pow
 
 - **Afficher toutes les commandes** : `Get-Command -Module AdSyncTools` 
 - **Exécutez la fonction powershell** : `Connect-ADSyncDatabase` avec les paramètres suivants
-    - Server. Nom du serveur SQL Server.
+    - Serveur. Nom du serveur SQL Server.
     - Instance. (Facultatif) Nom de l’instance de SQL Server et éventuellement le numéro de port que vous souhaitez utiliser. Pour utiliser l’instance par défaut, ne spécifiez pas ce paramètre.
     - UserName. (Facultatif) Compte d’utilisateur avec lequel se connecter. Si ce champ est vide, l’utilisateur actuellement connecté est utilisé. Si vous vous connectez à un serveur SQL distant, il doit s’agir du compte de service personnalisé que vous avez créé pour la connectivité SQL Azure ADConnect. Azure AD Connect utilise le compte de service de synchronisation Azure AD Connect pour s’authentifier auprès d’un serveur SQL distant.
     - Password. (Facultatif) Mot de passe pour le nom d’utilisateur fourni.

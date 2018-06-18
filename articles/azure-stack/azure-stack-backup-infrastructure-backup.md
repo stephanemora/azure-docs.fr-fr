@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34822953"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup
 
@@ -53,7 +54,7 @@ Le service contient les fonctionnalités suivantes.
 - **Informations d'identification**  
   Vous avez besoin d’un compte d’utilisateur de domaine et d’informations d’identification : par exemple, vous pouvez utiliser les informations d’identification de l’administrateur d’Azure Stack.
 - **Clé de chiffrement**  
-  Les fichiers de sauvegarde sont chiffrés avec cette clé. Pensez à stocker cette clé à un emplacement sécurisé. Une fois que vous avez défini cette clé pour la première fois ou que vous procédez ultérieurement à une rotation de la clé, vous ne pouvez pas voir cette clé à partir de cette interface. Pour obtenir plus d’instructions pour générer une clé prépartagée, suivez les scripts dans [Activer la sauvegarde d’Azure Stack avec PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Les fichiers de sauvegarde sont chiffrés avec cette clé. Pensez à stocker cette clé à un emplacement sécurisé. Une fois que vous avez défini cette clé pour la première fois ou que vous procédez ultérieurement à une rotation de la clé, vous ne pouvez pas voir cette clé à partir de cette interface. Pour obtenir plus d’instructions pour générer une clé prépartagée, suivez les scripts dans [Activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

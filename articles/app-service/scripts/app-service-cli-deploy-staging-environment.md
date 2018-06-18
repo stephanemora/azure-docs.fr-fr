@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30280903"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Créer une application web et déployer du code dans un environnement intermédiaire
 

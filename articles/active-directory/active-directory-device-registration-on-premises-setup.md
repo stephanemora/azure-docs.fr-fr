@@ -21,6 +21,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764204"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.

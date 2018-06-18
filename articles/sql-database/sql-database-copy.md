@@ -8,12 +8,13 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.topic: article
-ms.openlocfilehash: 6b594c81f86a87e3b50b487f523cf4699c97365a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.topic: conceptual
+ms.openlocfilehash: 2217df046cf95ddcd12f6dcaa41b2c3f8b0090f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646199"
 ---
 # <a name="copy-an-azure-sql-database"></a>Copie d'une base de données SQL Azure
 
@@ -27,7 +28,7 @@ La copie de la base de données est une capture instantanée de la base de donn�
 
 Lorsque vous copiez une base de données sur le même serveur logique, les mêmes connexions peuvent être utilisées sur les deux bases de données. L'élément principal de sécurité que vous utilisez pour copier la base de données devient le propriétaire de la base de données sur la nouvelle base de données. Tous les utilisateurs de la base de données, leurs autorisations et leurs identificateurs de sécurité (SID) sont copiés vers la copie de base de données.  
 
-Lorsque vous copiez une base de données vers un autre serveur logique, le principal de sécurité sur le nouveau serveur devient le propriétaire de la base de données sur la nouvelle base de données. Si vous utilisez des [utilisateurs de base de données à relation contenant-contenu](sql-database-manage-logins.md) pour accéder aux données, vérifiez que les bases de données primaire et secondaire ont toujours les mêmes informations d’identification utilisateur afin de pouvoir y accéder immédiatement avec les mêmes informations d’identification, une fois la copie terminée. 
+Lorsque vous copiez une base de données vers un autre serveur logique, le principal de sécurité sur le nouveau serveur devient le propriétaire de la base de données sur la nouvelle base de données. Si vous utilisez des [utilisateurs de base de données autonome](sql-database-manage-logins.md) pour accéder aux données, vérifiez que les bases de données primaire et secondaire ont toujours les mêmes informations d’identification utilisateur afin de pouvoir y accéder immédiatement avec les mêmes informations d’identification, une fois la copie terminée. 
 
 Si vous utilisez [Azure Active Directory](../active-directory/active-directory-whatis.md), vous n’avez plus du tout besoin de gérer les informations d’identification dans la copie. Toutefois, lorsque vous copiez la base de données sur un nouveau serveur, l’accès par connexion peut ne pas fonctionner, car ces connexions n’existent pas sur le nouveau serveur. Pour en savoir plus sur la gestion des connexions durant la copie d’une base de données vers un autre serveur logique, consultez la page [Gestion de la sécurité d’une base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md). 
 

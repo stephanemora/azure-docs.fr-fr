@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401130"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Prise en main avec un bac à sable Hadoop, un émulateur sur une machine virtuelle
 

@@ -1,8 +1,8 @@
 ---
 title: Migrer un Nom DNS actif vers Azure App Service | Microsoft Docs
-description: "Découvrez comment migrer sans temps d’arrêt vers Azure App Service un nom de domaine personnalisé déjà affecté à un site actif."
+description: Découvrez comment migrer sans temps d’arrêt vers Azure App Service un nom de domaine personnalisé déjà affecté à un site actif.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566489"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
@@ -122,7 +123,7 @@ Enregistrez vos paramètres.
 
 Les requêtes DNS doivent commencer à trouver votre application App Service immédiatement après la propagation DNS.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment lier un certificat SSL personnalisé à App Service.
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b71ad5701cfd1f8a274318c69d3464cf4fa34708
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621086"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -231,7 +232,7 @@ La fenêtre Propriétés se trouve dans le volet situé tout à droite de l’ap
 Elle affiche les propriétés de l’élément que vous avez sélectionné dans l’Explorateur de ressources (arborescence), la vue schématique ou la liste des fenêtres d’activité.
 
 ### <a name="activity-window-explorer"></a>Explorateur de fenêtres d’activité
-L**’Explorateur de fenêtres d’activité** se trouve dans le volet situé tout à droite de l’application de surveillance et gestion. Il affiche des détails sur la fenêtre d’activité que vous avez sélectionnée dans la fenêtre contextuelle ou la liste des fenêtres d’activité.
+L **’Explorateur de fenêtres d’activité** se trouve dans le volet situé tout à droite de l’application de surveillance et gestion. Il affiche des détails sur la fenêtre d’activité que vous avez sélectionnée dans la fenêtre contextuelle ou la liste des fenêtres d’activité.
 
 ![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 

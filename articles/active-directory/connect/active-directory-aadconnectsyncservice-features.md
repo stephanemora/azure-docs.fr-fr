@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150343"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593169"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composants :

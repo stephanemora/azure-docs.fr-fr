@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157315"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Étendues, autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 Les applications intégrées à Azure Active Directory (Azure AD) suivent un modèle d’autorisation, qui permet aux utilisateurs de contrôler le mode d’accès d’une application à leurs données. L’implémentation v2.0 de ce modèle d’autorisation a été mise à jour, et elle modifie la façon dont une application doit interagir avec Azure AD. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.

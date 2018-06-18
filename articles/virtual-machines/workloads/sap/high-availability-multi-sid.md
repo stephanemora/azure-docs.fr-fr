@@ -4,7 +4,7 @@ description: Guide de configuration de haute disponibilité pour SAP NetWeaver m
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61ae121f641e0056ca5992df11fe796925dc6d1d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ad37a9e6cc13ef8bd805fe025806d37d17a857c2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656327"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Créer une configuration SAP NetWeaver multi-SID
 
@@ -454,7 +455,6 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 > Cette fonctionnalité est disponible uniquement dans le modèle de déploiement Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Vous avez déjà configuré un cluster WSFC qui est utilisé pour une instance SAP ASCS/SCS, comme indiqué dans le [Guide de haute disponibilité SAP NetWeaver sur machines virtuelles Windows][sap-ha-guide] et comme illustré dans ce diagramme.
 
 ![Instance SAP ASCS/SCS à haute disponibilité][sap-ha-guide-figure-6001]

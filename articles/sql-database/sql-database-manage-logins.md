@@ -7,14 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8529256313d8e3cb3b7155bb1b79764c17274397
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649803"
 ---
 # <a name="controlling-and-granting-database-access"></a>Contrôle et octroi de l’accès à la base de données
 
@@ -70,7 +71,7 @@ Pour une procédure détaillée sur la création d’un serveur, d’une base de
 Outre les rôles d’administration au niveau du serveur abordés précédemment, SQL Database fournit deux rôles d’administration restreints dans la base de données MASTER. Vous pouvez y ajouter des comptes utilisateurs qui accordent des autorisations de création de bases de données ou de gestion des connexions.
 
 ### <a name="database-creators"></a>Créateurs de base de données
-L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données master, ou un utilisateur de base de données à relation contenant-contenu basé sur un utilisateur Azure Active Directory.
+L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données master, ou un utilisateur de base de données autonome basé sur un utilisateur Azure Active Directory.
 
 1. À l’aide d’un compte d’administrateur, connectez-vous à la base de données MASTER.
 2. Étape facultative : Créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) . Exemple d’instruction :
@@ -80,11 +81,11 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
    ```
    
    > [!NOTE]
-   > Utilisez un mot de passe fort au moment de la création d’une connexion ou d’un utilisateur de base de données à relation contenant-contenu. Pour plus d’informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
+   > Utilisez un mot de passe fort au moment de la création d’une connexion ou d’un utilisateur de base de données autonome. Pour plus d’informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
     
    Pour améliorer les performances, les connexions (principaux au niveau du serveur) sont temporairement mises en cache au niveau de la base de données. Pour actualiser le cache d’authentification, consultez [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Dans la base de données MASTER, créez un utilisateur à l’aide de l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données contenu de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données contenu de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Exemples d’instructions :
+3. Dans la base de données MASTER, créez un utilisateur à l’aide de l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Exemples d’instructions :
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -107,10 +108,10 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
 Désormais, l’utilisateur peut se connecter à la base de données MASTER et créer de nouvelles bases de données. Le compte qui crée la base de données devient propriétaire de cette dernière.
 
 ### <a name="login-managers"></a>Gestionnaires de connexion
-L’autre rôle d’administration est le rôle loginmanager. Les membres de ce rôle peuvent créer des connexions dans la base de données MASTER. Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base de données MASTER. Cela n’est généralement pas nécessaire, car Microsoft recommande d’avoir recours aux utilisateurs de base de données à relation contenant-contenu qui s’authentifient au niveau de la base de données plutôt qu’à des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+L’autre rôle d’administration est le rôle loginmanager. Les membres de ce rôle peuvent créer des connexions dans la base de données MASTER. Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base de données MASTER. Cela n’est généralement pas nécessaire, car Microsoft recommande d’avoir recours aux utilisateurs de base de données autonome qui s’authentifient au niveau de la base de données plutôt qu’à des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## <a name="non-administrator-users"></a>Utilisateurs non administrateurs
-En règle générale, les comptes non administrateurs n’ont pas besoin d’accéder à la base de données MASTER. Créez des utilisateurs de base de données à relation contenant-contenu dans le niveau de base de données à l’aide de l’instruction [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . L’utilisateur peut être un utilisateur de base de données contenu de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données contenu de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+En règle générale, les comptes non administrateurs n’ont pas besoin d’accéder à la base de données MASTER. Créez des utilisateurs de base de données autonome dans le niveau de base de données à l’aide de l’instruction [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 Pour créer des utilisateurs, connectez-vous à la base de données et exécutez des instructions similaires eux exemples suivants :
 
@@ -145,9 +146,9 @@ Lorsque le pare-feu du niveau de base de données est correctement configuré, l
 ## <a name="groups-and-roles"></a>Groupes et rôles
 Une gestion des accès efficace utilise les autorisations assignées aux groupes et aux rôles plutôt qu’aux utilisateurs individuels. 
 
-- Lorsque vous utilisez l’authentification Azure Active Directory, placez les utilisateurs Azure Active Directory dans un groupe Azure Active Directory. Créez un utilisateur de base de données contenu pour le groupe. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](https://msdn.microsoft.com/library/ms189121), puis attribuez des [autorisations](https://msdn.microsoft.com/library/ms191291.aspx) au rôle de base de données.
+- Lorsque vous utilisez l’authentification Azure Active Directory, placez les utilisateurs Azure Active Directory dans un groupe Azure Active Directory. Créez un utilisateur de base de données autonome pour le groupe. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](https://msdn.microsoft.com/library/ms189121), puis attribuez des [autorisations](https://msdn.microsoft.com/library/ms191291.aspx) au rôle de base de données.
 
-- Lorsque vous utilisez l’authentification SQL Server, créez des utilisateurs de base de données à relation contenant-contenu dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](https://msdn.microsoft.com/library/ms189121), puis attribuez des [autorisations](https://msdn.microsoft.com/library/ms191291.aspx) au rôle de base de données.
+- Lorsque vous utilisez l’authentification SQL Server, créez des utilisateurs de base de données autonome dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](https://msdn.microsoft.com/library/ms189121), puis attribuez des [autorisations](https://msdn.microsoft.com/library/ms191291.aspx) au rôle de base de données.
 
 Les rôles de base de données peuvent être les rôles intégrés, tels que **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** et **db_denydatareader**. **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est généralement plus que le minimum nécessaire. Il est préférable d’utiliser l’instruction [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) pour créer vos propres rôles de base de données définis par l’utilisateur et accorder soigneusement à chaque rôle les autorisations minimales nécessaires aux besoins de l’entreprise. Lorsqu’un utilisateur est membre de plusieurs rôles, toutes les autorisations sont agrégées.
 
@@ -162,7 +163,7 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 * L’utilisateur de base de données correspondant à la connexion **d’administrateur de serveur** ne peut pas être modifié ou supprimé. 
 * L’anglais américain est la langue par défaut de la connexion d’**administrateur de serveur**.
 * Seuls les administrateurs (connexion d’**administrateur de serveur** ou administrateur Azure AD) et les membres du rôle de base de données **dbmanager** dans la base de données **Master** sont autorisés à exécuter les instructions `CREATE DATABASE` et `DROP DATABASE`.
-* Vous devez être connecté à la base de données master lors de l’exécution des instructions `CREATE/ALTER/DROP LOGIN` . L’utilisation de connexions est toutefois déconseillée. Préférez l’emploi d’utilisateurs de base de données à relation contenant-contenu.
+* Vous devez être connecté à la base de données master lors de l’exécution des instructions `CREATE/ALTER/DROP LOGIN` . L’utilisation de connexions est toutefois déconseillée. Préférez l’emploi d’utilisateurs de base de données autonome.
 * Pour vous connecter à une base de données utilisateur, vous devez renseigner le nom de la base de données dans la chaîne de connexion.
 * Seule la connexion principale au niveau du serveur et les membres du rôle de base de données **loginmanager** dans la base de données **master** sont autorisés à exécuter les instructions `CREATE LOGIN`, `ALTER LOGIN` et `DROP LOGIN`.
 * Lors de l’exécution des instructions `CREATE/ALTER/DROP LOGIN` et `CREATE/ALTER/DROP DATABASE` dans une application ADO.NET, l’utilisation de commandes paramétrées est interdite. Pour plus d’informations, voir [Commandes et paramètres](https://msdn.microsoft.com/library/ms254953.aspx).

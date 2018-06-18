@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: 4a8c96bf9124feede2e5a28beb791636784dcad7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166274"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620664"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
@@ -29,7 +29,6 @@ Actuellement, tous les types d’activité, à l’exception des activités pers
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cette fonctionnalité repose sur l’identité de service de la fabrique de données. Découvrez comment cela fonctionne dans [Identité du service de fabrique de données](data-factory-service-identity.md) et vérifiez que votre fabrique de données est bien associée à une identité de service.
 

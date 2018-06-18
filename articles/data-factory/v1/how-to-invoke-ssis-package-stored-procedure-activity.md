@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 309a64c47eb95ca2ca05bb82bc1c41256305823d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9608af734d39627435a81e1d853c2546eabcdb0f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623432"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -27,8 +28,7 @@ Cet article décrit comment appeler un package SSIS à partir d’un pipeline Az
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-### <a name="azure-sql-database"></a>Base de données SQL Azure 
+### <a name="azure-sql-database"></a>Azure SQL Database 
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Créer un runtime d’intégration Azure-SSIS
@@ -162,7 +162,7 @@ La planification sur le jeu de données de sortie est définie sur « Toutes les
 
 Pour plus d’informations sur la surveillance des pipelines, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md).
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 Dans cette section, vous utilisez Azure PowerShell pour créer un pipeline Data Factory avec une activité de procédure stockée qui appelle un package SSIS.
 
 Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).

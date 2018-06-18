@@ -1,20 +1,20 @@
 ---
 title: Module SQL d’Azure IoT Edge | Microsoft Docs
 description: Stocker des données en périphérie à l’aide des modules Microsoft SQL, avec Azure Functions pour mettre les données en forme.
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: ebertrams
 ms.date: 02/21/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-edge
+ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632398"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -22,8 +22,7 @@ Utilisez les appareils Azure IoT Edge pour stocker les données générées en p
 
 Cet article fournit des instructions pour le déploiement d’une base de données SQL Server sur un appareil IoT Edge. Azure Functions, exécuté sur l’appareil IoT Edge, structure les données entrantes, puis les envoie vers la base de données. Les étapes décrites dans cet article peuvent également être appliquées aux autres bases de données qui fonctionnent dans des conteneurs, telles que MySQL ou PostgreSQL. 
 
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 
 Avant de suivre les instructions de cet article, nous vous conseillons de prendre connaissance des didacticiels suivants :
 * Déployer Azure IoT Edge sur un appareil simulé dans [Windows](tutorial-simulate-device-windows.md) ou [Linux](tutorial-simulate-device-linux.md)
@@ -96,7 +95,7 @@ Par défaut, le code de cette section crée un conteneur avec l’édition Déve
         }
    ```
 
-3. Remplacez le `<docker registry address>` par l’adresse renseignées à la fin du didacticiel [Déployer Azure Function en tant que module IoT Edge - préversion](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+3. Remplacez le `<docker registry address>` par l’adresse renseignée à la fin du didacticiel [Déployer Azure Function en tant que module IoT Edge](tutorial-deploy-function.md).
 
    >[!NOTE]
    >L’adresse du registre de conteneurs est la même que celle du serveur de connexion que vous avez copiée à partir de votre registre. Le format doit être `<your container registry name>.azurecr.io`

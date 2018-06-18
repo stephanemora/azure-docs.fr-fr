@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416487"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard pendant 60 jours. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.

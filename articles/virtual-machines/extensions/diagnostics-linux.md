@@ -9,11 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: 430d8f78a4c00c37479bc083cd565e49ccd6cbae
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8ffa9823000efbb101be73397cd0025f9933cecd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652642"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -52,7 +53,6 @@ La configuration téléchargeable est seulement un exemple. Modifiez-la selon vo
 
 ### <a name="prerequisites"></a>Prérequis
 
-
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
 * Si vous n’avez pas déjà la commande wget : exécutez `sudo apt-get install wget`.
@@ -83,7 +83,7 @@ sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" porta
 sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 
 # Build the protected settings (storage account SAS token)
-my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 9999-12-31T23:59Z --permissions wlacu --resource-types co --services bt -o tsv)
+my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finallly tell Azure to install and enable the extension

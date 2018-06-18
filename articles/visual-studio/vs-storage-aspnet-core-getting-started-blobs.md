@@ -1,11 +1,11 @@
 ---
-title: "Bien démarrer avec le Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Comment bien démarrer avec le Stockage Blob Azure dans un projet ASP.NET Core sur Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
+title: Bien démarrer avec le Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Comment bien démarrer avec le Stockage Blob Azure dans un projet ASP.NET Core sur Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621221"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -511,7 +512,7 @@ Les étapes suivantes montrent comment supprimer un objet blob :
 
 1. Exécutez l’application, puis sélectionnez **Supprimer l’objet blob** pour supprimer l’objet blob spécifié dans l’appel de méthode `CloudBlobContainer.GetBlockBlobReference`. Le texte *success!* (réussite) doit s’afficher dans le navigateur. Sélectionnez le bouton **Précédent** du navigateur, puis **Lister les objets blob** pour vérifier que l’objet blob ne se trouve plus dans le conteneur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à stocker, à lister et à récupérer des objets blob dans le Stockage Azure à l’aide d’ASP.NET Core. Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
 

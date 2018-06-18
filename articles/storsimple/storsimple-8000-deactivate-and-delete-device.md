@@ -1,12 +1,12 @@
 ---
-title: "Désactiver et supprimer un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant."
+title: Désactiver et supprimer un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108457"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
 

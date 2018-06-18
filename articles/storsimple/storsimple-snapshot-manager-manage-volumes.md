@@ -1,11 +1,11 @@
 ---
-title: "Gestionnaire d’instantanés StorSimple et volumes | Microsoft Docs"
-description: "Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour afficher et gérer des volumes, ainsi que pour configurer des sauvegardes."
+title: Gestionnaire d’instantanés StorSimple et volumes | Microsoft Docs
+description: Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour afficher et gérer des volumes, ainsi que pour configurer des sauvegardes.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111717"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
 ## <a name="overview"></a>Vue d'ensemble

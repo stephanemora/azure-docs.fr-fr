@@ -1,11 +1,11 @@
 ---
-title: "Créer et restaurer une sauvegarde dans BizTalk Services | Microsoft Docs"
-description: "BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Apprenez à créer et à restaurer une sauvegarde et à déterminer les éléments sauvegardés. MABS, WABS"
+title: Créer et restaurer une sauvegarde dans BizTalk Services | Microsoft Docs
+description: BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Apprenez à créer et à restaurer une sauvegarde et à déterminer les éléments sauvegardés. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102339"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Sauvegarde et restauration de BizTalk Services
 

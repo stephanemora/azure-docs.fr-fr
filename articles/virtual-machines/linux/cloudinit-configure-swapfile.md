@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952596"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Utiliser cloud-init pour configurer un fichier d’échange sur une machine virtuelle Linux
 Cet article vous explique comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour configurer le fichier d’échange sur diverses distributions Linux. Le fichier d’échange est généralement configuré par l’Agent Linux (WALA) en fonction des distributions qui en ont besoin.  Ce document décrit les processus de création du fichier d’échange à la demande au moment de l’approvisionnement à l’aide de cloud-init.  Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md).

@@ -1,8 +1,8 @@
 ---
-title: "Créer et utiliser une signature d’accès partagé (SAP) avec le Stockage Blob Azure | Documents Microsoft"
-description: "Ce didacticiel vous montre comment créer des signatures d’accès partagé en vue d’une utilisation avec Stockage Blob et comment les utiliser dans vos applications clientes."
+title: Créer et utiliser une signature d’accès partagé (SAP) avec le Stockage Blob Azure | Documents Microsoft
+description: Ce didacticiel vous montre comment créer des signatures d’accès partagé en vue d’une utilisation avec Stockage Blob et comment les utiliser dans vos applications clientes.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056794"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage
 
@@ -205,7 +206,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
 }
 ```
 
-À la fin de la méthode **Main()**, avant d’appeler **Console.ReadLine()**, ajoutez les lignes suivantes pour supprimer dans un premier temps toute stratégie d’accès existante, puis appeler la méthode **CreateSharedAccessPolicy()** :
+À la fin de la méthode **Main()**, avant d’appeler **Console.ReadLine()**, ajoutez les lignes suivantes pour supprimer dans un premier temps toute stratégie d’accès existante, puis appeler la méthode **CreateSharedAccessPolicy()**  :
 
 ```csharp
 //Clear any existing access policies on container.

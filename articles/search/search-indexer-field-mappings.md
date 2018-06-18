@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796846"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mappages de champs dans les indexeurs de la Recherche Azure
 Lorsque vous utilisez des indexeurs Azure Search, vous pouvez parfois vous retrouver dans des situations où vos données d'entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour transformer vos données au format souhaité.

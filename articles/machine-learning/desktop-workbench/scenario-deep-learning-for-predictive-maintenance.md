@@ -7,16 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 005470298a115a822350f345cdab6e9cafb15eda
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832599"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>L’apprentissage profond pour des scénarios réels de maintenance prédictive
 
@@ -45,7 +47,6 @@ L’hypothèse principale pour ce paramètre est la dégradation progressive du 
 Ce scénario crée un réseau avec mémoire à court et long termes pour prédire la durée de vie restante des moteurs d’avion à l’aide de valeurs des capteurs passées. Le scénario utilise la bibliothèque [Keras](https://keras.io/) avec l’infrastructure d’apprentissage profond [Tensorflow](https://www.tensorflow.org/) comme moteur de calcul. Le scénario effectue l’apprentissage du LSTM avec un ensemble de moteurs et teste le réseau sur un ensemble de moteurs invisible.
 
 ## <a name="prerequisites"></a>Prérequis
-
 - Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 - Azure Machine Learning Workbench avec un espace de travail.
 - Pour l’opérationnalisation du modèle : Azure Machine Learning Operationalization avec un environnement de déploiement local configuré et un [compte Gestion des modèles Azure Machine Learning](model-management-overview.md).

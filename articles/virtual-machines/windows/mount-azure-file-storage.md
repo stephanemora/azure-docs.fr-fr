@@ -1,15 +1,15 @@
 ---
-title: "Monter un stockage de fichiers Azure à partir d’une machine virtuelle Windows Azure | Microsoft Docs"
-description: "Stockez des fichiers dans le cloud à l’aide du stockage de fichiers Azure, puis montez le partage de fichiers cloud à partir d’une machine virtuelle Azure."
-documentationcenter: 
+title: Monter un stockage de fichiers Azure à partir d’une machine virtuelle Windows Azure | Microsoft Docs
+description: Stockez des fichiers dans le cloud à l’aide du stockage de fichiers Azure, puis montez le partage de fichiers cloud à partir d’une machine virtuelle Azure.
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577549"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Utiliser des partages de fichiers Azure avec des machines virtuelles Windows 
 
@@ -71,6 +72,6 @@ Dans cette section, nous partons du principe que vous disposez déjà d’un par
 6. Cliquez avec le bouton droit sur le fichier et choisissez **Télécharger** pour le télécharger sur votre ordinateur local.
    
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez également créer et gérer des partages de fichiers à l’aide de PowerShell. Pour plus d’informations, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../storage/files/storage-dotnet-how-to-use-files.md).

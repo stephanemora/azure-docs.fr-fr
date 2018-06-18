@@ -1,6 +1,6 @@
 ---
-title: "Gestion des sessions - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "mesures de prévention des menaces exposées dans l’outil de modélisation des menaces"
+title: Gestion des sessions - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+description: mesures de prévention des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019957"
 ---
 # <a name="security-frame-session-management--articles"></a>Infrastructure de sécurité : gestion des sessions | Articles 
 | Produit/Service | Article |

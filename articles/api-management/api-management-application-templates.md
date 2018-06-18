@@ -1,11 +1,11 @@
 ---
-title: "Modèles Application dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment personnaliser le contenu des pages Application dans le portail des développeurs dans Gestion des API Azure."
+title: Modèles Application dans Gestion des API Azure | Microsoft Docs
+description: Découvrez comment personnaliser le contenu des pages Application dans le portail des développeurs dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22982634"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modèles Application dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  

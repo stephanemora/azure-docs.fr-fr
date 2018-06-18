@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205888"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Vérifier l’utilisation des services gratuits inclus avec votre compte gratuit Azure 
 

@@ -1,13 +1,13 @@
 ---
-title: "Ajouter une passerelle de réseau virtuel à un réseau virtuel pour ExpressRoute : portail Azure | Microsoft Docs"
-description: "Cet article vous explique comment ajouter une passerelle de réseau virtuel à un réseau virtuel Resource Manager déjà créé pour ExpressRoute."
+title: 'Ajouter une passerelle de réseau virtuel à un réseau virtuel pour ExpressRoute : portail Azure | Microsoft Docs'
+description: Cet article vous explique comment ajouter une passerelle de réseau virtuel à un réseau virtuel Resource Manager déjà créé pour ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013264"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
 > [!div class="op_single_selector"]

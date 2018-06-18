@@ -1,11 +1,11 @@
 ---
-title: "Introduction au niveau Premium du Cache Redis Azure | Microsoft Docs"
-description: "Découvrez comment créer et gérer la persistance et le clustering Redis, ainsi que la prise de charge VNET pour vos instances de Cache Redis Azure de niveau Premium."
+title: Introduction au niveau Premium du Cache Redis Azure | Microsoft Docs
+description: Découvrez comment créer et gérer la persistance et le clustering Redis, ainsi que la prise de charge VNET pour vos instances de Cache Redis Azure de niveau Premium.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911201"
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introduction au niveau Premium du Cache Redis Azure
 le Cache Redis Azure est un cache distribué et géré qui vous permet de développer des applications hautement évolutives et réactives en fournissant un accès ultra-rapide aux données. 
@@ -93,7 +94,7 @@ Pour plus d’informations, consultez [Comment configurer la géoréplication po
 ## <a name="to-scale-to-the-premium-tier"></a>Mise à l’échelle au niveau premium
 Pour configurer le niveau premium, il suffit de choisir l’un des niveaux premium dans le panneau **Changer le niveau tarifaire** . Vous pouvez également mettre votre cache à l’échelle au niveau premium à l’aide de PowerShell et de l’interface de ligne de commande. Pour obtenir des instructions détaillées, consultez [Mise à l’échelle du Cache Redis Azure](cache-how-to-scale.md) et [Automatisation d’une opération de mise à l’échelle](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Créez un cache et explorez les nouvelles fonctionnalités de niveau Premium.
 
 * [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md)

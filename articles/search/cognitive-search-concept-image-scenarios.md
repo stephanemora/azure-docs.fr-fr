@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367271"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640198"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -45,7 +45,7 @@ Définissez le paramètre **parsingMode** avec la valeur `json` (pour indexer ch
 La valeur par défaut de 2000 pixels pour la hauteur et la largeur maximales des images normalisées est basée sur les tailles maximales prises en charge par la [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) et la [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md). Si vous augmentez les limites maximales, il se peut que le traitement échoue sur des images de grande taille.
 
 
-Vous spécifiez la propriété imageAction dans votre [définition d’indexeur](ref-create-indexer.md) comme suit :
+Vous spécifiez la propriété imageAction dans votre [définition d’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) comme suit :
 
 ```json
 {
@@ -218,7 +218,7 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
 ```
 
 ## <a name="see-also"></a>Voir aussi
-+ [Créer un indexeur (REST)](ref-create-indexer.md)
++ [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
 + [Compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md)
 + [Compétence de fusion de texte](cognitive-search-skill-textmerger.md)

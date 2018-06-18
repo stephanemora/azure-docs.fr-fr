@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150001"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

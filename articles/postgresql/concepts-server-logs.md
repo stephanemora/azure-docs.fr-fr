@@ -1,6 +1,6 @@
 ---
 title: Journaux de serveur dans Azure Database pour PostgreSQL
-description: "Cet article explique comment Azure Database pour PostgreSQL génère les journaux des requêtes et des erreurs et comment la rétention de journal est configurée."
+description: Cet article explique comment Azure Database pour PostgreSQL génère les journaux des requêtes et des erreurs et comment la rétention de journal est configurée.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691091"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Journaux de serveur dans Azure Database pour PostgreSQL 
 Azure Database pour PostgreSQL génère des journaux des requêtes et des erreurs. Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. Les journaux des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. Pour plus d’informations, consultez la page [Signalement et journalisation des erreurs](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205982"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.

@@ -1,11 +1,11 @@
 ---
-title: "Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée | Microsoft Docs"
-description: "Cet article fournit des informations sur la tarification d’Azure Security Center."
+title: Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée | Microsoft Docs
+description: Cet article fournit des informations sur la tarification d’Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23473931"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781618"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-projects"></a>Bien démarrer avec le service connecté Key Vault dans Visual Studio (projets ASP.NET)
 

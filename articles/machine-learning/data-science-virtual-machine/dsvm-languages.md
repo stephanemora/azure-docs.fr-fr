@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418313"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Langages pris en charge sur la machine virtuelle DSVM 
 
@@ -231,12 +232,12 @@ L’emplacement Julia par défaut est un environnement général lisible par tou
 
 ## <a name="other-languages"></a>Autres langages
 
-**C#** : disponible sur Windows et accessible par le biais de Visual Studio Community Edition ou à une `Developer Command Prompt for Visual Studio` où il suffit d’exécuter la commande `csc`. 
+**C#**  : disponible sur Windows et accessible par le biais de Visual Studio Community Edition ou à une `Developer Command Prompt for Visual Studio` où il suffit d’exécuter la commande `csc`. 
 
 **Java** : OpenJDK est disponible sur les éditions Linux et Windows de la machine virtuelle DSVM, et défini sur le chemin. Vous pouvez taper la commande `javac` ou `java` à l’invite de commandes dans Windows ou dans l’interpréteur de commandes Bash sur Linux pour utiliser Java. 
 
 **node.js** : node.js est disponible sur les éditions Linux et Windows de la machine virtuelle DSVM, et défini sur le chemin. Vous pouvez taper la commande `node` ou `npm` à l’invite de commandes dans Windows ou dans l’interpréteur de commandes Bash sur Linux pour accéder à node.js. Sur Windows, l’extension Node.js Tools pour Visual Studio est installée afin de fournir un IDE graphique pour le développement de votre application node.js. 
 
-**F#** : disponible sur Windows et accessible par le biais de Visual Studio Community Edition ou à une `Developer Command Prompt for Visual Studio` où il suffit d’exécuter la commande `fsc`. 
+**F#**  : disponible sur Windows et accessible par le biais de Visual Studio Community Edition ou à une `Developer Command Prompt for Visual Studio` où il suffit d’exécuter la commande `fsc`. 
 
 

@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a54980e866a31b576265487fdff128f53f30470
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a29af7d92dbf83672907af42d2222d9c7b1ef39
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645036"
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
 La montée en charge des bases de données peut être aisément accomplie à l’aide de fonctionnalités et d’outils évolutifs de bases de données SQL Azure. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données SQL Azure. [tâches élastiques](sql-database-elastic-jobs-powershell.md) pour faciliter la gestion de ces bases de données.

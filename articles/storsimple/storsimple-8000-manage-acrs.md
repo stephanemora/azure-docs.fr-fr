@@ -1,12 +1,12 @@
 ---
-title: "Gérer les enregistrements de contrôle d’accès dans StorSimple | Microsoft Docs"
-description: "Décrit comment utiliser les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple."
+title: Gérer les enregistrements de contrôle d’accès dans StorSimple | Microsoft Docs
+description: Décrit comment utiliser les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108337"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
 

@@ -6,14 +6,15 @@ author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: ''
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a422f65097466e4bbe5740c449d3ccf88701802b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650160"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Accélérer l’analytique du Big Data en temps réel avec le connecteur Spark pour Azure SQL Database et SQL Server
 
@@ -30,7 +31,7 @@ Pour commencer, téléchargez le connecteur Spark à SQL Database depuis le [dé
 | Scala                                |2.10 ou version ultérieure            |
 | Pilote Microsoft JDBC pour SQL Server |6.2 ou version ultérieure             |
 | Microsoft SQL Server                 |SQL Server 2008 ou version ultérieure |
-| Base de données SQL Azure                   |Prise en charge                |
+| Azure SQL Database                   |Prise en charge                |
 
 Le connecteur Spark pour Azure SQL Database et SQL Server utilise le pilote Microsoft JDBC pour SQL Server pour déplacer des données entre les nœuds de rôle de travail Spark et les bases de données SQL :
  
@@ -38,6 +39,10 @@ Le flux de données est le suivant :
 1. Le nœud principal Spark se connecte à SQL Server ou à Azure SQL Database et charge les données à partir d’une table spécifique ou à l’aide d’une requête SQL spécifique.
 2. Le nœud principal Spark distribue les données aux nœuds de rôle de travail à des fins de transformation. 
 3. Le nœud de rôle de travail se connecte à SQL Server ou à Azure SQL Database et écrit les données dans la base de données. L’utilisateur peut choisir d’utiliser l’insertion ligne par ligne ou l’insertion en bloc.
+
+Le diagramme suivant illustre le flux de données.
+
+   ![architecture](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Générer le connecteur Spark à SQL Database
 Actuellement, le projet de connecteur utilise maven. Pour créer le connecteur sans dépendances, vous pouvez exécuter :
@@ -153,7 +158,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Configuration requise
 Si vous utilisez le mode d’authentification par jeton d’accès, vous devez télécharger [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) et ses dépendances, puis les inclure dans le chemin de la build Java.
 
-Consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) pour savoir comment obtenir un jeton d’accès à votre base de données SQL Azure.
+Consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) pour savoir comment obtenir un jeton d’accès à votre base de données SQL Azure.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +216,5 @@ Si ce n’est déjà fait, téléchargez le connecteur Spark pour Azure SQL Data
 -   [Exemples de bloc-notes Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Exemples de scripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Vous pouvez également consulter [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) (Guide sur Apache Spark SQL, les tableaux de données et les jeux de données) et la [documentation Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/).
+Vous pouvez également consulter [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) (Guide sur Apache Spark SQL, les tableaux de données et les jeux de données) et la [documentation Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 

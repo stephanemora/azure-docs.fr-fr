@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841841"
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Créer un cluster de calcul haute performance (HPC) Linux avec le script de déploiement du HPC Pack IaaS
 Exécutez le script PowerShell de déploiement du HPC Pack IaaS pour déployer un cluster HPC Pack 2012 R2 complet pour les charges de travail Linux sur les machines virtuelles Azure. Le cluster se compose d’un nœud principal joint à Active Directory, exécutant Windows Server et Microsoft HPC Pack, et de nœuds de calcul qui exécutent l’une des distributions Linux prises en charge par HPC Pack. Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Windows, consultez [Créer un cluster HPC Windows avec le script de déploiement du HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

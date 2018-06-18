@@ -2,23 +2,21 @@
 title: 'Démarrage rapide : API Table avec Java - Azure Cosmos DB | Microsoft Docs'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Table Azure Cosmos DB pour créer une application avec le portail Azure et Java
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 70b07115a676bb5c8cc4dbbf39843d8144fb0b66
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 532b69f23b0e6d27e255f0b3d0a0eaee60eb8c10
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797503"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Java et Azure Cosmos DB
 
@@ -27,7 +25,6 @@ Ce guide de démarrage rapide montre comment utiliser Java et [l’API Table](ta
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]

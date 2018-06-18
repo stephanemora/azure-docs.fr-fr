@@ -3,22 +3,23 @@ title: Effectuer une révision d’accès pour les ressources Azure à l’aide 
 description: Cet article explique comment effectuer une révision d’accès pour les ressources Azure.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e6556d3bac386bff26f9a5ce8f599e099fdb6c4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149336"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233799"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Effectuer une révision d’accès pour les ressources Azure à l’aide de Privileged Identity Management
 Les administrateurs de rôle privilégié peuvent examiner l’accès privilégié après le [démarrage d’une révision de sécurité](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) pour les ressources Azure envoie automatiquement un e-mail invitant les utilisateurs à vérifier leur accès. Si un utilisateur ne reçoit pas d’e-mail, vous pouvez lui envoyer les instructions relatives à l’[exécution d’une révision de sécurité](pim-resource-roles-perform-access-review.md).

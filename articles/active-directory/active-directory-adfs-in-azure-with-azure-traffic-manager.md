@@ -1,12 +1,12 @@
 ---
-title: "Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager | Microsoft Docs"
-description: "Dans ce document, vous allez apprendre à déployer AD FS dans Azure pour bénéficier d’une haute disponibilité."
-keywords: "Ad fs avec Azure traffic manager, adfs avec Azure Traffic Manager, géographique, centres de données multiples, centres de données géographiques, centres de données géographiques multiples, déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs,déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure"
+title: Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager | Microsoft Docs
+description: Dans ce document, vous allez apprendre à déployer AD FS dans Azure pour bénéficier d’une haute disponibilité.
+keywords: Ad fs avec Azure traffic manager, adfs avec Azure Traffic Manager, géographique, centres de données multiples, centres de données géographiques, centres de données géographiques multiples, déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs,déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604777"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager
 [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md) fournit des instructions détaillées sur la façon dont vous pouvez déployer une infrastructure AD FS simple pour votre organisation dans Azure. Cet article indique les étapes suivantes permettant de créer un déploiement par-delà les frontières des services AD FS dans Azure à l’aide [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager permet de créer une infrastructure AD FS à haute disponibilité et haute performance, répartie géographiquement pour votre organisation en utilisant les différentes méthodes de routage disponibles en fonction des besoins de l’infrastructure.

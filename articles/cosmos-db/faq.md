@@ -5,20 +5,17 @@ keywords: Questions sur la base de données, Forum aux questions, documentdb, az
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735162"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
@@ -61,6 +58,9 @@ Il n’existe aucune limite à la quantité totale de données qu’un conteneur
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Quelles sont les limites de débit d’Azure Cosmos DB ?
 Il n’existe aucune limite au débit total qu’un conteneur peut prendre en charge dans Azure Cosmos DB. L’idée principale est de distribuer votre charge de travail à peu près uniformément entre un nombre suffisant de clés de partition.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Les modes de connectivité directe et de passerelle sont-ils chiffrés ? 
+Oui, les deux modes sont toujours entièrement chiffrés. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Combien coûte Azure Cosmos DB ?
 Pour plus d’informations, voir [Tarification d’Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Les frais d’utilisation d’Azure Cosmos DB sont déterminés par le nombre de conteneurs approvisionnés, le nombre d’heures durant lequel les conteneurs ont été en ligne et le débit approvisionné pour chaque conteneur. Le terme *conteneur* fait ici référence à une collection de l’API SQL, à un graphe de l’API Graph, à une collection de l’API MongoDB API et à des tables de l’API Table. 
@@ -164,6 +164,10 @@ Vous pouvez insérer en bloc des documents dans Azure Cosmos DB de deux manière
 * Avec l’outil de migration de données, comme décrit dans [Outil de migration de base de données pour Azure Cosmos DB](import-data.md).
 * Avec des procédures stockées, comme décrit dans [Programmation en JavaScript côté serveur pour Azure Cosmos DB](programming.md).
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>J’ai configuré ma collection pour utiliser une indexation différée, je constate que mes requêtes ne retournent pas les résultats attendus. 
+Comme expliqué dans la section d’indexation, l’indexation différée peut entraîner ce comportement. Vous devez toujours utiliser l’indexation cohérente pour toutes les applications. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>L’API SQL prend-elle en charge la mise en cache de lien de ressource ?
 Oui. Azure Cosmos DB étant un service RESTful, les liens de ressource sont immuables et peuvent être mis en cache. Les clients de l’API SQL peuvent spécifier un en-tête « If-None-Match » pour des lectures effectuées en comparaison avec des documents ou collections de type ressource, puis mettre à jour leurs copies locales après modification de la version du serveur.
 
@@ -171,7 +175,12 @@ Oui. Azure Cosmos DB étant un service RESTful, les liens de ressource sont immu
 Oui. L’[émulateur Azure Cosmos DB](local-emulator.md) fournit une émulation haute fidélité du service Cosmos DB. Il prend en charge les mêmes fonctionnalités qu’Azure Cosmos DB, dont la création et l’interrogation de documents JSON, l’approvisionnement et la mise à l’échelle des collections, et l’exécution des procédures stockées et déclencheurs. Vous pouvez développer et tester des applications à l’aide de l’émulateur Azure Cosmos DB, puis les déployer vers Azure à une échelle globale en apportant une simple modification à la configuration du point de terminaison de connexion pour Azure Cosmos DB.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Pourquoi les longues valeurs à virgule flottante dans un document sont-elles arrondies quand elles sont affichées à partir de l’Explorateur de données dans le portail ? 
-Il s’agit d’une limitation propre à JavaScript. Ce dernier utilise des nombres de format à virgule flottante double précision comme spécifié dans la norme IEEE 754 ; les nombres qu’il peut représenter de la sorte sont compris entre -(253 - 1) et 253 - 1 (c’est-à-dire, 9007199254740991) uniquement.
+Il s’agit d’une limitation propre à JavaScript. Ce dernier utilise des nombres de format à virgule flottante double précision comme spécifié dans la norme IEEE 754 ; les nombres qu’il peut représenter de la sorte sont compris entre -(253 - 1) et 253-1 (c’est-à-dire, 9007199254740991) uniquement.
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Où se trouvent les autorisations accordées dans la hiérarchie d’objets ?
+
+La création d’autorisations à l’aide de ResourceTokens est autorisée au niveau de la collection et de ses descendants (tels que les documents, pièces jointes). Cela implique qu’une tentative de création d’une autorisation au niveau de la base de données ou du compte n’est pas autorisée actuellement.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Développer par rapport à l’API pour MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Qu’est-ce que l’API d’Azure Cosmos DB pour MongoDB ?

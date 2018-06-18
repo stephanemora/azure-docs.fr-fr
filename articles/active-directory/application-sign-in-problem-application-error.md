@@ -1,11 +1,11 @@
 ---
-title: "Erreur dans la page d’une application après la connexion | Microsoft Docs"
-description: "Comment résoudre les problèmes de connexion à Azure AD quand l’application émet une erreur"
+title: Erreur dans la page d’une application après la connexion | Microsoft Docs
+description: Comment résoudre les problèmes de connexion à Azure AD quand l’application émet une erreur
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384903"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erreur dans la page d’une application après la connexion
 
@@ -155,5 +156,5 @@ Pour modifier l’algorithme de signature, procédez comme suit :
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera le jeton SAML à l’aide de l’algorithme SHA-1.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

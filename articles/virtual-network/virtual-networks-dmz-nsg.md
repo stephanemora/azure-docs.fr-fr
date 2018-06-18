@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23126677"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemple 1 – Créer une zone DMZ simple à l’aide de groupes de sécurité réseau avec un modèle Azure Resource Manager
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]

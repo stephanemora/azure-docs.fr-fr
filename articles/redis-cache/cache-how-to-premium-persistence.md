@@ -1,11 +1,11 @@
 ---
-title: "Comment configurer la persistance des données pour un Cache Redis Azure Premium"
-description: "Découvrez comment configurer et gérer la persistance des données pour vos instances de Cache Redis Azure de niveau Premium"
+title: Comment configurer la persistance des données pour un Cache Redis Azure Premium
+description: Découvrez comment configurer et gérer la persistance des données pour vos instances de Cache Redis Azure de niveau Premium
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910843"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Comment configurer la persistance des données pour un Cache Redis Azure Premium
 Le Cache Redis Azure offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité, notamment les fonctionnalités de couche Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Cet article décrit comment configurer la persistance dans une instance Premium de Cache Redis Azure.
@@ -179,7 +180,7 @@ Lorsque le clustering est activé, chaque partition dans le cache a son propre e
 Après une réécriture, deux jeux de fichiers AOF se trouvent dans le stockage. Les réécritures s’effectuent en arrière-plan et s’ajoutent au premier jeu de fichiers, alors que les opérations définies qui sont envoyées dans le cache lors de la réécriture s’ajoutent au deuxième jeu. Une sauvegarde est temporairement stockée pendant les réécritures en cas d’échec, mais elle est immédiatement supprimée à la fin de la réécriture.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
 * [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)

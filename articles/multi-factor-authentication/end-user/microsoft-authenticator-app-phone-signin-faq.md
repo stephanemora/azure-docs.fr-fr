@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "26630390"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 

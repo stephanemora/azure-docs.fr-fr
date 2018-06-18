@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: cynthn
 ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "33943947"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Attacher un disque de données à une machine virtuelle Windows dans Azure à l’aide de PowerShell
@@ -32,7 +32,7 @@ Avant cela, passez en revue les conseils suivants :
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure Powershell version 6.0.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Ajouter un disque de données vide à une machine virtuelle

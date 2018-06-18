@@ -1,11 +1,11 @@
 ---
 title: Liste de tous vos travaux Azure Import/Export | Microsoft Docs
-description: "Découvrez comment répertorier tous les travaux d’un abonnement qui sont liés au service Azure Import/Export."
+description: Découvrez comment répertorier tous les travaux d’un abonnement qui sont liés au service Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059384"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Énumération des travaux dans le service Azure Import/Export
 Pour énumérer tous les travaux d’un abonnement, appelez l’opération [Répertorier les travaux](/rest/api/storageimportexport/jobs#Jobs_List). `List Jobs` retourne une liste de travaux, ainsi que les attributs suivants :

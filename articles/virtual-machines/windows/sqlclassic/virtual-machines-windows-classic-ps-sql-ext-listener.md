@@ -1,11 +1,11 @@
 ---
-title: "Configurer un écouteur externe pour des groupes de disponibilité Always On | Microsoft Docs"
-description: "Ce didacticiel vous guide tout au long des étapes de création d’un écouteur de groupe de disponibilité Always On dans Azure qui est accessible en externe à l’aide de l’adresse IP virtuelle publique du service cloud associé."
+title: Configurer un écouteur externe pour des groupes de disponibilité Always On | Microsoft Docs
+description: Ce didacticiel vous guide tout au long des étapes de création d’un écouteur de groupe de disponibilité Always On dans Azure qui est accessible en externe à l’aide de l’adresse IP virtuelle publique du service cloud associé.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398860"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure
 > [!div class="op_single_selector"]
@@ -130,6 +131,6 @@ Contrairement à l'exemple précédent, l'authentification SQL est nécessaire, 
 
 Si les réplicas Always On figurent dans des sous-réseaux distincts, les clients doivent spécifier **MultisubnetFailover=True** dans la chaîne de connexion. Cela entraîne des tentatives parallèles de connexion aux réplicas dans les différents sous-réseaux. Notez que ce scénario inclut un déploiement de groupe de disponibilité Always On dans plusieurs régions.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

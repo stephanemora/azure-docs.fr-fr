@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble des API Azure Event Hubs .NET Framework | Microsoft Docs"
-description: "Résumé de certaines des principales API clientes Event Hubs .NET Framework."
+title: Vue d’ensemble des API Azure Event Hubs .NET Framework | Microsoft Docs
+description: Résumé de certaines des principales API clientes Event Hubs .NET Framework.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781892"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Vue d’ensemble de l’API Event Hubs .NET Framework
 
@@ -178,7 +179,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
 * [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)

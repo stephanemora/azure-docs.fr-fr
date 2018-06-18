@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013194"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour l’homologation Microsoft : interface Azure CLI
 

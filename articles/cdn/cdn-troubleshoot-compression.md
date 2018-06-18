@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765522"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).

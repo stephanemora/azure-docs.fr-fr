@@ -1,24 +1,19 @@
 ---
 title: Déployer votre passerelle d’usine connectée - Azure | Microsoft Docs
 description: Comment déployer une passerelle sur Windows ou Linux pour activer la connectivité à l’accélérateur de solution d’usine connectée.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626902"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour l’accélérateur de solution d’usine connectée sur Windows ou Linux
 
@@ -170,6 +165,6 @@ Pour ajouter vos propres serveurs OPC UA à l’accélérateur de solution d’u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’architecture de l’accélérateur de solution d’usine connectée, consultez [Procédure pas à pas de l’accélérateur de solution d’usine connectée](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Pour en savoir plus sur l’architecture de l’accélérateur de solution d’usine connectée, consultez [Procédure pas à pas de l’accélérateur de solution d’usine connectée](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Découvrez [l’implémentation de référence de l’éditeur OPC](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

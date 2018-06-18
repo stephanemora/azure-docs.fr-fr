@@ -1,12 +1,12 @@
 ---
-title: "Outil de diagnostic pour la résolution des problèmes de l’appareil StorSimple 8000 | Microsoft Docs"
-description: "Décrit les modes de l’appareil StorSimple et explique comment utiliser Windows PowerShell for StorSimple pour changer le mode de l’appareil."
+title: Outil de diagnostic pour la résolution des problèmes de l’appareil StorSimple 8000 | Microsoft Docs
+description: Décrit les modes de l’appareil StorSimple et explique comment utiliser Windows PowerShell for StorSimple pour changer le mode de l’appareil.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27744110"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
 
@@ -437,7 +438,7 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 | RemoteManagementMode    | Indique si l’appareil peut être géré à distance via son interface Windows PowerShell. |
 | FipsMode                | Indique si le mode FIPS (Federal Information Processing Standard) est activé sur votre appareil. La norme FIPS 140 définit les algorithmes de chiffrement qui sont approuvés pour une utilisation sur les systèmes informatiques du gouvernement fédéral américain dans le but de protéger les données sensibles. Pour les appareils exécutant Update 4 ou version ultérieure, le mode FIPS est activé par défaut. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Découvrez la [syntaxe de l’applet de commande Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

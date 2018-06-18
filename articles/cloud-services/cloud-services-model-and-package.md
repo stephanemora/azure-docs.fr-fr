@@ -1,11 +1,11 @@
 ---
-title: "Package et modèle Cloud Service dans Azure | Microsoft Docs"
-description: "Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure."
+title: Package et modèle Cloud Service dans Azure | Microsoft Docs
+description: Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,9 +19,10 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876557"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
-Un service cloud est créé à partir de trois composants : la définition de service *(.csdef)*, la configuration de service*(.cscfg)* et un package de service *(.cspkg)*. Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration, qui désignent collectivement le modèle. Le fichier ZIP **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
+Un service cloud est créé à partir de trois composants : la définition de service *(.csdef)*, la configuration de service *(.cscfg)* et un package de service *(.cspkg)*. Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration, qui désignent collectivement le modèle. Le fichier ZIP **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
 
 Une fois que le service cloud s’exécute dans Azure, vous pouvez le reconfigurer via le fichier **ServiceConfig.cscfg** , mais vous ne pouvez pas en modifier la définition.
 

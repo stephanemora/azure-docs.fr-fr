@@ -1,11 +1,11 @@
 ---
-title: "Nom et clé de l’émetteur dans BizTalk Services | Microsoft Docs"
-description: "Découvrez comment récupérer le nom et la clé de l'émetteur pour le bus des services ou le contrôle d'accès (ACS) dans BizTalk Services. MABS, WABS"
+title: Nom et clé de l’émetteur dans BizTalk Services | Microsoft Docs
+description: Découvrez comment récupérer le nom et la clé de l'émetteur pour le bus des services ou le contrôle d'accès (ACS) dans BizTalk Services. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 067fe356-d1aa-420f-b2f2-1a418686470a
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103427"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur dans BizTalk Services
 

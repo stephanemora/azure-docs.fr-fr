@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797156"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Meilleures pratiques d’utilisation d’une requête élastique dans Azure SQL Database pour accéder aux données dans Azure SQL Data Warehouse
 Découvrez les meilleures pratiques d’utilisation d’une requête élastique pour accéder aux données dans Azure SQL Data Warehouse Azure à partir d’Azure SQL Database. 

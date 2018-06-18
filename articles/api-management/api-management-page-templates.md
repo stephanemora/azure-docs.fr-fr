@@ -1,11 +1,11 @@
 ---
-title: "Modèles de page dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles dans Gestion des API Azure."
+title: Modèles de page dans Gestion des API Azure | Microsoft Docs
+description: Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745009"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modèles de page dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -243,5 +244,5 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

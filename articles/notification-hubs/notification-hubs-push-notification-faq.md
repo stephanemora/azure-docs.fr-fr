@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778509"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Forum aux Questions
 ## <a name="general"></a>Généralités

@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204562"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Souscrire un abonnement Azure avec un compte Office 365
 Si vous avez un abonnement à Office 365, vous pouvez utiliser votre compte Office 365 pour créer un abonnement Azure. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre nom d’utilisateur et votre mot de passe Office 365. Si vous souhaitez configurer des machines virtuelles ou utiliser d’autres services Azure, vous devez souscrire un abonnement Azure. Vous pouvez partager votre abonnement Azure avec d’autres personnes et [utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès à vos ressources et abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

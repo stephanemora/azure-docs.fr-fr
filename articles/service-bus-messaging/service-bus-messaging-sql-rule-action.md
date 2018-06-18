@@ -1,12 +1,12 @@
 ---
-title: "Référence relative à la syntaxe SQLRuleAction dans Azure | Microsoft Docs"
+title: Référence relative à la syntaxe SQLRuleAction dans Azure | Microsoft Docs
 description: Informations sur la syntaxe SQLRuleAction.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29125817"
 ---
 # <a name="sqlruleaction-syntax"></a>Syntaxe SQLRuleAction
 
@@ -219,7 +220,7 @@ La fonction `property(name)` renvoie la valeur de la propriété référencée p
 - L’action réussit s’il est fait référence à des propriétés d’utilisateur inexistantes.
 - Une propriété d’utilisateur inexistante est évaluée comme « Inconnue » en interne, suivant la même sémantique que [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) lors de l’évaluation des opérateurs.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

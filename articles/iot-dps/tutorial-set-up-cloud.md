@@ -1,22 +1,20 @@
 ---
 title: Configurer le cloud pour le service IoT Hub Device Provisioning dans le portail | Microsoft Docs
-description: "Approvisionnement d’appareils automatique IoT Hub dans le portail Azure"
-services: iot-dps
-keywords: 
+description: Approvisionnement d’appareils automatique IoT Hub dans le portail Azure
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630083"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
@@ -30,7 +28,7 @@ Ce didacticiel montre comment configurer le cloud pour l’approvisionnement d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 

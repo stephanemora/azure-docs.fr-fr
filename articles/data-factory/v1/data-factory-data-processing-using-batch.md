@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621936"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -86,7 +87,6 @@ La solution exemple est volontairement simple. Elle vous montre comment utiliser
 **Temps** : si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle entre 1 et 2 heures.
 
 ### <a name="prerequisites"></a>Prérequis
-
 #### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -144,7 +144,7 @@ Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codepl
 
 5. Créez un autre conteneur nommé `customactivitycontainer`. Chargez le fichier zip de l’activité personnalisée dans ce conteneur.
 
-#### <a name="visual-studio"></a>Visual Studio
+#### <a name="visual-studio"></a>Visual Studio
 Installez Microsoft Visual Studio 2012 ou version ultérieure pour créer l’activité Azure Batch personnalisée à utiliser dans la solution Azure Data Factory.
 
 ### <a name="high-level-steps-to-create-the-solution"></a>Principales étapes pour créer la solution

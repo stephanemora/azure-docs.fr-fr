@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’images de client Windows dans Azure | Microsoft Docs"
-description: "Comment utiliser les avantages de l’abonnement Visual Studio pour déployer Windows 7, Windows 8 ou Windows 10 dans Azure pour des scénarios de développement et/ou de test"
+title: Utilisation d’images de client Windows dans Azure | Microsoft Docs
+description: Comment utiliser les avantages de l’abonnement Visual Studio pour déployer Windows 7, Windows 8 ou Windows 10 dans Azure pour des scénarios de développement et/ou de test
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103674"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilisation d’un client Windows dans Azure pour les scénarios de développement et/ou test
 Vous pouvez utiliser Windows 7, Windows 8 ou Windows 10 Entreprise (x64) dans Azure pour des scénarios de développement / de test à condition de disposer d’un abonnement Visual Studio (anciennement MSDN) approprié. Cet article décrit les conditions d’éligibilité pour les clients Windows 7, Windows 8.1 et Windows 10 Entreprise en cours d’exécution dans Azure et l’utilisation des images de galerie Azure suivantes.
@@ -62,6 +63,6 @@ Vous pouvez également voir l’ID d’offre dans [l’onglet « Abonnements »]
 
 ![Détails de l’ID de l’offre dans le portail de compte Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez désormais déployer vos machines virtuelles à l’aide de [PowerShell](quick-create-powershell.md), de [modèles Resource Manager](ps-template.md) ou de [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

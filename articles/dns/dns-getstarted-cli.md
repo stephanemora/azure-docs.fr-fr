@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30175237"
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Prise en main d’Azure DNS à l’aide d’Azure CLI 2.0
 

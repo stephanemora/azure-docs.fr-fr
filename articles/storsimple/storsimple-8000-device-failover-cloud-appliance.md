@@ -1,12 +1,12 @@
 ---
-title: "Basculement, récupération d’urgence StorSimple vers une StorSimple Cloud Appliance| Microsoft Docs"
-description: "Découvrez comment basculer votre appareil physique de la gamme StorSimple 8000 vers une appliance cloud."
+title: Basculement, récupération d’urgence StorSimple vers une StorSimple Cloud Appliance| Microsoft Docs
+description: Découvrez comment basculer votre appareil physique de la gamme StorSimple 8000 vers une appliance cloud.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108327"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Basculer vers votre StorSimple Cloud Appliance
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31515524"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Liste des règles et groupes de règles CRS de pare-feu d’applications web proposées
 

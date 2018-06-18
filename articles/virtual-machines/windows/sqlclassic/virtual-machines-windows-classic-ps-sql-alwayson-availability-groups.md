@@ -1,11 +1,11 @@
 ---
-title: "Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell | Microsoft Docs"
-description: "Ce didacticiel utilise les ressources qui ont été créées avec le modèle de déploiement classique. Vous allez utiliser PowerShell pour créer un groupe de disponibilité Always On dans Azure."
+title: Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell | Microsoft Docs
+description: Ce didacticiel utilise les ressources qui ont été créées avec le modèle de déploiement classique. Vous allez utiliser PowerShell pour créer un groupe de disponibilité Always On dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401281"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell
 > [!div class="op_single_selector"]
@@ -564,7 +565,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous avez correctement implémenté SQL Server Always On en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](../classic/ps-sql-int-listener.md).
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [Présentation de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

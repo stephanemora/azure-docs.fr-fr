@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653652"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -31,7 +32,7 @@ Le Stockage Azure inclut les services de données suivants :
 - [Objets blob Azure](../blobs/storage-blobs-introduction.md) : magasin d’objets hautement évolutif pour les données texte ou binaires.
 - [Fichiers Azure](../files/storage-files-introduction.md) : partages de fichiers gérés pour les déploiements sur le cloud ou locaux.
 - [Files d’attente Azure](../queues/storage-queues-introduction.md) : magasin de messagerie pour une messagerie fiable entre les composants d’application. 
-- [Tables Azure](../../cosmos-db/table-storage-overview.md) : magasin NoSQL pour le stockage sans schéma de données structurées.
+- [Tables Azure](../tables/table-storage-overview.md) : magasin NoSQL pour le stockage sans schéma de données structurées.
 
 Chaque service est accessible via un compte de stockage. Pour commencer, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
 
@@ -78,13 +79,13 @@ Pour plus d’informations sur les files d’attentes Azure, consultez [Introduc
 
 ## <a name="table-storage"></a>Stockage de tables
 
-Stockage de tables Azure fait maintenant partie d’Azure Cosmos DB. Pour consulter la documentation Stockage de tables Azure, consultez [Vue d’ensemble du stockage de table Azure](../../cosmos-db/table-storage-overview.md). En plus du service Stockage de tables Azure existant, il existe une nouvelle API de Table d’Azure Cosmos DB qui propose des tables optimisées pour le débit, la distribution globale et les index secondaires automatiques. Pour en savoir plus et essayer la nouvelle expérience premium, consultez [API Table d’Azure Cosmos DB](https://aka.ms/premiumtables).
+Stockage de tables Azure fait maintenant partie d’Azure Cosmos DB. Pour consulter la documentation Stockage de tables Azure, consultez [Vue d’ensemble du stockage de table Azure](../tables/table-storage-overview.md). En plus du service Stockage de tables Azure existant, il existe une nouvelle API de Table d’Azure Cosmos DB qui propose des tables optimisées pour le débit, la distribution globale et les index secondaires automatiques. Pour en savoir plus et essayer la nouvelle expérience premium, consultez [API Table d’Azure Cosmos DB](https://aka.ms/premiumtables).
 
-Pour plus d’informations sur le stockage de table, consultez [Overview of Azure Table storage](../../cosmos-db/table-storage-overview.md) (Vue d’ensemble du stockage de table Azure).
+Pour plus d’informations sur le stockage de table, consultez [Overview of Azure Table storage](../tables/table-storage-overview.md) (Vue d’ensemble du stockage de table Azure).
 
 ## <a name="disk-storage"></a>Stockage sur disque
 
-Le stockage Azure comprend également des fonctionnalités de disque géré et non géré utilisées par des machines virtuelles. Pour en savoir plus sur ces fonctionnalités, consultez la [documentation Compute Service](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Le stockage Azure comprend également des fonctionnalités de disque géré et non géré utilisées par des machines virtuelles. Pour en savoir plus sur ces fonctionnalités, consultez la [documentation Compute Service](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Types de compte de stockage
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774826"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center"></a>Surveiller l’identité et l’accès dans Azure Security Center
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.

@@ -1,12 +1,12 @@
 ---
-title: "Configurer un VPN de site à site via un appairage Microsoft pour Azure ExpressRoute | Microsoft Docs"
-description: "Configurez une connectivité IPsec/IKE vers Azure via un circuit d’appairage Microsoft ExpressRoute à l’aide d’une passerelle VPN de site à site."
+title: Configurer un VPN de site à site via un appairage Microsoft pour Azure ExpressRoute | Microsoft Docs
+description: Configurez une connectivité IPsec/IKE vers Azure via un circuit d’appairage Microsoft ExpressRoute à l’aide d’une passerelle VPN de site à site.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26357663"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via l’appairage Microsoft ExpressRoute
 

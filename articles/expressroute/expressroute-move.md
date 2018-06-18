@@ -1,11 +1,11 @@
 ---
-title: "Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs"
-description: "Cette page décrit tout ce que vous devez savoir sur les liaisons entre les modèles de déploiement classique et Resource Manager."
+title: Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs
+description: Cette page décrit tout ce que vous devez savoir sur les liaisons entre les modèles de déploiement classique et Resource Manager.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710063"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager
 Cet article décrit les enjeux de la migration d’un circuit ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204921"
 ---
 # <a name="service-movement-cost"></a>Coût du déplacement de services
 L’un des facteurs que Service Fabric Cluster Resource Manager prend en compte pour déterminer les modifications à apporter à un cluster est leur coût. La notion de « coût » est mise en balance avec la capacité d’amélioration du cluster. Le coût est pris en compte lors du déplacement de services à des fins d’équilibrage, de défragmentation ou autres. L’objectif est de répondre aux exigences en limitant les perturbations et le coût. 

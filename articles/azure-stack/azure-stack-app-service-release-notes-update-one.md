@@ -16,10 +16,10 @@ ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
 ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "34358079"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 1
@@ -38,7 +38,6 @@ Ces notes de publication décrivent les améliorations et les correctifs apport�
 Le numéro de build d’App Service sur Azure Stack Update 1 est **69.0.13698.9**
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 > [!IMPORTANT]
 > Les nouveaux déploiements d’Azure App Service sur Azure Stack nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**

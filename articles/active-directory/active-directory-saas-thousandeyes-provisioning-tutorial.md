@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 055355be0de1c3f589bde468da3558963e8e1383
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7f4fe3750e7532f72e51f54d80f0ce6b601adbe7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292583"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Didacticiel : configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs
 
@@ -26,7 +27,6 @@ ms.lasthandoff: 05/20/2018
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans ThousandEyes et Azure AD pour approvisionner et retirer automatiquement des comptes d’utilisateur entre Azure AD et ThousandEyes. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -43,7 +43,7 @@ Azure Active Directory utilise un concept appelé « affectations » pour dét
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD représentent les utilisateurs qui ont besoin d’accéder à votre application ThousandEyes. Dès que vous avez fait votre choix, vous pouvez assigner ces utilisateurs à votre application ThousandEyes en suivant les instructions disponibles à la page suivante :
 
-[Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
+[Affecter un utilisateur ou un groupe à une application d’entreprise](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Conseils importants concernant l’affectation d’utilisateurs à ThousandEyes
 
@@ -98,7 +98,7 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

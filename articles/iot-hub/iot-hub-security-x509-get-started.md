@@ -1,29 +1,25 @@
 ---
-title: "Didacticiel pour la sécurité X.509 dans Azure IoT Hub | Microsoft Docs"
-description: "Commencez à utiliser la sécurité X.509 dans votre Azure IoT Hub dans un environnement simulé."
-services: iot-hub
-documentationcenter: 
+title: Didacticiel pour la sécurité X.509 dans Azure IoT Hub | Microsoft Docs
+description: Commencez à utiliser la sécurité X.509 dans votre Azure IoT Hub dans un environnement simulé.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 93f9099d7aef1161f7789e7b21a88a8691cb2a8e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635574"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurer la sécurité X.509 dans votre Azure IoT Hub
 
 Ce didacticiel simule la procédure que vous devez suivre pour sécuriser votre Azure IoT Hub à l’aide de *l’authentification de certificat X.509*. À titre d’illustration, nous indiquons ici comment utiliser l’outil open source OpenSSL pour créer des certificats localement sur votre machine Windows. Nous vous recommandons de n’utiliser ce didacticiel qu’à des fins de test. Pour un environnement de production, vous devez acheter les certificats auprès d’une *autorité de certification racine (CA)*. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous devez disposer des ressources suivantes :
 
 - Vous avez créé un IoT Hub avec votre abonnement Azure. Pour découvrir la procédure détaillée correspondante, consultez l’article [Création d’un IoT Hub à l’aide du portail Azure](iot-hub-create-through-portal.md). 

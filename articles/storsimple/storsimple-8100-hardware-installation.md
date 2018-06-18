@@ -1,11 +1,11 @@
 ---
-title: "Installer un appareil Microsoft Azure StorSimple 8100 | Microsoft Docs"
-description: "Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel."
+title: Installer un appareil Microsoft Azure StorSimple 8100 | Microsoft Docs
+description: Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743464"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
 ## <a name="overview"></a>Vue d'ensemble
@@ -239,12 +240,12 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion en service réduit :**lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
+> **Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
 > 
 > 
 
 Votre appareil est désormais branché à l’alimentation, au réseau et au port série. L’étape suivante consiste à configurer le logiciel et à déployer votre appareil.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

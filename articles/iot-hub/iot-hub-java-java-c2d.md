@@ -1,33 +1,29 @@
 ---
 title: Messages cloud-à-appareil avec Azure IoT Hub (Java) | Microsoft Docs
 description: Envoi de messages cloud-à-appareil vers un appareil depuis un Azure IoT Hub à l’aide des kits de développement logiciel Azure IoT pour Java. Vous modifiez une application d’appareil simulé pour recevoir des messages cloud-à-appareil et modifiez une application principale pour envoyer des messages cloud-à-appareil.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 4c748f01a83c7f569953f7c7f2fc5631ca0efd17
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 410a156d60aa9b17da9c36e043082c291eea4849
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808109"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envoi de messages cloud à appareil avec IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le didacticiel [Prise en main d’IoT Hub] explique comment créer un concentrateur IoT, l’utiliser pour configurer une identité d’appareil et coder une simulation d’application d’appareil qui envoie des messages d’appareils à cloud.
+Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le didacticiel [Prise en main d’IoT Hub] explique comment créer un concentrateur IoT, l’utiliser pour configurer une identité d’appareil et coder une simulation d’application d’appareil qui envoie des messages d’appareils à cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Ce didacticiel s’appuie sur l’article [Prise en main d’IoT Hub]. Cette rubrique vous explique les procédures suivantes :
+Ce didacticiel s’appuie sur l’article [Prise en main d’IoT Hub]. Cette rubrique vous explique les procédures suivantes :
 
 * À partir du serveur principal de votre application, envoyez des messages cloud-à-appareil vers un appareil unique via IoT Hub.
 * Recevez des messages cloud-à-appareil sur un appareil.
@@ -37,7 +33,7 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 À la fin de ce didacticiel, vous exécutez deux applications de console Java :
 
-* **simulated-device**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub]qui se connecte à votre IoT Hub et reçoit les messages cloud-à-appareil.
+* **simulated-device**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub]qui se connecte à votre IoT Hub et reçoit les messages cloud-à-appareil.
 * **send-c2d-messages**, qui envoie un message cloud-à-appareil à l’application d’appareil simulé via IoT Hub, puis reçoit son accusé de réception.
 
 > [!NOTE]
@@ -45,14 +41,14 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Une version de travail complète du document de [prise en main d’IoT Hub](iot-hub-java-java-getstarted.md) ou du didacticiel [Traiter les messages appareil-à-cloud IoT Hub](iot-hub-java-java-process-d2c.md).
+* Une version de travail complète du document de [prise en main d’IoT Hub](iot-hub-java-java-getstarted.md) ou du didacticiel [Traiter les messages appareil-à-cloud IoT Hub](tutorial-routing.md).
 * La version la plus récente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recevoir des messages dans l’application d’appareil simulé
 
-Dans cette section, vous modifiez l’application d’appareil simulé que vous avez créée dans [Prise en main d’IoT Hub] pour recevoir des messages cloud-à-appareil à partir de l’IoT Hub.
+Dans cette section, vous modifiez l’application d’appareil simulé que vous avez créée dans [Prise en main d’IoT Hub] pour recevoir des messages cloud-à-appareil à partir de l’IoT Hub.
 
 1. À l’aide d’un éditeur de texte, ouvrez le fichier simulated-device\src\main\java\com\mycompany\app\App.java.
 
@@ -89,7 +85,7 @@ Dans cette section, vous modifiez l’application d’appareil simulé que vous 
 
 ## <a name="send-a-cloud-to-device-message"></a>Envoi d’un message cloud vers appareil
 
-Dans cette section, vous créez une application de console Java qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le didacticiel [Prise en main d’IoT Hub] . Vous avez également besoin de la chaîne de connexion pour votre hub que vous trouverez dans le [portail Azure].
+Dans cette section, vous créez une application de console Java qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le didacticiel [Prise en main d’IoT Hub] . Vous avez également besoin de la chaîne de connexion pour votre hub que vous trouverez dans le [Portail Azure].
 
 1. Créez un projet Maven nommé **send-c2d-messages** à l’aide de la commande ci-dessous, à l’invite de commandes. Il s’agit d’une commande unique et longue :
 
@@ -200,20 +196,20 @@ Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-
 
 Pour voir des exemples de solutions de bout en bout qui utilisent IoT Hub, consultez [Accélérateur de solution de surveillance à distance Azure IoT].
 
-Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur IoT Hub].
+Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur d’IoT Hub].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
 [img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[Prise en main d’IoT Hub]: iot-hub-java-java-getstarted.md
+[Prise en main d’IoT Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[Guide du développeur IoT Hub]: iot-hub-devguide.md
+[Guide du développeur d’IoT Hub]: iot-hub-devguide.md
 [Centre de développement Azure IoT]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com
 [Accélérateur de solution de surveillance à distance Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

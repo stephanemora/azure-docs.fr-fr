@@ -1,11 +1,11 @@
 ---
-title: "Stratégies de mise en cache dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez les stratégies de mise en cache disponibles dans Gestion des API Azure."
+title: Stratégies de mise en cache dans Gestion des API Azure | Microsoft Docs
+description: Découvrez les stratégies de mise en cache disponibles dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26344820"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  

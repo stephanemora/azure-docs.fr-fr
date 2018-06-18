@@ -1,11 +1,11 @@
 ---
-title: "Surveiller l’intégrité et les alertes dans Azure Stack | Microsoft Docs"
-description: "Découvrez comment surveiller l’intégrité et les alertes dans Azure Stack."
+title: Surveiller l’intégrité et les alertes dans Azure Stack | Microsoft Docs
+description: Découvrez comment surveiller l’intégrité et les alertes dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26640376"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
 

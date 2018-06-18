@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413634"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques redondant dans une zone à l’aide de PowerShell
 Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016 sur plusieurs zones de disponibilité. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.

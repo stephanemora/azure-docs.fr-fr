@@ -1,11 +1,11 @@
 ---
-title: "Conception d’identités hybrides : exigences en matière de réponse aux incidents Azure | Microsoft Docs"
-description: "Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d'identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer les menaces."
-documentationcenter: 
+title: 'Conception d’identités hybrides : exigences en matière de réponse aux incidents Azure | Microsoft Docs'
+description: Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d'identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer les menaces.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801056"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de réponse aux incidents pour votre solution d'identité hybride
 Les organisations de taille moyenne ou grande auront probablement mis en place une [réponse aux incidents de sécurité](https://technet.microsoft.com/library/cc700825.aspx) pour aider les services informatiques à agir en fonction du niveau de l'incident. Le système de gestion des identités est un composant important du processus de réponse aux incidents. Il peut en effet être utilisé pour aider à identifier l'auteur d’une action spécifique dirigée contre la cible. La solution d'identité hybride doit être en mesure de fournir des capacités de surveillance et de création de rapports pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer la menace. Un plan de réponse aux incidents typique devra comprendre les phases suivantes :

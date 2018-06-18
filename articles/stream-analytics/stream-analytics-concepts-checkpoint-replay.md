@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31529202"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concepts de point de contrôle et de relecture dans les travaux Azure Stream Analytics
 Cet article décrit les concepts de point de contrôle et de relecture internes dans Azure Stream Analytics ainsi que leur impact sur la récupération de travail. Chaque fois qu’un travail Stream Analytics s’exécute, les informations d’état sont gérées en interne. Ces informations d’état sont régulièrement enregistrées dans un point de contrôle. Dans certains scénarios, les informations de point de contrôle sont utilisées pour la récupération du travail en cas d’échec ou de mise à niveau. Dans d’autres circonstances, le point de contrôle ne peut pas être utilisé pour la récupération et une relecture est nécessaire.

@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 8f8b252d8771dff23d0a8c89e057fc17ba321a65
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 16e4af4dd7f5c2bd14d70cc28225dfc750ce3bea
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838508"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Science des données à l’aide de Scala et Spark sur Azure
 Ce article vous montre comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec la bibliothèque d’apprentissage automatique évolutif (MLlib) Spark et des packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](http://aka.ms/datascienceprocess): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles de cet article incluent la régression logistique et linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree), en plus de deux tâches d’apprentissage automatique supervisées courantes :
@@ -42,7 +44,6 @@ Les étapes d’installation et le code présentés dans cet article s’appliqu
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Vous devez avoir un abonnement Azure. Si vous n’en avez pas, [obtenez une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Vous avez besoin d’un cluster Azure HDInsight 3.4 Spark 1.6 pour effectuer les procédures suivantes. Pour créer un cluster, consultez les instructions de la rubrique dans [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** .
 

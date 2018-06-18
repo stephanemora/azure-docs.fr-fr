@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30910984"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulation d’échange à fréquence élevée avec Stream Analytics
 La combinaison du langage SQL, des fonctions JavaScript définies par l’utilisateur (UDF) et des agrégats définis par l’utilisateur (UDA) dans Azure Stream Analytics permet aux utilisateurs d’effectuer des analyses avancées. Les analyses avancées peuvent inclure l’apprentissage automatique en ligne et la notation, ainsi que la simulation des processus avec état. Cet article décrit comment effectuer une régression linéaire dans une tâche Azure Stream Analytics qui exécute la formation continue et la notation dans un scénario commercial haute fréquence.

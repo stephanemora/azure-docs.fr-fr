@@ -14,14 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fa299603a14ef94ab4cf3eac2b1123def1a0b6de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594881"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
-Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory]()
+Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Décidez comment vous voulez prendre le contrôle d’un annuaire non géré
 Lors du processus de prise de contrôle par l’administrateur, vous pouvez prouver la propriété comme décrit dans [Ajouter un nom de domaine personnalisé à Azure AD](add-custom-domain.md). Les sections suivantes vous expliquent plus en détail l'expérience administrateur, mais en voici un résumé :

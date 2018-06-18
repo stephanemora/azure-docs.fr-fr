@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776496"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutoriel : notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs 
 > [!div class="op_single_selector"]

@@ -1,26 +1,21 @@
 ---
-title: Sauvegarder Windows Server dans Azure | Microsoft Docs
-description: "Ce didacticiel décrit en détail la sauvegarde de serveurs Windows locaux dans un coffre Recovery Services."
+title: Sauvegarder Windows Server dans Azure
+description: Ce didacticiel décrit en détail la sauvegarde de serveurs Windows locaux dans un coffre Recovery Services.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-keywords: "sauvegarde serveur windows ; sauvegarder windows server ; sauvegarde et récupération d’urgence"
-ms.assetid: 
+keywords: sauvegarde serveur windows ; sauvegarder windows server ; sauvegarde et récupération d’urgence
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609016"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -36,7 +31,7 @@ Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contr
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 

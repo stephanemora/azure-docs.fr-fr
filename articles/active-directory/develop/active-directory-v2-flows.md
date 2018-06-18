@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157666"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Types d’application pour le point de terminaison Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 prend en charge l’authentification pour de multiples architectures d’application modernes, toutes basées sur des protocoles industriels standard [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Cet article décrit les types d’application que vous pouvez générer à l’aide d’Azure AD v2.0, quelle que soit votre plateforme ou langage par défaut. Les informations contenues dans cet article sont conçues pour vous aider à comprendre les scénarios de haut niveau avant de [commencer à travailler avec le code](active-directory-appmodel-v2-overview.md#getting-started).

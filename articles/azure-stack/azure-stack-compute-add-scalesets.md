@@ -1,22 +1,23 @@
 ---
-title: Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack | Microsoft Docs
-description: Découvrez comment un opérateur cloud peut ajouter des machines virtuelles identiques à la Marketplace Azure Stack
+title: Rendre les groupes de machines virtuelles identiques disponibles dans Azure Stack | Microsoft Docs
+description: Découvrez comment un opérateur cloud peut ajouter des groupes de machines virtuelles identiques à la Place de marché Azure Stack.
 services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800638"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendre les groupes de machines virtuelles identiques disponibles dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -28,53 +29,28 @@ Les groupes de machines virtuelles identiques sur Azure Stack suivent le même p
 * [Mark Russinovich parle des groupes identiques Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Jeux de mise à l’échelle de machine virtuelle, avec Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compatibles avec la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique avec le portail Azure Stack, les modèles Resource Manager ou PowerShell.
+Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compatibles avec la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique en utilisant les modèles Resource Manager, l’interface de ligne de commande ou PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **PowerShell et outils**
 
-   Installer et configurez PowerShell pour Azure Stack et les outils Azure Stack. Consultez la page [Devenir opérationnel avec PowerShell dans Azure Stack](azure-stack-powershell-configure-quickstart.md).
-
-   Après avoir installé les outils Azure Stack, veillez à importer le module PowerShell suivant (chemin d’accès relatif au dossier .\ComputeAdmin du dossier AzureStack-Tools-master) :
-  ````PowerShell
-        Import-Module .\AzureStack.ComputeAdmin.psm1
-  ````
-
-* **Image du système d’exploitation**
-
-   Si vous n’avez pas ajouté d’image de système d’exploitation à votre Marketplace Azure Stack, consultez la page [Ajouter l’image de machine virtuelle de Windows Server 2016 à la marketplace Azure Stack](azure-stack-add-default-image.md).
-
-   Pour la prise en charge de Linux, téléchargez Ubuntu Server 16.04 et ajoutez-le à l’aide de ```Add-AzsPlatformImage``` avec les paramètres suivants : ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
-
+- **Syndication de la Place de marché**  
+    Inscrivez Azure Stack avec Azure pour un déploiement à l’échelle mondiale afin d’activer la syndication de la Place de marché. Suivez les instructions fournies dans [Inscrire Azure Stack avec Azure](azure-stack-registration.md).
+- **Image du système d’exploitation**  
+    Si vous n’avez pas ajouté d’image de système d’exploitation à la Place de marché Azure Stack, consultez la page [Ajouter un élément de Place de marché Azure Stack depuis Azure](asdk/asdk-marketplace-item.md).
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Ajouter le groupe de machines virtuelles identiques
 
-Modifiez le script PowerShell suivant en fonction de votre environnement, puis exécutez-le pour ajouter un groupe de machines virtuelles identiques à votre Marketplace Azure Stack. 
+1. Ouvrez Azure Stack Marketplace et connectez-vous à Azure. Sélectionnez **Marketplace management** (Gestion de la Place de marché)> **+ Add from Azure** (+Ajouter depuis Azure).
 
-``$User`` est le compte servant à se connecter au portail d’administration. Par exemple : serviceadmin@contoso.onmicrosoft.com.
+    ![Gestion de la Place de marché](media/azure-stack-compute-add-scalesets/image01.png)
 
-````PowerShell  
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
+2. Ajoutez et téléchargez l’élément Place de marché du groupe de machines virtuelles identiques.
 
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
+    ![Groupe de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/image02.png)
 
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Mettre à jour les images dans un groupe de machines virtuelles identiques
 
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-````
-
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Mettre à jour des images dans un groupe de machines virtuelles identiques 
 Après avoir créé un groupe de machines virtuelles identiques, les utilisateurs peuvent mettre à jour des images dans un groupe identique sans devoir recréer aucun groupe identique. Le processus de mise à jour d’une image varie selon les scénarios suivants :
 
 1. Le modèle de déploiement du groupe de machines virtuelles identiques **spécifie dernière** pour *version* :  
@@ -103,7 +79,7 @@ Après avoir créé un groupe de machines virtuelles identiques, les utilisateur
 
 2. Le modèle de déploiement du groupe de machines virtuelles identiques **ne spécifie pas de dernière** pour *version* et spécifie un numéro de version à la place :  
 
-     Si vous téléchargez une image avec une version plus récente (ce qui modifie la version disponible), le groupe identique ne peut pas monter en puissance. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
+    Si vous téléchargez une image avec une version plus récente (ce qui modifie la version disponible), le groupe identique ne peut pas monter en puissance. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
 
 Pour plus d’informations, consultez [disques et images du système d’exploitation](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
@@ -113,7 +89,7 @@ Pour plus d’informations, consultez [disques et images du système d’exploit
 Pour supprimer un élément de la galerie du groupe de machines virtuelles identiques, exécutez la commande PowerShell suivante :
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]

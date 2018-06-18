@@ -1,8 +1,8 @@
 ---
-title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Azure Resource Manager"
-description: "Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) de machine virtuelle Windows pour accéder à Azure Resource Manager."
+title: Utiliser une MSI de machine virtuelle Windows pour accéder à Azure Resource Manager
+description: Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) de machine virtuelle Windows pour accéder à Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382557"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utiliser une identité du service administré (MSI) de machine virtuelle Windows pour accéder au Gestionnaire des ressources
 

@@ -1,20 +1,19 @@
 ---
 title: Intégration continue et déploiement continu dans Azure IoT Edge | Microsoft Docs
 description: Vue d’ensemble de l’intégration continue et du déploiement continu pour Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
-ms.date: 4/30/2018
-ms.topic: article
+ms.date: 04/30/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f635a4c02dd8fd2b58598e53662d1a4d82ea611
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+services: iot-edge
+ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311739"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631018"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Intégration continue et déploiement continu dans Azure IoT Edge - préversion
 Ce didacticiel montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu de Visual Studio Team Services (VSTS) et Microsoft Team Foundation Server (TFS) pour compiler, tester et déployer des applications rapidement et efficacement sur un appareil Azure IoT Edge. 
@@ -403,7 +402,7 @@ Dans cette section, vous allez créer une définition de build configurée pour 
 
 1. Cliquez sur **+** à droite de **Phase 1** pour ajouter une tâche à la phase. Ensuite, recherchez et sélectionnez **Azure IoT Edge**, puis cliquez sur le bouton **Ajouter** **deux fois** pour ajouter ces tâches à la phase.
 
-    ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
+    ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
 1. Dans la première tâche Azure IoT Edge, définissez le **nom d’affichage** sur **Module Build and Push**, puis, dans la liste déroulante **Action**, sélectionnez **Build and Push modules** (Générer et envoyer (push) les modules). Dans la zone de texte **Module.json File** (Fichier Module.json), ajoutez le chemin d’accès ci-dessous. Ensuite, choisissez **Type de registre de conteneurs**, puis configurez et sélectionnez le même registre que dans votre code. Cette tâche générera et enverra (push) tous vos modules dans la solution, et effectuera la publication dans le registre de conteneurs que vous avez spécifié. 
 

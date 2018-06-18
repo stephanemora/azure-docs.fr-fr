@@ -1,19 +1,19 @@
 ---
 title: Créer une application Azure IoT Central | Microsoft Docs
 description: En tant qu’administrateur, comment créer une application Azure IoT Central.
-services: iot-central
-author: TanmayBhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 03/20/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 83879c6b81985f61b9fcff665e9f764c1346592e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 39992a1cc36d00a64ee6430cad5f24af3e1e1157
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200807"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629284"
 ---
 # <a name="create-your-azure-iot-central-application"></a>Créer votre application Azure IoT Central
 
@@ -35,7 +35,7 @@ L’URL de l’application est le lien vers votre application. Vous pouvez enreg
 
 Quand vous entrez le nom de votre application, l’URL de votre application est générée automatiquement. Si vous préférez, vous pouvez choisir une autre URL pour votre application. Chaque URL Azure IoT Central doit être unique. Vous voyez un message d’erreur si l’URL que vous choisissez a déjà été utilisée.
 
-## <a name="directory"></a>Annuaire
+## <a name="directory"></a>Répertoire
 
 Seulement dans les applications payantes.
 

@@ -2,23 +2,21 @@
 title: 'Démarrage rapide : API Graph avec Python - Azure Cosmos DB | Microsoft Docs'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Graph d’Azure Cosmos DB pour créer une application console avec le portail Azure et Python.
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
 manager: kfile
-ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a29a27ec633f5f67bb8cac4b9a4823c5f0966f8e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795786"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de graphiques à l’aide de Python et du portail Azure
 
@@ -30,7 +28,6 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 > Ce démarrage rapide nécessite un compte de base de données de graphiques créé après le 20 décembre 2017. Les comptes existants prendront en charge Python une fois la migration vers la disponibilité générale effectuée.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Vous pouvez également [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, ni frais ni engagement.
 
@@ -80,7 +77,7 @@ Cette étape est facultative. Pour savoir comment les ressources de base de donn
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -105,7 +102,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 2. Ouvrez le fichier connect.py et, sur la ligne 104, collez la valeur de l’URI sur `<YOUR_ENDPOINT>`, ici :
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -113,14 +110,12 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     La portion d’URI de l’objet client doit être similaire au code suivant :
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
 
-3. Modifiez `graphs.azure.com` dans le nom du client pour le remplacer par `gremlin.cosmosdb.azure.com`. (Si votre compte de base de données de graphiques a été créé avant le 20 décembre 2017, n’apportez aucune modification et passez à l’étape suivante.)
-
-4. Modifiez le second paramètre de l’objet `client` afin de remplacer les chaînes `<YOUR_DATABASE>` et `<YOUR_COLLECTION_OR_GRAPH>`. Si vous avez utilisé les valeurs suggérées, le paramètre doit ressembler au code suivant :
+3. Modifiez le second paramètre de l’objet `client` afin de remplacer les chaînes `<YOUR_DATABASE>` et `<YOUR_COLLECTION_OR_GRAPH>`. Si vous avez utilisé les valeurs suggérées, le paramètre doit ressembler au code suivant :
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
@@ -132,7 +127,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
         password="<YOUR_PASSWORD>")
     ```
 
-5. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `<YOUR_PASSWORD>` dans le paramètre `password=<YOUR_PASSWORD>`.
+4. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `<YOUR_PASSWORD>` dans le paramètre `password=<YOUR_PASSWORD>`.
 
     L’ensemble de définition de l’objet `client` doit désormais ressembler à ce code :
     ```python

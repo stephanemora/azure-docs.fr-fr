@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 9fd4618b7edffe2b23c9b7bb4472ed7da5f0aa43
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25565f2369bc684525a53889b6cd069af5ce32f0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647032"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Chiffrement intégral : protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
 
@@ -33,7 +34,6 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte et un abonnement Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).

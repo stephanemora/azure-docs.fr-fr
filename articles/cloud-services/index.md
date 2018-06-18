@@ -1,11 +1,11 @@
 ---
-title: "Documentation Azure Cloud Services - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Des didacticiels, des références d’API et d’autres documents vous montrent comment utiliser les Services cloud pour héberger et exécuter des applications cloud et des API hautement disponibles et évolutives."
+title: Documentation Azure Cloud Services - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Des didacticiels, des références d’API et d’autres documents vous montrent comment utiliser les Services cloud pour héberger et exécuter des applications cloud et des API hautement disponibles et évolutives.
 services: cloud-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24101880"
 ---
 # <a name="cloud-services-documentation"></a>Documentation Services cloud
 

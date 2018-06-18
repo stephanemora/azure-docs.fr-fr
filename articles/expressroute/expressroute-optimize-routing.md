@@ -1,11 +1,11 @@
 ---
-title: "Optimiser le routage ExpressRoute : Azure | Microsoft Docs"
-description: "Cette page fournit des détails sur l’optimisation du routage lorsque vous avez le choix entre plusieurs circuits ExpressRoute de connexion entre Microsoft et votre réseau professionnel."
+title: 'Optimiser le routage ExpressRoute : Azure | Microsoft Docs'
+description: Cette page fournit des détails sur l’optimisation du routage lorsque vous avez le choix entre plusieurs circuits ExpressRoute de connexion entre Microsoft et votre réseau professionnel.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709995"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
 En présence de plusieurs circuits ExpressRoute, vous pouvez vous connecter à Microsoft par le biais de plusieurs chemins d’accès. Par conséquent, le routage pourrait ne pas être optimal. Autrement dit, votre trafic peut emprunter un chemin d’accès plus long pour atteindre Microsoft ; Microsoft peut faire de même pour atteindre votre réseau. Plus le chemin d’accès réseau est long, plus la latence est élevée. La latence a un impact direct sur les performances d’application ainsi que sur l’expérience utilisateur. Cet article aborde ce problème et explique comment optimiser le routage à l’aide des technologies de routage standard.

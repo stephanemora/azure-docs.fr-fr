@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Trust Center et informations sur la sécurité Azure | Microsoft Docs"
-description: "Le Centre de gestion de la confidentialité Microsoft vous fournit les informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée."
+title: Microsoft Trust Center et informations sur la sécurité Azure | Microsoft Docs
+description: Le Centre de gestion de la confidentialité Microsoft vous fournit les informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541568"
 ---
 # <a name="microsoft-trust-center"></a>Centre de gestion de la confidentialité Microsoft
 Le site d’informations sur la sécurité Azure sur Azure.com vous donne les informations dont vous avez besoin pour planifier, concevoir, déployer, configurer et gérer vos solutions cloud en toute sécurité. Avec le Centre de gestion de la confidentialité Microsoft, vous disposez également des informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée.

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 04/06/2018
+  ms.locfileid: "30922380"
 abstract:
   description: Azure SQL Database est une base de données relationnelle en tant que service reposant sur le moteur Microsoft SQL Server. SQL Database est une base de données hautes performances, fiable et sécurisée, que vous pouvez utiliser pour créer des applications et des sites web axés sur les données dans le langage de programmation de votre choix, sans avoir à gérer l’infrastructure. Découvrez comment utiliser SQL Database avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
   aside:

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: b2369f9468c54f10d01203841b6d7ba44b7ba2de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f8e6ad4b23eeaf46cccac9c8ff9d41f71511129d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642850"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Comment le service Reliable Actors utilise la plateforme Service Fabric
 Cet article décrit le fonctionnement du service Reliable Actors sur la plateforme Azure Service Fabric. La solution Reliable Actors s’exécute dans une infrastructure hébergée dans une implémentation d’un service fiable avec état nommé *service d’acteur*. Le service d’acteur contient tous les composants nécessaires pour gérer le cycle de vie et la distribution des messages destinés à vos acteurs :
@@ -41,9 +42,6 @@ Dans Reliable Services, votre service hérite de la classe `StatefulService`. Ce
 * Sauvegarde et restauration du service.
 * Fonctionnalité partagée par tous les acteurs. Par exemple, un disjoncteur.
 * Appels de procédure à distance sur le service d’acteur proprement dit et sur chaque acteur.
-
-> [!NOTE]
-> Actuellement, les services avec état ne sont pas pris en charge par Java / Linux.
 
 Pour plus d’informations, voir [Implémentation des fonctionnalités de niveau de service dans votre service d’acteur](service-fabric-reliable-actors-using.md).
 

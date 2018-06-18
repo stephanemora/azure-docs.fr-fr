@@ -1,24 +1,19 @@
 ---
 title: Options cloud vers appareil Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : conseils pour l’utilisation de méthodes directes, les propriétés souhaitées des jumeaux d’appareil ou les messages cloud-à-appareil pour les communications cloud à appareil.'
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634435"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Conseils pour les communications cloud-à-appareil
 IoT Hub propose trois options pour les applications pour appareil afin d’exposer les fonctionnalités sur un appareil principal :
@@ -37,7 +32,7 @@ Voici une comparaison détaillée des différentes options de communication clou
 | Flux de données | Bidirectionnel. L’application pour appareil peut répondre immédiatement à la méthode. Le dispositif principal reçoit les résultats en fonction du contexte de la demande. | Unidirectionnel. L’application pour appareil reçoit une notification avec la modification de propriété. | Unidirectionnel. L’application pour appareil reçoit le message
 | Durabilité | Les appareils déconnectés ne sont pas contactés. Le serveur principal de la solution est averti que l’appareil n’est pas connecté. | Les valeurs de propriété sont conservées dans la représentation d’appareil. L’appareil les lira lors de la reconnexion suivante. Les valeurs de propriété sont récupérables avec le [langage de requête d’IoT Hub][lnk-query]. | Les messages peuvent être conservés par IoT Hub jusqu’à 48 heures. |
 | Cibles | Appareil unique utilisant le paramètre **deviceId** ou appareils multiples utilisant le paramètre [jobs][lnk-jobs]. | Appareil unique utilisant le paramètre **deviceId** ou appareils multiples utilisant le paramètre [jobs][lnk-jobs]. | Appareil unique par **deviceId**. |
-| Taille | Demandes et réponses jusqu’à 8 Ko. | La taille maximale des propriétés souhaitée est de 8 Ko. | Messages jusqu’à 64 Ko. |
+| Taille | La taille maximale de charge utile de la méthode directe est de 128 Ko. | La taille maximale des propriétés souhaitée est de 8 Ko. | Messages jusqu’à 64 Ko. |
 | Fréquence | Élevée. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. | Moyenne. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. | Faible. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. |
 | Protocole | Disponible à l’aide du protocole MQTT ou AMQP. | Disponible à l’aide du protocole MQTT ou AMQP. | Disponible sur tous les protocoles. L’appareil doit interroger lors de l’utilisation de HTTPS. |
 

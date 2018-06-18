@@ -1,12 +1,12 @@
 ---
-title: "Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire) | Microsoft Docs"
-description: "Cet article explique comment personnaliser les évaluations de Security Center."
+title: Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire) | Microsoft Docs
+description: Cet article explique comment personnaliser les évaluations de Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200008"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -316,7 +317,7 @@ Si vous ne disposez pas d’autorisations suffisantes, vous risquez de recevoir 
 
 ![Message d’erreur d’échec de l’action d’enregistrement](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Cet article vous a montré comment personnaliser les évaluations de la configuration de la sécurité du système d’exploitation dans Security Center. Pour en savoir plus sur les règles de configuration et sur la correction, consultez les pages :
 
 - [Règles de base et identificateurs de configuration courants de Security Center](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).

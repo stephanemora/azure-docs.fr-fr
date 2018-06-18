@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31524242"
 ---
 # <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Utilisation des libellés pour instrumenter des requêtes dans SQL Data Warehouse
 Conseils relatifs à l’utilisation de libellés pour instrumenter des requêtes dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.

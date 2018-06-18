@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943239"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Déploiement de votre offre sur Azure Marketplace
 Quand vous avez finalisé votre offre (avec des scénarios clients testés, du contenu marketing, etc.) et êtes prêt à la lancer, cliquez sur **Push to Production** (Lancer la production) sous l’onglet **Publish** (Publier).  

@@ -1,12 +1,12 @@
 ---
-title: "Exemples Azure PowerShell pour le Stockage Blob Azure | Microsoft Docs"
+title: Exemples Azure PowerShell pour le Stockage Blob Azure | Microsoft Docs
 description: Exemples Azure PowerShell pour utiliser le Stockage Blob Azure
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27535227"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Exemples Azure PowerShell pour Stockage Blob Azure
 

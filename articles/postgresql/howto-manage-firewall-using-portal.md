@@ -1,6 +1,6 @@
 ---
-title: "Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL"
-description: "Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure"
+title: Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL
+description: Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690337"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur Azure Database pour PostgreSQL à partir d’une adresse IP spécifiée ou d’une plage d’adresses IP. 
@@ -58,6 +59,6 @@ Répétez les étapes pour gérer les règles de pare-feu.
 * Pour modifier une règle existante, cliquez sur les champs dans la règle et modifiez-les. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 * Pour supprimer une règle existante, cliquez sur les points de suspension [...], puis sur **Supprimer**. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - De la même manière, vous pouvez utiliser un script pour [créer et gérer des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande Azure](howto-manage-firewall-using-cli.md).
 - Pour vous aider à vous connecter à un serveur Azure Database pour PostgreSQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour PostgreSQL](concepts-connection-libraries.md).

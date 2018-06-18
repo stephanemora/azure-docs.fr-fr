@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206864"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Mettre en œuvre la sauvegarde et la restauration de Reliable Actors
 Dans l’exemple suivant, un service d’acteur personnalisé expose une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService` :

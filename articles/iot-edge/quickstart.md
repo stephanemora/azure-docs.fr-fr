@@ -1,20 +1,20 @@
 ---
 title: Démarrage rapide Azure IoT Edge + Windows | Microsoft Docs
 description: Essayez Azure IoT Edge en exécutant l’analyse sur un appareil Edge simulé
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 05/03/2018
-ms.topic: article
+ms.topic: quickstart
 ms.service: iot-edge
-ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 2fd16ab4ade61b1a08f93294051f4246e47839b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166214"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631732"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Windows - préversion
 
@@ -23,7 +23,6 @@ Dans cette démarrage rapide, utilisez l'interface de cloud Azure IoT Edge pour 
 Si vous n’avez pas d'abonnement Azure actif, créez un [compte gratuit][lnk-account] avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Ces didacticiels partent du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows pour simuler un appareil Internet des Objets (IoT). Si vous exécutez Windows sur une machine virtuelle, activez la [virtualisation imbriquée][lnk-nested] et allouez au moins 2 Go de mémoire. 
 

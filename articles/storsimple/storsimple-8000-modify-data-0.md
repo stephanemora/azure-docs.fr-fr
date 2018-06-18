@@ -1,12 +1,12 @@
 ---
-title: "Modifier les paramètres DATA 0 sur un appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Découvrez comment utiliser Windows PowerShell for StorSimple pour reconfigurer l'interface réseau DATA 0 sur votre appareil StorSimple."
+title: Modifier les paramètres DATA 0 sur un appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Découvrez comment utiliser Windows PowerShell for StorSimple pour reconfigurer l'interface réseau DATA 0 sur votre appareil StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108297"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modifier les paramètres d’interface réseau DATA 0 sur votre appareils de la gamme StorSimple 8000
 

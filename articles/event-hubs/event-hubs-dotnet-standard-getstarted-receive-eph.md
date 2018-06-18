@@ -1,12 +1,12 @@
 ---
-title: "Recevoir des événements d’Azure Event Hubs avec une bibliothèque .Net Standard | Microsoft Docs"
-description: "Prise en main de la réception des messages avec EventProcessorHost dans .NET Standard"
+title: Recevoir des événements d’Azure Event Hubs avec une bibliothèque .Net Standard | Microsoft Docs
+description: Prise en main de la réception des messages avec EventProcessorHost dans .NET Standard
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29389833"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Bien démarrer avec la réception de messages à l’aide de l’hôte du processeur d’événements dans .NET Standard
 
@@ -214,7 +215,7 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
 
 Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)

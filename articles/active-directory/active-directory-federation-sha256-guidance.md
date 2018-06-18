@@ -1,12 +1,12 @@
 ---
-title: "Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365 | Microsoft Docs"
-description: "Cette page fournit des instructions permettant de modifier l’algorithme SHA pour l’approbation de fédération avec Office 365"
-keywords: "SHA1, SHA256, O365, fédération, aadconnect, adfs, ad fs, modifier sha, approbation de fédération, approbation de partie de confiance"
+title: Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365 | Microsoft Docs
+description: Cette page fournit des instructions permettant de modifier l’algorithme SHA pour l’approbation de fédération avec Office 365
+keywords: SHA1, SHA256, O365, fédération, aadconnect, adfs, ad fs, modifier sha, approbation de fédération, approbation de partie de confiance
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598960"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365
 ## <a name="overview"></a>Vue d'ensemble

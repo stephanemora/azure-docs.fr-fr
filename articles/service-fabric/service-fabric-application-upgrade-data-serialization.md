@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213161"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Impact de la sérialisation des données sur la mise à niveau d’une application
 Dans un [mise à niveau d'application propagée](service-fabric-application-upgrade.md), la mise à niveau est appliquée à un sous-ensemble de nœuds, à raison d'un domaine de mise à niveau à la fois. Pendant ce processus, certains domaines de mise à niveau se trouvent sur la version la plus récente de votre application, tandis que d’autres se trouvent sur la version antérieure. Pendant le déploiement, la nouvelle version de votre application doit être en mesure de lire l’ancienne version de vos données, tandis que l’ancienne version de votre application doit être à même de lire la nouvelle version de vos données. Si le format de données n’offre pas une compatibilité ascendante et descendante, la mise à niveau peut échouer ou, pire, des données peuvent être perdues ou endommagées. Cet article explique ce qui constitue le format de données et détaille les méthodes recommandées pour que les données offrent une compatibilité ascendante et descendante.

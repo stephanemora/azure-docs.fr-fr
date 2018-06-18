@@ -1,11 +1,11 @@
 ---
-title: "Exécuter des tâches de démarrage dans Azure Cloud Services | Microsoft Docs"
-description: "Les tâches de démarrage facilitent la préparation de votre environnement de service cloud pour votre application. Cette documentation vous apprend comment fonctionnent les tâches de démarrage et comment les créer."
+title: Exécuter des tâches de démarrage dans Azure Cloud Services | Microsoft Docs
+description: Les tâches de démarrage facilitent la préparation de votre environnement de service cloud pour votre application. Cette documentation vous apprend comment fonctionnent les tâches de démarrage et comment les créer.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999134"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
 Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée.

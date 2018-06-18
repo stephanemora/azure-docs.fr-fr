@@ -1,11 +1,11 @@
 ---
-title: "Automatiser la récupération d’urgence de partages de fichiers StorSimple avec Azure Site Recovery | Microsoft Docs"
-description: "Décrit les étapes et bonnes pratiques pour créer une solution de récupération d’urgence pour les partages de fichiers hébergés sur un stockage Microsoft Azure StorSimple."
+title: Automatiser la récupération d’urgence de partages de fichiers StorSimple avec Azure Site Recovery | Microsoft Docs
+description: Décrit les étapes et bonnes pratiques pour créer une solution de récupération d’urgence pour les partages de fichiers hébergés sur un stockage Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23452408"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solution de récupération d’urgence automatisée à l’aide d’Azure Site Recovery pour les partages de fichiers hébergés sur StorSimple
 ## <a name="overview"></a>Vue d'ensemble

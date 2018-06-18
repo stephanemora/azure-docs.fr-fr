@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30198228"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
 La stratégie personnalisée IPsec/IKE est prise en charge sur les passerelles VPN Azure **VpnGw1, VpnGw2, VpnGw3, Standard** et **HighPerformance**. La **référence SKU** de base **n’est pas** prise en charge.

@@ -1,8 +1,8 @@
 ---
-title: "Configurer l’environnement source (serveurs physiques sur Azure) | Microsoft Docs"
-description: "Cet article décrit comment configurer votre environnement local pour lancer la réplication des serveurs physiques exécutant Windows ou Linux dans Azure."
+title: Configurer l’environnement source (serveurs physiques sur Azure) | Microsoft Docs
+description: Cet article décrit comment configurer votre environnement local pour lancer la réplication des serveurs physiques exécutant Windows ou Linux dans Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811136"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurer l’environnement source (serveurs physiques sur Azure)
 

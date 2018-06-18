@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect - mettre à jour le certificat SSL pour une batterie de serveurs AD FS | Microsoft Docs"
-description: "Ce document détaille les étapes permettant de mettre à jour le certificat SSL d’une batterie de serveurs AD FS à l’aide d’Azure AD Connect."
+title: Azure AD Connect - mettre à jour le certificat SSL pour une batterie de serveurs AD FS | Microsoft Docs
+description: Ce document détaille les étapes permettant de mettre à jour le certificat SSL d’une batterie de serveurs AD FS à l’aide d’Azure AD Connect.
 services: active-directory
-keywords: "azure ad connect, mise à jour de ssl adfs, mise à jour d’un certificat adfs, modifier un certificat adfs, nouveau certificat adfs, certificat adfs, mettre à jour un certificat ssl adf, mettre à jour un certificat adf ssl, configurer un certificat ssl adf, adfs, ssl, certificat, adfs certificat de communication de service, mettre à jour la fédération, configurer la fédération, aad connect"
+keywords: azure ad connect, mise à jour de ssl adfs, mise à jour d’un certificat adfs, modifier un certificat adfs, nouveau certificat adfs, certificat adfs, mettre à jour un certificat ssl adf, mettre à jour un certificat adf ssl, configurer un certificat ssl adf, adfs, ssl, certificat, adfs certificat de communication de service, mettre à jour la fédération, configurer la fédération, aad connect
 authors: anandyadavmsft
 manager: mtillman
 editor: billmath
@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
+ms.component: hybrid
 ms.author: anandy
 ms.custom: seohack1
-ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d657725b7bfb75a118c1d8bbbe701c1c121b1ef2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595000"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Vous pouvez utiliser l’outil Azure AD Connect pour une mise à jour facile du certificat SSL pour la batterie de serveurs AD FS même si la méthode d’authentification sélectionnée n’est pas AD FS.
 
 Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certificat SSL pour la batterie de serveurs AD FS sur l’ensemble des serveurs de fédération et Proxy d’application Web (WAP) en trois étapes simples :
@@ -34,7 +36,7 @@ Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certific
 >[!NOTE]
 >Pour en savoir plus sur les certificats utilisés par AD FS, consultez l’article [Présentation des certificats utilisés par les services ADFS (Active Directory Federation Services)](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Batterie de serveurs AD FS** : Assurez-vous que votre batterie AD FS est basée sur Windows Server 2012 R2 ou version ultérieure.
 * **Azure AD Connect** : vérifiez que la version d’Azure AD Connect est 1.1.553.0 ou ultérieure. Vous utiliserez la tâche **Mettre à jour le certificat SSL AD FS**.

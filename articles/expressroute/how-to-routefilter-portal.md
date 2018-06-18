@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387725"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour l’homologation Microsoft : portail Azure
 > [!div class="op_single_selector"]

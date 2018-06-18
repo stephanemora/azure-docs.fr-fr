@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367104"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267126"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -53,7 +53,7 @@ Vous pouvez configurer des itinéraires définis par l’utilisateur qui pointen
 
 Vous pouvez également déployer des réseaux de type hub-and-spoke où le nœud du réseau virtuel peut héberger des composants d’infrastructure tels qu’une appliance virtuelle réseau ou une passerelle VPN. Tous les réseaux virtuels spoke peuvent ensuite être homologués avec le réseau virtuel hub. Le trafic peut passer par des appliances virtuelles réseau ou des réseaux VPN sur le réseau virtuel hub. 
 
-L’homologation de réseaux virtuels permet de définir le tronçon suivant dans un itinéraire défini par l’utilisateur sur l’adresse IP d’une machine virtuelle du réseau virtuel homologué ou une passerelle VPN. Toutefois, vous ne pouvez pas définir d’itinéraires entre plusieurs réseaux virtuels avec un itinéraire défini par l’utilisateur en spécifiant une passerelle ExpressRoute comme type de tronçon suivant. Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined). Pour découvrir comment créer une topologie de réseau de type hub et spoke, consultez [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implémenter une topologie de réseau de type hub et spoke dans Azure).
+L’homologation de réseaux virtuels permet de définir le tronçon suivant dans un itinéraire défini par l’utilisateur sur l’adresse IP d’une machine virtuelle du réseau virtuel homologué ou une passerelle VPN. Toutefois, vous ne pouvez pas définir d’itinéraires entre plusieurs réseaux virtuels avec un itinéraire défini par l’utilisateur en spécifiant une passerelle ExpressRoute comme type de tronçon suivant. Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined). Pour découvrir comment créer une topologie de réseau de type hub et spoke, consultez [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) (Implémenter une topologie de réseau de type hub et spoke dans Azure).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Passerelles et connectivité locale
 
@@ -71,7 +71,7 @@ Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRou
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Pour confirmer une homologation de réseaux virtuels, vous pouvez [vérifier les itinéraires effectifs](virtual-network-routes-troubleshoot-portal.md) pour une interface réseau dans n’importe quel sous-réseau d’un réseau virtuel. Si une homologation de réseaux virtuels existe, tous les sous-réseaux au sein du réseau virtuel ont des itinéraires avec le type de tronçon suivant *VNet Peering* pour chaque espace d’adressage de chaque réseau virtuel homologué.
+Pour confirmer une homologation de réseaux virtuels, vous pouvez [vérifier les itinéraires effectifs](diagnose-network-routing-problem.md) pour une interface réseau dans n’importe quel sous-réseau d’un réseau virtuel. Si une homologation de réseaux virtuels existe, tous les sous-réseaux au sein du réseau virtuel ont des itinéraires avec le type de tronçon suivant *VNet Peering* pour chaque espace d’adressage de chaque réseau virtuel homologué.
 
 Vous pouvez aussi résoudre les problèmes de connectivité à une machine virtuelle d’un réseau virtuel homologué à l’aide de la [vérification de la connectivité](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Network Watcher. La vérification de la connectivité vous permet de voir comment le trafic est acheminé à partir de l’interface réseau d’une machine virtuelle source vers l’interface réseau d’une machine virtuelle de destination.
 
@@ -98,5 +98,5 @@ Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une 
     |Un modèle Resource Manager, un modèle classique  |[Identique](create-peering-different-deployment-models.md)|
     |                                   |[Différent](create-peering-different-deployment-models-subscriptions.md)|
 
-* Découvrez comment créer une [topologie de réseau Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Découvrez comment créer une [topologie de réseau Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * En savoir plus sur tous les [paramètres d’homologation de réseaux virtuels et comment les modifier](virtual-network-manage-peering.md)

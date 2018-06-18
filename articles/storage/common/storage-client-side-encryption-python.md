@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742640"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

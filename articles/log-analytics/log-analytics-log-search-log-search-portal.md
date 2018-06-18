@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "29805080"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Créer des recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux
 

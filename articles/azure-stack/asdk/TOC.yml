@@ -7,30 +7,6 @@
       href: asdk-what-is.md
     - name: Notes de publication relatives à l’ASDK
       href: asdk-release-notes.md
-- name: Didacticiels
-  items:
-    - name: 1. Déployer l’ASDK
-      items:
-        - name: Déployer l’ASDK -Programme d’installation
-          href: asdk-deploy.md
-        - name: Déployer l’ASDK - PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Redéployer l’ASDK
-          href: asdk-redeploy.md
-    - name: 2. Ajouter un élément du Marketplace
-      items:
-        - name: Télécharger à partir d’Azure
-          href: asdk-marketplace-item.md
-        - name: Ajouter à partir d’une source locale
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Proposer des services IaaS
-      href: asdk-offer-services.md
-    - name: 4. S’abonner à une offre
-      href: asdk-subscribe-services.md
-    - name: 5. Offres et plans de mise à jour
-      href: asdk-update-offers.md
-    - name: 6. Créer une machine virtuelle à partir d’un modèle
-      href: asdk-create-vm-template.md
 - name: Concepts
   items:
     - name: Considérations en matière de planification du déploiement
@@ -49,10 +25,14 @@
           href: asdk-download.md
         - name: Préparer l’ordinateur hôte de l’ASDK
           href: asdk-prepare-host.md
-        - name: Installer l’ASDK
+        - name: Déployer l’ASDK -Programme d’installation
           href: asdk-install.md
+        - name: Déployer l’ASDK - PowerShell
+          href: asdk-deploy-powershell.md
         - name: Configuration post-déploiement
           href: asdk-post-deploy.md
+        - name: Redéployer l’ASDK
+          href: asdk-redeploy.md
     - name: Inscrire l’ASDK
       href: asdk-register.md
     - name: Configurer les paramètres de télémétrie Azure Stack

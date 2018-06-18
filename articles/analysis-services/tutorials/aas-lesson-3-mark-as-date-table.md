@@ -3,16 +3,17 @@ title: 'Leçon 3 du didacticiel Azure Analysis Services : Marquer en tant que Ta
 description: Explique comment marquer une table de dates dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b7f6252faef02676be6ccb22653f5d4805020df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 837543b6e9af714189e1d79eef483caabc2d32ad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597312"
 ---
 # <a name="mark-as-date-table"></a>Marquer comme table de dates
 
@@ -26,8 +27,7 @@ Avant de marquer la table de dates et la colonne de date, il peut être intéres
   
 Durée estimée pour suivre cette leçon : **3 minutes**  
   
-## <a name="prerequisites"></a>Prérequis
-  
+## <a name="prerequisites"></a>Prérequis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 2 : Obtenir des données](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Pour renommer la colonne FullDateAlternateKey

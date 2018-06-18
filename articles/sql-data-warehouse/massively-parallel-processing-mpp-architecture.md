@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799275"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - Architecture MPP (Massively Parallel Processing).
 Découvrez comment Azure SQL Data Warehouse combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec un stockage Azure pour obtenir des performances et une extensibilité élevées. 

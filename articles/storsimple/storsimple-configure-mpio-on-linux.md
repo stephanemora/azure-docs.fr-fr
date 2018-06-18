@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779089"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
 Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.

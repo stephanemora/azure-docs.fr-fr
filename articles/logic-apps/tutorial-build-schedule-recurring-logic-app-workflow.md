@@ -2,7 +2,7 @@
 title: Générer des flux de travail automatisés et planifiés - Azure Logic Apps | Microsoft Docs
 description: Ce didacticiel montre comment créer un flux de travail automatisé, périodique et planifié avec Azure Logic Apps
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300767"
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Contrôler le trafic à l’aide d’une application logique planifiée
 
@@ -53,7 +54,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
-1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Enterprise Integration** > **Application logique**.
+1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration Entreprise** > **Application logique**.
 
    ![Créer une application logique](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
@@ -337,7 +338,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez créé une application logique qui vérifie le trafic selon une planification spécifiée (les matins des jours ouvrables), et effectue une action (envoi d’un e-mail) lorsque la durée du trajet excède une limite définie. À présent, découvrez comment créer une application logique qui envoie des demandes de liste de diffusion pour approbation en intégrant des services Azure et Microsoft et d’autres applications SaaS.
 

@@ -1,24 +1,19 @@
 ---
-title: "Haute disponibilité et récupération d’urgence Azure IoT Hub | Microsoft Docs"
-description: "Décrit les options Azure et IoT Hub qui vous aident à créer des solutions Azure IoT à haute disponibilité dotées de fonctionnalités de récupération d’urgence."
-services: iot-hub
-documentationcenter: 
+title: Haute disponibilité et récupération d’urgence Azure IoT Hub | Microsoft Docs
+description: Décrit les options Azure et IoT Hub qui vous aident à créer des solutions Azure IoT à haute disponibilité dotées de fonctionnalités de récupération d’urgence.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633704"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 En tant que service Azure, IoT Hub offre la haute disponibilité à l’aide de redondances au niveau de la région Azure, sans aucun travail supplémentaire requis par la solution. La plateforme Microsoft Azure inclut également des fonctionnalités pour vous aider à générer des solutions offrant des fonctionnalités de récupération d’urgence ou une disponibilité inter-régions. Si vous voulez fournir une haute disponibilité globale inter-régions aux appareils et aux utilisateurs, tirez parti de ces fonctionnalités de récupération d’urgence Azure. L’article [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md) décrit les fonctionnalités intégrées Azure permettant la continuité d’activité et la récupération d’urgence. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure][Disaster recovery and high availability for Azure applications] contient des recommandations d’architecture concernant les stratégies pour les applications Azure, permettant de bénéficier de la haute disponibilité et de la récupération d’urgence.

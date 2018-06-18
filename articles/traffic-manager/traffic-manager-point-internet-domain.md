@@ -1,11 +1,11 @@
 ---
-title: "Rediriger un domaine Internet d’entreprise sur un nom de domaine Traffic Manager | Microsoft Docs"
-description: "Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager."
+title: Rediriger un domaine Internet d’entreprise sur un nom de domaine Traffic Manager | Microsoft Docs
+description: Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22719923"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Redirection d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
 

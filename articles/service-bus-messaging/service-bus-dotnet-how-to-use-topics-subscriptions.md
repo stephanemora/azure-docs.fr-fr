@@ -1,12 +1,12 @@
 ---
 title: Prise en main des rubriques et abonnements Azure Service Bus | Microsoft Docs
-description: "Écrivez une application de console .Net Core C# qui utilise les rubriques et les abonnements de messagerie Service Bus."
+description: Écrivez une application de console .Net Core C# qui utilise les rubriques et les abonnements de messagerie Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396939"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -426,7 +427,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
 
 Félicitations ! Grâce à la bibliothèque .NET Standard, vous avez créé une rubrique et un abonnement, envoyé 10 messages et les avez reçus.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les [référentiels GitHub accompagnés d’exemples](https://github.com/Azure/azure-service-bus/tree/master/samples) qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Service Bus.
 

@@ -1,12 +1,12 @@
 ---
-title: "Informations de référence sur la syntaxe de SQLFilter dans Azure Service Bus | Microsoft Docs"
-description: "Informations sur la syntaxe relative à SQLFilter."
+title: Informations de référence sur la syntaxe de SQLFilter dans Azure Service Bus | Microsoft Docs
+description: Informations sur la syntaxe relative à SQLFilter.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132165"
 ---
 # <a name="sqlfilter-syntax"></a>Syntaxe SQLFilter
 
@@ -278,7 +279,7 @@ Tenez compte de la sémantique [SqlFilter](/dotnet/api/microsoft.servicebus.mess
   
 -   Les opérateurs arithmétiques, tels que `+`, `-`, `*`, `/`, et `%` suivent la même sémantique que la liaison d’opérateur C# dans les promotions de type de données et les conversions implicites.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Classe SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)

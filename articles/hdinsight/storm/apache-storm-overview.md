@@ -22,6 +22,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686521"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Présentation d’Apache Storm sur Azure HDInsight
 
@@ -82,7 +83,7 @@ Vous pouvez créer un nouveau cluster Storm sur HDInsight en quelques minutes. P
 
 ## <a name="ease-of-use"></a>Simplicité d'utilisation
 
-* __Connectivité Secure Shell (SSH)__ : vous pouvez accéder aux nœuds principaux de votre cluster Storm via Internet, à l’aide de SSH. Vous pouvez exécuter des commandes directement sur votre cluster à l’aide de SSH.
+* __Connectivité Secure Shell (SSH)__  : vous pouvez accéder aux nœuds principaux de votre cluster Storm via Internet, à l’aide de SSH. Vous pouvez exécuter des commandes directement sur votre cluster à l’aide de SSH.
 
   Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

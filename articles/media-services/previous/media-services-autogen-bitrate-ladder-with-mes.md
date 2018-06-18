@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783368"
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilisation d’Azure Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission
 

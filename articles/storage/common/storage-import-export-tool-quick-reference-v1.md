@@ -1,12 +1,12 @@
 ---
-title: "Aide-mémoire sur les commandes de travail d’importation pour l’outil Azure Import/Export - v1 | Microsoft Docs"
-description: "Référence de l’outil Azure Import/Export pour les commandes de travail d’importation fréquemment utilisées. Cela s’applique à la version v1 de l’outil d’importation/exportation."
+title: Aide-mémoire sur les commandes de travail d’importation pour l’outil Azure Import/Export - v1 | Microsoft Docs
+description: Référence de l’outil Azure Import/Export pour les commandes de travail d’importation fréquemment utilisées. Cela s’applique à la version v1 de l’outil d’importation/exportation.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059344"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Aide-mémoire sur les commandes fréquemment utilisées pour les travaux d’importation
 Cette section fournit un aide-mémoire pour certaines commandes fréquemment utilisées. Pour une utilisation détaillée, consultez [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  

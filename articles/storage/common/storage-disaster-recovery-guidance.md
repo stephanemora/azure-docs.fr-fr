@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323149"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.

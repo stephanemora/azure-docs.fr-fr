@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817006"
 ---
 Avant de créer des éléments, passons en revue le concept de portée. Azure fournit quatre niveaux de gestion : des groupes d’administration, d’abonnement, des groupes de ressources et des ressources. Les [groupes d’administration](../articles/billing/billing-enterprise-mgmt-group-overview.md) sont en préversion. L’image suivante représente un exemple de ces couches.
 

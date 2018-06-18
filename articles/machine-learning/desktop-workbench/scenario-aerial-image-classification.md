@@ -7,14 +7,16 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
+ms.component: desktop-workbench
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 74cb72b4ddfbeace5e2409dfac4f4b6bf21ffa25
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d34f25fd75816f0ae840b3cbb2e0e88cbc2bfd91
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832405"
 ---
 # <a name="aerial-image-classification"></a>Classification d’images aériennes
 
@@ -54,7 +56,6 @@ Ces instructions pas à pas vous guident d’abord dans les étapes de création
 Les instructions suivantes vous guident pendant le processus de configuration de l’environnement d’exécution pour cet exemple.
 
 ### <a name="prerequisites"></a>Prérequis
-
 - Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles)
     - Vous allez créer un cluster HDInsight Spark contenant 40 nœuds de travail (sur un total de 168 cœurs). Vérifiez que votre compte a assez de cœurs disponibles en consultant l’onglet « Utilisation + quotas » de votre abonnement dans le portail Azure.
        - Si vous n’avez pas assez de cœurs disponibles, modifiez le modèle de cluster HDInsight pour réduire le nombre de workers provisionnés. Pour obtenir les instructions correspondantes, consultez la section « Créer le cluster HDInsight Spark ».

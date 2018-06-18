@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783688"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analyser vos éléments multimédia à l’aide du portail Azure
 > [!NOTE]

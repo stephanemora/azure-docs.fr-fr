@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918215"
 ---
 # <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>Configuration d’un groupe à haute disponibilité pour des machines virtuelles Windows dans le modèle de déploiement Classic
 > [!IMPORTANT] 

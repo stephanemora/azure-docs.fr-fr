@@ -1,11 +1,11 @@
 ---
-title: "Référencer un réseau virtuel existant dans un modèle de groupe identique Azure | Microsoft Docs"
-description: "Découvrez comment ajouter un réseau virtuel à un modèle de groupe de machines virtuelles identiques Azure existant"
+title: Référencer un réseau virtuel existant dans un modèle de groupe identique Azure | Microsoft Docs
+description: Découvrez comment ajouter un réseau virtuel à un modèle de groupe de machines virtuelles identiques Azure existant
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782369"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Ajouter une référence à un réseau virtuel existant dans un modèle de groupe identique Azure
 
@@ -102,6 +103,6 @@ Enfin, transmettez le paramètre `subnetId` défini par l’utilisateur (au lieu
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

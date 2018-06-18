@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2bc47c8963630351d3097938bc7f3d65116d9e4b
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5fb3aca61b63d70c9341a3964247addf7241a844
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205412"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618121"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copier des données de Table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,6 @@ Vous pouvez copier des données d’une base de données de Table web vers toute
 Plus précisément, ce connecteur Table web prend en charge l’**extraction de contenu de table d’une page HTML**. Pour récupérer des données à partir d’un point de terminaison HTTP/S, utilisez plutôt le [Connecteur HTTP](connector-http.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour utiliser ce connecteur de table web, vous devez configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
 

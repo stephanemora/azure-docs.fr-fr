@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: beb1c2f88eed8fc38bd32de113835122cfd4e9a4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837325"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 

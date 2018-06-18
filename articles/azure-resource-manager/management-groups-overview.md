@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604741"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure 
 
@@ -69,7 +70,7 @@ Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique
 
 Les groupes d’administration Azure prennent en charge le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md) pour tous les accès aux ressources et toutes les définitions de rôles. Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations.   
 
-Tout [rôle RBAC intégré](../role-based-access-control/overview.md#built-in-roles) peut être affecté à un groupe d’administration. Il en existe quatre couramment utilisés : 
+Tout [rôle RBAC intégré](../role-based-access-control/built-in-roles.md) peut être affecté à un groupe d’administration. Il en existe quatre couramment utilisés : 
 - **Propriétaire** dispose d’un accès total à toutes les ressources, ainsi que le droit de déléguer l’accès à d’autres personnes. 
 - **Contributeur** peut créer et gérer tous les types de ressources Azure, mais ne peut pas accorder l’accès à d’autres personnes.
 - **Collaborateur de stratégie de ressource** peut créer et gérer des stratégies dans l’annuaire sur les ressources.     

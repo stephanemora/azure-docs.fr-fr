@@ -1,12 +1,12 @@
 ---
-title: "Résoudre les problèmes d’échec de basculement vers Azure | Microsoft Docs"
-description: "Cet article explique comment résoudre les erreurs courantes qui surviennent lors d’un basculement vers Azure"
+title: Résoudre les problèmes d’échec de basculement vers Azure | Microsoft Docs
+description: Cet article explique comment résoudre les erreurs courantes qui surviennent lors d’un basculement vers Azure
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874357"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle vers Azure
 Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement d’une machine virtuelle vers Azure. Pour résoudre les problèmes, servez-vous des étapes décrites pour chaque condition d’erreur.

@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 61143302b21f93326f9f81885d845cd388203eb3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27873930ebef75923088f8bf2170c8e6a383cfa8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837410"
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Déploiement de services web Azure ML utilisant les modules d’importation et d’exportation des données
 
@@ -66,7 +68,7 @@ Pour lire les données à partir de la table SQL Azure :
 Maintenant, vous devez configurer l’expérience prédictive à partir de laquelle déployer votre service web.
 
 1. En bas de la zone de dessin de l’expérience, cliquez sur **Configurer le service web** puis sélectionnez **Service web prédictif [recommandé]**.
-2. Supprimez l*’entrée du service web* et les *modules de sortie du service web* de l’expérience prédictive. 
+2. Supprimez l *’entrée du service web* et les *modules de sortie du service web* de l’expérience prédictive. 
 3. Dans la zone de recherche des composants, tapez export.
 4. Dans la liste des résultats, ajoutez un module *Exporter des données* à la zone de dessin de l’expérience.
 5. Connectez la sortie du module *Noter le modèle* à l’entrée du module *Exporter des données*. 

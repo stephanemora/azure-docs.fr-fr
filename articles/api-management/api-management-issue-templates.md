@@ -1,11 +1,11 @@
 ---
-title: "Modèles Problème dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment personnaliser le contenu des pages Problème dans le portail des développeurs dans Gestion des API Azure."
+title: Modèles Problème dans Gestion des API Azure | Microsoft Docs
+description: Découvrez comment personnaliser le contenu des pages Problème dans le portail des développeurs dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22983284"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modèles Problème dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  

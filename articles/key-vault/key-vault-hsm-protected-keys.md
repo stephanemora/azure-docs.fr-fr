@@ -1,8 +1,8 @@
 ---
-title: "Génération et transfert de clés HSM protégées pour Azure| Microsoft Docs"
-description: "Utilisez les informations présentes dans cette rubrique pour planifier, générer, puis transférer vos propres clés protégées par le module de sécurité matériel à utiliser avec le coffre de clés Azure. Cette méthode est également appelée BYOK (Bring Your Own Key, ou apportez votre propre clé)."
+title: Génération et transfert de clés HSM protégées pour Azure| Microsoft Docs
+description: Utilisez les informations présentes dans cette rubrique pour planifier, générer, puis transférer vos propres clés protégées par le module de sécurité matériel à utiliser avec le coffre de clés Azure. Cette méthode est également appelée BYOK (Bring Your Own Key, ou apportez votre propre clé).
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345109"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Génération et transfert de clés HSM protégées pour Azure clé de coffre
 ## <a name="introduction"></a>Introduction

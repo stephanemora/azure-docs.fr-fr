@@ -1,12 +1,12 @@
 ---
-title: "Gestion des contrôleurs d’appareil de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Découvrez comment arrêter, redémarrer, éteindre ou réinitialiser vos contrôleurs d’appareil StorSimple."
+title: Gestion des contrôleurs d’appareil de la gamme StorSimple 8000 | Microsoft Docs
+description: Découvrez comment arrêter, redémarrer, éteindre ou réinitialiser vos contrôleurs d’appareil StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108677"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestion de vos contrôleurs d’appareil StorSimple
 

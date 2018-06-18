@@ -1,19 +1,19 @@
 ---
 title: Créer et gérer des règles d’événement dans votre application Azure IoT Central | Microsoft Docs
 description: Les règles d’événement d’Azure IoT Central vous permettent de surveiller vos appareils quasi en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail, quand la règle se déclenche.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201589"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628366"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle d’événement et configurer des notifications dans votre application Azure IoT Central
 
@@ -41,7 +41,7 @@ Cette section vous montre comment créer une règle d’événement. Cet exemple
 
 1. Choisissez un nom qui vous aide à identifier la règle dans ce modèle d’appareil.
 
-1. Pour activer immédiatement la règle pour tous les appareils créés à partir de ce modèle, choisissez **Activer la règle**.
+1. Pour activer immédiatement la règle sur tous les appareils créés à partir de ce modèle, choisissez **Activer la règle**.
 
 ### <a name="configure-the-rule-condition"></a>Configurer la condition de règle
 

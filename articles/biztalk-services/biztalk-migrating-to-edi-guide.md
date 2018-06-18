@@ -1,11 +1,11 @@
 ---
-title: "Guide technique de la migration des solutions EDI BizTalk Server vers BizTalk Services | Microsoft Docs"
-description: "Migration EDI vers MABS ; Microsoft Azure BizTalk Services"
+title: Guide technique de la migration des solutions EDI BizTalk Server vers BizTalk Services | Microsoft Docs
+description: Migration EDI vers MABS ; Microsoft Azure BizTalk Services
 services: biztalk-services
 documentationcenter: na
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998844"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migration des solutions EDI BizTalk Server vers BizTalk Services : guide technique
 

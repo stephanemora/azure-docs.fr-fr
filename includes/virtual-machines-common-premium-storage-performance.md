@@ -239,7 +239,7 @@ Il est important d’activer le cache sur le jeu de disques approprié. Le fait 
 | **Type de disque** | **Paramètre de cache par défaut** |
 | --- | --- |
 | Disque de système d’exploitation |Lecture/écriture |
-| Disque de données |Aucun |
+| Disque de données |Lecture seule |
 
 Voici les paramètres de cache de disque recommandés pour les disques de données :
 

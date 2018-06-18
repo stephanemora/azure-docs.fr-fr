@@ -6,21 +6,17 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-documentationcenter: ''
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196795"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611736"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Prise en charge du pare-feu Azure Cosmos DB
 Pour sécuriser les données stockées dans un compte de base de données Azure Cosmos DB, Azure Cosmos DB assure la prise en charge d’un [modèle d’autorisation](https://msdn.microsoft.com/library/azure/dn783368.aspx) basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. Outre le modèle d’autorisations basé sur un secret, Azure Cosmos DB prend désormais en charge les contrôles d’accès basés sur une stratégie IP pour la prise en charge du pare-feu entrant. Ce modèle est semblable aux règles de pare-feu d’un système de base de données classique et renforce la sécurité du compte de base de données Azure Cosmos DB. Avec ce modèle, vous pouvez désormais configurer un compte de base de données Azure Cosmos DB pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux ressources Azure Cosmos DB à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.

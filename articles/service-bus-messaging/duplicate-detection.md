@@ -1,11 +1,11 @@
 ---
-title: "Détection des messages dupliqués dans Azure Service Bus | Microsoft Docs"
-description: "Détecter les messages dupliqués dans Service Bus"
+title: Détection des messages dupliqués dans Azure Service Bus | Microsoft Docs
+description: Détecter les messages dupliqués dans Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198551"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -53,7 +54,7 @@ Notez que l’activation de la détection des doublons et la taille de la fenêt
 
 En maintenant la fenêtre à une petite taille, vous avez moins d’ID de messages à conserver et à vérifier, et l’impact sur le débit reste ainsi limité. Pour les entités à débit élevé qui nécessitent la détection des doublons, essayez de garder la fenêtre aussi petite que possible.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

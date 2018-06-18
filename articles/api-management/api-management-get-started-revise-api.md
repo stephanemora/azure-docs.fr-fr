@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935162"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utiliser des révisions pour apporter des modifications sans rupture en toute sécurité
 Quand votre API est prête et commence à être utilisée par les développeurs, vous devez généralement veiller à ne pas interrompre les appelants de votre API quand vous apportez des modifications à cette dernière. Il est également utile d’informer les développeurs des modifications apportées. Les **révisions** le permettent dans Gestion des API Azure. Pour plus d’informations, consultez [Versions et révisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) et [Gestion des versions d’API avec la Gestion des API Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).

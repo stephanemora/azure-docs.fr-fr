@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208435"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cycle de vie des acteurs, Garbage Collection automatique et suppression manuelle
 Un acteur est activé la première fois qu’un appel est effectué à l’une de ses méthodes. Un acteur est désactivé (fait l’objet d’un Garbage Collection par le runtime Actors) s’il n’est pas utilisé pendant une durée configurable. Un acteur et son état peuvent également être supprimés manuellement, à tout moment.

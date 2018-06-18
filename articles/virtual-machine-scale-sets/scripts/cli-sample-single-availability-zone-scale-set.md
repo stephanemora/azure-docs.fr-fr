@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246472"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques dans une zone unique à l’aide de PowerShell
 Ce script permet de créer un groupe de machines virtuelles identiques exécutant Ubuntu dans une zone de disponibilité unique. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.

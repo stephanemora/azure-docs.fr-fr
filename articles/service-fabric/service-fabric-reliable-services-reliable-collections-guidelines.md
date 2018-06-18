@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211138"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.

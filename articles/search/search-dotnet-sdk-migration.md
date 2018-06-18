@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793475"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3
 Si vous utilisez la version préliminaire 2.0 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 3.

@@ -1,11 +1,11 @@
 ---
-title: "Désactiver et supprimer une instance Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
-description: "Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant."
+title: Désactiver et supprimer une instance Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+description: Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a929f5bc-03e2-4b01-b925-973db236f19f
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109877"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Désactiver et supprimer un StorSimple Virtual Array
 

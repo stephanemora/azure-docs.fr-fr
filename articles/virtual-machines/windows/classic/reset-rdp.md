@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917647"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows créée avec le modèle de déploiement Classic
 > [!IMPORTANT]
@@ -36,7 +37,7 @@ Vous pouvez réinitialiser les services Bureau à distance et les informations d
 - [Réinitialisation à l’aide d’Azure PowerShell](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal"></a>Portail Azure
-Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le service Bureau à distance. Pour développer le menu du portail, cliquez sur les trois barres dans l’angle supérieur gauche, puis sur **Machines virtuelles (classiques)** :
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le service Bureau à distance. Pour développer le menu du portail, cliquez sur les trois barres dans l’angle supérieur gauche, puis sur **Machines virtuelles (classiques)**  :
 
 ![Accédez à votre machine virtuelle Azure](./media/reset-rdp/Portal-Select-Classic-VM.png)
 

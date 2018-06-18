@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30282876"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Créer une application web avec un déploiement continu à partir de Visual Studio Team Services
 

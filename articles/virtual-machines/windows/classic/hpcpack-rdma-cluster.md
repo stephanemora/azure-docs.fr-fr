@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852538"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI
 Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et des [tailles de machines virtuelles de calcul haute performance compatibles RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).

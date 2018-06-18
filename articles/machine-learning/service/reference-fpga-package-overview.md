@@ -2,17 +2,18 @@
 title: Package FPGA pour l’accélération matérielle dans Azure Machine Learning
 description: Découvrez les packages python disponibles pour les utilisateurs d’Azure Machine Learning.
 ms.service: machine-learning
-ms.component: core
+ms.component: studio
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: routlaw
 author: rloutlaw
 ms.date: 05/07/2018
-ms.openlocfilehash: 905f6943470acfd3051a33db6f6f3269470406d7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832976"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Package Accélération matérielle pour Azure Machine Learning
 
@@ -25,7 +26,6 @@ Le package Accélération matérielle pour Azure Machine Learning est une extens
 + Déployer des modèles sur des [FPGA (field programmable gate arrays)](concept-accelerate-with-fpgas.md) dans Azure pour une inférence à très faible latence
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -51,7 +51,7 @@ Le package Accélération matérielle pour Azure Machine Learning est une extens
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. Pour activer l’environnement, utilisez la commande suivante :
+6. Pour activer l’environnement, utilisez la commande suivante :
 
     ```
     conda activate amlrealtimeai

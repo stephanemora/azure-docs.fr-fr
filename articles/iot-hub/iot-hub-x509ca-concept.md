@@ -1,30 +1,25 @@
 ---
-title: "Concept de la sécurité d’Azure IoT Hub X.509 | Microsoft Docs"
-description: "Présentation du concept des certificats de l’autorité de certification X.509 en matière d’authentification et de fabrication de l’appareil IoT."
-services: iot-hub
-documentationcenter: .net
+title: Concept de la sécurité d’Azure IoT Hub X.509 | Microsoft Docs
+description: Présentation du concept des certificats de l’autorité de certification X.509 en matière d’authentification et de fabrication de l’appareil IoT.
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 34d4be431b76d5ba8258d932cb21ed6f4818863e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635693"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
 
 Cet article décrit la valeur de l’utilisation des certificats de l’autorité de certification X.509 en matière de fabrication de l’appareil IoT et d’authentification à IoT Hub.  Il inclut des informations sur la configuration de la chaîne logistique et met en avant les avantages proposés.
 
-Cet article explique :
+Cet article aborde les points suivants :
 
 * Ce que sont les certificats de l’autorité de certification X.509 et comment les obtenir
 * Comment inscrire votre certificat de l’autorité de certification X.509 dans IoT Hub

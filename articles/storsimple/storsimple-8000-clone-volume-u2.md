@@ -1,12 +1,12 @@
 ---
-title: "Clonage d’un volume sur la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit les différents types de clone et leur utilisation, et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel sur un appareil de la gamme StorSimple 8000."
+title: Clonage d’un volume sur la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit les différents types de clone et leur utilisation, et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel sur un appareil de la gamme StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26333200"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour cloner un volume
 

@@ -1,8 +1,8 @@
 ---
 title: Comptes de stockage dans Azure Stack | Microsoft Docs
-description: "Découvrez comment créer un compte de stockage Azure Stack."
+description: Découvrez comment créer un compte de stockage Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
 ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733721"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Comptes de stockage dans Azure Stack
 Les comptes de stockage incluent les services d’objets Blob et de Table, ainsi que l’espace de noms unique pour vos objets de données de stockage. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte de stockage.
@@ -32,7 +33,7 @@ Les comptes de stockage incluent les services d’objets Blob et de Table, ainsi
 
     ![](media/azure-stack-provision-storage-account/image03.png)
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>étapes suivantes
 [Utiliser les modèles Azure Resource Manager](user/azure-stack-arm-templates.md)
 
 [Découvrir les comptes de stockage Azure](../storage/common/storage-create-storage-account.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076702"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809469"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guide de publication technique de l’application SaaS
 
@@ -37,7 +37,7 @@ Pour mieux comprendre comment publier une offre SaaS, ce guide est divisé en se
 
 Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau suivant décrit les options actuellement disponibles :
 
-| Option de vitrine | Liste | Essai/Transaction |  
+| Option de vitrine | Énumération | Essai/Transaction |  
 | --- | --- | --- |  
 | AppSource | Oui (Me contacter) | Oui (Power BI/Dynamics) |
 | Place de marché Azure | Non  | Oui (Applications SaaS) |   
@@ -51,7 +51,7 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 | **Power BI / Dynamics** | OUI | Oui (Intégration Azure AD) |  
 | **Applications SaaS**| OUI | Oui (Intégration Azure AD) |     
 
-Pour plus d’informations sur les vitrines de la Place de marché et une description de chaque option de publication, voir le [Guide de publication sur la Place de marché](https://aka.ms/sellerguide) et les [Options de publication](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Pour plus d’informations sur les vitrines de la Place de marché et une description de chaque option de publication, voir le [Guide de publication sur la Place de marché](https://aka.ms/sellerguide) et les [Options de publication](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Exigences commerciales
 Les exigences de l’entreprise en lien avec l’offre SaaS peuvent être remplies parallèlement aux exigences techniques. La plupart des exigences et informations de l’entreprise sont collectées lors de la création de l’offre SaaS dans le portail Cloud Partner. Les exigences commerciales sont les suivantes : 
@@ -62,7 +62,7 @@ Les exigences de l’entreprise en lien avec l’offre SaaS peuvent être rempli
 * Définition de politique de confidentialité et de conditions d’utilisation
 * Définition des contacts de support  
 
-Pour plus d’informations, voir la rubrique [Prérequis pour la publication sur la Place de marché](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Pour plus d’informations, voir la rubrique [Prérequis pour la publication sur la Place de marché](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## <a name="technical-requirements"></a>Exigences techniques
 
@@ -72,11 +72,11 @@ Pour démarrer, nous vous recommandons d’avoir un abonnement dédié pour la p
 
 La meilleure documentation, les meilleurs exemples et les meilleurs conseils concernant Azure Active Directory figurent sur les sites suivants : 
 
-* [Guide du développeur Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Intégration à Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Intégration à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Feuille de route Azure - Sécurité et identité](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -125,7 +125,7 @@ Le tableau suivant décrit chacune des principales étapes de publication :
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation  
 
-Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Par conséquent, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez approvisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Par conséquent, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez approvisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 L’utilisation d’Azure AD pour activer l’authentification en un clic auprès de votre application effectue les opérations suivantes :  
 * Simplifie l’expérience utilisateur, de la Place de marché à l’Essai.  
@@ -141,15 +141,15 @@ Vous pouvez certifier votre intégration avec Azure AD de différentes manières
 
 Si vous prenez déjà en charge Azure AD, procédez comme suit :
 1.  Inscrivez votre application dans le portail Azure
-2.  Activez la fonctionnalité de prise en charge mutualisée dans Azure AD pour bénéficier de l’expérience d’essai en un clic. Des informations plus spécifiques sont accessibles [ici](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  Activez la fonctionnalité de prise en charge mutualisée dans Azure AD pour bénéficier de l’expérience d’essai en un clic. Des informations plus spécifiques sont accessibles [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Si vous découvrez l’authentification unique fédérée Azure AD, procédez comme suit : 
 1.  Inscrivez votre application dans le portail Azure
-2.  Développez l’authentification unique auprès d’Azure AD en utilisant [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Activez la fonctionnalité de prise en charge mutualisée dans AAD pour bénéficier de l’expérience d’essai en 1 clic. Pour des informations plus spécifiques, voir [ici](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Développez l’authentification unique auprès d’Azure AD en utilisant [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Activez la fonctionnalité de prise en charge mutualisée dans AAD pour bénéficier de l’expérience d’essai en 1 clic. Pour des informations plus spécifiques, voir [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Pour une application à client unique, vous disposez des options suivantes :**  
-* ajouter des utilisateurs à votre annuaire en tant qu’utilisateurs invités en utilisant [Azure AD B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) ;
+* ajouter des utilisateurs à votre annuaire en tant qu’utilisateurs invités en utilisant [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) ;
 * approvisionner manuellement les essais des clients via l’option « Me contacter » ;
 * développer une « version d’évaluation » par client.
 * Créer une application de démonstration multilocataire avec authentification unique

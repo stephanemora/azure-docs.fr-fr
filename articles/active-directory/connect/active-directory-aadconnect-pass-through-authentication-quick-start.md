@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591328"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -139,7 +141,7 @@ Tout d’abord, vous pouvez le faire interactivement en exécutant le fichier ex
 La deuxième solution consiste à créer et à exécuter un script de déploiement sans assistance. C’est utile lorsque vous souhaitez déployer plusieurs agents d’authentification à la fois, ou installer des agents d’authentification sur des serveurs Windows qui ne disposent pas d’une interface utilisateur, ou auxquels vous ne pouvez pas accéder avec le Bureau à distance. Voici des instructions pour utiliser cette méthode :
 
 1. Exécutez la commande suivante pour installer un agent d’authentification : `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Vous pouvez inscrire l’agent d’authentification auprès de notre service à l’aide de Windows PowerShell. Créez un objet d’informations d’identification PowerShell `$cred` qui contient un nom d’utilisateur et un mot de passe d’administrateur général pour votre locataire. Exécutez la commande suivante, en remplaçant *\<username\>* et *\<password\>* :
+2. Vous pouvez inscrire l’agent d’authentification auprès de notre service à l’aide de Windows PowerShell. Créez un objet d’informations d’identification PowerShell `$cred` qui contient un nom d’utilisateur et un mot de passe d’administrateur général pour votre locataire. Exécutez la commande suivante, en remplaçant *\<username\>* et *\<password\>*  :
    
         $User = "<username>"
         $PlainPassword = '<password>'

@@ -1,12 +1,12 @@
 ---
-title: "Utiliser le kit SDK .NET pour les travaux Microsoft Azure StorSimple Data Manager | Microsoft Docs"
-description: "Découvrez comment utiliser le kit SDK .NET pour lancer les tâches StorSimple Data Manager"
+title: Utiliser le kit SDK .NET pour les travaux Microsoft Azure StorSimple Data Manager | Microsoft Docs
+description: Découvrez comment utiliser le kit SDK .NET pour lancer les tâches StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27928234"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utiliser le kit SDK .NET pour lancer la transformation de données
 

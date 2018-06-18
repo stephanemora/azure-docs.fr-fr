@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentation Azure Logic Apps
 metadata:
-  title: "Documentation Azure Logic Apps - Didacticiels, informations de référence sur les API | Microsoft Docs"
-  description: "Azure Logic Apps simplifie la création de workflows évolutifs et automatisés intégrant les applications et les données sur des services cloud et des systèmes locaux. Découvrez comment créer, concevoir et déployer des applications logiques permettant d’automatiser des processus métiers avec notre démarrage rapide, des didacticiels, des modèles et des API."
+  title: Documentation Azure Logic Apps - Didacticiels, informations de référence sur les API | Microsoft Docs
+  description: Azure Logic Apps simplifie la création de workflows évolutifs et automatisés intégrant les applications et les données sur des services cloud et des systèmes locaux. Découvrez comment créer, concevoir et déployer des applications logiques permettant d’automatiser des processus métiers avec notre démarrage rapide, des didacticiels, des modèles et des API.
   services: logic-apps
   author: czeumault
   manager: estfan
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 01/19/2018
+  ms.locfileid: "27967838"
 abstract:
-  description: "Azure Logic Apps simplifie la création de workflows évolutifs et automatisés intégrant les applications et les données sur des services cloud et des systèmes locaux. Découvrez comment créer, concevoir et déployer des applications logiques permettant d’automatiser des processus métiers avec notre démarrage rapide, des didacticiels, des modèles et des API."
+  description: Azure Logic Apps simplifie la création de workflows évolutifs et automatisés intégrant les applications et les données sur des services cloud et des systèmes locaux. Découvrez comment créer, concevoir et déployer des applications logiques permettant d’automatiser des processus métiers avec notre démarrage rapide, des didacticiels, des modèles et des API.
 sections:
-- title: "Démarrages en 5 minutes"
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: "Découvrez comment créer une application logique sur Azure."
+    text: Découvrez comment créer une application logique sur Azure.
   - type: list
     style: icon48
     items:
@@ -32,17 +33,17 @@ sections:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Portail Azure
       href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-- title: "Didacticiels pas à pas"
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: "Découvrez comment créer des applications logiques planifiées intégrant des données en provenance de services Azure, de services Microsoft et d’autres applications SaaS."
+    text: Découvrez comment créer des applications logiques planifiées intégrant des données en provenance de services Azure, de services Microsoft et d’autres applications SaaS.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow\">Contrôlez le trafic à l’aide d’une application logique planifiée</a>"
-    - html: "<a href=\"/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow\">Gérer les requêtes de la liste de distribution à l’aide d’une application logique</a>"
-    - html: "<a href=\"/azure/logic-apps/tutorial-process-email-attachments-workflow\">Gérer les e-mails et les pièces jointes à l’aide d’une application de logique</a>"
-- title: "Formation vidéo gratuite Pluralsight"
+    - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Contrôlez le trafic à l’aide d’une application logique planifiée</a>
+    - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Gérer les requêtes de la liste de distribution à l’aide d’une application logique</a>
+    - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Gérer les e-mails et les pièces jointes à l’aide d’une application de logique</a>
+- title: Formation vidéo gratuite Pluralsight
   items:
   - type: list
     style: cards
@@ -53,7 +54,7 @@ sections:
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/azure-logic-apps-getting-started
-- title: "Informations de référence"
+- title: Informations de référence
   items:
   - type: list
     style: cards
@@ -62,4 +63,4 @@ sections:
     - title: Ligne de commande
       html: <p><a href="/powershell/module/azurerm.logicapp/?view=azurermps-5.1.1">Azure PowerShell</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/logic/\">Référence d’API REST</a></p>"
+      html: <p><a href="/rest/api/logic/">Référence d’API REST</a></p>

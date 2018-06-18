@@ -1,11 +1,11 @@
 ---
 title: Exceptions de la messagerie Azure Service Bus | Microsoft Docs
-description: "Liste des exceptions de la messagerie Service Bus et les actions suggérées."
+description: Liste des exceptions de la messagerie Service Bus et les actions suggérées.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930148"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
 Cet article répertorie certaines exceptions générées par les API de la messagerie Microsoft Azure Service Bus. Cette référence est susceptible de changer, donc consultez-la régulièrement.
@@ -104,7 +105,7 @@ Pour les files d’attente et les rubriques, le délai d’attente est spécifi�
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour obtenir des informations complètes sur l’API .NET Service Bus, consultez les [informations de référence sur l’API .NET Azure](/dotnet/api/overview/azure/service-bus).
 

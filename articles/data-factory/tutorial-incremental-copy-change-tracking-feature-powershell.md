@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30184596"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  

@@ -5,11 +5,23 @@
 - name: Contrôle d’accès en fonction du rôle
   href: overview.md
   items:
+    - name: Démarrages rapides
+      items:
+        - name: Accorder l’accès à un utilisateur - Portail
+          href: quickstart-assign-role-user-portal.md
+    - name: Didacticiels
+      items:
+        - name: Accorder l’accès à un utilisateur - PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Accorder l’accès à un groupe - PowerShell
+          href: tutorial-role-assignments-group-powershell.md
+        - name: Créer un rôle personnalisé - PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: Créer un rôle personnalisé - CLI
+          href: tutorial-custom-role-cli.md
     - name: Gérer les attributions de rôles
       items:
-        - name: Utilisateur
-          href: role-assignments-users.md
-        - name: Ressource
+        - name: Portail
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Azure CLI
           href: role-assignments-cli.md
@@ -17,11 +29,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Comprendre les définitions de rôles
+      href: role-definitions.md
     - name: Rôles intégrés
       href: built-in-roles.md
     - name: Rôles personnalisés
       href: custom-roles.md
-    - name: Attribuer des rôles personnalisés aux utilisateurs internes et externes
+    - name: Gérer les affectations de rôles pour les utilisateurs externes
       href: role-assignments-external-users.md
     - name: Journaux d’activité
       href: change-history-report.md

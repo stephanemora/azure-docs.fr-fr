@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23108247"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quelles sont les limites système de l’appareil StorSimple série 8000 ?
 

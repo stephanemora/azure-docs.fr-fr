@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: SaaS
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646151"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
 
@@ -61,7 +62,6 @@ Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’
 À la fin de ce didacticiel, vous avez un ensemble d’applications clientes autonomes, avec chaque base de données inscrite dans le catalogue.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis : 
 * Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Les trois exemples d’applications clientes sont déployés. Pour déployer ces applications en moins de cinq minutes, voir [Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).

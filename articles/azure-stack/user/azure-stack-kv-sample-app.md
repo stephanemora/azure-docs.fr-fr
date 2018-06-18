@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: mabrigg
 ms.openlocfilehash: 39bce286c756660cd8755358cf98f2c8d35ce351
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807378"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Exemple d’application qui utilise des clés et des secrets stockés dans un coffre de clés
 
@@ -27,7 +28,6 @@ ms.lasthandoff: 05/12/2018
 Suivez les étapes de cet article pour exécuter un exemple d’application (HelloKeyVault) qui récupère les clés et les secrets d’un coffre de clés dans Azure Stack.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Vous pouvez installer les prérequis suivants à partir du [kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) Azure Stack ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) :
 

@@ -1,6 +1,6 @@
 ---
-title: "Utilisation du stockage de files d’attente à partir de Python | Microsoft Docs"
-description: "Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages."
+title: Utilisation du stockage de files d’attente à partir de Python | Microsoft Docs
+description: Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages.
 services: storage
 documentationcenter: python
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986747"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Utilisation du stockage de files d'attente à partir de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

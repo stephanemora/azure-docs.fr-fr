@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB : Créer une application avec Python et l’API SQL | Microsoft Docs'
 description: Cet article présente un exemple de code Python que vous pouvez utiliser pour vous connecter à l’API SQL d’Azure Cosmos DB et pour l’interroger.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: sngun
-ms.openlocfilehash: 2e439b260ae2964aeab33c100db3f62e0bd06f33
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fa81639866c9b2e9cfffee3d502eac8e18f86ec1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795303"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application API SQL avec Python et le Portail Azure
 
@@ -29,7 +27,6 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Python 3.6](https://www.python.org/downloads/) avec \<l’emplacement d’installation\>\Python36 et \<l’emplacement d’installation>\Python36\Scripts ajoutés à votre chemin d’accès. 
 * [Visual Studio Code](https://code.visualstudio.com/)

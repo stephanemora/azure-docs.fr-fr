@@ -1,24 +1,19 @@
 ---
 title: Présentation de la sécurité d’Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : comment contrôler l’accès à IoT Hub pour les applications d’appareil et applications principales. Inclut des informations sur les jetons de sécurité et la prise en charge des certificats X.509.'
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 25a1c05dc3e72d14482ee6bd1b26a8355cfc7dd9
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808772"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -494,4 +489,4 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md

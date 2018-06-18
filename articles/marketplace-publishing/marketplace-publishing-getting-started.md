@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943171"
 ---
 > [!NOTE]
 > Cette documentation n’est plus à jour et n’est pas correcte. Pour obtenir des conseils sur la publication d’une offre sur la Place de Marché Azure, accédez plutôt au [Guide vendeur](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) de la Place de Marché Azure.

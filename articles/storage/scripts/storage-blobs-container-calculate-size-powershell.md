@@ -1,12 +1,12 @@
 ---
-title: "Exemple de script Azure PowerShell - Calculer la taille d’un conteneur d’objets blob | Microsoft Docs"
-description: "Calculez la taille d’un conteneur dans le stockage d’objets blob Azure en effectuant le total des tailles de chacun de ses objets blob."
+title: Exemple de script Azure PowerShell - Calculer la taille d’un conteneur d’objets blob | Microsoft Docs
+description: Calculez la taille d’un conteneur dans le stockage d’objets blob Azure en effectuant le total des tailles de chacun de ses objets blob.
 services: storage
 documentationcenter: na
 author: tamram
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24814573"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calculer la taille totale d’un conteneur de stockage d’objets blob
 

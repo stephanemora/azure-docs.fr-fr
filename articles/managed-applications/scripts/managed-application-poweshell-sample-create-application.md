@@ -1,6 +1,6 @@
 ---
-title: "Exemple de script Azure PowerShell - Déployer une application managée | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Déployer une définition d’application managée"
+title: Exemple de script Azure PowerShell - Déployer une application managée | Microsoft Docs
+description: Exemple de script Azure PowerShell - Déployer une définition d’application managée
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23637039"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Déployer une application managée pour un catalogue de services avec PowerShell
 

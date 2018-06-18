@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151798"
 ---
 # <a name="getting-started"></a>À propos de Mobile Apps dans Azure App Service
 Azure App Service est une offre de [plateforme en tant que service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) entièrement gérée pour les développeurs professionnels. Ce service apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. 

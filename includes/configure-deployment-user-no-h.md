@@ -13,6 +13,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28986122"
 ---
 Dans Cloud Shell, créez des informations d’identification de déploiement avec la commande [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Cet utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur une application web. Le nom d’utilisateur et le mot de passe par défaut sont tous les deux au niveau du compte. _Ils sont différents des informations d’identification de votre abonnement Azure._
 

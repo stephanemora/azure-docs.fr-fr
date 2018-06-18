@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: cd681a19fcc460427d36c1b827eb0dacd41c18d5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4a25543fd9cbcd0928f06419c6ddb9b5ed2e2488
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645281"
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques (version préliminaire)
 
@@ -21,7 +22,6 @@ ms.lasthandoff: 04/06/2018
 **tâches de bases de données élastiques** simplifient la gestion des groupes de bases de données en exécutant des opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte de données de télémétrie du locataire (client). Tâches de bases de données élastiques est actuellement disponible via le portail Azure et les applets de commande PowerShell. Le Portail Azure propose toutefois une fonctionnalité réduite, qui se limite à une exécution sur toutes les bases de données d’un [pool élastique (version préliminaire)](sql-database-elastic-pool.md). Pour accéder à des fonctionnalités supplémentaires et à l’exécution des scripts sur un groupe de bases de données, notamment une collection personnalisée ou un ensemble de partitions (créé à l’aide de la [bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-introduction.md)), consultez l’article [Créer et gérer des tâches avec PowerShell](sql-database-elastic-jobs-powershell.md). Pour en savoir plus sur les tâches, consultez la rubrique [Vue d'ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un pool élastique. Voir [À propos des pools élastiques](sql-database-elastic-pool.md).
 * Installation des composants du service de tâches de bases de données élastiques. Voir [Installation du service de tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md).

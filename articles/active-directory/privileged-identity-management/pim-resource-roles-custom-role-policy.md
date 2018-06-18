@@ -1,48 +1,52 @@
 ---
-title: Privileged Identity Management pour les ressources Azure - Utiliser des rôles personnalisés pour cibler les paramètres PIM | Microsoft Docs
-description: Décrit l’utilisation de rôles personnalisés dans PIM pour les ressources Azure.
+title: Utiliser des rôles personnalisés pour cibler les paramètres Privileged Identity Management des ressources Azure | Microsoft Docs
+description: Décrit l’utilisation de rôles personnalisés pour les ressources Azure avec PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 6336d99df1bbdd71c66a9757af1d9fb356a91bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: 03904990d54db0dd39ed7059f57a0a13efe0aaca
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233377"
 ---
-# <a name="use-custom-roles-to-target-pim-settings"></a>Utiliser des rôles personnalisés pour cibler les paramètres PIM
+# <a name="use-custom-roles-to-target-privileged-identity-management-settings"></a>Utiliser des rôles personnalisés pour cibler les paramètres Privileged Identity Management
 
-L’application de paramètres PIM stricts à certains membres d’un rôle, tout en offrant une plus grande autonomie aux autres membres, peut s’avérer nécessaire. Imaginez un scénario dans lequel votre société loue les services de différents partenaires contractuels, afin de faciliter le développement d’une application à exécuter dans un abonnement Azure. 
+Vous devrez peut-être appliquer des paramètres PIM (Privileged Identity Management) stricts à certains membres d’un rôle, tout en offrant une plus grande autonomie aux autres membres. Envisagez un scénario dans lequel votre société embauche plusieurs associés sous contrat pour aider au développement d’une application qui s’exécute dans un abonnement Azure.
 
-En tant qu’administrateur de la ressource, vous souhaitez que les employés de votre société aient un accès éligible sans nécessiter d’approbation, mais que tous les partenaires contractuels demandent l’autorisation lorsqu’ils veulent l’activation. Les étapes ci-dessous détaillent la procédure d’activation des paramètres PIM ciblés pour les rôles de ressources Azure.
+En tant qu’administrateur de ressources, vous souhaitez que les employés puissent bénéficier d’un accès sans exiger d’approbation. Toutefois, tous les partenaires doivent être approuvés quand ils demandent à accéder aux ressources de l’organisation.
+
+Suivez les étapes décrites dans la section suivante pour définir les paramètres PIM ciblés pour les rôles de ressources Azure.
 
 ## <a name="create-the-custom-role"></a>Créer le rôle personnalisé
 
-[Utilisez ce guide pour créer le rôle personnalisé d’une ressource](../../role-based-access-control/custom-roles.md).
+Pour créer un rôle personnalisé pour une ressource, suivez les étapes décrites dans [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control-custom-roles.md).
 
-Indiquez un nom descriptif afin de vous rappeler facilement du rôle intégré que vous souhaitez dupliquer.
+Quand vous créez un rôle personnalisé, indiquez un nom descriptif afin de vous rappeler facilement du rôle intégré que vous souhaitez dupliquer.
 
->[!NOTE]
->Assurez-vous que le rôle personnalisé est un doublon du rôle prévu et que son étendue correspond au rôle intégré.
+> [!NOTE]
+> Vérifiez que le rôle personnalisé est un doublon du rôle intégré à dupliquer, et que son étendue correspond à celle du rôle intégré.
 
 ## <a name="apply-pim-settings"></a>Appliquer les paramètres PIM
 
-Une fois que le rôle est créé dans votre locataire, accédez à PIM et sélectionnez la ressource à laquelle le rôle est étendu.
+Une fois le rôle créé dans votre locataire, dans le portail Azure, accédez au volet **Privileged Identity Management - Ressources Azure**. Sélectionnez la ressource à laquelle le rôle s’applique.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![Volet « Privileged Identity Management - Ressources Azure »](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
 
-[Configurez les paramètres du rôle PIM](pim-resource-roles-configure-role-settings.md) qui doivent s’appliquer à ces membres.
+[Configurez les paramètres du rôle PIM](pim-resource-roles-configure-role-settings.md) qui doivent s’appliquer à ces membres du rôle.
 
-Enfin, [Attribuez des rôles](pim-resource-roles-assign-roles.md) au groupe de membres distinct que vous souhaitez cibler avec ces paramètres.
+Pour finir, [attribuez des rôles](pim-resource-roles-assign-roles.md) au groupe de membres distinct que vous souhaitez cibler avec ces paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Passer en revue les propriétaires d’abonnement](pim-resource-roles-perform-access-review.md)
+[Passer en revue les propriétaires d’abonnements et l’accès](pim-resource-roles-perform-access-review.md)

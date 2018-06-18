@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes de déploiement de machines virtuelles Linux - Resource Manager| Microsoft Docs"
-description: "Résoudre les problèmes de déploiement Resource Manager liés à la création d’une machine virtuelle Linux dans Azure"
+title: Résoudre les problèmes de déploiement de machines virtuelles Linux - Resource Manager| Microsoft Docs
+description: Résoudre les problèmes de déploiement Resource Manager liés à la création d’une machine virtuelle Linux dans Azure
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27579261"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement Resource Manager liés à la création d’une machine virtuelle Linux dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -86,6 +87,6 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   * Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).
   * Ajoutez la nouvelle machine virtuelle au même réseau virtuel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Linux arrêtée ou que vous redimensionnez une machine virtuelle Linux existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

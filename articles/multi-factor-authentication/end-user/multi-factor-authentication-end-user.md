@@ -1,8 +1,8 @@
 ---
-title: "Prise en main de la vérification en deux étapes | Microsoft Docs"
-description: "Il s'agit de la page d'authentification multifacteur Azure qui aide les utilisateurs à prendre en main Azure Multi-Factor Authentication."
+title: Prise en main de la vérification en deux étapes | Microsoft Docs
+description: Il s'agit de la page d'authentification multifacteur Azure qui aide les utilisateurs à prendre en main Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198103"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Présentation concrète de Multi-Factor Authentication Azure
 Vous avez reçu un e-mail d'une personne du service informatique ou peut-être même de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte.  Qu’est-ce que cela signifie ?

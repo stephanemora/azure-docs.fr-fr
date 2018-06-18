@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30325325"
 ---
 >[!NOTE]
 >La configuration d’état initial du jumeau d’appareil est disponible uniquement dans le niveau Standard d’IoT Hub. Pour plus d’informations sur les niveaux De base et Standard d’IoT Hub, consultez la page [expliquant comment choisir le bon niveau IoT Hub](../articles/iot-hub/iot-hub-scaling.md).

@@ -1,12 +1,12 @@
 ---
-title: "Managed Service Identity avec Azure Service Bus (préversion) | Microsoft Docs"
-description: "Utiliser des identités de service administré avec Azure Service Bus"
+title: Managed Service Identity avec Azure Service Bus (préversion) | Microsoft Docs
+description: Utiliser des identités de service administré avec Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874650"
 ---
 # <a name="managed-service-identity-preview"></a>Managed Service Identity (préversion)
 

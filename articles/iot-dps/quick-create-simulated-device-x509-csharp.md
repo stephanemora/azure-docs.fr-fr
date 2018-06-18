@@ -1,22 +1,21 @@
 ---
 title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de C# | Microsoft Docs
 description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK'
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr;bryanla
+ms.author: bryanla
 ms.date: 04/09/18
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7377ee2b43f6d1a75dff8be37ee8683ec9682990
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 697526b243fad585b8692edd59650661ea60fd62
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629719"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -63,7 +62,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 5. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
 
-6. Dans le panneau **Add enrollment** (Ajouter une inscription), entrez les informations suivantes :
+6. Dans le volet **Add enrollment** (Ajouter une inscription), entrez les informations suivantes :
     - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
     - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Sélectionner un fichier* pour sélectionner le fichier de certificat **certificate.pem** créé au cours des étapes précédentes.
     - Ne renseignez pas le champ **ID de l’appareil**. Votre appareil va être approvisionné. Son ID est défini sur le nom commun (CN) dans le certificat X.509, soit **iothubx509device1**. Ce nom sera également utilisé pour l’ID d’inscription de l’entrée d’inscription individuelle. 
@@ -114,4 +113,4 @@ Si vous envisagez de continuer à manipuler et explorer l’exemple de client d�
 Dans ce démarrage rapide, vous avez créé un appareil X.509 simulé sur un ordinateur Windows. Vous l’avez également approvisionné vers votre hub IoT à l’aide du service Azure IoT Hub Device Provisioning figurant sur le portail. Pour savoir comment inscrire un appareil X.509 au moyen d’un programme, poursuivez avec le démarrage rapide correspondant. 
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning](quick-enroll-device-x509-node.md)
+> [Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning](quick-enroll-device-x509-csharp.md)

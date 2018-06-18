@@ -1,12 +1,12 @@
 ---
-title: "Caractéristiques techniques StorSimple | Microsoft Docs"
-description: "Décrit les caractéristiques techniques et les informations de conformité aux normes réglementaires des composants matériels StorSimple."
+title: Caractéristiques techniques StorSimple | Microsoft Docs
+description: Décrit les caractéristiques techniques et les informations de conformité aux normes réglementaires des composants matériels StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785524"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
@@ -193,7 +194,7 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 
 Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-8000-deployment-walkthrough-u2.md).
 

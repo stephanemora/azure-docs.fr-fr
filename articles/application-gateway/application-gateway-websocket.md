@@ -1,6 +1,6 @@
 ---
 title: Prise en charge de WebSocket pour la passerelle Application Gateway | Microsoft Docs
-description: "Cette page fournit une vue d’ensemble de la prise en charge de WebSocket pour la passerelle Application Gateway."
+description: Cette page fournit une vue d’ensemble de la prise en charge de WebSocket pour la passerelle Application Gateway.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986724"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Vue d’ensemble de la prise en charge de WebSocket dans Application Gateway
 

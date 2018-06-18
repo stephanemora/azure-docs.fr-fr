@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835081"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Gestion des services web AzureML à l’aide de Gestion des API
 ## <a name="overview"></a>Vue d'ensemble
@@ -32,7 +34,6 @@ Gestion des API Azure est un service Azure qui vous permet de gérer vos points 
 AzureML est un service Azure d’apprentissage automatique qui vous permet de facilement générer, déployer et partager des solutions d’analyse avancée. Cliquez [ici](https://azure.microsoft.com/services/machine-learning/) pour plus d’informations sur AzureML.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser ce guide, il vous faut :
 
 * Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](https://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.

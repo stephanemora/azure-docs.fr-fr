@@ -1,8 +1,8 @@
 ---
-title: "Outils pour l’utilisation du stockage Azure | Microsoft Docs"
-description: "Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
+title: Outils pour l’utilisation du stockage Azure | Microsoft Docs
+description: Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23479900"
 ---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 522d94e2a6fbd8e7eb32941e2cab59de7b28384c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 53d063573165a13fe35c4f149784bbfe1d498e01
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34337246"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292002"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Configurer BlueJeans pour l’attribution automatique d’utilisateurs
 
@@ -29,7 +29,6 @@ L’objectif de ce didacticiel est de présenter les étapes à suivre dans Blue
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](./active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -73,7 +72,7 @@ Azure Active Directory utilise un concept appelé « affectations » pour dét
 
 Avant de configurer et d’activer l’attribution automatique d’utilisateurs, vous devez décider quels utilisateurs et/ou groupes dans Azure AD ont besoin d’accéder à BlueJeans. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs et/ou groupes à votre application BlueJeans en suivant les instructions fournies ici :
 
-*   [Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Affecter un utilisateur ou un groupe à une application d’entreprise](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bluejeans"></a>Conseils importants pour l’attribution d’utilisateurs à BlueJeans
 
@@ -152,7 +151,7 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

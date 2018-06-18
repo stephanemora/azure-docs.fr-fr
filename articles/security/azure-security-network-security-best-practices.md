@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367322"
 ---
 # <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
 Microsoft Azure vous permet de connecter des machines virtuelles et des appliances à d’autres appareils en réseau, en les plaçant sur des réseaux virtuels Microsoft Azure. Un réseau virtuel Azure est une construction qui vous permet de connecter des cartes d’interface réseau virtuel à un réseau virtuel, afin de permettre des communications via TCP/IP entre les appareils fonctionnant sur le réseau. Les machines virtuelles Azure reliées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel Azure, ou des réseaux virtuels Azure différents, sur Internet ou sur vos réseaux locaux.

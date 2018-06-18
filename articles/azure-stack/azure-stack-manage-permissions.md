@@ -1,11 +1,11 @@
 ---
-title: "Gérer les autorisations d’accès aux ressources par utilisateur dans Azure Stack (administrateur de service et locataire) | Microsoft Docs"
-description: "En tant qu’administrateur de service ou locataire, découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC)."
+title: Gérer les autorisations d’accès aux ressources par utilisateur dans Azure Stack (administrateur de service et locataire) | Microsoft Docs
+description: En tant qu’administrateur de service ou locataire, découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29385634"
 ---
 # <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
 
@@ -48,6 +49,6 @@ Applicable uniquement aux services de fédération Active Directory (AD FS).
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour le groupe Active Directory universel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
 

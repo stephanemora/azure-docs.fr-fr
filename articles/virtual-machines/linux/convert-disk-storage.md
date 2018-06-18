@@ -1,13 +1,13 @@
 ---
 title: Convertir le stockage Managed Disks Azure de standard en premium, et vice versa | Microsoft Docs
-description: "Comment convertir le stockage Managed Disks Azure de standard en premium, et vice versa, à l’aide de l’interface de ligne de commande Azure."
+description: Comment convertir le stockage Managed Disks Azure de standard en premium, et vice versa, à l’aide de l’interface de ligne de commande Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666316"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertir le stockage Managed Disks Azure de standard en premium, et vice versa
 

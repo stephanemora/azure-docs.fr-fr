@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207663"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Sérialisation des objets Reliable Collections dans Azure Service Fabric
 Les objets Reliable Collections répliquent et conserver leurs éléments pour permettre à ces derniers de résister aux pannes d’ordinateur et de courant.

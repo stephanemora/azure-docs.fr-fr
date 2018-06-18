@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7713e1b6a74fd099206804133d2dc8140fe83a8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616394"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +51,6 @@ En particulier, ce connecteur DB2 prend en charge les plateformes et versions IB
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour copier des données depuis/vers une base de données DB2 qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote DB2 intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données de DB2.
 
 ## <a name="getting-started"></a>Prise en main
@@ -66,7 +66,7 @@ Les propriétés prises en charge pour le service lié DB2 sont les suivantes :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Db2** | OUI |
-| server |Nom du serveur DB2. |OUI |
+| serveur |Nom du serveur DB2. |OUI |
 | database |Nom de la base de données DB2. |OUI |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |OUI |
 | username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |OUI |

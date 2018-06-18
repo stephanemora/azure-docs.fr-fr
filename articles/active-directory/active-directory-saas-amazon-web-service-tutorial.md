@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cf57d76e87fcc0b6628ac194f4d5c389bf684d4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
@@ -30,7 +31,7 @@ L’intégration de Amazon Web Services (AWS) dans Azure AD vous offre les avant
 - Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Amazon Web Services (AWS) (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -191,7 +192,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
   
     d. Cliquez sur **Next: Permissions** (Suivant : Autorisations).
 
-16. Dans la boîte de dialogue **Attach Permissions Policies** (Attacher des stratégies d’autorisation), cliquez sur **Next: Review** (Suivant : Vérifier).  
+16. Dans la boîte de dialogue **Joindre des stratégies d’autorisation**, vous n’avez pas besoin de joindre une stratégie. Cliquez sur **Suivant : Revue**.  
     
     ![Stratégie dans la configuration de l’authentification unique][33]
 
@@ -415,7 +416,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,12 +1,12 @@
 ---
-title: "Installer Update 1.0 sur StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit comment utiliser l’interface utilisateur web de StorSimple Virtual Array pour appliquer des mises à jour à l’aide du portail Azure et de la méthode de correctifs logiciels"
+title: Installer Update 1.0 sur StorSimple Virtual Array | Microsoft Docs
+description: Décrit comment utiliser l’interface utilisateur web de StorSimple Virtual Array pour appliquer des mises à jour à l’aide du portail Azure et de la méthode de correctifs logiciels
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010822"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installer Update 1.0 sur StorSimple Virtual Array
 

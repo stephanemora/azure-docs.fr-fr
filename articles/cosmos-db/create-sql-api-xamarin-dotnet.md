@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB : Créer une application de liste de tâches avec Xamarin | Microsoft Docs'
 description: Cet article présente un exemple de code Xamarin que vous pouvez utiliser pour vous connecter à Azure Cosmos DB, et pour interroger les données
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/30/2018
 ms.author: sngun
-ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796119"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB : Créer une application de liste de tâches avec Xamarin
 
@@ -32,7 +30,6 @@ Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un c
 ![Application de liste de tâches Xamarin s’exécutant sur iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous développez sur Windows et si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** et le **développement mobile avec les charges de travail .NET** lors de l’installation de Visual Studio.
 
@@ -76,10 +73,10 @@ Nous allons maintenant cloner l’application API SQL Xamarin à partir de githu
 3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-3. Ensuite, ouvrez le fichier ToDoItems.sln dans le dossier samples/xamarin/ToDoItems de Visual Studio.
+4. Ensuite, ouvrez le fichier ToDoItems.sln dans le dossier samples/xamarin/ToDoItems de Visual Studio.
 
 ## <a name="obtain-your-api-keys"></a>Récupérer vos clés API
 
@@ -98,6 +95,8 @@ Revenez dans le portail Azure pour récupérer vos informations de clé API et l
 4. Puis, copiez votre valeur de CLÉ PRIMAIRE à partir du portail et définissez-la comme la valeur de `Cosmos Auth Key` dans APIKeys.cs.
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## <a name="review-the-code"></a>Vérifier le code
 

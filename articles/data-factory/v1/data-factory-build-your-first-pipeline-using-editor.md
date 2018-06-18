@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406556"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]

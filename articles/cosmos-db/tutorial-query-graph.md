@@ -2,25 +2,23 @@
 title: Comment interroger des données de graphique dans Azure Cosmos DB ? | Microsoft Docs
 description: Apprendre à interroger des données de graphique dans Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 449821d6121f8fec40b151ae06f687586133c3d1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: dfaf3fe1427c9069939f5421c6a87efb584ebe48
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763202"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API Graph et de Gremlin
 
@@ -32,7 +30,6 @@ Cet article décrit les tâches suivantes :
 > * Interrogation des données avec Gremlin
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour le bon fonctionnement de ces requêtes, vous devez disposer d’un compte Azure Cosmos DB et de données de graphique dans le conteneur. Cela n’est pas le cas ? Lancez le [démarrage rapide de 5 minutes](create-graph-dotnet.md) ou le [didacticiel destiné aux développeurs](tutorial-query-graph.md) pour créer un compte et alimenter votre base de données. Vous pouvez exécuter les requêtes suivantes à l’aide de la [bibliothèque de graphiques Azure Cosmos DB .NET](graph-sdk-dotnet.md), la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), ou votre pilote Gremlin favori.
 

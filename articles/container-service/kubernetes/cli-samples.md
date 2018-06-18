@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32161852"
 ---
 # <a name="azure-cli-samples-for-azure-container-service"></a>Exemples Azure CLI pour Azure Container Service
 

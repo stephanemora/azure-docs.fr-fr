@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29821043"
 ---
 De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _&lt;deploymentLocalGitUrl-from-create-step>_ par l’URL du Git distant que vous avez enregistrée à la section [Créer une app web](#create).
 

@@ -1,31 +1,36 @@
 ---
-title: "Create and install VPN client configuration files for P2S RADIUS connections: PowerShell: Azure (Créer et installer des fichiers de configuration du client VPN pour des connexions P2S RADIUS : Azure PowerShell) | Microsoft Docs"
-description: "Créer des fichiers de configuration du client VPN Windows, Mac OS X et Linux pour les connexions utilisant l’authentification RADIUS."
+title: 'Create and install VPN client configuration files for P2S RADIUS connections: PowerShell: Azure (Créer et installer des fichiers de configuration du client VPN pour des connexions P2S RADIUS : Azure PowerShell) | Microsoft Docs'
+description: Créer des fichiers de configuration du client VPN Windows, Mac OS X et Linux pour les connexions utilisant l’authentification RADIUS.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235887"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
 
 Pour vous connecter à un réseau virtuel de point à site, vous devez configurer l’appareil client à partir duquel vous allez vous connecter. Vous pouvez créer des connexions VPN de point à site à partir d’appareils clients Windows, Mac OS X et Linux. 
 
 Lorsque vous utilisez l’authentification RADIUS, vous disposez de plusieurs options d’authentification : authentification par nom d’utilisateur/mot de passe, authentification par certificat, et bien d’autres. La configuration du client VPN est différente pour chaque type d’authentification. Pour configurer le client VPN, vous utilisez les fichiers de configuration du client qui contiennent les paramètres requis. Cet article vous aide à créer et installer la configuration du client VPN pour le type d’authentification RADIUS que vous souhaitez utiliser.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 Le flux de travail de configuration pour l’authentification RADIUS point à site est le suivant :
 
@@ -153,6 +158,10 @@ Les instructions suivantes ont été créées à l’aide de strongSwan 5.5.1 su
  
 Vous pouvez créer les fichiers de configuration du client VPN pour une authentification par certificat RADIUS qui utilise le protocole EAP-TLS. En règle générale, un certificat émis par l’entreprise est utilisé pour authentifier un utilisateur pour un VPN. Veillez à ce que tous les utilisateurs qui se connectent disposent d’un certificat installé sur leurs appareils qui peut être validé par votre serveur RADIUS.
 
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
+
 Dans les commandes, `-AuthenticationMethod` est `EapTls`. Lors de l’authentification par certificat, le client valide le serveur RADIUS en validant son certificat. `-RadiusRootCert` est le fichier .cer qui contient le certificat racine utilisé pour valider le serveur RADIUS.
 
 Chaque appareil du client VPN doit avoir un certificat client installé. Un appareil Windows peut posséder plusieurs certificats de client. Lors de l’authentification, cela peut entraîner l’affichage d’une boîte de dialogue contextuelle qui répertorie tous les certificats. L’utilisateur doit alors choisir le certificat à utiliser. Le certificat approprié peut être filtré en spécifiant le certificat racine auquel le certificat client doit être attaché. 
@@ -248,7 +257,7 @@ Pour utiliser un type d’authentification différent (OTP, par exemple) ou un p
    
    Le dossier **GenericDevice** contient aussi un fichier .cer nommé **VpnServerRoot**. Ce fichier contient le certificat racine requis pour valider la passerelle VPN Azure lors de la configuration de la connexion de point à site. Installez le certificat sur tous les appareils qui se connecteront au réseau virtuel Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Revenez à l’article pour [terminer la configuration P2S](point-to-site-how-to-radius-ps.md).
 

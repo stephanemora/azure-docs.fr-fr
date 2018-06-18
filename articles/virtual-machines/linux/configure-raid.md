@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911755"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuration d’un RAID logiciel sur Linux
 L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure est un scénario fréquent afin de regrouper plusieurs disques de données attachés sous la forme d'un périphérique RAID unique. En règle générale, ce scénario permet d'optimiser les performances et d'améliorer le débit par rapport à l'utilisation d'un disque unique.

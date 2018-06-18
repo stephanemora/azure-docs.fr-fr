@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault - Utilisation de la suppression réversible avec PowerShell"
-description: "Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell"
+ms.assetid: ''
+title: Azure Key Vault - Utilisation de la suppression réversible avec PowerShell
+description: Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927989"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -23,7 +24,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Azure PowerShell 4.0.0 ou version ultérieure - Si ce n’est pas encore fait, installez Azure PowerShell et associez-le à votre abonnement Azure. Voir [Guide pratique pour installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
