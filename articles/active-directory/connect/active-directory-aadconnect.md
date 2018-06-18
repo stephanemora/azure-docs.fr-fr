@@ -82,7 +82,7 @@ Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de t
 |Après l’installation | [Vérification de l’installation et affectation des licences ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>En savoir plus sur l’installation d’Azure AD Connect
-Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](active-directory-aadconnectsync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](active-directory-aadconnectsync-operations.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode) .
+Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](active-directory-aadconnectsync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](active-directory-aadconnectsync-operations.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode) .
 
 |Rubrique |Lien|  
 | --- | --- |
