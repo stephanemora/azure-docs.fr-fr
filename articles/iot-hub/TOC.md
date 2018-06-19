@@ -1,4 +1,4 @@
-# [Notions de base d’Azure IoT](../iot-fundamentals/index.yml)
+# [Notions de base d’Azure IoT](/azure/iot-fundamentals)
 # [Documentation IoT Hub](index.yml)
 
 # Vue d'ensemble
@@ -84,10 +84,10 @@
 ### [Utiliser IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Utiliser le sérialiseur](iot-hub-device-sdk-c-serializer.md)
 
-## [Tout savoir sur la sécurité](iot-hub-security-ground-up.md)
-## [Meilleures pratiques en matière de sécurité](iot-hub-security-best-practices.md)
-## [Architecture de la sécurité](iot-hub-security-architecture.md)
-## [Sécuriser votre déploiement IoT](iot-hub-security-deployment.md)
+## [Tout savoir sur la sécurité](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [Meilleures pratiques en matière de sécurité](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Architecture de la sécurité](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [Sécuriser votre déploiement IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Sécurisation à l’aide de certificats d’autorité de certification X.509
 ### [Vue d’ensemble d’un certificat d’autorité de certification X.509](iot-hub-x509ca-overview.md)
 #### [Concepts d’un certificat d’autorité de certification X.509](iot-hub-x509ca-concept.md)
@@ -206,7 +206,7 @@
 ### [Migrer vers les paramètres des diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Surveillance des opérations](iot-hub-operations-monitoring.md)
 ## Utiliser des appareils réels
-### [Prise en main](iot-hub-get-started.md)
+### [Bien démarrer](iot-hub-get-started.md)
 ### [Utiliser un simulateur en ligne](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Utiliser un appareil physique](iot-hub-get-started-physical.md)
 #### [Raspberry Pi avec Python](iot-hub-raspberry-pi-kit-python-get-started.md)
