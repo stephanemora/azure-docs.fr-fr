@@ -122,7 +122,6 @@
 ### Informations de référence
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
 #### [Référence d’activité d’audit](active-directory-reporting-activity-audit-reference.md)
 #### [Codes d’erreur de l’activité de connexion](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [Personnalisation SSPR](authentication/concept-sspr-customization.md)
 ### [Spécifications des données SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
+### [Éliminer les mots de passe faibles](authentication/concept-password-ban-bad.md)
+### [Configurer la liste des mots de passe interdits](authentication/howto-password-ban-bad.md)
+### [Intégration locale](authentication/concept-password-ban-bad-on-premises.md)
+### [Déployer la protection par mot de passe d’Azure AD](authentication/howto-password-ban-bad-on-premises.md)
+### [Configurer la protection par mot de passe d’Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Surveiller la protection par mot de passe d’Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
 #### [Portail Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Licence SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Gérer des applications
 ### [Vue d’ensemble](manage-apps/what-is-application-management.md)
 ### [Prise en main](manage-apps/plan-an-application-integration.md)
-### [Didacticiels d’intégration d’applications SaaS](active-directory-saas-tutorial-list.md)
+### [Didacticiels d’intégration d’applications SaaS](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Créer des rapports d’instantanés](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configurer le reporting continu](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Utiliser un analyseur de journal personnalisé](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [Approvisionnement/déprovisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md) 
-#### [Didacticiels d’intégration d’applications](active-directory-saas-tutorial-list.md) 
+#### [Didacticiels d’intégration d’applications](saas-apps/tutorial-list.md) 
 #### [Automatiser l’approvisionnement vers des applications prenant en charge le protocole SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Écrire des expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md) 

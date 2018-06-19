@@ -16,6 +16,8 @@
   items:
     - name: Ajouter Azure CDN à une application web
       href: cdn-add-to-web-app.md
+    - name: Accéder aux blobs à l’aide d’un domaine personnalisé via HTTPS
+      href: cdn-storage-custom-domain-https.md
     - name: Ajouter un domaine personnalisé
       href: cdn-map-content-to-custom-domain.md
     - name: Configurer le protocole HTTPS pour un domaine personnalisé

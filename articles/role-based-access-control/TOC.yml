@@ -1,5 +1,5 @@
-- name: Présentation de la gestion des accès
-  href: manage-access-to-azure-resources.md
+- name: Documentation relative au contrôle d’accès en fonction du rôle
+  href: index.yml
   items: null
 - name: Vue d'ensemble
   items:
@@ -36,6 +36,7 @@
     - name: Accès conditionnel pour la gestion Azure
       href: conditional-access-azure-management.md
 - name: Procédures
+  expanded: true
   items:
     - name: Gérer l’accès
       items:

@@ -37,13 +37,10 @@
     - name: Réplication de cluster HBase dans le réseau virtuel Azure
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Surveillance à l’aide d’OMS
+- name: Surveillance à l’aide de Log Analytics
   items:
     - name: Utiliser Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Tableaux de bord spécifiques au cluster
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Utiliser des requêtes avec Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -55,7 +52,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.hdinsight
     - name: .NET (Hadoop)
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'

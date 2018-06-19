@@ -35,7 +35,7 @@
   items:
     - name: Stratégies
       href: policy-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
@@ -97,6 +97,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Authentification mutuelle des certificats
           href: api-management-howto-mutual-certificates.md
+        - name: Gérer les protocoles et les chiffrements
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: Personnalisation de l’expérience de développement
       items:
         - name: Modifier la disposition et le contenu des pages
@@ -191,7 +193,7 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/azure/overview
     - name: REST
       href: /rest/api/apimanagement/
