@@ -84,7 +84,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**.
+8. Acceptez les conditions d’utilisation de la version d’aperçu pour pouvoir utiliser l’option **Stockage de composants additionnels**.
 
    > [!IMPORTANT]
    > - Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
