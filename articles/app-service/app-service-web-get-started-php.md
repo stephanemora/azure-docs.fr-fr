@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597754"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Créer une application web PHP dans Azure
 
@@ -36,7 +37,6 @@ Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce démarrage rapide :
 
@@ -105,7 +105,7 @@ Une fois l’application web créée, Azure CLI affiche une sortie similaire �
 }
 ```
 
-Accédez à votre nouvelle application web. Remplacez _&lt;app name>_ par un nom d’application unique.
+Accédez à votre nouvelle application web. Remplacez _&lt;nom de l’application >_ par le nom d’application unique créé à l’étape précédente.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -183,11 +183,11 @@ Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de
 
 ![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez également des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple).
+La page Vue d’ensemble de votre application web s’affiche. Ici, vous pouvez également des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple).
 
 ![Page App Service du Portail Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Le menu de gauche fournit différentes pages vous permettant de configurer votre application. 
+Le menu de gauche fournit différentes options vous permettant de configurer votre application. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
