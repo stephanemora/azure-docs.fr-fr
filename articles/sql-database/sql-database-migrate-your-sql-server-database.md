@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: be22f2b45262b144c87a0e97f1c78e0167b0e24d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648096"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrer votre base de données SQL Server vers Azure SQL Database à l’aide de DMA
 
@@ -34,7 +35,6 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 - La dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
@@ -53,7 +53,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette** même page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même** page.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -90,7 +90,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    > [!IMPORTANT]
    > - Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   > - Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Sud du Brésil, Canada Centre, Canada Est, États-Unis du Centre, France-Centre, Allemagne - Centre, Japon de l’Est, Japon de l’Ouest, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Asie du Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, US Gov Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Plus de 1 To de stockage au niveau Premium est disponible dans toutes les régions à l’exception des suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne - Nord-Est, Chine Nord, US Gov Est. Une disponibilité plus étendue est prévue. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  

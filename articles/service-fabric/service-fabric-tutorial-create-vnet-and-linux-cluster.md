@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: ff57aec76171b45dbebff928f2898bd5f91ec1c2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 53adf8045e1c947466cf5080b8c967a928d2dc24
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365540"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643224"
 ---
 # <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 Ce didacticiel est la première partie d’une série d’étapes. Vous allez apprendre à déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) et un [groupe de sécurité réseau](../virtual-network/security-overview.md) à l’aide d’Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -42,7 +42,6 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
@@ -158,7 +157,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Se connecter à un cluster sécurisé
-Connectez-vous au cluster à l’aide de votre clé par le biais de la commande `sfctl cluster select` de l’interface de ligne de commande de Service Fabric.  Notez que vous ne pouvez utiliser que l’option **--no-verify** pour un certificat auto-signé.
+Connectez-vous au cluster avec votre clé par le biais de la commande `sfctl cluster select` de l’interface de ligne de commande de Service Fabric.  Notez que vous ne pouvez utiliser que l’option **--no-verify** pour un certificat auto-signé.
 
 ```azurecli
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \

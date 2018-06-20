@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2efbd6e0fc3f90909553bc839a8b61ff3ed681ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267388"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Didacticiel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant le portail Azure
 
@@ -65,6 +65,8 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="enable-a-service-endpoint"></a>Activer un point de terminaison de service
 
+Les points de terminaison de service sont activés par service, par sous-réseau. Créer un sous-réseau et activer un point de terminaison de service pour le sous-réseau.
+
 1. Dans le champ **Rechercher des ressources, services et documents** en haut du portail, entrez *myVirtualNetwork.* Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Ajoutez un sous-réseau au réseau virtuel. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**, puis **+ Sous-réseau**, comme montré dans l’image suivante :
 
@@ -78,11 +80,16 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
     |Plage d’adresses| 10.0.1.0/24|
     |Points de terminaison de service| Sélectionnez **Microsoft.Storage** sous **Services**|
 
+> [!CAUTION]
+> Avant d’activer un point de terminaison de service pour un sous-réseau existant qui contient des ressources, consultez [Modifier les paramètres de sous-réseau](virtual-network-manage-subnet.md#change-subnet-settings).
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Restreindre l’accès réseau d’un sous-réseau
+
+Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiquer avec l’ensemble des ressources. Vous pouvez limiter les communications vers et à partir de toutes les ressources d’un sous-réseau par la création d’un groupe de sécurité réseau et l’association au sous-réseau.
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
 2. Sélectionnez **Mise en réseau**, puis **Groupe de sécurité réseau**.
-Sous **Créer un groupe de sécurité réseau**, saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Créer** :
+3. Sous **Créer un groupe de sécurité réseau**, saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Créer** :
 
     |Paramètre|Valeur|
     |----|----|
@@ -94,7 +101,7 @@ Sous **Créer un groupe de sécurité réseau**, saisissez ou sélectionnez les 
 4. Une fois le groupe de sécurité réseau créé, entrez *myNsgPrivate*, dans le champ **Rechercher des ressources, services et documents** en haut du portail. Quand **myNsgPrivate** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 5. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 6. Sélectionnez **Ajouter**.
-7. Créez une règle qui autorise un accès sortant vers les adresses IP publiques affectées au service Stockage Azure. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **OK** :
+7. Créer une règle qui autorise les communications sortantes vers le service Stockage Azure. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **OK** :
 
     |Paramètre|Valeur|
     |----|----|
@@ -107,7 +114,8 @@ Sous **Créer un groupe de sécurité réseau**, saisissez ou sélectionnez les 
     |Action|AUTORISER|
     |Priorité|100|
     |NOM|Allow-Storage-All|
-8. Créez une règle, qui remplace une règle de sécurité par défaut, qui autorise l’accès de trafic sortant à toutes les adresses IP publiques. Répétez les étapes 6 et 7 en utilisant les valeurs suivantes :
+    
+8. Créer une règle qui refuse les communications sortantes vers Internet. Cette règle qui permet la communication Internet sortante se substitue à une règle par défaut dans tous les groupes de sécurité réseau. Répétez les étapes 6 et 7 en utilisant les valeurs suivantes :
 
     |Paramètre|Valeur|
     |----|----|
@@ -171,9 +179,9 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
 4. Entrez *my-file-share* sous **Nom**, puis sélectionnez **OK**.
 5. Fermez la zone **File service** (Service de fichiers).
 
-### <a name="enable-network-access-from-a-subnet"></a>Activer l’accès réseau à partir d’un sous-réseau
+### <a name="restrict-network-access-to-a-subnet"></a>Restreindre l’accès réseau à un sous-réseau
 
-Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau. Pour autoriser l’accès à partir d’un sous-réseau spécifique uniquement et refuser l’accès réseau à partir de tous les autres réseaux, procédez comme suit :
+Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau, y compris Internet. Refusez l’accès réseau à partir d’Internet et tous les autres sous-réseaux de tous les réseaux virtuels, à l’exception du sous-réseau *Private* du réseau virtuel *myVirtualNetwork*.
 
 1. Sous **PARAMÈTRES** pour le compte de stockage, sélectionnez **Firewalls and virtual networks** (Pare-feu et réseaux virtuels).
 2. Sous **Réseaux virtuels**, sélectionnez **Réseaux sélectionnés**.
@@ -256,13 +264,13 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 
     Le partage de fichiers Azure est correctement mappé au lecteur Z.
 
-7. Vérifiez que la machine virtuelle ne dispose d’aucune connexion sortante à d’autres adresses IP publiques à partir d’une invite de commande :
+7. Vérifiez que la machine virtuelle ne dispose d’aucune connexion sortante à Internet à partir d’une invite de commande :
 
     ```
     ping bing.com
     ```
     
-    Vous ne recevez aucune réponse, car le groupe de sécurité réseau associé au sous-réseau *Private* n’autorise pas l’accès sortant aux adresses IP publiques autres que les adresses affectées au service Stockage Azure.
+    Vous ne recevez aucune réponse, car le groupe de sécurité réseau associé au sous-réseau *Private* n’autorise pas l’accès sortant à Internet.
 
 8. Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPrivate*.
 
@@ -272,7 +280,7 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 2. Quand **myVmPublic** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 3. Répétez les étapes 1 à 6 de [Vérifier l’accès au compte de stockage](#confirm-access-to-storage-account) pour la machine virtuelle *myVmPublic*.
 
-    L’accès est refusé et vous recevez une erreur `New-PSDrive : Access is denied`. L’accès est refusé car la machine virtuelle *myVmPublic* est déployée sur le sous-réseau *Public*. Le sous-réseau *Public* ne dispose pas d’un point de terminaison de service activé pour Stockage Azure, et le compte de stockage autorise uniquement l’accès réseau à partir du sous-réseau *Private* et non à partir du sous-réseau *Public*.
+    L’accès est refusé et vous recevez une erreur `New-PSDrive : Access is denied`. L’accès est refusé car la machine virtuelle *myVmPublic* est déployée sur le sous-réseau *Public*. Le sous-réseau *Public* ne dispose d’aucun point de terminaison de service activé pour le Stockage Azure. Le compte de stockage permet uniquement l’accès à partir du sous-réseau *Private* et non au sous-réseau *Public*.
 
 4. Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPublic*.
 
@@ -295,7 +303,7 @@ Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez activé un point de terminaison de service pour un sous-réseau de réseau virtuel. Vous avez vu que les points de terminaison de service peuvent être activés pour les ressources déployées à l’aide de différents services Azure. Vous avez créé un compte Stockage Azure et un accès réseau à ce compte de stockage, limité aux ressources du sous-réseau du réseau virtuel. Pour en savoir plus sur les points de terminaison de service, consultez [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md) et [Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel](virtual-network-manage-subnet.md).
+Dans ce tutoriel, vous avez activé un point de terminaison de service pour un sous-réseau de réseau virtuel. Vous avez vu que les points de terminaison de service peuvent être activés pour les ressources déployées à partir de différents services Azure. Vous avez créé un compte Stockage Azure et un accès réseau à ce compte de stockage, limité aux ressources du sous-réseau du réseau virtuel. Pour en savoir plus sur les points de terminaison de service, consultez [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md) et [Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel](virtual-network-manage-subnet.md).
 
 Si votre compte comporte plusieurs réseaux virtuels, vous pouvez relier deux réseaux virtuels pour que les ressources de chaque réseau virtuel puissent communiquer entre elles. Pour savoir comment connecter des réseaux virtuels, passez au didacticiel suivant.
 

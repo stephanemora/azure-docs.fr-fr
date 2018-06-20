@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824684"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -31,6 +32,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 - **Microsoft Azure SQL Database** : mis à la disposition générale dans toutes les régions Azure
 - **Azure Cosmos DB** : mis à la disposition générale dans toutes les régions de cloud public Azure 
 - **Azure SQL Data Warehouse** : préversion dans toutes les régions de cloud public Azure
+- **Services de base de données Azure pour PostgreSQL et MySQL** : aperçu dans les régions Azure où le service de base de données est disponible.
 
 Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à jour du réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -98,7 +100,7 @@ Une fois que les points de terminaison de service sont configurés pour un servi
   - indique qu’une connexion plus directe pour le service est appliquée, par rapport à n’importe quel tunneling forcé.
 
 >[!NOTE]
-> Les itinéraires de point de terminaison de service remplacent tout itinéraire BGP ou UDR pour la correspondance de préfixe d’adresse d’un service Azure. En savoir plus sur la [résolution des problèmes liés aux routages effectifs](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> Les itinéraires de point de terminaison de service remplacent tout itinéraire BGP ou UDR pour la correspondance de préfixe d’adresse d’un service Azure. En savoir plus sur la [résolution des problèmes liés aux routages effectifs](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Approvisionnement
 

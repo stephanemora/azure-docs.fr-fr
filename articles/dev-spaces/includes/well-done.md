@@ -10,20 +10,20 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: f1e997b9e7f948f29cce940574fe7db34a503dc6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199090"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825509"
 ---
 ## <a name="well-done"></a>Félicitations !
-Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à :
+Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer un environnement Kubernetes dans Azure optimisé pour le développement.
+> * Créer un environnement Kubernetes dans Azure optimisé pour le développement - un _espace de développement_.
 > * Développer du code de façon itérative dans des conteneurs en utilisant VS Code et la ligne de commande.
 > * Développer de façon indépendante deux services distincts et utiliser la découverte de service DNS de Kubernetes pour appeler un autre service.
 > * Développer et tester votre code de façon productive dans un environnement d’équipe.
 
-Maintenant que vous avez exploré Azure Dev Spaces, [partagez votre environnement de développement avec les membres de l’équipe](../how-to/share-dev-spaces.md) et montrez-leur combien il est facile de collaborer.
+Maintenant que vous avez exploré Azure Dev Spaces, [partagez votre espace de développement avec les membres de l’équipe](../how-to/share-dev-spaces.md) et montrez-leur combien il est facile de collaborer.

@@ -6,30 +6,34 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.reviewer: kivenkat
+ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604129"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-## <a name="overview"></a>Vue d'ensemble
-Une machine virtuelle Azure Stack est un type de ressource informatique scalable à la demande que propose Azure Stack. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
+Azure Stack propose des machines virtuelles en tant que type de ressource informatique scalable à la demande. Une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article fournit des informations préalables à la création de votre machine virtuelle.
 
 Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, sans qu’il soit nécessaire de gérer des clusters ou des machines individuelles. Vous devez cependant toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent sur celle-ci.
 
 Vous pouvez utiliser des machines virtuelles Azure Stack de différentes manières. Par exemple : 
 
-* **Développement et test** : les machines virtuelles Azure Stack permettent de créer rapidement et facilement un ordinateur avec une configuration spécifique requise pour encoder et tester une application.
+- **Développement et tests**  
+    Les machines virtuelles Azure Stack permettent de créer rapidement et facilement un ordinateur avec une configuration spécifique requise pour encoder et tester une application.
 
-* **Applications dans le cloud** : la demande de votre application étant susceptible de fluctuer, il peut être économique de l’exécuter sur une machine virtuelle dans Azure Stack. Vous payez pour des machines virtuelles supplémentaires lorsque vous en avez besoin et vous les arrêtez le reste du temps.
+- **Applications dans le cloud**  
+    La demande de votre application étant susceptible de fluctuer, il peut être économique de l’exécuter sur une machine virtuelle dans Azure Stack. Vous payez pour des machines virtuelles supplémentaires lorsque vous en avez besoin et vous les arrêtez le reste du temps.
 
-* **Centre de données étendu** : les machines virtuelles au sein d’un réseau virtuel Azure Stack peuvent être facilement connectées au réseau de votre organisation ou à Azure.
+- **Centre de données étendu**  
+    Les machines virtuelles au sein d’un réseau virtuel Azure Stack peuvent être facilement connectées au réseau de votre organisation ou à Azure.
 
 Les machines virtuelles utilisées par votre application peuvent augmenter en nombre (scale up) ou en taille (scale out) pour répondre à vos besoins.
 
@@ -37,12 +41,12 @@ Les machines virtuelles utilisées par votre application peuvent augmenter en no
 
 Un grand nombre de considérations liées à la conception sont à prendre en compte quand vous créez une infrastructure d’application dans Azure Stack. Avant de commencer à créer votre infrastructure, il est important de réfléchir aux aspects suivants concernant les machines virtuelles :
 
-* Les noms des ressources de votre application.
-* La taille de la machine virtuelle.
-* Le nombre maximal de machines virtuelles qui peuvent être créées.
-* Le système d’exploitation exécuté par la machine virtuelle.
-* La configuration de la machine virtuelle après son démarrage.
-* Les ressources liées nécessaires à la machine virtuelle.
+- Les noms des ressources de votre application.
+- La taille de la machine virtuelle.
+- Le nombre maximal de machines virtuelles qui peuvent être créées.
+- Le système d’exploitation exécuté par la machine virtuelle.
+- La configuration de la machine virtuelle après son démarrage.
+- Les ressources liées nécessaires à la machine virtuelle.
 
 ### <a name="naming"></a>Dénomination
 
@@ -78,9 +82,14 @@ Vous pouvez choisir de télécharger et d’utiliser votre propre image. Dans ce
 Les extensions de machines virtuelles étendent les fonctionnalités de votre machine virtuelle par le biais de la configuration post-déploiement et de tâches automatisées.
 Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 
-* Exécuter des scripts personnalisés : l’extension de script personnalisé vous permet de configurer des charges de travail sur la machine virtuelle en exécutant votre script lors de l’approvisionnement de la machine virtuelle.
-* Déployer et gérer des configurations : l’extension de configuration d’état souhaité (DSC) PowerShell vous permet de configurer DSC sur une machine virtuelle pour gérer les environnements et les configurations.
-* Collecter les données de diagnostic : l’extension de diagnostics Azure vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour surveiller l’intégrité de votre application.
+- **Scripts personnalisés**  
+    l’extension de script personnalisé vous permet de configurer des charges de travail sur la machine virtuelle en exécutant votre script pendant l’approvisionnement de la machine virtuelle.
+
+- **Déploiement et gestion des configurations**  
+    L’extension de configuration d’état souhaité (DSC) PowerShell vous permet de configurer DSC sur une machine virtuelle pour gérer les environnements et les configurations.
+
+- **Collecte des données de diagnostic**  
+    L’extension des diagnostics Microsoft Azure vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour surveiller l’intégrité de votre application.
 
 ### <a name="related-resources"></a>Ressources associées
 
@@ -96,7 +105,7 @@ Les ressources figurant dans le tableau suivant sont utilisées par la machine v
 |interface réseau|OUI|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|
 |Disques de données|Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage.|
 
-## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?
+## <a name="create-your-first-vm"></a>Créer votre première machine virtuelle
 
 Vous avez plusieurs possibilités pour créer une machine virtuelle. Votre choix dépend de votre environnement.
 Le tableau suivant fournit des informations pour vous aider à créer votre machine virtuelle.
@@ -109,16 +118,16 @@ Le tableau suivant fournit des informations pour vous aider à créer votre mach
 |PowerShell|[Créer une machine virtuelle Windows à l’aide de PowerShell dans Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)<br>[Créer une machine virtuelle Linux à l’aide de PowerShell dans Azure Stack](azure-stack-quick-create-vm-linux-powershell.md)|
 |Interface de ligne de commande|[Créer une machine virtuelle Windows à l’aide de CLI dans Azure Stack](azure-stack-quick-create-vm-windows-cli.md)<br>[Créer une machine virtuelle Linux à l’aide de CLI dans Azure Stack](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Comment gérer la machine virtuelle créée ?
+## <a name="manage-your-vm"></a>Gérer votre machine virtuelle
 
 Vous pouvez gérer les machines virtuelles via un portail basé sur un navigateur, via des outils en ligne de commande avec prise en charge des scripts ou directement via des API. Voici quelques tâches de gestion classiques que vous pouvez effectuer :
 
-* Obtenir des informations sur une machine virtuelle
-* Se connecter à une machine virtuelle
-* Gérer la disponibilité
-* Faire des sauvegardes
+- Obtenir des informations sur une machine virtuelle
+- Se connecter à une machine virtuelle
+- Gérer la disponibilité
+- Faire des sauvegardes
 
-### <a name="get-information-about-a-vm"></a>Obtenir des informations sur une machine virtuelle
+### <a name="get-information-about-your-vm"></a>Obtenir des informations sur votre machine virtuelle
 
 Le tableau suivant indique différents moyens d’obtenir des informations sur une machine virtuelle.
 
@@ -129,10 +138,10 @@ Le tableau suivant indique différents moyens d’obtenir des informations sur u
 |Azure PowerShell|La gestion des machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations sur l’utilisation de PowerShell, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Kits de développement logiciel (SDK) client|L’utilisation de C# pour gérer les machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
+### <a name="connect-to-your-vm"></a>Connexion à votre machine virtuelle
 
 Vous pouvez utiliser le bouton **Se connecter** dans le portail Azure Stack pour vous connecter à votre machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
+- [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)

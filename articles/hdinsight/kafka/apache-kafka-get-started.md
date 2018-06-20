@@ -13,13 +13,14 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0917894250c8cf907d721749be506d2c247111a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626315"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guide de démarrage rapide : Créer un cluster Kafka sur HDInsight
 
@@ -35,7 +36,6 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 > Pour plus d’informations, consultez le document [Se connecter à Kafka à l’aide d’un réseau virtuel](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -183,12 +183,15 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
     À l’invite, entrez le nom du cluster Kafka.
 
 3. Pour définir une variable d’environnement avec les informations d’hôte Zookeeper, utilisez la commande suivante :
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    À l’invite, entrez le mot de passe du compte de connexion au cluster (et non du compte SSH).
+    > [!TIP]
+    > Cette commande interroge directement le service Ambari sur le nœud principal du cluster. Vous pouvez également accéder à ambari à l’aide de l’adresse publique de `https://$CLUSTERNAME.azurehdinsight.net:80/`. Certaines configurations réseau peuvent empêcher l’accès à l’adresse publique. Par exemple, vous pouvez utiliser les groupes de sécurité réseau (NSG) pour restreindre l’accès à HDInsight dans un réseau virtuel.
+
+    Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster (pas du compte SSH).
 
     > [!NOTE]
     > Cette commande récupère tous les hôtes ZooKeeper et retourne uniquement les deux premières entrées, ce qui assure une redondance au cas où l’un des hôtes serait inaccessible.
@@ -206,10 +209,10 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
 5. Pour définir une variable d’environnement avec les informations d’hôte de répartiteur Kafka, utilisez la commande suivante :
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    À l’invite, entrez le mot de passe du compte de connexion au cluster (et non du compte SSH).
+    Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster (pas du compte SSH).
 
 6. Pour vérifier que la variable d’environnement est correctement définie, utilisez la commande suivante :
 

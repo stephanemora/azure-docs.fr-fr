@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e6e6464bd8c8174978eded1ed626ca32029b7fbc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207204"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643149"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Démarrage rapide : créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -40,7 +40,6 @@ Cette application vous permet d’apprendre à :
 * Effectuer une mise à niveau propagée d’application
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour effectuer ce démarrage rapide :
 1. [Installez Visual Studio 2017](https://www.visualstudio.com/) avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 2. [Installez Git](https://git-scm.com/)
@@ -176,7 +175,7 @@ N’oubliez pas l’empreinte numérique, elle sera utilisée dans une étape su
     ![Service frontal de l’application](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Mettre à l’échelle les applications et services dans un cluster
-Les services Service Fabric peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Plusieurs méthodes sont disponibles pour mettre à l’échelle vos services. Vous pouvez utiliser des scripts ou des commandes de PowerShell ou de l’interface CLI de Service Fabric (sfctl). Dans cet exemple, utilisez Service Fabric Explorer.
+Les services Service Fabric peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Plusieurs méthodes sont disponibles pour mettre à l’échelle vos services. Vous pouvez utiliser des scripts ou des commandes de PowerShell ou de l’interface CLI de Service Fabric (sfctl). Cet exemple utilise Service Fabric Explorer.
 
 Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP des clusters (19080), par exemple, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 

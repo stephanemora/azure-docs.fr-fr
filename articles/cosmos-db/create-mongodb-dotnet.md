@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB : Développer une application web avec .NET et l’API MongoDB | Microsoft Docs'
 description: Cet article présente un exemple de code .NET que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/22/2018
 ms.author: sngun
-ms.openlocfilehash: bab2728db7cdb410e995c30d69642c968ef6567d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2e0de0f15612b21345bd8df6f9808222ec328c3d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798727"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application web API MongoDB avec .NET et le Portail Azure
 
@@ -38,6 +36,8 @@ Si vous ne disposez pas de Visual Studio, téléchargez [Visual Studio 2017 Comm
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+L’exemple décrit dans cet article est compatible avec la version 2.6.1 du pilote MongoDB.Driver.
 
 ## <a name="clone-the-sample-app"></a>Clonage de l’exemple d’application
 
@@ -81,10 +81,7 @@ Tous les extraits de code suivants proviennent du fichier Dal.cs dans le répert
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```

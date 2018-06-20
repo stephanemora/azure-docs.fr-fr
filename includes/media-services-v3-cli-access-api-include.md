@@ -5,63 +5,47 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 05/29/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: acb9bdf294dd66005df203f957c155540b658698
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7454e96a2a05bf89a0455674a4f144534c374c71
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33830100"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34667875"
 ---
 ## <a name="access-the-media-services-api"></a>Accéder à l’API Media Services
 
-Vous utilisez l’authentification de principal de service Azure AD pour vous connecter aux API Azure Media Services. La commande suivante crée une application Azure AD et attache un principal de service pour le compte. Vous vous apprêtez à utiliser les valeurs renvoyées pour configurer votre application .NET, comme indiqué dans l’étape suivante.
+Vous utilisez l’authentification de principal de service Azure AD pour vous connecter aux API Azure Media Services. La commande suivante crée une application Azure AD et attache un principal de service pour le compte. Vous devriez utiliser les valeurs renvoyées pour configurer votre application.
 
-Avant d’exécuter le script, vous pouvez remplacer le `amsaccount` et `amsResourceGroup` par les noms que vous avez choisis lors de la création de ces ressources. `amsaccount` est le nom du compte Azure Media Services auquel attacher le principal de service. <br/>La commande suivante utilise l’option `xml` qui retourne un document xml que vous pouvez coller dans votre fichier app.config. Si vous omettez l’option `xml`, la réponse sera dans `json`.
+Avant d’exécuter le script, vous pouvez remplacer le `amsaccount` et `amsResourceGroup` par les noms que vous avez choisis lors de la création de ces ressources. `amsaccount` est le nom du compte Azure Media Services auquel attacher le principal de service.
+
+La commande suivante renvoie une sortie `json` :
 
 ```azurecli-interactive
-az ams account sp create --account-name amsaccount --resource-group amsResourceGroup --xml
+az ams account sp create --account-name amsaccount --resource-group amsResourceGroup
 ```
 
 Cette commande génère une réponse semblable à celle-ci :
 
-```xml
-<add key="Region" value="West US 2" />
-<add key="ResourceGroup" value="amsResourceGroup" />
-<add key="AadEndpoint" value="https://login.microsoftonline.com" />
-<add key="AccountName" value="amsaccount" />
-<add key="SubscriptionId" value="111111111-0000-2222-3333-55555555555" />
-<add key="ArmAadAudience" value="https://management.core.windows.net/" />
-<add key="AadTenantId" value="2222222222-0000-2222-3333-6666666666666" />
-<add key="AadSecret" value="33333333-0000-2222-3333-55555555555" />
-<add key="AadClientId" value="44444444-0000-2222-3333-55555555555" />
-<add key="ArmEndpoint" value="https://management.azure.com/" />
+```json
+{
+  "AadClientId": "00000000-4cdd-418a-8a72-0755ace03de5",
+  "AadEndpoint": "https://login.microsoftonline.com",
+  "AadSecret": "00000000-02f5-4bf2-9057-1c4f7baff155",
+  "AadTenantId": "00000000-86f1-41af-91ab-2d7cd011db47",
+  "AccountName": "amsaccount22",
+  "ArmAadAudience": "https://management.core.windows.net/",
+  "ArmEndpoint": "https://management.azure.com/",
+  "Region": "West US 2",
+  "ResourceGroup": "amsResourceGroup2",
+  "SubscriptionId": "00000000-6753-4ca2-b1ae-193798e2c9d8"
+}
 ```
 
-### <a name="configure-the-sample-app"></a>Configurer l’exemple d’application
+Si vous souhaitez obtenir un `xml` dans la réponse, utilisez la commande suivante :
 
-Pour exécuter l’application et accéder aux API de Media Services, vous devez spécifier les valeurs d’accès correct dans le fichier App.config. 
-
-1. Ouvrez Visual Studio.
-2. Accédez à la solution que vous avez clonée.
-3. Dans l’Explorateur de solutions, déroulez le projet *EncodeAndStreamFiles*.
-4. Définissez ce projet comme projet de démarrage.
-5. Ouvrez le fichier App.config.
-6. Remplacez les valeurs appSettings par les valeurs obtenues à l’étape précédente.
-
- ```xml
- <add key="Region" value="value" />
- <add key="ResourceGroup" value="value" />
- <add key="AadEndpoint" value="value" />
- <add key="AccountName" value="value" />
- <add key="SubscriptionId" value="value" />
- <add key="ArmAadAudience" value="value" />
- <add key="AadTenantId" value="value" />
- <add key="AadSecret" value="value" />
- <add key="AadClientId" value="value" />
- <add key="ArmEndpoint" value="value" />
- ```    
- 
-7. Appuyez sur Ctrl+Maj+B pour générer la solution.
+```azurecli-interactive
+az ams account sp create --account-name amsaccount --resource-group amsResourceGroup --xml
+```

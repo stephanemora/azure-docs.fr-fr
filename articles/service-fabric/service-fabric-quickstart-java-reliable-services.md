@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cc5f685efdf3ed680acf4d95185c58b4c43f5ac5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642391"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Démarrage rapide : Déployer une application de services fiables Service Fabric de Java sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
@@ -36,7 +37,6 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour effectuer ce démarrage rapide :
 1. [Installez le SDK Service Fabric et l’interface CLI Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installez Git](https://git-scm.com/)
@@ -86,7 +86,7 @@ Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le t
 Connectez-vous et rejoignez un [cluster Linux](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Cliquez sur le lien **Lisez-moi** pour obtenir le mot de passe du certificat et les instructions associées à la configuration de plusieurs environnements pour utiliser le certificat. Gardez les pages **d’accueil** et **Lisez-moi** ouvertes, car vous allez suivre certaines des instructions qui y sont affichées dans la procédure ci-après. 
 
 > [!Note]
-> Le nombre de clusters tiers disponibles par heure est limité. Si vous obtenez une erreur lors de votre inscription à un cluster tiers, attendez un peu et réessayez. Vous pouvez également suivre la procédure décrite dans [Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) pour créer un cluster dans votre abonnement. 
+> Le nombre de clusters tiers disponibles par heure est limité. Si vous obtenez une erreur lors de votre inscription à un cluster tiers, attendez un peu et réessayez. Vous pouvez également suivre la procédure décrite dans [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) pour créer un cluster dans votre abonnement. 
 >
 > Le service Spring Boot est configuré pour écouter le trafic entrant sur le port 8080. Assurez-vous que ce port est ouvert dans votre cluster. Si vous utilisez le cluster tiers, ce port est ouvert.
 >
@@ -94,7 +94,7 @@ Connectez-vous et rejoignez un [cluster Linux](http://aka.ms/tryservicefabric). 
 Service Fabric propose plusieurs outils que vous pouvez utiliser pour gérer un cluster et ses applications :
 
 - Service Fabric Explorer, un outil reposant sur un navigateur.
-- CLI Service Fabric, qui s’exécute sur Azure CLI 2.0.
+- L’interface CLI Service Fabric, qui s’exécute sur Azure CLI 2.0.
 - Commandes PowerShell. 
 
 Dans ce démarrage rapide, vous utilisez la CLI Service Fabric et Service Fabric Explorer. 
@@ -109,7 +109,7 @@ Pour utiliser Service Fabric Explorer, vous devez importer le fichier PFX du cer
 
 Utilisez la méthode qui vous convient le mieux pour importer les certificats sur votre système. Par exemple : 
 
-- Sur Windows : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre magasin personnel, `Certificates - Current User\Personal\Certificates`. Vous pouvez également utiliser la commande PowerShell des instructions **Lisez-moi**.
+- Sur Windows : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre magasin personnel, `Certificates - Current User\Personal\Certificates`. Vous pouvez également utiliser la commande PowerShell dans les instructions **Lisez-moi**.
 - Sur Mac : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre application Keychain.
 - Sur Ubuntu : Mozilla Firefox est le navigateur par défaut dans Ubuntu 16.04. Pour importer le certificat dans Firefox, cliquez sur le bouton de menu dans le coin supérieur droit de votre navigateur, puis cliquez sur **Options**. Sur la page **Préférences**, recherchez « certificats » via le champ de recherche. Cliquez sur **Afficher les certificats**, sélectionnez l’onglet **Your Certificates** (Vos certificats), cliquez sur **Importer** et suivez les invites pour importer le certificat.
  

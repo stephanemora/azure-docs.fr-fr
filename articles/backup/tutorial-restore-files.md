@@ -1,26 +1,21 @@
 ---
-title: Restaurer des fichiers sur une machine virtuelle avec Sauvegarde Azure | Microsoft Docs
-description: "Découvrez comment effectuer des restaurations au niveau du fichier sur une machine virtuelle avec Sauvegarde Azure et Recovery Services."
+title: Restaurer des fichiers sur une machine virtuelle avec Sauvegarde Azure
+description: Découvrez comment effectuer des restaurations au niveau du fichier sur une machine virtuelle avec Sauvegarde Azure et Recovery Services.
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
 ms.service: backup
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 2/14/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eff5a292138bca8f443b77ec8e3ce8e3ee15464e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607575"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer des fichiers individuels. Ce didacticiel vous montre comment effectuer les opérations suivantes :

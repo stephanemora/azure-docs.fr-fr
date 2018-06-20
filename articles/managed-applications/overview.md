@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304995"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639205"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -53,7 +53,9 @@ Pour plus d’informations sur la publication d’une application managée sur l
 
 ## <a name="resource-groups-for-managed-applications"></a>Groupes de ressources pour les applications managées
 
-En règle générale, les ressources d’une application managée résident dans deux groupes de ressources. Le consommateur gère l’un des groupes de ressources, tandis que l’éditeur gère l’autre. Lors de la définition de l’application managée, l’éditeur spécifie les niveaux d’accès. L’illustration suivante montre un scénario dans lequel l’éditeur demande le rôle de propriétaire pour le groupe de ressources managé. L’éditeur a placé un verrou en lecture seule sur ce groupe de ressources pour le consommateur. Les identités de l’éditeur qui ont accès au groupe de ressources managé sont exemptées du verrou.
+En règle générale, les ressources d’une application managée résident dans deux groupes de ressources. Le consommateur gère l’un des groupes de ressources, tandis que l’éditeur gère l’autre. Lors de la définition de l’application managée, l’éditeur spécifie les niveaux d’accès. La restriction de l’accès aux [opérations de données](../role-based-access-control/role-definitions.md) n’est actuellement pas prise en charge pour tous les fournisseurs de données dans Azure.
+
+L’illustration suivante montre un scénario dans lequel l’éditeur demande le rôle de propriétaire pour le groupe de ressources managé. L’éditeur a placé un verrou en lecture seule sur ce groupe de ressources pour le consommateur. Les identités de l’éditeur qui ont accès au groupe de ressources managé sont exemptées du verrou.
 
 ![Accès aux groupes de ressources](./media/overview/access.png)
 

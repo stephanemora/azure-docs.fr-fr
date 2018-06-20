@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: bde17a47e0e3e70daf52f4c460118c054b7c1152
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 29d843e2752046e8ab66a4f46fcbb212f6fb57c6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824395"
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Chiffrement d’une machine virtuelle Azure
 Le Centre de sécurité Azure émet une alerte si certaines de vos machines virtuelles ne sont pas chiffrées. Ces alertes indiquant un niveau de gravité élevé, il est recommandé de chiffrer ces machines virtuelles.
@@ -61,7 +62,7 @@ Le script de configuration d’Azure Disk Encryption permet de configurer toutes
 
 Maintenant que le contenu du script est enregistré, ouvrez le script dans PowerShell ISE :
 
-1. Dans le menu Démarrer, cliquez sur **Cortana**. Demandez à **Cortana** d’accéder à PowerShell en saisissant **PowerShell** dans la zone de texte de recherche Cortana.
+1. Démarrer - Windows PowerShell ISE
 2. Cliquez avec le bouton droit sur **Windows PowerShell ISE**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 3. Dans la fenêtre **Administrateur : Windows PowerShell ISE**, cliquez sur **Afficher** puis sur **Afficher le volet de script**.
 4. Si le volet **Commandes** s’affiche à droite de la fenêtre, cliquez sur l’icône **« x »** en haut à droite du volet pour le fermer. Si le texte s’affiche en caractères trop petits, utilisez les touches **CTRL+** (signe « + »). Si le texte est trop gros, utilisez les touches **CTRL-** (signe « - »).
@@ -74,8 +75,8 @@ Vous devriez obtenir un résultat semblable à ce qui suit :
 
 Le volet supérieur correspond au « volet de script » et le volet inférieur à la « console ». Nous emploierons ces termes dans la suite de cet article.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Exécuter la commande PowerShell de configuration d’Azure Disk Encryption
-Après le démarrage du script de configuration d’Azure Disk Encryption, vous êtes invité à renseigner les informations suivantes :
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-script"></a>Exécuter le script PowerShell de configuration d’Azure Disk Encryption
+Le script PowerShell de configuration d’Azure Disk Encryption accepte les paramètres suivants : 
 
 * **Nom du groupe de ressources** nom du groupe de ressources que vous souhaitez placer dans le coffre de clés.  S’il n’existe aucun groupe de ressources associé à ce nom, un groupe de ressources sera créé en utilisant le nom que vous avez saisi. Si vous disposez déjà d’un groupe de ressources et que vous souhaitez l’utiliser dans cet abonnement, entrez simplement le nom de ce groupe de ressources.
 * **Nom du coffre de clés** : nom du coffre de clés dans lequel les clés de chiffrement doivent être placées. S’il n’existe aucun coffre de clés associé à ce nom, un coffre de clés sera créé en utilisant le nom que vous avez saisi. Si vous disposez déjà d’un coffre de clés et que vous souhaitez l’utiliser, entrez simplement le nom de ce coffre de clés.
@@ -92,18 +93,18 @@ Pour chiffrer une machine virtuelle Azure, procédez comme suit :
 1. Si vous avez fermé PowerShell ISE, ouvrez une instance élevée de PowerShell ISE. Si vous n’avez pas encore ouvert PowerShell ISE, suivez les instructions indiquées au début de cet article. Si vous avez fermé le script, ouvrez le fichier **ADEPrereqScript.ps1** sous le menu **Fichier**, puis cliquez sur **Ouvrir** et sélectionnez le script à partir du dossier **c:\AzureADEScript**. Si vous avez suivi toutes les instructions fournies depuis le début de cet article, vous pouvez tout simplement passer à l’étape suivante.
 2. Dans la console de PowerShell ISE (volet inférieur de PowerShell ISE), saisissez **cd c:\AzureADEScript** et appuyez sur **ENTRÉE** pour basculer le script sur l’ordinateur local.
 3. Configurez la stratégie d’exécution sur votre ordinateur afin de pouvoir exécuter le script. Dans la console, entrez **Set-ExecutionPolicy Unrestricted** , puis appuyez sur ENTRÉE. Si une boîte de dialogue vous informe des effets d’une modification de la stratégie d’exécution, cliquez sur **Oui pour tout** ou **Oui** (si l’option **Oui pour tout** est disponible, sélectionnez-la sinon**Oui pour tout**, cliquez sur **Oui**).
-4. Connectez-vous à votre compte Azure. Dans la console, entrez **Connect-AzureRmAccount** et appuyez sur **ENTRÉE**. Dans la nouvelle boîte de dialogue, entrez vos informations d’identification (assurez-vous que vous disposez des droits pour modifier les machines virtuelles ; dans le cas contraire, vous ne serez pas en mesure de les chiffrer. En cas de doute, renseignez-vous auprès du propriétaire ou de l’administrateur de votre abonnement). Vous devriez voir des informations concernant vos paramètres suivants : **Environment**, **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**. Copiez le contenu du champ **SubscriptionId** dans le Bloc-notes. Vous en aurez besoin à l’étape 6.
+4. Connectez-vous à votre compte Azure. Dans la console, entrez **Login-AzureRmAccount** et appuyez sur **ENTRÉE**. Dans la nouvelle boîte de dialogue, entrez vos informations d’identification (assurez-vous que vous disposez des droits pour modifier les machines virtuelles ; dans le cas contraire, vous ne serez pas en mesure de les chiffrer. En cas de doute, renseignez-vous auprès du propriétaire ou de l’administrateur de votre abonnement). Vous devriez voir des informations concernant vos paramètres suivants : **Environment**, **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**. Copiez le contenu du champ **SubscriptionId** dans le Bloc-notes. Vous en aurez besoin à l’étape 6.
 5. Identifiez l’abonnement auquel est associée votre machine virtuelle et repérez son emplacement. Accédez à [https://portal.azure.com](ttps://portal.azure.com) et connectez-vous.  À gauche de la page, cliquez sur **Machines virtuelles**. Vous obtenez une liste de vos machines virtuelles ainsi que des abonnements auxquels elles sont rattachées.
 
    ![Virtual Machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Revenez maintenant à PowerShell ISE. Définissez le contexte d’abonnement dans lequel le script sera exécuté. Dans la console, tapez **Select-AzureRmSubscription –SubscriptionId &lt;ID_de_votre_abonement&gt;** (remplacez **&lt;ID_de_votre_abonement&gt;** par votre ID d’abonnement) et appuyez sur **ENTRÉE**. Vous verrez des informations concernant votre environnement et les paramètres **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**.
-7. Vous êtes maintenant prêt à exécuter le script. Cliquez sur le bouton **Exécuter le script** ou appuyez sur la touche **F5** du clavier.
+7. Dans la fenêtre de commande, exécutez la commande de script en transmettant les éléments suivants comme paramètres : 
 
    ![Exécution du script PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. Le script vous invite à renseigner le paramètre **resourceGroupName** : entrez le nom du *Groupe de ressources* que vous souhaitez utiliser, puis appuyez sur **ENTRÉE**. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’un *Groupe de ressources* que vous souhaitez utiliser (par exemple, celui dans lequel se trouve votre machine virtuelle), entrez le nom du Groupe de ressources existant.
-9. Le script vous invite à renseigner le paramètre **keyVaultName** : entrez le nom du *Coffre de clés* que vous souhaitez utiliser, puis appuyez sur ENTRÉE. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’un coffre de clés et que vous souhaitez l’utiliser, entrez simplement le nom de ce *Coffre de clés*.
+8. **-resourceGroupName** : entrez le nom du *groupe de ressources* que vous souhaitez utiliser. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’un *Groupe de ressources* que vous souhaitez utiliser (par exemple, celui dans lequel se trouve votre machine virtuelle), entrez le nom du Groupe de ressources existant.
+9. **-keyVaultName** : entrez le nom du *coffre de clés* que vous souhaitez utiliser. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’un coffre de clés et que vous souhaitez l’utiliser, entrez simplement le nom de ce *Coffre de clés*.
 10. Le script vous invite à renseigner le paramètre **location** : entrez le nom de l’emplacement dans lequel se trouve la machine virtuelle que vous souhaitez chiffrer, puis appuyez sur **ENTRÉE**. Si vous ne connaissez pas l’emplacement, revenez à l’étape 5.
-11. Le script vous invite à renseigner le paramètre **aadAppName** : entrez le nom de l’application *Azure Active Directory* que vous souhaitez utiliser, puis appuyez sur **ENTRÉE**. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’une *application Azure Active Directory* et que vous souhaitez l’utiliser, entrez simplement le nom de votre *application Azure Active Directory*.
+11. **-aadAppName** : entrez le nom de l’application *Azure Active Directory* que vous souhaitez utiliser. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’une *application Azure Active Directory* et que vous souhaitez l’utiliser, entrez simplement le nom de votre *application Azure Active Directory*.
 12. Une boîte de dialogue de connexion s’affiche. Indiquez vos informations d’identification (vous devez effectivement vous reconnecter).
 13. Le script s’exécute. À la fin de son exécution, il vous demande de copier les valeurs des paramètres **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl** et **keyVaultResourceId**. Copiez chacune de ces valeurs dans le Presse-papiers, puis collez-les dans le Bloc-notes.
 14. De nouveau dans PowerShell ISE, placez le curseur à la fin de la dernière ligne, puis appuyez sur **ENTRÉE**.

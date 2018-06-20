@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642697"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Didacticiel : mettre à l’échelle un cluster Service Fabric
 
@@ -40,7 +41,6 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -86,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour PowerShell, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande `sfctl cluster select`.
+Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour **PowerShell**, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Montée en charge
 
@@ -132,15 +132,15 @@ Le cluster Service Fabric doit être informé de la suppression de ce nœud. Pou
 
 1. Désactivez le nœud afin qu’il ne soit plus utilisé pour la réplication de données.  
 PowerShell : `Disable-ServiceFabricNode`  
-sfcli : `sfctl node disable`
+sfctl : `sfctl node disable`
 
 2. Arrêtez le nœud afin que le runtime Service Fabric soit arrêté correctement et que votre application reçoive une demande de fin d’exécution.  
 PowerShell : `Start-ServiceFabricNodeTransition -Stop`  
-sfcli : `sfctl node transition --node-transition-type Stop`
+sfctl : `sfctl node transition --node-transition-type Stop`
 
 2. Supprimez le nœud du cluster.  
 PowerShell : `Remove-ServiceFabricNodeState`  
-sfcli : `sfctl node remove-state`
+sfctl : `sfctl node remove-state`
 
 Une fois ces trois étapes effectuées, vous pouvez supprimer le nœud du groupe identique. Si vous utilisez un niveau de durabilité autre que le niveau [Bronze][durability], ces étapes sont effectuées automatiquement lorsque vous supprimez une instance de groupe identique.
 

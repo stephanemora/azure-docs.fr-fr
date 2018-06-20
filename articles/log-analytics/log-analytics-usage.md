@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802049"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 Log Analytics inclut des informations sur la quantité de données collectées, les sources qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour examiner et analyser l’utilisation de données. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.
@@ -116,7 +117,7 @@ Dans la capture d’écran suivante, le type de données *Gestion des journaux/P
 
 Ensuite, revenez au tableau de bord *Utilisation* et examinez le graphique *Volume de données par solution*. Pour voir les ordinateurs envoyant le plus de données pour une solution, cliquez sur le nom de la solution dans la liste. Cliquez sur le nom de la première solution dans la liste. 
 
-La capture d’écran suivante confirme que l’ordinateur *acmetomcat* envoie le plus de données pour la solution de gestion des journaux.<br><br> ![volume de données pour une solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+La capture d’écran suivante confirme que l’ordinateur *mycon* envoie le plus de données pour la solution de gestion des journaux.<br><br> ![volume de données pour une solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Si nécessaire, effectuez des analyses supplémentaires pour identifier des volumes importants au sein d’une solution ou d’un type de données. Les exemples de requêtes incluent :
 

@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d78dbc9a32e804e37eb76047edcc050482df5761
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b868ac82951a831013d66fc0ca0a420cb94968d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642061"
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Démarrage rapide : Déployer une application conteneur Windows Service Fabric sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -36,7 +37,6 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 * Déployer l’application de conteneur dans Azure
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
@@ -58,6 +58,26 @@ Configurez le mappage de ports de type port à hôte du conteneur afin que les r
 Nommez votre service « MyContainerService », puis cliquez sur **OK**.
 
 ![Boîte de dialogue Nouveau service][new-service]
+
+## <a name="specify-the-os-build-for-your-container-image"></a>Spécifier la version du système d’exploitation de votre image conteneur
+Les conteneurs générés avec une version spécifique de Windows Server peuvent ne pas fonctionner sur un hôte exécutant une autre version de Windows Server. Par exemple, les conteneurs créés à l’aide de Windows Server version 1709 ne fonctionnent pas sur les hôtes exécutant Windows Server 2016. Pour plus d’informations, consultez [Système d’exploitation Windows Server du conteneur et compatibilité avec le système d’exploitation hôte](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
+
+Avec la version 6.1 du runtime Service Fabric et les versions ultérieures, vous pouvez spécifier plusieurs images du système d’exploitation par conteneur et attribuer à chacune une balise indiquant le numéro de version du système d’exploitation sur lequel le déploiement doit être effectué. Cela permet de vous assurer que votre application s’exécutera sur les hôtes exécutant des versions différentes du système d’exploitation Windows. Pour en savoir plus, consultez la section [Spécifier les images conteneur spécifiques au build du système d’exploitation](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
+
+Microsoft publie différentes images pour les versions d’IIS basées sur les différentes versions de Windows Server. Pour vous assurer que Service Fabric déploie un conteneur compatible avec la version de Windows Server en cours d’exécution sur les nœuds de cluster dans lequel il déploie votre application, ajoutez les lignes suivantes au fichier *ApplicationManifest.xml*. La version de build pour Windows Server 2016 est 14393, et la version de build pour Windows Server version 1709 est 16299. 
+
+```xml
+    <ContainerHostPolicies CodePackageRef="Code"> 
+      <ImageOverrides> 
+        ...
+          <Image Name="microsoft/iis:nanoserverDefault" /> 
+          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
+          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+      </ImageOverrides> 
+    </ContainerHostPolicies> 
+```
+
+Le manifeste de service continue de ne spécifier qu’une seule image pour le nanoserveur, `microsoft/iis:nanoserver`. 
 
 ## <a name="create-a-cluster"></a>Créer un cluster
 Pour déployer l’application sur un cluster dans Azure, vous pouvez rejoindre un cluster Party. Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme.  Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. Les clusters tiers prennent en charge les conteneurs. Si vous décidez de configurer et d’utiliser votre propre cluster, le cluster doit être en cours d’exécution sur une référence (SKU) qui prend en charge des conteneurs (par exemple Windows Server 2016 Datacenter avec Containers).

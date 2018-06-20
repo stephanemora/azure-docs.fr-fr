@@ -1,27 +1,27 @@
 ---
-title: Inscription d’application - Azure Active Directory B2C
+title: Inscription d’application dans Azure Active Directory B2C | Microsoft Docs
 description: Inscription de votre application auprès d’Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: davidmu
-ms.openlocfilehash: 8ba511464f8ce0bef2a14706a272f6c09dfe5d07
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 354c5da815f19e4366a04c8c031fd9cbca6f060b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711856"
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C : inscription de votre application
 
 Ce démarrage rapide vous aide à inscrire une application dans un client B2C Microsoft Azure Active Directory (Azure AD) en quelques minutes. Lorsque vous avez terminé, votre application est inscrite comme utilisable dans le client Azure AD B2C.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour générer une application acceptant l’inscription et la connexion des consommateurs, vous devez commencer par inscrire cette application auprès d’un client Azure Active Directory B2C. Obtenez votre propre client en suivant la procédure décrite dans [Création d’un client Azure AD B2C](active-directory-b2c-get-started.md).
 

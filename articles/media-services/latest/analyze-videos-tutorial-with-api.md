@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362292"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637910"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Didacticiel : analyser des vidéos avec Azure Media Services 
 
@@ -26,11 +26,10 @@ Ce didacticiel vous montre comment analyser des vidéos avec Azure Media Service
 Ce didacticiel vous explique les procédures suivantes :    
 
 > [!div class="checklist"]
-> * Lancement d’Azure Cloud Shell
 > * Créer un compte Media Services
 > * Accéder à l’API Media Services
 > * Configurer l’exemple d’application
-> * Examiner l’exemple de code en détail
+> * Examiner le code qui analyse la vidéo spécifiée
 > * Exécution de l'application
 > * Analyser la sortie
 > * Supprimer des ressources
@@ -38,7 +37,6 @@ Ce didacticiel vous explique les procédures suivantes :
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -50,23 +48,48 @@ Clonez un référentiel GitHub qui contient l’exemple .NET sur votre machine �
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+L’exemple se trouve dans le dossier [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="examine-the-sample-code-in-detail"></a>Examiner l’exemple de code en détail
+## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Examiner le code qui analyse la vidéo spécifiée
 
 Cette section examine les fonctions définies dans le fichier [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) du projet *AnalyzeVideos*.
 
+L’exemple effectue les opérations suivantes :
+
+1. Créer une transformation et un travail qui analyse votre vidéo.
+2. Créer une ressource d’entrée et charger la vidéo dans celle-ci. La ressource d’entrée est utilisée en tant qu’entrée du travail.
+3. Créer une ressource de sortie qui stocke la sortie du travail. 
+4. Soumettre le travail.
+5. Vérifier l’état du travail.
+6. Télécharger les fichiers qui résultent de l’exécution du travail. 
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
 
-Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification nécessaires pour que le client puisse se connecter à Azure à l’aide d’Azure AD. Vous devez d’abord récupérer un jeton, puis créer un objet **ClientCredential** à partir du jeton renvoyé. Dans le code que vous avez cloné au début de l’article, l’objet **ArmClientCredential** est utilisé pour récupérer le jeton.  
+Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification nécessaires pour que le client puisse se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials basé sur les informations d’identification fournies dans le fichier config local. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Créer une ressource de sortie pour stocker le résultat d’un travail 
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Créer une ressource d’entrée et charger un fichier local dans celle-ci 
+
+La fonction **CreateInputAsset** crée une nouvelle [ressource](https://docs.microsoft.com/rest/api/media/assets) d’entrée et charge le fichier vidéo local spécifié dans celle-ci. Cette ressource est utilisée en tant qu’entrée de votre travail d’encodage. Dans Media Services v3, l’entrée d’un travail peut être une ressource ou bien le contenu que vous mettez à la disposition de votre compte Media Services via des URL HTTPS. Si vous souhaitez savoir comment encoder à partir d’une URL HTTPS, consultez [cet](job-input-from-http-how-to.md) article.  
+
+Dans Media Services v3, vous utilisez des API Stockage Azure pour charger des fichiers. L’extrait de code .NET suivant vous explique comment faire.
+
+La fonction suivante effectue les actions ci-après :
+
+* Elle crée une ressource 
+* Elle récupère une [URL SAP](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) de la ressource
+* Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
+
+### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Créer une ressource de sortie pour stocker le résultat du travail 
 
 La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stocke le résultat de votre travail. Le projet définit la fonction **DownloadResults** qui télécharge les résultats à partir de cette ressource de sortie dans le dossier « output », afin de voir ce que vous avez obtenu.
 
@@ -112,7 +135,7 @@ La fonction suivante télécharge les résultats à partir de la [ressource](htt
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Supprimer les ressources de votre compte Media Services
 
-En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous allez réutiliser les transformations et conserver les éléments StreamingLocators, etc.). Si vous souhaitez que votre compte soit propre après avoir effectué vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser. Par exemple, le code suivant supprime les travaux.
+En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous allez réutiliser les transformations et conserver les éléments StreamingLocators). Si vous souhaitez que votre compte soit propre après avoir effectué vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser. Par exemple, le code suivant supprime les travaux.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

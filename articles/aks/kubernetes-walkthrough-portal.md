@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8b9a9eddc6876451a75f0deae911d73b57198827
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597278"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -31,7 +32,7 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="create-aks-cluster"></a>Créer un cluster ACS
 
-Choisissez **Créer une ressource** > recherchez **Kubernetes** > sélectionnez **Azure Kubernetes Service (préversion)** > **Créer**.
+Choisissez **Créer une ressource** > recherchez **Kubernetes** > sélectionnez **Kubernetes Service** > **Créer**.
 
 Suivez les étapes sous chaque en-tête du formulaire Créer un cluster AKS.
 
@@ -163,10 +164,10 @@ spec:
     app: azure-vote-front
 ```
 
-Utilisez la commande [kubectl create][kubectl-create] pour exécuter l’application.
+Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter l’application.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Output:
@@ -244,7 +245,7 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -254,7 +255,7 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

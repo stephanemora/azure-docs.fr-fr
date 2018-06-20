@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Définir des règles de mise en cache d’Azure CDN | Microsoft Docs'
-description: Dans ce didacticiel, vous allez définir un réseau Azure CDN global et une règle de mise en cache personnalisée.
+description: Dans ce didacticiel, vous allez définir une règle de mise en cache Azure CDN globale et une règle de mise en cache personnalisée.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 4f586c47552c9c2bfa807120f99eb6cf170b5788
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4b5a6a44fe9271f6ff9627c1c5623f0031f23ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608965"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Didacticiel : Définir des règles de mise en cache d’Azure CDN
 
@@ -33,14 +34,13 @@ Ce didacticiel explique comment vous servir des règles de mise en cache du rés
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> - Ouvrez la page des règles de mise en cache.
-> - Créez une règle de mise en cache globale.
-> - Créez une règle de mise en cache personnalisée.
+> - ouvrir la page des règles de mise en cache ;
+> - créer une règle de mise en cache générale ;
+> - créer une règle de mise en cache personnalisée.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez la page[Prise en main d’Azure CDN](cdn-create-new-endpoint.md).
 

@@ -1,18 +1,19 @@
 ---
-title: "Configurer la récupération d’urgence des machines virtuelles Hyper-V locales (sans VMM) dans Azure avec Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment configurer la récupération d’urgence de machines virtuelles Hyper-V locales (sans VMM) dans Azure avec le service Azure Site Recovery."
+title: Configurer la récupération d’urgence des machines virtuelles Hyper-V locales (sans VMM) dans Azure avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment configurer la récupération d’urgence de machines virtuelles Hyper-V locales (sans VMM) dans Azure avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9ee5478412b02615efec983dd0b99c12fc2d9213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643581"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -40,19 +41,31 @@ Avant de commencer, [examinez l’architecture](concepts-hyper-v-to-azure-archit
 2. Dans **Prise en main**, cliquez sur **Site Recovery**. Cliquez ensuite sur **Préparer l’infrastructure**
 3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
 4. Dans **Où voulez-vous répliquer vos machines**, sélectionnez **Dans Azure**.
-5. Dans **Vos machines sont-elles virtualisées**, sélectionnez **Non**. Cliquez ensuite sur **OK**.
+5. Dans **Utilisez-vous System Center VMM pour gérer vos hôtes Hyper-V**, sélectionnez **Non**. Cliquez ensuite sur **OK**.
 
     ![Objectif de réplication](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>Confirmer la planification d’un déploiement
+
+Lorsque vous planifiez un déploiement à grande échelle, vous devriez vous assurer de procéder à la [planification du déploiement pour la réplication Hyper-V](hyper-v-deployment-planner-overview.md). Dans le cadre de ce tutoriel, dans **Avez-vous effectué la planification du déploiement ?**, sélectionnez **Je le ferai plus tard** dans la liste déroulante.
+
+![Planification de déploiement](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
 
-Pour configurer l’environnement source, vous ajoutez des hôtes Hyper-V sur un site Hyper-V, téléchargez et installez le fournisseur Azure Site Recovery et l’agent Azure Recovery Services, et inscrivez le site Hyper-V dans le coffre. 
+Pour configurer l’environnement source, vous créez un site Hyper-V et ajoutez des hôtes Hyper-V sur le site. Puis vous téléchargez et installez le fournisseur Azure Site Recovery et l’agent Azure Recovery Services sur chaque hôte et inscrivez le site Hyper-V dans le coffre. 
 
 1. Dans **Préparer l’infrastructure**, cliquez sur **Source**.
 2. Cliquez sur **+Site Hyper-V** et spécifiez le nom du site créé dans le didacticiel précédent, **ContosoHyperVSite**.
-3. Cliquez sur **+Serveur Hyper-V**.
+
+    ![Site Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. Après la création du site, cliquez sur **+Serveur Hyper-V**.
+
+    ![Serveur Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Téléchargez le fichier de configuration du fournisseur.
-5. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lorsque vous exécuterez le programme d’installation du fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
+6. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lorsque vous exécuterez le programme d’installation du fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
 
     ![Télécharger le fournisseur](./media/hyper-v-azure-tutorial/download.png)
     

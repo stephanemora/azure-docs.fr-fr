@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/07/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207483"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642680"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -34,7 +34,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer une application Service Fabric sur Azure
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. Si vous n’avez pas d’abonnement Azure, [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
@@ -52,6 +51,8 @@ Vérifiez que l’application Fabrikam Fiber CallCenter génère et s’exécute
 
 ## <a name="containerize-the-application"></a>Conteneuriser l’application
 Cliquez avec le bouton droit sur le projet **FabrikamFiber.Web** > **Ajouter** > **Prise en charge de l’orchestrateur de conteneur**.  Sélectionnez **Service Fabric** en tant qu’orchestrateur de conteneur et cliquez sur **OK**.
+
+Cliquez sur **Oui** pour passer de Docker aux conteneurs Windows maintenant.
 
 Un nouveau projet d’application Service Fabric **FabrikamFiber.CallCenterApplication** est créé dans la solution.  Un fichier Docker est ajouté au projet **FabrikamFiber.Web** existant.  Un répertoire **PackageRoot** est aussi ajouté au projet **FabrikamFiber.Web**, qui contient le manifeste et les paramètres du nouveau service FabrikamFiber.Web. 
 
@@ -121,16 +122,17 @@ De retour dans le projet **FabrikamFiber.Web**, mettez à jour la chaîne de con
 >Vous pouvez utiliser l’instance SQL Server de votre choix pour le débogage local, tant qu’elle est accessible à partir de votre hôte. **localdb** ne prend cependant pas en charge la communication `container -> host`. Si vous souhaitez utiliser une autre base de données SQL lors de la création d’une version build de votre application web, ajoutez une autre chaîne de connexion à votre fichier *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Exécutez l’application en conteneur localement
-Appuyez sur **F5** pour exécuter et déboguer l’application dans un conteneur sur le cluster de développement Service Fabric local.
+Appuyez sur **F5** pour exécuter et déboguer l’application dans un conteneur sur le cluster de développement Service Fabric local. Cliquez sur **Oui** si une boîte de message s’affiche vous demandant d’accorder au groupe « ServiceFabricAllowedUsers » la permission de lire et d’exécuter sur votre répertoire de projet Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
-Maintenant que l’application est exécutée localement, commencez à préparer le déploiement vers Azure.  Les images de conteneur doivent être stockées dans un registre de conteneurs.  Créez un [registre de conteneurs Azure](/azure/container-registry/container-registry-intro) à l’aide du script suivant.  Avant de déployer l’application vers Azure, vous envoyez par push l’image de conteneur dans le registre.  Lorsque l’application déploie le cluster dans Azure, l’image de conteneur est extraite de ce registre.
+Maintenant que l’application est exécutée localement, commencez à préparer le déploiement vers Azure.  Les images de conteneur doivent être stockées dans un registre de conteneurs.  Créez un [registre de conteneurs Azure](/azure/container-registry/container-registry-intro) à l’aide du script suivant. Le nom du registre de conteneurs est visible par d’autres abonnements Azure, il doit donc être unique.
+Avant de déployer l’application vers Azure, vous envoyez par push l’image de conteneur dans le registre.  Lorsque l’application déploie le cluster dans Azure, l’image de conteneur est extraite de ce registre.
 
 ```powershell
 # Variables
 $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
-$registryname="fabrikamregistry"
+$registryname="fabrikamregistry$(Get-Random)"
 
 New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
@@ -144,7 +146,9 @@ Vous pouvez :
 - Créez un cluster de test à partir de Visual Studio. Cette option vous permet de créer un cluster sécurisé directement depuis Visual Studio avec les configurations que vous voulez. 
 - [Créer un cluster sécurisé à partir d’un modèle](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-Lorsque vous créez le cluster, choisissez une référence SKU qui prend en charge l’exécution de conteneurs (par exemple, Windows Server 2016 Datacenter avec Containers). Ce didacticiel crée un cluster à partir de Visual Studio, idéal pour ces scénarios test. Si vous créez un cluster d’une autre façon ou si vous utilisez un cluster existant, vous pouvez copier et coller votre point de terminaison de connexion ou le sélectionner depuis votre abonnement. 
+Ce didacticiel crée un cluster à partir de Visual Studio, idéal pour ces scénarios test. Si vous créez un cluster d’une autre façon ou si vous utilisez un cluster existant, vous pouvez copier et coller votre point de terminaison de connexion ou le sélectionner depuis votre abonnement. 
+
+Lorsque vous créez le cluster, choisissez une référence SKU qui prend en charge les conteneurs en cours d’exécution. Le système d’exploitation Windows Server sur vos nœuds de cluster doit être compatible avec le système d’exploitation Windows Server de votre conteneur. Pour plus d’informations, consultez [Système d’exploitation Windows Server du conteneur et compatibilité avec le système d’exploitation hôte](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Par défaut, ce tutoriel crée une image Docker basée sur Windows Server 2016 LTSC. Les conteneurs basés sur cette image seront exécutés sur les clusters créés avec Windows Server 2016 Datacenter avec Containers. Toutefois, si vous créez un cluster ou que vous utilisez un cluster existant basé sur Windows Server Datacenter Core 1709 avec Containers, vous devez modifier l’image de système d’exploitation Windows Server sur laquelle est basé le conteneur. Ouvrez le **Dockerfile** dans le projet **FabrikamFiber.Web**, commentez l’instruction `FROM` existante (basée sur `windowsservercore-ltsc`) et ne commentez pas l’instruction `FROM` basée sur `windowsservercore-1709`. 
 
 1. Cliquez avec le bouton droit sur le projet de l’application **FabrikamFiber.CallCenterApplication** dans l’Explorateur de solutions et choisissez **Publier**.
 

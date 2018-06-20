@@ -6,37 +6,38 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 06/04/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a9b33469a439c9f99c80391bfeb1fb4040dbbc2
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737593"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
-Ce didacticiel vous montre comment préparer votre infrastructure VMware locale quand vous souhaitez répliquer des machines virtuelles VMware vers Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+[Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
+
+- Il s’agit du deuxième tutoriel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware locales. Dans le premier tutoriel, nous [avons configuré les composants Azure](tutorial-prepare-azure.md) nécessaires pour la récupération d’urgence de VMware.
+- Les tutoriels sont conçus pour vous montrer le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. 
+
+Dans cet article, nous vous montrons comment préparer votre environnement VMware local lorsque vous souhaitez répliquer des machines virtuelles VMware vers Azure à l’aide d’Azure Site Recovery. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Préparer un compte sur le serveur vCenter ou sur l’hôte vSphere ESXi pour automatiser la détection de machines virtuelles
 > * Préparer un compte pour l’installation automatique du service Mobilité sur les machines virtuelles VMware
-> * Vérifier les exigences des serveurs VMware
-> * Vérifier les exigences des machines virtuelles VMware
+> * Vérifier les exigences des serveurs et machines virtuelles VMware
+> * Préparer la connexion aux machines virtuelles Azure après le basculement
 
-Dans cette série de didacticiels, nous expliquons comment répliquer une seule machine virtuelle avec Azure Site Recovery. 
-
-Ce didacticiel est le deuxième de la série. Assurez-vous d’avoir[configuré les composants Azure](tutorial-prepare-azure.md) comme décrit dans le didacticiel précédent.
-
-Si vous répliquez plusieurs machines virtuelles, téléchargez l’[outil Planificateur de déploiement](https://aka.ms/asr-deployment-planner) pour la réplication de VMware. [Plus d’informations](site-recovery-deployment-planner.md)
 
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Préparer un compte pour la découverte automatique
 
 Site Recovery doit pouvoir accéder aux serveurs VMware pour :
 
-- Détecter automatiquement les machines virtuelles. Au moins un compte en lecture seule est nécessaire.
+- Détectez automatiquement les machines virtuelles. Au moins un compte en lecture seule est nécessaire.
 - Orchestrer la réplication, le basculement et la restauration automatique. Vous avez besoin d’un compte pouvant exécuter des opérations telles que la création et la suppression de disques ou le démarrage de machines virtuelles.
 
 Créez le compte comme suit :
@@ -54,12 +55,17 @@ Créez le compte comme suit :
 
 ## <a name="prepare-an-account-for-mobility-service-installation"></a>Préparer un compte pour l’installation du service Mobilité
 
-Le service Mobilité doit être installé sur la machine virtuelle que vous souhaitez répliquer. Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte qui sera utilisé par Site Recovery pour accéder à la machine virtuelle. Vous devez spécifier ce compte quand vous configurez la récupération d’urgence dans la console Azure.
+Le service Mobilité doit être installé sur les machines virtuelles que vous souhaitez répliquer. Site Recovery peut effectuer une installation de type push de ce service lorsque vous activez la réplication pour un ordinateur, ou vous pouvez l’installer manuellement, ou à l’aide des outils d’installation.
 
-1. Préparez un domaine ou un compte local avec les autorisations nécessaires pour l’installation sur la machine virtuelle.
-2. Pour une installation sur des machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale.
-   - Dans le Registre, sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
-3. Pour une installation sur des machines virtuelles Linux, préparez un compte racine sur le serveur Linux source.
+- Dans ce tutoriel, nous allons installer le service Mobilité avec l’installation de type push.
+- Pour cette installation de type push, vous devez préparer un compte dont Site Recovery pourra se servir pour accéder à la machine virtuelle. Vous devez spécifier ce compte quand vous configurez la récupération d’urgence dans la console Azure.
+
+Préparez le compte comme suit :
+
+Préparez un domaine ou un compte local avec les autorisations nécessaires pour l’installation sur la machine virtuelle.
+
+- **Machines virtuelles Windiows** : Pour une installation sur des machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour ce faire, dans le Registre > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
+- **Machines virtuelles Linux** : Pour une installation sur des machines virtuelles Linux, préparez un compte racine sur le serveur Linux source.
 
 
 ## <a name="check-vmware-requirements"></a>Vérifier les conditions requises VMware
@@ -67,7 +73,7 @@ Le service Mobilité doit être installé sur la machine virtuelle que vous souh
 Vérifiez que les machines virtuelles et serveurs VMware respectent les conditions requises.
 
 1. [Vérifiez](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) les conditions requises pour les serveurs VMware.
-2. Pour Linux, [vérifiez](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) les conditions requises en matière de système de fichiers et stockage. 
+2. Pour les machines virtuelles Linux, [vérifiez](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) les conditions requises en matière de système de fichiers et de stockage. 
 3. Vérifiez la prise en charge du [réseau](vmware-physical-azure-support-matrix.md#network) et du [stockage](vmware-physical-azure-support-matrix.md#storage) locaux. 
 4. Vérifiez ce qui est pris en charge pour la [mise en réseau Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), le [stockage](vmware-physical-azure-support-matrix.md#azure-storage) et le [calcul](vmware-physical-azure-support-matrix.md#azure-compute) après le basculement.
 5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [exigences relatives aux machines virtuelles Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
@@ -75,21 +81,31 @@ Vérifiez que les machines virtuelles et serveurs VMware respectent les conditio
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
 
-Durant un scénario de basculement, imaginons que vous souhaitiez vous connecter à des machines virtuelles répliquées dans Azure à partir de votre réseau local.
+Après le basculement, imaginons que vous souhaitiez vous connecter à des machines virtuelles Azure à partir de votre réseau local.
 
 Pour vous connecter à des machines virtuelles Windows à l’aide de RDP après le basculement, effectuez les opérations suivantes :
 
-1. Pour accéder via Internet, activez RDP sur la machine virtuelle locale avant le basculement. Vérifiez que des règles TCP et UDP sont ajoutées pour le profil **Public**, et que RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.
-2. Pour accéder via un VPN de site à site, activez RDP sur la machine locale. RDP doit être autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé**.
-   Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135) Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il y en a, vous ne pouvez pas vous connecter à la machine virtuelle avant la fin de la mise à jour.
-3. Sur la machine virtuelle Azure Windows, après le basculement, vérifiez les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et lisez ces [conseils de résolution des problèmes](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- **Accès à Internet**. Activez RDP sur la machine virtuelle locale avant le basculement. Vérifiez que des règles TCP et UDP sont ajoutées pour le profil **Public** et que RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.
+- **Accès VPN de site à site** :
+    - Activez RDP sur la machine virtuelle locale avant le basculement.
+    - RDP doit être autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé**.
+    - Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135)
+- Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il y en a, vous ne pouvez pas vous connecter à la machine virtuelle avant la fin de la mise à jour.
+- Sur la machine virtuelle Azure Windows, après le basculement, vérifiez les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et lisez ces [conseils de résolution des problèmes](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Pour vous connecter à des machines virtuelles Linux à l’aide de SSH après le basculement, effectuez les opérations suivantes :
 
-1. Sur la machine locale, avant le basculement, vérifiez que le service Secure Shell est configuré pour démarrer automatiquement au démarrage du système. Vérifiez que les règles de pare-feu autorisent une connexion SSH.
+- Sur la machine locale, avant le basculement, vérifiez que le service Secure Shell est configuré pour démarrer automatiquement au démarrage du système.
+- Vérifiez que les règles de pare-feu autorisent une connexion SSH.
+- Sur la machine virtuelle Azure, après le basculement, autorisez les connexions entrantes au port SSH pour les règles des groupes de sécurité réseau sur la machine virtuelle basculée, et pour le sous-réseau Azure auquel elle est connectée.
+- [Ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md) pour la machine virtuelle.
+- Vous pouvez vérifier les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle.
 
-2. Sur la machine virtuelle Azure, après le basculement, autorisez les connexions entrantes au port SSH pour les règles des groupes de sécurité réseau sur la machine virtuelle basculée, et pour le sous-réseau Azure auquel elle est connectée.
-   [Ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md) pour la machine virtuelle. Vous pouvez vérifier les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle.
+## <a name="useful-links"></a>Liens utiles
+
+Si vous répliquez plusieurs machines virtuelles, vous devez planifier la capacité et le déploiement avant de commencer. [Plus d’informations](site-recovery-deployment-planner.md)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

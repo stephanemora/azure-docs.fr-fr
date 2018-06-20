@@ -4,16 +4,16 @@ description: Utilisez PowerShell pour créer une affectation de stratégie Azure
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 27f00f24c1c644e340ff8a2843b56e863136c368
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 813a5a3855132ab4bd5dd0ff3eb3a0c83696b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194806"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600440"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant l’interface de ligne de commande Azure
 
@@ -31,29 +31,31 @@ Ce démarrage rapide nécessite que vous exécutiez la version 2.0.4 minimum d�
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure CLI. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer l’opération d’inscription pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
 ```azurecli-interactive
-az provider register –-namespace 'Microsoft.PolicyInsights'
+az provider register --namespace 'Microsoft.PolicyInsights'
 ```
 
 Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../azure-resource-manager/resource-manager-supported-services.md).
 
+Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). C’est un outil qui envoie des requêtes HTTP aux API Azure Resource Manager.
+
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et affectez la définition Audit Virtual Machines without Managed Disks (Auditer des machines virtuelles sans disques managés). Cette définition de stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans la définition de stratégie.
+Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et affectez la définition **Auditer les machines virtuelles qui n’utilisent pas de disques managés**. Cette définition de stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans la définition de stratégie.
 
 Exécutez la commande suivante pour créer une attribution de stratégie :
 
 ```azurecli-interactive
-az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 La commande précédente utilise les informations suivantes :
 
-- **Name** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser *Audit Virtual Machines without Managed Disks Assignment* (Auditer des machines virtuelles sans attribution de disques gérés).
-- **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de la définition de stratégie *Audit Virtual Machines without Managed Disks* (Auditer des machines virtuelles sans disques gérés). Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
+- **Name** : nom réel de l’attribution.  Pour cet exemple, *audit-vm-manageddisks* a été utilisé.
+- **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser *Audit Virtual Machines without Managed Disks Assignment* (Auditer des machines virtuelles sans attribution de disques managés).
+- **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie *Auditer les machines virtuelles qui n’utilisent pas de disques managés*. Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
 
 ## <a name="identify-non-compliant-resources"></a>Identifier les ressources non conformes
@@ -61,7 +63,7 @@ La commande précédente utilise les informations suivantes :
 Pour afficher les ressources qui ne sont pas conformes à cette nouvelle attribution, obtenez l’ID d’attribution de stratégie en exécutant les commandes suivantes :
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -106,7 +108,7 @@ Les résultats sont comparables à ce que vous devriez généralement voir sous 
 D’autres guides de cette collection sont basés sur ce démarrage rapide. Si vous prévoyez de continuer avec d’autres didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Dans le cas contraire, supprimez l’attribution que vous avez créée en exécutant la commande suivante :
 
 ```azurecli-interactive
-az policy assignment delete –name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

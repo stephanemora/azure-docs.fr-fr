@@ -9,12 +9,13 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 02/28/2018
-ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/02/2018
+ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737229"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Qu’est-ce qu’Azure Database pour PostgreSQL ?
 
@@ -22,7 +23,7 @@ Azure Database pour PostgreSQL est un service de base de données relationnelle 
 
 - Une haute disponibilité intégrée sans coût supplémentaire
 - Des performances prévisibles, grâce aux tarifs du paiement à l’utilisation
-- Une mise à l’échelle à la volée en quelques secondes
+- Mise à l’échelle en fonction des besoins en quelques secondes
 - La protection des données sensibles au repos et en mouvement
 - Des sauvegardes automatiques et une restauration à un point dans le temps jusqu’à 35 jours
 - Une sécurité et une conformité de classe Entreprise
@@ -52,7 +53,15 @@ Les services de base de données Azure ont une tradition de sécurité des donn�
 
 Le service Base de données Azure pour PostgreSQL utilise le chiffrement de stockage pour les données au repos. Les données incluant les sauvegardes sont chiffrées sur le disque (à l’exception des fichiers temporaires créés par le moteur lors de l’exécution des requêtes). Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 
-Par défaut, le service Base de données Azure pour PostgreSQL est configuré afin de requérir la [sécurité de connexion SSL](./concepts-ssl-connection-security.md) pour les données en mouvement sur le réseau. L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.  Vous avez la possibilité de désactiver le recours obligatoire au protocole SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL.
+Par défaut, le service Base de données Azure pour PostgreSQL est configuré afin de requérir la [sécurité de connexion SSL](./concepts-ssl-connection-security.md) pour les données en mouvement sur le réseau. L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Vous avez la possibilité de désactiver le recours obligatoire au protocole SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL.
+
+## <a name="contacts"></a>Contacts
+Pour toute question ou suggestion au sujet de l’utilisation de Azure Database pour MySQL, envoyez un e-mail à l’équipe Azure Database pour MySQL ([@Ask Azure DB pour PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Remarque : il ne s’agit pas d’un alias de support technique.
+
+En outre, tenez compte des points de contact suivants le cas échéant :
+- Pour contacter le support technique Azure, [émettez un ticket à partir du Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Pour résoudre un problème relatif à votre compte, enregistrez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) sur le portail Azure.
+- Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/postgresql/) pour des comparaisons de coûts et des calculatrices.

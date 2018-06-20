@@ -1,59 +1,131 @@
 ---
-title: "Présentation de la messagerie Azure Service Bus | Microsoft Docs"
-description: "Description de la messagerie Service Bus et d’Azure Relay"
+title: Présentation de la messagerie Azure Service Bus | Microsoft Docs
+description: Description de la messagerie Service Bus
 services: service-bus-messaging
-documentationcenter: .net
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
+editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: get-started-article
-ms.date: 12/21/2017
+ms.topic: overview
+ms.date: 05/22/2018
+ms.custom: mvc
 ms.author: sethm
-ms.openlocfilehash: e299ccfe587d37757cd67cb4367f019b21a09b4a
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 0357602e6085b25fc6d11363113ebc962dc4d008
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643088"
 ---
-# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Messagerie Service Bus : service flexible de distribution de données dans le cloud
+# <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
-Microsoft Azure Service Bus est un service fiable de distribution des informations. L'objectif de ce service est de simplifier la communication. Quand plusieurs parties souhaitent échanger des informations, elles ont besoin d'un système qui facilite la communication. Service Bus est un système de communication tiers ou réparti, qui peut être comparé à un service postal classique. Le service postal permet aux clients d'envoyer facilement partout dans le monde toutes sortes de lettres et de paquets, avec différentes garanties de distribution au choix.
+Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise entièrement géré. Service Bus est généralement utilisé pour dissocier des applications et des services, et est une plateforme fiable et sécurisée pour le transfert d’état et de données asynchrones. Les données sont transférées entre différents services et applications à l’aide de *messages*. Un message est au format binaire, qui peut contenir un JSON, un XML, ou juste du texte. 
 
-À l’instar du service postal de distribution du courrier, Service Bus constitue un moyen flexible de distribuer des informations entre l’expéditeur et le destinataire. Ce service de messagerie garantit la distribution des informations même si les deux parties concernées ne sont jamais en ligne en même temps ou si elles ne sont pas disponibles au même moment. C'est en cela que ce système de communication répartie s'apparente à l'envoi d'une lettre, tandis que la communication non répartie équivaut à un appel téléphonique traditionnel (quand il n'y avait pas encore de signal d'appel ni d'identification de l'appelant, qui sont plutôt des fonctionnalités de messagerie répartie).
+Les scénarios de messagerie courants sont :
 
-L’expéditeur du message peut aussi choisir divers paramètres de distribution, notamment les transactions, la détection des doublons, l’expiration temporelle et le traitement par lot. Ces modèles présentent également certaines analogies avec le service postal : tentative renouvelée de distribution, signature obligatoire, changement d'adresse ou rappel.
+* Messagerie : transfert de données d’entreprise, telles que les ventes ou les bons de commande, les journaux ou les mouvements de stock.
+* Découpler les applications : améliorer la fiabilité et l’extensibilité des applications et des services (le client et le service n’ont pas à être en ligne en même temps).
+* Rubriques et abonnements : autoriser les relations 1:*n* entre les éditeurs et les abonnés.
+* Sessions de messagerie : implémenter des flux de travail qui nécessitent le classement des messages ou le report de message.
 
-Service Bus prend en charge deux modèles de messagerie distincts : *Azure Relay* et la *messagerie Service Bus*.
+## <a name="namespaces"></a>Espaces de noms
 
-## <a name="azure-relay"></a>Azure Relay
+Un espace de noms est un conteneur d’étendue pour tous les composants de messagerie. Plusieurs files d’attente et rubriques peuvent résider dans un seul espace de noms, et les espaces de noms servent souvent de conteneurs d’applications.
 
-Le composant [Relais WCF](../service-bus-relay/relay-what-is-it.md) d’Azure Relay est un service centralisé (mais très équilibré au niveau de la charge) qui prend en charge différents protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Le [service de relais](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fournit une gamme d’options de connectivité relais différentes et aide à négocier des connexions directes peer-to-peer quand c’est possible. Service Bus est optimisé pour les développeurs .NET qui utilisent Windows Communication Foundation (WCF), en ce qui concerne à la fois les performances et la convivialité, et fournit un accès complet à son service de relais via des interfaces SOAP et REST. Cela rend possible l’intégration de n'importe quel environnement de programmation SOAP ou REST à Service Bus.
+## <a name="queues"></a>Files d’attente
 
-Le service de relais prend en charge la messagerie unidirectionnelle standard, la messagerie demande/réponse et la messagerie d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. Dans le modèle de messagerie par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel lié à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant des messages au service de relais en ciblant l'adresse de rendezvous. Le service de relais « relayera » ensuite les messages au service local via le socket bidirectionnel déjà en place. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
+Les messages sont envoyés vers et reçus depuis les *files d’attente*. Les files d’attente vous permettent de stocker les messages jusqu’à ce que l’application réceptrice soit disponible pour recevoir et traiter ces messages.
 
-Vous lancez la connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent à des éléments de liaison de transport destinés à créer des composants de canal WCF qui s’intègrent à Service Bus dans le cloud.
+![File d'attente](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-WCF Relay offre de nombreux avantages, mais nécessite que le serveur et le client soient en ligne en même temps pour envoyer et recevoir des messages. Cela n’est pas optimal pour la communication de style HTTP, dans laquelle les requêtes ne sont généralement pas durables, ni pour les clients qui ne se connectent qu’occasionnellement, comme les navigateurs, les applications mobiles et ainsi de suite. La messagerie répartie prend en charge la communication répartie et a ses propres avantages ; les clients et les serveurs peuvent se connecter lorsque c’est nécessaire et effectuer leurs opérations de manière asynchrone.
+Les messages dans les files d’attente sont classés et horodatés à l’arrivée. Une fois accepté, le message est conservé en toute sécurité dans un stockage redondant. Les messages sont remis en mode *pull*, qui remet les messages à la demande.
 
-## <a name="brokered-messaging"></a>Messagerie répartie
+## <a name="topics"></a>Rubriques
 
-Contrairement au modèle de relais, la messagerie Service Bus avec [files d’attente, rubriques et abonnements](service-bus-queues-topics-subscriptions.md) peut être considérée comme asynchrone ou « temporellement découplée ». Les producteurs (expéditeurs) et les consommateurs (récepteurs) n'ont pas besoin d’être en ligne en même temps. L’infrastructure de la messagerie stocke les messages de façon fiable dans un « broker » (par exemple, une file d’attente) jusqu’à ce que le récepteur soit prêt à les recevoir. Ceci permet aux composants de l’application distribuée d’être déconnectés, soit volontairement, par exemple pour des raisons de maintenance, soit en raison de l’échec d’un composant, sans conséquences sur le système dans sa globalité. En outre, il se peut que l'application réceptrice n’ait besoin d’être en ligne qu’à certaines heures de la journée (par exemple, un système de gestion d'inventaire dont l’exécution n’est requise qu’en fin de journée).
+Vous pouvez également utiliser des *rubriques* pour envoyer et recevoir des messages. Si une file d’attente est souvent utilisée pour la communication point à point, les rubriques sont utiles dans les scénarios de publication/abonnement.
 
-Les principaux composants de l’infrastructure de la messagerie Service Bus sont des files d’attente, des rubriques et des abonnements. La principale différence est que les rubriques prennent en charge les fonctionnalités de publication et d’abonnement qui peuvent être utilisées dans la logique de distribution et de routage basée sur du contenu sophistiqué, y compris l’envoi à plusieurs destinataires. Ces composants donnent accès à de nouveaux scénarios de messagerie asynchrone, comme le découplage temporel, la publication/abonnement et l'équilibrage de charge. Pour plus d’informations sur ces éléments de messagerie, consultez [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md).
+![Rubrique](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-Comme pour l’infrastructure WCF Relay, la fonctionnalité de messagerie répartie est destinée aux programmeurs WCF et .NET Framework, ainsi que via REST.
+Les rubriques peuvent avoir plusieurs abonnements indépendants. Un abonné à une rubrique peut recevoir une copie de chaque message envoyé à cette rubrique. Les abonnements sont des entités nommées qui sont créées durablement, mais qui peuvent éventuellement expirer ou se supprimer automatiquement.
 
+Dans certains scénarios, vous n’avez pas besoin d’abonnements individuels pour recevoir tous les messages envoyés à une rubrique. Si c’est le cas, vous pouvez utiliser des [règles et des filtres](topic-filters.md) pour définir les conditions qui déclenchent des [actions](topic-filters.md#actions) facultatives, filtrent les messages spécifiques et définissent ou modifient les propriétés des messages.
+
+## <a name="advanced-features"></a>Fonctionnalités avancées
+
+Service Bus a également des fonctionnalités avancées qui vous permettent de résoudre des problèmes de messagerie plus complexes. Les sections suivantes décrivent ces fonctionnalités principales :
+
+### <a name="message-sessions"></a>Sessions de message
+
+Pour garantir l’application de la méthode FIFO (premier entré, premier sorti) dans Service Bus, utilisez Sessions. Les [sessions de messagerie](message-sessions.md) permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. 
+
+### <a name="auto-forwarding"></a>Transfert automatique
+
+La fonctionnalité de [transfert automatique](service-bus-auto-forwarding.md) vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou rubrique (destination).
+
+### <a name="dead-lettering"></a>Lettres mortes
+
+Service Bus prend en charge une [file d’attente de lettres mortes](service-bus-dead-letter-queues.md) (DLQ) pour conserver les messages qui ne peuvent pas être remis aux destinataires ou les messages qui ne peuvent pas être traités. Vous pouvez supprimer des messages depuis la DLQ et les inspecter.
+
+### <a name="scheduled-delivery"></a>Remise planifiée
+
+Vous pouvez envoyer des messages dans une file d’attente ou une rubrique [pour les traiter en différé](message-sequencing.md#scheduled-messages), par exemple, si vous avez besoin de planifier un travail de sorte qu’il soit disponible pour être traité par un système à un moment précis.
+
+### <a name="message-deferral"></a>Report de message
+
+Lorsqu’un client de file d’attente ou d’abonnement reçoit un message qu’il souhaite traiter, mais pour lequel le traitement n’est pas possible actuellement en raison de circonstances particulières dans l’application, l’entité a la possibilité de [reporter la récupération du message](message-deferral.md) à plus tard. Le message reste dans la file d’attente ou l’abonnement, mais il est mis de côté.
+
+### <a name="batching"></a>Traitement par lot
+
+[Le traitement par lot côté client](service-bus-performance-improvements.md#client-side-batching) permet à un client de file d’attente ou de rubrique de retarder l’envoi d’un message pendant une période donnée. Si le client envoie des messages supplémentaires pendant cette période, il transmet les messages dans un seul lot. 
+
+### <a name="transactions"></a>Transactions
+
+Une [transaction](service-bus-transactions.md) regroupe deux ou plusieurs opérations dans une étendue d’exécution. Service Bus prend en charge les opérations de regroupement par rapport à une entité de messagerie unique (file d’attente, rubrique, abonnement) dans l’étendue d’une transaction.
+
+### <a name="filtering-and-actions"></a>Filtrage et actions
+
+Les abonnés peuvent définir les messages qu’ils veulent recevoir d’une rubrique. Ces messages sont spécifiés sous la forme d’une ou de plusieurs [règles d’abonnement nommées](topic-filters.md). Pour chaque condition de règle de correspondance, l’abonnement crée une copie du message, qui peut être annotée différemment selon la règle de correspondance utilisée.
+
+### <a name="auto-delete-on-idle"></a>Suppression automatique inactive
+
+[La suppression automatique inactive](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) vous permet de spécifier un intervalle d’inactivité après lequel la file d’attente est automatiquement supprimée. La durée minimale est de 5 minutes.
+
+### <a name="duplicate-detection"></a>Détection des doublons
+
+Si une erreur se produit et suscite un doute chez le client concernant le résultat d’une opération d’envoi, la [détection des doublons](duplicate-detection.md) lève ce type d’incertitude en permettant à l’expéditeur de renvoyer le même message, et à la file d’attente ou la rubrique d’ignorer les copies en double.
+
+### <a name="sas-rbac-and-msi"></a>SAS, RBAC et MSI
+
+Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAS), le [Contrôle d’accès en fonction du rôle](service-bus-role-based-access-control.md) (RBAC) et l’[Identité du service administré](service-bus-managed-service-identity.md) (MSI).
+
+### <a name="geo-disaster-recovery"></a>Géorécupération d’urgence
+
+Lorsque les régions ou centres de données Azure subissent un temps d’arrêt, la [géo-récupération d’urgence](service-bus-geo-dr.md) permet au traitement des données de continuer à fonctionner dans un autre centre de données ou région.
+
+### <a name="security"></a>Sécurité
+
+Service Bus prend en charge les protocoles [AMQP 1.0](service-bus-amqp-overview.md) et [HTTP/REST](/rest/api/servicebus/).
+
+## <a name="client-libraries"></a>Bibliothèques clientes
+
+Service Bus prend en charge les bibliothèques clientes pour [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), et [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+
+## <a name="integration"></a>Intégration
+
+Service Bus intègre complétement les services Azure suivants :
+
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Fonctions](https://azure.microsoft.com/services/functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
+Pour commencer à utiliser la messagerie Service Bus, consultez les articles suivants :
 
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-* [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
+* [Comparer les services de messagerie Azure](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* En savoir plus sur les niveaux [Standard et Premium](https://azure.microsoft.com/pricing/details/service-bus/) Azure Service Bus et leur tarification
+* [Performances et latence du niveau Premium Azure Service Bus](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* Essayez les Démarrages rapides de [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), ou [JMS](service-bus-quickstart-powershell.md)

@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644040"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Didacticiel : Déployer une application Java sur un cluster Service Fabric dans Azure
 Ce troisième didacticiel de la série vous montre comment déployer une application Service Fabric sur un cluster dans Azure.
@@ -39,7 +40,6 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -199,7 +199,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     </Certificates>
     ```
 
-2. Pour déployer votre application sur ce cluster, vous devez utiliser SFCTL pour établir une connexion au cluster. SFCTL nécessite un fichier PEM avec la clé publique et la clé privée pour se connecter au cluster et par conséquent, exécuter la commande suivante pour générer un fichier PEM avec la clé publique et la clé privée. 
+2. Pour déployer votre application sur ce cluster, vous devez utiliser SFCTL pour établir une connexion au cluster. SFCTL nécessite un fichier PEM avec la clé publique et la clé privée pour se connecter au cluster. Exécutez la commande suivante pour générer un fichier PEM contenant à la fois la clé publique et la clé privée. 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

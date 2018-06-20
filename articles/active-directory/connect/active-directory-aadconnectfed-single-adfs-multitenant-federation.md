@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: anandy; billmath
-ms.openlocfilehash: c55a4232c54308c5d000cfefc2c7dca2800b462c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9a8abc6e5d66f31a59ba895250861708689aa6d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593103"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS
 
@@ -43,7 +45,7 @@ Pour qu’AD FS dans contoso.com puisse authentifier les utilisateurs de fabrika
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
  
-L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust », par exemple, « http://fs.contoso.com/adfs/services/trust ». Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
+L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust » (par exemple, « http://fs.contoso.com/adfs/services/trust »). Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
  
 Sur le serveur AD FS, ouvrez Azure AD PowerShell et suivez les étapes suivantes :
  

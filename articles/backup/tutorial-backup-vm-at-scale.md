@@ -1,19 +1,20 @@
 ---
-title: "Sauvegarder des machines virtuelles Azure à grande échelle | Microsoft Docs"
-description: "Sauvegarder simultanément plusieurs machines virtuelles dans Azure"
+title: Sauvegarder des machines virtuelles Azure à grande échelle
+description: Sauvegarder simultanément plusieurs machines virtuelles dans Azure
 services: backup
-keywords: "sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde de MV ; sauvegarder une MV ; sauvegarde de MV Azure ; sauvegarde et récupération d’urgence"
+keywords: sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde de MV ; sauvegarder une MV ; sauvegarde de MV Azure ; sauvegarde et récupération d’urgence
 author: markgalioto
 ms.author: markgal
 ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607462"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -25,7 +26,7 @@ Lorsque vous sauvegardez des données dans Azure, vous stockez celles-ci dans un
 > * Appliquer la stratégie de sauvegarde pour protéger plusieurs machines virtuelles
 > * Déclencher un travail de sauvegarde à la demande pour les machines virtuelles protégées
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 

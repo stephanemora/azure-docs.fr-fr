@@ -1,28 +1,27 @@
 ---
-title: "Inscrire des appareils X.509 auprès du service Azure Device Provisioning avec Java | Microsoft Docs"
-description: "Démarrage rapide d’Azure - Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du Java Service SDK"
-services: iot-dps
-keywords: 
+title: Inscrire des appareils X.509 auprès du service Azure Device Provisioning avec Java | Microsoft Docs
+description: Démarrage rapide d’Azure - Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du Java Service SDK
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b1d21278c821c4501c121266823e153490a50df5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cea83fbe9c60bab687eb3d43fc269fa9f6bea325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630457"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscrire un appareil X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du Java Service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Ces étapes indiquent comment inscrire un groupe d’appareils X.509 simulés auprès du service Azure IoT Hub Device Provisioning au moyen d’un programme et à l’aide du [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) ainsi que d’un exemple d’application Java. Bien que le Java Service SDK fonctionne sur les machines Windows et Linux, cet article utilise une machine de développement Windows pour présenter le processus d’inscription.
+Ces étapes indiquent comment inscrire un groupe d’appareils X.509 simulés auprès du service Azure IoT Hub Device Provisioning au moyen d’un programme et à l’aide du [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) ainsi que d’un exemple d’application Java. Bien que le kit Java Service SDK fonctionne sur les machines Windows et Linux, cet article utilise une machine de développement Windows pour présenter le processus d’inscription.
 
 Veillez à [configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
 
@@ -30,7 +29,7 @@ Veillez à [configurer le service IoT Hub Device Provisioning avec le portail Az
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement 
 
-1. Assurez-vous que le [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) est bien installé sur votre ordinateur. 
+1. Assurez-vous que le [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) est bien installé sur votre machine. 
 
 2. Configurez les variables d’environnement pour votre installation Java. La variable `PATH` doit inclure le chemin d’accès complet au répertoire *jdk1.8.x\bin*. S’il s’agit de la première installation de Java sur cet ordinateur, vous devez alors créer une variable d’environnement nommée `JAVA_HOME` et la faire pointer vers le chemin complet du répertoire *jdk1.8.x*. Sur une machine Windows, ce répertoire se trouve généralement dans le dossier *C:\\Program Files\\Java\\*. De plus, vous pouvez créer ou modifier les variables d’environnement en recherchant **Modifier les variables d’environnement du système** dans le **Panneau de configuration** de votre machine Windows. 
 
@@ -181,7 +180,7 @@ Pour inscrire un appareil X.509 unique, vous devez modifier l’exemple de code 
     private static final String REGISTRATION_ID = "[RegistrationId]";
     ```
 
-2. Renommez la variable *TPM_ENDORSEMENT_KEY* comme *PUBLIC_KEY_CERTIFICATE_STRING*. Copiez votre certificat client ou le **Certificat Client** à partir de la sortie de l’outil _Générateur de certificat X.509_, en tant que valeur de la variable *PUBLIC_KEY_CERTIFICATE_STRING*. 
+2. Renommez la variable *TPM_ENDORSEMENT_KEY* en *PUBLIC_KEY_CERTIFICATE_STRING*. Copiez votre certificat client ou le **Certificat Client** à partir de la sortie de l’outil _Générateur de certificat X.509_, en tant que valeur de la variable *PUBLIC_KEY_CERTIFICATE_STRING*. 
 
     ```Java
     // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
@@ -208,13 +207,13 @@ Pour inscrire un appareil X.509 unique, vous devez modifier l’exemple de code 
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous prévoyez d’aller plus loin dans l’étude de l’exemple de service Java, ne supprimez pas les ressources créées dans ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
+Si vous prévoyez d’explorer davantage l’exemple de service pour Java, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 
 1. Fermez la fenêtre de sortie de l’exemple Java sur votre ordinateur.
 1. Fermez la fenêtre _Générateur de certificat X509_ sur votre machine.
 1. Accédez à votre service d’approvisionnement d’appareil dans le portail Azure, cliquez sur **Gérer les inscriptions**, puis sélectionnez l’onglet **Groupes d’inscription**. Sélectionnez *NOM DU GROUPE* des appareils X.509 inscrits à l’aide de ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure du panneau.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de démarrage rapide, vous avez inscrit un groupe simulé d’appareils X.509 auprès du service d’approvisionnement d’appareil. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
 
 > [!div class="nextstepaction"]

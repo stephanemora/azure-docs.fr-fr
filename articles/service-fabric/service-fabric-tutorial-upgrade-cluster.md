@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 375e0171f1a131ad95a9c6594cc0e05926e4dcc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642833"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric
 
@@ -44,7 +45,6 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -98,7 +98,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > La mise à niveau du runtime du cluster peut prendre beaucoup de temps. PowerShell est bloqué pendant l’exécution de la mise à niveau. Vous pouvez utiliser une autre session PowerShell pour vérifier l’état de la mise à niveau.
 
-Vous pouvez surveiller l’état de la mise à niveau avec PowerShell ou l’interface CLI `sfctl`.
+Vous pouvez surveiller l’état de la mise à niveau avec PowerShell ou Azure Service Fabric CLI (sfctl).
 
 Tout d’abord, connectez-vous au cluster avec le certificat SSL créé dans la première partie du didacticiel. Utilisez l’applet de commande `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
 

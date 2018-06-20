@@ -1,28 +1,26 @@
 ---
-title: Guide pratique pour utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby | Microsoft Docs
-description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL.
+title: Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby | Microsoft Docs
+description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ruby
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: ruby
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19ffdab40b3032421612ef4ba1b840eeb0d2e62b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1583001550f5f272f4070006a4a6ac3be000de6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798268"
 ---
-# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Guide pratique pour utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
+# <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide explique comment accomplir des tâches courantes à l’aide du service de Table Azure et de l’API Table d’Azure Cosmos DB. Les exemples sont écrits en Ruby et utilisent la [Bibliothèque de client du service de Table du Stockage Azure pour Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Sont abordées la **création et la suppression d’une table, ainsi que l’insertion et l’interrogation d’entités dans une table**.
@@ -33,7 +31,7 @@ Ce guide explique comment accomplir des tâches courantes à l’aide du service
 ### <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Créer un compte d’API de table Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Ajouter un accès au Stockage ou à Azure Cosmos DB
@@ -103,7 +101,7 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 * **insert_or_merge_entity()** : met à jour une entité existante en la remplaçant. En l'absence d'entité, une nouvelle entité est insérée.
 * **insert_or_replace_entity()** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
-L’exemple suivant illustre la mise à jour d’une entité avec **update_entity()** :
+L’exemple suivant illustre la mise à jour d’une entité avec **update_entity()**  :
 
 ```ruby
 entity = { "content" => "test entity with updated content",

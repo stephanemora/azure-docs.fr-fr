@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 447445ace41bb6b4677a75f5324368b269f938ea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 688f8da809a40f333aeb7b4ef959deb69ff94121
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355234"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808377"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
  
@@ -43,10 +43,11 @@ Les clients peuvent créer plusieurs environnements App Service au sein d’une 
 
 Les environnements ASE sont isolés de façon à exécuter les applications d’un seul client et sont toujours déployés dans un réseau virtuel. Les clients peuvent contrôler précisément le trafic réseau entrant et sortant des applications. Les applications peuvent établir des connexions sécurisées à haute vitesse aux ressources d’entreprise locales par le biais de réseaux privés virtuels.
 
-* Les environnements App Service autorisent l’hébergement d’application à grande échelle avec un accès réseau sécurisé. Pour plus d’informations, consultez l’[Immersion AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sur les environnements App Service.
+* Le service ASE est fourni avec son propre niveau tarifaire. Découvrez comment les [offres isolées](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) favorisent les déploiements hyperscale et la sécurité.
+* Les [environnements App Service v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) fournissent un cadre qui protège vos applications dans un sous-réseau de votre réseau, et assurent votre propre déploiement privé d’Azure App Service.
 * Vous pouvez utiliser plusieurs environnements App Service pour une mise à l’échelle horizontale. Pour plus d’informations, consultez [Mise à l’échelle géolocalisée avec les environnements App Service](app-service-app-service-environment-geo-distributed-scale.md).
 * Vous pouvez utiliser des environnements App Service pour configurer l’architecture de sécurité, comme indiqué dans l’Immersion AzureCon. Pour découvrir comment a été configurée l’architecture de sécurité illustrée dans l’Immersion AzureCon, consultez l’[article sur l’implémentation d’une architecture de sécurité en couches](app-service-app-service-environment-layered-security.md) avec les environnements App Service.
-* L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF). Pour plus d’informations, voir [Intégrer un environnement App Service ILB à Azure Application Gateway][AppGW].
+* L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF). Pour plus d’informations, consultez l’article [Pare-feu d’applications web (WAF)][AppGW].
 
 ## <a name="dedicated-environment"></a>Environnement dédié ##
 
@@ -87,6 +88,8 @@ Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incl
 Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les frontends ou les workers qui n’hébergent pas de charges de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 
 <!--Links-->
+[App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment
+[Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
@@ -105,4 +108,4 @@ Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASE
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../application-gateway/waf-overview.md

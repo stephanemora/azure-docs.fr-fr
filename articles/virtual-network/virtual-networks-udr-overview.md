@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211794"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726327"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -167,7 +167,9 @@ Lorsque vous substituez le préfixe d’adresse 0.0.0.0/0, en plus du flux du tr
         - Être en mesure de translater et de transférer une adresse réseau, ou d’acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, et de retourner le trafic à Internet. 
     - **Passerelle de réseau virtuel** : si la passerelle est une passerelle de réseau virtuel, un appareil local connecté à Internet peut translater et transférer les adresses du réseau ou acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, via l’[homologation privée](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) d’ExpressRoute. 
 
-  Consultez [Zone DMZ entre Azure et votre centre de données local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Zone DMZ entre Azure et Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) pour les détails de mise en œuvre lors de l’utilisation de passerelles et d’appliances virtuelles entre les Internet et Azure.
+Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez pas de table de routage au [sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) incluant un itinéraire avec une destination de 0.0.0.0/0. Cela peut empêcher la passerelle de fonctionner correctement.
+
+Consultez [Zone DMZ entre Azure et votre centre de données local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Zone DMZ entre Azure et Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) pour les détails de mise en œuvre lors de l’utilisation de passerelles et d’appliances virtuelles entre les Internet et Azure.
 
 ## <a name="routing-example"></a>Exemple de routage
 
@@ -259,5 +261,5 @@ La table de routage du *Sous-réseau2* contient tous les itinéraires par défau
 - [Créer une table de routage définie par l’utilisateur avec des itinéraires et une appliance virtuelle de réseau](tutorial-create-route-table-portal.md)
 - [Configurer BGP pour une passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Utiliser le protocole BGP avec ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Afficher tous les itinéraires pour un sous-réseau](virtual-network-routes-troubleshoot-portal.md). Une table de routage définie par l’utilisateur vous montre uniquement les routes définies par l’utilisateur, et n’affiche pas les routes par défaut et BGP pour un sous-réseau. L’affichage de tous les itinéraires affiche les itinéraires par défaut, BGP et définis par l’utilisateur pour le sous-réseau auquel une interface réseau appartient.
+- [Afficher tous les itinéraires pour un sous-réseau](diagnose-network-routing-problem.md). Une table de routage définie par l’utilisateur vous montre uniquement les routes définies par l’utilisateur, et n’affiche pas les routes par défaut et BGP pour un sous-réseau. L’affichage de tous les itinéraires affiche les itinéraires par défaut, BGP et définis par l’utilisateur pour le sous-réseau auquel une interface réseau appartient.
 - [Déterminer le type de tronçon suivant](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre une machine virtuelle et une adresse IP de destination. La fonctionnalité de tronçon suivant d’Azure Network Watcher vous permet de déterminer si le trafic a quitté un sous-réseau et s’il est en cours de routage vers la destination escomptée.

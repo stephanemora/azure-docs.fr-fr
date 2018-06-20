@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7d7fcaded1f088961fb139b1fba6b1944b383435
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616509"
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparer les versions V1 et V2 d’Azure Data Factory
 Cet article compare la version V2 à la version V1 d’Azure Data Factory. Pour une présentation de V1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). Pour une présentation de V2, consultez [Présentation d’Azure Data Factory (V2 - préversion)](introduction.md).
@@ -131,7 +132,7 @@ Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compat
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
 | Portail Azure | [Oui](quickstart-create-data-factory-portal.md) | [Oui](data-factory-build-your-first-pipeline-using-editor.md) |
-| Azure PowerShell | [Oui](quickstart-create-data-factory-powershell.md) | [Oui](data-factory-build-your-first-pipeline-using-powershell.md) |
+| Azure PowerShell | [Oui](quickstart-create-data-factory-powershell.md) | [Oui](data-factory-build-your-first-pipeline-using-powershell.md) |
 | Kit de développement logiciel (SDK) .NET | [Oui](quickstart-create-data-factory-dot-net.md) | [Oui](data-factory-build-your-first-pipeline-using-vs.md) |
 | de l’API REST | [Oui](quickstart-create-data-factory-rest-api.md) | [Oui](data-factory-build-your-first-pipeline-using-rest-api.md) |
 | Kit de développement logiciel (SDK) Python | [Oui](quickstart-create-data-factory-python.md) | Non  |
@@ -139,7 +140,7 @@ Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compat
 
 ## <a name="roles-and-permissions"></a>Rôles et autorisations
 
-Le rôle de contributeur de Data Factory version 1 ne peut pas être utilisé pour créer et gérer les ressources Data Factory v2.
+Le rôle de contributeur de Data Factory version 1 ne peut pas être utilisé pour créer et gérer les ressources Data Factory v2. Pour plus d’informations, consultez la rubrique [Collaborateurs de fabrique de données](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
 ## <a name="monitoring-experience"></a>Expérience de surveillance
 Dans V2, vous pouvez également surveiller les fabriques de données à l’aide d’[Azure Monitor](monitor-using-azure-monitor.md). Les nouvelles applets de commande PowerShell prennent en charge la surveillance des [runtimes d’intégration](monitor-integration-runtime.md). V1 et V2 prennent toutes deux en charge la surveillance visuelle à l’aide d’une application de surveillance pouvant être lancée depuis le portail Azure.

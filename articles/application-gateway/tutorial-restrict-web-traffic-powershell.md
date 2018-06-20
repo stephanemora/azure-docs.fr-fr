@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ef9ad7705c240e1c06c80ba3b765fa7aad8c70a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356271"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598842"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Limiter le trafic web avec un pare-feu d’applications web à l’aide d’Azure PowerShell
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>Activer le pare-feu d’applications web à l’aide d’Azure PowerShell
 
 Vous pouvez limiter le trafic sur une [passerelle d’application](overview.md) à l’aide d’un [pare-feu d’applications web](waf-overview.md) (WAF). Le WAF utilise des règles [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pour protéger votre application. Ces règles incluent la protection contre les attaques telles que l’injection de code SQL, les attaques de script entre sites et les détournements de session. 
 
@@ -31,6 +31,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un compte de stockage et configurer des diagnostics
 
 ![Exemple de pare-feu d’applications web](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

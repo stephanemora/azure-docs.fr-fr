@@ -1,32 +1,28 @@
 ---
-title: Prise en main d’Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure 2.0 | Microsoft Docs
-description: 'Découvrez comment utiliser l’interface de ligne de commande Azure 2.0 pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et le soumettre. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Prise en main d’Azure Data Lake Analytics à l’aide d’Azure CLI 2.0
+description: Découvrez comment utiliser l’interface de ligne de commande Azure 2.0 pour créer un compte Azure Data Lake Analytics et envoyer un travail U-SQL.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625099"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Prise en main d’Azure Data Lake Analytics à l’aide d’Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Dans ce didacticiel, vous développez un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l’aide d’autres outils pris en charge, utilisez la liste déroulante en haut de cette section.
+Cet article explique comment utiliser l’interface de ligne de commande Azure CLI 2.0 pour créer des comptes Azure Data Lake Analytics, envoyer des travaux USQL et des catalogues. Le travail lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). 
 
 ## <a name="prerequisites"></a>Prérequis
-
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de débuter, vous avez besoin des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).

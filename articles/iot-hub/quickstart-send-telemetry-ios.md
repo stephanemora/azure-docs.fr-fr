@@ -1,25 +1,24 @@
 ---
 title: Démarrage rapide pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce démarrage rapide, vous exécutez un exemple d’application iOS pour envoyer des données de télémétrie simulées à un hub IoT et lire les données de télémétrie provenant du hub IoT à traiter dans le cloud.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808177"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Envoyer des données de télémétrie depuis un appareil à un hub IoT (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un IoT Hub (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub est un service Azure qui vous permet de traiter de gros volumes de données de télémétrie envoyées par vos appareils IoT dans le cloud à des fins de stockage ou de traitement. Dans cet article, vous envoyez des données de télémétrie depuis une application d’appareil simulé à IoT Hub. Vous pouvez afficher les données à partir d’une application principale. 
 
@@ -30,7 +29,6 @@ Cet article utilise une application Swift prédéfinie pour envoyer des données
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Télécharger l’exemple de code depuis [Exemples Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - La dernière version de [XCode](https://developer.apple.com/xcode/), exécutant la dernière version du Kit de développement logiciel (SDK) iOS. Ce démarrage rapide a été testé avec XCode 9.3 et iOS 11.3.
@@ -43,32 +41,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-La première étape consiste à utiliser le portail Azure pour créer un hub IoT dans votre abonnement. Le hub IoT vous permet de traiter de gros volumes de données de télémétrie dans le cloud en provenance de nombreux appareils. Ensuite, le hub active un ou plusieurs services principaux en cours d’exécution dans le cloud pour lire et traiter ces données de télémétrie.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
-
-1. Sélectionnez **Créer une ressource** > **Internet des objets** > **IoT Hub**. 
-
-   ![Sélectionnez cette option pour installer IoT Hub](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. Pour créer votre hub IoT, utilisez les valeurs du tableau suivant :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | NOM | Nom unique de votre hub |
-    | Tarification et niveau de mise à l’échelle | F1 Gratuit |
-    | Unités IoT Hub | 1 |
-    | Partitions appareil-à-cloud | 2 partitions |
-    | Abonnement | Votre abonnement Azure. |
-    | Groupe de ressources | Créer. Entrez le nom de votre groupe de ressources. |
-    | Lieu | L’emplacement le plus proche de vous. |
-    | Épingler au tableau de bord | OUI |
-
-1. Cliquez sur **Créer**.  
-
-   ![Paramètres du hub](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. Notez le nom de votre hub IoT et de votre groupe de ressources. Vous utiliserez ces valeurs plus loin dans ce démarrage rapide.
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
@@ -169,10 +143,13 @@ Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de res
 
 Dans cet article, vous avez configuré un hub IoT, inscrit un appareil, envoyé des données de télémétrie simulée au hub à partir d’un appareil iOS et lu ces données de télémétrie provenant du hub. 
 
-Pour en savoir plus sur le fonctionnement des appareils iOS avec IoT Hub, consultez [Send cloud-to-device messages with iOS (Swift) (Envoyer des messages cloud-à-appareil avec iOS (Swift))](iot-hub-ios-swift-c2d.md).
+Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : contrôler un appareil connecté à un IoT Hub](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

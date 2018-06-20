@@ -1,23 +1,21 @@
 ---
 title: Démarrage rapide (Java) pour contrôler un appareil à partir d’Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications Java. Une application est une application back-end qui peut contrôler à distance des appareils connectés à votre concentrateur. L’autre application simule un appareil connecté à votre concentrateur qui peut être contrôlé à distance.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 6dcbf954fdfd6f5b6f65b54edf33e9da234c7d0f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5025eeda46f36982266a0bc3357b3d1e9249884a
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808204"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Démarrage rapide : contrôler un appareil connecté à un IoT Hub (Java)
 
@@ -35,7 +33,6 @@ Ce démarrage rapide utilise deux applications Java prédéfinies :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Java. Votre machine de développement doit disposer de Java SE 8 ou version ultérieure.
 
@@ -100,7 +97,7 @@ Notez la chaîne de connexion de service, du type `Hostname=...=`. Vous utiliser
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre concentrateur. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre concentrateur après l’exécution de la méthode directe.
 
-1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Ensuite, accédez au dossier **Quickstarts\simulated-device-2**.
+1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Ouvrez le fichier **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** dans l’éditeur de texte de votre choix.
 
@@ -126,9 +123,9 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 L’application back-end se connecte au point de terminaison côté service sur votre IoT Hub. L’application effectue des appels de méthode directe à un appareil via votre IoT Hub et écoute les accusés de réception. Une application back-end de l’IoT Hub s’exécute généralement dans le cloud.
 
-1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Puis, accédez au dossier **Quickstarts\back-end-application**.
+1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Ensuite, accédez au dossier **iot-hub\Quickstarts\back-end-application**.
 
-1. Ouvrez le fichier **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** dans l’éditeur de texte de votre choix.
+1. Ouvrez le fichier **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** dans l’éditeur de texte de votre choix.
 
     Remplacez la valeur de la variable `iotHubConnectionString` par la chaîne de connexion de service que vous avez notée précédemment. Puis, enregistrez vos modifications dans le fichier **BackEndApplication.java**.
 
@@ -165,4 +162,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](iot-hub-java-java-process-d2c.md)
+> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

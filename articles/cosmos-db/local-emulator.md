@@ -2,24 +2,21 @@
 title: Développement local avec l’émulateur Azure Cosmos DB | Microsoft Docs
 description: L’émulateur Azure Cosmos DB vous permet de développer et de tester votre application localement, sans créer d’abonnement Azure et sans frais.
 services: cosmos-db
-documentationcenter: ''
 keywords: Émulateur Azure Cosmos DB
 author: David-Noble-at-work
 manager: kfile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824092"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilisation de l’émulateur Azure Cosmos DB pour le développement local et le test
 
@@ -55,7 +52,7 @@ Cet article décrit les tâches suivantes :
 > * Collecte des fichiers de trace
 > * Résolution de problèmes
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, où Kirill Gavrylyuk montre comment prendre en main l’émulateur Azure Cosmos DB. Notez que la vidéo fait référence à l’émulateur en tant qu’émulateur de DocumentDB, mais que l’outil proprement dit a été renommé Émulateur d’Azure Cosmos DB depuis l’enregistrement de la vidéo. Toutes les informations contenues dans la vidéo restent exactes pour l’émulateur d’Azure Cosmos DB. 
+Nous vous recommandons de commencer par visionner la vidéo suivante, où Kirill Gavrylyuk montre comment prendre en main l’émulateur Azure Cosmos DB. La vidéo fait référence à l’émulateur en tant qu’émulateur de DocumentDB, mais que l’outil proprement dit a été renommé Émulateur d’Azure Cosmos DB depuis l’enregistrement de la vidéo. Toutes les informations contenues dans la vidéo restent exactes pour l’émulateur d’Azure Cosmos DB. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
@@ -69,6 +66,7 @@ Nous avons créé une émulation locale haute fidélité du service Azure Cosmos
 ## <a name="differences-between-the-emulator-and-the-service"></a>Différences entre l’émulateur et le service 
 L’émulateur Azure Cosmos DB étant un environnement émulé exécuté sur une station de travail pour développeur locale, il existe des différences de fonctionnalités entre l’émulateur et un compte Azure Cosmos DB dans le cloud :
 
+* Pour le moment, l’Explorateur de données de l’émulateur prend en charge les collections d’API SQL et MongoDB. Les API Table,Graphique et Cassandra ne sont pas encore prises en charge.  
 * L’émulateur Azure Cosmos DB prend en charge uniquement un compte fixe et une clé principale connue.  La régénération de clé n’est pas possible dans l’émulateur Azure Cosmos DB.
 * L’émulateur Azure Cosmos DB n’est pas un service de stockage évolutif et ne prend pas en charge un grand nombre de collections.
 * L’émulateur Azure Cosmos DB ne simule pas différents [niveaux de cohérence Azure Cosmos DB](consistency-levels.md).
@@ -143,7 +141,7 @@ Une fois que l’émulateur Azure Cosmos DB est exécuté sur votre bureau, vous
         new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Si vous utilisez la [prise en charge du protocole Azure Cosmos DB pour MongoDB](mongodb-introduction.md), utilisez la chaîne de connexion suivante :
+Si vous utilisez la [prise en charge du protocole Azure Cosmos DB pour MongoDB](mongodb-introduction.md), utilisez la chaîne de connexion suivante :
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
@@ -158,7 +156,7 @@ Vous pouvez utiliser les outils existants comme [Azure DocumentDB Studio](https:
 
 Les langages .NET et le runtime utilisent le magasin de certificats Windows pour se connecter en toute sécurité à l’émulateur local Azure Cosmos DB. D’autres langages ont leur propre méthode de gestion et de l’utilisation des certificats. Java utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), tandis que Python utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html).
 
-Pour obtenir un certificat à utiliser avec les langages et les runtimes qui ne s’intègrent pas au magasin de certificats Windows, vous devrez l'exporter à l’aide du Gestionnaire de certificats Windows. Vous pouvez le démarrer en exécutant le fichier certlm.msc ou suivre les instructions étape par étape de la publication [Exporter les certificats de l’émulateur Azure Cosmos DB](./local-emulator-export-ssl-certificates.md). Une fois le certificat en cours d’exécution, ouvrez les certificats personnels comme indiqué ci-dessous et exportez le certificat avec le nom convivial "DocumentDBEmulatorCertificate" en tant que fichier X.509 (.cer) codé en Base 64.
+Pour obtenir un certificat à utiliser avec les langages et les runtimes qui ne s’intègrent pas au magasin de certificats Windows, vous devrez l’exporter à l’aide du Gestionnaire de certificats Windows. Vous pouvez le démarrer en exécutant le fichier certlm.msc ou suivre les instructions étape par étape de la publication [Exporter les certificats de l’émulateur Azure Cosmos DB](./local-emulator-export-ssl-certificates.md). Une fois le certificat en cours d’exécution, ouvrez les certificats personnels comme indiqué ci-dessous et exportez le certificat avec le nom convivial "DocumentDBEmulatorCertificate" en tant que fichier X.509 (.cer) codé en Base 64.
 
 ![Certificat SSL de l’émulateur local Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
@@ -305,7 +303,7 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
 
 ## <a id="set-partitioncount"></a>Modification du nombre de collections
 
-À l’aide de l’émulateur Azure Cosmos DB, vous pouvez, par défaut, créer jusqu’à 25 collections à partition unique ou 1 collection partitionnée. En modifiant la valeur **PartitionCount**, vous pouvez créer jusqu'à 250 collections à partition unique ou 10 collections partitionnées, ou n’importe quelle combinaison des deux qui ne dépasse pas 250 partitions uniques (où 1 collection partitionnée = 25 collections à partition unique).
+À l’aide de l’émulateur Azure Cosmos DB, vous pouvez, par défaut, créer jusqu’à 25 collections à partition unique ou 1 collection partitionnée. En modifiant la valeur **PartitionCount**, vous pouvez créer jusqu’à 250 collections à partition unique ou 10 collections partitionnées, ou n’importe quelle combinaison des deux qui ne dépasse pas 250 partitions uniques (où 25 collection partitionnée = 25 collections à partition unique).
 
 Si vous tentez de créer une collection après le dépassement du nombre de partitions actuel, l’émulateur lève une exception ServiceUnavailable comportant le message suivant.
 

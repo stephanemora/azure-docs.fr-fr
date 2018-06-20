@@ -8,18 +8,18 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305308"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247878"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publier une application managée pour une utilisation interne
 
-Vous pouvez créer et publier des[applications managées](overview.md) Azure pour les besoins des membres de votre organisation. Par exemple, un service informatique peut publier des applications managées destinées à contrôler la conformité par rapport aux normes de l’organisation. Ces applications managées sont disponibles dans le catalogue de services, et non dans la Place de marché Azure.
+Vous pouvez créer et publier des[applications managées](overview.md) Azure pour les besoins des membres de votre organisation. Par exemple, un service informatique peut publier des applications managées conformes aux normes de l’organisation. Ces applications managées sont disponibles dans le catalogue de services, et non dans la Place de marché Azure.
 
 Pour publier une application managée pour le catalogue de services, vous devez :
 
@@ -31,9 +31,11 @@ Pour publier une application managée pour le catalogue de services, vous devez�
 
 Pour cet article, votre application managée contient uniquement un compte de stockage. Il a pour but d’illustrer les étapes de la publication d’une application managée. Pour obtenir des exemples complets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).
 
+Les exemples de PowerShell de cet article nécessitent la version 6.2 ou ultérieure d’Azure PowerShell. Si nécessaire, [mettez votre version à jour](/powershell/azure/install-azurerm-ps).
+
 ## <a name="create-the-resource-template"></a>Créer le modèle de ressource
 
-Chaque définition d’application managée contient un fichier nommé **mainTemplate.json**. Vous y définissez les ressources Azure à provisionner. Le modèle n’est en rien différent d’un modèle Resource Manager normal.
+Chaque définition d’application managée contient un fichier nommé **mainTemplate.json**. Vous y définissez les ressources Azure à déployer. Le modèle n’est en rien différent d’un modèle Resource Manager normal.
 
 Créez un fichier nommé **mainTemplate.json**. Le nom respecte la casse.
 
@@ -187,7 +189,7 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 
 ### <a name="create-the-managed-application-definition"></a>Créer la définition d’application gérée
 
-Si vous ne disposez pas déjà d’un groupe de ressources pour stocker la définition de votre application managée, créez-en un maintenant :
+Si vous ne disposez pas déjà d’un groupe de ressources pour stocker la définition de votre application managée, créez-en un maintenant :
 
 ```powershell
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
@@ -208,6 +210,10 @@ New-AzureRmManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+### <a name="make-sure-users-can-see-your-definition"></a>Assurez-vous que les utilisateurs peuvent voir votre définition.
+
+Vous avez accès à la définition de l’application managée, mais vous souhaitez vous assurer que d’autres utilisateurs de votre organisation peuvent y accéder. Accordez-leur au moins le rôle Lecteur dans la définition. Ils ont peut-être hérité de ce niveau d’accès suite à l’abonnement ou au groupe de ressources. Pour savoir qui a accès à la définition et ajouter des utilisateurs ou des groupes, consultez [Utiliser le contrôle d’accès basé sur le rôle pour gérer l’accès aux ressources de votre abonnement Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-the-managed-application"></a>Créer l’application managée
 
@@ -256,6 +262,16 @@ Maintenant, nous allons utiliser le portail pour déployer l’application manag
 1. Recherchez l’application managée que vous voulez créer dans la liste des solutions disponibles, puis sélectionnez-la. Sélectionnez **Créer**.
 
    ![Rechercher l’application managée](./media/publish-service-catalog-app/find-application.png)
+
+   Si vous ne voyez pas la définition de l’application managée dans le portail, vous aurez peut-être besoin de modifier les paramètres de votre portail. Sélectionnez **Filtre de répertoire et d’abonnement**.
+
+   ![Sélectionner le filtre d’abonnement](./media/publish-service-catalog-app/select-filter.png)
+
+   Vérifiez que le filtre d’abonnement global inclut l’abonnement qui contient la définition de l’application managée.
+
+   ![Vérifier le filtre d’abonnement](./media/publish-service-catalog-app/check-global-filter.png)
+
+   Après avoir sélectionné l’abonnement, recréez l’application managée du catalogue de services. Vous devriez maintenant la voir.
 
 1. Fournissez les informations de base nécessaires pour l’application managée. Spécifiez l’abonnement et un nouveau groupe de ressources devant contenir l’application managée. Sélectionnez **Ouest-Centre des États-Unis** comme emplacement. Lorsque vous avez terminé, sélectionnez **OK**.
 

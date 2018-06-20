@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701036"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Démarrage rapide : Diffuser en continu des fichiers vidéo - .NET
 
 > [!NOTE]
 > La version la plus récente d’Azure Media Services est disponible en préversion et peut être appelée v3. Pour commencer à utiliser des API v3, vous devez créer un nouveau compte Media Services, comme décrit dans ce démarrage rapide. 
 
-Ce démarrage rapide vous montre combien il est facile de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. 
+Ce démarrage rapide vous montre combien il est facile de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. 
 
 À la fin du démarrage rapide, vous serez en mesure de diffuser en continu une vidéo.  
 
@@ -33,7 +34,6 @@ Ce démarrage rapide vous montre combien il est facile de lancer la diffusion en
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -44,6 +44,18 @@ Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en con
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+L’exemple se trouve dans le dossier [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+
+L’exemple effectue les actions suivantes :
+
+1. Crée une transformation (vérifie d’abord si la transformation spécifiée existe). 
+2. Crée une ressource de sortie qui est utilisée en tant que sortie du travail d’encodage.
+3. Crée l’entrée du travail qui est basée sur une URL HTTPS.
+4. Soumet le travail d’encodage à l’aide de l’entrée et de la sortie qui ont été créées précédemment.
+5. Vérifie l’état du travail.
+6. Crée un StreamingLocator.
+7. Crée des URL de diffusion en continu.
 
 Pour obtenir des explications sur chaque fonction dans l’exemple, examinez le code et lisez les commentaires dans [ce fichier source](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 

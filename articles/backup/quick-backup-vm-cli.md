@@ -1,26 +1,22 @@
 ---
-title: "Démarrage rapide d’Azure : sauvegarder une machine virtuelle avec Azure CLI | Microsoft Docs"
-description: "Découvrez comment sauvegarder vos machines virtuelles avec Azure CLI"
+title: 'Démarrage rapide d’Azure : Sauvegarder une machine virtuelle avec Azure CLI'
+description: Découvrez comment sauvegarder vos machines virtuelles avec Azure CLI
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: storage-backup-recovery
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3696f57c0520cd8cb3d9fbf22a708c2323d666fc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607172"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Sauvegarder une machine virtuelle dans Azure avec l’interface de ligne de commande
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) dans Azure avec Azure CLI. Vous pouvez également effectuer ces étapes avec [Azure PowerShell](quick-backup-vm-powershell.md) ou dans le [portail Azure](quick-backup-vm-portal.md).
@@ -61,6 +57,16 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
+> [!NOTE]
+Si la machine virtuelle n’est pas dans le même groupe de ressources que celui du coffre, alors myResourceGroup fait référence au groupe de ressources dans lequel le coffre a été créé. Au lieu du nom de la machine virtuelle, indiquez l’ID de la machine virtuelle comme indiqué ci-dessous.
+
+```azurecli-interactive 
+az backup protection enable-for-vm \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --policy-name DefaultPolicy
+```
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
 Pour démarrer une sauvegarde maintenant sans attendre que la stratégie par défaut exécute le travail à l’heure planifiée, utilisez [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now). Ce premier travail de sauvegarde crée un point de récupération complet. Chaque travail de sauvegarde après cette sauvegarde initiale crée des points de récupération incrémentielle. Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.

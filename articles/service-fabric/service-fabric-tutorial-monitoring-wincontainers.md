@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248239"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Didacticiel : surveiller des conteneurs Windows sur Service Fabric à l’aide de Log Analytics
 
@@ -33,7 +34,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * configurer l’Agent OMS pour collecter des mesures sur les conteneurs et les nœuds.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez :
 - disposer d’un cluster sur Azure, ou en [créer un avec ce didacticiel](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ;
 - [y déployer une application en conteneur](service-fabric-host-app-in-a-container.md).
@@ -213,18 +213,14 @@ Si vous cliquez sur l’un de ces panneaux, vous accéderez à la requête Log A
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurer l’Agent OMS de façon à collecter des compteurs de performances
 
-Autre avantage de l’Agent OMS, vous pouvez modifier les compteurs de performances que vous souhaitez collecter par le biais de l’expérience utilisateur OMS, sans avoir à configurer l’agent de diagnostics Azure ni à effectuer une mise à niveau par le modèle Resource Manager à chaque fois. Pour cela, cliquez sur le **Portail OMS** sur la page de destination de votre solution de monitorage des conteneurs (ou Service Fabric).
+Autre avantage de l’Agent OMS, vous pouvez modifier les compteurs de performances que vous souhaitez collecter par le biais de l’expérience utilisateur OMS, sans avoir à configurer l’agent de diagnostics Azure ni à effectuer une mise à niveau par le modèle Resource Manager à chaque fois. Pour cela, cliquez sur **l’espace de travail OMS** sur la page de destination de votre solution de monitorage des conteneurs (ou Service Fabric).
 
-![Portail OMS](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-Vous accéderez ainsi à votre espace de travail sur le portail OMS, où vous pourrez consulter vos solutions, créer des tableaux de bord personnalisés et configurer l’Agent OMS. 
-* Cliquez sur la **roue dentée** dans l’angle supérieur droit de votre écran pour ouvrir le menu *Paramètres*.
+Vous accéderez ainsi à votre espace de travailOMS, où vous pourrez consulter vos solutions, créer des tableaux de bord personnalisés et configurer l’Agent OMS. 
+* Cliquez sur **Paramètres avancés** pour ouvrir le menu Paramètres avancés.
 * Cliquez sur **Sources connectées** > **Serveurs Windows** pour vérifier que vous avez *cinq ordinateurs Windows connectés*.
-* Cliquez sur **Données** > **Compteurs de performances Windows** pour rechercher et ajouter de nouveaux compteurs de performances. Vous verrez une liste de recommandations, fournie par Log Analytics, de compteurs de performances que vous pouvez recueillir ; vous aurez également la possibilité de rechercher d’autres compteurs. Cliquez sur **Ajouter les compteurs de performances sélectionnés** pour commencer à collecter les mesures suggérées.
+* Cliquez sur **Données** > **Compteurs de performances Windows** pour rechercher et ajouter de nouveaux compteurs de performances. Vous verrez une liste de recommandations, fournie par Log Analytics, de compteurs de performances que vous pouvez recueillir. Vous avez également la possibilité de rechercher d’autres compteurs. Vérifiez que les compteurs **Processor(_Total)\% Processor Time** et **Memory(*)\Available MBytes** sont collectés.
 
-    ![Perf counters](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-Revenez sur le Portail Azure et **actualisez** votre solution de monitorage des conteneurs après quelques minutes : vous devriez commencer à voir arriver des données *Performances de l’ordinateur*. Cela vous aidera à comprendre l’utilisation des ressources. Vous pouvez également utiliser ces mesures pour prendre les décisions adaptées quant à la mise à l’échelle de votre cluster, ou pour vérifier qu’un cluster équilibre votre charge comme prévu.
+**Actualisez** votre solution de monitorage des conteneurs après quelques minutes : vous devriez commencer à voir arriver des données *Performances de l’ordinateur*. Cela vous aidera à comprendre l’utilisation des ressources. Vous pouvez également utiliser ces mesures pour prendre les décisions adaptées quant à la mise à l’échelle de votre cluster, ou pour vérifier qu’un cluster équilibre votre charge comme prévu.
 
 *Remarque : Vérifiez que vos filtres temporels sont définis de façon à vous permettre d’utiliser ces mesures.* 
 

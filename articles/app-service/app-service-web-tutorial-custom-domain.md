@@ -1,4 +1,4 @@
-﻿---
+---
 title: Mapper un nom DNS personnalisé existant à des applications web Azure | Microsoft Docs
 description: Découvrez comment ajouter un nom de domaine DNS (domaine personnel) à une application web, au serveur principal d’une application mobile ou à une application API dans Azure App Service.
 keywords: app service, azure app service, mappage de domaine, nom de domaine, domaine existant, nom d'hôte
@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714513"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutoriel : Mapper un nom DNS personnalisé existant à des applications web Azure
 
@@ -44,7 +45,6 @@ Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pou
 Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel :
 
@@ -82,19 +82,19 @@ Dans la navigation gauche de la page de l’application, faites défiler jusqu�
 
 ![Menu Monter en puissance](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **Gratuit**. Les DNS personnalisés ne sont pas disponibles dans le niveau **Gratuit**. 
+Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **F1**. Les DNS personnalisés ne sont pas disponibles dans le niveau **F1**. 
 
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Si le plan App Service n’est pas **Gratuit** , fermez la page **Choisir votre niveau de tarification** et passez à [Mapper un enregistrement CNAME](#cname).
+Si le plan App Service n’est pas **F1** , fermez la page **Monter en puissance** et passez à [Mapper un enregistrement CNAME](#cname).
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
 
-Sélectionnez l’un des niveaux payants (**Partagé**, **De base**, **Standard** ou **Premium**). 
+Sélectionnez un des niveaux qui n’est pas gratuit (**D1**, **B1**, **B2**, **B3**, ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, cliquez sur **Afficher des options supplémentaires**.
 
-Cliquez sur **Sélectionner**.
+Cliquez sur **Appliquer**.
 
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -312,7 +312,7 @@ az webapp config hostname add \
 
 Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application web](scripts/app-service-cli-configure-custom-domain.md). 
 
-### <a name="azure-powershell"></a>Azure PowerShell 
+### <a name="azure-powershell"></a>Azure PowerShell 
 
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service. 
 

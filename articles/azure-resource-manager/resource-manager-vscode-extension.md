@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358657"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603761"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Utiliser l’extension de Code Visual Studio pour créer un modèle Azure Resource Manager
 Cet article vous indique les avantages liés à l’installation et à l’utilisation de l’extension des outils Azure Resource Manager dans Visual Studio Code. Vous pouvez créer des modèles Resource Manager dans VS Code sans l’extension, mais cette dernière fournit des options de saisie semi-automatique qui simplifient le développement de modèles. Des fonctions de modèle, des paramètres et des variables sont disponibles dans le modèle.
@@ -171,7 +171,18 @@ Cet article s’appuie sur le modèle que vous avez créé dans la section [Cré
 
    ![Afficher des variables](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Sélectionnez la variable **storageName**. Ajoutez le crochet fermant. L’exemple suivant illustre la section de sortie :
+10. Sélectionnez la variable **storageName**. Vous devez obtenir un code similaire à ce qui suit :
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. Le code précédent ne fonctionnera pas car `reference` renvoie un objet, mais votre valeur de sortie a la valeur *chaîne*. Vous devez spécifier une des valeurs de cet objet. La fonction de référence peut être utilisée avec n’importe quel type de ressource, c’est pourquoi VS Code ne suggère pas de propriétés pour l’objet. Au lieu de cela, vous pouvez voir que l’une des valeurs [renvoyées pour un compte de stockage](/rest/api/storagerp/storageaccounts/getproperties) est `.primaryEndpoints.blob`. 
+
+   Ajoutez cette propriété après la dernière parenthèse. Ajoutez le crochet fermant. L’exemple suivant illustre la section de sortie :
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Cet article s’appuie sur le modèle que vous avez créé dans la section [Cré
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ Le modèle final est :
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }

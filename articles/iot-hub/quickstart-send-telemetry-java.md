@@ -1,23 +1,21 @@
 ---
 title: Démarrage rapide pour envoyer des données de télémétrie à Azure IoT Hub (Java) | Microsoft Docs
 description: Dans ce démarrage rapide, vous exécutez deux exemples d’applications Java pour envoyer des données de télémétrie simulées à un IoT Hub et lire les données de télémétrie provenant de l’IoT Hub à traiter dans le cloud.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 36005988611e7ec3f16146919e3ab3f04755e7e5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fd610af3d1b29b78ef89b8f523ef880696031bf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637648"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub et lire les données de télémétrie depuis le concentrateur avec une application back-end (Java)
 
@@ -32,7 +30,6 @@ Ce démarrage rapide utilise deux applications Java prédéfinies, une pour envo
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Java. Votre machine de développement doit disposer de Java SE 8 ou version ultérieure.
 
@@ -95,7 +92,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub et envoie les données de télémétrie simulée (température et humidité).
 
-1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Ensuite, accédez au dossier **Quickstarts\simulated-device**.
+1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device**.
 
 1. Ouvrez le fichier **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** dans l’éditeur de texte de votre choix.
 
@@ -121,7 +118,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 L’application back-end se connecte au point de terminaison **Événements** du service sur votre IoT Hub. L’application reçoit les messages appareil-à-cloud envoyés à partir de votre appareil simulé. Une application back-end IoT Hub s’exécute généralement dans le cloud pour recevoir et traiter les messages appareil-à-cloud.
 
-1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Puis, accédez au dossier **Quickstarts\read-d2c-messages**.
+1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Java. Puis, accédez au dossier **iot-hub\Quickstarts\read-d2c-messages**.
 
 1. Ouvrez le fichier **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** dans l’éditeur de texte de votre choix.
 

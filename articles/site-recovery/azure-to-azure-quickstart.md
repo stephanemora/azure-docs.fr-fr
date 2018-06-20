@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d52691dbec932a3515c90e757863be01ade086cc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208836"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715953"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Répliquer une machine virtuelle Azure vers une autre région Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
-Ce démarrage rapide explique comment répliquer une machine virtuelle Azure vers une autre région. La réplication Azure vers Azure est actuellement disponible en préversion.
+Ce démarrage rapide explique comment répliquer une machine virtuelle Azure vers une autre région. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -47,7 +47,7 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 Une fois le travail de réplication terminé, vous pouvez vérifier l’état de la réplication, modifier les paramètres de réplication et tester le déploiement.
 
-1. Dans le menu Machine virtuelle, cliquez sur **Récupération d’urgence (préversion)**.
+1. Dans le menu Machine virtuelle, cliquez sur **Récupération d’urgence**.
 2. Vous pouvez vérifier l’intégrité de la réplication, les points de récupération qui ont été créés et les régions source et cible sur la carte.
 
    ![État de la réplication](media/azure-to-azure-quickstart/replication-status.png)

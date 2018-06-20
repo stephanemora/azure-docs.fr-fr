@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261319"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Créer une fonction sur Linux en utilisant une image personnalisée (préversion)
 
@@ -39,12 +40,11 @@ Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Li
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Git](https://git-scm.com/downloads)
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) actif
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Un [compte Docker Hub](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -227,7 +227,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Déployer une application de fonction à partir de Docker Hub
 > * Ajouter des paramètres d’application à l’application de fonction
 
-Découvrez plus en détail le développement local d’Azure Functions avec les principaux outils d’Azure Functions.
+Découvrez comment activer la fonctionnalité d’intégration continue intégrée au cœur de la plateforme App Service. Vous pouvez configurer votre application de fonction de telle sorte que le conteneur soit redéployé lorsque vous mettez à jour votre image dans Hub Docker.
 
 > [!div class="nextstepaction"] 
-> [Coder et tester Azure Functions localement](functions-run-local.md)
+> [Déploiement continu avec Web App pour conteneurs](../app-service/containers/app-service-linux-ci-cd.md)

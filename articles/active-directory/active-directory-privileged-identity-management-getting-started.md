@@ -3,25 +3,26 @@ title: Prise en main d’Azure AD Privileged Identity Management | Microsoft Doc
 description: Découvrez comment gérer des identités privilégiées avec l’application Azure Active Directory Privileged Identity Management dans le portail Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.component: protection
 ms.topic: get-started-article
 ms.workload: identity
 ms.date: 09/17/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7137d7ba53c055c869bd967a04085d0c65aec683
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 882f76b8f6529e2a6e72a5bbc1b24842150e1af0
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233235"
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Commencer à utiliser Azure AD Privileged Identity Management
 
-Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cette étendue inclut l’accès aux ressources Azure, à Azure AD et à d’autres services en ligne Microsoft comme Office 365 ou Microsoft Intune.
+Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cette étendue inclut l’accès aux ressources Azure, à Azure AD et à d’autres services en ligne Microsoft comme Office 365 ou Microsoft Intune.
 
 Cet article vous indique comment ajouter l'application Azure AD PIM à votre tableau de bord du portail Azure.
 
@@ -44,7 +45,7 @@ Une fois Azure AD Privileged Identity Management configuré, le panneau de navig
 
 - **Mes rôles** affiche la liste des rôles éligibles et actifs qui vous sont attribués. C’est là où vous pouvez activer tout rôle éligible attribué.
 - **Approuver les demandes (préversion)** affiche la liste des demandes d’activation des rôles d’annuaire Azure AD éligibles par utilisateur dans votre annuaire. Vous avez été désigné pour approuver ces demandes. [En savoir plus.](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
-- **Demandes en attente	 (préversion)** affiche les demandes d’activation en attente des attributions de rôles éligibles.
+- **Requêtes en attente (version préliminaire)** affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles.
 - **Revoir l’accès** répertorie les révisions d’accès actives (pour vous-même ou quelqu’un d’autre) qui vous ont été attribuées.
 - **Rôles d’annuaire Azure AD**, situé sous la section Gérer du menu de navigation gauche, affiche le tableau de bord utilisé par les administrateurs de rôle privilégié pour gérer les attributions de rôle, changer les paramètres d’activation de rôle, démarrer des révisions d’accès, etc. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire).
 - Les **rôles de ressources Azure (préversion)** situés sous la section Gérer du menu de navigation gauche affichent la liste de ressources d’abonnement pour lesquelles vous avez des attributions de rôles. 

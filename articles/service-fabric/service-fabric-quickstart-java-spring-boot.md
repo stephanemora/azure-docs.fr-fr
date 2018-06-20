@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 860d28cb6726a86194460977b822197a37ab7279
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365403"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642867"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Démarrage rapide : déployer une application Spring Boot Java sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
 
-Ce guide de démarrage rapide vous indique comment déployer une application Spring Boot sur Service Fabric à l’aide d’un ordinateur de développement Mac ou Linux. Il utilise l’exemple [Getting Started](https://spring.io/guides/gs/spring-boot/) disponible sur le site web de Spring. Il explique comment déployer l’exemple Spring Boot en tant qu’application Service Fabric à l’aide d’outils en ligne de commande familiers. Une fois que vous aurez terminé, l’exemple Getting Started de Spring Boot sera opérationnel sur Service Fabric. 
+À l’aide d’outils de ligne de commande familiers, ce démarrage rapide vous guide à travers le déploiement d’une application Spring Boot fonctionnelle vers Service Fabric sur un ordinateur développeur Mac ou Linux via l’exemple de [mise en route](https://spring.io/guides/gs/spring-boot/) du site web Spring.
 
 ![Capture d’écran de l’application](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -38,7 +38,6 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 * Effectuer le basculement de votre service sans aucun impact sur la disponibilité
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour effectuer ce démarrage rapide :
 1. Installez le Kit de développement logiciel (SDK) Service Fabric et l’interface de ligne de commande (CLI) Service Fabric.
 
@@ -247,7 +246,7 @@ Pour mettre à l’échelle le service web frontal, procédez comme suit :
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
 4. Cliquez sur le nœud **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).

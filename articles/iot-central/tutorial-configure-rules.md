@@ -1,21 +1,22 @@
 ---
 title: Configurer des règles et des actions dans Azure IoT Central
 description: Ce didacticiel vous montre, en tant que générateur, comment configurer des règles et des actions basées sur la télémétrie dans votre application Azure IoT Central.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202235"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236329"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 - Configurer des règles et des actions pour votre appareil dans Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Didacticiel : Configurer des règles et des actions pour votre appareil dans Azure IoT Central
 
 Ce didacticiel vous montre, en tant que générateur, comment configurer des règles et des actions basées sur la télémétrie dans votre application Microsoft Azure IoT Central.
 
@@ -29,7 +30,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md) pour créer le modèle d’appareil **Climatiseur raccordé** à utiliser.
 
 ## <a name="create-a-telemetry-based-rule"></a>Créer une règle basée sur la télémétrie
@@ -40,17 +40,17 @@ Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d
 
     Vous voyez le modèle d’appareil **Climatiseur raccordé (1.0.0)** et l’appareil **Climatiseur raccordé-1** que vous avez créé dans le didacticiel précédent.
 
-1. Pour commencer à personnaliser votre climatiseur raccordé, choisissez l’appareil que vous avez créé dans le didacticiel précédent :
+2. Pour commencer à personnaliser votre climatiseur raccordé, choisissez l’appareil que vous avez créé dans le didacticiel précédent :
 
     ![Page du climatiseur raccordé](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. Pour commencer à ajouter une règle dans la vue **Règles**, choisissez **Règles** :
+3. Pour commencer à ajouter une règle dans la vue **Règles**, choisissez **Règles** :
 
     ![Vue Règles](media/tutorial-configure-rules/builderrulesview.png)
 
-1. Dans ce didacticiel, vous ajoutez une règle de télémétrie basée sur un seuil. Pour commencer à créer une règle basée sur un seuil, choisissez **Nouvelle règle**, puis **Télémétrie**.
+4. Pour commencer à créer une règle de télémétrie basée sur un seuil, choisissez **Nouvelle règle**, puis **Télémétrie**.
 
-1. Pour définir votre règle, utilisez les informations du tableau suivant :
+5. Pour définir votre règle, utilisez les informations du tableau suivant :
 
     | Paramètre     | Valeur                          |
     | ----------- | ------------------------------ |
@@ -68,7 +68,7 @@ Lorsque vous définissez une règle, vous définissez également une action à e
 
     ![Action de règle de température](media/tutorial-configure-rules/builderaddaction.png)
 
-1. Pour définir votre action, utilisez les informations du tableau suivant :
+2. Pour définir votre action, utilisez les informations du tableau suivant :
 
     | Paramètre   | Valeur                          |
     | --------- | ------------------------------ |
@@ -80,7 +80,7 @@ Lorsque vous définissez une règle, vous définissez également une action à e
 
     ![Action de température du Générateur d’applications](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. Choisissez **Enregistrer**. Votre règle est répertoriée dans la page **Règles** :
+3. Choisissez **Enregistrer**. Votre règle est répertoriée dans la page **Règles** :
 
     ![Règles du Générateur d’applications](media/tutorial-configure-rules/builderrules.png)
 

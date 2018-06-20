@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 39708248160b029185b64ed927a453562e1003f2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604367"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle à la disposition des utilisateurs dans Azure Stack
 
@@ -108,7 +109,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
     Par exemple : `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
     Vous pouvez spécifier un URI de stockage d’objets blob comme `osDisk`.  
 
-    Pour plus d’informations sur l’applet de commande Add-AzsPlatformimage, consultez la [documentation de l’opérateur sur les modules Azure Stack PowerShell](https://docs.microsoft.com/powershell/module/) de Microsoft.
+    Pour plus d’informations, consultez la référence sur PowerShell pour les cmdlet [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) et [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject).
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Ajouter une image de machine virtuelle personnalisée à la Place de marché à l’aide de PowerShell
 

@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850608"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Créer une option Azure SQL Database Managed Instance dans le portail Azure
 
@@ -161,16 +162,16 @@ Les étapes suivantes vous montrent comment créer votre option Managed Instance
 
    ![créer l’option managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Sélectionnez votre abonnement et vérifiez que les conditions d’utilisation de la préversion sont définies sur l’état **Accepté**.
+4. Sélectionnez votre abonnement et vérifiez que les conditions d’utilisation de la préversion sont définies sur l’état **Accepté**.
 
    ![conditions d’utilisation de la préversion de l’option managed instance acceptées](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Remplissez le formulaire de l’option Managed Instance avec les informations demandées, en utilisant les données du tableau suivant :
+5. Remplissez le formulaire de l’option Managed Instance avec les informations demandées, en utilisant les données du tableau suivant :
 
    | Paramètre| Valeur suggérée | Description |
    | ------ | --------------- | ----------- |
    |**Nom de l’instance managée**|Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Connexion administrateur de l’instance managée**|Nom d’utilisateur non valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Connexion administrateur de l’instance managée**|Nom d’utilisateur non valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.| 
    |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Groupe de ressources**|Le groupe de ressources que vous avez créé précédemment||
    |**Lieu**|L’emplacement que vous avez précédemment sélectionné|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
@@ -178,17 +179,17 @@ Les étapes suivantes vous montrent comment créer votre option Managed Instance
 
    ![formulaire de création de l’option managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Cliquez sur **Niveau de tarification** pour dimensionner les ressources de calcul et de stockage, ainsi que pour examiner les options de niveau tarifaire. Par défaut, votre instance bénéficie de 32 Go d’espace de stockage gratuitement, ce qui peut être insuffisant pour vos applications.
-6. Utilisez les curseurs ou zones de texte pour spécifier la quantité de stockage et le nombre de v-cores. 
-   ![formulaire de création de l’option managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Cliquez sur **Niveau de tarification** pour dimensionner les ressources de calcul et de stockage, ainsi que pour examiner les options de niveau tarifaire. Par défaut, votre instance bénéficie de 32 Go d’espace de stockage gratuitement, ce qui peut être insuffisant pour vos applications.
+7. Utilisez les curseurs ou zones de texte pour spécifier la quantité de stockage et le nombre de v-cores. 
+   ![niveau tarifaire d’instance gérée](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Lorsque vous avez terminé, cliquez sur **Appliquer** pour enregistrer votre sélection.  
-8. Cliquez sur **Créer** pour déployer l’option Managed Instance.
-9. Cliquez sur l’icône **Notifications** pour afficher l’état du déploiement.
+8. Lorsque vous avez terminé, cliquez sur **Appliquer** pour enregistrer votre sélection.  
+9. Cliquez sur **Créer** pour déployer l’option Managed Instance.
+10. Cliquez sur l’icône **Notifications** pour afficher l’état du déploiement.
  
    ![progression du déploiement](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Cliquez sur **Déploiement en cours** pour ouvrir la fenêtre de l’option Managed Instance et surveiller de façon précise la progression du déploiement.
+11. Cliquez sur **Déploiement en cours** pour ouvrir la fenêtre de l’option Managed Instance et surveiller de façon précise la progression du déploiement.
  
    ![progression du déploiement 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ Les étapes suivantes vous montrent comment créer une machine virtuelle dans le
 
    ![formulaire de création de machine virtuelle](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Cliquez sur **OK**.
-4. Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Pour ce didacticiel, vous avez uniquement besoin d’une petite machine virtuelle.
+4. Cliquez sur **OK**.
+5. Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Pour ce didacticiel, vous avez uniquement besoin d’une petite machine virtuelle.
 
     ![Tailles de machine virtuelle](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Cliquez sur **Sélectionner**.
-6. Sur le formulaire **Paramètres**, cliquez sur **Sous-réseau**, puis sélectionnez **vm_subnet**. Ne choisissez pas le sous-réseau dans lequel l’option Managed Instance est approvisionnée, mais plutôt un autre sous-réseau dans le même réseau virtuel.
+6. Cliquez sur **Sélectionner**.
+7. Sur le formulaire **Paramètres**, cliquez sur **Sous-réseau**, puis sélectionnez **vm_subnet**. Ne choisissez pas le sous-réseau dans lequel l’option Managed Instance est approvisionnée, mais plutôt un autre sous-réseau dans le même réseau virtuel.
 
     ![Paramètres de machine virtuelle](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Cliquez sur **OK**.
-8. Sur la page de résumé, passez en revue les détails de l’offre, puis cliquez sur **Créer** pour démarrer le déploiement de la machine virtuelle.
+8. Cliquez sur **OK**.
+9. Sur la page de résumé, passez en revue les détails de l’offre, puis cliquez sur **Créer** pour démarrer le déploiement de la machine virtuelle.
  
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 

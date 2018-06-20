@@ -5,15 +5,18 @@ services: cosmos-db
 author: Durgaprasad-Budhwani
 manager: kfile
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02d85546a50b197639929158dc97b3d9bf7ff90
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795769"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure
 
@@ -24,7 +27,6 @@ Ce guide de démarrage rapide explique comment utiliser une application MongoDB 
 En d’autres termes, votre application Golang sait uniquement qu’elle se connecte à une base de données qui utilise des API MongoDB. L’application sait que les données sont stockées dans Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer. 
 
@@ -124,7 +126,7 @@ session.SetSafe(&mgo.Safe{})
 
 La méthode **mgo. Dial()** est utilisée lorsqu’il n’existe aucune connexion SSL. Pour établir une connexion SSL, la méthode **mgo. DialWithInfo()** est requise.
 
-Une instance de l’objet **{} de DialWithInfo** est utilisée pour créer l’objet de session. Une fois la session établie, vous pouvez accéder à la collection à l’aide de l’extrait de code suivant :
+Une instance de l’objet **DialWIthInfo{}** est utilisée pour créer l’objet de session. Une fois la session établie, vous pouvez accéder à la collection à l’aide de l’extrait de code suivant :
 
 ```go
 collection := session.DB(“database”).C(“package”)

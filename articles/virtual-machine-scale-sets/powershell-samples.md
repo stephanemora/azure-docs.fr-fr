@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651945"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemples Azure PowerShell Azure pour les groupes de machines virtuelles identiques
 
@@ -29,7 +30,8 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | | |
 |---|---|
 |**Créer et gérer un groupe identique**||
-| [Créer un groupe de machines virtuelles identiques](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques avec une configuration minimale. |
+| [Créer un groupe de machines virtuelles identiques simple](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques avec une configuration minimale. |
+| [Créer un groupe de machines virtuelles identiques complet](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un groupe de machines virtuelles identiques ainsi que les ressources associées avec un fichier de configuration. |
 | [Créer un groupe identique à partir d’une image de machine virtuelle personnalisée](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée un groupe de machines virtuelles identiques qui utilise une image de machine virtuelle personnalisée. |
 | [Installer des applications sur un groupe identique](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Utilisez l’extension de script personnalisé Azure pour installer une application web de base dans un groupe identique. |
 |**Gérer le stockage**||

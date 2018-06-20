@@ -1,29 +1,26 @@
 ---
-title: Automatiser des tâches et des processus avec Visual Studio et Azure Logic Apps | Microsoft Docs
-description: Ce démarrage rapide montre comment créer des workflows qui automatisent des tâches et des processus avec Azure Logic Apps dans Visual Studio
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Créer des applications logiques qui automatisent les flux de travail avec Visual Studio - Azure Logic Apps | Microsoft Docs
+description: Démarrage rapide pour montrer comment automatiser des tâches, des processus et des flux de travail avec Azure Logic Apps dans Visual Studio
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300750"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : Automatiser des tâches et des processus avec Azure Logic Apps - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : créer et automatiser des tâches, des processus et des flux de travail avec Azure Logic Apps - Visual Studio
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md), vous pouvez créer des workflows qui automatisent les tâches et les processus d’intégration des applications, des données, des systèmes et des services dans les entreprises et organisations. Ce démarrage rapide montre comment vous pouvez concevoir et générer ces workflows en créant des applications logiques dans Visual Studio et en déployant ces applications sur <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> dans le cloud. Et bien que vous puissiez effectuer ces tâches dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, Visual Studio vous permet d’ajouter des applications logiques pour le contrôle de code source, la publication de différentes versions et la création de modèles Azure Resource Manager pour divers environnements de déploiement. 
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et Visual Studio, vous pouvez créer des workflows pour automatiser des tâches et des processus qui intègrent des applications, des données, des systèmes et des services dans les entreprises et organisations. Ce démarrage rapide montre comment vous pouvez concevoir et générer ces workflows en créant des applications logiques dans Visual Studio et en déployant ces applications sur <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> dans le cloud. Et bien que vous puissiez effectuer ces tâches dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, Visual Studio vous permet d’ajouter des applications logiques pour le contrôle de code source, la publication de différentes versions et la création de modèles Azure Resource Manager pour divers environnements de déploiement. 
 
 Si vous êtes débutant avec Azure Logic Apps et si vous souhaitez seulement connaître les concepts de base, essayez plutôt le [démarrage rapide pour créer une application logique dans le portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md). Le Concepteur d’application logique dans le portail Azure et dans Visual Studio fonctionne de façon similaire. 
 
@@ -37,14 +34,14 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
 * Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
-* Téléchargez et installez ces outils, si vous ne les avez pas déjà : 
+* Téléchargez et installez ces outils, si vous ne les avez pas déjà : 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 ou Visual Studio 2015 - édition Communauté ou supérieure</a>. 
-  Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
+  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 ou Visual Studio 2015 - édition Community ou supérieure</a>. 
+  Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Kit de développement logiciel (SDK) Azure (2.9.1 ou version ultérieure)</a> et <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK Azure (2.9.1 ou version ultérieure)</a> et <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Outils Azure Logic Apps pour Visual Studio 2017</a> ou <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015</a>
+  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Outils Azure Logic Apps pour Visual Studio 2017</a> ou <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015</a>
   
     Vous pouvez télécharger et installer les outils Azure Logic Apps directement à partir de Visual Studio Marketplace ou en apprendre davantage sur <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">l’installation de cette extension dans Visual Studio</a>. 
     Veillez à redémarrer Visual Studio après l’installation.
@@ -187,4 +184,5 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 Dans cet article, vous avez généré, déployé et exécuté votre application logique avec Visual Studio. Pour en savoir plus sur la gestion et l’exécution du déploiement avancé des applications logiques avec Visual Studio, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Gérer des applications logiques avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Gérer des applications logiques avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Création d’un modèle de déploiement d’applications logiques avec Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

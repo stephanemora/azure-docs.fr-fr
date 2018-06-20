@@ -11,22 +11,23 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657238"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Didacticiel : en savoir plus sur la gouvernance de machines virtuelles Linux avec Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutoriel : en savoir plus sur la gouvernance de machines virtuelles Windows avec Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure. Pour les installations locales, vous devez également [télécharger le module PowerShell Azure AD](https://www.powershellgallery.com/packages/AzureAD/) pour créer un nouveau groupe Azure Active Directory.
+Les exemples de cet article nécessitent la version 6.0 ou ultérieure d’Azure PowerShell. Si vous exécutez PowerShell localement et que vous n’avez pas la version 6.0 ou version ultérieure, [mettez à jour votre version](/powershell/azure/install-azurerm-ps). Vous devez également exécuter `Connect-AzureRmAccount` pour créer une connexion avec Azure. Pour les installations locales, vous devez également [télécharger le module PowerShell Azure AD](https://www.powershellgallery.com/packages/AzureAD/) pour créer un nouveau groupe Azure Active Directory.
 
 ## <a name="understand-scope"></a>Comprendre la portée
 
@@ -196,13 +197,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) :
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
 ```
 
 Vous pouvez utiliser les valeurs retournées pour des tâches de gestion telles que l’arrêt de toutes les machines virtuelles avec une valeur de balise.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>Afficher les coûts selon les valeurs de balise

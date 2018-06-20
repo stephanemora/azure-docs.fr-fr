@@ -9,11 +9,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: d33f220d0669c6e078e075fc0a93d8d58d491547
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d730c886d2b591a8c7957f2f91cb193d93bf4be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649990"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
 
@@ -45,11 +46,14 @@ SQL Database propose un [modèle d’achat DTU](sql-database-service-tiers-dtu.m
 - Le modèle d’achat DTU offre un mélange de ressources de calcul, de mémoire et d’E/S dans trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu’importantes : De base, Standard et Premium. Les niveaux de performance de chaque niveau fournissent une combinaison différente de ces ressources, à laquelle vous pouvez ajouter d’autres ressources de stockage.
 - Le modèle d’achat vCore (préversion) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage.
 
-Vous pouvez créer votre première application sur une seule petite base de données pour un coût mensuel modique et modifier le niveau de service manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+Vous pouvez créer votre première application sur une seule petite base de données pour un coût mensuel modique et modifier le niveau de service manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’extensibilité dynamique* permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et vous permet de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
    ![Mise à l’échelle DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 SQL Database Managed Instance est en préversion et un seul niveau de service est disponible. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md)
+
+  > [!IMPORTANT]
+  > \*L’extensibilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt. Une instance unique d’Azure SQL Database prend en charge l’extensibilité dynamique, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels. Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibilité pour une instance unique d’Azure SQL Database. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 
@@ -57,7 +61,9 @@ Pour de nombreuses entreprises et applications, la possibilité de créer des ba
 
    ![pools élastiques](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Les pools élastiques vous permettent de ne pas avoir à ajuster les performances de la base de données en fonction des besoins en ressources. Les bases de données regroupées consomment les ressources de performance du pool élastique en fonction des besoins. Les bases de données regroupées consomment mais ne dépassent pas les limites du pool. Vos coûts restent prévisibles, même si l’utilisation de la base de données individuelle ne l’est pas. Par ailleurs, vous pouvez [ajouter et supprimer des bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout dans les limites d’un budget que vous contrôlez. Vous pouvez également contrôler le nombre minimal et maximal de ressources disponibles pour les bases de données dans le pool. Cela vous permet de garantir qu’aucune base de données du pool n’utilise toutes les ressources du pool et que chaque base de données dispose d’un nombre minimal de ressources. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec SQL Database).
+Les pools élastiques vous permettent de ne pas avoir à ajuster les performances de la base de données en fonction des besoins en ressources. Les bases de données regroupées consomment les ressources de performance du pool élastique en fonction des besoins. Les bases de données regroupées consomment mais ne dépassent pas les limites du pool. Vos coûts restent prévisibles, même si l’utilisation de la base de données individuelle ne l’est pas. Par ailleurs, vous pouvez [ajouter et supprimer des bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout dans les limites d’un budget que vous contrôlez. Vous pouvez également contrôler le nombre minimal et maximal de ressources disponibles pour les bases de données dans le pool. Cela vous permet de garantir qu’aucune base de données du pool n’utilise toutes les ressources du pool et que chaque base de données dispose d’un nombre minimal de ressources. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec SQL Database). 
+
+Les scripts aident à la surveillance et à la mise à l’échelle des pools élastiques. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle un pool élastique SQL dans Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 
 > [!IMPORTANT]
 > SQL Database Managed Instance ne prend pas en charge les pools élastiques.
@@ -74,7 +80,7 @@ En outre, SQL Database peut [émettre des mesures et des journaux de diagnostic]
 
 - **Stockage Azure** : pour archiver des quantités importantes de données de télémétrie à un petit prix
 - **Hub d’événements Azure** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines très actifs
-- **Azure Log Analytics** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d’alerte et d’atténuation. Cette solution fait partie d’[Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md).
+- **Azure Log Analytics** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d’alerte et d’atténuation. Cette fonctionnalité fait partie [d’Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

@@ -1,22 +1,22 @@
 ---
-title: "Démarrage rapide avec l’explorateur Azure Time Series Insights | Microsoft Docs"
-description: "Ce démarrage rapide montre comment commencer à utiliser l’explorateur Azure Time Series Insights dans votre navigateur web pour visualiser de grands volumes de données IoT. Faites le tour des fonctionnalités clés dans un environnement de démonstration."
-services: time-series-insights
+title: Démarrage rapide avec l’explorateur Azure Time Series Insights | Microsoft Docs
+description: Ce démarrage rapide montre comment commencer à utiliser l’explorateur Azure Time Series Insights dans votre navigateur web pour visualiser de grands volumes de données IoT. Faites le tour des fonctionnalités clés dans un environnement de démonstration.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: v-mamcge
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: a2f88ab65a8f9948b83f491896d53b34f162747c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbf0aef7a032c9b9808db14031555c7498874ac3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652115"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Démarrage rapide : Explorer Azure Time Series Insights
 Ce démarrage rapide montre comment démarrer avec l’Explorateur Time Series Insights dans un environnement de démonstration gratuit. Vous allez découvrir comment utiliser votre navigateur web pour visualiser de grands volumes de données IoT avant de faire le tour des fonctionnalités clés de l’Explorateur Time Series Insights. 

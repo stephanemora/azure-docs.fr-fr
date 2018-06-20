@@ -1,21 +1,22 @@
 ---
 title: Personnaliser les vues de l’opérateur dans Azure IoT Central | Microsoft Docs
 description: En tant que générateur, personnalisez les vues de l’opérateur dans votre application Azure IoT Central.
-services: iot-central
 author: sandeeppujar
 ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202320"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235366"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 - Personnaliser la vue de l’opérateur d’Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central
 
 Ce didacticiel vous montre, en tant que générateur, comment personnaliser la vue de l’opérateur de votre application. Lorsque vous apportez une modification à l’application en tant que générateur, vous pouvez afficher un aperçu de vue de l’opérateur dans l’application Microsoft Azure IoT Central.
 
@@ -33,11 +34,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Avant de commencer, vous devez effectuer les deux didacticiels précédents :
 
-1. [Définir un nouveau type d’appareil dans votre application Azure IoT Central](tutorial-define-device-type.md).
-1. [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md).
+* [Définir un nouveau type d’appareil dans votre application Azure IoT Central](tutorial-define-device-type.md).
+* [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>Configurer le tableau de bord de votre appareil
 
@@ -47,17 +47,17 @@ En tant que générateur, vous pouvez définir les informations qui s’affichen
 
     ![Page Explorateur](media/tutorial-customize-operator/explorer.png)
 
-1. Pour commencer à personnaliser le tableau de bord de votre climatiseur raccordé, sélectionnez le modèle d’appareil **Climatiseur raccordé (1.0.0)**. Choisissez l’appareil **Climatiseur raccordé-1** que vous avez créé dans le didacticiel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md) :
+2. Pour commencer à personnaliser le tableau de bord de votre climatiseur raccordé, sélectionnez le modèle d’appareil **Climatiseur raccordé (1.0.0)**. Choisissez l’appareil **Climatiseur raccordé-1** que vous avez créé dans le didacticiel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md) :
 
     ![Sélectionner le climatiseur raccordé](media/tutorial-customize-operator/selectdevice.png)
 
     Lorsque vous apportez une modification à un appareil, tel que **Climatiseur raccordé-1**, vous apportez une modification au modèle sous-jacent. Pour plus d’informations, consultez [Créer une nouvelle version de modèle d’appareil](howto-version-devicetemplate.md).
 
-1. Pour modifier le tableau de bord, choisissez **Tableau de bord** :
+3. Pour modifier le tableau de bord, choisissez **Tableau de bord** :
 
     ![Page du tableau de bord de modèle d’appareil](media/tutorial-customize-operator/dashboard.png)
 
-1. Pour ajouter une vignette d’indicateur de performance clé au tableau de bord, choisissez **KPI** :
+4. Pour ajouter une vignette d’indicateur de performance clé au tableau de bord, choisissez **KPI** :
 
     ![Ajouter un KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -70,11 +70,11 @@ En tant que générateur, vous pouvez définir les informations qui s’affichen
     | Agrégation | Maximale |
     | Période  | 1 semaine précédente |
 
-1. Choisissez **Enregistrer**. Vous pouvez maintenant voir la vignette du KPI sur le tableau de bord :
+5. Choisissez **Enregistrer**. Vous pouvez maintenant voir la vignette du KPI sur le tableau de bord :
 
     ![Vignette de KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. Pour déplacer ou redimensionner une vignette sur le tableau de bord, déplacez le pointeur de souris sur la vignette. Vous pouvez faire glisser la vignette vers un nouvel emplacement ou la redimensionner :
+6. Pour déplacer ou redimensionner une vignette sur le tableau de bord, déplacez le pointeur de souris sur la vignette. Vous pouvez faire glisser la vignette vers un nouvel emplacement ou la redimensionner :
 
     ![Modifier la disposition du tableau de bord](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -86,7 +86,7 @@ En tant que générateur, vous pouvez également configurer la vue de l’opéra
 
     ![Page Paramètres](media/tutorial-customize-operator/settings.png)
 
-1. Vous pouvez déplacer et redimensionner les vignettes de paramètres :
+2. Vous pouvez déplacer et redimensionner les vignettes de paramètres :
 
     ![Modifier la disposition des paramètres](media/tutorial-customize-operator/settingslayout.png)
 
@@ -101,7 +101,7 @@ En plus du tableau de bord et des paramètres, vous pouvez également configurer
 
     ![Page Propriétés](media/tutorial-customize-operator/properties.png)
 
-1. Vous pouvez déplacer et redimensionner les champs de propriétés :
+2. Vous pouvez déplacer et redimensionner les champs de propriétés :
 
     ![Modifier la mise en page des propriétés](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -114,17 +114,17 @@ En **mode Création**, vous pouvez personnaliser les pages du tableau de bord, d
 
 1. Pour afficher votre climatiseur raccordé en tant qu’opérateur, vous devez quitter le **mode Création**. Pour quitter le **mode Création**, désactivez le **mode Création** en haut à droite de la page.
 
-1. Pour mettre à jour le numéro de série de cet appareil, modifiez la valeur dans la vignette du numéro de série et choisissez **Enregistrer** :
+2. Pour mettre à jour le numéro de série de cet appareil, modifiez la valeur dans la vignette du numéro de série et choisissez **Enregistrer** :
 
     ![Modifier une valeur de propriété](media/tutorial-customize-operator/editproperty.png)
 
-1. Pour envoyer un paramètre à votre climatiseur raccordé, choisissez **Paramètres**, modifiez une valeur de paramètre dans une vignette, puis choisissez **Mettre à jour** :
+3. Pour envoyer un paramètre à votre climatiseur raccordé, choisissez **Paramètres**, modifiez une valeur de paramètre dans une vignette, puis choisissez **Mettre à jour** :
 
     ![Envoyer un paramètre à l’appareil](media/tutorial-customize-operator/sendsetting.png)
 
     Lorsque l’appareil accuse réception de la nouvelle valeur de paramètre, le paramètre s’affiche comme étant **synchronisés** sur la vignette.
 
-1. En tant qu’opérateur, vous pouvez afficher le tableau de bord de l’appareil tel qu’il est configuré par le générateur :
+4. En tant qu’opérateur, vous pouvez afficher le tableau de bord de l’appareil tel qu’il est configuré par le générateur :
 
     ![Vue de l’opérateur du tableau de bord de l’appareil](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -136,14 +136,14 @@ Lorsqu’un générateur ou un opérateur se connecte à une application Azure I
 
     ![Page Générateur d’applications](media/tutorial-customize-operator/builderhome.png)
 
-1. Pour personnaliser la page d’accueil, ajoutez des vignettes à partir de la **bibliothèque**. Choisissez **Link** (Lier) et ajoutez les détails sur le site web de votre organisation. Puis choisissez **Enregistrer** :
+2. Pour personnaliser la page d’accueil, ajoutez des vignettes à partir de la **bibliothèque**. Choisissez **Link** (Lier) et ajoutez les détails sur le site web de votre organisation. Puis choisissez **Enregistrer** :
 
     ![Ajouter un lien vers la page d'accueil](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Vous pouvez également ajouter des liens vers des pages de votre application Azure IoT Central. Par exemple, vous pouvez ajouter un lien vers le tableau de bord d’un appareil ou une page de paramètres.
 
-1. Si vous le souhaitez, choisissez **Image** et charger une image à afficher sur votre page d’accueil. Une image peut inclure une URL à laquelle vous pouvez accéder lorsque vous cliquez dessus :
+3. Si vous le souhaitez, choisissez **Image** et charger une image à afficher sur votre page d’accueil. Une image peut inclure une URL à laquelle vous pouvez accéder lorsque vous cliquez dessus :
 
     ![Ajouter une image à la page d’accueil](media/tutorial-customize-operator/addimage.png)
 

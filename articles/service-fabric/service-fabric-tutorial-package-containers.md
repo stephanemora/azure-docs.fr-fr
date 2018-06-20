@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365365"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642792"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Didacticiel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric
 
@@ -36,7 +36,6 @@ Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de g
 > * Nettoyer l’application
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 - L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
@@ -238,7 +237,7 @@ Pour plus d’informations sur la création de votre propre cluster, consultez [
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Générer et déployer l’application sur le cluster
 Vous pouvez déployer l’application sur le cluster Azure à l’aide de l’interface de ligne de commande (CLI) de Service Fabric. Si cette interface n’est pas installée sur votre machine, suivez les instructions [ici](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) pour l’installer. 
 
-Connectez-vous au cluster Service Fabric dans Azure. Remplacez l’espace réservé au point de terminaison par votre propre point de terminaison. Il doit s’agir d’une URL complète semblable à celle présentée ci-dessous.
+Connectez-vous au cluster Service Fabric dans Azure. Remplacez le point de terminaison exemple par votre propre point de terminaison. Il doit s’agir d’une URL complète semblable à celle présentée ci-dessous.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

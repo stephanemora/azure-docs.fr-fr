@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724096"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Présentation de Managed Service Identity (MSI) pour les ressources Azure.
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 La gestion des informations d’identification qui doivent se trouver dans votre code pour s’authentifier auprès des services cloud constitue un défi courant lors de la génération d’applications cloud. La sécurisation de ces informations d’identification est une tâche importante. Dans l’idéal, elles ne s’affichent jamais sur les stations de travail de développement ou ne sont jamais archivées dans le contrôle de code source. Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. L’identité du service administré (MSI) simplifie la résolution de ce problème en donnant aux services Azure une identité automatiquement gérée dans Azure Active Directory (Azure AD). Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
 
+Managed Service Identity est fourni avec Azure Active Directory Free, qui est l’abonnement Azure par défaut. L’identité du service administré n’engendre pas de coûts supplémentaires.
+
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
 Il existe deux types d’identités Managed Service Identities : **celles affectées par le système** et **celles affectées par l’utilisateur**.
 
 - Une **identité affectée par le système** est activée directement sur une instance de service Azure. Lorsque cette fonction est activée, Azure crée une identité pour l’instance de service dans le locataire Azure AD approuvé par l’abonnement de l’instance de service. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance de service. Le cycle de vie d’une identité affectée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance de service est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
-- Une **identité affectée par l’utilisateur** (préversion publique) est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité affectée par l’utilisateur est géré séparément du cycle de vie des instances de service Azure auxquelles elle est affectée.
+- Une **identité attribuée à l’utilisateur** est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité affectée par l’utilisateur est géré séparément du cycle de vie des instances de service Azure auxquelles elle est affectée.
 
 Par conséquent, votre code peut utiliser une identité affectée par le système ou par l’utilisateur, pour demander des jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service.
 
@@ -103,17 +106,6 @@ Essayez un didacticiel d’identité du service administré afin d’en savoir p
 
 Les identités gérées peuvent servir à l’authentification auprès des services prenant en charge l’authentification Azure AD. Pour obtenir la liste des services Azure qui prennent en charge Managed Service Identity, consultez l’article suivant :
 - [Services qui prennent en charge l’identité du service administré](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Combien coûte l’identité du service administré ?
-
-L’identité du service administré est fournie avec Azure Active Directory Free, qui est l’abonnement Azure par défaut. L’identité du service administré n’engendre pas de coûts supplémentaires.
-
-## <a name="support-and-feedback"></a>Support et commentaires
-
-Nous sommes à votre écoute !
-
-* Posez des questions sur Stack Overflow avec la balise [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Soumettez vos demandes de fonctionnalités ou vos commentaires sur le [forum de commentaires Azure AD pour les développeurs](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

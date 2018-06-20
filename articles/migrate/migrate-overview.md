@@ -4,14 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236363"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -46,13 +47,13 @@ Une évaluation vous permet de déterminer dans quelle mesure vos machines virtu
 
 **Propriété** | **Détails**
 --- | ---
-**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>À l’heure actuelle, Azure Migrate prend en charge les 30 régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre de l’Inde, Centre des États-Unis, Est de la Chine, Nord de la Chine, Asie-Pacifique, Est des États-Unis, Centre de l’Allemagne, Nord-Ouest de l’Allemagne, Est des États-Unis 2, Est du Japon, Ouest du Japon, Corée Centre, Sud de la Corée, Nord-Centre des États-Unis, Europe du Nord, Sud-Centre des États-Unis, Asie du Sud-Est, Inde du Sud, Royaume-Uni Sud, Royaume-Uni Ouest, US Gov Arizona, US Gov Texas, US Gov Virginie, Centre-Ouest des États-Unis, Europe de l’Ouest, Inde de l’Ouest, Ouest des États-Unis et Ouest des États-Unis 2. Ouest des États-Unis 2 est l’emplacement cible par défaut.
-**Redondance du stockage** | Type de [redondance du stockage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que les machines virtuelles Azure utilisent après la migration. Par défaut, le stockage localement redondant (LRS) est sélectionné. Notez qu’Azure Migrate prend uniquement en charge les évaluations basées sur des disques managés et les disques managés prennent uniquement en charge le stockage LRS. Par conséquent, la propriété ne comporte pour le moment que l’option LRS.
-**Critère de dimensionnement** | Critère utilisé par Azure Migrate pour dimensionner correctement les machines virtuelles pour Azure. Vous pouvez effectuer le dimensionnement en fonction de *l’historique des performances* des machines virtuelles locales ou dimensionner les machines virtuelles *locales* pour Azure sans tenir compte de l’historique des performances. La valeur par défaut est le dimensionnement basé sur les performances.
+**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>À l’heure actuelle, Azure Migrate prend en charge les 30 régions suivantes : Allemagne Centre, Allemagne Nord-Ouest, Asie de l’Est, Canada Centre, Canada Est, Centre de l’Inde, Chine Est, Chine Nord, Corée Centre, Corée Sud, Est de l’Australie, Europe de l’Ouest, Europe du Nord, Inde de l’Ouest, Inde du Sud, Japon de l’Est, Japon de l’Ouest, Nord du centre des États-Unis, Royaume-Uni Ouest, Royaume-Uni Sud, Sud du Brésil, Sud du centre des États-Unis, Sud-Est asiatique, Sud-Est de l’Australie, US Gov Arizona, US Gov Texas, US Gov Virginie, États-Unis Centre-Ouest, États-Unis Ouest 2, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest et États-Unis du Centre. Ouest des États-Unis 2 est l’emplacement cible par défaut.
+**Type de stockage** | Vous pouvez spécifier le type de disques que vous souhaitez allouer dans Azure. Cette propriété s’applique lorsque le critère de dimensionnement est en dimensionnement local. Vous pouvez spécifier le type de disque cible en tant que disques managés Premium ou disques managés Standard. La valeur par défaut est Disques managés Premium. Pour le dimensionnement basé sur les performances, la suggestion du disque est automatiquement effectuée selon les données de performances des machines virtuelles. Notez qu’Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
+**Critère de dimensionnement** | Critère utilisé par Azure Migrate pour dimensionner correctement les machines virtuelles pour Azure. Vous pouvez effectuer le dimensionnement en fonction de *l’historique des performances* des machines virtuelles locales ou dimensionner les machines virtuelles *locales* pour Azure sans tenir compte de l’historique des performances. La valeur par défaut est en dimensionnement local.
 **Plans de tarification** | Pour les calculs de coût, l’évaluation prend en compte le fait que vous soyez inscrit Software Assurance et que vous puissiez utiliser [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Elle prend également en compte les [offres Azure](https://azure.microsoft.com/support/legal/offer-details/) auxquelles vous êtes abonné et vous permet d’indiquer des réductions spécifiques aux abonnements (%), que vous obtenez en plus de l’offre.
 **Niveau tarifaire** | Vous pouvez spécifier le [niveau tarifaire (de base/standard)](../virtual-machines/windows/sizes-general.md) des machines virtuelles Azure cibles. Par exemple, si vous envisagez de migrer un environnement de production, vous pouvez prendre en compte le niveau Standard, qui fournit des machines virtuelles avec une faible latence, mais est sans doute plus coûteux. En revanche, dans un environnement de développement et de test, vous pouvez prendre en compte le niveau de base, qui fournit des machines virtuelles avec une latence plus élevée, moins coûteuses. Par défaut le niveau [Standard](../virtual-machines/windows/sizes-general.md) est utilisé.
 **Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %. Vous pouvez modifier ces valeurs dans les propriétés de l’évaluation.
-**Série de la machine virtuelle** | Vous pouvez spécifier la série de la machine virtuelle que vous souhaitez prendre en compte pour le dimensionnement. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste de séries et le dimensionnement sera effectué uniquement dans les séries sélectionnées.  
+**Séries de machine virtuelle** | Vous pouvez spécifier les séries de machines virtuelles à prendre en compte pour le dimensionnement. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste de séries : le dimensionnement sera alors effectué uniquement dans les séries sélectionnées.  
 **Facteur de confort** | Azure Migrate considère une mémoire tampon (facteur de confort) au cours de l’évaluation. Cette mémoire tampon est appliquée sur des données d’utilisation de l’ordinateur pour les machines virtuelles (processeur, mémoire, disque et réseau). Le facteur de confort prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à 2 cœurs. Toutefois, avec un facteur de confort de 2.0x, le résultat est une machine virtuelle de 4 cœurs. Le paramètre de confort par défaut est 1.3x.
 
 
@@ -78,7 +79,7 @@ Le tableau récapitule les ports nécessaires pour les communications d’Azure 
 |Composant          |Communication avec     |Port requis  |Motif   |
 |-------------------|------------------------|---------------|---------|
 |Collecteur          |Service Azure Migrate   |TCP 443        |Le collecteur se connecte au service via le port SSL 443|
-|Collecteur          |Serveur vCenter          |Par défaut 9443   | Par défaut, le collecteur se connecte au serveur vCenter via le port 9443. Si le serveur écoute sur un port différent, il doit être configuré comme port sortant sur le collecteur de machine virtuelle. |
+|Collecteur          |Serveur vCenter          |Par défaut 443   | Par défaut, le collecteur se connecte au serveur vCenter via le port 443. Si le serveur écoute sur un port différent, il doit être configuré comme port sortant sur le collecteur de machine virtuelle. |
 |Machine virtuelle locale     | Espace de travail Log Analytics          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |L’agent MMA utilise le port TCP 443 pour se connecter à Log Analytics. Vous n’avez besoin de ce port que si vous utilisez la fonctionnalité de visualisation des dépendances et installez l’agent MMA (Microsoft Monitoring Agent). |
 
 
@@ -99,4 +100,6 @@ Une fois que vous avez évalué des machines locales pour la migration avec le s
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Suivre un didacticiel](tutorial-assessment-vmware.md) pour créer une évaluation pour une machine virtuelle VMware locale.
+
+- [Suivre un didacticiel](tutorial-assessment-vmware.md) pour créer une évaluation pour une machine virtuelle VMware locale.
+- [En savoir plus](resources-faq.md) sur les FAQ sur Azure Migrate

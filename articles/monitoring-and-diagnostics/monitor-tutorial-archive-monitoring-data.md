@@ -1,20 +1,20 @@
 ---
-title: Archiver les données de surveillance d’Azure | Microsoft Docs
+title: Archiver les métriques Azure et les journaux de données à l’aide du Stockage Azure
 description: Archivez les données de journal et de métrique produites dans Azure sur un compte de stockage.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263148"
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
 
@@ -95,9 +95,9 @@ Nous configurons à présent les données au niveau des ressources (journaux de 
 Les données de surveillance de votre ressource sont maintenant transférées dans le compte de stockage.
 
 > [!NOTE]
-> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, et agrégées entre les valeurs de la dimension.
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
-> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic la métrique est représentée sous forme de tous les messages entrants dans toutes les files d’attente de l’Event Hub.
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 

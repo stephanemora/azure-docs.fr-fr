@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec les conteneurs et les microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: deb651170b0fd58f8c89b591f3e42b5b629f4095
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361469"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823909"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Prise en main d’Azure Dev Spaces avec Node.js
 
@@ -32,7 +32,7 @@ Vous voici prêt à créer un environnement de développement Kubernetes dans Az
 Azure Dev Spaces requiert une configuration d’ordinateur local minimale. La majeure partie de la configuration de votre environnement de développement est stockée dans le cloud et peut être partagée avec d’autres utilisateurs. Commencez par télécharger et exécuter [l’interface de ligne de commande Azure (Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> Si vous avez déjà installé Azure CLI, vérifiez que vous utilisez la version 2.0.32 ou une version ultérieure.
+> Si vous avez déjà installé Azure CLI, vérifiez que vous utilisez la version 2.0.33 ou une version ultérieure.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -180,30 +180,30 @@ Vous devez déjà avoir l’exemple de code de `mywebapi` pour ce guide dans un 
 
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Effectuer une demande de *webfrontend* à *mywebapi*
-Nous allons maintenant écrire du code dans `webfrontend` qui envoie une demande à `mywebapi`.
+Nous allons maintenant écrire du code dans `webfrontend` qui envoie une requête à `mywebapi`.
 1. Basculer vers la fenêtre VS Code pour `webfrontend`.
 1. Ajoutez ces lignes de code en haut de `server.js` :
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. *Remplacez* le code par le gestionnaire GET `/api`. Lors du traitement d’une demande, cette dernière effectue ensuite un appel à `mywebapi`, puis retourne les résultats des deux services.
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             /* propagate the dev space routing header */
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-Remarque : la découverte des services DNS de Kubernetes est utilisée pour faire référence au service en tant que `http://mywebapi`. **Dans votre environnement de développement, le code s’exécute de la même façon qu’en production**.
-
-L’exemple de code ci-dessus utilise un module d’assistance nommé `propagateHeaders`. Ce programme d’assistance a été ajouté à votre dossier de code au moment où vous avez exécuté `azds prep`. La fonction `propagateHeaders.from()` propage des en-têtes spécifiques à partir d’un objet http.IncomingMessage existant dans un objet d’en-têtes pour une demande sortante. Vous verrez ultérieurement de quelle façon cette fonction aide les équipes au niveau du développement collaboratif.
+L’exemple de code précédent transfère l’en-tête `azds-route-as` de la requête entrante à la requête sortante. Vous verrez ultérieurement de quelle façon cette fonction aide les équipes au niveau du développement collaboratif.
 
 ### <a name="debug-across-multiple-services"></a>Déboguer dans plusieurs services
 1. À ce stade, `mywebapi` doit toujours être en cours d’exécution avec le débogueur joint. Si ce n’est pas le cas, appuyez sur F5 dans le projet `mywebapi`.
