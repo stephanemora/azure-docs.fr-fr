@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/04/2017
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010462"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293637"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : suivi des dépendances
 Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
@@ -191,6 +191,8 @@ Par exemple, si vous générez votre code avec un assembly que vous n’avez pas
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 
@@ -201,12 +203,13 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 *La requête SQL n’est pas affichée en entier.*
 
-* Mettez à niveau vers la dernière version stable du SDK Application Insights.
+Consultez le tableau ci-dessous et vérifiez que vous avez choisi la configuration appropriée afin d’activer la surveillance des dépendances pour votre application.
 
- Si votre version de .NET est inférieur à 4.6 :
-
-* Hôte IIS : installez l’[Agent Application Insights](app-insights-monitor-performance-live-website-now.md) sur les serveurs hôtes.
-* Application web Azure : ouvrez l’onglet Application Insights dans le panneau de configuration de l’application web et installez Application Insights.
+| Plateforme | Installer |
+| --- | --- |
+| Serveur IIS |[Installez Status Monitor sur votre serveur](app-insights-monitor-performance-live-website-now.md). Ou [mettez à niveau votre application avec .NET Framework version 4.6 ou ultérieure](http://go.microsoft.com/fwlink/?LinkId=528259) et installez le [SDK Application Insights](app-insights-asp-net.md) dans votre application. |
+| Application web Azure |Dans le panneau de configuration de votre application web, [ouvrez le panneau Application Insights](app-insights-azure-web-apps.md) et choisissez l’installation si vous y êtes invité. |
+| Service cloud Azure |[Utilisez une tâche de démarrage](app-insights-cloudservices.md) ou [installez le .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="video"></a>Vidéo
 

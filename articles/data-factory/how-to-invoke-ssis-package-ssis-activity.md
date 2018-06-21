@@ -1,6 +1,6 @@
 ---
-title: Exécuter un package SSIS à l’aide de l’activité SSIS dans Azure Data Factory | Microsoft Docs
-description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) à partir d’un pipeline Azure Data Factory à l’aide de l’activité SSIS.
+title: Exécuter un package SSIS avec l’activité Exécuter le Package SSIS - Azure | Microsoft Docs
+description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) dans un pipeline Azure Data Factory à l’aide de l’activité Exécuter le Package SSIS.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -9,32 +9,32 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 6c8bbe7ef7f74638b978cdad5b59a89fd81d12a5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ce041813d52e645c336869ef04c9522962c80cf5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297153"
 ---
-# <a name="run-an-ssis-package-using-the-ssis-activity-in-azure-data-factory"></a>Exécuter un package SSIS à l’aide de l’activité SSIS dans Azure Data Factory
-Cet article décrit comment exécuter un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité SSIS. 
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
+Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory à l’aide d’une activité Exécuter le Package SSIS. 
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. L’activité SSIS n’est pas disponible dans la version 1 du service Data Factory, qui est en disponibilité générale. Pour découvrir une autre méthode d’exécuter un package SSIS avec la version 1 du service Data Factory, consultez [Exécuter des packages SSIS à l’aide de l’activité de procédure stockée dans la version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. L’activité Exécuter le Package SSIS n’est pas disponible dans la version 1 du service Data Factory, qui est en disponibilité générale. Pour découvrir une autre méthode d’exécuter un package SSIS avec la version 1 du service Data Factory, consultez [Exécuter des packages SSIS à l’aide de l’activité de procédure stockée dans la version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-### <a name="azure-sql-database"></a>Base de données SQL Azure 
+### <a name="azure-sql-database"></a>Azure SQL Database 
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Créer un runtime d’intégration Azure-SSIS
 Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas en suivant les instructions pas à pas fournies dans le [Didacticiel : Déployer des packages SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interface utilisateur de Data Factory (portail Azure)
-Dans cette section, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline Data Factory avec une activité SSIS qui exécute un package SSIS.
+Dans cette section, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline Data Factory avec une activité Exécuter le Package SSIS qui exécute un package SSIS.
 
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données
 La première étape consiste à créer une fabrique de données à l’aide du portail Azure. 
@@ -70,8 +70,8 @@ La première étape consiste à créer une fabrique de données à l’aide du p
     ![Page d'accueil Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un onglet séparé. 
 
-### <a name="create-a-pipeline-with-an-ssis-activity"></a>Créer un pipeline avec une activité SSIS
-Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline. Vous ajoutez une activité SSIS au pipeline et la configurez pour exécuter le package SSIS. 
+### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Créer un pipeline avec une activité Exécuter le Package SSIS
+Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline. Vous ajoutez une activité Exécuter le Package SSIS au pipeline et la configurez pour exécuter le package SSIS. 
 
 1. Dans la page de prise en main, cliquez sur **Créer un pipeline** : 
 
@@ -80,17 +80,23 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
 
    ![Faire glisser l’activité SSIS vers la surface du concepteur](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-3. Sous l’onglet **Général** des propriétés de l’activité SSIS, fournissez un nom et une description pour l’activité. Définissez les valeurs de délai d’attente et de nouvelle tentative facultatives.
+3. Sous l’onglet **Général** des propriétés de l’activité Exécuter le Package SSIS, fournissez un nom et une description pour l’activité. Définissez les valeurs de délai d’attente et de nouvelle tentative facultatives.
 
     ![Définissez les propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Sous l’onglet **Paramètres** des propriétés de l’activité SSIS, sélectionnez le runtime d’intégration Azure-SSIS associé à la base de données `SSISDB` sur laquelle le package est déployé. Fournissez le chemin du package dans la base de données `SSISDB` en utilisant le format `<folder name>/<project name>/<package name>.dtsx`. Si vous le souhaitez, vous pouvez spécifier une exécution 32 bits et un niveau de journalisation prédéfini ou personnalisé et fournir un chemin d’environnement en utilisant le format `<folder name>/<environment name>`.
+4. Sous l’onglet **Paramètres** des propriétés de l’activité Exécuter le Package SSIS, sélectionnez le runtime d’intégration Azure-SSIS associé à la base de données `SSISDB` sur laquelle le package est déployé. Fournissez le chemin du package dans la base de données `SSISDB` en utilisant le format `<folder name>/<project name>/<package name>.dtsx`. Si vous le souhaitez, vous pouvez spécifier une exécution 32 bits et un niveau de journalisation prédéfini ou personnalisé et fournir un chemin d’environnement en utilisant le format `<folder name>/<environment name>`.
 
     ![Définir les propriétés sous l’onglet Paramètres](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
 5. Pour valider la configuration du pipeline, cliquez sur **Valider** dans la barre d’outils. Pour fermer le **Rapport de validation de pipeline**, cliquez sur **>>**.
 
 6. Publiez le pipeline dans Data Factory en cliquant sur le bouton **Publier tout**. 
+
+### <a name="optionally-parameterize-the-activity"></a>Le cas échéant, paramétrer l’activité
+
+Si vous le souhaitez, assignez des valeurs, des expressions ou des fonctions, qui peuvent faire référence à des variables système Data Factory, aux paramètres de votre projet ou package au format JSON dans l’onglet **Avancé**. Par exemple, vous pouvez affecter des paramètres de pipeline Data Factory à votre projet SSIS ou des paramètres de package, comme indiqué dans la capture d’écran suivante :
+
+![Ajouter des paramètres à l’activité Exécuter le Package SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
 
 ### <a name="run-and-monitor-the-pipeline"></a>Exécuter et surveiller le pipeline
 Dans cette section, vous déclenchez une exécution du pipeline puis vous la surveillez. 
@@ -100,15 +106,16 @@ Dans cette section, vous déclenchez une exécution du pipeline puis vous la sur
     ![Déclencher maintenant](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
 2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**. 
+
 3. Basculez vers l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution de pipeline et son état, ainsi que d’autres informations (telles que l’heure de début d’exécution). Pour actualiser la vue, cliquez sur **Actualiser**.
 
     ![Exécutions de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-3. Cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Une seule exécution d’activité est affichée, étant donné que le pipeline n’a qu’une seule activité (l’activité SSIS).
+4. Cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Une seule exécution d’activité est affichée, étant donné que le pipeline n’a qu’une seule activité (l’activité Exécuter le Package SSIS).
 
     ![Exécutions d’activités](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-4. Vous pouvez exécuter la **requête** suivante par rapport à la base de données SSISDB dans votre serveur SQL Azure pour vérifier que le package s’est exécuté. 
+5. Vous pouvez exécuter la **requête** suivante par rapport à la base de données SSISDB dans votre serveur SQL Azure pour vérifier que le package s’est exécuté. 
 
     ```sql
     select * from catalog.executions
@@ -116,11 +123,14 @@ Dans cette section, vous déclenchez une exécution du pipeline puis vous la sur
 
     ![Vérifier les exécutions de package](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
+6. Vous pouvez également obtenir l’ID de l’exécution SSISDB à partir de la sortie de l’exécution de l’activité de pipeline, et utiliser l’ID pour consulter des journaux d’exécution et des messages d’erreur plus complets dans SSMS.
+
+    ![Obtenez l’ID de l'exécution.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 > [!NOTE]
 > Vous pouvez également créer un déclencheur planifié pour votre pipeline afin que le pipeline s’exécute selon une planification (horaire, quotidienne, et ainsi de suite). Pour obtenir un exemple, consultez [Créer une fabrique de données - Interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 Dans cette section, vous utilisez Azure PowerShell pour créer un pipeline Data Factory avec une activité SSIS qui exécute un package SSIS. 
 
 Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps). 
@@ -301,6 +311,8 @@ while ($True) {
 }   
 ```
 
+Vous pouvez également surveiller le pipeline à l’aide du portail Azure. Pour obtenir des instructions pas à pas, consultez [Surveiller le pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
 ### <a name="create-a-trigger"></a>Créer un déclencheur
 À l’étape précédente, vous avez exécuté le pipeline à la demande. Vous pouvez également créer un déclencheur de planification pour exécuter le pipeline d’après une planification (horaire, quotidienne, etc.).
 
@@ -370,4 +382,5 @@ while ($True) {
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez également surveiller le pipeline à l’aide du portail Azure. Pour obtenir des instructions pas à pas, consultez [Surveiller le pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Consultez le billet de blog suivant :
+-   [Moderniser et étendre vos flux de travail ETL/ELT avec des activités SSIS dans des pipelines ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)

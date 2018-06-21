@@ -1,0 +1,72 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation de l’API de traduction de texte Translator Text
+metadata:
+  title: Documentation de l’API de traduction de texte Translator Text - Démarrages rapides, tutoriels, informations de référence de l’API - Azure Cognitive Services | Microsoft Docs
+  description: Découvrez comment utiliser l’API de traduction de texte Translator Text pour traduire du texte dans de multiples langues.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+  ms.openlocfilehash: 0700566320d68adb6a07ba5675a03f3a841058fc
+  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/19/2018
+  ms.locfileid: "36268346"
+abstract:
+  description: L’API de traduction de texte Microsoft Translator Text est un service de traduction basé sur le cloud. Avec cette API, vous pouvez traduire du texte presque en temps réel à partir de n’importe quelle application ou via un simple appel d’API REST. L’API utilise la technologie de traduction automatique neuronale la plus récente, ainsi que la technologie de traduction automatique statistique. Pour obtenir la liste des langues prises en charge pour la traduction automatique neuronale et pour la traduction automatique statistique, consultez <a href="languages.md">Langues prises en charge</a>.
+sections:
+- title: Démarrages en 5 minutes
+  items:
+  - type: paragraph
+    text: 'Prise en main de l’API de traduction de texte Translator Text :'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+      title: C#
+    - image:
+        src: media/index/logo_java.svg
+      title: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image:
+        src: media/index/logo_python.svg
+      title: Python
+    rows:
+    - title: Traduire du texte d’une langue vers une autre
+      values:
+      - href: quickstart-csharp-translate
+      - href: 
+      - href: 
+      - href: 
+    - title: Convertir du texte d’un script à un autre
+      values:
+      - href: quickstart-csharp-transliterate
+      - href: 
+      - href: 
+      - href: 
+    - title: Identifier la langue du texte
+      values:
+      - href: quickstart-csharp-detect
+      - href: 
+      - href: 
+      - href: 
+    - title: Obtenir des traductions et des usages alternatifs
+      values:
+      - href: quickstart-csharp-dictionary
+      - href: 
+      - href: 
+      - href: 
+- title: Informations de référence
+  items:
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">Référence sur l’API</a></p>

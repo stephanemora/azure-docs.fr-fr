@@ -1,26 +1,23 @@
 ---
 title: Restaurer depuis Azure vers VMware avec Azure Site Recovery | Microsoft Docs
 description: Après le basculement des machines virtuelles dans Azure, vous pouvez démarrer une restauration automatique pour replacer les machines virtuelles en local. Pour effectuer la restauration automatique, procédez comme suit.
-services: site-recovery
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 05/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 8f580fa40bade2bf586dd116729881b249bbba88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e8e2384d6d5672e29e6d7bc28f0772cd5b78519
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29944005"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287515"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
 
 Cet article explique comment restaurer automatiquement des machines virtuelles à partir des machines virtuelles Azure vers un environnement VMware local. Suivez les instructions qu’il contient pour restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure en suivant le didacticiel [Basculement dans Azure Site Recovery](site-recovery-failover.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 - Vérifiez que vous avez bien lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
 
 > [!WARNING]

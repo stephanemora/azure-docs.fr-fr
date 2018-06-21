@@ -3,25 +3,25 @@ title: Codes d’erreur des rapports d’activité des connexions dans le portai
 description: Informations de référence des codes d’erreur des rapports d’activité des connexions.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698507"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231987"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -65,13 +65,13 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |40008|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
 |40009|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
 |40014|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
-|50000|Il existe un problème avec notre service de connexion. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) pour résoudre ce problème.|
+|50000|Il existe un problème avec notre service de connexion. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour résoudre ce problème.|
 |50001|Le nom de principal du service est introuvable dans ce locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire. Il se peut également que le principal de la ressource soit introuvable dans le répertoire ou non valide.|
 |50002|La connexion a échoué en raison de l’accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème|
 |50003|La connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Découvrez les procédures de résolution décrites à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application.|
 |50005|L’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel.|
 |50006| La vérification de la signature a échoué en raison d’une signature non valide. Découvrez la procédure de résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application.|
-|50007|Le certificat de chiffrement de partenaire pour cette application est introuvable. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème.|
+|50007|Le certificat de chiffrement de partenaire pour cette application est introuvable. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème.|
 |50008|L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton. Contactez votre fournisseur de fédération.|
 |50010|La validation de l’URI d’audience pour l’application a échoué, car aucune audience de jeton n’a été configurée. Contactez le propriétaire de l’application.|
 |50011|L’adresse de réponse est manquante, configurée de façon incorrecte ou elle ne correspond pas aux adresses de réponse configurées pour l’application. Testez la résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application.|
@@ -114,8 +114,8 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |50133|La session n’est pas valide en raison de l’expiration ou de la modification récente du mot de passe.|
 |50135|La modification du mot de passe est nécessaire en raison du risque du compte.|
 |50136|Redirection de session MSA vers une application ; une seule session MSA détectée. |
-|50140|Cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
-|50143|Incompatibilité de session. La session n’est pas valide, car le locataire de l’utilisateur ne correspond pas à l’indicateur de domaine en raison d’une ressource différente. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails.|
+|50140|Cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
+|50143|Incompatibilité de session. La session n’est pas valide, car le locataire de l’utilisateur ne correspond pas à l’indicateur de domaine en raison d’une ressource différente. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails.|
 |50144|Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. Générez un nouveau mot de passe pour l’utilisateur ou demandez à l’utilisateur final d’utiliser l’outil de réinitialisation en libre service.|
 |50146|Cette application doit être configurée avec une clé de signature spécifique. Elle n’est configuré avec aucune clé, ou la clé a expiré ou n’est pas encore valide. Contactez le propriétaire de l’application.|
 |50148|L’élément code_verifier ne correspond pas à l’élément code_challenge fourni dans la requête d’autorisation pour PKCE. Contactez le développeur de l’application. |
@@ -150,7 +150,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |70007|L’application a renvoyé une valeur non prise en charge pour « response_mode » lors de la demande d’un jeton. Contactez le propriétaire de l’application.|
 |70008|Le code d’autorisation ou le jeton d’actualisation fourni a expiré et a été révoqué. Demandez à l’utilisateur de réessayer de se connecter.|
 |70011|La portée demandée par l’application n’est pas valide. Contactez le propriétaire de l’application.|
-|70012|Une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Veuillez réessayer. Si le problème persiste, [ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md). |
+|70012|Une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Veuillez réessayer. Si le problème persiste, [ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md). |
 |70018|Le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée.|
 |70019|Le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter.|
 |70037|La réponse donnée à la question de vérification est incorrecte. La session d’authentification à distance a été refusée.|
@@ -161,15 +161,15 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |75011|La méthode d’authentification de l’utilisateur auprès du service ne correspond pas à la méthode d’authentification demandée. Contactez le propriétaire de l’application.|
 |75016|Dans la requête d’authentification SAML2, NameIdPolicy n’est pas valide. Contactez le propriétaire de l’application.|
 |80001|L’Agent d’authentification ne peut pas se connecter à Active Directory. Assurez-vous que l’agent d’authentification est installé sur un ordinateur de jonction de domaine ayant une visibilité sur un contrôleur de domaine qui peut répondre à la requête de connexion de l’utilisateur.|
-|80002|Erreur interne. La requête de validation du mot de passe est arrivée à expiration. Nous n’avons pas pu envoyer la requête d’authentification au service d’identité hybride interne. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
-|80003|Réponse non valide reçue par l’Agent d’authentification. Une erreur inconnue s’est produite lors de la tentative d’authentification auprès de l’instance Active Directory locale. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
-|80005|Agent d’authentification : une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
+|80002|Erreur interne. La requête de validation du mot de passe est arrivée à expiration. Nous n’avons pas pu envoyer la requête d’authentification au service d’identité hybride interne. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
+|80003|Réponse non valide reçue par l’Agent d’authentification. Une erreur inconnue s’est produite lors de la tentative d’authentification auprès de l’instance Active Directory locale. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
+|80005|Agent d’authentification : une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
 |80007|L’Agent d’authentification ne peut pas valider le mot de passe.|
 |80010|L’Agent d’authentification ne peut pas déchiffrer le mot de passe. |
 |80011|L’agent d’authentification n’a pas pu récupérer la clé de déchiffrement.|
 |80012|Les utilisateurs ont essayé de se connecter en dehors des heures autorisées (spécifiées dans Active Directory).|
 |80013|La tentative d’authentification n’a pas abouti en raison du temps de décalage entre l’ordinateur exécutant l’agent d’authentification et Active Directory. Résolvez les problèmes de synchronisation.|
-|80014|L’agent d’authentification a expiré. [Ouvrez un ticket de support](active-directory-troubleshooting-support-howto.md) avec le code d’erreur, l’ID de corrélation et la date/l’heure pour obtenir plus de détails sur cette erreur.|
+|80014|L’agent d’authentification a expiré. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) avec le code d’erreur, l’ID de corrélation et la date/l’heure pour obtenir plus de détails sur cette erreur.|
 |81001|Le ticket Kerberos de l’utilisateur est trop volumineux. Cela peut se produire si l’utilisateur appartient à trop de groupes, auquel cas le ticket Kerberos contient trop d’appartenances aux groupes. Réduisez les appartenances à des groupes de l’utilisateur, puis réessayez.|
 |81005|Le package d’authentification n’est pas pris en charge.|
 |81007|Le locataire n’est pas activé pour l’authentification unique transparente.|

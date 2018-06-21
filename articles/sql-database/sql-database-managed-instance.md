@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648123"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215522"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -39,7 +39,7 @@ Le tableau suivant indique les principales différences entre SQL IaaS, Azure SQ
 
 | | Scénario d’usage | 
 | --- | --- | 
-|SQL Database Managed Instance |Aux clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou IaaS, automatiquement générées ou fournies par un éditeur de logiciels indépendant, avec un effort de migration aussi faible que possible, proposez Managed Instance. À l’aide du [service de migration des données](/sql/dma/dma-overview) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur SQL Server local vers l’option Managed Instance qui offre une compatibilité avec SQL Server local et une isolation totale des instances des clients avec une prise en charge de réseau virtuel native.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur SQL Database Managed Instance en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche. |
+|SQL Database Managed Instance |Aux clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou IaaS, automatiquement générées ou fournies par un éditeur de logiciels indépendant, avec un effort de migration aussi faible que possible, proposez Managed Instance. À l’aide du [service de migration des données](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur SQL Server local vers l’option Managed Instance qui offre une compatibilité avec SQL Server local et une isolation totale des instances des clients avec une prise en charge de réseau virtuel native.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur SQL Database Managed Instance en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche. |
 |Azure SQL Database (unique ou pool) |**Pools élastiques** : aux clients qui développent de nouvelles applications multilocataires SaaS ou qui transforment intentionnellement leurs applications locales existantes en applications multilocataires SaaS, proposez des pools élastiques. Les avantages de ce modèle sont : <br><ul><li>Conversion du modèle d’entreprise de la vente de licences à la vente d’abonnements à des services (pour les éditeurs de logiciels indépendants)</li></ul><ul><li>Isolation simple et renforcée des locataires</li></ul><ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul><ul><li>Possibilité d’augmenter la taille des instances sans limite maximale</li></ul>**Bases de données uniques** : aux clients qui développent de nouvelles applications autres que des applications multilocataires SaaS, dont la charge de travail est stable et prévisible, proposez des bases de données uniques. Les avantages de ce modèle sont :<ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul>  <ul><li>Performances prévisibles pour chaque base de données</li></ul>|
 |Machine virtuelle IaaS SQL|Aux clients qui ont besoin de personnaliser le système d’exploitation ou le serveur de base de données, ainsi qu’aux clients qui ont des exigences spécifiques liées à l’exécution d’applications tierces à côté de SQL Server (sur la même machine virtuelle), proposez des machines virtuelles/IaaS SQL en tant que solution optimale.|
 |||
@@ -186,11 +186,10 @@ Azure Database Migration Service est un service entièrement géré conçu pour 
 
 L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Blob Azure. Les sauvegardes stockées dans Azure Storage Blob peuvent être directement restaurées dans Managed Instance. Pour restaurer une base de données SQL existante dans une instance gérée, vous pouvez :
 
-- Utiliser [Database Migration Service (DMS)](/sql/dma/dma-overview). Pour suivre un tutoriel, consultez [Effectuer une migration vers une instance gérée à l’aide d’Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) pour effectuer une restauration à partir d’un fichier de sauvegarde de base de données.
+- Utiliser [Database Migration Service (DMS)](../dms/dms-overview.md). Pour suivre un tutoriel, consultez [Effectuer une migration vers une instance gérée à l’aide d’Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) pour effectuer une restauration à partir d’un fichier de sauvegarde de base de données.
 - Utiliser la [commande T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Pour suivre un tutoriel montrant comment restaurer le fichier de sauvegarde de base de données Wide World Importers - Standard, consultez [Restaurer un fichier de sauvegarde dans une instance gérée](sql-database-managed-instance-restore-from-backup-tutorial.md). Ce tutoriel vous montre que vous devez charger un fichier de sauvegarde dans Stockage Blob Azure et le sécuriser à l’aide d’une clé de signature d’accès partagé (SAP).
   - Pour plus d’informations sur la restauration à partir d’une URL, consultez [Restauration native à partir d’une URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Importer depuis un fichier BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Fonctionnalités SQL prises en charge 
 

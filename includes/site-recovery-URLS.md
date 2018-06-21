@@ -5,5 +5,7 @@
 ``dc.services.visualstudio.com`` - Élément utilisé pour la télémétrie. <br>
 ``time.nist.gov`` et ``time.windows.com``. Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
 <br/><br/>
-URL du cloud Azure Government :<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>- https://login-us.microsoftonline.com<br/>- https://login.microsoftonline.us<br/>- https://login.microsoftonline.com<br/>
+URL du cloud Azure Government :<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
+https://login.microsoftonline.us<br/>-
+https://login.microsoftonline.com<br/>
 

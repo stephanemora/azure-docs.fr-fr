@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868823"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296886"
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de la réécriture du mot de passe
 
-L’écriture différée des mots de passe vous permet de configurer Azure Active Directory (Azure AD) pour réécrire les mots de passe dans votre environnement Active Directory local. Cela vous évite d’avoir à configurer et gérer une solution de réinitialisation des mots de passe libre-service (SSPR) locale complexe et offre à vos utilisateurs un moyen pratique, via le cloud, de réinitialiser leurs mots de passe locaux, où qu’ils se trouvent. L’écriture différée des mots de passe est un composant [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md). Elle peut être activée et utilisée par les abonnés actifs des [éditions Azure Active Directory](../active-directory-whatis.md) Premium.
+L’écriture différée des mots de passe vous permet de configurer Azure Active Directory (Azure AD) pour réécrire les mots de passe dans votre environnement Active Directory local. Cela vous évite d’avoir à configurer et gérer une solution de réinitialisation des mots de passe libre-service (SSPR) locale complexe et offre à vos utilisateurs un moyen pratique, via le cloud, de réinitialiser leurs mots de passe locaux, où qu’ils se trouvent. L’écriture différée des mots de passe est un composant [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md). Elle peut être activée et utilisée par les abonnés actifs des [éditions Azure Active Directory](../fundamentals/active-directory-whatis.md) Premium.
 
 La réécriture du mot de passe fournit les fonctionnalités suivantes :
 
@@ -129,7 +129,7 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour la réécriture du mot de passe
 
-Pour plus d’informations concernant les licences, voir [Licences requises pour la réécriture du mot de passe](concept-sspr-licensing.md#licenses-required-for-password-writeback) ou les sites suivants :
+Pour plus d’informations concernant les licences, voir [Licences requises pour la réécriture du mot de passe](concept-sspr-licensing.md) ou les sites suivants :
 
 * [Site de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

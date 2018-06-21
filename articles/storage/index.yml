@@ -11,14 +11,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/08/2017
+  ms.date: 06/18/2018
   ms.author: tamram
-  ms.openlocfilehash: de0672c3f4f06dd20081e401121f1cbbe2d77c9f
-  ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
+  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/05/2018
-  ms.locfileid: "34763168"
+  ms.lasthandoff: 06/19/2018
+  ms.locfileid: "36266669"
 abstract:
   description: Le stockage Microsoft Azure est un service cloud géré par Microsoft qui fournit un stockage hautement disponible, sécurisé, durable, évolutif et redondant. Le stockage Azure se compose du stockage d’objets blob, du stockage de fichiers et du stockage de files d’attente.  Découvrez comment tirer parti du stockage Azure dans vos applications grâce à nos guides de démarrage rapide et nos didacticiels.
 sections:
@@ -126,6 +126,6 @@ sections:
     - title: Ligne de commande
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">interface de ligne de commande Azure</a></p>
     - title: Langues
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.JS</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.JS</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
-      html: <p><a href="/rest/api/storageservices">Objets blob, files d’attente, tables et fichiers</a></p><p><a href="/rest/api/storagerp">Fournisseur de ressources</a></p><p><a href="/rest/api/storageimportexport">Import/Export</a></p>
+      html: <p><a href="/rest/api/storageservices">API d’objets Blob, files d’attente, tables et fichiers</a></p><p><a href="/rest/api/storagerp">API de fournisseur de ressources de stockage</a></p><p><a href="/rest/api/storageimportexport">API de Service Import/Export</a></p>

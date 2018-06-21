@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294009"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -35,7 +36,7 @@ Vous trouverez tous les fichiers Docker sur [GitHub](https://github.com/azure-ap
 
 **Quelles sont les valeurs attendues de la section Fichier de démarrage lorsque je configure la pile d’exécution ?**
 
-Pour Node.js, vous spécifiez le fichier de configuration PM2 ou votre fichier de script. Pour .NET Core, vous spécifiez le nom de votre DLL compilée. Pour Ruby, vous pouvez spécifier le script Ruby avec lequel initialiser votre application.
+Pour Node.js, vous spécifiez le fichier de configuration PM2 ou votre fichier de script. Pour .NET Core, vous spécifiez le nom de votre DLL compilée, soit `dotnet <myapp>.dll`. Pour Ruby, vous pouvez spécifier le script Ruby avec lequel initialiser votre application.
 
 ## <a name="management"></a>gestion
 
@@ -47,7 +48,7 @@ Cette action revient à redémarrer Docker.
 
 Oui, vous pouvez le faire via le site de gestion de contrôle de code source (SCM).
 
-> [!NOTE] 
+> [!NOTE]
 > Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://aka.ms/linux-debug).
 >
 
@@ -113,7 +114,7 @@ Vous pouvez le faire en définissant le paramètre d’application `WEBSITES_ENA
 
 **Mon conteneur personnalisé met longtemps à démarrer, et la plateforme le redémarre avant qu’il ait terminé.**
 
-Vous pouvez configurer le temps que la plateforme doit attendre avant qu’elle redémarre votre conteneur. Pour ce faire, définissez le paramètre d’application `WEBSITES_CONTAINER_START_TIME_LIMIT` sur la valeur souhaitée. La valeur par défaut est de 230 secondes, la valeur maximale de 600 secondes.
+Vous pouvez configurer le temps que la plateforme doit attendre avant qu’elle redémarre votre conteneur. Pour ce faire, définissez le paramètre d’application `WEBSITES_CONTAINER_START_TIME_LIMIT` sur la valeur souhaitée. La valeur par défaut est de 230 secondes, la valeur maximale de 1800 secondes.
 
 **Quel est le format de l’URL du serveur de registre privé ?**
 

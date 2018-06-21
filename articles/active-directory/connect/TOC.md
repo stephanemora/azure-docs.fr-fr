@@ -18,6 +18,7 @@
 ### [Mettre à niveau à partir d’une version antérieure](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Effectuer l’installation à l’aide d’une base de données ADSync existante](active-directory-aadconnect-existing-database.md)
 ### [Effectuer l’installation à l’aide d’autorisations administrateur déléguées SQL](active-directory-aadconnect-sql-delegation.md)
+### [Déplacer la base de données Azure AD Connect vers un serveur SQL distant](active-directory-aadconnect-move-db.md)
 
 # Procédures
 ## Planifier et concevoir

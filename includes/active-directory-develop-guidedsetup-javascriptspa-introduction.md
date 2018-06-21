@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0aadfd809fefa73af6869d496f6d88d6dc9df59e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202533"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269576"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Appeler l’API Microsoft Graph à partir d’une application à page unique (SPA) JavaScript
 
@@ -31,14 +31,14 @@ Ce guide explique comment une application à page unique JavaScript peut permett
 ![Fonctionnement de l’exemple d’application de ce guide](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-## <a name="more-information"></a>Informations complémentaires
+### <a name="more-information"></a>Informations complémentaires
 
 L’exemple d’application créé dans le cadre de ce guide permet à une application SPA JavaScript d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons à partir d’un point de terminaison Azure Active Directory v2. Pour ce scénario, une fois l’utilisateur authentifié, un jeton d’accès est demandé et ajouté aux requêtes HTTP via l’en-tête d’autorisation. L’acquisition et le renouvellement de jetons sont gérés par la bibliothèque d’authentification Microsoft (MSAL).
 
 <!--end-collapse-->
 
 <!--start-collapse-->
-## <a name="libraries"></a>Bibliothèques
+### <a name="libraries"></a>Bibliothèques
 
 Ce guide utilise la bibliothèque suivante :
 

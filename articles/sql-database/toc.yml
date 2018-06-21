@@ -346,6 +346,14 @@
           href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: Synchroniser les données
           href: sql-database-get-started-sql-data-sync.md
+        - name: Répliquer les modifications de schéma pour SQL Data Sync
+          href: sql-database-update-sync-schema.md
+        - name: Surveiller SQL Data Sync avec OMS Log Analytics
+          href: sql-database-sync-monitor-oms.md
+        - name: Bonnes pratiques pour SQL Data Sync
+          href: sql-database-best-practices-data-sync.md
+        - name: Résoudre les problèmes de SQL Data Sync
+          href: sql-database-troubleshoot-data-sync.md
     - name: Surveiller et régler
       items:
         - name: Surveiller et améliorer les performances
@@ -374,12 +382,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Surveiller SQL Data Sync avec OMS Log Analytics
-          href: sql-database-sync-monitor-oms.md
-        - name: Bonnes pratiques pour SQL Data Sync
-          href: sql-database-best-practices-data-sync.md
-        - name: Résoudre les problèmes de SQL Data Sync
-          href: sql-database-troubleshoot-data-sync.md
     - name: Montée en charge
       items:
         - name: Créer une application partitionnée

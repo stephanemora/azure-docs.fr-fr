@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: 53ff14e00b88f6d182579ba0d9df630fae9b3d78
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d54d3481176b36a0d13a9b8af2fad03349b81be
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771131"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36229251"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutoriel : Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -41,7 +41,6 @@ Ce didacticiel décrit les tâches suivantes :
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
@@ -81,12 +80,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-<<<<<<< HEAD
 Login-AzureRmAccount
-=======
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount}
->>>>>>> refs/remotes/MicrosoftDocs/release-build-hdinsight-2018
 #endregion
 
 ####################################
@@ -196,7 +190,7 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
     |**Lieu**     | L’emplacement est automatiquement défini sur l’emplacement que vous avez spécifié au moment de la création du groupe de ressources. Pour ce tutoriel, l’emplacement est défini sur **Est des États-Unis 2**. |
     
 
-3. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**. Vous verrez une nouvelle vignette intitulée **Soumission du déploiement** sur le tableau de bord du portail. La création d’une fabrique de données peut prendre de 2 à 4 minutes.
+3. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**. Une nouvelle vignette intitulée **Soumission du déploiement en cours** apparaît sur le tableau de bord du Portail. La création d’une fabrique de données peut prendre de 2 à 4 minutes.
 
     ![Déploiement du modèle en cours](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "Déploiement du modèle en cours") 
  

@@ -1,25 +1,19 @@
 ---
-title: Alertes de journal dans Azure Monitor - Alertes | Microsoft Docs
+title: Alertes de journal dans Azure Monitor
 description: Déclenchez des e-mails, des notifications, des URL de sites web d’appel (webhooks) ou une automatisation lorsque les conditions de requête analytique que vous spécifiez sont remplies pour Alertes Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057319"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264372"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertes de journal dans Azure Monitor - Alertes 
 Cet article fournit des détails sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les nouvelles [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes. Pour plus d’informations sur les Alertes Métrique à l’aide des Journaux, reportez-vous à la rubrique [Alertes Métrique en quasi temps réel](monitoring-near-real-time-metric-alerts.md)
@@ -36,7 +30,7 @@ Les règles de recherche dans les journaux sont définies par les détails suiva
 - **Requête de journal**.  La requête qui s’exécute chaque fois que la règle d’alerte est déclenchée.  Les enregistrements renvoyés par cette requête permettent de déterminer si une alerte a été créée. Une requête *Azure Application Insights* peut également inclure des [appels entre applications](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), pour autant que l’utilisateur dispose de droits d’accès aux applications externes. 
 
     > [!IMPORTANT]
-    > La prise en charge des [requêtes entre applications pour Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) est en préversion. La fonctionnalité et l’expérience utilisateur sont susceptibles de changer. L’utilisation de [requêtes entre espaces de travail](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) et de [requêtes entre ressources pour Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) n’est **pas prise en charge** actuellement dans les Alertes Azure.
+    > La prise en charge des [requêtes entre applications pour Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) est en préversion. La fonctionnalité limitée à l’utilisation de deux ou plusieurs applications et l’expérience utilisateur sont susceptibles de changer. L’utilisation de [requêtes entre espaces de travail](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) et de [requêtes entre ressources pour Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) n’est **pas prise en charge** actuellement dans les Alertes Azure.
 
 - **Période**  Spécifie l’intervalle de temps pour la requête. La requête retourne uniquement les enregistrements qui ont été créés dans cette plage précédant son exécution. La période limite les données extraites pour la requête de journal afin d’empêcher les abus, et contourne toute commande de temps (comme « il y a ») utilisée dans une requête de journal. <br>*Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont retournés pour l’exécution de la requête de journal. Maintenant, si la requête de journal utilise une commande de temps telle que « il y a » (7d), la requête de journal est exécutée uniquement pour les données collectées entre 12 h 15 et 13 h 15, comme si celles-ci n’avaient existé que pendant les 60 minutes passées, et non pendant les sept jours de données spécifiés dans la requête de journal.*
 - **Fréquence**.  Spécifie la fréquence à laquelle la requête doit être exécutée. Peut être toute valeur comprise entre 5 minutes et 24 heures. La valeur doit être inférieure ou égale à la période.  Si la valeur est supérieure à la période, vous risquez de manquer des enregistrements.<br>*Par exemple, imaginons une période de 30 minutes associée à une fréquence de 60 minutes.  Si la requête est exécutée à 13 h, les enregistrements entre 12 h 30 et 13 h sont renvoyés.  La requête s’exécute ensuite à 14 h, moment auquel elle renvoie les enregistrements entre 13 h 30 et 14 h.  Les enregistrements créés entre 13 h 00 et 13 h 30 ne sont jamais analysés.*
@@ -126,7 +120,7 @@ Les API fournies pour les alertes de journal sont de type RESTful, et accessible
 
 Pour plus de détails, ainsi que des exemples d’utilisation de l’API REST, voir les informations suivantes :
 - [API REST d’alerte Log Analytics](../log-analytics/log-analytics-api-alerts.md) : pour créer et gérer les règles d’alerte de recherche dans les journaux pour Azure Log Analytics.
-- [API REST de règles de requête planifiée Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) : pour créer et gérer des règles d’alerte de recherche dans les journaux pour Azure Application Insights.
+- [API REST de règles de requête planifiée Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) : pour créer et gérer des règles d’alerte de recherche dans les journaux pour Azure Application Insights.
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 Les utilisateurs peuvent également profiter de la souplesse d’[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour créer et mettre à jour des ressources, pour la création ou la mise à jour d’alertes de journal.

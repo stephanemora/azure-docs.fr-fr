@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 24a5baade2168df603f5505baeaaf8e1c3ea2411
+ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202530"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "36205225"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Configuration du serveur web ou du projet
 
@@ -33,7 +33,6 @@ ms.locfileid: "32202530"
 > Passez ensuite à l’étape [Configuration](#register-your-application) pour configurer l’exemple de code avant son exécution.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour exécuter cette installation guidée, vous avez besoin d’un serveur web local tel que [Python http-server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/) ou [.NET Core](https://www.microsoft.com/net/core), ou de l’intégration d’IIS Express à [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
 
 Les instructions de ce guide sont basées sur Python et Visual Studio 2017. Cependant, vous pouvez utiliser n’importe quel environnement de développement ou serveur web.

@@ -2,44 +2,99 @@
 title: Configurer un serveur de processus dans Azure pour la restauration automatique d’une machine virtuelle VMware et d’un serveur physique avec Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment configurer un serveur de processus dans Azure pour restaurer automatiquement des machines virtuelles Azure dans VMware.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 7bbe690e749680edde08facadf6d5910d7896f7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 06/10/2018
+ms.author: raynew
+ms.openlocfilehash: 3e53954341136a293052f9af755515a5552432fe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300845"
 ---
-# <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurer un serveur de processus dans Azure à des fins de restauration automatique
+# <a name="set-up-additional-process-servers-for-scalability"></a>Configurer des serveurs de processus supplémentaires pour l’évolutivité
 
-Après avoir restauré automatiquement des machines virtuelles VMware ou des serveurs physiques dans Azure avec [Site Recovery](site-recovery-overview.md), vous pouvez les rebasculer sur le site local dès qu’ils sont de nouveau opérationnels. Pour effectuer une restauration automatique, vous devez configurer un serveur de processus temporaire dans Azure de manière à gérer la réplication entre Azure et le site local. Vous pouvez supprimer cette machine virtuelle à l’issue de la restauration automatique.
+Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit ce processus de reprotection.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-En savoir plus sur le processus de [reprotection](vmware-azure-reprotect.md) et de [restauration automatique](vmware-azure-failback.md).
+### <a name="capacity-planning"></a>planification de la capacité
 
-[!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+Assurez-vous d’avoir effectué la [planification de la capacité](site-recovery-plan-capacity-vmware.md) pour la réplication VMware. Cela vous aide à déterminer comment et quand déployer des serveurs de traitement supplémentaires.
 
-## <a name="deploy-a-process-server-in-azure"></a>Déployer un serveur de processus dans Azure
+### <a name="sizing-requirements"></a>Configuration requise pour le dimensionnement 
 
-1. Dans le coffre > **Infrastructure Site Recovery**> **Gérer** > **Serveurs de Configuration**, sélectionnez le serveur de configuration.
-2. Sur la page des serveurs, cliquez sur **+ Serveur de processus**
-3. Sur la page **Ajouter un serveur de processus**, choisissez de déployer le serveur de processus dans Azure.
-4. Spécifiez les paramètres Azure, y compris l’abonnement utilisé pour la restauration automatique, un groupe de ressources, la région Azure utilisée pour la restauration automatique et le réseau virtuel dans lequel se trouvent les machines virtuelles Azure. Si vous avez utilisé plusieurs réseaux Azure, vous avez besoin d’un serveur de processus dans chacun d’eux.
-5. Dans **Nom du serveur**, **Nom d’utilisateur** et **Mot de passe**, spécifiez un nom pour le serveur de processus, ainsi que les informations d’identification pour lesquelles seront accordées des autorisations d’administrateur sur le serveur.
-6. Spécifiez un compte de stockage à utiliser pour les disques de machine virtuelle du serveur, le sous-réseau dans lequel se trouve la machine virtuelle du serveur de processus, ainsi que l’adresse IP de serveur qui sera attribuée au démarrage de la machine virtuelle.
-7. Cliquez sur le bouton **OK** pour commencer le déploiement de la machine virtuelle du serveur de processus.
+Vérifiez la configuration requise pour le dimensionnement, résumée dans le tableau. En général, si vous devez faire évoluer votre déploiement au-delà de 200 machines source ou que votre taux d’évaluation quotidien total dépasse 2 To, vous avez besoin de serveurs de traitement supplémentaires pour gérer le volume de trafic.
 
->
+| **Serveur de traitement supplémentaire** | **Taille du disque cache** | **Taux de modification des données** | **Machines protégées** |
+| --- | --- | --- | --- |
+|4 processeurs virtuels (2 sockets * 2 cœurs @ 2,5 GHz), 8 Go de mémoire |300 Go |250 Go ou moins |Répliquez 85 machines ou moins. |
+|8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz), 12 Go de mémoire |600 Go |250 Go à 1 To |Répliquez entre 85 et 150 machines. |
+|12 processeurs virtuels (2 sockets * 6 cœurs @ 2,5 GHz), 24 Go de mémoire |1 To |1 To à 2 To |Répliquez entre 150 et 225 machines. |
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Inscription du serveur de processus (en cours d’exécution dans Azure) auprès d’un serveur de Configuration (en cours d’exécution en local)
+### <a name="prerequisites"></a>Prérequis
 
-Une fois la machine virtuelle du serveur de processus entièrement opérationnelle, vous devez l’inscrire auprès du serveur de configuration local, comme suit :
+La configuration requise pour le serveur de traitement supplémentaire est résumée dans le tableau suivant.
 
-[!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+## <a name="download-installation-file"></a>Télécharger le fichier d’installation
+
+Téléchargez le fichier d’installation pour le serveur de processus comme suit :
+
+1. Connectez-vous au portail Azure et accédez à votre coffre Recovery Services.
+2. Ouvrez **Infrastructure Site Recovery** > **VMWare et machines physiques** > **Serveurs de configuration** (sous Pour VMware et machines physiques).
+3. Sélectionnez le serveur de configuration pour explorer les détails du serveur. Cliquez ensuite sur **+ Serveur de processus**.
+4. Dans **Ajouter un serveur de processus** >  **Indique où vous souhaitez déployer votre serveur de processus**, sélectionnez **Déployer un serveur de traitement de montée en puissance parallèle local**.
+
+  ![Page Ajouter des serveurs](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+1. Cliquez sur **Download the Microsoft Azure Site Recovery Unified Setup** (Télécharger le programme d’installation unifiée de Microsoft Azure Site Recovery). Cette option télécharge la dernière version du fichier d’installation.
+
+  > [!WARNING]
+  La version d’installation du serveur de processus doit être identique ou antérieure à la version du serveur de configuration en cours d’exécution. Un moyen simple d’assurer la compatibilité de la version consiste à utiliser le même programme d’installation que celui récemment utilisé pour installer ou mettre à jour votre serveur de configuration.
+
+## <a name="install-from-the-ui"></a>Installer à partir de l’interface utilisateur
+
+Procédez à l’installation comme suit. Après avoir configuré le serveur, vous pouvez migrer les ordinateurs source pour les utiliser.
+
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
+
+
+## <a name="install-from-the-command-line"></a>Installer à partir de la ligne de commande
+
+Installez en exécutant la commande suivante :
+
+```
+UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+```
+
+Avec les paramètres de ligne de commande suivants :
+
+[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
+
+Par exemple : 
+
+```
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+cd C:\Temp\Extracted
+UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
+```
+### <a name="create-a-proxy-settings-file"></a>Créer un fichier de paramètres de proxy
+
+Si vous devez configurer un proxy, le paramètre ProxySettingsFilePath prend un fichier en tant qu’entrée. Vous pouvez créer le fichier comme suit, puis le transmettre comme paramètre ProxySettingsFilePath d’entrée.
+
+```
+* [ProxySettings]
+* ProxyAuthentication = "Yes/No"
+* Proxy IP = "IP Address"
+* ProxyPort = "Port"
+* ProxyUserName="UserName"
+* ProxyPassword="Password"
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur la [gestion des paramètres de serveur de processus](vmware-azure-manage-process-server.md)

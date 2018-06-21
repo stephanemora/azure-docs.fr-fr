@@ -48,7 +48,7 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: Journaux d’activité
+    - name: Afficher les journaux d’activité
       href: change-history-report.md
     - name: Élever l’accès d’administrateur général
       href: elevate-access-global-admin.md
