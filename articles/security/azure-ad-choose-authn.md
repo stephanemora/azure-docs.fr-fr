@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809258"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294105"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
@@ -41,6 +41,8 @@ Les organisations qui ne présentent aucune empreinte d’un annuaire local exis
 En choisissant la solution d’identité hybride Azure AD comme nouveau plan de contrôle, l’authentification constitue la base de l’accès au cloud. Le choix de la méthode d’authentification est une première décision essentielle dans la configuration d’une solution d’identité hybride Azure AD. L’implémentation de la méthode d’authentification est configurée à l’aide d’Azure AD Connect, qui provisionne également les utilisateurs dans le cloud.
 
 Pour choisir une méthode d’authentification, vous devez prendre en compte l’infrastructure existante, le temps nécessaire à l’implémentation, sa complexité et les coûts associés. Ces facteurs sont différents pour chaque organisation et peuvent varier au fil du temps. 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD prend en charge les méthodes d’authentification suivantes pour les solutions d’identité hybride.
 

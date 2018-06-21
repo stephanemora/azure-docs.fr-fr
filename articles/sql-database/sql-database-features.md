@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d49cd0096eb173c0f483a7b7ab1f3def745f56a6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248807"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231608"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparaison des fonctionnalités d’Azure SQL Database comparées à celles de SQL Server 
 
@@ -39,7 +39,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Sauvegardes automatiques](sql-database-automated-backups.md) | OUI | OUI |
 | [Réglage automatique (forçage du plan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| [Oui](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Réglage automatique (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| Non  |
-| [Fichier BACPAC (exporter)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Oui - voir [Exportation de base de données SQL](sql-database-export.md) | OUI |
+| [Fichier BACPAC (exporter)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Oui - voir [Exportation de base de données SQL](sql-database-export.md) | Non  |
 | [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Oui - voir [Importation de base de données SQL](sql-database-import.md) | Non  |
 | [Commande de sauvegarde](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Non, uniquement les sauvegardes automatiques générées par le système - voir [Sauvegardes automatiques](sql-database-automated-backups.md) | Sauvegardes automatiques initiées par le système et sauvegardes en copie seule initiées par l’utilisateur - voir [Différences entre les sauvegardes](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Fonctions intégrées](https://docs.microsoft.com/sql/t-sql/functions/functions) | La plupart - voir Fonctions individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
@@ -48,8 +48,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Instructions de classement](https://docs.microsoft.com/sql/t-sql/statements/collations) | OUI | OUI |
 | [Index Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Oui - [niveau Premium, niveau Standard - S3 et supérieur, niveau Usage général et niveaux Critique pour l’entreprise](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |OUI |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Non  | Oui - voir [Différences CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
-| 
-  [Bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | OUI | OUI |
+| [Bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | OUI | OUI |
 | [Utilisateurs contenus](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | OUI | OUI |
 | [Contrôle des mots clés de langage de flux](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | OUI | OUI |
 | [Requêtes entre plusieurs bases de données](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non - voir [Requêtes élastiques](sql-database-elastic-query-overview.md) | Oui, plus [Requêtes élastiques](sql-database-elastic-query-overview.md) |
