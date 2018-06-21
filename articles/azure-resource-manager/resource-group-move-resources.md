@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360085"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602718"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -92,6 +92,8 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sur le groupe de ressources source.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** sur le groupe de ressources de destination.
+
+5. Quand c’est possible, divisez les grands déplacements en opérations de déplacement distinctes. Resource Manager met immédiatement en échec les tentatives de déplacement de plus de 800 ressources en une seule opération. Cependant, un déplacement de moins de 800 ressources peut également échouer en raison d’un dépassement du délai d’expiration.
 
 ## <a name="when-to-call-support"></a>Quand appeler le support technique
 

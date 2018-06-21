@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638294"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Encoder avec une échelle de débit générée automatiquement
 
@@ -27,18 +28,18 @@ Cet article explique comment utiliser l’encodeur standard dans Media Services 
 
 ### <a name="encoding-for-streaming"></a>Encodage pour la diffusion en continu
 
-Comme son nom l’indique, si vous utilisez la présélection **AdaptiveStreaming** lors de la création d’une transformation d’encodage, vous obtenez une sortie qui convient pour une livraison via les protocoles de diffusion en continu tels que HLS, DASH, CMAF, etc. Lorsque vous utilisez cette présélection **AdaptiveStreaming**, l’encodeur détermine intelligemment le nombre de couches vidéo à générer ainsi que le débit et la résolution. L’élément multimédia de sortie contient des fichiers MP4 où l’audio encodé en AAC et la vidéo encodée en H.264 ne sont pas entrelacés.
+Quand vous utilisez le préréglage **AdaptiveStreaming** dans une **transformation**, vous obtenez une sortie qui convient pour une diffusion via des protocoles de streaming comme HLS et DASH. Quand vous utilisez ce préréglage, l’encodeur détermine automatiquement le nombre de couches vidéo à générer, ainsi que le débit et la résolution. Le contenu en sortie contient des fichiers MP4 où l’audio encodé en AAC et la vidéo encodée en H.264 ne sont pas entrelacés.
 
 Pour voir un exemple d’utilisation de cette présélection, consultez [Diffuser un fichier](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Sortie
 
-Cette section présente trois exemples de couches vidéo de sortie produites par l’encodeur Media Services suite à un encodage avec la présélection **AdaptiveStreaming**. Dans tous les cas, la sortie contient des fichiers MP4 audio uniquement avec des données audio stéréo encodées à 128 Kbits/s.
+Cette section présente trois exemples de couches vidéo de sortie produites par l’encodeur Media Services suite à un encodage avec la présélection **AdaptiveStreaming**. Dans tous les cas, la sortie contient un fichier MP4 audio uniquement avec des données audio stéréo encodées à 128 Kbits/s.
 
 ### <a name="example-1"></a>Exemple 1
 Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.970 » crée 6 couches vidéo :
 
-|Couche|Hauteur|Largeur|Vitesse de transmission (Kbits/s)|
+|Couche|Hauteur|Largeur|Débit binaire (Kbits/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1 280|3520|
@@ -50,7 +51,7 @@ Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.
 ### <a name="example-2"></a>Exemple 2
 Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.970 » crée 5 couches vidéo :
 
-|Couche|Hauteur|Largeur|Vitesse de transmission (Kbits/s)|
+|Couche|Hauteur|Largeur|Débit binaire (Kbits/s)|
 |---|---|---|---|
 |1|720|1 280|2940|
 |2|540|960|1850|
@@ -61,7 +62,7 @@ Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.9
 ### <a name="example-3"></a>Exemple 3
 Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.970 » crée 3 couches vidéo :
 
-|Couche|Hauteur|Largeur|Vitesse de transmission (Kbits/s)|
+|Couche|Hauteur|Largeur|Débit binaire (Kbits/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

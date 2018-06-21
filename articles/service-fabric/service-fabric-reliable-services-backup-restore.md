@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643030"
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
@@ -56,7 +57,7 @@ La solution à ce problème consiste à recourir à des sauvegardes incrémentie
 
 Puisque les sauvegardes incrémentielles ne portent que sur les modifications apportées depuis la dernière sauvegarde (sans les points de contrôle), elles sont généralement plus rapides, mais ne peuvent pas être restaurées d’elles-mêmes.
 La restauration d’une sauvegarde incrémentielle implique l’ensemble de la chaîne de sauvegarde.
-Une chaîne de sauvegarde est une chaîne de sauvegardes qui commence par une sauvegarde complète, suivie d’un nombre de sauvegardes incrémentielles contigües.
+Une chaîne de sauvegarde est une chaîne de sauvegardes commençant par une sauvegarde complète suivie d’un certain nombre de sauvegardes incrémentielles contiguës.
 
 ## <a name="backup-reliable-services"></a>Sauvegarder Reliable Services
 Le créateur du service contrôle intégralement le moment auquel les sauvegardes sont effectuées et leur emplacement de stockage.
@@ -153,7 +154,7 @@ Par exemple, s’il contient la sauvegarde complète, les première et troisièm
 > 
 
 ## <a name="deleted-or-lost-service"></a>Service supprimé ou perdu
-Si un service est supprimé, vous devez d’abord le recréer pour que les données puissent être restaurées.  Il est important de créer le service avec la même configuration, par exemple le schéma de partitionnement, afin que les données puissent être restaurées de manière fluide.  Une fois le service opérationnel, l’API permettant de restaurer les données (`OnDataLossAsync` ci-dessus) doit être appelée sur chacune de ses partitions. Pour cela, vous pouvez utiliser `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` sur chaque partition.  
+Si un service est supprimé, vous devez d’abord le recréer pour que les données puissent être restaurées.  Il est important de créer le service avec la même configuration, par exemple le schéma de partitionnement, afin que les données puissent être restaurées de manière fluide.  Une fois le service opérationnel, l’API permettant de restaurer les données (`OnDataLossAsync` ci-dessus) doit être appelée sur chacune de ses partitions. Un moyen d’y parvenir consiste à utiliser [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) sur chaque partition.  
 
 À ce stade, l’implémentation est identique au scénario ci-dessus. Chaque partition doit restaurer la dernière sauvegarde pertinente à partir du magasin externe. L’inconvénient est que l’ID de partition peut avoir changé, étant donné que le runtime crée des ID de partition de manière dynamique. Par conséquent, le service doit stocker les informations de partition appropriées et le nom du service pour identifier la dernière sauvegarde correcte à restaurer pour chaque partition.
 

@@ -4,7 +4,7 @@ description: Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366356"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656191"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -540,9 +540,10 @@ Nous rencontrons un nombre assez important de scénarios où des clients souhait
 Si vous utilisez des disques managés, vous pouvez migrer vers le Stockage Premium de la façon suivante :
 
 1. Libérez la machine virtuelle
-2. Si nécessaire, redimensionnez la machine virtuelle pour atteindre une taille prenant en charge le stockage Premium (par exemple DS ou GS)
-3. Passez à un compte Premium pour le disque managé (SSD)
-4. Démarrez la machine virtuelle
+1. Si nécessaire, redimensionnez la machine virtuelle pour atteindre une taille prenant en charge le stockage Premium (par exemple DS ou GS)
+1. Passez à un compte Premium pour le disque managé (SSD)
+1. Modifiez la mise en cache des disques de données, comme recommandé dans le chapitre [Mise en cache pour les machines virtuelles et les disques de données][dbms-guide-2.1]
+1. Démarrez la machine virtuelle
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Déploiement de machines virtuelles pour SAP dans Azure
 Microsoft Azure offre plusieurs modes de déploiement de machines virtuelles et des disques associés. Il est important de comprendre ce qui les distingue dans la mesure où les préparations des machines virtuelles peuvent différer en fonction du déploiement. En règle générale, nous examinons les scénarios décrits dans les chapitres suivants.

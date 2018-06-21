@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 8fd25e13f6796b8be99ad3efd425bcde7bca3905
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193969"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645332"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 
@@ -78,7 +78,7 @@ Les scripts de reprise d’activité utilisés dans ce tutoriel sont disponibles
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
 
-1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt; utilisateur&gt;.trafficmanager.net, remplacez &lt;utilisateur&gt; par la valeur d’utilisateur de votre déploiement).
+1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement).
     
    Faites défiler la page vers le bas et notez le nom et l’emplacement du serveur de catalogue dans le pied de page. L’emplacement correspond à la région dans laquelle vous avez déployé l’application.    
 
@@ -198,7 +198,7 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
  
     ![Processus de récupération](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;utilisateur&gt;.trafficmanager.net/contosoconcerthall.
+    * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processus de récupération](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -264,7 +264,7 @@ Cette tâche permet de mettre à jour l’une des bases de données de locataire
 
 3. Appuyez sur F5 pour exécuter le script.
 
-4. Actualisez la page des événements de Contoso Concert Hall (http://events.wingtip-dpt.&lt;utilisateur&gt;.trafficmanager.net/contosoconcerthall) et remarquez que l’événement Seriously Strauss est manquant.
+4. Actualisez la page des événements de Contoso Concert Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall) et remarquez que l’événement Seriously Strauss est manquant.
 
 À ce stade du tutoriel, vous avez récupéré l’application, qui est à présent en cours d’exécution dans la région de récupération. Vous avez provisionné un nouveau locataire dans la région de récupération et modifié les données de l’un des locataires restaurés.  
 
@@ -328,7 +328,7 @@ Si vous avez suivi le tutoriel, le script réactive immédiatement Fabrikam Jazz
 
     Appuyez sur F5 pour exécuter le script de récupération dans une nouvelle fenêtre PowerShell. Le rapatriement prend plusieurs minutes, et vous pouvez le surveiller dans la fenêtre PowerShell.
 
-3. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt;utilisateur&gt;.trafficmanager.net).
+3. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net).
 
     Remarquez que tous les locataires sont en ligne et accessibles pendant ce processus.
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637767"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Collecte d’alertes à partir de Nagios et Zabbix dans Log Analytics à partir de l’agent OMS pour Linux 
 [Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des [alertes provenant d’autres sources](log-analytics-alerts.md).  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes.
  
 ## <a name="prerequisites"></a>Prérequis
-
 L’agent OMS pour Linux prend en charge la collecte d’alertes à partir de Nagios jusqu’à la version 4.2.x et de Zabbix jusqu’à la version 2.x.
 
 ## <a name="configure-alert-collection"></a>Configuration de la collecte d’alertes
@@ -57,7 +57,7 @@ Pour collecter des alertes, procédez comme suit sur le serveur Nagios.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configuration de la collecte d’alertes Zabbix
-Pour collecter les alertes à partir d’un serveur Zabbix, vous devez indiquer un utilisateur et un mot de passe en *texte clair*.  Même si ce n’est pas l’idéal, nous vous recommandons de créer l’utilisateur et d’accorder des autorisations pour surveiller onlu.
+Pour collecter les alertes à partir d’un serveur Zabbix, vous devez indiquer un utilisateur et un mot de passe en *texte clair*.  Même si ce n’est pas idéal, nous recommandons de créer un utilisateur Zabbix avec des autorisations en lecture seule pour intercepter les alarmes appropriées.
 
 Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
@@ -74,7 +74,7 @@ Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
 2. Redémarrez le démon omsagent
 
-    sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Enregistrements d’alerte

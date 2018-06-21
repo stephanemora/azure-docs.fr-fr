@@ -1,23 +1,19 @@
 ---
-title: Sauvegarder des serveurs VMware avec le serveur de sauvegarde Azure | Microsoft Docs
-description: "Utilisez le serveur de sauvegarde Azure pour sauvegarder des serveurs VMware vCenter et VMware ESXi dans Azure ou sur un disque. Cet article fournit des instructions étape par étape pour sauvegarder (ou protéger) vos charges de travail VMware."
+title: Sauvegarder des serveurs VMware avec le serveur de sauvegarde Azure
+description: Utilisez le serveur de sauvegarde Azure pour sauvegarder des serveurs VMware vCenter et VMware ESXi dans Azure ou sur un disque. Cet article fournit des instructions étape par étape pour sauvegarder (ou protéger) vos charges de travail VMware.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605421"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Sauvegarder un serveur VMware dans Azure
 

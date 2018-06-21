@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642809"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -58,14 +59,13 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
 Pour que l’application d’orchestration des correctifs puisse fonctionner, le service système de gestion des réparations doit être activé sur le cluster.
 
 #### <a name="azure-clusters"></a>Clusters Azure
 
-Le service de gestion des réparations est activé par défaut pour les clusters Azure au niveau de durabilité Silver. Le service de gestion des réparations peut être activé ou non pour les clusters Azure au niveau de durabilité Gold, en fonction du moment de leur création. Le service de gestion des réparations est déactivé par défaut pour les clusters Azure au niveau de durabilité Bronze. Si le service est déjà activé, vous pouvez le voir s’exécuter dans la section des services système de Service Fabric Explorer.
+Le service de gestion des réparations est activé par défaut pour les clusters Azure au niveau de durabilité Silver. Le service de gestion des réparations peut être activé ou non pour les clusters Azure au niveau de durabilité Gold, en fonction du moment de leur création. Le service de gestion des réparations est désactivé par défaut pour les clusters Azure au niveau de durabilité Bronze. Si le service est déjà activé, vous pouvez le voir s’exécuter dans la section des services système de Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Portail Azure
 Vous pouvez activer le gestionnaire des réparations à partir du portail Azure au moment de la configuration du cluster. Sélectionnez l’option **Inclure le gestionnaire de réparation** sous **Fonctionnalités complémentaires** lors de la configuration du cluster.
@@ -284,7 +284,7 @@ Si le service de gestion des réparations est introuvable sur le cluster, un rap
 
 Q. **Pourquoi mon cluster présente-t-il un état d’erreur lorsque l’application d’orchestration des correctifs est en cours d’exécution ?**
 
-R. Pendant le processus d’installation, l’application d’orchestration des correctifs désactive ou redémarre des nœuds, ce qui peuvent entraîner une dégradation temporaire de l’intégrité du cluster.
+R. Pendant le processus d’installation, l’application d’orchestration des correctifs désactive ou redémarre des nœuds, ce qui peut entraîner une dégradation temporaire de l’intégrité du cluster.
 
 Selon la stratégie définie pour l’application, une opération de mise à jour corrective peut entraîner la dégradation d’un nœud isolé *ou* d’un domaine de mise à niveau entier.
 
@@ -317,6 +317,10 @@ R. Le temps dont l’application d’orchestration des correctifs a besoin dépe
 Q. **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 
 R. Certaines mises à jour de produits apparaissent uniquement dans leur historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
+
+Q. **L’application d’orchestration des correctifs peut-elle être utilisée pour corriger mon cluster de développement (cluster à un nœud) ?**
+
+R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 

@@ -4,21 +4,22 @@ description: Vue d’ensemble architectural du déploiement de SAP HANA sur Azur
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763780"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure
 
@@ -67,8 +68,8 @@ Plusieurs définitions communes sont largement utilisées dans ce guide sur l’
    Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. Il s’agit du scénario classique dans lequel la plupart des ressources SAP sont déployées. Pour plus d’informations, consultez [Planifier et concevoir pour la passerelle VPN Azure](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Créer un réseau virtuel avec une connexion de site à site à l’aide du Portail Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Abonné** : un client déployé dans le tampon de grande instance HANA est isolé dans un *abonné.* Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et compute assignées aux différents abonnés ne peuvent pas se voir ni communiquer entre elles sur le niveau de tampon de grande instance HANA. Un client peut opter pour des déploiements dans plusieurs locataires. Même dans ce cas, aucune communication n’est établie entre les locataires sur le niveau de tampon de grande instance HANA.
 - **Catégorie de référence SKU** : pour la grande instance HANA, les deux catégories suivantes de références SKU sont proposées :
-    - **Classe de type I** : S72, S72m, S144, S144m, S192 et S192m
-    - **Classe de type II** : S384, S384m, S384xm, S576m, S768m et S960m
+    - **Classe de type I** : S72, S72m, S144, S144m, S192, S192m et S192xm
+    - **Classe de type II** : S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m
 
 
 De nombreuses ressources supplémentaires sont disponibles sur le déploiement d’une charge de travail SAP dans le cloud. Si vous planifiez un déploiement de SAP HANA dans Azure, vous devez être expérimenté, connaitre les principes d’Azure IaaS et le déploiement des charges de travail SAP sur Azure IaaS. Avant de continuer, consultez [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations. 
@@ -147,7 +148,10 @@ Tout comme vous avez le choix entre différents types de machines virtuelles ave
 |---| SAP HANA sur Azure S576m<br /> - 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  12,0 To |  28 To | Disponible |
 |---| SAP HANA sur Azure S768m<br /> - 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  16,0 To |  36 To | Disponible |
 |---| SAP HANA sur Azure S960m<br /> - 20 x processeurs Intel® Xeon® E7-8890 v4<br /> 480 cœurs et 960 threads d’UC |  20,0 To |  46 To | Disponible |
-
+| Optimisée pour OLTP **TDIv5** : SAP Business Suite<br /> sur SAP HANA ou S/4HANA (OLTP),<br /> OLTP générique | SAP HANA sur Azure S192xm<br /> - 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC |  6,0 To |  16 TO | Disponible |
+|---| SAP HANA sur Azure S384xxm<br /> - 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  12,0 To |  28 To | Disponible |
+|---| SAP HANA sur Azure S576xm<br /> - 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  18,0 To |  41 To | Disponible |
+|---| SAP HANA sur Azure S768xm<br /> - 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  24,0 To |  56 To | Disponible |
 - Cœurs d’unité centrale = somme des cœurs d’UC non multithreads dérivée de la somme des processeurs de l’unité de serveur.
 - Threads d’UC = somme des threads de calcul fournis par les cœurs d’UC multithreads dérivée de la somme des processeurs de l’unité de serveur. Toutes les unités sont configurées par défaut pour utiliser la technologie Hyper-Threading.
 
@@ -156,8 +160,8 @@ Les configurations spécifiques choisies dépendent de la charge de travail, des
 
 La base matérielle de toutes les offres est certifiée TDI SAP HANA. Deux classes de matériel différentes divisent les références SKU comme suit :
 
-- S72, S72m, S144, S144m, S192 et S192m, nommées références SKU de « classe de type I ».
-- S384, S384m, S384xm, S576m, S768m et S960m, nommées références SKU de « classe de type II ».
+- S72, S72m, S144, S144m, S192, S192m et S192xm, nommées références SKU de « classe de type I ».
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m, nommées références SKU de « classe de type II ».
 
 Un tampon de grande instance HANA complet n’est pas exclusivement alloué à l’utilisation d’un client unique. Cela s’applique également aux racks de ressources de calcul et de stockage connectés par le biais d’une structure réseau déployée dans Azure. L’infrastructure de grande instance HANA, par exemple Azure, déploie plusieurs &quot;abonnés&quot; client isolés les uns des autres selon les trois niveaux suivants :
 
@@ -337,17 +341,21 @@ La grande instance HANA de classe Type I est livrée avec quatre fois le volume
 
 Consultez le tableau suivant pour connaître l’allocation de stockage. La table indique la capacité approximative des différents volumes fournis avec les diverses unités de grande instance HANA.
 
-| Référence SKU de grande instance HANA | hana/data | hana/log | hana/shared | hana/log/backup |
+| Référence SKU de grande instance HANA | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1 280 Go | 512 Go | 768 Go | 512 Go |
 | S72m | 3 328 Go | 768 Go |1 280 Go | 768 Go |
 | S192 | 4 608 Go | 1 024 Go | 1 536 Go | 1 024 Go |
 | S192m | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
+| S192xm |  12 000 Go |  2 050 Go |  2 050 Go |  2 040 Go |
 | S384 | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
 | S384m | 12 000 Go | 2 050 Go | 2 050 Go | 2 040 Go |
 | S384xm | 16 000 Go | 2 050 Go | 2 050 Go | 2 040 Go |
+| S384xxm |  20 000 Go | 3 100 Go | 2 050 Go | 3 100 Go |
 | S576m | 20 000 Go | 3 100 Go | 2 050 Go | 3 100 Go |
+| S576xm | 31 744 Go | 4 096 Go | 2 048 Go | 4 096 Go |
 | S768m | 28 000 Go | 3 100 Go | 2 050 Go | 3 100 Go |
+| S768xm | 40 960 Go | 6 144 Go | 4 096 Go | 6 144 Go |
 | S960m | 36 000 Go | 4 100 Go | 2 050 Go | 4 100 Go |
 
 

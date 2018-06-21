@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895593"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726446"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -94,6 +94,8 @@ Un sous-réseau peut avoir zéro ou une table de routage associée. Une table de
 3. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
 4. Sélectionnez le sous-réseau auquel associer la table de routage.
 5. Cliquez sur **Table de routage**, sélectionnez la table de routage à associer au sous-réseau, puis cliquez sur **Enregistrer**.
+
+Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez pas de table de routage au [sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) incluant un itinéraire avec une destination de 0.0.0.0/0. Cela peut empêcher la passerelle de fonctionner correctement. Pour plus d’informations sur l’utilisation de 0.0.0.0/0 dans un routage, consultez [Routage du trafic du réseau virtuel](virtual-networks-udr-overview.md#default-route).
 
 **Commandes**
 

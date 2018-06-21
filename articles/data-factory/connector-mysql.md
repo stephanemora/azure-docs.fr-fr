@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808721"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,11 +38,10 @@ Plus précisément, ce connecteur MySQL prend en charge MySQL **version 5.1 et 
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour utiliser ce connecteur MySQL, vous devez :
 
-- Configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
-- Installer le [Connector MySQL/Net pour Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 ou ultérieure sur l’ordinateur exécutant le runtime d’intégration. Ce pilote 32 bits est compatible avec le runtime d’intégration (IR) 64 bits.
+- Configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
+- Installez le [Connecteur MySQL/Net pour Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) d’une version comprise entre 6.6.5 et 6.10.7 sur la machine Integration Runtime. Ce pilote 32 bits est compatible avec le runtime d’intégration (IR) 64 bits.
 
 > [!TIP]
 > Si vous rencontrez l’erreur « Échec de l'authentification, car le site distant a fermé le flux de transport. », envisagez de mettre à niveau le connecteur MySQL/Net vers une version supérieure.
@@ -59,7 +59,7 @@ Les propriétés prises en charge pour le service lié MySQL sont les suivantes�
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **MySql** | OUI |
-| server | Nom du serveur MySQL. | OUI |
+| serveur | Nom du serveur MySQL. | OUI |
 | database | Nom de la base de données MySQL. | OUI |
 | schema | Nom du schéma dans la base de données. | Non  |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. | OUI |

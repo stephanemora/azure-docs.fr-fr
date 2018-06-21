@@ -2,23 +2,20 @@
 title: Journalisation des diagnostics Azure Cosmos DB | Microsoft Docs
 description: Utilisez ce didacticiel pour vous familiariser avec la journalisation d’Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612212"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
@@ -34,7 +31,7 @@ L’illustration suivante montre les différents types de journaux Azure disponi
 
 Sur l’image, les **Ressources de calcul** représentent les ressources Azure pour lesquelles vous pouvez accéder au système d’exploitation invité Microsoft. Par exemple, les machines virtuelles Azure, les groupes de machines virtuelles identiques et Azure Container Service sont considérés comme des ressources de calcul. Les ressources de calcul génèrent des journaux d’activité, de diagnostic et des applications. Pour plus d’informations, consultez l’article [Azure Monitoring : ressources de calcul](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
 
-Les **Ressources non liées au calcul** sont des ressources dans lesquelles il n’est pas possible d’accéder au système d’exploitation sous-jacent et de les utiliser directement, par exemple, les Groupes de sécurité réseau, Logic Apps, etc. Azure Cosmos DB en est une. Vous pouvez afficher les journaux des ressources non liées au calcul dans le journal d’activité ou activer l’option Journaux de diagnostic sur le portail. Pour plus d’informations, consultez l’article [Azure Monitoring : ressources non liées au calcul](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+Les **ressources non liées au calcul** sont des ressources dans lesquelles il n’est pas possible d’accéder au système d’exploitation sous-jacent et de les utiliser directement, par exemple, les Groupes de sécurité réseau, Logic Apps, etc. Azure Cosmos DB en est une. Vous pouvez afficher les journaux des ressources non liées au calcul dans le journal d’activité ou activer l’option Journaux de diagnostic sur le portail. Pour plus d’informations, consultez l’article [Azure Monitoring : ressources non liées au calcul](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
 
 Le journal d’activité enregistre les opérations au niveau de l’abonnement pour Azure Cosmos DB. Les opérations comme ListKeys et Write DatabaseAccounts sont journalisées par exemple. Les journaux de diagnostic assurent une journalisation plus précise et permettent de consigner des DataPlaneRequests (Create, Read, Query, etc.) et MongoRequests.
 
@@ -47,7 +44,7 @@ Le journal d’activité Azure est un journal d’abonnement qui fournit un aper
 
 Le journal d’activité est différent du journal de diagnostic. Le journal d’activité fournit des données sur les opérations effectuées sur une ressource à partir de l’extérieur (le _plan de contrôle_). Dans le contexte d’Azure Cosmos DB, les opérations de plan de contrôle incluent notamment Créer une collection, Répertorier les clés, Supprimer les clés, Répertorier les bases de données de liste, etc. Les journaux de diagnostic sont émis par une ressource et fournissent des informations sur le fonctionnement de cette ressource (le _plan de données_). Les opérations de plan de données du journal de diagnostic incluent par exemple Delete, Insert et ReadFeed.
 
-Les journaux d’activité (opérations de plan de contrôle) peuvent être beaucoup plus complets par nature et inclure l’adresse e-mail complète de l’appelant, l’adresse IP de l’appelant, le nom de la ressource, le nom de l’opération, l’ID du locataire, etc. Le journal d’activité contient plusieurs [catégories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de données. Pour plus d’informations sur le schéma de ces catégories, consultez [Schéma d’événements du journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Toutefois, les journaux de diagnostic peuvent être restrictifs par nature, car les données PII n’y sont généralement pas incluses. Si vous avez l’adresse IP de l’appelant, le dernier octet de l’adresse ne sera pas inclus.
+Les journaux d’activité (opérations de plan de contrôle) peuvent être beaucoup plus complets par nature et inclure l’adresse e-mail complète de l’appelant, l’adresse IP de l’appelant, le nom de la ressource, le nom de l’opération, l’ID du locataire, etc. Le journal d’activité contient plusieurs [catégories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de données. Pour plus d’informations sur le schéma de ces catégories, consultez [Schéma d’événements du journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Cependant, les journaux de diagnostic peuvent être restrictifs par nature, car les données personnelles n’y sont généralement pas incluses. Si vous avez l’adresse IP de l’appelant, le dernier octet de l’adresse ne sera pas inclus.
 
 ### <a name="azure-metrics"></a>Métriques Azure
 

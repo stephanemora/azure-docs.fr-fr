@@ -1,35 +1,35 @@
 ---
 title: Comparaison des fonctionnalités d’Azure SQL Database | Microsoft Docs
-description: Cet article compare les fonctionnalités d’Azure SQL Database et de Managed Instance entre eux et avec SQL Server.
+description: Cet article compare les fonctionnalités de SQL Server disponibles dans différentes versions d’Azure SQL Database.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210053"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248807"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparaison des fonctionnalités d’Azure SQL Database comparées à celles de SQL Server 
 
-Azure SQL Database partage une base de code commune avec SQL Server. Les fonctionnalités de SQL Server prises en charge par Azure SQL Database varient selon le type de base de données Azure SQL que vous créez. Avec Azure SQL Database, vous pouvez créer une base de données dans le cadre d’une [instance gérée](sql-database-managed-instance.md) (actuellement en version préliminaire publique) ou vous pouvez créer une base de données qui est une base de données unique ou faisant partie d’un pool élastique. 
+Azure SQL Database partage une base de code commune avec SQL Server. Les fonctionnalités de SQL Server prises en charge par Azure SQL Database varient selon le type de base de données Azure SQL que vous créez. Avec Azure SQL Database, vous pouvez créer une base de données dans le cadre d’une [instance gérée](sql-database-managed-instance.md) (actuellement en préversion publique) ou vous pouvez créer une base de données faisant partie d’un serveur logique et éventuellement placée dans un pool élastique. 
 
 Microsoft continue d’ajouter des fonctionnalités à Azure SQL Database. Visitez la page web de mises à jour de service pour Azure afin d’obtenir les dernières mises à jour avec ces filtres :
 
 * Filtrez sur [Service SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
 
-## <a name="sql-server-and-sql-database-feature-support"></a>Prise en charge des fonctionnalités SQL Server et SQL Database
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Prise en charge des fonctionnalités SQL Server dans Aure SQL Database
 
 Le tableau suivant répertorie les principales fonctionnalités de SQL Server et fournit des informations sur la prise en charge partielle ou complète de chaque fonctionnalité, ainsi qu’un lien vers davantage d’informations sur la fonctionnalité. 
 
-| **Fonctionnalité SQL** | **Prise en charge dans Azure SQL Database** | **Managed Instance (préversion)** |
+| **Fonctionnalité SQL** | **Prise en charge dans Azure SQL Database/le serveur logique** | **Prise en charge dans Azure SQL Database/Managed Instance (préversion)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) |
 | [Groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) |
@@ -40,7 +40,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Réglage automatique (forçage du plan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| [Oui](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Réglage automatique (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| Non  |
 | [Fichier BACPAC (exporter)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Oui - voir [Exportation de base de données SQL](sql-database-export.md) | OUI |
-| [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Oui - voir [Importation de base de données SQL](sql-database-import.md) | OUI |
+| [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Oui - voir [Importation de base de données SQL](sql-database-import.md) | Non  |
 | [Commande de sauvegarde](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Non, uniquement les sauvegardes automatiques générées par le système - voir [Sauvegardes automatiques](sql-database-automated-backups.md) | Sauvegardes automatiques initiées par le système et sauvegardes en copie seule initiées par l’utilisateur - voir [Différences entre les sauvegardes](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Fonctions intégrées](https://docs.microsoft.com/sql/t-sql/functions/functions) | La plupart - voir Fonctions individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Modifier la capture de données](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Non  | OUI |
@@ -138,7 +138,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 |Détection de menaces|  [Oui](sql-database-threat-detection.md)|[Oui](sql-database-managed-instance-threat-detection.md)|
 | [Indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Non  | Non  |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | OUI | OUI |
-| [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | OUI | Non, pas dans la version préliminaire publique |
+| [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | OUI | Partiel, uniquement avec le chiffrement géré par le service |
 [Réseau virtuel](../virtual-network/virtual-networks-overview.md) | Partielle - consultez [Points de terminaison de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md) | Oui, modèle Resource Manager uniquement |
 | [Clustering de basculement Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) |
 | [Index XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | OUI | OUI |

@@ -1,44 +1,51 @@
 ---
-title: Gérer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment utiliser Azure Site Recovery afin de gérer un serveur de configuration existant pour la reprise après sinistre de VMware sur Azure.
+title: Gérer le serveur de configuration pour une reprise après sinistre de VMware avec Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment utiliser Azure Site Recovery pour gérer un serveur de configuration existant dans le cadre d’une reprise après sinistre de VMware sur Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 06/04/2018
+ms.author: raynew
+ms.openlocfilehash: 64f5f2105a9048d649503b0790231676182a4c4f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737501"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gérer le serveur de configuration pour les machines virtuelles VMware
 
 Quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la reprise après sinistre de machines virtuelles VMware et de serveurs physiques sur Azure, vous devez configurer un serveur de configuration local. Le serveur de configuration coordonne la communication entre les machines locales VMware et Azure, et gère la réplication des données. Cet article récapitule les tâches courantes de gestion du serveur de configuration que vous devez effectuer après son déploiement.
 
 
+
 ## <a name="modify-vmware-settings"></a>Modifier les paramètres de VMware
 
-Modifiez les paramètres du serveur VMware auquel se connecte le serveur de configuration.
+Vous pouvez accéder au serveur de configuration comme suit :
+    - Connectez-vous à la machine virtuelle où il est déployé et lancez le gestionnaire de configuration Azure Site Recovery en utilisant le raccourci Bureau.
+    - Vous pouvez aussi accéder au serveur de configuration à distance depuis **https://*ConfigurationServerName*/:44315 /**. Connectez-vous avec des informations d'identification d'administrateur.
+   
+### <a name="modify-vmware-server-settings"></a>Modifier les paramètres du serveur VMware
 
-1. Connectez-vous à la machine sur laquelle est exécuté le serveur de configuration.
-2. Lancez le gestionnaire de configuration Azure Site Recovery en utilisant le raccourci Bureau. Sinon, cliquez sur [ce lien](https://configuration-server-name/IP:44315).
-3. Sélectionnez **Gérer les informations d’identification du serveur vSphere ESXi/vCenter Server**, puis effectuez les étapes suivantes :
+1. Pour associer un autre serveur VMware au serveur de configuration, sélectionnez **Ajouter un serveur vCenter Server/vSphere ESXi** après la connexion.
+2. Entrez les détails et sélectionnez **OK**.
 
-    * Pour associer un autre serveur VMware au serveur de configuration, sélectionnez **Ajouter un serveur vCenter Server/vSphere ESXi**. Saisissez les informations du serveur.
 
-    * Pour mettre à jour les informations d’identification à utiliser pour la connexion au serveur VMware et la découverte automatique des machines virtuelles VMware, sélectionnez **Modifier**. Entrez les nouvelles informations d’identification, puis sélectionnez **OK**.
+### <a name="modify-credentials-for-automatic-discovery"></a>Modifier les informations d’identification pour la découverte automatique
+
+1. Pour mettre à jour les informations d’identification à utiliser pour la connexion au serveur VMware et la découverte automatique des machines virtuelles VMware, sélectionnez **Modifier** après la connexion.
+2. Entrez les nouvelles informations d’identification, puis sélectionnez **OK**.
 
     ![Modification de VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Modifier les informations d’identification pour l’installation du service Mobilité
 
 Modifiez les informations d’identification à utiliser pour installer automatiquement le service Mobilité sur les machines virtuelles VMware sur lesquelles vous activez la réplication.
 
-1. Connectez-vous à la machine sur laquelle est exécuté le serveur de configuration.
-2. Lancez le gestionnaire de configuration Site Recovery en utilisant le raccourci Bureau. Sinon, cliquez sur [ce lien](https://configuration-server-name/IP:44315).
-3. Sélectionnez **Gérer les informations d’identification de machine virtuelle**, puis entrez les nouvelles informations d’identification. Ensuite, sélectionnez **OK** pour mettre à jour les paramètres.
+1. Après la connexion, sélectionnez **Gérer les informations d’identification de machine virtuelle**
+2. Entrez les nouvelles informations d’identification, puis sélectionnez **OK**.
 
     ![Modifier les informations d’identification du service Mobilité](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +53,15 @@ Modifiez les informations d’identification à utiliser pour installer automati
 
 Modifiez les paramètres du proxy que la machine serveur de configuration doit utiliser pour l’accès Internet à Azure. Si vous disposez d’une machine serveur de processus, en plus du serveur de processus par défaut exécuté sur la machine serveur de configuration, modifiez les paramètres sur les deux machines.
 
-1. Connectez-vous à la machine sur laquelle est exécuté le serveur de configuration.
-2. Lancez le gestionnaire de configuration Site Recovery en utilisant le raccourci Bureau. Sinon, cliquez sur [ce lien](https://configuration-server-name/IP:44315).
-3. Sélectionnez **Gérer la connectivité**, puis mettez à jour les valeurs du proxy. Ensuite, sélectionnez **Enregistrer** pour mettre à jour les paramètres.
+1. Après la connexion au serveur de configuration, sélectionnez **Gérer la connectivité**.
+2. Mettez à jour les valeurs de proxy. Ensuite, sélectionnez **Enregistrer** pour mettre à jour les paramètres.
 
 ## <a name="add-a-network-adapter"></a>Ajouter une carte réseau
 
-Le modèle OVF (Open Virtualization Format) déploie la machine virtuelle du serveur de configuration avec une seule carte réseau. Vous pouvez [ajouter une autre carte réseau à la machine virtuelle](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mais vous devez le faire avant d’inscrire le serveur de configuration dans le coffre.
+Le modèle OVF (Open Virtualization Format) déploie la machine virtuelle du serveur de configuration avec une seule carte réseau.
 
-Pour ajouter une carte après avoir inscrit le serveur de configuration dans le coffre, ajoutez la carte dans les propriétés de la machine virtuelle. Ensuite, réinscrivez le serveur dans le coffre.
+- Vous pouvez [ajouter une autre carte réseau à la machine virtuelle](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mais vous devez le faire avant d’inscrire le serveur de configuration dans le coffre.
+- Pour ajouter une carte après avoir inscrit le serveur de configuration dans le coffre, ajoutez la carte dans les propriétés de la machine virtuelle. Ensuite, vous devez réinscrire le serveur dans le coffre.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Réinscrire un serveur de configuration dans le même coffre
@@ -65,8 +72,8 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
   1. Dans le coffre, cliquez sur **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**.
   2. Dans **Serveurs**, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
   3. Connectez-vous à la machine du serveur de configuration.
-  4. Sous **%ProgramData%\ASR\home\svagent\bin**, ouvrez le fichier **cspsconfigtool.exe**.
-  5. Sous l’onglet **Inscription du coffre**, sélectionnez **Parcourir**, puis recherchez le fichier d’informations d’identification du coffre que vous avez téléchargé.
+  4. Sous **%ProgramData%\ASR\home\svsystems\bin**, ouvrez **cspsconfigtool.exe**.
+  5. Sous l’onglet **Inscription du coffre**, sélectionnez **Parcourir** et recherchez le fichier d’informations d’identification du coffre que vous avez téléchargé.
   6. Si nécessaire, fournissez les détails du serveur proxy. Sélectionnez ensuite **Inscription**.
   7. Ouvrez une fenêtre Commande d’administration PowerShell, puis exécutez la commande suivante :
 
@@ -88,15 +95,27 @@ Des liens vers des correctifs cumulatifs pour la mise à niveau de toutes les ve
 
 Mettez à niveau le serveur comme suit :
 
+1. Dans le coffre, accédez à **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**.
+2. Si une mise à jour est disponible, un lien s’affiche dans la colonne **Version de l’agent** >.
+
+    ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update2.png)
+
 1. Téléchargez le fichier du programme d’installation des mises à jour sur le serveur de configuration.
-2. Double-cliquez pour exécuter le programme d’installation.
-3. Le programme d’installation détecte la version actuelle en cours d’exécution sur la machine.
-4. Sélectionnez **OK** pour confirmer, puis exécutez la mise à niveau. 
+
+    ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Double-cliquez pour exécuter le programme d’installation.
+2. Le programme d’installation détecte la version actuelle en cours d’exécution sur la machine. Cliquez sur **Oui** pour démarrer la mise à niveau. 
+3. À l’issue de la mise à niveau, la configuration du serveur valide.
+
+    ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update3.png)
+
+4. Cliquez sur **Terminer** pour fermer le programme d’installation.
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Supprimer un serveur de configuration ou annuler son inscription
 
-1. [Désactivez la protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) de toutes les machines virtuelles relevant de ce serveur de configuration.
+1. [Désactivez la protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) de toutes les machines virtuelles sous le serveur de configuration.
 2. [Dissociez](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) et [supprimez](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) toutes les stratégies de réplication du serveur de configuration.
 3. [Supprimez](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tous les serveurs vCenter/hôtes vSphere associés au serveur de configuration.
 4. Dans le coffre, ouvrez **Infrastructure Site Recovery** > **Serveurs de configuration**.

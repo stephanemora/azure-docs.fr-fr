@@ -4,29 +4,29 @@ description: Configurez l’infrastructure de connectivité requise pour utilise
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778288"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763763"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure 
 
 Quelques définitions avant de lire ce guide. Dans [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), nous avons présenté deux classes différentes d’unités de grande instance HANA avec :
 
-- S72, S72m, S144, S144m, S192 et S192m, que nous appelons la « Classe Type I » des références SKU ;
-- S384, S384m, S384xm, S576m, S768m et S960m, que nous appelons la « Classe Type II » des références SKU.
+- S72, S72m, S144, S144m, S192, S192m et S192xm, nommées références SKU de « classe de type I » des références SKU.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m, nommées références SKU de « classe de type II ».
 
 Les spécificateurs de classe sont utilisé dans la documentation relative à la grande instance HANA pour désigner différentes fonctionnalités et exigences en fonction des références SKU de grande instance HANA.
 
@@ -214,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Dans cet exemple, la référence SKU de passerelle HighPerformance a été utilisée. Vous pouvez opter pour HighPerformance ou pour UltraPerformance, les seules références SKU de passerelle prises en charge pour SAP HANA sur Azure (grandes instances).
 
 > [!IMPORTANT]
-> Pour les grandes instances HANA dont les types de références SKU sont S384, S384m, S384xm, S576m, S768m et S960m (classe Type II des références SKU), il est obligatoire d’utiliser la référence SKU de passerelle UltraPerformance.
+> Pour les grandes instances HANA de classe Type II, l’utilisation de la référence SKU de la passerelle UltraPerformance est obligatoire.
 
 ### <a name="linking-vnets"></a>Liaison de réseaux virtuels
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642663"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurer Log Analytics pour un cluster
 
@@ -50,7 +51,7 @@ Si vous utilisez Windows, passez aux étapes suivantes pour connecter OMS au com
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connecter l’espace de travail Log Analytics à votre cluster 
 
-1. L’espace de travail a besoin d’être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravail\>** et accédez à sa page de présentation. À partir de là, vous pouvez modifier les paramètres de la solution, ceux de l’espace de travail et accéder au portail OMS.
+1. L’espace de travail a besoin d’être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravail\>** et accédez à sa page de présentation. C’est là que vous pouvez modifier les paramètres de la solution, ceux de l’espace de travail et accéder à l’espace de travail OMS.
 
 2. Dans le menu de navigation gauche, sous **Sources de données de l’espace de travail**, sélectionnez **Journaux de comptes de stockage**.
 
@@ -189,7 +190,7 @@ Apportez les modifications suivantes :
 
 ## <a name="deploy-oms-by-using-azure-powershell"></a>Déployer OMS en utilisant Azure PowerShell
 
-Vous pouvez également déployer votre ressource OMS Log Analytics par le biais de PowerShell à l’aide de la commande `New-AzureRmOperationalInsightsWorkspace`. Pour utiliser cette méthode, vérifiez que vous avez installé [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilisez ce script pour créer un espace de travail OMS Log Analytics et lui ajouter la solution Service Fabric : 
+Vous pouvez également déployer votre ressource OMS Log Analytics par le biais de PowerShell à l’aide de la commande `New-AzureRmOperationalInsightsWorkspace`. Pour utiliser cette méthode, vérifiez que vous avez installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilisez ce script pour créer un espace de travail OMS Log Analytics et lui ajouter la solution Service Fabric : 
 
 ```PowerShell
 

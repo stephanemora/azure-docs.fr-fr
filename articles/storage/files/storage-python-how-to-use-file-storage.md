@@ -1,11 +1,11 @@
 ---
-title: "Développement pour Azure Files avec Python | Microsoft Docs"
-description: "Découvrez comment développer des services et applications Python qui utilisent Azure Files pour stocker les données de fichiers."
+title: Développement pour Azure Files avec Python | Microsoft Docs
+description: Découvrez comment développer des services et applications Python qui utilisent Azure Files pour stocker les données de fichiers.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738259"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,7 +34,7 @@ Ce didacticiel décrit les principes fondamentaux de l’utilisation de Python p
 * Charger, télécharger et supprimer un fichier
 
 > [!Note]  
-> Parce qu’Azure Files est accessible sur SMB, il est possible d’écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S Python standard. Cet article indique comment écrire des applications qui utilisent le SDK Python de stockage Azure, lequel utilise l’[API REST Azure Files](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
+> Comme Azure Files est accessible sur SMB, vous pouvez écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et classes d’E/S Python standard. Cet article indique comment écrire des applications qui utilisent le SDK Python de stockage Azure, lequel utilise l’[API REST Azure Files](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Télécharger et installer le SDK Stockage Azure pour Python
 
@@ -69,7 +70,7 @@ L’objet `FileService` vous permet d’utiliser des partages, des répertoires 
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-## <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
+## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Dans l’exemple de code suivant, vous pouvez utiliser un objet `FileService` pour créer le partage s’il n’existe pas.
 
 ```python
@@ -93,7 +94,7 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>Charger un fichier 
-Un partage de fichiers Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
+Un partage de fichiers Azure contient au minimum un répertoire racine où les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
 
 Pour créer un fichier et charger des données, utilisez les méthodes `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` ou `create_file_from_text`. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 

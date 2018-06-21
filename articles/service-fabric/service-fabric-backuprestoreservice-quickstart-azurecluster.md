@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236118"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
 > [!div class="op_single_selector"]
@@ -57,7 +58,6 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Gérer la rétention des sauvegardes (à venir)
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Cluster Service Fabric avec Fabric versions 6.2 et ultérieure. Le cluster doit être configuré sur Windows Server. Consultez [l’article](service-fabric-cluster-creation-via-arm.md) pour obtenir la procédure de création d’un cluster Service Fabric à l’aide du modèle de ressource Azure.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-cluster-creation-via-arm.md) pour savoir comment obtenir ou créer un certificat X.509.
 * Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .Net Core 2.0, l’application doit être générée à l’aide du kit SDK Service Fabric version 3.1 ou ultérieure.
@@ -118,13 +118,13 @@ Examinons la procédure pour activer la sauvegarde périodique pour le service a
 
 La première étape consiste à créer la stratégie de sauvegarde qui décrit la planification de la sauvegarde, le stockage cible pour les données de sauvegarde, le nom de la stratégie et les sauvegardes incrémentielles maximales autorisées avant le déclenchement de la sauvegarde complète. 
 
-Pour le stockage de sauvegarde, utilisez le compte de stockage Azure créé ci-dessus. Cet exemple suppose le compte de stockage Azure nommé `sfbackupstore`. Le conteneur `backup-container` est configuré pour stocker les sauvegardes ; un conteneur portant ce nom est créé, s’il n’est pas déjà présent, lors du chargement de la sauvegarde. Remplissez `ConnectionString` avec la chaîne de connexion valide pour le compte de stockage Azure.
+Pour le stockage de sauvegarde, utilisez le compte de stockage Azure créé ci-dessus. Le conteneur `backup-container` est configuré pour stocker des sauvegardes. Lors du téléchargement de la sauvegarde, un conteneur portant ce nom est créé s’il n’existe pas déjà. Remplissez `ConnectionString` avec une chaîne de connexion valide pour le compte de stockage Azure, en remplaçant `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
 
-Exécutez le script PowerShell suivant pour appeler l’API REST requise afin de créer une stratégie.
+Exécutez le script PowerShell suivant pour appeler l’API REST requise afin de créer une stratégie. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

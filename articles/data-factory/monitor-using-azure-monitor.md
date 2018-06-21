@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 234dacca152dca6e8e212a86f3921c9355f640e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620338"
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Surveiller les fabriques de données à l’aide d’Azure Monitor  
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -106,7 +107,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Propriété | type | Description |
 | --- | --- | --- |
 | storageAccountId |Chaîne | ID de ressource du compte de stockage dans lequel vous voulez ajouter les journaux de diagnostic. |
-| serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle présente le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
+| serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
 | workspaceId | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. Actuellement, cette propriété est vide. |
 |Mesures| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. | 
 | journaux| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |

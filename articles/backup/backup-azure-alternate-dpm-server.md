@@ -1,30 +1,25 @@
 ---
-title: "Récupérer des données à partir d’un serveur de sauvegarde Azure | Microsoft Docs"
-description: "Récupérez les données que vous avez protégées dans un coffre Recovery Services depuis n’importe quel serveur de sauvegarde Azure inscrit auprès de ce coffre."
+title: Récupérer des données depuis un serveur de sauvegarde Azure
+description: Récupérez les données que vous avez protégées dans un coffre Recovery Services depuis n’importe quel serveur de sauvegarde Azure inscrit auprès de ce coffre.
 services: backup
-documentationcenter: 
 author: nkolli1
 manager: shreeshd
-editor: 
-ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan;giridham;trinadhk;markgal
-ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604401"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
 Vous pouvez utiliser Azure Backup Server pour récupérer les données sauvegardées dans un coffre Recovery Services. Le processus pour cette opération est intégré dans la console de gestion Azure Backup Server et est similaire au flux de travail de récupération pour les autres composants Azure Backup.
 
 > [!NOTE]
-> Cet article est applicable à [System Center Data Protection Manager 2012 R2 avec UR7 ou version ultérieure] (https://support.microsoft.com/en-us/kb/3065246), combiné au [dernier agent Azure Backup](http://aka.ms/azurebackup_agent).
+> Cet article est applicable à [System Center Data Protection Manager 2012 R2 avec UR7 ou ultérieur] (https://support.microsoft.com/en-us/kb/3065246), combiné à [l’agent Azure Backup le plus récent](http://aka.ms/azurebackup_agent).
 >
 >
 
@@ -92,7 +87,7 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
 | 3. |Aucun autre serveur DPM n'est inscrit auprès de ce coffre. |**Cause :** aucun autre serveur de sauvegarde Azure n’est enregistré dans le coffre à partir duquel la récupération est tentée.<br>**Résolution :** s’il existe d’autres serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services, assurez-vous que le dernier agent Azure Backup est installé.<br>S’il existe d’autres serveurs Azure Backup inscrits auprès du coffre Recovery Services, patientez un jour après l’installation pour lancer le processus de récupération. Le travail nocturne charge les métadonnées de toutes les sauvegardes protégées dans le cloud. Les données seront disponibles pour la récupération. |
 | 4. |La phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète associée au serveur suivant : **<server name>** |**Raison :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur de sauvegarde Azure en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L'agent ne peut pas déchiffrer les données. Par conséquent, la récupération échoue.<br>**Résolution :** veuillez fournir la phrase secrète de chiffrement associée au serveur de sauvegarde Azure pour lequel les données sont en cours de récupération. |
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Pourquoi ne puis-je pas ajouter un serveur DPM externe après avoir installé UR7 et le dernier agent Azure Backup ?
 

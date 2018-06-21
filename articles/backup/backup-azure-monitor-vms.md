@@ -1,24 +1,19 @@
 ---
-title: Surveiller des alertes de sauvegarde pour les machines virtuelles Azure | Microsoft Docs
+title: Surveiller des alertes de sauvegarde pour les machines virtuelles Azure
 description: Surveillez les événements et les alertes des travaux de sauvegarde de machine virtuelle Azure. Envoyer un e-mail en fonction des alertes.
 services: backup
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: fed32015-2db2-44f8-b204-d89f6fd1bea2
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: markgal
+ms.openlocfilehash: 3783014738ec4e8f185531773b1259dc63e7f49f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606305"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Suivez les alertes des sauvegardes de machines virtuelles Azure
 Les alertes sont des indications du service indiquant qu’un seuil d’événement a été atteint ou dépassé. Le fait de prendre connaissance d’un problème dès qu’il se produit peut être indispensable pour limiter les dépenses. Les alertes ne sont généralement pas planifiées. Il est donc utile de savoir aussi tôt possible lorsque des alertes sont générées. Par exemple, lorsqu’un travail de sauvegarde ou de restauration échoue, une alerte se produit dans les cinq minutes suivant l’échec. Dans le tableau de bord du coffre, la vignette Alertes de sauvegarde affiche des événements de niveaux Critique et Avertissement. Dans les paramètres des alertes de sauvegarde, vous pouvez afficher tous les événements. Mais que faire si une alerte se produit lorsque vous travaillez sur un autre problème ? Si vous ne savez pas quand l’alerte se produit, il peut s’agir d’un désagrément mineur, ou d’un problème entraînant des pertes de données. Pour vous assurer que les bonnes personnes sont prévenues en cas d’alerte, configurez le service de manière à envoyer des notifications d’alerte par e-mail. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Configurer les notifications](backup-azure-monitor-vms.md#configure-notifications).

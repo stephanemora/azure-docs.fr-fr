@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944701"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653261"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensions et fonctionnalités des machines virtuelles Azure
 Les extensions de machine virtuelle Azure sont de petites applications qui assurent des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Vous pouvez utiliser des images existantes et les personnaliser dans le cadre de vos déploiements, pour vous dispenser de créer des images personnalisées.

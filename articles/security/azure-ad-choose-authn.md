@@ -9,16 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365523"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809258"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
-Cet article est le premier d’une série visant à aider les organisations à implémenter une solution d’identité hybride Azure Active Directory (Azure AD) complète. Cette solution a été présentée dans le cadre du « Hybrid Identity Digital Transformation Framework ». Elle traite des projections commerciales et des objectifs sur lesquels les organisations doivent se concentrer pour implémenter une solution d’identité hybride fiable et sécurisée. 
+Cet article est le premier d’une série visant à aider les organisations à implémenter une solution d’identité hybride Azure Active Directory (Azure AD) complète. Cette solution a été présentée dans le cadre du [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). Elle traite des projections commerciales et des objectifs sur lesquels les organisations doivent se concentrer pour implémenter une solution d’identité hybride fiable et sécurisée. 
 
 La première projection commerciale du framework énonce la nécessité pour les organisations de sécuriser le processus d’authentification utilisé par les utilisateurs pour accéder à des applications cloud. Le premier objectif commercial de la projection d’une authentification sécurisée est la possibilité pour les utilisateurs de se connecter à des applications cloud avec leurs nom d’utilisateur et mot de passe locaux. Ce processus de connexion et la façon dont les utilisateurs s’authentifient ouvrent les portes du cloud.
 
@@ -98,9 +98,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 * **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé quand l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur. 
 
-    Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA). Elles ne peuvent pas utiliser une méthode d’authentification multifacteur tierce ou locale. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non).
- C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
-
+    Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA). Elles ne peuvent pas utiliser une méthode d’authentification multifacteur tierce ou locale. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
 
 * **Continuité des activités**. Nous vous recommandons de déployer deux agents d’authentification directe supplémentaires. Ces agents complètent le premier agent sur le serveur Azure AD Connect. Ce déploiement supplémentaire garantit la haute disponibilité des demandes d’authentification. Quand trois agents sont déployés et que l’un d’eux est hors service pour maintenance, l’échec d’un agent n’a aucune incidence. 
 
@@ -169,7 +167,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Quelles sont les options d’authentification multifacteur ?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Serveur Azure MFA](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA tiers](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Quels sont les états de compte d’utilisateur pris en charge ?|Comptes désactivés<br>(délai pouvant atteindre 30 minutes)|Comptes désactivés<br><br>Compte verrouillé<br><br>Mot de passe expiré<br><br>Heures de connexion|Comptes désactivés<br><br>Compte verrouillé<br><br>Mot de passe expiré<br><br>Heures de connexion|
 |Quelles sont les options d’accès conditionnel ?|[Accès conditionnel Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Accès conditionnel Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Accès conditionnel Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Règles de revendication AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Le blocage des protocoles hérités est-il pris en charge ?|Non |Non |[Oui](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Le blocage des protocoles hérités est-il pris en charge ?|[Oui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Oui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Oui](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Pouvez-vous personnaliser le logo, l’image et la description sur les pages de connexion ?|[Oui, avec Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Oui, avec Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Oui](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Quels sont les scénarios avancés pris en charge ?|[Verrouillage de mot de passe intelligent](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Rapports sur les informations d’identification divulguées](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Verrouillage de mot de passe intelligent](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Système d’authentification multisite à faible latence<br><br>[Verrouillage extranet AD FS](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Intégration aux systèmes d’identité tiers](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

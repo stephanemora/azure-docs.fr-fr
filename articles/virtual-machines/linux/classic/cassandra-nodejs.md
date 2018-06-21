@@ -1,11 +1,11 @@
 ---
-title: "Exécuter un cluster Cassandra sur Linux dans Azure à partir de Node.js"
-description: "Comment exécuter un cluster Cassandra sous Linux, à partir d’une application Node.js dans Microsoft Azure Virtual Machines"
+title: Exécuter un cluster Cassandra sur Linux dans Azure à partir de Node.js
+description: Comment exécuter un cluster Cassandra sous Linux, à partir d’une application Node.js dans Microsoft Azure Virtual Machines
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,18 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652836"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Exécuter un cluster Cassandra sur Linux dans Azure avec Node.js
 
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Consultez des modèles Resource Manager pour [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) et [Cluster Spark et Cassandra sur CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Microsoft Azure est une plateforme cloud ouverte qui exécute des logiciels Microsoft et non-Microsoft tels que des systèmes d’exploitation, serveurs d’applications, intergiciels de messagerie, ainsi que des bases de données SQL et NoSQL à partir de modèles commerciaux et open source. La création de services résilients sur des clouds publics, y compris Azure, nécessite une planification soignée et une architecture délibérée pour les serveurs d'applications et les niveaux de stockage. L'architecture de stockage distribuée de Cassandra aide naturellement à créer des systèmes hautement disponibles qui offrent une tolérance de panne en cas de défaillance de cluster. Cassandra est une base de données NoSQL à l’échelle du cloud gérée par Apache Software Foundation à l’adresse cassandra.apache.org. Cassandra est écrite en Java. Elle s’exécute donc sur les plateformes Windows et Linux.
 
 L’objectif de cet article est d’illustrer le déploiement de Cassandra sur Ubuntu en tant que cluster à centre de données unique et multiple utilisant des machines virtuelles Azure et des réseaux virtuels. Le déploiement de cluster pour les charges de travail optimisées pour la production est hors de portée de cet article car il nécessite une configuration de nœud à plusieurs disques, une conception de topologie en anneau et une modélisation des données appropriées pour prendre en charge la réplication, une cohérence des données et des exigences de débit et de haute disponibilité.
@@ -307,7 +308,7 @@ Ce processus prend quelques secondes et l’image devrait être disponible dans 
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
-<tr><td>Nom</td><td>vnet-cass-west-us</td><td></td></tr>
+<tr><td>NOM</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Région</td><td>États-Unis de l’Ouest</td><td></td></tr>
 <tr><td>Serveurs DNS</td><td>Aucun</td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Espace d'adressage</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -318,7 +319,7 @@ Ce processus prend quelques secondes et l’image devrait être disponible dans 
 Ajoutez les sous-réseaux suivants :
 
 <table>
-<tr><th>Nom</th><th>Adresse IP de départ</th><th>CIDR</th><th>Remarques</th></tr>
+<tr><th>NOM</th><th>Adresse IP de départ</th><th>CIDR</th><th>Remarques</th></tr>
 <tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sous-réseau pour la batterie de serveurs</td></tr>
 <tr><td>données</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sous-réseau pour les nœuds de base de données</td></tr>
 </table>
@@ -355,7 +356,7 @@ La procédure ci-dessus peut être exécutée à l’aide du portail Azure ; uti
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -466,7 +467,7 @@ Connectez-vous au portail Azure, puis créez un réseau virtuel avec les attribu
 
 <table>
 <tr><th>Nom de l'attribut    </th><th>Valeur    </th><th>Remarques</th></tr>
-<tr><td>Nom    </td><td>vnet-cass-east-us</td><td></td></tr>
+<tr><td>NOM    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Région    </td><td>Est des États-Unis</td><td></td></tr>
 <tr><td>Serveurs DNS        </td><td></td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Configurer un réseau VPN de point à site</td><td></td><td>        Ignorez cet attribut</td></tr>
@@ -479,7 +480,7 @@ Connectez-vous au portail Azure, puis créez un réseau virtuel avec les attribu
 Ajoutez les sous-réseaux suivants :
 
 <table>
-<tr><th>Nom    </th><th>Adresse IP de départ    </th><th>CIDR    </th><th>Remarques</th></tr>
+<tr><th>NOM    </th><th>Adresse IP de départ    </th><th>CIDR    </th><th>Remarques</th></tr>
 <tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Sous-réseau pour la batterie de serveurs</td></tr>
 <tr><td>données    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Sous-réseau pour les nœuds de base de données</td></tr>
 </table>
@@ -585,7 +586,7 @@ Vous devez obtenir le même affichage que pour la région Ouest :
 Exécutez quelques insertions de plus et vérifiez qu'elles sont répliquées vers la partie west-us du cluster.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Test de cluster Cassandra à partir de Node.js
-À l’aide de l’une des machines virtuelles Linux créées au niveau « web » précédemment, vous exécutez un script Node.js simple pour lire les données insérées précédemment
+À l’aide de l’une des machines virtuelles Linux créées au niveau « web » précédemment, vous exécutez un script Node.js simple pour lire les données déjà insérées
 
 **Étape 1 : Installation de Node.js et du client Cassandra**
 

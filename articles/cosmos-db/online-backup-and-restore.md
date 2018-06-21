@@ -3,22 +3,19 @@ title: Sauvegarde et restauration en ligne avec Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment effectuer des sauvegardes et des restaurations automatiques sur une base de données Azure Cosmos DB.
 keywords: sauvegarde et restauration, sauvegarde en ligne
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615034"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB
 Azure Cosmos DB sauvegarde automatiquement toutes vos données à intervalles réguliers. Les sauvegardes automatiques sont effectuées sans affecter les performances ou la disponibilité de vos opérations de base de données. Toutes vos sauvegardes sont stockées séparément dans un autre service de stockage, et ces sauvegardes sont répliquées globalement pour garantir la résilience contre les sinistres régionaux. Les sauvegardes automatiques sont destinées aux scénarios où vous supprimez accidentellement votre conteneur Cosmos DB et où vous avez besoin ultérieurement d’une solution de récupération de données ou de récupération d’urgence.  
@@ -28,7 +25,7 @@ Cet article commence par un récapitulatif sur la redondance et la disponibilit�
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Récapitulatif de la haute disponibilité avec Cosmos DB
 Cosmos DB est conçu pour être [globalement distribué](distribute-data-globally.md) : il vous permet de mettre à l’échelle le débit dans plusieurs régions Azure, ainsi que le basculement indiqué par la stratégie et les API multihébergement transparentes. Azure Cosmos DB propose un [contrat SLA avec une disponibilité à 99,99 %](https://azure.microsoft.com/support/legal/sla/cosmos-db) pour tous les comptes à une ou plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions. Toutes les écritures effectuées dans Azure Cosmos DB sont validées durablement sur des disques locaux par un quorum de réplicas au sein d’un centre de données local, avant d’accuser réception au client. Notez que la haute disponibilité de Cosmos DB s’appuie sur le stockage local et ne dépend d’aucune technologie de stockage externe. En outre, si votre compte de base de données est associé à plusieurs régions Azure, vos écritures sont également répliquées entre les autres régions. Pour mettre à l’échelle votre débit, et accéder aux données à une latence faible, vous pouvez avoir autant de régions lues associées à votre compte de base de données que vous le souhaitez. Dans chaque région de lecture, les données (répliquées) sont rendues persistantes durablement sur un jeu de réplicas.  
 
-Comme illustré dans le schéma suivant, un seul conteneur Cosmos DB est [partitionné horizontalement](partition-data.md). Une « partition » est indiquée par un cercle dans le diagramme suivant, et chaque partition est hautement disponible via un jeu de réplicas. Il s’agit de la distribution locale au sein d’une seule région Azure (indiquée par l’axe des abscisses). En outre, chaque partition (avec son jeu de réplicas correspondant) est ensuite globalement distribuée dans plusieurs régions liées à votre compte de base de données (par exemple, dans cette illustration, les trois régions : États-Unis de l’Est, États-Unis de l’Ouest et Centre de l’Inde). Le « jeu de partitions » est une entité globalement distribuée comprenant plusieurs copies de vos données dans chaque région (indiquée par l’axe des ordonnées). Vous pouvez affecter la priorité aux régions associées à votre compte de base de données ; Cosmos DB basculera en toute transparence à la région suivante en cas de sinistre. Vous pouvez également simuler le basculement manuellement pour tester la disponibilité de bout en bout de votre application.  
+Comme illustré dans le schéma suivant, un seul conteneur Cosmos DB est [partitionné horizontalement](partition-data.md). Une « partition » est indiquée par un cercle dans le diagramme suivant, et chaque partition est hautement disponible via un jeu de réplicas. Il s’agit de la distribution locale au sein d’une seule région Azure (indiquée par l’axe des abscisses). En outre, chaque partition (avec son jeu de réplicas correspondant) est ensuite globalement distribuée dans plusieurs régions liées à votre compte de base de données (par exemple, dans cette illustration, les trois régions : États-Unis de l’Est, États-Unis de l’Ouest et Centre de l’Inde). Le « jeu de partitions » est une entité globalement distribuée comprenant plusieurs copies de vos données dans chaque région (indiquée par l’axe des ordonnées). Vous pouvez affecter une priorité aux régions associées à votre compte de base de données ; Cosmos DB basculera de façon transparente sur la région suivante en cas de sinistre. Vous pouvez également simuler le basculement manuellement pour tester la disponibilité de bout en bout de votre application.  
 
 L’image suivante illustre le degré élevé de redondance avec Cosmos DB.
 
@@ -57,7 +54,7 @@ Pour l’API SQL, si vous souhaitez conserver vos propres instantanés, vous pou
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauration d’une base de données depuis une sauvegarde en ligne
-En cas de suppression accidentelle de vos données, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de la dernière sauvegarde automatique. Si vous devez restaurer votre base de données en raison d’un problème d’altération des données (y compris les cas où les documents au sein d’une collection sont supprimés), consultez [Gestion de l’altération des données](#handling-data-corruption) lorsque vous devez prendre des mesures supplémentaires pour empêcher les données altérées d’écraser les sauvegardes existantes. Pour obtenir une capture instantanée spécifique de votre sauvegarde à restaurer, Cosmos DB requiert que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
+En cas de suppression accidentelle de vos données, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de la dernière sauvegarde automatique. Le support technique Azure est disponible seulement pour certains plans, comme Standard et Développeur ; le support n’est pas disponible avec le plan De base. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/en-us/support/plans/). Si vous devez restaurer votre base de données en raison d’un problème d’altération des données (y compris les cas où les documents au sein d’une collection sont supprimés), consultez [Gestion de l’altération des données](#handling-data-corruption) lorsque vous devez prendre des mesures supplémentaires pour empêcher les données altérées d’écraser les sauvegardes existantes. Pour obtenir une capture instantanée spécifique de votre sauvegarde à restaurer, Cosmos DB requiert que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
 
 ## <a name="handling-data-corruption"></a>Gestion de l’altération des données
 Azure Cosmos DB conserve les deux dernières sauvegardes de chaque partition dans le compte de base de données. Ce modèle fonctionne bien lorsque un conteneur (collection de documents, graphique, table) ou une base de données est accidentellement supprimé car une des dernières versions peut être restaurée. Toutefois, dans le cas où les utilisateurs présentent un problème d’altération des données, Azure Cosmos DB peut ne pas être informé de l’altération des données et il est possible que l’altération supprime les sauvegardes existantes. Dès que l’altération est supprimée, l’utilisation doit supprimer le conteneur altéré (collection/graphe/table) afin que les sauvegardes soient protégées contre l’écrasement des données altérées.

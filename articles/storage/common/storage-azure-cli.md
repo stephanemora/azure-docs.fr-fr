@@ -14,11 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737366"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilisation d’Azure CLI 2.0 avec le stockage Azure
 
@@ -31,7 +32,6 @@ Les exemples dans le guide partent du principe que vous utilisez le shell Bash s
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il suppose également que vous êtes en mesure de satisfaire les exigences de création de compte spécifiées ci-dessous pour Azure et le service Stockage.
 
 ### <a name="accounts"></a>Comptes
@@ -321,7 +321,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 Le service Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure Files, voir [Présentation d’Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Créer un partage de fichiers
-Un partage de fichiers Azure est un partage de fichiers SMB dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
+Un partage de fichiers Azure correspond à un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
 
 ```azurecli
 az storage share create --name myshare

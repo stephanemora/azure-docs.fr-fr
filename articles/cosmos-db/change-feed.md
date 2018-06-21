@@ -5,20 +5,17 @@ keywords: change feed
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2600565493a334c7227e5c0d67a5808f30751108
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261065"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 
@@ -47,9 +44,9 @@ Le support de flux de modification dans Azure Cosmos DB consiste à identifier l
 
 Vous pouvez lire le flux de modification de trois manières différentes, comme expliqué plus loin dans cet article :
 
-1.  [Utilisation d’Azure Functions](#azure-functions)
-2.  [Utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB](#rest-apis)
-3.  [Utilisation de la bibliothèque du processus de flux de modification Azure Cosmos DB](#change-feed-processor)
+*   [Utilisation d’Azure Functions](#azure-functions)
+*   [Utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB](#sql-sdk)
+*   [Utilisation de la bibliothèque du processeur de flux de modification Azure Cosmos DB](#change-feed-processor)
 
 Le flux de modification est disponible pour chaque plage de clés de partition dans la collection de documents et peut ainsi être distribué vers un ou plusieurs consommateurs pour un traitement en parallèle, comme indiqué dans l’image suivante.
 
@@ -92,7 +89,7 @@ Si vous utilisez Azure Functions, la façon la plus simple pour vous connecter �
 
 Les déclencheurs peuvent être créés via le portail Azure Functions, via le portail Azure Cosmos DB ou par programmation. Pour en savoir plus, consultez l’article [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](serverless-computing-database.md).
 
-<a id="rest-apis"></a>
+<a id="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 
 Le [SDK SQL](sql-api-sdk-dotnet.md) pour Azure Cosmos DB comprend toutes les fonctionnalités nécessaires pour lire et gérer un flux de modification. De telles fonctionnalités impliquent également un certain nombre de responsabilités. Si vous voulez gérer les points de contrôle et les numéros de séquence des documents, et bénéficier d’un contrôle granulaire sur les clés de partition, alors utiliser le Kit de développement logiciel (SDK) peut être une bonne alternative.
@@ -167,7 +164,7 @@ Cette section vous explique comment utiliser le SDK SQL pour exploiter les flux 
 
 Si vous disposez de plusieurs lecteurs, vous pouvez utiliser **ChangeFeedOptions** pour répartir la charge de lecture sur plusieurs threads ou clients.
 
-Ces quelques lignes de code suffisent pour commencer à lire le flux de modification. Vous pouvez obtenir le code complet utilisé dans cet article à partir du [référentiel GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+Ces quelques lignes de code suffisent pour commencer à lire le flux de modification. Vous pouvez obtenir le code complet utilisé dans cet article à partir du [référentiel GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 Dans le code de l’étape 4 ci-dessus, la valeur **ResponseContinuation** de la dernière ligne comprend le dernier numéro de séquence logique du document, que vous utiliserez la prochaine fois que vous lirez de nouveaux documents après ce numéro de séquence. L’élément **StartTime** de la méthode **ChangeFeedOption** vous permet d’élargir le champ de récupération des documents. Ainsi, si la valeur **ResponseContinuation** est nulle mais que la valeur **StartTime** renvoie à une date antérieure, vous obtiendrez tous les documents modifiés depuis l’heure correspondant à la valeur **StartTime**. Par contre, si la valeur **ResponseContinuation** n’est pas nulle, le système collectera tous les documents modifiés depuis ce numéro de séquence logique.
 
@@ -176,7 +173,7 @@ Ainsi, votre tableau de points de contrôle conserve uniquement le numéro de s�
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Utilisation de la bibliothèque du processeur de flux de modification 
 
-La [bibliothèque du processeur de flux de modification Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) vous permet de répartir facilement le traitement des événements sur plusieurs consommateurs d’événements. Cette bibliothèque simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.
+La [bibliothèque du processeur de flux de modification Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) vous permet de répartir facilement le traitement des événements sur plusieurs consommateurs. Cette bibliothèque simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.
 
 Le principal avantage de la bibliothèque du processeur de flux de modification est que vous n’êtes pas obligé de gérer chaque partition et jeton de liaison, et que vous n’avez pas à interroger chaque collection manuellement.
 
@@ -191,7 +188,7 @@ Notez que si vous avez deux fonctions Azure sans serveur qui analysent la même 
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Présentation de la bibliothèque du processeur de flux de modification
 
-L’implémentation du processeur de flux de modification fait appel à quatre composants principaux : la collection analysée, la collection de baux, l’hôte de processeur et les consommateurs. 
+L’implémentation de la bibliothèque du processeur de flux de modification fait appel à quatre composants principaux : la collection analysée, la collection de baux, l’hôte de processeur et les consommateurs. 
 
 > [!WARNING]
 > La création d’une collection a des conséquences d’un point de vue tarifaire. En effet, vous réservez une part du débit pour que l’application puisse communiquer avec Azure Cosmos DB. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -279,7 +276,152 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-Et voilà ! Après ces quelques étapes, des documents seront progressivement collectés au sein de la méthode **DocumentFeedObserver ProcessChangesAsync**.
+Et voilà ! Après ces quelques étapes, des documents seront progressivement collectés au sein de la méthode **DocumentFeedObserver ProcessChangesAsync**. Rechercher le code ci-dessus dans le [référentiel GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
+
+## <a name="faq"></a>Forum Aux Questions
+
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>Quelles sont les différentes méthodes de lecture du flux de modification ? et quand utiliser chaque méthode ?
+
+Vous pouvez lire les flux de modification de trois façons différentes :
+
+* **[Utilisation du kit de développement logiciel (SDK) .NET de l’API SQL Azure Cosmos DB](#sql-sdk)**
+   
+   Cette méthode de lecture vous offre un niveau inférieur de contrôle sur le flux de modification. Vous pouvez gérer le point de contrôle, accéder à une clé de partition spécifique, etc. Si vous disposez de plusieurs lecteurs, vous pouvez utiliser [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) pour répartir la charge de lecture sur plusieurs threads ou clients. .
+
+* **[Utilisation de la bibliothèque du processeur de flux de modification Azure Cosmos DB](#change-feed-processor)**
+
+   Si vous souhaitez externaliser les opérations complexes associées au flux de modification, vous pouvez utiliser la bibliothèque du processeur de flux de modification. Cette bibliothèque réduit la complexité de manière considérable, tout en vous laissant un contrôle total sur le flux de modification. Cette bibliothèque suit un [modèle Observateur](https://en.wikipedia.org/wiki/Observer_pattern) et votre fonction de traitement est appelée par le kit de développement logiciel (SDK). 
+
+   Si vous disposez d’un flux de modification à débit élevé, vous pouvez instancier plusieurs clients pour lire le flux de modification. Étant donné que vous utilisez « la bibliothèque du processeur de flux de modification », celle-ci répartit automatiquement la charge entre les différents clients. Vous n’avez rien à faire. Toute la complexité est gérée par le kit de développement logiciel. Toutefois, si vous souhaitez avoir votre propre équilibreur de charge, vous pouvez implémenter IParitionLoadBalancingStrategy pour mettre en place une stratégie de partition personnalisée. Implémentez IPartitionProcessor pour traiter les modifications de manière personnalisée sur une partition. Si vous pouvez traiter une plage de partition avec le kit de développement logiciel, vous devez néanmoins utiliser le kit de développement logiciel de l’API SQL pour traiter une clé de partition spécifique.
+
+* **[Utilisation d’Azure Functions](#azure-functions)** 
+   
+   Nous vous recommandons d’utiliser cette dernière option, qui est la plus simple. Lorsque vous créez un déclencheur Azure Cosmos DB dans une application Azure Functions, vous sélectionnez la collection Azure Cosmos DB à laquelle vous souhaitez vous connecter, et la fonction se déclenche chaque fois qu’une modification est apportée à la collection sélectionnée. voir une [capture vidéo](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) de l’utilisation d’Azure Functions et du flux de modification
+
+   Les déclencheurs peuvent être créés via le portail Azure Functions, via le portail Azure Cosmos DB ou par programmation. Visual Studio et Visual Studio Code offrent une prise en charge étendue de l’écriture pour les fonctions Azure. Vous pouvez écrire et déboguer le code sur votre bureau, puis déployer la fonction avec un seul clic. Pour en savoir plus, consultez l’article [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](serverless-computing-database.md).
+
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>Quel est l’ordre de tri des documents dans le flux de modification ?
+
+Les documents s’affichent dans le flux de modification dans l’ordre où ils ont été modifiés. Cet ordre de tri est uniquement garanti par partition.
+
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>Pour un compte multirégion, que se passe-t-il au niveau du flux de modification en cas de basculement de la région d’écriture ? Le flux de modification bascule-t-il également ? Le flux de modification continuera-t-il d’afficher des enregistrements contigus ou sera-t-il réinitialisé au moment du basculement ?
+
+Le flux de modification continuera de s’exécuter de manière contiguë tout au long de l’opération de basculement manuel.
+
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>Combien de temps le flux de modification conservera-t-il les données modifiées si je définis la propriété Durée de vie du document sur -1 ?
+
+Le flux de modification conservera les données indéfiniment. Tant que les données ne sont pas supprimées, elles restent dans le flux de modification.
+
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>Comment puis-je configurer Azure Functions pour lire à partir d’une région particulière, étant donné que le flux de modification est disponible dans toutes les régions de lecture par défaut ?
+
+Pour le moment, il n’est pas possible de configurer Azure Functions pour lire à partir d’une région spécifique. Un problème GitHub au niveau du référentiel Azure Functions empêche la configuration de régions préférées pour les systèmes de déclencheurs et de liaisons Azure Cosmos DB.
+
+Azure Functions utilise la stratégie de connexion par défaut. Vous pouvez configurer le mode de connexion dans Azure Functions. Par défaut, la lecture s’effectue à partir de la région d’écriture, et il est donc préférable de placer Azure Functions dans la même région.
+
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Quelle est la taille par défaut des lots dans Azure Functions ?
+
+100 documents à chaque appel d’Azure Functions. Vous pouvez toutefois modifier ce nombre dans le fichier function.json. Voici la [liste complète des options de configuration](../azure-functions/functions-run-local.md). Si vous effectuez un développement local, mettez à jour les paramètres d’application dans le fichier [local.settings.json](../azure-functions/functions-run-local.md).
+
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Je suis en train d’analyser une collection et de lire son flux de modification, mais certains documents ne s’affichent pas. Comment cela se fait-il ?
+
+Assurez-vous qu’aucune autre fonction ne lit actuellement la même collection avec la même collection de baux. Cela m’est arrivé et j’ai découvert plus tard que les documents manquants étaient traités par d’autres fonctions Azure, qui utilisaient le même bail.
+
+Par conséquent, si vous créez plusieurs fonctions Azure pour lire le même flux de modification, celles-ci doivent utiliser des collections de baux différentes ou la configuration « leasePrefix » pour partager la même collection. Toutefois, lorsque vous utilisez la bibliothèque du processeur de flux de modification, vous pouvez démarrer plusieurs instances de votre fonction et le kit de développement logiciel (SDK) répartit automatiquement les documents dans les différentes instances pour vous.
+
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Le document est mis à jour chaque seconde, et je ne reçois pas toutes les modifications dans l’instance Azure Functions qui écoute le flux de modification.
+
+Azure Functions interroge le flux de modification toutes les 5 secondes. Toute modification intervenant pendant ce laps de temps est donc perdue. Azure Cosmos DB enregistre une seule version toutes les 5 secondes. Vous obtiendrez donc la cinquième modification du document. Toutefois, si vous souhaitez réduire l’intervalle de 5 secondes et interroger le flux de modification toutes les secondes, vous pouvez configurer l’intervalle d’interrogation « feedPollTime » (voir [Liaisons Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)). Cet intervalle est défini en millisecondes et configuré sur 5000 par défaut. Il est possible, mais déconseillé, de définir un intervalle inférieur à 1 seconde, car vous utiliserez le processeur de manière plus intensive.
+
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>J’ai ajouté un document à la collection de l’API Mongo, mais lorsque j’obtiens le document dans le flux de modification, il affiche une valeur d’ID différente. D’où vient le problème ?
+
+Votre collection est une collection d’API Mongo. Rappelez-vous que le flux de modification est lu à l’aide du client SQL et qu’il sérialise les éléments au format JSON. En raison du formatage JSON, les clients MongoDB seront confrontés à une incompatibilité entre les documents au format BSON et le flux de modification au format JSON. Ce que vous voyez est la représentation d’un document BSON au format JSON. Si vous utilisez des attributs binaires dans un compte Mongo, ceux-ci sont convertis au format JSON.
+
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>Existe-t-il un moyen de configurer le flux de modification pour qu’il affiche uniquement les mises à jour et non les ajouts ?
+
+Non, cela n’est pas possible pour le moment, mais cette fonctionnalité figure sur la feuille de route. Aujourd’hui, vous pouvez ajouter un marqueur logiciel sur le document pour les mises à jour.
+
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Existe-t-il un moyen d’afficher les suppressions dans le flux de modification ?
+
+Pour le moment, le flux de modification ne consigne pas les suppressions. Le flux de modification est amélioré en permanence et cette fonctionnalité figure sur la feuille de route. Aujourd’hui, vous pouvez ajouter un marqueur logiciel sur le document pour les suppressions. Ajoutez un attribut sur le document appelé « deleted » et définissez-le sur la valeur « true ». Puis, définissez la durée de vie du document afin qu’il puisse être supprimé automatiquement.
+
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Puis-je lire le flux de modification pour des documents anciens (par exemple, des documents ajoutés il y a 5 ans) ?
+
+Oui, si le document n’a pas été supprimé, vous pouvez lire le flux de modification correspondant en remontant jusqu’à la date de création de votre collection.
+
+### <a name="can-i-read-change-feed-using-javascript"></a>Puis-je lire un flux de modification à l’aide de JavaScript ?
+
+Oui, le kit de développement logiciel (SDK) Node.js prend en charge depuis peu les flux de modification. Il peut être utilisé tel qu’indiqué dans l’exemple suivant. Veillez à installer la dernière version du module documentdb avant d’exécuter le code :
+
+```js
+
+var DocumentDBClient = require('documentdb').DocumentClient;
+const host = "https://your_host:443/";
+const masterKey = "your_master_key==";
+const databaseId = "db";
+const collectionId = "c1";
+const dbLink = 'dbs/' + databaseId;
+const collLink = dbLink + '/colls/' + collectionId;
+var client = new DocumentDBClient(host, { masterKey: masterKey });
+let options = {
+    a_im: "Incremental feed",
+    accessCondition: {
+        type: "IfNoneMatch",        // Use: - empty condition (or remove accessCondition entirely) to start from beginning.
+        //      - '*' to start from current.
+        //      - specific etag value to start from specific continuation.
+        condition: ""
+    }
+};
+ 
+var query = client.readDocuments(collLink, options);
+query.executeNext((err, results, headers) =&gt; {
+    // Now we have headers.etag, which can be used in next readDocuments in accessCondition option.
+    console.log(results);
+    console.log(headers.etag);
+    console.log(results.length);
+    options.accessCondition = { type: "IfNoneMatch", condition: headers.etag };
+    var query = client.readDocuments(collLink, options);
+    query.executeNext((err, results, headers) =&gt; {
+        console.log("next one:", results[0]);
+    });
+});<span id="mce_SELREST_start" style="overflow:hidden;line-height:0;"></span>
+
+```
+
+### <a name="can-i-read-change-feed-using-java"></a>Puis-je lire un flux de modification à l’aide de Java ?
+
+La bibliothèque Java pour lire le flux de modification est disponible dans le [référentiel Github](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). La bibliothèque Java a quelques versions de retard sur la bibliothèque .NET, mais les bibliothèques seront bientôt synchronisées.
+
+### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Puis-je utiliser les données _etag, _lsn ou _ts de comptabilité interne que j’obtiens en réponse ?
+
+Le format _etag est un format interne. Vous ne devez pas vous y fier (ni l’analyser), car il peut changer à tout moment.
+Le format _ts représente l’horodatage de création ou de modification. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique.
+Le format _lsn est un ID de lot qui est ajouté uniquement pour les flux de modification. Il représente l’ID de transaction au niveau du magasin. De nombreux documents peuvent avoir la même valeur _lsn.
+Notez enfin que la valeur ETag dans FeedResponse est différente de la valeur _etag que vous voyez sur le document. La valeur _etag est un identificateur interne utilisé pour l’accès concurrentiel et qui indique la version du document. La valeur ETag est utilisée pour le séquencement du flux.
+
+### <a name="does-reading-change-feed-add-any-additional-cost-"></a>La lecture du flux de modification entraîne-t-elle des frais supplémentaires ?
+
+Vous êtes facturé pour les unités de requête consommées. Par exemple, des unités de requête sont consommées lorsque vous déplacez des données vers et à partir des collections Azure Cosmos DB. La facturation tient compte de toutes les unités de requête consommées par la collection de baux.
+
+### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Plusieurs instances d’Azure Functions peuvent-elles lire le flux de modification d’une même collection ?
+
+Oui. Plusieurs instances d’Azure Functions peuvent lire le flux de modification d’une même collection. Toutefois, les instances d’Azure Functions doivent avoir une valeur leaseCollectionPrefix différente.
+
+### <a name="should-the-lease-collection-be-partitioned"></a>La collection de baux doit-elle être partitionnée ?
+
+Non, la collection de baux peut être fixe. Les collections de baux partitionnées ne sont pas requises, ni prises en charge actuellement.
+
+### <a name="can-i-read-change-feed-from-spark"></a>Puis-je lire un flux de modification à l’aide de Spark ?
+
+Oui, vous pouvez. Consultez l’article [Connecteur Spark Azure Cosmos DB](spark-connector.md). Cette [capture vidéo](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) explique comment traiter les flux de modification en tant que flux structurés.
+
+### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Je traite un flux de modification à l’aide d’Azure Functions pour un lot de 10 documents et j’obtiens une erreur au niveau du 7e document. Dans ce cas, les trois derniers documents ne sont pas traités. Comment puis-je démarrer le traitement à partir du document à l’origine de l’erreur (c’est-à-dire le 7e document) dans le prochain flux ?
+
+Pour résoudre cette erreur, nous vous recommandons d’encapsuler votre code avec un bloc try-catch. Interceptez l’erreur et placez ce document dans une file d’attente (lettres mortes), puis définissez une logique pour traiter les documents qui ont généré l’erreur. Si vous avez un lot de 200 documents et qu’un seul document génère une erreur, cette méthode vous évite d’annuler le lot complet.
+
+En cas d’erreur, vous n’avez pas besoin de rembobiner le point de vérification jusqu’au début. Les documents continueront à s’afficher dans le flux de modification. N’oubliez pas que le flux de modification conserve le dernier instantané final de chaque document. Vous risquez donc de perdre le précédent instantané du document. Le flux de modification conserve uniquement la dernière version du document et peut, entre autres, revenir au document pour le modifier.
+
+À mesure que vous modifiez votre code, les documents disparaîtront les uns après les autres de la file d’attente de lettres mortes.
+Azure Functions est appelé automatiquement par le système de flux de modification et le point de vérification est géré en interne par la fonction Azure. Si vous souhaitez restaurer le point de vérification et en contrôler chaque aspect, envisagez d’utiliser le kit de développement logiciel (SDK) du processeur de flux de modification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

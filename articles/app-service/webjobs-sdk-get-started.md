@@ -1,5 +1,5 @@
 ---
-title: Prise en main du Kit de développement logiciel (SDK) WebJobs (Azure)
+title: Prise en main du Kit de développement logiciel (SDK) Azure WebJobs
 description: Introduction au Kit de développement logiciel (SDK) WebJobs pour le traitement en arrière-plan basé sur les événements. Découvrez comment accéder aux données des services Azure et des services tiers.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234515"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Prise en main du Kit de développement logiciel (SDK) WebJobs
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
-Cet article explique comment créer un projet de Kit de développement logiciel (SDK) WebJobs, l’exécuter localement et le déployer vers Azure.
+Cet article explique comment créer un projet de Kit de développement logiciel (SDK) Azure WebJobs, l’exécuter localement et le déployer vers Azure App Service.
 
 Les instructions concernent [Visual Studio 2017](https://www.visualstudio.com/vs/), mais les mêmes tâches peuvent être accomplies avec d’autres outils, tels que [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>Présentation du Kit de développement logiciel (SDK) WebJobs
+## <a name="what-is-the-azure-webjobs-sdk"></a>Présentation du Kit de développement logiciel (SDK) Azure WebJobs
 
 Le Kit de développement logiciel (SDK) Azure WebJobs est une infrastructure qui simplifie l’écriture d’un code de traitement en arrière-plan permettant d’accéder aux données des services Azure. Le Kit de développement logiciel propose une syntaxe déclarative permettant de spécifier les événements qui doivent déclencher une fonction, comme un nouveau message ajouté à une file d’attente. Une syntaxe déclarative du même type contrôle la lecture et l’écriture des données une fois qu’une fonction a été déclenchée. Ce système de déclencheurs et de liaisons prend en charge la plupart des tâches de codage de niveau inférieur associées à l’accès aux services Azure et tiers.
 
@@ -52,7 +53,6 @@ Les instructions indiquent comment créer un projet de Kit de développement log
 La solution [Azure Functions](../azure-functions/functions-overview.md) est basée sur le Kit de développement logiciel (SDK) WebJobs, et constitue une option si vous n’avez pas besoin d’utiliser directement le Kit de développement logiciel (SDK) WebJobs. Azure Functions 1.x utilise le Kit de développement logiciel (SDK) WebJobs 2.x. Pour plus d’informations, consultez la section relative à la [comparaison entre Azure Functions et le Kit de développement logiciel (SDK) WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Dans cet article, il est supposé que vous avez [un compte Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) et une expérience en matière [d’applications dans Azure App Service](app-service-web-overview.md). Pour accomplir les étapes décrites dans cet article :
 

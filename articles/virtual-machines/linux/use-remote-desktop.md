@@ -12,21 +12,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364299"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716616"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 16.04 LTS existante dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Interface de ligne de commande Azure 2.0](quick-create-cli.md)
@@ -38,7 +37,7 @@ La plupart des machines virtuelles Linux dans Azure n’ont pas d’environnemen
 
 L’exemple suivant installe l’environnement de bureau léger [xfce4](https://www.xfce.org/) sur une machine virtuelle Ubuntu 16.04 LTS. Les commandes pour les autres distributions varient légèrement (utilisez `yum` pour effectuer une installation sur Red Hat Enterprise Linux et configurez les règles `selinux` appropriées, ou utilisez `zypper` pour une installation sur SUSE, par exemple).
 
-Tout d’abord, connectez-vous avec SSH à votre machine virtuelle. L’exemple suivant se connecte à la machine virtuelle nommée *myvm.westus.cloudapp.azure.com* avec le nom d’utilisateur *azureuser* :
+Tout d’abord, connectez-vous avec SSH à votre machine virtuelle. L’exemple suivant se connecte à la machine virtuelle nommée *myvm.westus.cloudapp.azure.com* avec le nom d’utilisateur *azureuser*. Utilisez vos propres valeurs :
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -87,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Création d’une règle de groupe de sécurité réseau pour le trafic du Bureau à distance
 Pour autoriser le trafic du Bureau à distance à atteindre votre machine virtuelle Linux, une règle de groupe de sécurité réseau doit être créée pour permettre au TCP sur le port 3389 d’atteindre votre machine virtuelle. Pour plus d’informations sur les règles de groupe de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Vous pouvez également [utiliser le portail Azure pour créer une règle de groupe de sécurité réseau](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-L’exemple suivant permet de créer une règle de groupe de sécurité réseau avec [az vm open-port](/cli/azure/vm#az_vm_open_port) sur le port *3389*.
+L’exemple suivant permet de créer une règle de groupe de sécurité réseau avec [az vm open-port](/cli/azure/vm#az-vm-open-port) sur le port *3389*. À partir d’Azure CLI 2.0, pas de la session SSH sur votre machine virtuelle, ouvrez la règle de groupe de sécurité réseau suivante :
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

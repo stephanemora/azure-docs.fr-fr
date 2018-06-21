@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637512"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics
 Log Analytics est conçu pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas simplement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
@@ -36,7 +37,7 @@ Le coût des données peut être considérable en fonction des facteurs suivants
 > [!NOTE]
 > Consultez la documentation de chaque solution, car elle fournit une estimation de la quantité de données collectée.   
 
-Si vous avez opté pour le plan *Gratuit*, la conservation des données est limitée à 7 jours. Pour les niveaux *Autonome* ou *Payant*, les données collectées sont disponibles pendant les 31 derniers jours. Le plan *Gratuit* est défini sur une limite d’ingestion des données quotidienne de 500 Mo. Si vous constatez que vous dépassez constamment le volume autorisé, vous pouvez définir votre espace de travail sur un plan payant pour collecter des données au-delà de cette limite. 
+Les clients avec un Contrat Entreprise signé avant le 1er juillet 2018 ou qui ont déjà créé un espace de travail Log Analytics dans un abonnement ont toujours accès au plan *Gratuit*. Si votre abonnement n’est pas lié à une inscription de Contrat Entreprise existante, le niveau *Gratuit* n’est pas disponible quand vous créez un espace de travail dans un nouvel abonnement après le 2 avril 2018.  La conservation des données est limitée à 7 jours pour le niveau *Gratuit*.  Pour les niveaux *Autonome* ou *Payant*, les données collectées sont disponibles pendant les 31 derniers jours. Le niveau *Gratuit* a une limite d’ingestion des données quotidienne de 500 Mo. Si vous constatez que vous dépassez constamment le volume autorisé, vous pouvez changer votre espace de travail pour un plan payant permettant de collecter des données au-delà de cette limite. 
 
 > [!NOTE]
 > Des frais s’appliquent si vous choisissez de sélectionner une période de rétention plus longue pour le niveau payant. Vous pouvez changer de type de plan à tout moment ; pour plus d’informations sur les tarifs, consultez les [détails des tarifs](https://azure.microsoft.com/pricing/details/log-analytics/). 

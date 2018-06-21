@@ -1,25 +1,20 @@
 ---
-title: Utiliser l’agent Azure Backup pour sauvegarder des fichiers et des dossiers | Microsoft Docs
+title: Utiliser l’agent Azure Backup pour sauvegarder des fichiers et des dossiers
 description: Utilisez l’agent Microsoft Azure Backup pour sauvegarder vos fichiers et dossiers Windows dans Azure. Créez un coffre Recovery Services, installez l’agent Backup, définissez la stratégie de sauvegarde et exécutez la sauvegarde initiale sur les fichiers et dossiers.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: coffre de sauvegarde ; sauvegarder un serveur Windows ; sauvegarder windows ;
-ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/5/2018
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606254"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Sauvegarder un client Windows ou un serveur Windows Server dans Azure et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et le modèle de déploiement Resource Manager.

@@ -1,24 +1,20 @@
 ---
 title: Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Guide d’utilisation de la gestion des appareils sur Azure IoT Hub pour lancer une mise à jour du microprogramme d’un appareil. Vous utilisez Azure IoT device SDK pour .NET afin d’implémenter une application d’appareil simulé et Azure IoT service SDK pour .NET afin d’implémenter une application de service qui déclenche la mise à jour du microprogramme.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736753"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -345,7 +341,7 @@ Dans cette section, vous allez :
 > [!NOTE]
 > Cette méthode déclenche la mise à jour simulée à exécuter en tant que **tâche** et répond immédiatement à l’appel de méthode pour informer le service que la mise à jour du microprogramme a été démarrée. L’état de la mise à jour et son achèvement seront envoyés au service via les propriétés déclarées du jumeau d'appareil. Nous répondons à l’appel de méthode lors du démarrage de la mise à jour, plutôt qu’après son exécution, car :
 > * Un véritable processus de mise à jour prendra probablement plus longtemps que le délai d’expiration des appels de méthode.
-> * Un véritable processus de mise à jour nécessitera probablement un redémarrage, qui relancerait cette application avec l’objet **MetodRequest** indisponible. (La mise à jour les propriétés déclarées est toutefois possible, même après un redémarrage.) 
+> * Un processus de mise à jour réel nécessite probablement un redémarrage, qui va relancer cette application avec l’objet **MethodRequest** indisponible. (La mise à jour les propriétés déclarées est toutefois possible, même après un redémarrage.) 
 
 14. Enfin, ajoutez le code suivant à la méthode **Main** pour ouvrir la connexion à votre IoT Hub et initialiser l’écouteur de la méthode :
    

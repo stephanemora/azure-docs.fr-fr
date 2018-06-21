@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637172"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -96,7 +97,7 @@ R. Non, il n’est pas possible pour le moment de lire des tables ou des contene
 
 R. Le service Log Analytics repose sur Azure. Les adresses IP Log Analytics se trouvent dans les [plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration requise](log-analytics-concept-hybrid.md#prerequisites).
+Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration réseau requise](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. J’utilise ExpressRoute pour me connecter à Azure. Mon trafic Log Analytics utilise-t-il ma connexion ExpressRoute ?
 

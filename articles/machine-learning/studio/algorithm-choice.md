@@ -10,16 +10,18 @@ editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834380"
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Comment choisir les algorithmes dans Microsoft Azure Machine Learning
 La réponse à la question « Quel algorithme d’apprentissage automatique dois-je utiliser ? » est toujours « Cela dépend. ». Cela dépend de la taille, de la qualité et de la nature des données. Cela dépend de ce que vous voulez faire avec la réponse. Cela dépend de la conversion des calculs de l'algorithme en instructions pour l'ordinateur que vous utilisez. Et cela dépend du temps que vous avez. Même les scientifiques de données les plus expérimentés ne peuvent pas savoir quel algorithme fonctionnera le mieux avant d’en essayer.
@@ -38,7 +40,7 @@ Cet aide-mémoire est pensé pour un public très spécifique : un scientifique
 Ces recommandations sont des commentaires et des conseils compilés d’un grand nombre de scientifiques de données et d’experts en apprentissage automatique. Nous ne sommes pas d'accord avec tous les éléments, mais avons essayé d'harmoniser les avis en un consensus. Notre désaccord est généralement introduit par « Cela dépend... »
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Utilisation de l’aide-mémoire
-Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme « Pour *&lt;étiquette de chemin&gt;* utilisez *&lt;algorithm&gt;* ». Par exemple, « Pour *Vitesse*, utilisez la *régression logistique à deux classes* ». Parfois, plusieurs branches sont utiles.
+Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme « Pour *&lt;étiquette de chemin&gt;* utilisez *&lt;algorithm&gt;*  ». Par exemple, « Pour *Vitesse*, utilisez la *régression logistique à deux classes* ». Parfois, plusieurs branches sont utiles.
 Parfois, aucune n’est parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude.
 Plusieurs scientifiques des données auxquels j’ai parlé m’ont affirmé que la seule façon de trouver le meilleur algorithme est de tous les essayer.
 
@@ -138,7 +140,7 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 
 **●** : excellente précision, durée d'apprentissage courte et utilisation de la linéarité
 
-**○** : bonne précision et durée d'apprentissage modérée
+**○** : bonne précision et durée d’apprentissage modérée
 
 ## <a name="algorithm-notes"></a>Notes de l'algorithme
 ### <a name="linear-regression"></a>Régression linéaire

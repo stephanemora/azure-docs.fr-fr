@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809571"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Analyse des performances avec Log Analytics
 
@@ -73,19 +74,27 @@ Vous pouvez télécharger et modifier ces modèles pour déployer un cluster qui
 
 Maintenant que vous avez ajouté l’agent OMS, accédez au portail Log Analytics pour choisir les compteurs de performances à collecter. 
 
-1. Dans le portail Azure, accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravailOMS\>** et accédez à sa page de présentation. En haut, cliquez sur le lien pour accéder au portail OMS.
+1. Dans le portail Azure, accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Une fois que vous êtes dans le portail, une vignette représentant un graphique s’affichera pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur cette vignette pour accéder à la solution Service Fabric Analytics. 
+2. Cliquez sur **Espace de travail OMS**.
 
-3. Maintenant, vous pouvez voir quelques vignettes avec des graphiques sur le canal opérationnel et les événements de services fiables. Cliquez sur l’icône d’engrenage à droite pour accéder à la page des paramètres.
+3. Cliquez sur **Paramètres avancés**.
 
-    ![Paramètres OMS](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Cliquez sur **Données**, puis sur **Compteurs de performances Windows ou Linux**. Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. Sur la page des paramètres, cliquez sur Données et choisissez Compteurs de performance Linux ou Compteurs de performance Windows. Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Cliquez sur **Enregistrer**, puis sur **OK**.
 
-Une fois vos compteurs configurés, retournez à la page des solutions. Vous verrez bientôt s’afficher les données entrantes dans les graphiques sous **Métriques de nœud**. Vous pouvez également interroger les données du compteur de performances de la même façon que les événements de cluster et appliquer des filtres sur les nœuds, le nom du compteur de performances et les valeurs à l’aide du langage de requête Kusto. 
+6. Fermez le panneau Paramètres avancés.
 
-![Interroger le compteur de performances OMS](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Sous le titre Général, cliquez sur **Vue d’ensemble**.
+
+8. Des vignettes représentant un graphique s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
+
+9. Vous pouvez voir quelques vignettes avec des graphiques sur le canal opérationnel et les événements de services fiables. La représentation graphique du flux de données correspondant aux compteurs que vous avez sélectionnés s’affichent dans Métriques de nœud. 
+
+10. Cliquez sur un graphique de métrique de conteneur pour afficher les détails supplémentaires. Vous pouvez également interroger les données du compteur de performances de la même façon que les événements de cluster et appliquer des filtres sur les nœuds, le nom du compteur de performances et les valeurs à l’aide du langage de requête Kusto.
+
+![Interroger le compteur de performances OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

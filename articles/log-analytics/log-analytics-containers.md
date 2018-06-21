@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638345"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solution Container Monitoring dans Log Analytics
 
@@ -528,7 +529,7 @@ Vous pouvez vérifier que la solution Container Monitoring est correctement conf
 
 ## <a name="solution-components"></a>Composants de la solution
 
-Si vous utilisez des agents Windows, le pack d’administration suivant est installé sur chaque ordinateur où se trouve un agent lorsque vous ajoutez cette solution. Le pack d’administration ne nécessite aucune opération de configuration ou de maintenance.
+Dans le portail OMS, accédez à la *Galerie de solutions* et ajoutez la **solution Container Monitoring**. Si vous utilisez des agents Windows, le pack d’administration suivant est installé sur chaque ordinateur où se trouve un agent lorsque vous ajoutez cette solution. Le pack d’administration ne nécessite aucune opération de configuration ou de maintenance.
 
 - *ContainerManagement.xxx* installé dans le dossier C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -563,6 +564,7 @@ Les étiquettes ajoutées aux types de données *PodLabel* sont vos propres éti
 
 ## <a name="monitor-containers"></a>Analyser les conteneurs
 Une fois la solution activée dans le portail Log Analytics, vous voyez la vignette **Containers** qui contient des informations récapitulatives sur vos hôtes de conteneur et les conteneurs s’exécutant dans les hôtes.
+
 
 ![Vignette Conteneurs](./media/log-analytics-containers/containers-title.png)
 

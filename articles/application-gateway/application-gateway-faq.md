@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355846"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699901"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -83,6 +83,11 @@ Non, Application Gateway ne prend pas en charge les adresses IP publiques statiq
 **Q. Application Gateway prend-il en charge plusieurs adresses IP publiques sur la plateforme ?**
 
 Une seule adresse IP publique est prise en charge sur Application Gateway.
+
+**Q. Quelle taille mon sous-réseau pour Application Gateway doit-il avoir ?**
+
+Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne.
+Par exemple, si Application Gateway est défini sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, Application Gateway utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
 
 **Q. Application Gateway prend-il en charge les en-têtes x-forwarded-for ?**
 
@@ -184,6 +189,21 @@ Aucune interruption de service n’a lieu, les instances sont réparties entre l
 
 Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Ainsi, les connexions existantes continueront d’être envoyés à leur destination précédente jusqu'à ce que cette connexion soit fermée ou qu’un délai configurable expire. Notez que ce drainage de connexion attend uniquement la fin des connexions actuellement en transit. Application Gateway ne connaît pas l’état de la session d’application.
 
+**Q. Quelles sont les tailles d’Application Gateway ?**
+
+Application Gateway est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
+
+Vous pouvez créer jusqu’à 50 passerelles d’application par abonnement et chacune peut contenir jusqu’à 10 instances. Chaque passerelle Application Gateway peut contenir 20 écouteurs HTTP. Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
+
+Le tableau suivant présente un débit moyen de performances pour chaque instance d’application Gateway avec le déchargement SSL activé :
+
+| Taille moyenne de la réponse de la page principale | Petite | Moyenne | grand |
+| --- | --- | --- | --- |
+| 6 Ko |7,5 Mbits/s |13 Mbits/s |50 Mbits/s |
+| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
+
+> [!NOTE]
+> Ces valeurs sont des valeurs approximatives pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur. Pour des calculs de performance exacts, vous devez exécuter vos propres tests. Ces valeurs sont fournies uniquement pour vous donner des conseils de planification de la capacité.
 
 **Q. Puis-je passer d’une taille d’instance moyenne à une taille d’instance grande sans interruption de service ?**
 

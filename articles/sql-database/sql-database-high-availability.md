@@ -5,16 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777013"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839807"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 Depuis la sortie de l’offre PaaS Azure SQL Database, Microsoft a promis à ses clients d’intégrer au service la haute disponibilité afin qu’ils n’aient plus à intervenir, à ajouter une logique particulière ou à prendre des décisions dans ce domaine. Microsoft offre aux clients un contrat de niveau de service (SLA) et conserve un contrôle total sur la configuration et l’utilisation du système de haute disponibilité. Le SLA relatif à la haute disponibilité s’applique à une base de données SQL dans une région et ne fournit aucune protection en cas de panne généralisée, dès lors que les raisons de cette panne échappent au contrôle raisonnable de Microsoft (catastrophe naturelle, guerre, actes de terrorisme, émeutes, action des pouvoirs publics, panne d’un réseau ou d’un appareil autre que celle des centres de données de Microsoft, notamment sur le site du client ou entre le site du client et le centre de données de Microsoft).
@@ -79,7 +79,7 @@ Par défaut, les réplicas du jeu de quorum pour les configurations de stockage 
 L’ensemble du jeu de quorums de redondance de zone ayant des réplicas dans différents centres de données avec une certaine distance entre eux, la latence accrue du réseau peut augmenter le temps de validation et ainsi avoir un impact sur les performances de certaines charges de travail OLTP. Vous pouvez toujours revenir à la configuration de zone unique en désactivant le paramètre de redondance de zone. Ce processus dépend de la taille des données et est semblable à la mise à jour des objectifs de niveau de service (SLO) ordinaires. À la fin du processus, la base de données ou le pool est migré à partir d’un anneau de redondance de zone vers un anneau de zone unique, ou vice versa.
 
 > [!IMPORTANT]
-> Les bases de données avec redondance de zone et les pools élastiques sont uniquement pris en charge dans les niveaux de service Premium et Critique pour l’entreprise (préversion). Pour la version préliminaire publique, les sauvegardes et enregistrements d’audit sont stockés dans le stockage de RA-GRS, et ne sont donc pas automatiquement disponibles en cas d’une panne à l’échelle de la zone. 
+> Pour le moment, les bases de données avec redondance de zone et les pools élastiques sont uniquement pris en charge dans le niveau de service Premium. Pour la version préliminaire publique, les sauvegardes et enregistrements d’audit sont stockés dans le stockage de RA-GRS, et ne sont donc pas automatiquement disponibles en cas d’une panne à l’échelle de la zone. 
 
 La version avec redondance de zone de l’architecture de haute disponibilité est illustrée dans le diagramme suivant :
  

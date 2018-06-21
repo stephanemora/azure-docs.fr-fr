@@ -1,24 +1,25 @@
 ---
-title: "Comment déployer Azure Files | Microsoft Docs"
-description: "Découvrez comment déployer Azure Files du début à la fin."
+title: Comment déployer Azure Files | Microsoft Docs
+description: Découvrez comment déployer Azure Files du début à la fin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 193a403a64cea31a2e4cea21a5838be71af8dd53
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737348"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -37,13 +38,13 @@ Vous pouvez migrer des partages de fichiers existants tels que ceux stockés loc
 ### <a name="azure-file-sync-preview"></a>Synchronisation de fichiers Azure (préversion)
 Azure File Sync (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
-Vous pouvez utiliser la synchronisation de fichiers Azure pour migrer des données dans un partage de fichiers Azure, même si le mécanisme de synchronisation n’est pas souhaité pour une utilisation à long terme. Pour plus d’informations sur l’utilisation de la synchronisation de fichiers Azure pour transférer des données vers un partage de fichiers Azure, consultez [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) et [Déploiement de la synchronisation de fichiers Azure](storage-sync-files-deployment-guide.md).
+Vous pouvez utiliser Azure File Sync pour migrer des données dans un partage de fichiers Azure, même si le mécanisme de synchronisation n’est pas souhaité pour une utilisation à long terme. Pour plus d’informations sur l’utilisation d’Azure File Sync pour transférer des données vers un partage de fichiers Azure, consultez [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) et [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Azure Import/Export
 Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. Pour obtenir une présentation plus détaillée du service, voir [Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!Note]  
-> Le service Azure Import/Export ne prend pas en charge actuellement l’exportation de fichiers à partir d’un partage de fichiers Azure.
+> Le service Azure Import/Export ne prend actuellement pas en charge l’exportation de fichiers à partir d’un partage de fichiers Azure.
 
 Les étapes suivantes montrent comment importer des données d’un emplacement local dans un partage de fichiers Azure.
 
@@ -62,7 +63,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
 
         ![Capture d’écran de l’Assistant Création d’un volume simple dans le composant logiciel enfichable MMC Gestion des disques](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. Créez le fichier CSV du jeu de données. Le fichier CSV du jeu de données est un mappage entre le chemin d’accès des données locales et le partage de fichiers Azure souhaité vers lequel les données doivent être copiées. Par exemple, le fichier CSV du jeu de données suivant mappe un partage de fichiers local (« F:\shares\scratch ») vers un partage de fichiers Azure (« MyAzureFileShare ») :
+4. Créez le fichier CSV du jeu de données. Le fichier CSV du jeu de données est un mappage entre le chemin d’accès des données locales et le partage de fichiers Azure souhaité vers lequel les données doivent être copiées. Par exemple, le fichier CSV du jeu de données suivant mappe un partage de fichiers local (« F:\shares\scratch ») vers un partage de fichiers Azure (« MyAzureFileShare ») :
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -91,7 +92,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
     > [!Warning]  
     > Ne modifiez ni les données ni le fichier journal après la préparation du disque.
 
-7. [Créez une tâche d’importation](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Créez une tâche d’importation](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
 Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy. L’utilisation de Robocopy est très simple :
@@ -102,7 +103,7 @@ Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server.
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. Utilisez `robocopy` dans la ligne de commande pour déplacer les données vers le partage de fichiers Azure :
+2. Utilisez `robocopy` dans la ligne de commande pour déplacer les données vers le partage de fichiers Azure :
 
     ```
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32

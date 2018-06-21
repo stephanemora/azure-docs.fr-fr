@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Didacticiels
   items:
-    - name: 1 - Inscrire des application
-      href: tutorial-register-applications.md
+    - name: 1 - Créer un locataire B2C
+      href: tutorial-create-tenant.md
     - name: 2 - Authentifier des comptes
       items:
         - name: ASP.NET

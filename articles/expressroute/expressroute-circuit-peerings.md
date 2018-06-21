@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849928"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuits ExpressRoute et domaines de routage
  Vous devez commander un *circuit ExpressRoute* pour connecter votre réseau local à Microsoft via un fournisseur de connectivité. La figure suivante affiche une représentation logique de la connectivité entre votre WAN et Microsoft.
@@ -86,6 +87,11 @@ Le tableau suivant compare les trois domaines de routage :
 Vous pouvez choisir d’activer un ou plusieurs domaines de routage dans le cadre de votre circuit ExpressRoute. Vous pouvez choisir de placer tous les domaines de routage sur le même VPN si vous souhaitez les combiner dans un domaine de routage unique. Vous pouvez également les placer dans différents domaines de routage comme indiqué dans le schéma. Nous vous recommandons de connecter l’homologation privée directement à votre réseau principal, et les homologations publiques et Microsoft à votre zone DMZ.
 
 Si vous choisissez d’avoir les trois sessions d’homologation, vous devez disposer de trois paires de sessions BGP (une paire pour chaque type d’homologation). Les paires de session BGP fournissent un lien hautement disponible. Si vous vous connectez via des fournisseurs de connectivité de couche 2, il vous incombe de configurer et de gérer le routage. Pour en savoir plus, passez en revue les [workflows](expressroute-workflows.md) d’ExpressRoute.
+
+## <a name="expressroute-health"></a>Intégrité ExpressRoute
+Les circuits ExpressRoute peuvent faire l’objet d’une surveillance en matière de disponibilité, de connectivité aux réseaux virtuels et d’utilisation de la bande passante à l’aide de [Network Performance Monitor](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+
+NPM analyse l’intégrité de l’homologation privée Azure et de l’homologation Microsoft.  Pour plus d’informations, consultez notre [billet](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Recherchez un fournisseur de services. Consultez la rubrique [Emplacements et fournisseurs de services ExpressRoute](expressroute-locations.md).

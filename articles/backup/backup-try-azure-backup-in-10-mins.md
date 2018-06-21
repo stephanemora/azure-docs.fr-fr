@@ -1,25 +1,20 @@
 ---
-title: Sauvegarde de fichiers et de dossiers Windows sur Azure (Resource Manager) | Microsoft Docs
+title: Sauvegarder des fichiers et des dossiers Windows sur Azure (Resource Manager)
 description: Découvrez comment sauvegarder des fichiers et des dossiers Windows vers Azure dans un déploiement Resource Manager.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: procédure de sauvegarde ; comment sauvegarder ; sauvegarder des fichiers et des dossiers
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 8/15/2017
-ms.author: markgal;
-ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 7abdf06d1b5a4361da9ddb75cec01d6fd1630d08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606968"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Premier aperçu : sauvegarder des fichiers et des dossiers dans un déploiement de Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un ordinateur Windows) sur Azure avec un déploiement de Resource Manager. Il s’agit d’un didacticiel destiné à vous présenter les notions de base. Vous verrez qu’il est extrêmement simple d’utiliser Azure Backup.

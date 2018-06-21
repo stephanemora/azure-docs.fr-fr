@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771046"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621181"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -46,7 +46,7 @@ La passerelle de gestion des données offre les fonctionnalités suivantes :
 * Gestion sécurisée de l’accès aux sources de données locales.
   * Aucune modification du pare-feu d’entreprise n’est requise. La passerelle établit uniquement des connexions HTTP sortantes pour l’accès à Internet.
   * Chiffrement des informations d’identification pour vos magasins de données locaux à l’aide de votre certificat.
-* Déplacer les données efficacement : les données sont transférées en parallèle et résistent aux problèmes intermittents du réseau, grâce à la logique de nouvelle tentative automatique.
+* Déplacer les données efficacement : les données sont transférées en parallèle et sont résilientes face aux problèmes intermittents du réseau, grâce à la logique de nouvelle tentative automatique.
 
 ### <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
 Lorsque vous utilisez une activité de copie pour copier des données entre des machines locales et cloud, l’activité utilise une passerelle pour transférer les données à partir de la source de données locale vers le cloud et vice versa.
@@ -72,7 +72,6 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 ## <a name="installation"></a>Installation
 ### <a name="prerequisites"></a>Prérequis
-
 * Les versions de **système d’exploitation** prises en charge sont Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation de la passerelle de gestion des données sur un contrôleur de domaine n’est pas prise en charge.
 * .NET framework 4.5.1 ou version ultérieure est requis. Si vous installez la passerelle sur un ordinateur Windows 7, installez .NET Framework 4.5 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) pour plus d’informations.
 * La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
@@ -185,7 +184,7 @@ Il existe trois options de configuration :
 
 * **Ne pas utiliser de proxy**: la passerelle n’utilise pas explicitement de proxy pour se connecter aux services cloud.
 * **Utiliser le proxy système** : la passerelle utilise le paramètre de proxy configuré dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy.
-* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs selon le paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
+* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs, en fonction du paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
 
 Le service hôte de la passerelle de gestion des données redémarre automatiquement après avoir enregistré les paramètres de proxy mis à jour.
 
@@ -232,13 +231,13 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
 > N’oubliez pas de mettre à jour diahost.exe.config **et** diawp.exe.config.  
 
 
-Outre ces points, vous devez également vous assurer que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Outre ces points, vous devez également vous assurer que Microsoft Azure figure dans la liste verte de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle ne peut pas se connecter à Data Factory pour s’authentifier. Reportez-vous à la section précédente pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
 1. Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
-2. Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que le suivant s’affichent : `Unable to connect to the remote server`
+2. Quand vous ouvrez le Gestionnaire de Configuration, vous voyez l’état « Déconnecté » ou « En cours de connexion ». Quand vous affichez les journaux des événements Windows, dans Observateur d’événements > Journaux des applications et des services > Passerelle de gestion des données, vous voyez des messages d’erreur comme le suivant : `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Ouvrir le port 8050 pour le chiffrement des informations d’identification
@@ -370,7 +369,7 @@ Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette vale
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Réseau (entrée/sortie) | Utilisation du réseau d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Tâches simultanées (en cours d’exécution/limite) | Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, où le processeur/la mémoire /le réseau sont sous-utilisés, alors que les activités expirent. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée).  
-Rôle | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
+Rôle | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
 
 Dans cette page figurent des paramètres plus significatifs en présence de deux nœuds ou plus (scénario d’augmentation du nombre des instances) dans la passerelle. Consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations sur la configuration d’une passerelle à plusieurs nœud.
 
@@ -491,12 +490,12 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 3. Utilisez l’applet de commande **New-AzureRmDataFactoryGateway** pour créer une passerelle logique, comme suit :
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
     ```
     **Exemple de commande et de sortie**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
 
     Name              : MyGateway
     Description       : gateway for walkthrough

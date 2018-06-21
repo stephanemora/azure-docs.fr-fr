@@ -3,25 +3,22 @@ title: Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure
 description: Découvrez comment gérer Azure Cosmos DB dans l’Explorateur Stockage Azure.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
 manager: omafnan
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b870ed638656ee3b1b0e46fe9bac44e4436f154
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612841"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure
 
@@ -29,7 +26,6 @@ L’utilisation d’Azure Cosmos DB dans l’Explorateur Stockage Azure permet a
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Un compte Azure Cosmos DB pour l’API SQL<!--or MongoDB API-->. Si vous n’avez pas de compte, vous pouvez en créer un dans le portail Azure, comme décrit dans [Azure Cosmos DB : Développer une application web API SQL avec .NET et le portail Azure](create-sql-api-dotnet.md).
 
@@ -223,7 +219,7 @@ Avant de continuer, essayez de redémarrer votre application et de voir si les p
 
 Vous pouvez voir cette erreur pour plusieurs raisons. Les deux plus courantes sont :
 
-+ Vous vous trouvez derrière un « proxy transparent », ce qui signifie que quelqu’un (par exemple, votre service informatique) intercepte le trafic HTTPS, le déchiffre, puis le chiffre à l’aide d’un certificat auto-signé.
++ Vous vous trouvez derrière un *proxy transparent*, ce qui signifie que quelqu’un (par exemple votre service informatique) intercepte le trafic HTTPS, le déchiffre, puis le chiffre en utilisant un certificat auto-signé.
 
 + Vous exécutez un logiciel, tel qu’un logiciel antivirus, qui injecte un certificat SSL auto-signé dans les messages HTTPS que vous recevez.
 

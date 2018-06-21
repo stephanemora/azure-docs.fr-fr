@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823433"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Résoudre les erreurs de ressources Azure introuvables
 
-Cet article décrit les erreurs que vous pouvez rencontrer lorsqu’une ressource est introuvable pendant le déploiement.
+Cet article décrit les erreurs que vous pouvez observer lorsqu’une ressource est introuvable pendant le déploiement.
 
 ## <a name="symptom"></a>Symptôme
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Si vous essayez d’utiliser les fonctions [reference](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) avec une ressource qui ne peut pas être résolue, vous recevez l’erreur suivante :
+Si vous utilisez les fonctions [reference](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) avec une ressource qui ne peut pas être résolue, vous recevez l’erreur suivante :
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Si vous souhaitez déployer la ressource manquante dans le modèle, vérifiez si
 }
 ```
 
-Il vaut mieux éviter de définir des dépendances qui ne sont pas nécessaires. Lorsque vous avez des dépendances inutiles, vous prolongez la durée du déploiement en empêchant les ressources qui ne sont pas interdépendantes d’être déployées en parallèle. Par ailleurs, il se peut que créiez des dépendances circulaires qui bloquent le déploiement. La fonction [reference](resource-group-template-functions-resource.md#reference) crée une dépendance implicite envers la ressource référencée, lorsque cette ressource est déployée dans le même modèle. Il se peut donc que vous ayez des dépendances en plus des dépendances spécifiées dans la propriété **dependsOn**. La fonction [resourceId](resource-group-template-functions-resource.md#resourceid) ne crée pas de dépendance implicite ou ne valide pas l’existence de la ressource.
+Il vaut mieux éviter de définir des dépendances qui ne sont pas nécessaires. Lorsque vous avez des dépendances inutiles, vous prolongez la durée du déploiement en empêchant les ressources qui ne sont pas interdépendantes d’être déployées en parallèle. Par ailleurs, il se peut que créiez des dépendances circulaires qui bloquent le déploiement. La fonction [reference](resource-group-template-functions-resource.md#reference) et les fonctions [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) créent une dépendance implicite envers la ressource référencée, lorsque cette ressource est déployée dans le même modèle et référencée par son nom (et non l’ID de la ressource). Il se peut donc que vous ayez des dépendances en plus des dépendances spécifiées dans la propriété **dependsOn**. La fonction [resourceId](resource-group-template-functions-resource.md#resourceid) ne crée pas de dépendance implicite pas plus qu’elle ne valide l’existence de la ressource. La fonction [reference](resource-group-template-functions-resource.md#reference) et les fonctions [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) ne créent pas de dépendance implicite lorsque la ressource est référencée par son ID. Pour créer une dépendance implicite, transmettez le nom de la ressource qui est déployée dans le même modèle.
 
-Lorsque vous rencontrez des problèmes de dépendance, vous devez déterminer l’ordre de déploiement des ressources. Pour afficher l’ordre des opérations de déploiement :
+Si vous observez des problèmes de dépendance, vous devez déterminer l’ordre de déploiement des ressources. Pour afficher l’ordre des opérations de déploiement :
 
 1. Sélectionnez l’historique de déploiement de votre groupe de ressources.
 

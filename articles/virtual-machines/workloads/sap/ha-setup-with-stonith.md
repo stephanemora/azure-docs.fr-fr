@@ -1,11 +1,11 @@
 ---
-title: "Configuration de la haute disponibilité avec STONITH pour SAP HANA sur Azure (grandes instances) | Microsoft Docs"
-description: "Établir une haute disponibilité pour SAP HANA sur Azure (grandes instances) dans SUSE à l’aide de STONITH"
+title: Configuration de la haute disponibilité avec STONITH pour SAP HANA sur Azure (grandes instances) | Microsoft Docs
+description: Établir une haute disponibilité pour SAP HANA sur Azure (grandes instances) dans SUSE à l’aide de STONITH
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656361"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuration de la haute disponibilité dans SUSE à l’aide de STONITH
 Ce document fournit les instructions détaillées étape par étape pour configurer la haute disponibilité sur le système d’exploitation SUSE à l’aide de l’appareil STONITH.
 
-**Clause d’exclusion de responsabilité :** *Ce guide provient de tests de configuration dans l’environnement des grandes instances Microsoft HANA dont les résultats ont été satisfaisants. Comme l’équipe de gestion des services Microsoft pour les grandes instances HANA ne prend pas en charge le système d’exploitation, vous devrez peut-être contacter SUSE pour toute résolution de problème ou clarification sur la couche système d’exploitation. L’équipe de gestion des services Microsoft configure bel et bien le périphérique STONITH et prend complètement en charge pour vous aider à résoudre les problèmes liés à ce dernier.*
+**Clause d’exclusion de responsabilité :** *Ce guide provient de tests de configuration dans l’environnement des grandes instances Microsoft HANA, dont les résultats ont été satisfaisants. Comme l’équipe de gestion des services Microsoft pour les grandes instances HANA ne prend pas en charge le système d’exploitation, vous devrez peut-être contacter SUSE pour toute résolution de problème ou clarification sur la couche système d’exploitation. L’équipe de gestion des services Microsoft configure bel et bien le périphérique STONITH et prend complètement en charge pour vous aider à résoudre les problèmes liés à ce dernier.*
 ## <a name="overview"></a>Vue d'ensemble
 Pour configurer la haute disponibilité à l’aide du clustering SUSE, les prérequis suivants doivent être respectés.
 ### <a name="pre-requisites"></a>Conditions préalables
@@ -34,8 +35,8 @@ Pour configurer la haute disponibilité à l’aide du clustering SUSE, les pré
 - Le serveur de temps (NTP) est configuré
 - Lire et comprendre la dernière version de la documentation SUSE sur la configuration de la haute disponibilité
 
-### <a name="set-up-details"></a>Définir les détails
-- Dans ce guide, nous avons utilisé la configuration suivante :
+### <a name="setup-details"></a>Détails de la configuration
+Ce guide utilise la configuration suivante :
 - Système d’exploitation : SLES 12 SP1 pour SAP
 - Grandes instances HANA : 2xS192 (quatre sockets, 2 To)
 - Version HANA : HANA 2.0 SP1
@@ -50,7 +51,7 @@ Quand vous configurez des grandes instances HANA avec HSR, vous pouvez demander 
 - Nom du client (par exemple, Microsoft)
 - SID - Identificateur du système HANA (par exemple, H11)
 
-Une fois le périphérique STONITH configuré, l’équipe de gestion des services Microsoft fournit le nom du périphérique SBD et l’adresse IP du stockage iSCSI que vous pouvez utiliser pour configurer l’installation STONITH. 
+Une fois l’appareil STONITH configuré, l’équipe de gestion des services Microsoft fournit le nom de l’appareil SBD et l’adresse IP du stockage iSCSI que vous pouvez utiliser pour configurer l’installation STONITH. 
 
 Pour configurer la haute disponibilité de bout en bout à l’aide de STONITH, vous devez suivre les étapes suivantes :
 
@@ -64,7 +65,7 @@ Pour configurer la haute disponibilité de bout en bout à l’aide de STONITH, 
 8.  Tester le processus de basculement
 
 ## <a name="1---identify-the-sbd-device"></a>1.   Identifier l’appareil SBD
-Cette section décrit comment déterminer le périphérique SBD adapté à votre configuration une fois que l’équipe de gestion des services Microsoft a configuré le périphérique STONITH. **Cette section s’applique uniquement au client existant**. Si vous êtes nouveau client, l’équipe de gestion des services Microsoft vous fournit le nom de l’appareil SDB et vous pouvez ignorer cette section.
+Cette section décrit comment déterminer l’appareil SBD adapté à votre configuration une fois que l’équipe de gestion des services Microsoft a configuré l’appareil STONITH. **Cette section s’applique uniquement au client existant**. Si vous êtes nouveau client, l’équipe de gestion des services Microsoft vous fournit le nom de l’appareil SDB et vous pouvez ignorer cette section.
 
 1.1 Modifiez */etc/iscsi/initiatorname.isci* pour 
 ``` 
@@ -134,7 +135,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 Configuration du cluster
-3.2.1 Vous pouvez utiliser la commande *ha-cluster-init* ou l’Assistant yast2 pour configurer le cluster. Ici, nous avons utilisé l’Assistant yast2. Vous effectuez cette étape **uniquement sur le nœud principal**.
+3.2.1 Vous pouvez utiliser la commande *ha-cluster-init* ou l’Assistant yast2 pour configurer le cluster. Dans ce cas, l’Assistant yast2 est utilisé. Vous effectuez cette étape **uniquement sur le nœud principal**.
 
 Suivez yast2 > Haute disponibilité > Cluster ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurer les propriétés et ressources du cluster 
 Cette section décrit les étapes permettant de configurer les ressources du cluster.
-Dans cet exemple, nous avons configuré la ressource suivante, le reste peut être configuré (si nécessaire) en se reportant au guide de la haute disponibilité SUSE. Effectuez la configuration sur l’**un des nœuds** uniquement. Effectuez-la sur le nœud principal.
+Dans cet exemple, configurez la ressource suivante, le reste peut être configuré (si nécessaire) en se reportant au guide de la haute disponibilité SUSE. Effectuez la configuration sur l’**un des nœuds** uniquement. Effectuez-la sur le nœud principal.
 
 - Bootstrap du cluster
 - Appareil STONITH
@@ -341,8 +342,8 @@ Maintenant, arrêtez le service Pacemaker sur **node2** et le basculement des re
 ![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
 
 
-## <a name="9-troubleshooting"></a>9. Résolution des problèmes
-Cette section décrit les peu nombreux scénarios d’échec que vous pouvez rencontrer pendant l’installation. Vous n’êtes pas nécessairement confronté à ces problèmes.
+## <a name="9-troubleshooting"></a>9. Résolution de problèmes
+Cette section décrit les peu nombreux scénarios d’échec, que vous pouvez rencontrer pendant l’installation. Vous n’êtes pas nécessairement confronté à ces problèmes.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scénario 1 : le nœud de cluster n’est pas en ligne
 Si l’un des nœuds n’apparaît pas en ligne dans le gestionnaire du cluster, vous pouvez essayer ce qui suit pour le mettre en ligne.
@@ -369,9 +370,9 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scénario 2 : yast2 ne montre pas la vue graphique
-Nous avons utilisé l’écran graphique de yast2 pour configurer le cluster à haute disponibilité dans ce document. Si yast2 ne s’ouvre pas avec la fenêtre graphique indiquée et lance une erreur Qt, suivez les étapes ci-dessous. Si yast2 s’ouvre avec la fenêtre graphique, vous pouvez ignorer ces étapes.
+L’écran graphique de yast2 est utilisé pour configurer le cluster à haute disponibilité dans ce document. Si yast2 ne s’ouvre pas avec la fenêtre graphique indiquée et lance une erreur Qt, suivez les étapes ci-dessous. Si yast2 s’ouvre avec la fenêtre graphique, vous pouvez ignorer ces étapes.
 
-**Erreur**
+**Error**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
@@ -444,7 +445,7 @@ Cliquez sur **Continuer**.
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-Cliquez sur **Suivant** lorsque l’installation est terminée.
+Cliquez sur **Suivant** lorsque l’installation est terminée
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 

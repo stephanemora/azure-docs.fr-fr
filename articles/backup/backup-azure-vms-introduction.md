@@ -1,25 +1,20 @@
 ---
-title: Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure | Microsoft Docs
+title: Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
 description: Considérations importantes avant la sauvegarde de machines virtuelles dans Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: sauvegarde de machines virtuelles
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606084"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
 Cet article formule des suggestions de performances et de ressources pour vous aider à planifier votre infrastructure de sauvegarde de machines virtuelles. Il définit également les principaux aspects du service Backup, qui peuvent être essentiels afin de vous aider à déterminer votre architecture, à planifier sa capacité et à définir des planifications. Si vous avez [préparé votre environnement](backup-azure-arm-vms-prepare.md), la planification est l’étape à suivre avant de passer à la [sauvegarde des machines virtuelles](backup-azure-arm-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -119,7 +114,7 @@ Nous vous suggérons de suivre les meilleures pratiques ci-dessous lors de la co
 * Planifiez les sauvegardes de machines virtuelles pendant les heures creuses. Ainsi, le service Sauvegarde utilise des IOPS pour transférer les données du compte de stockage client vers le coffre de sauvegarde.
 * Veillez à appliquer une stratégie aux machines virtuelles réparties entre les différents comptes de stockage. Nous vous suggérons de limiter à 20 le nombre total de disques d’un même compte de stockage protégés par la même planification de sauvegarde. Si votre compte de stockage contient plus de 20 disques, répartissez ces machines virtuelles entre plusieurs stratégies afin d’obtenir les IOPS requises pendant la phase de transfert du processus de sauvegarde.
 * Évitez de restaurer une machine virtuelle exécutée sur le stockage Premium vers le même compte de stockage. Si le processus de restauration coïncide avec l’opération de sauvegarde, cela réduira les IOPS disponibles pour la sauvegarde.
-* Pour la sauvegarde de machine virtuelle Premium, assurez-vous que le compte de stockage qui héberge les disques Premium dispose d’au moins 50 % d’espace libre pour créer des captures instantanées intermédiaires pour une sauvegarde réussie. 
+* Pour la sauvegarde de machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, il est recommandé d’allouer seulement 50 % de l’espace total du compte de stockage, pour que le service Sauvegarde Azure puisse copier la capture instantanée sur le compte et transférer des données depuis cet emplacement copié du compte de stockage vers le coffre.
 * Assurez-vous que la version Python sur les machines virtuelles Linux activées pour la sauvegarde est 2.7
 
 ## <a name="data-encryption"></a>Chiffrement des données

@@ -1,26 +1,20 @@
 ---
-title: Sauvegarde Azure - Forum aux questions | Microsoft Docs
+title: Forum aux questions sur Sauvegarde Azure
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
-ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/9/2018
-ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939196"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605822"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
 Cet article répond aux questions courantes sur les composants de la Sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

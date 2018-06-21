@@ -1,25 +1,19 @@
 ---
-title: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services de la sauvegarde Azure | Microsoft Docs
+title: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services de Sauvegarde Azure
 description: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services pour bénéficier de nouvelles fonctionnalités comme la sauvegarde de machines virtuelles Resource Manager, la sécurité renforcée, la sauvegarde de machines virtuelles VMware et la sauvegarde de l’état du système pour les serveurs Windows
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: trinadhk
+ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606857"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Coffre de sauvegarde mis à niveau vers un coffre Recovery Services
 Cet article fournit une vue d’ensemble des prestations du coffre Recovery Services, répond aux questions fréquentes sur la mise à niveau d’un coffre de sauvegarde existant vers un coffre Recovery Services et indique les étapes postérieures à la mise à niveau. Un coffre Recovery Services est l’équivalent Azure Resource Manager d’un coffre de sauvegarde qui héberge vos données de sauvegarde. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des stations de travail ou des serveurs locaux ou dans Azure.

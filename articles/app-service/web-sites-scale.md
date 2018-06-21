@@ -1,8 +1,8 @@
 ---
-title: "Montée en puissance d’une application dans Azure | Microsoft Docs"
-description: "Découvrez comment activer la montée en puissance d’une application dans Azure App Service pour ajouter des capacités et des fonctionnalités."
+title: Montée en puissance d’une application dans Azure | Microsoft Docs
+description: Découvrez comment activer la montée en puissance d’une application dans Azure App Service pour ajouter des capacités et des fonctionnalités.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714933"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Montée en puissance d’une application dans Azure
 
@@ -50,7 +51,7 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 2. Dans la page de votre application App Service, cliquez sur **Tous les paramètres**, puis sur **Monter en puissance**.
    
     ![Accédez à la montée en puissance pour votre application Azure.][ChooseWHP]
-3. Choisissez votre niveau, puis cliquez sur **Sélectionner**.
+3. Choisissez votre niveau, puis cliquez sur **Appliquer**.
    
     Dans l’onglet **Notifications**, la mention **RÉUSSITTE** clignote en vert une fois l’opération terminée.
 

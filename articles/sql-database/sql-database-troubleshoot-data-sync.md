@@ -3,17 +3,18 @@ title: Résoudre les problèmes liés à Azure SQL Data Sync (Préversion) | Mic
 description: Découvrez comment résoudre les problèmes courants liés à Azure SQL Data Sync (Préversion).
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757534"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Résoudre les problèmes liés à SQL Data Sync (préversion)
 
@@ -240,9 +241,8 @@ Avant de continuer, vérifiez que les conditions suivantes sont réunies :
 
 -   Le service Windows SQL Data Sync (Préversion) est en cours d’exécution.  
 -   Le compte de service pour le service Windows SQL Data Sync (Préversion) a accès au réseau.    
--   L’agent client peut contacter le service Localisateur. Vérifiez que la clé de Registre suivante a la valeur https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   Sur un ordinateur x86 :`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   Sur un ordinateur x64 :`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   Le port 1433 de trafic sortant est ouvert dans votre règle de pare-feu local.
+-   L’adresse IP locale est ajoutée au serveur ou à la règle de pare-feu de base de données pour la base de données de métadonnées de synchronisation.
 
 #### <a name="cause"></a>Cause :
 

@@ -1,24 +1,20 @@
 ---
-title: "Sauvegarde Azure : sauvegarde cohérente des applications des machines virtuelles Linux | Microsoft Docs"
-description: "Créez des sauvegardes cohérentes des applications de vos machines virtuelles Linux sur Azure. Cet article explique la configuration de l’infrastructure de script pour sauvegarder les machines virtuelles Linux déployées par Azure. Il contient également des informations de dépannage."
+title: 'Sauvegarde Azure : sauvegarde de cohérence des applications de machines virtuelles Linux'
+description: Créez des sauvegardes cohérentes des applications de vos machines virtuelles Linux sur Azure. Cet article explique la configuration de l’infrastructure de script pour sauvegarder les machines virtuelles Linux déployées par Azure. Il contient également des informations de dépannage.
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
-keywords: "sauvegarde cohérente des applications ; sauvegarde cohérente des applications de la machine virtuelle Azure ; sauvegarde de la machine virtuelle Linux ; sauvegarde Azure"
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
+keywords: sauvegarde cohérente des applications ; sauvegarde cohérente des applications de la machine virtuelle Azure ; sauvegarde de la machine virtuelle Linux ; sauvegarde Azure
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
-ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: anuragm
+ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605210"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure
 
@@ -78,7 +74,7 @@ Les pré-scripts appellent les API natives de l’application, qui suspendent le
 
 Veillez à ajouter un enregistrement approprié lors de l’écriture de votre pré-script et post-script et passez en revue vos journaux de script pour résoudre les problèmes de script. Si vous rencontrez toujours des problèmes pour exécuter des scripts, reportez-vous au tableau suivant pour plus d’informations.
 
-| Erreur | Message d’erreur | Action recommandée |
+| Error | Message d’erreur | Action recommandée |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Le pré-script a renvoyé une erreur ; la sauvegarde peut ne pas être cohérente avec les applications.   | Examinez les journaux d’erreur de votre script pour résoudre le problème.|  
 |   Post-ScriptExecutionFailed |    Le post-script a renvoyé une erreur qui peut affecter l’état de l’application. |    Examinez les journaux d’erreur de votre script pour résoudre le problème et vérifiez l’état de l’application. |

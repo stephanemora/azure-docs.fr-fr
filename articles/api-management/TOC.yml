@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: Approvisionner et mettre à l’échelle
       items:
+        - name: Mesure la capacité
+          href: api-management-capacity.md
         - name: Mise à niveau et mise à l’échelle
           href: upgrade-and-scale.md
         - name: Configuration d’un domaine personnalisé

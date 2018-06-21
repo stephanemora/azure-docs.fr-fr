@@ -1,24 +1,20 @@
 ---
-title: "Le Serveur de sauvegarde Azure protège l’état du système et effectue une récupération complète de celui-ci | Microsoft Docs"
-description: "Utilisez le Serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète."
+title: Le serveur de sauvegarde Azure protège l’état du système et effectue une récupération complète de celui-ci
+description: Utilisez le Serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-keywords: 
-ms.assetid: 
+keywords: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
-ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607206"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 
@@ -38,7 +34,7 @@ Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour p
 |**Données de fichier**<br /><br />Sauvegarde des données régulières<br /><br />Récupération complète/sauvegarde de l’état du système|Données de fichiers perdues|O|N|N|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (volumes de données intacts)|N|N|O|
-|**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (volumes de données perdus)|O|Non|Oui (récupération complète, suivie d’une récupération régulière des données de fichiers sauvegardées)|
+|**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (volumes de données perdus)|O|Non |Oui (récupération complète, suivie d’une récupération régulière des données de fichiers sauvegardées)|
 |**Données SharePoint** :<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Site perdu, listes, éléments de liste, documents|O|N|N|
 |**Données SharePoint** :<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
 |**Données SharePoint** :<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Récupération d'urgence|N|N|N|

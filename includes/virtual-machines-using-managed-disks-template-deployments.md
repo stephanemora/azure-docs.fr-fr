@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: f363c52093e0ae8314e07e750eb4362f71e9a4b1
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826512"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269559"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de disques gérés dans les modèles Azure Resource Manager
 
@@ -225,7 +225,7 @@ Pour créer des groupes à haute disponibilité gérés avec des machines virtue
 Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
 
 * *apiVersion* pour Microsoft.Compute doit être défini sur `2018-04-01` (ou version ultérieure)
-* Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`
+* Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`.
 
 L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’une machine virtuelle qui utilise des disques SSD Standard :
 
@@ -241,7 +241,7 @@ L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’u
 }
 ```
 
-Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard avec un modèle, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 ### <a name="additional-scenarios-and-customizations"></a>Personnalisations et scénarios supplémentaires
 
@@ -256,4 +256,4 @@ Pour obtenir des informations complètes sur les spécifications de l’API REST
 * Consultez le document [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) pour en savoir plus sur les disques gérés.
 * Passez en revue la documentation de référence sur les modèles pour les ressources de machine virtuelle en consultant le document [de référence sur le modèle Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Passez en revue la documentation de référence sur les modèles pour les ressources de disque en consultant le document [de référence sur le modèle Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).
-* Pour plus d’informations sur l’utilisation de disques managés dans des groupes de machines virtuelles Azure identiques, consultez le document [Utiliser des disques de données avec des groupes identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md).
+* Pour plus d’informations sur l’utilisation de disques managés dans des groupes de machines virtuelles Azure identiques, consultez le document [Utiliser des disques de données avec des groupes identiques](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).

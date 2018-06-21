@@ -2,22 +2,20 @@
 title: Guide de conception de table Azure Storage | Microsoft Docs
 description: Concevoir des tables évolutives et performantes dans le stockage de tables Azure
 services: cosmos-db
-documentationcenter: na
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824585"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -525,7 +523,7 @@ Permet de conserver un comportement cohérent entre les limites de partition ou 
 #### <a name="context-and-problem"></a>Contexte et problème
 Les EGT activent les transactions atomiques de plusieurs entités qui partagent la même clé de partition. Pour des raisons d'évolutivité et de performances, vous pouvez décider de stocker des entités ayant des exigences de cohérence dans des partitions distinctes ou dans un système de stockage distinct : dans ce scénario, vous ne pouvez pas utiliser les EGT pour maintenir la cohérence. Par exemple, vous pouvez avoir besoin de maintenir la cohérence entre :  
 
-* des entités stockées dans deux partitions différentes dans la même table, dans des tables différentes, dans différents comptes de stockage ;  
+* des entités stockées dans deux partitions différentes de la même table, dans des tables différentes ou dans différents comptes de stockage ;  
 * une entité stockée dans le service de Table et un objet blob stocké dans le service d'objets blob ;  
 * une entité stockée dans le service de Table et un fichier dans un système de fichiers ;  
 * un magasin d'entités du service de Table encore indexé en utilisant le service Azure Search.  
@@ -720,7 +718,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-Une exigence courante est de pouvoir récupérer les entités plus récemment créées, par exemple les dix dernières dépenses revendications soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
+Une exigence courante est de pouvoir récupérer les toutes dernières entités créées, par exemple les dix dernières notes de frais soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
 
 #### <a name="solution"></a>Solution
 Stockez les entités en utilisant une **RowKey** qui trie naturellement l’ordre inverse de date et d’heure par utilisation, pour que l’entrée la plus récente soit toujours la première dans la table.  
@@ -1061,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Projection côté serveur
-Une seule entité peut avoir jusqu'à 255 propriétés et une taille allant jusqu'à 1 Mo. Lorsque vous interrogez la table et récupérez des entités, il est possible que vous n'ayez pas besoin de toutes les propriétés et que vous puissiez éviter de transférer des données sans que cela soit nécessaire (ce qui permet de réduire la latence et les coûts). Vous pouvez utiliser la projection côté serveur pour transférer uniquement les propriétés que vous avez besoin. L’exemple suivant extrait uniquement la propriété **Email** (avec les valeurs de **PartitionKey**, de **RowKey**, de **Timestamp** et d’**ETag**) à partir des entités sélectionnées par la requête.  
+Une seule entité peut avoir jusqu'à 255 propriétés et une taille allant jusqu'à 1 Mo. Lorsque vous interrogez la table et récupérez des entités, il est possible que vous n'ayez pas besoin de toutes les propriétés et que vous puissiez éviter de transférer des données sans que cela soit nécessaire (ce qui permet de réduire la latence et les coûts). Vous pouvez utiliser la projection côté serveur pour transférer uniquement les propriétés que vous avez besoin. L’exemple suivant récupère uniquement la propriété **Email** (avec les valeurs de **PartitionKey**, de **RowKey**, de **Timestamp** et **d’ETag**) à partir des entités sélectionnées par la requête.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

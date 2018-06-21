@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234516"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
 
-Cet article explique comment configurer une application web à l’aide du [portail Azure].
+Cet article explique comment configurer une application web à l’aide du [Portail Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>Paramètres de l’application
-1. Sur le [portail Azure], ouvrez le panneau de l’application Web.
+1. Sur le [Portail Azure], ouvrez le panneau de l’application Web.
 3. Cliquez sur **Paramètres de l’application**.
 
 ![Paramètres de l’application][configure01]
@@ -67,6 +68,8 @@ Cette section contient des paires nom/valeur qui seront chargées par votre appl
 * Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
 * Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING_. Elles contiennent toutes les deux la même valeur.
 
+Une fois stockés, les paramètres d’application sont toujours chiffrés (chiffrement au repos).
+
 ### <a name="connection-strings"></a>Chaînes de connexion
 Chaînes de connexion des ressources liées. 
 
@@ -80,6 +83,8 @@ Pour les applications PHP, Python, Java et Node, ces paramètres sont disponible
 * Personnalisé : `CUSTOMCONNSTR_`
 
 Par exemple, si une chaîne de connexion MySql se nomme `connectionstring1`, elle est accessible par le biais de la variable d’environnement `MYSQLCONNSTR_connectionString1`.
+
+Une fois stockées, les chaînes de connexion sont toujours chiffrées (chiffrement au repos).
 
 ### <a name="default-documents"></a>Documents par défaut
 Le document par défaut est la page web qui s’affiche à l’URL racine pour un site web.  Le premier fichier correspondant dans la liste est utilisé. 
@@ -163,7 +168,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
