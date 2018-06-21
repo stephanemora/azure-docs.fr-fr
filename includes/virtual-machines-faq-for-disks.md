@@ -1,8 +1,25 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414567"
+---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
-Dans cet article, nous étudierons les questions fréquentes relatives à Azure Managed Disks et Azure Stockage Premium.
+Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Managed Disks et les disques SSD Premium Azure.
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Managed Disks
 
 **Qu’est-ce qu’Azure Managed Disks ?**
 
@@ -28,13 +45,9 @@ La tarification de ces 2 types de disques est identique.
 
 Oui. Vous pouvez modifier le type de compte de stockage de vos disques gérés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
 
-**Existe-t-il un moyen de copier ou d’exporter un disque géré vers un compte de stockage privé ?**
-
-Oui. Vous pouvez exporter vos disques gérés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
-
 **Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque géré avec un autre abonnement ?**
 
-Non.
+Oui.
 
 **Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque géré dans une région différente ?**
 
@@ -42,11 +55,11 @@ Non.
 
 **Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques gérés ?**
 
-Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale, ainsi que la limite par défaut, est de 10 000 disques managés par région et par type de disque pour un abonnement.
+Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale est de 50 000 disques managés par région et par type de disque pour un abonnement.
 
 **Puis-je prendre une capture instantanée incrémentielle d’un disque géré ?**
 
-Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré. Toutefois, nous envisageons de prendre en charge les captures instantanées incrémentielles à l’avenir.
+Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré.
 
 **Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques gérés et non gérés ?**
 
@@ -66,7 +79,7 @@ En fonction de la région où se trouve le groupe à haute disponibilité qui ut
 
 **Comment est configuré le compte de stockage Standard pour les diagnostics ?**
 
-Vous configurez un compte de stockage privé pour les diagnostics de machine virtuelle. À l’avenir, nous prévoyons de basculer également les diagnostics sur Managed Disks.
+Vous configurez un compte de stockage privé pour les diagnostics de machine virtuelle.
 
 **Quel type de prise en charge du contrôle d’accès en fonction du rôle est disponible pour Managed Disks ?**
 
@@ -78,7 +91,7 @@ Managed Disks prend en charge trois rôles principaux par défaut :
 
 **Existe-t-il un moyen de copier ou d’exporter un disque géré vers un compte de stockage privé ?**
 
-Vous pouvez obtenir un URI de signature d’accès partagé en lecture seule pour le disque géré et l’utiliser pour copier le contenu vers un compte de stockage privé ou un espace de stockage local.
+Vous pouvez générer un URI de signature d’accès partagé (SAP) en lecture seule pour le disque managé et l’utiliser pour copier le contenu vers un compte de stockage privé ou un espace de stockage local. Vous pouvez utiliser l’URI SAP avec le Portail Azure, Azure PowerShell, Azure CLI ou [AzCopy](../articles/storage/common/storage-use-azcopy.md).
 
 **Puis-je créer une copie de mon disque géré ?**
 
@@ -86,7 +99,7 @@ Les clients peuvent prendre une capture instantanée de leurs disques gérés, q
 
 **Les disques non gérés sont-ils encore pris en charge ?**
 
-Oui. Nous prenons à la fois en charge les disques gérés et non gérés. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
+Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
 
 
 **Si je crée un disque de 128 Go, et que j’augmente la taille à 130 Go, serai-je facturé en fonction de la taille supérieure de disque (512 Go) ?**
@@ -113,6 +126,39 @@ Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La 
 * [Liste de modèles utilisant des disques gérés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="standard-ssd-disks-preview"></a>Disques SSD Standard (préversion)
+
+**Qu’est-ce qu’un disque SSD Standard Azure (préversion)**
+Les disques SSD Standard sont des disques standard à semi-conducteur, optimisés en tant que stockage économique pour les charges de travail nécessitant des performances soutenues à des niveaux d’IOPS plus faibles. Dans leur préversion, ils sont disponibles dans un nombre limité de régions, avec une facilité de gestion limitée (disponible via les modèles Resource Manager).
+
+<a id="standard-ssds-azure-regions"></a>**Quelles sont les régions actuellement prises en charge pour les disques SSD Standard (préversion) ?**
+* Europe du Nord
+
+**Comment faire pour créer des disques SSD Standard ?**
+Actuellement, vous pouvez créer des disques SSD Standard à l’aide de modèles Azure Resource Manager. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
+
+* *apiVersion* pour Microsoft.Compute doit être défini sur `2018-04-01` (ou version ultérieure)
+* Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`.
+
+L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’une machine virtuelle qui utilise des disques SSD Standard :
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+
+**Puis-je utiliser des disques SSD Standard en tant que disques non managés ?**
+Non, les disques SSD Standard sont disponibles seulement comme disques managés.
+
 ## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks 
 
 **Quelles sont les modifications nécessaires dans une configuration de service Sauvegarde Azure préexistante avant/après la migration vers Managed Disks ?**
@@ -127,7 +173,7 @@ Oui, les sauvegardes fonctionnent de manière transparente.
 
 Aucune modification n’est nécessaire. 
 
-**La migration automatisée d’un groupe de machines virtuelles identiques existant à partir de disques non managés vers Managed Disks est-elle prise en charge ?**
+**La migration automatisée d’un groupe de machines virtuelles identiques existant à partir de disques non managés vers Managed Disks est-elle prise en charge ?**
 
 Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés. 
 
@@ -139,9 +185,9 @@ Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’ob
 
 Oui, vous pouvez choisir de basculer vers une machine virtuelle avec Managed Disks.
 
-**La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery (ASR) par le biais de la réplication Azure vers Azure ?**
+**La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery par le biais de la réplication Azure vers Azure ?**
 
-Oui. La protection ASR Azure vers Azure pour machines virtuelles avec des disques managés n’est disponible qu’en tant que service de préversion public.
+Oui. La protection Azure Site Recovery vers Azure pour machines virtuelles avec des disques managés n’est disponible qu’en tant que service de préversion public.
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
@@ -190,19 +236,19 @@ Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chif
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Disques Premium : gérés et non gérés
 
-**Si une machine virtuelle utilise une taille qui prend en charge le stockage Premium, comme DSv2, puis-je joindre des disques de données Standard et Premium ?** 
+**Si une machine virtuelle utilise une taille qui prend en charge les disques SSD Premium, comme DSv2, puis-je attacher des disques de données Standard et Premium ?** 
 
 Oui.
 
-**Puis-je joindre des disques de données Standard et Premium à une taille qui ne prend pas en charge le stockage Premium, comme D, Dv2, G ou F ?**
+**Puis-je attacher des disques de données Standard et Premium à une taille qui ne prend pas en charge les disques SSD Premium, comme les séries D, Dv2, G ou F ?**
 
-Non. Vous ne pouvez joindre que des disques de données Standard aux machines virtuelles n’utilisant pas une gamme de taille qui prend en charge Stockage Premium.
+Non. Vous ne pouvez joindre que des disques de données Standard aux machines virtuelles n’utilisant pas une gamme de taille qui prend en charge les disques SSD Premium.
 
 **Si je crée un disque de données Premium à partir d’un disque dur virtuel existant de 80 Go, combien cela me coûte-t-il ?**
 
 Un disque de données Premium créé à partir d’un disque dur virtuel de 80 Go est considéré comme un disque standard de taille directement supérieure. Dans notre cas, il s’agit du disque P10. Vous êtes facturé en fonction de la tarification de disque P10.
 
-**L’utilisation du stockage Premium occasionne-t-elle des coûts de transaction ?**
+**L’utilisation de disques SSD Premium occasionne-t-elle des coûts de transaction ?**
 
 Il existe un coût fixe pour chaque taille de disque. Il s’ajoute aux limites spécifiques d’E/S par seconde et de débit. Les seuls autres coûts sont liés à la bande passante sortante et à la capacité de captures instantanées, le cas échéant. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
@@ -226,7 +272,7 @@ Le type de partition pris en charge par Azure pour un disque de système d’exp
 
 **Quelle est la plus grande taille d’objet blob de page prise en charge ?**
 
-La plus grande taille de blob de page prise en charge par Azure est de 8 To (8 191 Go). Nous ne prenons pas en charge les objets blob de pages supérieurs à 4 To (4 095 Go) joints à une machine virtuelle en tant que disques de données ou de système d’exploitation.
+La plus grande taille de blob de page prise en charge par Azure est de 8 To (8 191 Go). La taille de blob de page maximale en cas d’attachement à une machine virtuelle en tant que disques de données ou de système d’exploitation est de 4 To (4 095 Go).
 
 **Dois-je utiliser une nouvelle version des outils Azure pour créer, joindre, redimensionner et télécharger des disques de taille supérieure à 1 To ?**
 
@@ -234,7 +280,7 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 
 |Outils Azure      | Versions prises en charge                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Numéro de version 4.1.0 : version de juin 2017 ou version ultérieure|
+|Azure PowerShell | Numéro de version 4.1.0 : version de juin 2017 ou version ultérieure|
 |Azure CLI v1     | Numéro de version 0.10.13 : version de mai 2017 ou version ultérieure|
 |AzCopy           | Numéro de version 6.1.0 : version de juin 2017 ou version ultérieure|
 

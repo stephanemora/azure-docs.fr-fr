@@ -1,24 +1,19 @@
 ---
-title: Actions webhook pour les alertes de journal dans Alertes Azure | Microsoft Docs
+title: Actions webhook pour les alertes de journal dans Alertes Azure
 description: Cet article comment une règle d’alerte de journal utilisant une analyse de journal ou des informations d’application envoie des données en tant que webhook HTTP et des détails sur les différentes personnalisations possibles.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264253"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte est créée dans Azure](monitor-alerts-unified-usage.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -47,11 +42,11 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | Niveau de gravité |#severity |Gravité définie pour l’alerte de journal déclenchée. |
 | AlertThresholdOperator |#thresholdoperator |Opérateur de seuil de la règle d’alerte.  *Supérieur à* ou *Inférieur à*. |
 | AlertThresholdValue |#thresholdvalue |Valeur de seuil de la règle d’alerte. |
-| LinkToSearchResults |#linktosearchresults |Lien vers la recherche dans les journaux Log Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
+| LinkToSearchResults |#linktosearchresults |Lien vers le portail Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
 | ResultCount |#searchresultcount |Nombre d’enregistrements dans les résultats de recherche. |
-| Heure de fin de l’intervalle de recherche |#searchintervalendtimeutc |Heure de fin de la requête au format UTC. |
-| Intervalle de recherche |#searchinterval |Fenêtre de temps de la règle d’alerte. |
-| Heure de début de l’intervalle de recherche |#searchintervalstarttimeutc |Heure de début de la requête au format UTC. 
+| Heure de fin de l’intervalle de recherche |#searchintervalendtimeutc |Heure de fin de la requête au format UTC, format - mm/jj/aaaa HH:mm:ss AM/PM. |
+| Intervalle de recherche |#searchinterval |Fenêtre de temps de la règle d’alerte, format - HH:mm:ss. |
+| Heure de début de l’intervalle de recherche |#searchintervalstarttimeutc |Heure de début de la requête au format UTC, format - mm/jj/aaaa HH:mm:ss AM/PM. 
 | SearchQuery |#searchquery |Requête de recherche de journal utilisée par la règle d’alerte. |
 | SearchResults |"IncludeSearchResults": true|Enregistrements retournés par la requête en tant que tableau JSON, limités aux 1 000 premiers enregistrements ; si "IncludeSearchResults": true est ajouté dans la définition de webhook JSON personnalisé en tant que propriété de niveau supérieur. |
 | WorkspaceID |#workspaceid |ID de votre espace de travail Log Analytics. |
@@ -74,6 +69,7 @@ Cette charge utile peut donner ce qui suit quand elle est envoyée au webhook.
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+Comme toutes les variables dans un webhook personnalisé doivent être spécifiées dans un boîtier JSON comme « #searchinterval », le webhook résultant aura également des données de variable à l’intérieur d’un boîtier comme « 00:05:00 ».
 
 Pour inclure les résultats de la recherche dans une charge utile personnalisée, vérifiez que **IncudeSearchResults** est défini comme une propriété de niveau supérieur dans la charge utile json. 
 

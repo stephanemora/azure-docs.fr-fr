@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323797"
+---
 ## <a name="overview"></a>Vue d'ensemble
 Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir d’[Azure Marketplace](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut est de 127 Go (par défaut, certaines images peuvent avoir de plus petits disques de système d’exploitation). Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie) et de plus, il est recommandé d’installer les applications et les charges de travail intensives du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge certains scénarios, tels que les suivants :
 
@@ -13,7 +30,7 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 >
 
 ## <a name="resize-the-os-drive"></a>Redimensionner le lecteur du système d’exploitation
-Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’ [Azure Powershell](/powershell/azureps-cmdlets-docs). Nous allons montrer le redimensionnement du lecteur du système d’exploitation à la fois pour les disques non gérés et gérés, car l’approche diffère entre les deux types de disques.
+Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’ [Azure Powershell](/powershell/azureps-cmdlets-docs). Nous allons montrer le redimensionnement du lecteur du système d’exploitation à la fois pour les disques non managés et managés, car l’approche diffère entre les deux types de disques.
 
 ### <a name="for-resizing-unmanaged-disks"></a>Pour le redimensionnement de disques non gérés :
 
@@ -106,7 +123,7 @@ Vous avez terminé. Connectez-vous via RDP à la machine virtuelle, ouvrez Gesti
 ## <a name="summary"></a>Résumé
 Dans cet article, nous avons utilisé les modules Azure Resource Manager de PowerShell pour développer le lecteur du système d’exploitation d’une machine virtuelle IaaS. Voici le script complet de référence pour les disques non gérés et gérés :
 
-Disques non gérés :
+Disques non managés :
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,10 +151,10 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-Bien que dans cet article, nous avons choisi de nous concentrer principalement sur l’expansion du disque du système d’exploitation géré/non géré de la machine virtuelle, le script développé peut également servir à développer les disques de données associés à la machine virtuelle. Par exemple, pour développer le premier disque de données associé à la machine virtuelle, remplacez l’objet ```OSDisk``` de ```StorageProfile``` par le tableau ```DataDisks``` et utilisez un index numérique pour obtenir une référence au premier disque de données associé, comme indiqué ci-dessous :
+## <a name="for-resizing-data-disks"></a>Pour le redimensionnement des disques de données
+Bien que dans cet article, nous avons choisi de nous concentrer principalement sur l’expansion du disque du système d’exploitation managé/non managé de la machine virtuelle, le script développé peut également servir à développer les disques de données associés à la machine virtuelle. Par exemple, pour développer le premier disque de données associé à la machine virtuelle, remplacez l’objet ```OSDisk``` de ```StorageProfile``` par le tableau ```DataDisks``` et utilisez un index numérique pour obtenir une référence au premier disque de données associé, comme indiqué ci-dessous :
 
-Disque non géré :
+Disque non managé :
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
@@ -149,11 +166,11 @@ $disk.DiskSizeGB = 1023
 
 De même, vous pouvez référencer d’autres disques de données associés à la machine virtuelle, à l’aide d’un index comme indiqué ci-dessus ou à l’aide de la propriété ```Name``` du disque comme illustré ci-dessous :
 
-Disque non géré :
+Disque non managé :
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
-Disque géré :
+Disque géré :
 ```Powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```

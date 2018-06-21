@@ -2,18 +2,18 @@
 title: Déployer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment déployer un serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188478"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267507"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -21,12 +21,19 @@ Vous devez déployer un serveur de configuration local quand vous utilisez [Azur
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Nous vous conseillons de déployer le serveur de configuration en tant que machine virtuelle VMware hautement disponible. Les conditions matérielles minimales requises sont indiquées dans le tableau suivant.
+Nous vous conseillons de déployer le serveur de configuration en tant que machine virtuelle VMware hautement disponible. La configuration requise du serveur de configuration est indiquée dans le tableau suivant.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>Préparer l’installation de MySQL
+
+MySQL doit être installé sur le serveur de configuration. Pour ce faire, vous pouvez utiliser l’une des méthodes suivantes :
+
+- Laissez Site Recovery le télécharger et l’installer lorsque l’Assistant de gestion du serveur de configuration est en cours d’exécution. Aucune action spécifique n’est requise.
+- Téléchargez manuellement MySQL et placez-le dans le dossier C:\Temp\ASRSetup. Puis, exécutez l’installation. Site Recovery reconnaît qu’il est installé lors de l’exécution de l’Assistant.
+- Téléchargez manuellement MySQL et placez-le dans le dossier C:\Temp\ASRSetup. Lors de l’exécution de l’Assistant, il recherche le fichier d’installation et l’installe à partir de cet emplacement. 
 
 
 ## <a name="capacity-planning"></a>planification de la capacité
@@ -102,7 +109,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 1. Dans l’assistant de gestion de serveur de configuration, sélectionnez **Configurer la connectivité**. Sélectionnez la carte d’interface réseau pour recevoir le trafic de réplication, puis sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre une fois configuré.
 2. Dans **Sélectionner le coffre Recovery Services**, sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre appropriés.
-3. Dans **Installer le logiciel tiers**, acceptez le contrat de licence. Sélectionnez **Télécharger et installer** pour installer MySQL Server.
+3. Dans **Installer le logiciel tiers**, acceptez le contrat de licence. Installez MySQL conformément à la [méthode que vous utilisez pour installer MySQL](#prepare-for-mysql-installation).
 4. Sélectionnez **Installer VMware PowerLCI**. Assurez-vous que toutes les fenêtres du navigateur sont fermées avant de suivre cette étape. Puis sélectionnez **Continuer**.
 5. Dans **Valider la configuration de l’appliance**, les conditions préalables sont vérifiées avant que vous ne poursuiviez.
 6. Dans **Configurer le serveur vCenter Server/vSphere ESXi**, saisissez le nom de domaine complet ou l’adresse IP du serveur vCenter Server, ou l’hôte vSphere, sur lequel sont situées les machines virtuelles que vous souhaitez répliquer. Saisissez le port écouté par le serveur et un nom convivial pour le serveur VMware dans le coffre.

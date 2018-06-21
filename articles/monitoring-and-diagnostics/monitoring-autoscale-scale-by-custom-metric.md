@@ -1,24 +1,19 @@
 ---
-title: "Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure | Microsoft Docs"
-description: "Découvrez comment mettre à l’échelle votre ressource par une métrique personnalisée dans Azure."
+title: Mise à l’échelle automatique dans Azure à l’aide d’une métrique personnalisée
+description: Découvrez comment mettre à l’échelle votre ressource par une métrique personnalisée dans Azure.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.openlocfilehash: 72b6a68d0dbad4639f21aa701ec4865f36409f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.component: autoscale
+ms.openlocfilehash: 739ef5423f7b1769fa793f0cac5306efa634b781
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262971"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure
 Cet article décrit comment mettre à l’échelle votre ressource par une mesure personnalisée dans le portail Azure.

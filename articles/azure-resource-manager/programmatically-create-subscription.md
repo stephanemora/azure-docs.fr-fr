@@ -11,45 +11,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/30/2018
+ms.date: 06/05/2018
 ms.author: jlian
-ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: df66ba1ec2c855a24731387210b0127892f5796f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234782"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Créer des abonnements Azure Enterprise par programmation (préversion)
 
-En tant que client Azure bénéficiant d’un [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA, Enterprise Agreement), vous pouvez créer des abonnements EA (MS-AZR-0017P) et EA Dev/Test (MS-AZR-0148P) par programmation. Pour donner à un autre utilisateur ou principal de service l’autorisation de créer des abonnements facturés sur votre compte, accordez-leur un accès [RBAC (contrôle d’accès en fonction du rôle )](../active-directory/role-based-access-control-configure.md) à votre compte d’inscription. 
+En tant que client Azure bénéficiant d’un [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA, Enterprise Agreement), vous pouvez créer des abonnements EA (MS-AZR-0017P) et EA Dev/Test (MS-AZR-0148P) par programmation. Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
 
-> [!IMPORTANT]
-> Le ou les abonnements Azure créés par le biais de cette API sont régis par le contrat aux termes duquel vous avez obtenu des services Microsoft Azure auprès de Microsoft ou d’un revendeur agréé. Pour en savoir plus, consultez [Informations Juridiques Microsoft Azure](https://azure.microsoft.com/support/legal/).
+Lorsque vous créez un abonnement Azure par le biais de cette API, cet abonnement est régi par le contrat aux termes duquel vous avez obtenu des services Microsoft Azure auprès de Microsoft ou d’un revendeur agréé. Pour en savoir plus, consultez [Informations Juridiques Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
-Dans cet article, vous allez :
+## <a name="prerequisites"></a>Prérequis
 
-> [!div class="checklist"]
-> * Apprendre à créer des abonnements par programmation en utilisant Azure Resource Manager
-> * Comprendre comment utiliser RBAC pour partager la possibilité de créer des abonnements facturés sur votre compte EA
+* Votre compte doit être un Propriétaire du compte dans une inscription Azure EA. Dans le cas contraire, demandez à votre administrateur d’inscription de [vous ajouter en tant que propriétaire de compte à l’aide du portail EA](https://ea.azure.com/helpdocs/addNewAccount) (connexion requise). Suivez les instructions de l’e-mail d’invitation que vous recevez pour créer manuellement un premier abonnement. Confirmez la propriété du compte et créez manuellement un premier abonnement EA avant de passer à l’étape suivante. Ajouter simplement le compte à l’inscription ne suffit pas.
 
-Consultez également [l’exemple de code .NET sur GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-
-## <a name="ask-your-ea-enrollment-admin-to-add-you-as-account-owner"></a>Demander à votre administrateur d’inscription de Contrat Entreprise de vous ajouter en tant que propriétaire de compte
-
-Pour commencer, demandez à votre administrateur d’inscription de [vous ajouter en tant que propriétaire de compte à l’aide du portail EA](https://ea.azure.com/helpdocs/addNewAccount) (connexion requise). Suivez les instructions de l’e-mail d’invitation que vous recevez pour créer manuellement un premier abonnement.
-
-> [!IMPORTANT]
-> Vous devez confirmer la propriété du compte et créer manuellement un premier abonnement EA avant de passer à l’étape suivante. Ajouter simplement le compte à l’inscription ne suffit pas.
+* Si vous souhaitez utiliser un principal de service pour créer l’abonnement EA, vous devez [accorder à ce principal de service la capacité à créer des abonnements](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Rechercher les comptes auxquels vous avez accès
 
-Une fois que vous êtes ajouté à une inscription de Contrat Entreprise Azure en tant propriétaire de compte, Azure utilise la relation entre le compte et l’inscription pour déterminer où facturer les frais d’abonnement. Pour créer des abonnements, déterminez d’abord les comptes d’inscription auxquels vous avez accès. Si vous êtes actuellement propriétaire de compte EA et que vous essayez d’utiliser cette API, Azure vérifie les conditions suivantes :
+Une fois que vous êtes ajouté à une inscription de Contrat Entreprise Azure en tant propriétaire de compte, Azure utilise la relation entre le compte et l’inscription pour déterminer où facturer les frais d’abonnement. Tous les abonnements créés sous le compte sont facturés à l’inscription EA à laquelle appartient celui-ci. Pour créer des abonnements, vous devez transmettre les valeurs sur le compte d’inscription et les principaux d’utilisateur pour qu’ils obtiennent la propriété de l’abonnement. 
 
-- Votre compte a été ajouté à une inscription EA
-- Vous avez un ou plusieurs abonnements EA ou EA Dev/Test, ce qui signifie que vous avez effectué une inscription manuelle au moins une fois
-- Vous êtes connecté au *répertoire de base* du propriétaire de compte, qui est le répertoire dans lequel les abonnements sont créés par défaut
-
-Si les trois conditions ci-dessus sont remplies, une ressource `enrollmentAccount` est retournée et vous pouvez commencer à créer des abonnements sous ce compte. Tous les abonnements créés sous le compte sont facturés à l’inscription EA à laquelle appartient celui-ci.
+Pour exécuter les commandes suivantes, vous devez être connecté au *répertoire de base* du propriétaire de compte, qui est le répertoire dans lequel les abonnements sont créés par défaut.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -86,8 +73,6 @@ Azure retourne la liste de tous les comptes d’inscription auxquels vous avez a
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 Utilisez la [commande Get-AzureRmEnrollmentAccount](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) pour lister tous les comptes d’inscription auxquels vous avez accès.
 
 ```azurepowershell-interactive
@@ -104,13 +89,12 @@ ObjectId                               | PrincipalName
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Utilisez la commande [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) pour lister tous les comptes d’inscription auxquels vous avez accès.
 
 ```azurecli-interactive 
 az billing enrollment-account list
 ```
+
 Azure retourne la liste des ID d’objet et des adresses e-mail des comptes.
 
 ```json
@@ -175,7 +159,7 @@ Dans la réponse, vous obtenez un objet `subscriptionOperation` pour le monitori
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Pour utiliser ce module en préversion, installez-le en exécutant `Install-Module AzureRM.Subscription -AllowPrerelease` d’abord. Pour vous assurer que `-AllowPrerelease` fonctionne, installez une version récente de PowerShellGet à partir de la page [Obtenir le module PowerShellGet](/powershell/gallery/psget/get_psget_module).
+Pour utiliser ce module en préversion, installez-le en exécutant `Install-Module AzureRM.Subscription -AllowPrerelease` d’abord. Pour vous assurer que `-AllowPrerelease` fonctionne, installez une version récente de PowerShellGet à partir de la page [Obtenir le module PowerShellGet](/powershell/gallery/installing-psget).
 
 Utilisez la commande [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) avec l’ID d’objet `enrollmentAccount` comme paramètre `EnrollmentAccountObjectId` pour créer un abonnement. 
 
@@ -217,75 +201,6 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 
 ----
 
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Déléguer l’accès à un compte d’inscription à l’aide de RBAC
-
-Pour permettre à un autre utilisateur ou service principal de créer des abonnements sur un compte spécifique, [attribuez-lui un rôle de propriétaire RBAC au niveau de l’étendue du compte d’inscription](../active-directory/role-based-access-control-manage-access-rest.md). L’exemple suivant donne à l’utilisateur dans le locataire dont `principalId` a pour valeur `<userObjectId>` (pour SignUpEngineering@contoso.com) un rôle de propriétaire sur le compte d’inscription. 
-
-# <a name="resttabrest"></a>[REST](#tab/rest)
-
-```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
-
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>"
-  }
-}
-```
-Quand le rôle de propriétaire est correctement attribué au niveau de l’étendue du compte d’inscription, Azure retourne les informations de l’attribution de rôle :
-
-```json
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "createdOn": "2018-03-05T08:36:26.4014813Z",
-    "updatedOn": "2018-03-05T08:36:26.4014813Z",
-    "createdBy": "<assignerObjectId>",
-    "updatedBy": "<assignerObjectId>"
-  },
-  "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "<roleAssignmentGuid>"
-}
-```
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-
-Utilisez la commande [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) pour accorder à un autre utilisateur l’accès en tant que propriétaire à votre compte d’inscription.
-
-```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-# <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
-
-Utilisez la commande [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md) pour accorder à un autre utilisateur l’accès en tant que propriétaire à votre compte d’inscription.
-
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-----
-
-Une fois qu’un utilisateur devient propriétaire RBAC pour votre compte d’inscription, il peut créer des abonnements par programmation sous ce dernier. Un abonnement créé par un utilisateur délégué a toujours le propriétaire de compte d’origine comme administrateur de service, mais il a également l’utilisateur délégué comme propriétaire par défaut. 
-
-## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Auditer qui a créé des abonnements à l’aide des journaux d’activité
-
-Pour effectuer le suivi des abonnements créés par le biais de cette API, utilisez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Il est impossible d’utiliser le portail Azure, l’interface CLI ou PowerShell pour effectuer le suivi de la création d’abonnement.
-
-1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../active-directory/role-based-access-control-tenant-admin-access.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
-1. En tant qu’utilisateur d’audit, appelez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités de création d’abonnement. Exemple :
-
-```
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
-```
-
-> [!NOTE]
-> Pour appeler facilement cette API à partir de la ligne de commande, essayez [ARMClient](https://github.com/projectkudu/ARMClient).
-
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de cette API.
@@ -297,6 +212,5 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir un exemple de création d’abonnements à l’aide de .NET, consultez [l’exemple de code sur GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* Pour en savoir plus sur Azure Resource Manager et ses API, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).
+* Maintenant que vous avez créé un abonnement, vous pouvez accorder cette capacité à d’autres utilisateurs et principaux de service. Pour plus d’informations, consultez [Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)](grant-access-to-create-subscription.md).
 * Pour en savoir plus sur la gestion d’un nombre élevé d’abonnement avec des groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md).
-* Pour obtenir une aide complète sur les bonnes pratiques de gouvernance d’abonnements dans les grandes entreprises, consultez [Structure d’entreprise Azure : gouvernance normative de l’abonnement](resource-manager-subscription-governance.md)

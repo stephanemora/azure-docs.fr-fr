@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895484"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301369"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS
 
@@ -44,7 +44,7 @@ L’architecture de base est constituée des éléments suivants :
 - **Modèles de déploiement**. Dans ce déploiement, des [modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) sont utilisés pour déployer automatiquement les composants de l’architecture dans Microsoft Azure, en spécifiant des paramètres de configuration pendant l’installation.
 - **Scripts de déploiement automatisé**. Ces scripts permettent de déployer la solution de bout en bout. Les scripts sont constitués des éléments suivants :
     - Un script de configuration de l’installation des modules et de configuration de [l’administrateur général](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) est utilisé pour installer et vérifier que les modules PowerShell et rôles d’administrateur général nécessaires sont configurés correctement.
-    - Un script PowerShell d’installation est utilisé pour déployer la solution de bout en bout, qui est fournie sous la forme d’un fichier .zip et d’un fichier .bacpac contenant une application web de démonstration prête à l’emploi, avec un [exemple de base de données SQL](https://github.com/Microsoft/azure-sql-security-sample). . Le code source de cette solution est disponible à la révision dans le [référentiel de code Blueprint][code-repo]. 
+    - Un script PowerShell d’installation est utilisé pour déployer la solution de bout en bout, qui est fournie sous la forme d’un fichier .zip et d’un fichier .bacpac contenant une application web de démonstration prête à l’emploi, avec un [exemple de contenu d’une base de données SQL](https://github.com/Microsoft/azure-sql-security-sample). Vous pouvez consulter le code source de cette solution sur [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). 
 
 ## <a name="architectural-diagram"></a>Diagramme architectural
 
@@ -169,8 +169,6 @@ Chaque niveau du réseau dispose d’un groupe de sécurité réseau (NSG) dédi
 - Un groupe de sécurité réseau DMZ pour le pare-feu et le WAF Application Gateway
 - Un groupe de sécurité réseau pour le serveur de rebond de gestion (hôte bastion)
 - Un groupe de sécurité réseau pour l’environnement App Service
-
-Chaque groupe de sécurité réseau a ses propres ports et protocoles ouverts pour une utilisation sécurisée et correcte de la solution. Pour plus d’informations, consultez [Guide PCI - Groupes de sécurité réseau](#network-security-groups).
 
 Chaque groupe de sécurité réseau a ses propres ports et protocoles ouverts pour une utilisation sécurisée et correcte de la solution. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 - Activation du stockage des [journaux de diagnostic et des événements](/azure/virtual-network/virtual-network-nsg-manage-log) dans le compte de stockage 

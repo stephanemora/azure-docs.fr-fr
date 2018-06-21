@@ -1,24 +1,19 @@
 ---
-title: Créer, afficher et gérer des alertes à l’aide d’Azure Monitor | Microsoft Docs
+title: Créer, afficher et gérer des alertes à l’aide d’Azure Monitor
 description: Utilisez la nouvelle expérience unifiée d’alertes Azure pour créer, afficher et gérer des règles d’alerte de métriques et de journaux à partir d’un seul emplacement.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264338"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes à l’aide d’Azure Monitor  
 
@@ -50,7 +45,7 @@ Vous trouverez ci-dessous un guide détaillé pour l’utilisation des alertes A
 
     ![Créer une règle](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Définissez la condition d’alerte en utilisant le lien **Sélectionner une ressource**, puis en spécifiant la cible via la sélection d’une ressource. Filtrez en choisissant *Abonnement*, *Type de ressource*, puis en sélectionnant la *ressource* nécessaire.
+4.  Définissez la condition d’alerte en utilisant le lien **Sélectionner une ressource**, puis en spécifiant la cible via la sélection d’une ressource. Filtrez en choisissant *Abonnement, *Type de ressource, puis en sélectionnant la *ressource* nécessaire.
 
     >[!NOTE]
 
@@ -67,7 +62,7 @@ Vous trouverez ci-dessous un guide détaillé pour l’utilisation des alertes A
 
     > Les alertes de journal d’activité sont également prises en charge, mais dans une version préliminaire. [Plus d’informations](monitoring-activity-log-alerts-new-experience.md)
 
-5. *Alertes de métrique* : assurez-vous que le **type de ressource** est sélectionné avec le type de signal **Métrique**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé* pour revenir à la création de l’alerte. Utilisez ensuite le bouton **Ajouter des critères** pour choisir le signal spécifique dans la liste des options de signal, le service de surveillance et le type répertorié, qui sont disponibles pour la ressource sélectionnée précédemment.
+5. *Alertes de métrique : assurez-vous que le **type de ressource** est sélectionné avec le type de signal **Métrique**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé* pour revenir à la création de l’alerte. Utilisez ensuite le bouton **Ajouter des critères** pour choisir le signal spécifique dans la liste des options de signal, le service de surveillance et le type répertorié, qui sont disponibles pour la ressource sélectionnée précédemment.
 
     ![Sélectionner une ressource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -83,7 +78,7 @@ Vous trouverez ci-dessous un guide détaillé pour l’utilisation des alertes A
 
     a. Choisir une durée dans la liste déroulante **Afficher l’historique** afin de visualiser une autre période de temps. Vous pouvez choisir des dimensions pour les mesures prises en charge afin de filtrer sur une série chronologique. Le choix des dimensions (5 au maximum) est facultatif. 
 
-    b. La **logique d’alerte** peut être sélectionnée parmi les options proposées de *condition*, d’*agrégation* et de *seuil*. En tant qu’aperçu de la logique fournie, la condition figure dans la visualisation, ainsi que l’historique de signal, pour indiquer quand l’alerte aurait été déclenchée par le passé. 
+    b. La **logique d’alerte** peut être sélectionnée parmi les options proposées de *condition*, *d’agrégation et de *seuil*. En tant qu’aperçu de la logique fournie, la condition figure dans la visualisation, ainsi que l’historique de signal, pour indiquer quand l’alerte aurait été déclenchée par le passé. 
 
     c. Pour spécifier la durée, choisissez une **période** et la fréquence à laquelle l’alerte devrait être exécutée en sélectionnant **fréquence**.
 
@@ -125,14 +120,20 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 
         ![Supprimer des alertes de journal](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Spécifiez une valeur Supprimer l’alerte supérieure à la fréquence de l’alerte pour garantir l’arrêt des notifications sans chevauchement
+
 12. Enfin, le cas échéant, spécifiez le **groupe d’actions** à déclencher pour la règle d’alerte lorsque la condition d’alerte est remplie. Vous pouvez choisir n’importe quel groupe d’actions existant avec l’alerte ou créer un autre groupe d’actions. En fonction du groupe d’actions sélectionné, lors du déclenchement de l’alerte, Azure envoie des courriers électroniques, envoie des SMS, appelle des webhooks, corrige le problème à l’aide de runbooks Azure, envoie un message Push à votre outil ITSM, etc. En savoir plus sur les [groupes d’actions](monitoring-action-groups.md).
 
     Pour les **alertes de journal**, certaines fonctionnalités supplémentaires sont disponibles afin de passer outre les actions par défaut :
 
-    - **Notification par courrier électronique** : substitue *L’objet du message électronique* dans le message, envoyé via le groupe d’actions, si une ou plusieurs actions de messagerie existent dans ledit groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
+    - **Notification par courrier électronique** : substitue *l’objet du message électronique* dans le message, envoyé via le groupe d’actions, si une ou plusieurs actions de messagerie existent dans ledit groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
     - **Inclure la charge utile Json personnalisée** : remplace le JSON webhook utilisé par les groupes d’actions, si une ou plusieurs actions de webhook existent dans ledit groupe d’actions. L’utilisateur peut spécifier le format JSON à utiliser pour tous les webhooks configurés dans le groupe d’actions associé ; Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md). L’option Tester webhook est fournie pour vérifier le format et le traitement par la destination à l’aide de l’exemple de JSON, et cette option, comme son nom l’indique, est utilisée uniquement à des fins de **test**.
 
         ![Remplacements d’actions pour les alertes de journal](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > Pour que l’option **Tester webhook** fonctionne, le point de terminaison doit prendre en charge [CORS](https://www.w3.org/TR/cors/) et les utilisateurs peuvent utiliser le proxy CORS pour contourner les problèmes « Aucun en-tête Access-Control-Allow-Origin »
 
 13. Si tous les champs sont valides et qu’une coche verte est visible, le bouton **Créer une règle d’alerte** peut être activé. Une alerte est alors créée dans Azure Monitor – Alertes. Toutes les alertes peuvent être consultées dans le tableau de bord des alertes.
 
@@ -140,7 +141,7 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 
     Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
-## <a name="view-your-alerts-in-azure-portal"></a>Visualiser les alertes dans le portail Azure
+## <a name="view-your-alerts-in-azure-portal"></a>Afficher vos alertes dans le portail Azure
 
 1. Dans le [portail](https://portal.azure.com/), sélectionnez **Surveiller** et choisissez **Alertes** dans la section SURVEILLER.  
 
@@ -151,7 +152,7 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 4. La liste de toutes les alertes déclenchées est affichée : l’utilisateur peut cliquer pour voir les détails.
 5. Pour rechercher des alertes spécifiques, vous pouvez utiliser les options de liste déroulante (en haut) pour filtrer les *abonnements, groupes de ressources et/ou ressources*. Pour les alertes non résolues, utilisez l’option de *filtrage d’alerte* pour rechercher un mot clé en fonction *du nom, des critères d’alerte, du groupe de ressources et de la ressource cible*.
 
-## <a name="managing-your-alerts-in-azure-portal"></a>Gestion des alertes dans le portail Azure
+## <a name="managing-your-alerts-in-azure-portal"></a>Gérer vos alertes dans le portail Azure
 1. Dans le [portail](https://portal.azure.com/), sélectionnez **Surveiller** et choisissez **Alertes** dans la section SURVEILLER.  
 2. Cliquez sur le bouton **Gérer les règles** dans la barre supérieure pour accéder à la section de gestion des règles, où toutes les règles d’alerte créées sont répertoriées, y compris les alertes désactivées.
 3. Pour rechercher des règles d’alerte spécifiques, vous pouvez utiliser les filtres de la liste déroulante située en haut, qui permettent de filtrer les règles d’alerte selon l’*abonnement, les groupes de ressources et/ou les ressources*. Le volet de recherche au-dessus de la liste des règles d’alerte marquée *Filtrer les alertes* permet également d’indiquer mot clé, qui est comparé à *nom de l’alerte, à la condition et à la ressource cible* afin d’afficher uniquement les règles correspondantes.

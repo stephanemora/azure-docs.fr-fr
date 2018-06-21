@@ -6,20 +6,17 @@ keywords: contrainte de clé unique, violation de contrainte de clé unique
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261098"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
 
@@ -34,7 +31,7 @@ Les clés uniques permettent aux développeurs d’ajouter une couche d’intég
 
 Examinons, par exemple, comment une base de données utilisateur associée à une [application sociale](use-cases.md#web-and-mobile-applications) pourrait tirer avantage d’une stratégie de clé unique appliquée aux adresses e-mail. En convertissant l’adresse e-mail de l’utilisateur en clé unique, vous êtes sûr que chaque enregistrement possède une adresse e-mail unique et qu’aucun nouvel enregistrement ne peut être créé avec des adresses e-mail dupliquées. 
 
-Si vous souhaitez que les utilisateurs soient autorisés à créer plusieurs enregistrements avec la même adresse e-mail, mais pas avec les mêmes prénom, nom et adresse e-mail, vous pouvez ajouter d’autres chemins d’accès à la stratégie de clé unique. Par conséquent, au lieu de créer une clé unique simplement basée sur une adresse e-mail, vous pouvez créer une clé unique combinant à la fois le prénom, le nom et l’adresse e-mail. Dans ce cas, chaque combinaison unique des trois chemins d’accès est autorisée, ce qui permet à la base de données de contenir des éléments ayant les valeurs de chemin d’accès suivantes. Chacun de ces enregistrements passerait la stratégie de clé unique.  
+Si vous souhaitez que les utilisateurs soient autorisés à créer plusieurs enregistrements avec la même adresse e-mail, mais pas avec les mêmes prénom, nom et adresse e-mail, vous pouvez ajouter d’autres chemins d’accès à la stratégie de clé unique. Par conséquent, au lieu de créer une clé unique basée sur une adresse e-mail, vous pouvez créer une clé unique combinant à la fois le prénom, le nom et l’adresse e-mail. Dans ce cas, chaque combinaison unique des trois chemins d’accès est autorisée, ce qui permet à la base de données de contenir des éléments ayant les valeurs de chemin d’accès suivantes. Chacun de ces enregistrements passerait la stratégie de clé unique.  
 
 **Valeurs de clé unique autorisées pour firstName (prénom), lastName (nom) et email**
 
@@ -46,13 +43,13 @@ Si vous souhaitez que les utilisateurs soient autorisés à créer plusieurs enr
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
-Si vous tentez d’ajouter un autre enregistrement avec l’une des combinaisons répertoriées dans le tableau ci-dessus, vous recevrez une erreur indiquant que la contrainte de clé unique n’est pas respectée. L’erreur retournée par Azure Cosmos DB est de type « La ressource avec l’ID ou le nom spécifié existe déjà. » ou « La ressource avec l’ID, le nom ou l’index unique spécifié existe déjà. » 
+Si vous tentez d’ajouter un autre enregistrement avec l’une des combinaisons répertoriées dans le tableau ci-dessus, vous recevrez une erreur indiquant que la contrainte de clé unique n’est pas respectée. L’erreur Azure Cosmos DB retournée est de type « La ressource avec l’ID ou le nom spécifié existe déjà. » ou « La ressource avec l’ID, le nom ou l’index unique spécifié existe déjà. » 
 
 ## <a name="using-unique-keys"></a>Utilisation de clés uniques
 
 Des clés uniques doivent être définies durant la création du conteneur, et la clé unique est incluse dans la clé de partition. Pour reprendre l’exemple précédent, si vous partitionnez en fonction du code postal, les enregistrements de la table pourraient se trouver dupliqués dans chaque partition.
 
-Les conteneurs existants ne peuvent pas être mis à jour pour utiliser des clés uniques.
+Vous ne pouvez pas mettre à jour les conteneurs existants pour utiliser des clés uniques.
 
 Une fois un conteneur créé avec une stratégie de clé unique, la stratégie ne peut pas être modifiée, sauf si vous recréez le conteneur. Si vous disposez de données existantes sur lesquelles implémenter des clés uniques, créez le conteneur, puis utilisez l’outil de migration de données approprié pour déplacer les données vers le nouveau conteneur. Pour les conteneurs SQL, utilisez [l’outil de migration de données](import-data.md). Pour les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
 
@@ -90,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 new Collection<UniqueKey>
                 {
                     new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
-                }
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
+          }
             };
             await client.CreateDocumentCollectionAsync(
                 UriFactory.CreateDatabaseUri(dataBase),
@@ -115,17 +111,20 @@ Exemple de document JSON.
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
-    "address": [
+    "address": 
         {            
             "line1": "100 Some Street",
             "line2": "Unit 1",
             "city": "Seattle",
             "state": "WA",
-            "zipCode": 98012
+            "zipcode": 98012
         }
-    ],
+    
 }
 ```
+> [!NOTE]
+> Veuillez noter que le nom de clé unique respecte la casse. Comme indiqué dans à l’exemple ci-dessus, le nom unique est défini pour /address/zipcode. Si vos données auront une valeur ZipCode, alors « null » est inséré dans la clé unique, car zipcode ne correspond pas à ZipCode. Et en raison de ce respect de la casse, tous les autres enregistrements contenant ZipCode ne pourront pas être insérés, car une valeur « null » dupliquée viole la contrainte de clé unique.
+
 ## <a name="mongodb-api-sample"></a>Exemple d’API MongoDB
 
 L’exemple de commande suivant montre comment créer un index unique sur les champs firstName, lastName et email de la collection d’utilisateurs pour l’API MongoDB. Cela garantit l’unicité de la combinaison des trois champs dans tous les documents de la collection. Pour les collections de l’API MongoDB, l’index unique est créé après la création de la collection, mais avant le remplissage de cette dernière.
@@ -133,6 +132,20 @@ L’exemple de commande suivant montre comment créer un index unique sur les ch
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## <a name="configure-unique-keys-by-using-azure-portal"></a>Configurer les clés uniques à l’aide du portail Azure
+
+Dans les sections ci-dessus, vous trouverez des exemples de code illustrant comment vous pouvez définir des contraintes de clé unique lors de la création d’une collection à l’aide de l’API SQL ou de l’API MongoDB. Mais il est également possible de définir des clés uniques lorsque vous créez une collection via l’interface utilisateur web dans le portail Azure. 
+
+- Accédez à **l’Explorateur de données** dans votre compte Cosmos DB
+- Cliquez sur **Nouvelle collection**
+- Dans la section Clés uniques, ** vous pouvez ajouter les contraintes de clé unique souhaitées en cliquant sur **Ajouter une clé unique**
+
+![Définir des clés uniques dans l’Explorateur de données](./media/unique-keys/unique-keys-azure-portal.png)
+
+- Si vous souhaitez créer une contrainte de clé unique sur le chemin d’accès lastName, ajoutez `/lastName`.
+- Si vous souhaitez créer une contrainte de clé unique pour la combinaison lastName firstName, ajoutez `/lastName,/firstName`.
+
+Lorsque vous avez terminé, cliquez sur **OK** pour créer la collection.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

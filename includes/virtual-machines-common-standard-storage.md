@@ -1,25 +1,42 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806296"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
-Le stockage Standard Azure permet une prise en charge fiable et économique des disques des machines virtuelles exécutant des charges de travail non sensibles aux latences. Il prend également en charge les objets blob, les tables, les files d’attente et les fichiers. Dans le cadre d’un stockage Standard, les données sont stockées sur des disques durs. Lorsque vous utilisez des machines virtuelles, vous pouvez utiliser des disques de stockage Standard pour les scénarios de développement/test et les charges de travail les moins critiques, et des disques de stockage Premium pour les applications de production critiques. Le stockage Standard est disponible dans toutes les régions Azure. 
+Le stockage Standard Azure permet une prise en charge fiable et économique des disques des machines virtuelles exécutant des charges de travail non sensibles aux latences. Il prend également en charge les objets blob, les tables, les files d’attente et les fichiers. Dans le cadre d’un stockage Standard, les données sont stockées sur des disques durs. Lorsque vous utilisez des machines virtuelles, vous pouvez utiliser des disques SSD et HDD Standard pour les scénarios Dev/Test et les charges de travail moins critiques, et des disques SDD Premium pour les applications de production critiques. Le stockage Standard est disponible dans toutes les régions Azure. 
 
-Cet article porte sur l’utilisation du stockage Standard pour les disques de machines virtuelles. Pour plus d’informations sur l’utilisation du stockage avec les objets blob, les tables, les files d’attente et les fichiers, reportez-vous à [Introduction à Microsoft Azure Storage](../articles/storage/common/storage-introduction.md).
+Cet article se concentre sur l’utilisation de disques SSD et HDD Standard. Pour plus d’informations sur l’utilisation du stockage avec des objets blob, des tables, des files d’attente et des fichiers, consultez [Présentation du stockage](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Types de disque
 
 Il existe deux façons de créer des disques Standard pour les machines virtuelles Azure :
 
-**Disques non gérés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 To de stockage par machine virtuelle.
+**Disques non managés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 To de stockage par machine virtuelle.
 
-[**Disques gérés Azure**](../articles/virtual-machines/windows/managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (Premium ou Standard) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
+[**Disques gérés Azure**](../articles/virtual-machines/windows/managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (SSD Premium, SSD Standard ou HDD Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
 Même si les deux types de disques sont disponibles, nous vous recommandons d’utiliser des disques gérés pour tirer parti de leurs nombreuses fonctionnalités.
 
 Pour une prise en main du stockage Standard Azure, consultez [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/) . 
 
-Pour plus d’informations sur la création d’une machine virtuelle avec disques gérés, consultez l’un des articles suivants.
+Pour plus d’informations sur la création d’une machine virtuelle Managed Disks, consultez l’un des articles suivants.
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Fonctionnalités du stockage Standard 
 
@@ -27,7 +44,9 @@ Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’inf
 
 **Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Disques de stockage Standard :** les disques de stockage Standard peuvent être associés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le stockage Premium, comme les séries DSv2 et GS. Un disque de stockage Standard ne peut être associé qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail. 
+**Disques SSD Standard** : ces disques offrent des performances plus fiables que les disques HDD Standard et sont actuellement disponibles en préversion. Pour plus d’informations sur la disponibilité dans la région des disques SSD Standard, consultez [Disponibilité dans la région des disques SSD Standard (préversion)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Disques HDD Standard** : ces disques peuvent être attachés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le Stockage Premium, comme les séries DSv2 et GS. Un disque HDD Standard ne peut être attaché qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail.
 
 **Objet blob de pages Standard** : les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
 
@@ -124,10 +143,10 @@ Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks
 
 * [Introduction à Azure Storage](../articles/storage/common/storage-introduction.md)
 
-* [Créer un compte de stockage](../articles/storage/common/storage-create-storage-account.md)
+* [Créez un compte de stockage](../articles/storage/common/storage-create-storage-account.md)
 
 * [Vue d’ensemble des disques gérés](../articles/virtual-machines/linux/managed-disks-overview.md)
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)

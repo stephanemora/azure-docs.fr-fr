@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568107"
 ---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -170,4 +171,4 @@ Il existe également des didacticiels sur l’équilibrage de charge des machine
 
 - Découvrez comment configurer les [itinéraires définis par l’utilisateur et le transfert IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Découvrez comment configurer [les connexions de réseau virtuel à réseau virtuel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Découvrez comment [résoudre les problèmes relatifs aux itinéraires](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Découvrez comment [résoudre les problèmes relatifs aux itinéraires](../articles/virtual-network/diagnose-network-routing-problem.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361969"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627021"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 
@@ -62,7 +62,7 @@ Vous devez spécifier un abonnement Azure lorsque vous créez un cluster HDInsig
     1. Connectez-vous au [Portail Azure](https://portal.azure.com).
     2. Cliquez sur **Abonnement** dans le menu de gauche. Il présente une icône en forme de clé jaune. Vous devriez voir une liste d’abonnements.
     3. Cliquez sur l’abonnement que vous utilisez pour créer des clusters. 
-    4. Cliquez sur **Mes autorisations**.  Votre [rôle](../role-based-access-control/overview.md#built-in-roles) sur l’abonnement s’affiche. Vous devez avoir au moins un accès collaborateur pour créer le cluster HDInsight.
+    4. Cliquez sur **Mes autorisations**.  Votre [rôle](../role-based-access-control/built-in-roles.md) sur l’abonnement s’affiche. Vous devez avoir au moins un accès collaborateur pour créer le cluster HDInsight.
 
 - Pour utiliser un groupe de ressources existant :
 

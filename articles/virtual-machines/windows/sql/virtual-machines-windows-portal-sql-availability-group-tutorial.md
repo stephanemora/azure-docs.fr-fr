@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716718"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -33,7 +34,6 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -58,7 +58,7 @@ Avant de commencer ce didacticiel, vous devez [remplir les conditions préalable
 <a name="CreateCluster"></a>
 ## Création du cluster
 
-Une fois les conditions préalables remplies, la première étape consiste à créer un cluster de basculement Windows Server comprenant deux serveurs SQL Server et un serveur témoin.  
+Une fois les conditions préalables remplies, la première étape consiste à créer un cluster de basculement Windows Server comprenant deux serveurs SQL Server et un serveur témoin.
 
 1. RDP vers le premier serveur SQL Server à l’aide d’un compte de domaine qui est administrateur sur les deux serveurs SQL Server et le serveur témoin.
 
@@ -86,7 +86,8 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
 
    ![Propriétés du cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Sélectionnez **Adresse IP statique** et spécifiez une adresse disponible dans le sous-réseau où se trouve le serveur SQL Server dans la zone de texte Adresse. Cliquez ensuite sur **OK**.
+3. Sélectionnez **Adresse IP statique** et indiquez une adresse disponible dans la plage d’adressage IP privé automatique (APIPA, Automatic Private IP Addressing) allant de 169.254.0.1 à 169.254.255.254 dans la zone de texte Adresse. Pour cet exemple, vous pouvez utiliser n’importe quelle adresse de cette plage. Par exemple, `169.254.0.1`. Cliquez ensuite sur **OK**.
+
 4. Dans la section **Principales ressources du cluster**, cliquez avec le bouton droit sur le nom du cluster et cliquez sur **Mettre en ligne**. Attendez que les deux ressources soient en ligne. Lorsque la ressource du cluster apparaît en ligne, elle met à jour le serveur de contrôleur de domaine avec un nouveau compte d’ordinateur Active Directory (AD). Utilisez ce compte AD pour exécuter le service en cluster du groupe de disponibilité ultérieurement.
 
 ### <a name="addNode"></a>Ajouter l’autre serveur SQL Server au cluster
@@ -295,7 +296,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
     ![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur **Suivant**.
+8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de *\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur **Suivant**.
 
    >[!NOTE]
    >La synchronisation complète effectue une sauvegarde complète de la base de données sur la première instance de SQL Server et la restaure sur la deuxième instance. Pour les bases de données volumineuses, une synchronisation complète n’est pas recommandée, car elle peut prendre longtemps. Vous pouvez réduire ce temps en effectuant manuellement une sauvegarde de la base de données et en la restaurant avec `NO RECOVERY`. Si la base de données est déjà restaurée avec `NO RECOVERY` sur le second serveur SQL Server avant de configurer le groupe de disponibilité, choisissez **Join only (Joindre uniquement)**. Si vous souhaitez effectuer la sauvegarde après avoir configuré le groupe de disponibilité, choisissez **Ignorer la synchronisation de données initiale**.

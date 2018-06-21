@@ -61,9 +61,9 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
 Pour gérer les paramètres de remise des courriers électroniques, cliquez sur le bouton **Manage** . Cette action vous redirige vers le tableau de bord SendGrid.
 
-    ![manage][manage]
+![gestion][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Pour plus d’informations sur l’envoi d’e-mails via SendGrid, consultez [Vue d’ensemble des API d’e-mail][Email API Overview].
 
 <!--images-->
 

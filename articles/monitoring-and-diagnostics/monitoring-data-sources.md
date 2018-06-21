@@ -1,24 +1,19 @@
 ---
-title: Consommer des données d’analyse à partir d’Azure | Microsoft Docs
+title: Sources de données d’analyse dans Azure
 description: En savoir plus sur toutes les sources de données d’analyse disponibles sur Azure dès aujourd'hui.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263175"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
 
@@ -39,7 +34,7 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 | Journaux App Service | Événements | App Services | <ul><li>**Stockage d’objets blob, table ou fichier :**[Diagnostics Web App](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Journaux de stockage | Événements | Stockage Azure | <ul><li>**Table de stockage :**[Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Alertes Security Center | Événements | Azure Security Center | <ul><li>**API REST :**[Alertes de sécurité](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Création de rapports Active Directory | Événements | Azure Active Directory | <ul><li>**API REST :** [API Graph Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
+| Création de rapports Active Directory | Événements | Azure Active Directory | <ul><li>**API REST :**  [API Graph Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
 | État des ressources de Security Center | Statut | [Toutes les ressources prises en charge](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**API REST :**[États de sécurité](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Intégrité des ressources | Statut | Services pris en charge | <ul><li>**API REST :**[API REST Resource Health](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Alertes de métrique Azure Monitor | Notifications | [Consulter la liste ici](monitoring-supported-metrics.md) | <ul><li>**Webhook:**[Alertes de métrique Azure](insights-webhooks-alerts.md)</li></ul> |
