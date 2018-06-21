@@ -1,25 +1,20 @@
 ---
-title: 'Sauvegarde Azure : Préparation à la sauvegarde de machines virtuelles | Microsoft Docs'
+title: 'Sauvegarde Azure : Préparation à la sauvegarde de machines virtuelles'
 description: Assurez-vous que votre environnement est prêt pour la sauvegarde de machines virtuelles dans Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: sauvegardes ; sauvegarde ;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606634"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
@@ -59,6 +54,7 @@ Avant de préparer votre environnement, assurez-vous de noter les limitations su
 * Pour les réseaux sélectionnés, après avoir configuré les paramètres du pare-feu et de réseau virtuel pour votre compte de stockage, sélectionnez **Autoriser les services Microsoft à accéder à ce compte de stockage de confiance** en tant qu’exception pour permettre au service Azure Backup d’accéder au compte de stockage réseau restreint. La récupération au niveau élément n’est pas prise en charge pour les comptes de stockage réseau restreints.
 * Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure. (Consultez la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge.) Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de coffres.
 * La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. Pour en savoir plus, consultez [Restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Les instantanés sur un disque avec l’Accélérateur des écritures activé ne sont pas pris en charge. Cette restriction empêche le service Sauvegarde Azure d’effectuer un instantané de cohérence des applications sur tous les disques de la machine virtuelle.
 * La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l’aide du flux de travail de restauration dans l’interface utilisateur n’ont pas ces configurations réseau une fois l’opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
   * Machines virtuelles avec plusieurs adresses IP réservées
@@ -174,7 +170,9 @@ Si vous avez des problèmes lors de l’inscription de la machine virtuelle, con
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installer l’agent de machine virtuelle sur la machine virtuelle
 Pour que l’extension de sauvegarde fonctionne, [l’agent de machine virtuelle](../virtual-machines/extensions/agent-windows.md) Azure doit être installé sur la machine virtuelle Azure. Si votre machine virtuelle a été créée à partir de Place de Marché Azure, l’agent y est déjà installé. 
 
-Ces informations sont fournies pour les situations dans lesquelles vous n’utilisez *pas* de machine virtuelle créée à partir de Place de Marché Azure, par exemple, si vous avez migré une machine virtuelle à partir d’un centre de données local. Dans ce cas, l’agent de machine virtuelle doit être installé afin de protéger la machine virtuelle.
+Ces informations sont fournies pour les situations dans lesquelles vous n’utilisez *pas* de machine virtuelle créée à partir de Place de Marché Azure, **par exemple, si vous avez migré une machine virtuelle à partir d’un centre de données local. Dans ce cas, l’agent de machine virtuelle doit être installé afin de protéger la machine virtuelle.**
+
+**Remarque** : Après avoir installé l’agent de machine virtuelle, vous devez également utiliser Azure PowerShell pour mettre à jour la propriété ProvisionGuestAgent de sorte qu’Azure connaisse la machine virtuelle où l’agent est installé. 
 
 Si vous rencontrez des problèmes de sauvegarde de la machine virtuelle Azure, utilisez le tableau ci-dessous pour vérifier que l’agent de machine virtuelle Azure est correctement installé sur celle-ci. Le tableau fournit des informations supplémentaires sur l’agent de machine virtuelle pour les machines virtuelles Windows et Linux.
 

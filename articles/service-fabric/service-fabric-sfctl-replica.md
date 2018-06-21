@@ -3,7 +3,7 @@ title: 'CLI Azure Service Fabric : sfctl replica | Microsoft Docs'
 description: Décrit les commandes sfctl replica de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
-ms.author: ryanwi
-ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/23/2018
+ms.author: bikang
+ms.openlocfilehash: cd09fe906f77bb06f0ac7afaa6c6cce326dbfa5c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763576"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Permet de gérer les réplicas qui font partie des partitions de service.
@@ -27,15 +28,14 @@ Permet de gérer les réplicas qui font partie des partitions de service.
 
 |Commande|Description|
 | --- | --- |
-|    deployed  | Permet d’obtenir les détails d’un réplica déployé sur un nœud Service Fabric.|
-|    deployed-list| Permet d’obtenir la liste des réplicas déployés sur un nœud Service Fabric.|
-|    health    | Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état Service Fabric.|
-|    info      | Permet d’obtenir les informations sur un réplica d’une partition Service Fabric.|
-|    list      | Permet d’obtenir les informations sur des réplicas d’une partition de service Service Fabric.|
-|    remove    | Supprime un réplica de service exécuté sur un nœud.|
-|    report-health| Envoie un rapport d’intégrité sur le réplica Service Fabric.|
-|    restart   | Redémarre un réplica de service d’un service persistant exécuté sur un nœud.|
-
+| deployed | Permet d’obtenir les détails d’un réplica déployé sur un nœud Service Fabric. |
+| deployed-list | Permet d’obtenir la liste des réplicas déployés sur un nœud Service Fabric. |
+| health | Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état Service Fabric. |
+| info | Permet d’obtenir les informations sur un réplica d’une partition Service Fabric. |
+| list | Permet d’obtenir les informations sur des réplicas d’une partition de service Service Fabric. |
+| remove | Supprime un réplica de service exécuté sur un nœud. |
+| report-health | Envoie un rapport d’intégrité sur le réplica Service Fabric. |
+| restart | Redémarre un réplica de service d’un service persistant exécuté sur un nœud. |
 
 ## <a name="sfctl-replica-deployed"></a>sfctl replica deployed
 Permet d’obtenir les détails d’un réplica déployé sur un nœud Service Fabric.
@@ -46,20 +46,45 @@ Permet d’obtenir les détails du réplica déployé sur un nœud Service Fabr
 
 |Argument|Description|
 | --- | --- |
-| --node-name [Requis]| Nom du nœud.|
-| --partition-id [Requis]| Identité de la partition.|
-| --replica-id [Requis]| Identificateur du réplica.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --node-name [Requis] | Nom du nœud. |
+| --partition-id [Requis] | Identité de la partition. |
+| --replica-id [Requis] | Identificateur du réplica. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
+## <a name="sfctl-replica-deployed-list"></a>sfctl replica deployed-list
+Permet d’obtenir la liste des réplicas déployés sur un nœud Service Fabric.
+
+Permet d’obtenir la liste contenant les informations sur les réplicas déployés sur un nœud Service Fabric. Les informations comprennent l’ID de partition, l’ID de réplica, l’état du réplica, le nom du service, le nom du type de service et autres. Utilisez les paramètres de requête PartitionId ou ServiceManifestName pour retourner des informations sur les réplicas déployés qui correspondent aux valeurs spécifiées de ces paramètres.
+
+### <a name="arguments"></a>Arguments
+
+|Argument|Description|
+| --- | --- |
+| --application-id [Requis] | Identité de l’application. Il s’agit généralement du nom complet de l’application, sans le schéma d’URI 'fabric\:'. Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « \~ ». Par exemple, si une application est nommée « fabric\:/monapp/app1 », son identité est « monapp\~app1" » dans les versions 6.0 et supérieures, et « monapp/app1 » dans les versions précédentes. |
+| --node-name      [obligatoire] | Nom du nœud. |
+| --partition-id | Identité de la partition. |
+| --service-manifest-name | Nom d’un manifeste de service enregistré dans le cadre d’un type d’application dans un cluster Service Fabric. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+
+### <a name="global-arguments"></a>Arguments globaux
+
+|Argument|Description|
+| --- | --- |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état Service Fabric.
@@ -70,20 +95,20 @@ Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealth
 
 |Argument|Description|
 | --- | --- |
-| --partition-id [Requis]| Identité de la partition.|
-| --replica-id [Requis]| Identificateur du réplica.|
-| --events-health-state-filter| Permet de filtrer la collection d’objets HealthEvent retournés en fonction de l’état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont retournés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant toute valeur HealthState. La valeur est égale à 65535.|
-| --timeout -t             | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --partition-id [Requis] | Identité de la partition. |
+| --replica-id [Requis] | Identificateur du réplica. |
+| --events-health-state-filter | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de leur état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont renvoyés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés.  <br> - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro.  <br> - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1.  <br> - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2.  <br> - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4.  <br> - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8.  <br> - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug                  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h                | Affiche ce message d’aide et quitte.|
-| --output -o              | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query                  | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
-| --verbose                | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 Permet d’obtenir les informations sur un réplica d’une partition Service Fabric.
@@ -94,69 +119,99 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 
 |Argument|Description|
 | --- | --- |
-| --partition-id [Requis]| Identité de la partition.|
-| --replica-id [Requis]| Identificateur du réplica.|
-| --continuation-token  | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --partition-id [Requis] | Identité de la partition. |
+| --replica-id [Requis] | Identificateur du réplica. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
 Permet d’obtenir les informations sur des réplicas d’une partition de service Service Fabric.
 
-Le point de terminaison GetReplicas retourne des informations sur la partition spécifiée.
-La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud, la durée de fonctionnement et d’autres détails sur le réplica.
+Le point de terminaison GetReplicas retourne des informations sur la partition spécifiée. La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud, la durée de fonctionnement et d’autres détails sur le réplica.
 
 ### <a name="arguments"></a>Arguments
 
 |Argument|Description|
 | --- | --- |
-| --partition-id [Requis]| Identité de la partition.|
-| --continuation-token  | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --partition-id [Requis] | Identité de la partition. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
 Supprime un réplica de service exécuté sur un nœud.
 
-Cette API simule un échec de réplica Service Fabric en supprimant un réplica dans un cluster Service Fabric. Cette suppression ferme le réplica, effectue la transition du réplica vers le rôle Aucun, puis supprime toutes les informations sur l’état du réplica dans le cluster. Cette API teste le chemin d’accès de suppression d’état du réplica, puis simule le chemin d’accès permanent du rapport d’erreurs via les API clientes. Avertissement : aucune vérification de sécurité n’est effectuée lorsque cette API est utilisée. Une utilisation incorrecte de cette API peut entraîner une perte de données pour les services avec état. En outre, l’indicateur forceRemove a un impact sur tous les autres réplicas hébergés dans le même processus.
+Cette API simule un échec de réplica Service Fabric en supprimant un réplica dans un cluster Service Fabric. Cette suppression ferme le réplica, effectue la transition du réplica vers le rôle Aucun, puis supprime toutes les informations sur l’état du réplica dans le cluster. Cette API teste le chemin d’accès de suppression d’état du réplica, puis simule le chemin d’accès permanent du rapport d’erreurs via les API clientes. Avertissement : aucune vérification de sécurité n’est effectuée lorsque cette API est utilisée. Une utilisation incorrecte de cette API peut entraîner une perte des données des services avec état. De plus, l’indicateur forceRemove a un impact sur tous les autres réplicas hébergés dans le même processus.
 
 ### <a name="arguments"></a>Arguments
 
 |Argument|Description|
 | --- | --- |
-| --node-name [Requis]| Nom du nœud.|
-| --partition-id [Requis]| Identité de la partition.|
-| --replica-id [Requis]| Identificateur du réplica.|
-| --force-remove        | Supprime de force une application ou un service Service Fabric sans passer par la séquence d’arrêt normale. Ce paramètre permet de forcer la suppression d’une application ou d’un service pour lesquels le délai de suppression est arrivé à expiration en raison de problèmes intervenant dans le code de service qui empêchent la fermeture normale des réplicas.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --node-name [Requis] | Nom du nœud. |
+| --partition-id [Requis] | Identité de la partition. |
+| --replica-id [Requis] | Identificateur du réplica. |
+| --force-remove | Force la suppression d’un service ou d’une application Service Fabric, sans passer par la séquence d’arrêt normale. Ce paramètre permet de forcer la suppression d’une application ou d’un service pour lesquels le délai de suppression expire à cause de problèmes dans le code de service qui empêchent la fermeture normale des réplicas. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
+## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
+Envoie un rapport d’intégrité sur le réplica Service Fabric.
+
+Signale l’état d’intégrité du réplica Service Fabric spécifié. Le rapport doit contenir des informations sur la source du rapport d’intégrité et sur la propriété dont il fait état. Il est envoyé à un réplica de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Le rapport peut être accepté par la passerelle, mais rejeté par le magasin d’intégrité après une validation supplémentaire. Par exemple, le magasin d’intégrité peut rejeter le rapport en raison d’un paramètre non valide, comme un numéro de séquence obsolète. Pour voir si le rapport a été appliqué dans le magasin d’intégrité, vérifiez qu’il s’affiche dans la section des événements.
+
+### <a name="arguments"></a>Arguments
+
+|Argument|Description|
+| --- | --- |
+| --health-property [Requis] | Propriété des informations d’intégrité. <br><br> Une entité peut avoir des rapports d’intégrité pour différentes propriétés. La propriété est une chaîne et non une énumération fixe pour offrir au rapporteur la possibilité de catégoriser la condition d’état qui déclenche le rapport. Par exemple, un rapporteur avec l’ID source « LocalWatchdog » peut suivre l’état du disque disponible sur un nœud, donc il peut signaler la propriété « AvailableDisk » sur ce nœud. Le même rapporteur peut suivre la connectivité du nœud, donc il peut signaler une propriété « Connectivity » sur le même nœud. Dans le magasin d’intégrité, ces rapports sont traités comme des événements d’intégrité distincts pour le nœud spécifié. Avec l’ID source, la propriété identifie de façon unique les informations d’intégrité. |
+| --health-state    [Requis] | Les valeurs possibles sont \: « Non valide », « Ok », « Avertissement », « Erreur », « Inconnu ». |
+| --partition-id [Requis] | Identité de la partition. |
+| --replica-id [Requis] | Identité de la partition. |
+| --source-id       [Requis] | Nom source qui identifie le composant client/surveillance/système qui a généré les informations d’intégrité. |
+| --description | Description des informations d’intégrité. <br><br> Il s’agit de texte libre utilisé pour ajouter des informations humainement lisibles sur le rapport. La longueur de chaîne maximale pour la description est de 4 096 caractères. Si la chaîne fournie est plus longue, elle est automatiquement tronquée. Si elle est tronquée, les derniers caractères de la description contiennent un marqueur « [Tronqué] » et la taille totale de la chaîne est de 4 096 caractères. La présence du marqueur indique aux utilisateurs qu’une troncation a été effectuée. Notez que si elle est tronquée, la description a moins que les 4 096 caractères de la chaîne d’origine. |
+| --immediate | Indicateur qui spécifie si le rapport doit être envoyé immédiatement. <br><br> Un rapport d’intégrité est envoyé à une application de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Si Immediate est défini sur true, le rapport est envoyé immédiatement de la passerelle HTTP au magasin d’intégrité, quels que soient les paramètres clients Fabric qu’utilise l’application de passerelle HTTP. C’est utile pour les rapports critiques qui doivent être envoyés dès que possible. En fonction du timing et d’autres conditions, l’envoi du rapport peut quand même échouer, par exemple, si la passerelle HTTP est fermée ou si le message n’atteint pas la passerelle. Si Immediate est défini sur false, le rapport est envoyé en fonction des paramètres du client d’intégrité de la passerelle HTTP. C’est pourquoi il sera envoyé en lot selon la configuration HealthReportSendInterval. Il s’agit du paramètre recommandé, car il permet au client d’intégrité d’optimiser les messages de rapport d’intégrité dans le magasin d’intégrité, ainsi que le traitement des rapports d’intégrité. Par défaut, les rapports ne sont pas envoyés immédiatement. |
+| --remove-when-expired | Valeur qui indique si le rapport est supprimé du magasin d’intégrité quand il expire. <br><br> S’il a la valeur true, le rapport est supprimé du magasin d’intégrité une fois expiré. S’il a la valeur false, le rapport est traité comme une erreur quand il expire. La valeur de cette propriété est false par défaut. Quand les clients créent un rapport régulièrement, ils doivent définir RemoveWhenExpired sur false (valeur par défaut). De cette manière, si le rapporteur rencontre des problèmes (par exemple, un interblocage) et qu’il ne peut pas créer de rapport, l’entité est évaluée comme erreur quand le rapport d’intégrité expire. L’entité est marquée comme étant dans l’état d’intégrité Erreur. |
+| --sequence-number | Numéro de séquence de ce rapport d’intégrité sous forme de chaîne numérique. <br><br> Le numéro de séquence de rapport est utilisé par le magasin d’intégrité pour détecter les rapports obsolètes. S’il n’est pas spécifié, un numéro de séquence est généré automatiquement par le client d’intégrité quand un rapport est ajouté. |
+| --service-kind | Genre de réplica de service (avec ou sans état) pour lequel l’intégrité est signalée. Voici les valeurs possibles \: « Stateless », « Stateful ».  État par défaut \: Stateful. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --ttl | Durée pendant laquelle ce rapport d’intégrité est valide. Ce champ utilise le format ISO8601 pour spécifier la durée. <br><br> Quand les clients créent régulièrement des rapports, ils doivent les envoyer avec une fréquence supérieure à la durée de vie. Si les clients créent des rapports sur la transition, ils peuvent définir la durée de vie sur Infinite. Quand la durée de vie expire, l’événement d’intégrité qui contient les informations d’intégrité est supprimé du magasin d'intégrité si RemoveWhenExpired est true, ou évalué comme erreur si RemoveWhenExpired est false. Si elle n’est pas spécifiée, la valeur de durée de vie par défaut est Infinite. |
+
+### <a name="global-arguments"></a>Arguments globaux
+
+|Argument|Description|
+| --- | --- |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
 Redémarre un réplica de service d’un service persistant exécuté sur un nœud.
@@ -167,20 +222,20 @@ Redémarre un réplica de service d’un service persistant exécuté sur un nœ
 
 |Argument|Description|
 | --- | --- |
-| --node-name [Requis]| Nom du nœud.|
-| --partition-id [Requis]| Identité de la partition.|
-| --replica-id [Requis]| Identificateur du réplica.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --node-name [Requis] | Nom du nœud. |
+| --partition-id [Requis] | Identité de la partition. |
+| --replica-id [Requis] | Identificateur du réplica. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.

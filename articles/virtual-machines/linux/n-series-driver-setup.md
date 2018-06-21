@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190677"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654281"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur les spécifications, les capacités de stockage e
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Installer des pilotes CUDA pour des machines virtuelles de série NC, NCv2, NCv3 et ND
+## <a name="install-cuda-drivers-on-n-series-vms"></a>Installer les pilotes CUDA sur les machines virtuelles de série N
 
 Voici les étapes à suivre pour installer les pilotes CUDA de la boîte à outils CUDA NVIDIA sur des machines virtuelles de série N. 
 
@@ -156,7 +156,7 @@ Si le pilote est installé, vous obtenez un résultat qui ressemble à celui ind
 
 ## <a name="rdma-network-connectivity"></a>Connectivité réseau RDMA
 
-La connectivité réseau RDMA peut être activée sur des machines virtuelles de série N compatibles RDMA, comme les machines NC24r déployées dans le même groupe à haute disponibilité ou groupe identique de machines virtuelles. Le réseau RDMA prend en charge le trafic MPI (Message Passing Interface) pour les applications exécutées avec Intel MPI 5.x ou une version ultérieure. Des conditions supplémentaires suivent :
+La connectivité réseau RDMA peut être activée sur des machines virtuelles de série N compatibles RDMA, comme les machines NC24r déployées dans le même groupe à haute disponibilité ou dans un seul groupe de placement au sein d’un groupe de machines virtuelles identiques. Le réseau RDMA prend en charge le trafic MPI (Message Passing Interface) pour les applications exécutées avec Intel MPI 5.x ou une version ultérieure. Des conditions supplémentaires suivent :
 
 ### <a name="distributions"></a>Distributions
 
@@ -168,7 +168,7 @@ Déployez des machines virtuelles de série N compatibles RDMA à partir de l’
 
 * **CentOS 7.4 HPC** - Les pilotes RDMA et Intel MPI 5.1 sont installés sur la machine virtuelle.
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>Installer des pilotes GRID pour des machines virtuelles de série NV
+## <a name="install-grid-drivers-on-nv-series-vms"></a>Installer les pilotes GRID sur les machines virtuelles de série NV
 
 Pour installer des pilotes GRID NVIDIA sur des machines virtuelles de série NV, établissez une connexion SSH à chaque machine virtuelle et suivez les étapes de votre distribution Linux. 
 
@@ -331,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Ensuite, créez une entrée pour votre script de mise à jour dans `/etc/rc.d/rc3.d` afn que le script soit appelé en tant que racine au démarrage.
+Ensuite, créez une entrée pour votre script de mise à jour dans `/etc/rc.d/rc3.d` afin qu’il soit appelé en tant que racine au démarrage.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

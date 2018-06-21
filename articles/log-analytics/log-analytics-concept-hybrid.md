@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235938"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Collecter des données d’ordinateurs dans un environnement avec Log Analytics
 
@@ -40,13 +41,9 @@ L’agent pour Linux et Windows communique en sortie avec le service Log Analyti
 
 Si vous effectuez le monitoring de l’ordinateur avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2, il peut être multihébergé avec le service Log Analytics pour collecter des données et les transférer au service, tandis [qu’Operations Manager](log-analytics-om-agents.md) poursuit le monitoring. Les ordinateurs Linux analysés par un groupe d’administration Operations Manager intégré à Log Analytics ne reçoivent pas de configuration des sources de données et transmettent les données collectées par l’intermédiaire du groupe d’administration. L’agent Windows peut envoyer des rapports à quatre espaces de travail, contre un seul pour l’agent Linux.  
 
-L’agent pour Linux et Windows ne sert pas seulement à la connexion à Log Analytics. Il prend également en charge la connexion à Azure Automation pour héberger le rôle Runbook Worker hybride, ainsi que des solutions de gestion telles que Change Tracking et Update Management.  Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+L’agent pour Linux et Windows ne sert pas seulement à la connexion à Log Analytics. Il prend également en charge la connexion à Azure Automation pour héberger le rôle Runbook Worker hybride, ainsi que des solutions de gestion telles que Change Tracking et Update Management.  Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../automation/automation-hybrid-runbook-worker.md).  
 
-## <a name="prerequisites"></a>Prérequis
-
-Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les prérequis système minimaux sont remplis.
-
-### <a name="windows-operating-system"></a>Système d’exploitation Windows
+## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
 
 * Windows Server 2008 Service Pack 1 (SP1) (ou version ultérieure) ;
@@ -55,17 +52,7 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 > [!NOTE]
 > L’agent pour Windows prend uniquement en charge le protocole TLS versions 1.0 et 1.1.  
 
-#### <a name="network-configuration"></a>Configuration réseau
-Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Windows de communiquer avec Log Analytics. Le trafic va de votre réseau vers le service Log Analytics. 
-
-| Ressource de l'agent | Ports | Ignorer l’inspection HTTPS|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | OUI |
-|*.oms.opinsights.azure.com | 443 | OUI | 
-|*.blob.core.windows.net | 443 | OUI | 
-|*.azure-automation.net | 443 | OUI | 
-
-### <a name="linux-operating-systems"></a>Systèmes d’exploitation Linux
+## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 Les distributions Linux suivantes sont officiellement prises en charge.  Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste.  Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.  
 
 * Amazon Linux 2012.09 à 2015.09 (x86/x64)
@@ -76,19 +63,22 @@ Les distributions Linux suivantes sont officiellement prises en charge.  Toutefo
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 et 12 (x86/x64)
 
-#### <a name="network-configuration"></a>Configuration réseau
-Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux de communiquer avec Log Analytics.  
+## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
+Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux et Windows de communiquer avec Log Analytics.  
 
-|Ressource de l'agent| Ports | Direction |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | Port 443 | Trafic entrant et sortant|  
-|*.oms.opinsights.azure.com | Port 443 | Trafic entrant et sortant|  
-|*.blob.core.windows.net | Port 443 | Trafic entrant et sortant|  
-|* .azure-automation.net | Port 443 | Trafic entrant et sortant|  
+|Ressource de l'agent|Ports |Direction |Ignorer l’inspection HTTPS|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |Port 443 |Trafic entrant et sortant|OUI |  
+|*.oms.opinsights.azure.com |Port 443 |Trafic entrant et sortant|OUI |  
+|*.blob.core.windows.net |Port 443 |Trafic entrant et sortant|OUI |  
+|* .azure-automation.net |Port 443 |Trafic entrant et sortant|OUI |  
 
-L’agent Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle OMS avec le service Log Analytics suivant le protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Le serveur proxy peut être spécifié lors de l’installation ou en modifiant le fichier de configuration proxy.conf après l’installation.  
 
-La valeur de configuration de proxy a la syntaxe suivante :
+Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser les runbooks dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+L’agent Windows et Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle OMS avec le service Log Analytics, au moyen du protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Pour l’agent Windows connecté directement au service, la configuration du proxy est indiquée pendant l’installation ou [après le déploiement](log-analytics-agent-manage.md#update-proxy-settings), dans le panneau de configuration ou avec PowerShell.  
+
+Pour l’agent Linux, le serveur proxy est indiqué pendant ou [après l’installation](/log-analytics-agent-manage.md#update-proxy-settings) en modifiant le fichier de configuration du fichier proxy.conf.  La valeur de configuration du proxy de l’agent Linux adopte la syntaxe suivante :
 
 `[protocol://][user:password@]proxyhost[:port]`
 
