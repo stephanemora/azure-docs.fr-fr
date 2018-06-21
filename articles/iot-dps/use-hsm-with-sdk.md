@@ -10,10 +10,10 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
+ms.lasthandoff: 06/20/2018
 ms.locfileid: "34630423"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
