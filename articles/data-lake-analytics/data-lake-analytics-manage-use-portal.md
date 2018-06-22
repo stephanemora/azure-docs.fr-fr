@@ -1,30 +1,27 @@
 ---
-title: Gérer Azure Data Lake Analytics à l’aide du portail Azure | Microsoft Docs
-description: Apprenez à gérer des comptes Data Lake Analytics, des sources de données, des utilisateurs et des travaux.
+title: Gérer Azure Data Lake Analytics à l’aide du portail Azure
+description: Cet article décrit comment utiliser le portail Azure pour gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771379"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623704"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données de compte, des utilisateurs et des travaux à l’aide du portail Azure. Pour afficher les rubriques de gestion sur l’utilisation d’autres outils, cliquez sur un onglet en haut de la page.
+Cet article décrit comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide du portail Azure.
+
 
 <!-- ################################ -->
 <!-- ################################ -->

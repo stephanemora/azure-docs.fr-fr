@@ -1,26 +1,23 @@
 ---
 title: Simulation d’appareil dans la solution de surveillance à distance - Azure | Microsoft Docs
 description: Ce tutoriel vous montre comment utiliser le simulateur d’appareil avec l’accélérateur de solution de surveillance à distance.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628257"
 ---
 # <a name="create-a-new-simulated-device"></a>Créer un appareil simulé
 
-Ce tutoriel vous montre comment personnaliser le microservice de simulateur d’appareil dans l’accélérateur de solution de surveillance à distance. Pour illustrer les fonctionnalités de simulateur d’appareil, ce didacticiel utilise deux scénarios dans l’application IoT Contoso.
+Ce tutoriel montre comment personnaliser le microservice de simulateur d’appareil dans l’accélérateur de solution de surveillance à distance. Pour illustrer les fonctionnalités de simulateur d’appareil, ce didacticiel utilise deux scénarios dans l’application IoT Contoso.
 
 La vidéo suivante présente une vue d’ensemble des options pour personnaliser le microservice de simulateur d’appareil :
 
@@ -72,7 +69,7 @@ Le tableau suivant présente l’état initial de l’appareil :
 
 Dans le second scénario, vous ajoutez un nouveau type de données de télémétrie à l’appareil **Chiller** (Refroidisseur) existant de Contoso.
 
-Ce tutoriel vous montre comment utiliser le simulateur d’appareil avec l’accélérateur de solution de surveillance à distance :
+Ce tutoriel montre comment utiliser le simulateur d’appareil avec l’accélérateur de solution de surveillance à distance :
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -87,7 +84,6 @@ La vidéo suivante explique pas à pas comment connecter des appareils simulés 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -107,7 +103,7 @@ Effectuez les tâches suivantes afin de préparer votre environnement de dévelo
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Configurer l’accès SSH à la machine virtuelle de solution dans Azure
 
-Quand vous avez créé votre solution de surveillance à distance sur [www.azureiotsuite.com](https://www.azureiotsuite.com), vous avez choisi un nom de solution. Le nom de la solution devient le nom du groupe de ressources Azure qui contient les différentes ressources déployées utilisées par la solution. Les commandes suivantes utilisent un groupe de ressources nommé **Contoso-01**. Vous devez remplacer **Contoso-01** par le nom de votre groupe de ressources.
+Quand vous avez créé votre solution de surveillance à distance sur [www.azureiotsolutions.com](https://www.azureiotsolutions.com), vous avez choisi un nom de solution. Le nom de la solution devient le nom du groupe de ressources Azure qui contient les différentes ressources déployées utilisées par la solution. Les commandes suivantes utilisent un groupe de ressources nommé **Contoso-01**. Vous devez remplacer **Contoso-01** par le nom de votre groupe de ressources.
 
 Ces commandes utilisent la commande `az` [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Vous pouvez installer Azure CLI 2.0 sur votre ordinateur de développement, ou utiliser [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dans le [portail Azure](http://portal.azure.com). Azure CLI 2.0 est préinstallé dans Cloud Shell.
 

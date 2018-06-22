@@ -1,25 +1,19 @@
 ---
 title: Questions fréquentes (FAQ) sur la solution d’usine connectée - Azure | Microsoft Docs
 description: Questions fréquentes sur l’accélérateur de solution d’usine connectée
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627499"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
@@ -67,7 +61,7 @@ Vous pouvez supprimer l’adresse IP de deux manières :
 
 La connexion à la machine virtuelle de simulation n’est prise en charge que si vous avez déployé votre solution à l’aide du script PowerShell `build.ps1` du [dépôt](https://github.com/Azure/azure-iot-connected-factory).
 
-Si vous avez déployé la solution à partir de www.azureiotsuite.com, vous ne pouvez pas vous connecter à la machine virtuelle. En effet, le mot de passe est généré de façon aléatoire, donc vous ne pouvez pas le réinitialiser.
+Si vous avez déployé la solution à partir de www.azureiotsolutions.com, vous ne pouvez pas vous connecter à la machine virtuelle. En effet, le mot de passe est généré de façon aléatoire, donc vous ne pouvez pas le réinitialiser.
 
 1. Ajoutez une adresse IP publique à la machine virtuelle. Consultez [Comment ajouter une adresse IP publique à la machine virtuelle de simulation ?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm).
 1. Créez une session SSH sur votre machine virtuelle en utilisant l’adresse IP de la machine virtuelle.
@@ -148,11 +142,11 @@ Si vous constatez qu’aucune donnée n’a été envoyée à IoT Hub, c’est q
 
 Pour activer une carte interactive dans votre solution d’usine connectée, vous devez disposer d’un plan Bing Maps API for Enterprise.
 
-Lors d’un déploiement à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), le processus de déploiement vérifie que votre abonnement a un plan Bing Maps API for Enterprise activé et déploie automatiquement une carte interactive dans la solution d’usine connectée. Si ce n’est pas le cas, vous pouvez toujours activer une carte interactive dans votre déploiement comme suit :
+Lors d’un déploiement à partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com), le processus de déploiement vérifie que votre abonnement a un plan Bing Maps API for Enterprise activé, et déploie automatiquement une carte interactive dans la solution d’usine connectée. Si ce n’est pas le cas, vous pouvez toujours activer une carte interactive dans votre déploiement comme suit :
 
 Quand vous procédez au déploiement à l’aide du script `build.ps1` dans le dépôt GitHub d’usine connectée et que vous disposez d’un plan Bing Maps API for Enterprise, affectez à la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de génération la clé de requête de votre plan. La carte interactive est ensuite automatiquement activée.
 
-Si vous ne disposez pas d’un plan Bing Maps API for Enterprise, déployez la solution d’usine connectée à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou à l’aide du script `build.ps1`. Ajoutez ensuite une API Bing Maps pour le plan Entreprise à votre abonnement, comme expliqué dans [Comment créer un compte API Bing Maps pour les entreprises ?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Recherchez la clé de requête de ce compte comme expliqué dans [Comment obtenir une clé de requête API Bing Maps pour les entreprises ?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) et enregistrez-la. Accédez au portail Azure, puis à la ressource App Service dans le déploiement de votre solution d’usine connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Définissez **MapApiQueryKey** sur la clé de requête que vous avez obtenue. Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
+Si vous ne disposez pas d’un plan Bing Maps API for Enterprise, déployez la solution d’usine connectée à partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com) ou à l’aide du script `build.ps1`. Ajoutez ensuite une API Bing Maps pour le plan Entreprise à votre abonnement, comme expliqué dans [Comment créer un compte API Bing Maps pour les entreprises ?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Recherchez la clé de requête de ce compte comme expliqué dans [Comment obtenir une clé de requête API Bing Maps pour les entreprises ?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) et enregistrez-la. Accédez au portail Azure, puis à la ressource App Service dans le déploiement de votre solution d’usine connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Définissez **MapApiQueryKey** sur la clé de requête que vous avez obtenue. Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Comment créer un compte API Bing Cartes pour les entreprises
 
@@ -212,6 +206,6 @@ Pour envoyer des données de télémétrie à la solution d’usine connectée �
 
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
-* [Présentation de l’accélérateur de solution de maintenance prédictive](../iot-suite/iot-suite-predictive-overview.md)
+* [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
 * [Présentation de l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-overview.md)
-* [Sécurisation de l’Internet des objets de bout en bout](../iot-suite/securing-iot-ground-up.md)
+* [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)

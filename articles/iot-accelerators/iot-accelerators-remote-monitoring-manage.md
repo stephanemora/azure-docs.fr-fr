@@ -1,26 +1,23 @@
 ---
 title: Gestion des appareils dans la solution de surveillance à distance - Azure | Microsoft Docs
 description: Ce didacticiel vous montre comment gérer les appareils connectés à la solution de surveillance à distance.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627277"
 ---
 # <a name="manage-and-configure-your-devices"></a>Gérer et configurer vos appareils
 
-Ce didacticiel montre les fonctionnalités de gestion des appareils de la solution de surveillance à distance. Pour présenter ces fonctionnalités, le didacticiel utilise un scénario dans l’application Contoso IoT.
+Ce tutoriel montre les fonctionnalités de gestion des appareils de la solution de surveillance à distance. Pour présenter ces fonctionnalités, le didacticiel utilise un scénario dans l’application Contoso IoT.
 
 Contoso a commandé de nouvelles machines visant à développer l’une de ses usines pour accroître la production. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour vérifier le comportement de votre solution. En tant qu’opérateur, vous souhaitez gérer et configurer les appareils dans la solution de surveillance à distance.
 
@@ -36,8 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
+Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
 Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
 

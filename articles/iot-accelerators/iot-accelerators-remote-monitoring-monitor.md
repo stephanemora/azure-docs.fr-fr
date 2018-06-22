@@ -1,26 +1,23 @@
 ---
 title: Surveillance avancée dans la solution de surveillance à distance - Azure | Microsoft Docs
 description: Ce didacticiel vous montre comment surveiller les appareils à l’aide du tableau de bord de la solution de surveillance à distance.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627397"
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Effectuer une surveillance avancée à l’aide de la solution de surveillance à distance
 
-Ce didacticiel montre les fonctionnalités du tableau de bord de la solution de surveillance à distance. Pour présenter ces fonctionnalités, le didacticiel utilise un scénario dans l’application Contoso IoT.
+Ce tutoriel montre les fonctionnalités du tableau de bord de la solution de surveillance à distance. Pour présenter ces fonctionnalités, le tutoriel utilise un scénario dans l’application Contoso IoT.
 
 Dans ce tutoriel, vous utilisez deux appareils Contoso simulés pour apprendre à surveiller vos appareils à partir du tableau de bord de l’accélérateur de solution. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement de vos camions sur la route.
 
@@ -35,8 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
+Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
 Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
 
@@ -104,7 +100,7 @@ Vous pouvez utiliser le filtre **Tableau de bord** pour ajuster la période d’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a montré comment utiliser la page **Tableau de bord** pour filtrer et surveiller les camions simulés approvisionnés dans votre solution de surveillance à distance :
+Ce tutoriel vous a montré comment utiliser la page **Tableau de bord** pour filtrer et surveiller les camions simulés provisionnés dans votre solution de surveillance à distance :
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

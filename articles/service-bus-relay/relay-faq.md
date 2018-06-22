@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641490"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
-Cet article contient les réponses à certaines questions fréquemment posées sur [Azure Relay](https://azure.microsoft.com/services/service-bus/). Pour des informations générales concernant la tarification et le support d’Azure, voir [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/en-in/support/faq/).
+Cet article contient les réponses à certaines questions fréquemment posées sur [Azure Relay](https://azure.microsoft.com/services/service-bus/). Pour des informations générales concernant la tarification et le support technique d’Azure, consultez le [Forum aux questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="general-questions"></a>Questions générales
 ### <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
@@ -35,7 +36,7 @@ A [espace de noms](relay-create-namespace-portal.md) est un conteneur d’étend
 Le service anciennement nommé Service Bus Relay s’appelle désormais [Relais WCF](relay-wcf-dotnet-get-started.md). Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
 
 ## <a name="pricing"></a>Tarifs
-Cette section contient les réponses à certaines questions fréquemment posées sur la structure de tarification de Relay. Pour des informations sur tarification générale d’Azure, voir le [Forum Aux Questions sur le support technique Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Pour des informations complètes sur la tarification de Relay, voir [Détails de la tarification de Service Bus][Pricing overview].
+Cette section contient les réponses à certaines questions fréquemment posées sur la structure de tarification de Relay. Pour des informations générales sur la tarification d’Azure, vous pouvez également consulter le [Forum aux questions sur le support technique Azure](https://azure.microsoft.com/support/faq/). Pour des informations complètes sur la tarification de Relay, voir [Détails de la tarification de Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Comment sont facturés les services Connexions hybrides et Relais WCF ?
 Pour obtenir toutes les informations sur la tarification Relay, consultez le tableau [Connexions hybrides et relais WCF][Pricing overview] dans la page de détails de la tarification Service Bus. Outre les prix mentionnés sur cette page, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
@@ -81,8 +82,8 @@ Les relais ouverts à l’aide de la liaison WCF **netTCPRelay** traitent les me
 | Écouteurs simultanés sur un relais |Entité |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
 | Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Espace de noms |- |5 000 |
 | Points de terminaison Relay par espace de noms de service |Espace de noms |- |10 000 |
-| Taille de message pour les relais [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) et [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Espace de noms |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |
-| Taille de message pour les relais [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) et [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Espace de noms |Aucune limite concernant la taille des messages. |Illimité |
+| Taille de message pour les relais [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) et [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espace de noms |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |
+| Taille de message pour les relais [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) et [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Espace de noms |Aucune limite concernant la taille des messages. |Illimité |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Relay a-t-il des quotas d’utilisation ?
 Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel qui est calculé avec tous les abonnements d’un client. Nous sommes conscients que vos besoins peuvent parfois dépasser ces limites. Vous pouvez contacter le service clientèle à tout moment pour nous faire part de vos besoins afin que nous puissions ajuster ces limites de manière appropriée. Pour Service Bus, les quotas d’utilisation d’agrégation sont les suivants :
@@ -108,7 +109,7 @@ Pour utiliser le portail Azure afin de migrer des espaces de noms Azure Relay d�
 
 Pour utiliser PowerShell afin de déplacer un espace de noms d’un abonnement Azure vers un autre, utilisez la séquence de commandes suivante. Pour exécuter cette opération, l’espace de noms doit être déjà actif, et l’utilisateur qui exécute les commandes PowerShell doit être administrateur des abonnements source et cible.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Oui. Le client de relais établit des connexions au service Azure Relay en utili
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

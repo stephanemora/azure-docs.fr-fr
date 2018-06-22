@@ -1,28 +1,25 @@
 ---
 title: Bien démarrer avec la solution de surveillance à distance - Azure | Microsoft Docs
 description: Ce tutoriel utilise des scénarios simulés pour présenter l’accélérateur de solution de surveillance à distance. Ces scénarios sont créés quand vous déployez l’accélérateur de solution de surveillance à distance pour la première fois.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627805"
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance
 
-Ce didacticiel vous montre les fonctionnalités clés de la solution de surveillance à distance. À cette fin, le didacticiel présente les scénarios client courants à l’aide d’une application IoT simulée pour une société appelée Contoso.
+Ce tutoriel vous montre les fonctionnalités clés de la solution de surveillance à distance. À cette fin, le tutoriel présente les scénarios client courants à l’aide d’une application IoT simulée pour une société appelée Contoso.
 
-Le didacticiel vous aide à comprendre les scénarios IoT classiques que la solution de surveillance à distance fournit prêts à l’emploi.
+Le tutoriel vous aide à comprendre les scénarios IoT classiques que la solution de surveillance à distance fournit prêts à l’emploi.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -39,8 +36,7 @@ La vidéo suivante offre une présentation pas à pas de la solution de surveill
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
+Pour effectuer ce tutoriel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
 Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
 

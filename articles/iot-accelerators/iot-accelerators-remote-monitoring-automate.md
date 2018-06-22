@@ -1,26 +1,23 @@
 ---
 title: Détecter des problèmes d’appareils dans la solution de surveillance à distance - Azure | Microsoft Docs
-description: Ce didacticiel vous montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance.
-services: iot-suite
-suite: iot-suite
+description: Ce tutoriel montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627311"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Détecter les problèmes à l’aide de règles de seuil
 
-Ce didacticiel montre les fonctionnalités du moteur de règles dans la solution de surveillance à distance. Pour présenter ces fonctionnalités, le didacticiel utilise un scénario dans l’application Contoso IoT.
+Ce tutoriel montre les fonctionnalités du moteur de règles dans la solution de surveillance à distance. Pour présenter ces fonctionnalités, le didacticiel utilise un scénario dans l’application Contoso IoT.
 
 Contoso a une règle qui génère une alerte critique lorsque la pression signalée par un appareil de **refroidissement** dépasse 250 psi. En tant qu’opérateur, vous souhaitez identifier les appareils de **refroidissement** avec des capteurs défectueux en recherchant des pics de pression initiale. Pour identifier ces appareils, vous créez une règle qui génère un avertissement lorsque la pression dépasse 150 psi.
 
@@ -37,8 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
+Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
 Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
 

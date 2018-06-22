@@ -1,27 +1,25 @@
 ---
-title: Limites de quota pour Azure Data Lake Analytics
-description: Découvrez comment ajuster et augmenter les limites de quota dans un compte Azure Data Lake Analytics (ADLA).
+title: Ajuster les quotas et limites dans Azure Data Lake Analytics
+description: Découvrez comment ajuster et augmenter les quotas et limites dans les comptes Azure Data Lake Analytics (ADLA).
 services: data-lake-analytics
-keywords: Service Analytique Azure Data Lake
-documentationcenter: ''
-author: omidm1
-editor: omidm1
-ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
-ms.topic: article
-ms.workload: big-data
-ms.date: 03/15/2018
+author: omidm1
 ms.author: omidm
-ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+editor: jasonwhowell
+manager: kfile
+ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
+ms.topic: conceptual
+ms.date: 03/15/2018
+ms.openlocfilehash: e493c45ef49d370bbf7d007e039b4102aaa3cdf0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199022"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623976"
 ---
-# <a name="azure-data-lake-analytics-quota-limits"></a>Limites de quota pour Azure Data Lake Analytics
+# <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajuster les quotas et limites dans Azure Data Lake Analytics
 
-Découvrez comment ajuster et augmenter les limites de quota dans un compte Azure Data Lake Analytics (ADLA). Il vous sera plus simple d’appréhender le comportement de vos tâches U-SQL si vous connaissez ces limites. Toutes ces limites sont souples. Pour les augmenter, contactez le support Azure.
+Découvrez comment ajuster et augmenter les quotas et limites dans les comptes Azure Data Lake Analytics (ADLA). Il vous sera plus simple d’appréhender le comportement de vos tâches U-SQL si vous connaissez ces limites. Toutes ces limites sont souples. Pour les augmenter, contactez le support Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Limites des abonnements Azure
 

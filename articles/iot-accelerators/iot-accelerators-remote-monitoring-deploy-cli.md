@@ -1,29 +1,25 @@
 ---
 title: Déployer la solution de surveillance à distance Java - Azure | Microsoft Docs
-description: Ce tutoriel vous montre comment provisionner l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI.
-services: iot-suite
-suite: iot-suite
+description: Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628121"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
-Ce tutoriel vous montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web depuis azureiotsuite.com ; pour en savoir plus sur cette option, consultez [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
+Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à partir d’azureiotsuite.com. Pour en savoir plus sur cette option, consultez [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour déployer l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -97,7 +93,7 @@ La création d’une solution standard entraîne le provisionnement des services
 
 ### <a name="example-deploy-net-version"></a>Exemple : déployer la version .NET
 
-L’exemple suivant montre comment déployer la version .NET de base de l’accélérateur de solution de surveillance à distance :
+L’exemple suivant montre comment déployer la version .NET de base de l’accélérateur de solution de surveillance à distance :
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet

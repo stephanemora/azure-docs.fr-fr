@@ -134,7 +134,7 @@ Si votre modèle inclut un paramètre utilisant le même nom que l’un des para
 
 ## <a name="test-a-template-deployment"></a>Tester le déploiement d’un modèle
 
-Pour tester votre modèle et vos valeur de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment).  
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `

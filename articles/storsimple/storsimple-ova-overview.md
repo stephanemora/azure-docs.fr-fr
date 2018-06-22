@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651203"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 
@@ -206,10 +207,9 @@ StorSimple utilise la compression des données et la déduplication pour réduir
 
 Les fonctionnalités de protection des données de StorSimple permettent de créer des sauvegardes à la demande. En outre, une planification de sauvegarde par défaut garantit que les données sont sauvegardées quotidiennement. Les sauvegardes sont effectuées sous la forme d'instantanés incrémentiels, qui sont stockés dans le cloud. Les instantanés, qui enregistrent uniquement les modifications apportées depuis la dernière sauvegarde, peuvent être créés et restaurés rapidement. Ces instantanés peuvent être d'une importance critique dans les scénarios de récupération d'urgence, car ils remplacent les systèmes de stockage secondaire (comme la sauvegarde sur bande) et vous permettent de restaurer des données sur votre centre de données ou sur d'autres sites si nécessaire.
 
-## <a name="gdpr-compliance"></a>Conformité RGPD
-Le [règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) est une loi de l’Union européenne sur la protection et la confidentialité des données. Le RGPD comporte de nombreuses exigences concernant la collecte, le stockage et l’utilisation des informations personnelles. Ces règles s’appliquent aux entreprises, organismes publics et autres organisations établis dans l’Union européenne qui collectent et analysent des données liées à des résidents de l’Union européenne.
+## <a name="managing-personal-information"></a>Gestion des informations personnelles
 
-Le Gestionnaire d’appareils StorSimple pour séries virtuelles est conforme au RGPD. Des informations personnelles sont collectées et affichées dans le service dans deux cas principaux :
+StorSimple Device Manager pour les séries virtuelles collecte des informations personnelles principalement dans deux cas :
  - Paramètres utilisateur d’alerte où l’adresse e-mail des utilisateurs est configurée. L’administrateur a la possibilité d’effacer ces données. 
  - Utilisateurs qui ont accès aux données qui se trouvent sur les partages. La liste de ces utilisateurs s’affiche et peut être exportée. Elle est par ailleurs supprimée à la suppression des partages.
 

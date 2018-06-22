@@ -1,31 +1,27 @@
 ---
-title: 'Kit IoT DevKit dans le cloud : Connecter le kit IoT DevKit AZ3166 à Azure IoT Suite Remote Monitoring v2  | Microsoft Docs'
-description: Dans ce didacticiel, découvrez comment envoyer l’état des capteurs sur IoT DevKit AZ3166 à Remote Monitoring v2 depuis Azure IoT Suite à des fins de surveillance et de visualisation.
-services: iot-hub
-documentationcenter: ''
+title: 'Kit IoT DevKit dans le cloud : Connecter le kit IoT DevKit AZ3166 à l’accélérateur de solution IoT de surveillance à distance | Microsoft Docs'
+description: Dans ce tutoriel, vous allez découvrir comment envoyer l’état des capteurs sur IoT DevKit AZ3166 à l’accélérateur de solution IoT de surveillance à distance à des fins de surveillance et de visualisation.
 author: isabelcabezasm
 manager: ''
-tags: ''
-keywords: ''
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.devlang: c
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 667e51acd5ac1367e185fb9bf9a7949a13e061af
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8aa4d660fbf785a4caf99bcdeddc86aa9929c50d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627737"
 ---
-# <a name="connect-mxchip-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring-v2"></a>Connecter le DevKit MXChip IoT AZ3166 à Azure IoT Suite pour Remote Monitoring v2
+# <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit AZ3166 à l’accélérateur de solution de surveillance à distance IoT
 
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Dans ce didacticiel, vous allez apprendre à exécuter un exemple d’application sur votre kit DevKit pour envoyer les données des capteurs vers Azure IoT Suite.
+Dans ce tutoriel, vous allez apprendre à exécuter un exemple d’application sur votre kit DevKit pour envoyer les données des capteurs vers votre accélérateur de solution.
 
 [IoT MXChip DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compatible Arduino qui est équipée de périphériques et de capteurs élaborés. Vous pouvez développer pour ce kit à l’aide de l’[extension Visual Studio Code pour Arduino](https://aka.ms/arduino). Par ailleurs, il s’accompagne d’un [catalogue de projets](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) en plein développement pour vous guider dans la réalisation de prototypes de solutions IoT (Internet des objets) qui exploitent les services Microsoft Azure.
 
@@ -114,13 +110,13 @@ Vous pouvez voir maintenant votre nouvel appareil physique dans la section VS Co
 
 ## <a name="test-the-project"></a>Tester le projet
 
-Lorsque l’exemple d’application s’exécute, le kit DevKit envoie les données des capteurs par Wi-Fi à votre solution Azure IoT Suite. Pour voir le résultat, procédez comme suit :
+Quand l’exemple d’application s’exécute, le kit DevKit envoie les données des capteurs par Wi-Fi à vos accélérateurs de solution IoT. Pour voir le résultat, procédez comme suit :
 
-1. Accédez à votre solution Azure IoT Suite, puis cliquez sur **Tableau de bord**.
+1. Accédez à votre accélérateur de solution IoT, puis cliquez sur **TABLEAU DE BORD**.
 
-2. Dans la console de la solution Azure IoT Suite, vous verrez l’état des capteurs de votre kit DevKit. 
+2. Dans la console de l’accélérateur de solution IoT, vous voyez l’état des capteurs de votre kit DevKit. 
 
-![Données des capteurs dans Azure IoT Suite](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
+![Données des capteurs dans les accélérateurs de solution IoT](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
 
 Si vous cliquez sur le nom du capteur (AZ3166), un onglet s’ouvre à droite du tableau de bord, dans lequel vous pouvez consulter en temps réel le graphique des capteurs MX Chip.
 
@@ -158,7 +154,7 @@ Si vous rencontrez des problèmes, consultez les [FAQ](https://microsoft.github.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un appareil DevKit à votre solution Azure IoT Suite et à visualiser les données des capteurs, nous vous suggérons les étapes suivantes :
+Maintenant que vous avez appris à connecter un appareil DevKit à vos accélérateurs de solution IoT et à visualiser les données des capteurs, nous vous suggérons les étapes suivantes :
 
-* [Vue d’ensemble d’Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Vue d’ensemble des accélérateurs de solution IoT](https://docs.microsoft.com/azure/iot-suite/)
 * [Connecter un appareil DevKit IoT MXChip à votre application Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

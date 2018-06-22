@@ -1,29 +1,25 @@
 ---
 title: Déployer la solution de surveillance à distance localement - Azure | Microsoft Docs
 description: Ce tutoriel vous montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local pour le test et le développement.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627229"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Déployer l’accélérateur de solution de surveillance à distance localement
 
-Cet article vous montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local pour le test et le développement. Cette approche déploie les microservices vers un conteneur Docker local et utilise les services de stockage Azure, IoT Hub, et Cosmos DB dans le cloud. Vous utilisez l’interface CLI des accélérateurs de solution (solutions préconfigurées) pour déployer les services cloud Azure.
+Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Cette approche déploie les microservices vers un conteneur Docker local et utilise les services de stockage Azure, IoT Hub, et Cosmos DB dans le cloud. Vous utilisez l’interface CLI des accélérateurs de solution (solutions préconfigurées) pour déployer les services cloud Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -53,7 +49,7 @@ Pour plus d’informations sur l’interface CLI, consultez [How to use the CLI]
 
 ### <a name="download-the-source-code"></a>Télécharger le code source
 
- Le référentiel de code source de contrôle à distance inclut les fichiers de configuration de Docker dont vous avez besoin pour télécharger, configurer et exécuter les images Docker qui contiennent les microservices. Pour cloner le dépôt et en créer une version locale, accédez à un dossier approprié sur votre ordinateur local via votre ligne de commande ou terminal préféré et exécutez l’une des commandes suivantes :
+ Le dépôt de code source de surveillance à distance inclut les fichiers de configuration Docker dont vous avez besoin pour télécharger, configurer et exécuter les images Docker qui contiennent les microservices. Pour cloner le dépôt et en créer une version locale, accédez à un dossier approprié sur votre ordinateur local via votre ligne de commande ou terminal préféré et exécutez l’une des commandes suivantes :
 
 Pour installer les implémentations Java des microservices, exécutez :
 
@@ -126,7 +122,7 @@ Pour accéder au tableau de bord de la solution de surveillance à distance, acc
 
 Pour éviter les coûts inutiles, lorsque vous avez terminé votre test, supprimez les services cloud de votre abonnement Azure. Pour supprimer les services, le plus simple consiste à accéder au [portail Azure](https://ms.portal.azure.com) et à supprimer le groupe de ressources créé par l’outil `pcs`.
 
-Utilisez la commande `docker-compose down --rmi all` pour supprimer les images Docker et libérer de l’espace sur votre machine locale. Vous pouvez également supprimer la copie locale du référentiel de contrôle à distance créé lorsque vous avez cloné le code source à partir de GitHub.
+Utilisez la commande `docker-compose down --rmi all` pour supprimer les images Docker et libérer de l’espace sur votre machine locale. Vous pouvez également supprimer la copie locale du dépôt de surveillance à distance créé quand vous avez cloné le code source à partir de GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

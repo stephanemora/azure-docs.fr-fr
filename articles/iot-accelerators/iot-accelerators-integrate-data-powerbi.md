@@ -1,29 +1,25 @@
 ---
 title: Visualiser des données de surveillance à distance à l’aide de Power BI - Azure | Microsoft Docs
 description: Ce tutoriel utilise Power BI Desktop et Cosmos DB pour intégrer les données d’une solution de surveillance à distance dans une visualisation personnalisée. Ainsi, les utilisateurs peuvent créer leurs propres tableaux de bord personnalisés et les partager avec des personnes qui ne se servent pas de cette solution.
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627788"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualiser des données de surveillance à distance à l’aide de Power BI
 
 Ce tutoriel vous montre comment connecter vos données de solution de surveillance à distance CosmosDB à Power BI. Une fois la connexion établie, vous pouvez créer vos propres tableaux de bord personnalisés et les ajouter à votre tableau de bord de solution de surveillance à distance. Ce flux de travail permet la création de graphes plus spécialisés, en plus de ceux prêts à l’emploi. Vous pouvez ensuite utiliser ce tutoriel pour intégrer des données à d’autres flux de données ou pour créer des tableaux de bord personnalisés dont les données doivent être utilisées en dehors de votre solution de surveillance à distance. La création de tableaux de bord dans Power BI vous permet également de faire interagir les panneaux lorsque vous sélectionnez des éléments. Par exemple, vous pourriez avoir un filtre qui affiche seulement les informations concernant vos camions simulés. Tous les éléments de votre tableau de bord interagiraient donc de manière à afficher uniquement les informations concernant les camions simulés. Si vous souhaitez utiliser un autre outil que Power BI, vous pouvez également étendre ces étapes pour utiliser l’outil de visualisation de votre choix et vous connecter à Cosmos DB ou à une base de données personnalisée si vous en avez une. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Vous devez disposer d’une solution de surveillance à distance en cours d’exécution.
 - Vous devez avoir accès au [portail Azure](https://portal.azure.com) et à l’abonnement dans lequel IoT Hub et la solution IoT sont exécutés.

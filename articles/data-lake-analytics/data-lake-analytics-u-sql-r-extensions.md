@@ -1,26 +1,23 @@
 ---
-title: "Extension des scripts U-SQL à l’aide de code R dans Azure Data Lake Analytics | Microsoft Docs"
-description: "Découvrez comment exécuter un code R dans des scripts U-SQL"
+title: Étendre des scripts U-SQL à l’aide de code R dans Azure Data Lake Analytics
+description: Découvrez comment exécuter du code R dans des scripts U-SQL à l’aide de Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: sukvg
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624922"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Tutoriel : Get started with extending U-SQL with R (Bien démarrer avec l’extension de U-SQL avec R)
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code R dans Azure Data Lake Analytics
 
 L’exemple suivant illustre les étapes de base pour déployer un code R :
 * Utilisation de l’instruction `REFERENCE ASSEMBLY` pour activer les extensions R pour le script U-SQL.

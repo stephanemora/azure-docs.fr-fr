@@ -1,22 +1,19 @@
 ---
 title: Modifier et redéployer un microservice | Microsoft Docs
 description: Ce tutoriel vous montre comment modifier et redéployer un microservice dans la surveillance à distance
-services: ''
-suite: iot-suite
 author: giyeh
 manager: hegate
 ms.author: giyeh
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/19/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3d79c085d10515183a5ddcc12ecac503915eb2e2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627992"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personnaliser et redéployer un microservice
 
@@ -35,11 +32,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 >[!div class="checklist"]
-> * [Déployer la solution préconfigurée de surveillance à distance localement](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Déployer l’accélérateur de solution de surveillance à distance localement](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Un compte Docker](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) : nécessaire pour afficher la réponse de l’API
 

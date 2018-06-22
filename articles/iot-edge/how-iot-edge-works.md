@@ -1,25 +1,20 @@
 ---
 title: Qu'est-ce qu’Azure IoT Edge | Microsoft Docs
 description: Présentation du service Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630695"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Qu'est-ce qu’Azure IoT Edge - préversion
 
@@ -69,7 +64,7 @@ Le runtime Azure IoT Edge s’exécute sur un grand nombre d’appareils IoT pou
 
 La gestion du cycle de vie des logiciels pour les appareils d’entreprise est complexe. Il est encore plus difficile de gérer le cycle de vie des logiciels pour des millions d’appareils IoT hétérogènes. Les charges de travail doivent être créées et configurées pour un type particulier de périphérique, déployées à l’échelle pour les millions d’appareils dans votre solution et surveillées pour intercepter tous les périphériques présentant un dysfonctionnement. Ces activités ne peuvent pas être effectuées sur chaque appareil et doivent être appliquées à grande échelle.
 
-Azure IoT Edge s’intègre parfaitement avec Azure IoT Suite pour fournir un plan de contrôle pour les besoins de votre solution. Les services cloud permettent aux utilisateurs de :
+Azure IoT Edge s’intègre parfaitement avec les accélérateurs de solution Azure IoT pour fournir un plan de contrôle pour les besoins de votre solution. Les services cloud permettent aux utilisateurs de :
 
 * Créer et configurer une charge de travail à exécuter sur un type d’appareil spécifique.
 * Envoyer une charge de travail à un ensemble d’appareils.

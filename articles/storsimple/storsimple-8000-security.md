@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650935"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
@@ -204,6 +205,18 @@ StorSimple utilise les algorithmes de chiffrement suivants pour protéger les do
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Gestion des informations personnelles
+
+StorSimple Device Manager pour les séries physiques et virtuelles collecte des informations personnelles principalement dans les cas suivants :
+
+- Paramètres utilisateur d’alerte où l’adresse e-mail des utilisateurs est configurée. L’administrateur a la possibilité d’afficher et d’effacer ces données. Cela s’applique aux appareils StorSimple série 8000 et à StorSimple Virtual Array.
+ * Pour afficher et effacer les paramètres de StorSimple série 8000, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).
+ * Pour afficher et effacer les paramètres de StorSimple Virtual Array, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings).
+- Utilisateurs qui ont accès aux données qui se trouvent sur les partages. La liste de ces utilisateurs s’affiche et peut être consultée. Elle est par ailleurs supprimée à la suppression des partages. Cela s’applique uniquement à StorSimple Virtual Arrays.
+ * Pour afficher la liste des utilisateurs qui y ont accès ou supprimer un partage, suivez les étapes de la page [Gérer les partages sur StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md).
+
+Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
 Voici quelques questions et réponses relatives à la sécurité et à Microsoft Azure StorSimple.
@@ -268,19 +281,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Comme toutes les données sont chiffrées dans le service et que la clé privée est conservée dans l’appareil, l’entité gouvernementale doit demander les données au client.
 
-## <a name="gdpr-compliance"></a>Conformité RGPD
 
-Le [règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) est une loi de l’Union européenne sur la protection et la confidentialité des données. Le RGPD comporte de nombreuses exigences concernant la collecte, le stockage et l’utilisation des informations personnelles. Ces règles s’appliquent aux entreprises, organismes publics et autres organisations établis dans l’Union européenne qui collectent et analysent des données liées à des résidents de l’Union européenne. 
-
-Le Gestionnaire d’appareils StorSimple pour séries physiques et virtuelles est conforme au RGPD. Des informations personnelles sont collectées et affichées dans le service dans deux cas principaux :
-
-- Paramètres utilisateur d’alerte où l’adresse e-mail des utilisateurs est configurée. L’administrateur a la possibilité d’afficher et d’effacer ces données. Cela s’applique aux appareils StorSimple série 8000 et à StorSimple Virtual Array.
- * Pour afficher et effacer les paramètres de StorSimple série 8000, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).
- * Pour afficher et effacer les paramètres de StorSimple Virtual Array, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings).
-- Utilisateurs qui ont accès aux données qui se trouvent sur les partages. La liste de ces utilisateurs s’affiche et peut être consultée. Elle est par ailleurs supprimée à la suppression des partages. Cela s’applique uniquement à StorSimple Virtual Arrays.
- * Pour afficher la liste des utilisateurs qui y ont accès ou supprimer un partage, suivez les étapes de la page [Gérer les partages sur StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md).
-
-Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

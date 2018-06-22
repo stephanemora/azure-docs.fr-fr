@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625336"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Meilleures pratiques relatives à l’utilisation de Data Lake Store
 Dans cet article, vous allez découvrir les meilleures pratiques et considérations d’utilisation d’Azure Data Lake Store. Cet article fournit des informations concernant la sécurité, les performances, la résilience et la surveillance pour Azure Data Lake Store. Avant Data Lake Store, il était difficile de travailler avec de grandes quantités de données dans des services tels qu’Azure HDInsight. Il fallait partitionner les données sur plusieurs comptes de stockage d’objets blob afin de rendre possible, à cette échelle, le stockage pétaoctet et des performances optimales. Avec Data Lake Store, la plupart des limites inconditionnelles de taille et de performances ont été supprimées. Toutefois, il faut toujours tenir compte de certaines choses. Cet article vous en parle afin que vous profitiez des meilleures performances avec Data Lake Store. 
@@ -65,9 +66,9 @@ Les services d’autorisations POSIX et d’audit dans Data Lake Store apportent
 * Réplication/copie plus rapide
 * Nombre de fichiers à traiter réduit lors de la mise à jour des autorisations POSIX Data Lake Store 
 
-En fonction des services et charges de travail qui utilisent les données, la taille correcte de fichier se situe entre 256 Mo et 1 Go, idéalement supérieure à 100 Mo et inférieure à 2 Go. Si les tailles de fichiers ne peuvent être traitées par lot à leur arrivée dans Data Lake Store, vous pouvez lancer une tâche de compactage pour combiner ces fichiers en des fichiers plus importants. Pour plus d’informations et de recommandations sur les tailles de fichiers et l’organisation des données dans Data Lake Store, consultez [Structurer votre jeu de données](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+En fonction des services et des charges de travail qui utilisent les données, 256 Mo ou plus est une taille envisageable pour les fichiers. Si les tailles de fichiers ne peuvent être traitées par lot à leur arrivée dans Data Lake Store, vous pouvez lancer une tâche de compactage pour combiner ces fichiers en des fichiers plus importants. Pour plus d’informations et de recommandations sur les tailles de fichiers et l’organisation des données dans Data Lake Store, consultez [Structurer votre jeu de données](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Tailles de fichiers importantes et impact potentiel sur les performances 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Tailles de fichiers importantes et impact potentiel sur les performances
 
 Bien que Data Lake Store prenne en charge des fichiers volumineux jusqu’à plusieurs pétaoctets, il n’est pas forcément idéal de dépasser 2 Go de moyenne pour des performances optimales, en fonction du traitement de lecture des données. Par exemple, lorsque vous utilisez **Distcp** pour copier des données entre des emplacements ou des comptes de stockage différent, les fichiers représentent le meilleur niveau de granularité utilisée pour déterminer les tâches de mappage. Ainsi, si vous copiez 10 fichiers d’1 To chacun, 10 mappeurs maximum sont alloués. Aussi, si vous disposez de nombreux fichiers avec des mappeurs assignés, ces derniers fonctionnent initialement parallèlement pour déplacer des fichiers volumineux. Toutefois, la tâche de ralentissement démarre et ne restent alors assignés que quelques mappeurs. Vous vous retrouvez alors coincé avec un seul mappeur assigné à un fichier volumineux. Microsoft a proposé des améliorations à Distcp pour régler ce problème dans les versions futures d’Hadoop.  
 

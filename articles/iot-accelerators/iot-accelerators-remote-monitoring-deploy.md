@@ -1,26 +1,23 @@
 ---
 title: Déployer la solution de surveillance à distance - Azure | Microsoft Docs
 description: Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance sur le site azureiotsuite.com.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626851"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Déployer l’accélérateur de solution de surveillance à distance
 
-Ce tutoriel vous montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à partir du site azureiotsuite.com. Vous pouvez également déployer la solution à l’aide de l’interface CLI. Pour en savoir plus sur cette option, consultez [Déployer un accélérateur de solution à partir de la ligne de commande](iot-accelerators-remote-monitoring-deploy-cli.md).
+Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à partir du site azureiotsuite.com. Vous pouvez également déployer la solution à l’aide de l’interface CLI. Pour en savoir plus sur cette option, consultez [Déployer un accélérateur de solution à partir de la ligne de commande](iot-accelerators-remote-monitoring-deploy-cli.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -30,7 +27,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Établir une connexion à l’accélérateur de solution
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
@@ -44,9 +40,9 @@ Avant de déployer l’accélérateur de solution dans votre abonnement Azure, v
 
 1. Cliquez sur **Essayer maintenant**, dans la vignette **Surveillance à distance**.
 
-    ![Choisir la surveillance à distance](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
+    ![Choisir la Surveillance à distance](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
 
-1. Dans la page de **Create Remote Monitoring solution**  (Créer une solution de surveillance à distance), entrez un **nom de solution** pour votre accélérateur de solution de surveillance à distance.
+1. Dans la page de **Créer une solution de surveillance à distance**, entrez un **Nom de solution** pour votre accélérateur de solution de surveillance à distance.
 
 1. Sélectionnez un déploiement **De base** ou **Standard**. Si vous déployez la solution pour découvrir son fonctionnement ou effectuer une démonstration, choisissez l’option **De base** afin de réduire les coûts.
 
@@ -64,7 +60,7 @@ Pour obtenir des informations de dépannage, consultez la rubrique [What to do w
 
 ## <a name="sign-in-to-the-solution-accelerator"></a>Établir une connexion à l’accélérateur de solution
 
-Lorsque le processus de provisionnement est terminé, vous pouvez vous connecter à votre accélérateur de solution de surveillance à distance.
+Une fois le processus de provisionnement terminé, vous pouvez vous connecter à votre accélérateur de solution de surveillance à distance.
 
 1. Dans la page **Solutions approvisionnées**, choisissez votre nouvelle solution de surveillance à distance :
 
@@ -73,11 +69,11 @@ Lorsque le processus de provisionnement est terminé, vous pouvez vous connecter
 1. Vous pouvez consulter les informations relatives à votre solution de surveillance à distance dans le panneau qui s’affiche. Choisissez **Tableau de bord des solutions** pour vous connecter à votre solution de surveillance à distance.
 
     > [!NOTE]
-    > Vous pouvez supprimer votre solution de surveillance à distance dans ce panneau lorsque vous n’en avez plus besoin.
+    > Vous pouvez supprimer votre solution de surveillance à distance dans ce panneau quand vous n’en avez plus besoin.
 
     ![Panneau de solutions](./media/iot-accelerators-remote-monitoring-deploy/solutionpanel.png)
 
-1. Le tableau de bord des solutions de surveillance à distance s’affiche dans votre navigateur.
+1. Le tableau de bord des solutions Surveillance à distance s’affiche dans votre navigateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
