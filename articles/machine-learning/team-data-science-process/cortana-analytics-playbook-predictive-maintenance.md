@@ -1,4 +1,4 @@
----
+﻿---
 title: Guide Azure AI pour les solutions de maintenance prédictive | Microsoft Docs
 description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: machine-learning
@@ -369,7 +369,7 @@ Le _suréchantillonnage aléatoire_ implique la sélection d’un échantillon a
 Il existe de nombreuses techniques d’échantillonnage sophistiquées. La technique choisie varie selon les propriétés des données et les résultats des expériences itératives obtenus par le scientifique des données.
 
 #### <a name="cost-sensitive-learning"></a>Apprentissage sensible au coût
-Dans la PdM, les défaillances qui constituent la classe minoritaire sont plus intéressants que des exemples normaux. Par conséquent, on se concentre sur les performances de l’algorithme cas de défaillances. Prédire de manière incorrecte qu’une classe positive sera une classe négative peut coûter plus que l’inverse. Cette situation est généralement appelée perte inégale ou coût asymétrique d’éléments mal classés dans différentes classes. Le classifieur idéal doit offrir une grande précision de prédiction sur la classe minoritaire, sans compromettre la précision de la classe majoritaire.
+Dans la PdM, les défaillances qui constituent la classe minoritaire sont plus intéressants que des exemples normaux. Par conséquent, on se concentre sur les performances de l’algorithme en cas de défaillances. Prédire de manière incorrecte qu’une classe positive sera une classe négative peut coûter plus que l’inverse. Cette situation est généralement appelée perte inégale ou coût asymétrique d’éléments mal classés dans différentes classes. Le classifieur idéal doit offrir une grande précision de prédiction sur la classe minoritaire, sans compromettre la précision de la classe majoritaire.
 
 Il existe plusieurs manières d’atteindre cet équilibre. Pour atténuer le problème des pertes inégales, attribuez un coût élevé à la classification incorrecte de la classe minoritaire et essayez de minimiser le coût total. Les algorithmes comme _SVM (machine à vecteur de support)_ adoptent cette méthode par nature, en autorisant que le coût des exemples positifs et négatifs soit spécifié pendant l’apprentissage. De même, des méthodes d’amélioration telles que des _arbres de décision optimisés_ affichent généralement de bonnes performances en cas de données déséquilibrées.
 
