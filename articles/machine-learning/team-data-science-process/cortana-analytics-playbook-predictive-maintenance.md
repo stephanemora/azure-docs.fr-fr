@@ -428,7 +428,7 @@ La dernière section de ce guide fournit une liste de modèles de solutions de P
 
 Le [cursus Azure AI pour maintenance prédictive](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) fournit les supports de formation pour une meilleure compréhension des concepts et des mathématiques derrière les algorithmes et les techniques utilisés pour les problèmes de PdM. 
 
-Microsoft Azure offre du contenu et une formation gratuits sur les notions générales et la pratique de l’IA.
+Microsoft Azure propose du contenu gratuit et une formation sur les concepts et la pratique générale de l'IA.
 
 | Ressources de formation  | Disponibilité |
 |:-------------------|--------------|
