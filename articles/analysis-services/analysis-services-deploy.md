@@ -3,22 +3,22 @@ title: Procéder à un déploiement sur Azure Analysis Services à l’aide de S
 description: Découvrez comment déployer un modèle tabulaire sur un serveur Azure Analysis Services à l’aide de SSDT.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595656"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Déployer un modèle à partir de SSDT
 Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser SQL Server Data Tools (SSDT) pour créer et déployer un projet de modèle tabulaire sur lequel vous travaillez. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Serveur Analysis Services** dans Azure. Pour plus d’informations, consultez l’article [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md).
@@ -30,15 +30,18 @@ Pour commencer, vous avez besoin des éléments suivants :
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Pour déployer un modèle tabulaire à partir de SSDT
+## <a name="get-the-server-name"></a>Obtenir le nom du serveur
 
-1. Avant de déployer, vous devez obtenir le nom du serveur. Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur.
+Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur.
    
-    ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. Dans SSDT > **Explorateur de solutions**, cliquez avec le bouton droit sur le projet > **Propriétés**. Ensuite, dans **Déploiement** > **Serveur**, collez le nom du serveur.   
+![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>Pour déployer à partir de SSDT
+
+1. Dans SSDT > **Explorateur de solutions**, cliquez avec le bouton droit sur le projet > **Propriétés**. Ensuite, dans **Déploiement** > **Serveur**, collez le nom du serveur.   
    
     ![Coller le nom du serveur dans la propriété du serveur de déploiement](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Propriétés**, puis cliquez sur **Déployer**. Vous serez peut-être invité à vous connecter à Azure.
+2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Propriétés**, puis cliquez sur **Déployer**. Vous serez peut-être invité à vous connecter à Azure.
    
     ![Déployer sur un serveur](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

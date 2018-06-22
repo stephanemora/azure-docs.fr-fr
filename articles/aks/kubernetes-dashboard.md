@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595578"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Tableau de bord Kubernetes avec Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ Cette commande crée un proxy entre votre système de développement et l’API 
 
 ## <a name="run-an-application"></a>Exécuter une application
 
-Dans le tableau de bord Kubernetes, cliquez sur le bouton **Créer** dans la fenêtre supérieure droite. Nommez le déploiement `nginx`, puis entrez `nginx:latest` pour le nom des images. Sous **Service**, sélectionnez **Externe**, puis entrez `80` pour le port et le port cible.
+Dans le tableau de bord Kubernetes, cliquez sur le bouton **Créer** dans la fenêtre supérieure droite. Nommez le déploiement `nginx`, puis entrez `nginx:latest` pour le nom de l’image de conteneur. Sous **Service**, sélectionnez **Externe**, puis entrez `80` pour le port et le port cible.
 
 Lorsque vous êtes prêt, cliquez sur **Déployer** pour créer le déploiement.
 

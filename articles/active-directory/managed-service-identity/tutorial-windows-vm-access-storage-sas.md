@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ac807bf12e0d6a465b1741d34e6d3d02885c8ea1
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0c09ad0dd6ca2748a19aabc161390d9e0d09c6e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303771"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594915"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Didacticiel : Utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -36,7 +36,6 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -229,15 +228,11 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="related-content"></a>Contenu connexe
+Dans ce tutoriel, vous avez appris à créer une identité Managed Service Identity pour accéder au Stockage Azure à l’aide d’informations d’identification SAP.  Pour en savoir plus sur le Stockage Azure SAP, consultez :
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Pour savoir comment suivre ce didacticiel en utilisant une clé de compte de stockage, voir [Utiliser une MSI de machine virtuelle Windows pour accéder à Stockage Azure](tutorial-windows-vm-access-storage.md).
-- Pour plus d’informations sur la fonctionnalité de SAP de compte de Stockage Azure, voir :
-  - [Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Construction d’un service SAP](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
 

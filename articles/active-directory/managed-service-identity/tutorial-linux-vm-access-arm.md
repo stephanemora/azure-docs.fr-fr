@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ec932451d82e891b2c9b11d91f44d4dc5fce6828
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8f81e667ffd1e425527b383445f382d18233fef2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594514"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Utiliser une identité du service administré (MSI) pour une machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -32,7 +33,6 @@ Ce didacticiel vous montre comment activer l’identité du service administré 
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle et l’utiliser pour appeler Azure Resource Manager 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -125,11 +125,11 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utili
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```
-     
-## <a name="related-content"></a>Contenu connexe
+    ```     
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md). 
+## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+Dans ce didacticiel, vous avez découvert comment créer une identité assignée à l’utilisateur, puis l’attacher à une machine virtuelle Azure pour accéder à l’API Azure Resource Manager.  Pour en savoir plus sur Azure Resource Manager, consultez :
 
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

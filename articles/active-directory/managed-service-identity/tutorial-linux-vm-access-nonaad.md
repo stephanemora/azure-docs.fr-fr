@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 280b1340c094a89ad5980178947045b707128807
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304305"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595017"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
 
@@ -35,7 +35,6 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault 
  
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -136,12 +135,12 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
     
 Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utiliser pour vous authentifier sur un service qui requiert un nom et un mot de passe.
 
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="related-content"></a>Contenu connexe
+Dans ce tutoriel, vous avez appris à utiliser une identité Managed Service Identity sur une machine virtuelle Linux pour accéder à Azure Key Vault.  Pour en savoir plus sur Azure Key Vault, consultez :
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

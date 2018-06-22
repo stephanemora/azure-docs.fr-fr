@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594548"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
 
@@ -189,7 +190,7 @@ School Data Sync (SDS) | Les groupes créés via SDS sont conformes à la strat�
 Outlook Customer Manager (OCM) | Outlook Customer Manager est conforme à la stratégie de nommage, qui est appliquée automatiquement au groupe créé dans Outlook Customer Manager. Si un mot bloqué personnalisé est détecté, la création de groupe dans OCM est bloquée, et l’utilisateur ne peut pas utiliser l’application OCM.
 Application Classroom | Les groupes créés dans l’application Classroom sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement et l’aperçu de la stratégie de nommage n’est pas présenté aux utilisateurs quand ils entrent un nom de groupe de classe. Les utilisateurs doivent entrer le nom de groupe de classe appliqué avec les préfixes et les suffixes. Dans le cas contraire, l’opération de création ou de modification du groupe de classe échoue avec des erreurs.
 Power BI | Les espaces de travail Power BI sont conformes à la stratégie de nommage.    
-Yammer | Les groupes connectés Yammer n’appliquent pas la stratégie de nommage configurée. Pour les organisations qui ont activé une stratégie de nommages, Yammer crée des groupes Yammer hérités qui ne sont pas connectés à Office 365 pour les groupes non conformes à la stratégie de nommage.
+Yammer | Lorsqu’un utilisateur connecté à Yammer avec son compte Azure Active Directory crée un groupe ou modifie un nom de groupe, le nom de groupe doit respecter la stratégie d’affectation de noms. Cela s’applique à la fois aux groupes connectés à Office 365 et à tous les autres groupes Yammer.<br>Si un groupe connecté à Office 365 a été créé avant que la stratégie d’affectation de noms ne soit en place, le nom de groupe ne suit pas automatiquement les stratégies d’affectation de noms. Lorsqu’un utilisateur modifie le nom de groupe, il est invité à ajouter le préfixe et le suffixe.
 StaffHub  | Les équipes StaffHub ne respectent pas la stratégie de nommage, mais le groupe Office 365 sous-jacent, oui. Le nom de l’équipe StaffHub n’applique pas les préfixes et les suffixes et ne recherche pas les mots bloqués personnalisés. En revanche, StaffHub applique les préfixes et les suffixes et supprime les mots bloqués du groupe Office 365 sous-jacent.
 Exchange PowerShell | Les applets de commande Exchange PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la stratégie de nommage dans le nom de groupe et l’alias de groupe (mailNickname).
 Applets de commande Azure Active Directory PowerShell | Les applets de commande Azure Active Directory PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans les noms de groupe et les alias de groupe.

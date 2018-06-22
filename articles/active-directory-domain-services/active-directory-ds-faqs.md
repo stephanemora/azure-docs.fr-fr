@@ -7,24 +7,26 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aab6e893a6da1c5b877498f2bf6cbeaa6d0a5c2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587781"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Services de domaine Azure Active Directory : Forum aux questions (FAQ)
 Cette page répond aux questions fréquemment posées sur les services de domaine Azure Active Directory. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
 
 ## <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
-Reportez-vous au [Guide de résolution des problèmes](active-directory-ds-troubleshooting.md) pour trouver les solutions aux problèmes couramment rencontrés pendant la configuration ou l’administration d’Azure AD Domain Services.
+Reportez-vous au [Guide de résolution des problèmes](active-directory-ds-troubleshooting.md) pour trouver les solutions aux problèmes courants liés à la configuration ou à l’administration d’Azure AD Domain Services.
 
 ## <a name="configuration"></a>Configuration
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Puis-je créer plusieurs domaines managés pour un seul annuaire Azure AD ?
@@ -65,13 +67,13 @@ Non. Vous n’êtes pas autorisé à vous connecter aux contrôleurs de domaine 
 Les membres du groupe d’administration « AAD DC Administrators » peuvent joindre des ordinateurs au domaine. En outre, les membres de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Est-ce que je dispose des privilèges d’administrateur de domaine pour le domaine géré fourni par les services de domaine Azure AD ?
-Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine géré. Les privilèges « Administrateur de domaine » et « Administrateur d’entreprise » ne sont pas disponibles pour vous dans le domaine. En outre, les groupes d’administrateurs de domaine ou d’administrateurs d’entreprise existants dans votre répertoire Azure AD ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine.
+Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine géré. Les privilèges « Administrateur de domaine » et « Administrateur d’entreprise » ne sont pas disponibles pour vous dans le domaine. Les membres des groupes d’administrateurs de domaine ou d’administrateurs d’entreprise de votre instance Active Directory locale ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine managé.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines gérés ?
 Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines pris en charge par les services de domaine Azure AD. Il en va de même pour les attributs d’utilisateur. Vous pouvez toutefois modifier les appartenances aux groupes ou les attributs d’utilisateur dans Azure AD ou sur votre domaine local. Ces modifications sont synchronisées automatiquement avec les services de domaine Azure AD.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine géré ?
-Les modifications apportées à votre annuaire Azure AD à l’aide de l’interface utilisateur d’Azure Active Directory ou de PowerShell sont synchronisées avec votre domaine géré. Ce processus de synchronisation se produit en arrière-plan. Une fois la synchronisation initiale de votre annuaire terminée, il faut généralement environ 20 minutes pour que les modifications apportées dans Azure AD soient présentes dans votre domaine géré.
+Les modifications apportées à votre annuaire Azure AD à l’aide de l’interface utilisateur d’Azure Active Directory ou de PowerShell sont synchronisées avec votre domaine géré. Ce processus de synchronisation se produit en arrière-plan. Une fois la synchronisation initiale terminée, il faut généralement environ 20 minutes pour que les modifications apportées dans Azure AD soient appliquées à votre domaine managé.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Puis-je étendre le schéma du domaine géré fourni par les services de domaine Azure AD ?
 Non. Le schéma est administré par Microsoft pour le domaine géré. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
@@ -81,6 +83,9 @@ Oui. Les membres du groupe « AAD DC Administrators » bénéficient de privilè
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Quelle est la stratégie de durée de vie des mots de passe dans un domaine managé ?
 Par défaut, la durée de vie des mots de passe dans un domaine managé Azure AD Domain Services est de 90 jours. Cette durée de vie des mots de passe n’est pas synchronisée avec celle configurée dans Azure AD. Par conséquent, il est possible qu’un mot de passe utilisateur expire dans votre domaine managé, mais soit toujours valide dans Azure AD. Dans les scénarios comme celui-ci, les utilisateurs doivent modifier leur mot de passe dans Azure AD. Le nouveau mot de passe est ensuite synchronisé avec votre domaine managé. De plus, les attributs « password-does-not-expire » et « user-must-change-password-at-next-logon » des comptes d’utilisateur ne sont pas synchronisés avec votre domaine managé.
+
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Le service Azure AD Domain Services assure-t-il une protection par verrouillage du compte AD ?
+Oui. Cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le domaine managé entraînent le verrouillage d’un compte d’utilisateur pendant 30 minutes. Après ces 30 minutes, le compte d’utilisateur est automatiquement déverrouillé. Les tentatives de saisie de mot de passe non valide dans le domaine managé ne verrouillent pas le compte d’utilisateur dans Azure AD. Le compte d’utilisateur est verrouillé uniquement dans votre domaine managé Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Facturation et disponibilité
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Les services de domaine Azure AD sont-ils payants ?

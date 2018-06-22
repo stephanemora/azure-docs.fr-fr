@@ -1,19 +1,19 @@
 ---
 title: Configurer un modèle d’appareil dans une application Azure IoT Central | Microsoft Docs
 description: Découvrez comment configurer un modèle d’appareil avec des mesures, des paramètres, des propriétés, des règles et un tableau de bord.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201507"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261982"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
@@ -138,7 +138,7 @@ Une fois que vous avez choisi **Enregistrer**, le paramètre **Vitesse du ventil
 
 ![Vignette Paramètres](./media/howto-set-up-template/settingstile.png)
 
-## <a name="properties"></a>Propriétés
+## <a name="properties"></a>properties
 
 Les propriétés sont les métadonnées associées à l’appareil, comme l’emplacement et le numéro de série. Vous pouvez ajouter plusieurs propriétés à votre modèle d’appareil ; elles apparaissent sous forme de vignettes sous l’onglet **Propriétés**. Un opérateur peut spécifier les valeurs des propriétés quand il crée un appareil et les modifier à tout moment. Les propriétés que vous pouvez ajouter sont de six types : nombre, texte, date, bascule, propriété d’appareil et étiquette.
 
@@ -161,13 +161,66 @@ Une fois que vous avez choisi **Enregistrer**, l’emplacement de l’appareil a
 > [!NOTE]
 > Après avoir créé une vignette, vous pouvez changer la valeur de la propriété. Désactivez d’abord le mode Conception en haut à droite de l’écran.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Créer une propriété d’emplacement optimisée par Azure Maps
+Vous pouvez fournir le contexte géographique des données d’emplacement dans Azure IoT Central et mapper les coordonnées de latitude et de longitude d’une adresse postale ou simplement les coordonnées de latitude et de longitude. Cette fonctionnalité d’Azure IoT Central est optimisée par Azure Maps.
+
+Vous pouvez ajouter deux types de propriétés d’emplacement :
+- La **propriété d’emplacement d’une application** qui est stockée uniquement dans l’application. L’appareil n’a aucune connaissance des propriétés d’application.
+- La **propriété d’emplacement de l’appareil** qui est signalée par l’appareil.
+
+####<a name="adding-location-as-an-application-property"></a>Ajout d’une propriété d’emplacement de l’application 
+Vous pouvez créer une propriété d’emplacement sous forme de propriété d’application en utilisant Azure Maps dans votre application Azure IoT Central. Par exemple, vous pouvez ajouter l’adresse d’installation de l’appareil. 
+
+1. Accédez à l’onglet Propriété d’appareil et assurez-vous que le Mode Conception est activé.
+
+![Propriété d’emplacement](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. Sous l’onglet Propriété, cliquez sur Emplacement.
+3. Configurez éventuellement le nom d’affichage, le nom du champ et éventuellement la valeur initiale de l’emplacement. 
+
+![Formulaire de propriété d’emplacement](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Vous pouvez ajouter un emplacement dans les deux formats suivants :
+- **Emplacement sous forme d’adresse**
+- **Emplacement sous forme de coordonnées** 
+
+4. Cliquez sur Enregistrer. 
+
+![Champ de propriété d’emplacement](./media/howto-set-up-template/locationcloudproperty3.png)
+
+Un opérateur peut désormais mettre à jour la valeur de l’emplacement dans le formulaire du champ de l’emplacement. 
+
+####<a name="adding-location-as-a-device-property"></a>Ajout d’un emplacement sous forme de propriété d’appareil 
+
+Vous pouvez créer une propriété d’emplacement sous forme de propriété d’appareil signalée par cet appareil.
+Par exemple, si vous voulez suivre l’emplacement de l’appareil.
+
+1.  Accédez à l’onglet Propriété d’appareil et assurez-vous que le Mode Conception est activé.
+2.  Cliquez Propriété de l’appareil dans la bibliothèque.
+
+![Champ de propriété d’emplacement](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Configurez le nom d’affichage, le nom du champ et choisissez « emplacement » comme type de données. 
+
+> [!NOTE]
+Le nom du champ doit correspondre exactement au nom de la propriété signalée par l’appareil. 
+
+![Champ de propriété d’emplacement](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Propriété d’emplacement (vue de l’opérateur)](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Maintenant que vous avez configuré votre propriété d’emplacement, vous allez pouvoir ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil. Consultez [Ajouter une carte Azure d’emplacement dans le tableau de bord](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Règles
 
 Les règles permettent aux opérateurs de surveiller des appareils quasi en temps réel. Les règles appellent automatiquement des **actions**, comme l’envoi d’un e-mail quand la règle se déclenche. Un seul type de règle est actuellement disponible :
 
 - **Règle de télémétrie :** une règle de télémétrie se déclenche quand la télémétrie de l’appareil sélectionné dépasse un seuil spécifié. Découvrez plus en détail les [règles de télémétrie](howto-create-telemetry-rules.md).
 
-## <a name="dashboard"></a>Tableau de bord
+## <a name="dashboard"></a>tableau de bord
 
 Le tableau de bord est l’endroit où un opérateur peut accéder à des informations sur un appareil. Comme concepteur, vous pouvez ajouter des vignettes à cette page pour aider les opérateurs à comprendre comment l’appareil se comporte. Vous pouvez ajouter plusieurs vignettes de tableau de bord à votre modèle d’appareil. Les vignettes de tableau de bord que vous pouvez ajouter sont de six types : image, graphique en courbes, graphique à barres, indicateur de performance clé, paramètres et propriétés, et étiquette.
 
@@ -178,6 +231,31 @@ Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** po
 Maintenant, quand un opérateur visualise le tableau de bord, il peut voir cette vignette qui affiche les propriétés et les paramètres de l’appareil :
 
 ![Vignette du tableau de bord](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Ajouter une carte Azure d’emplacement dans le tableau de bord
+
+Si vous avez configuré une propriété d’emplacement comme indiqué dans al procédure [Créer une propriété d’emplacement optimisée par Azure Maps]((howto-set-up-template.md), vous allez pouvoir visualiser l’emplacement à l’aide d’une carte directement dans le tableau de bord de votre appareil.
+
+1.  Accédez à l’onglet du tableau de bord de l’appareil et assurez-vous que le Mode Conception est activé.
+2.  Dans le tableau de l’appareil, sélectionnez la carte dans la bibliothèque. 
+
+![Sélection d’une carte Azure d’emplacement dans le tableau de bord](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Donnez un titre et choisissez la propriété d’emplacement que vous avez déjà configurée dans votre propriété d’appareil.
+
+![Configuration d’une carte Azure d’emplacement dans le tableau de bord](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Enregistrez pour afficher la mosaïque de la carte indiquant l’emplacement sélectionné. 
+
+![Visualisation d’une carte Azure d’emplacement dans le tableau de bord](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+Vous pouvez redimensionner la carte à la taille désirée.
+
+Maintenant, lorsqu’un opérateur affiche le tableau de bord, il voit toutes les vignettes du tableau de bord que vous avez configurées, y compris la carte d’emplacement.
+
+![Carte Azure d’emplacement dans le tableau de bord](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

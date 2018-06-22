@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8055e6fdf8cc9af14d94177c9ffdeb142352d5a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9bf671ab6f14f95d5d707c3c3521b1d1c6e15ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598930"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 
-Une ressource d’informations d’identification Automation conserve un objet [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) qui contient les informations d’identification de sécurité comme un nom d’utilisateur et un mot de passe. Les Runbooks et les configurations DSC peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou ils peuvent extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook ou la configuration DSC avec l’activité [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
+Une ressource d’informations d’identification Automation conserve un objet qui contient les informations d’identification de sécurité comme un nom d’utilisateur et un mot de passe. Les Runbooks et les configurations DSC peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou ils peuvent extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook ou la configuration DSC avec l’activité [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 

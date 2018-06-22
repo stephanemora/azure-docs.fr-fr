@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354450"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594078"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -34,20 +35,19 @@ Azure Active Directory (Azure AD) est un service d’identité basé sur le clou
 
 *  Les clients bénéficient de l’expérience d’authentification unique la meilleure possible.
 
-*  La configuration de l’application est simple et minime. 
+*  La configuration de l’application est simple et minime.
 
 *  Une recherche rapide permet de trouver votre application dans la galerie.
 
-*  Les clients Azure AD des abonnements Gratuit, De base et Premium peuvent tous utiliser cette intégration. 
+*  Les clients Azure AD des abonnements Gratuit, De base et Premium peuvent tous utiliser cette intégration.
 
-*  Les clients mutuels obtiennent un tutoriel de configuration pas à pas. 
+*  Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
 
 *  Les clients qui utilisent SCIM peuvent utiliser le provisionnement pour la même application.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Prérequis : implémenter un protocole de fédération
 
-Pour lister une application dans la galerie d’applications Azure AD, vous devez tout d’abord implémenter l’un des protocoles de fédération suivants pris en charge par Azure AD. Lisez les conditions générales de la galerie d’applications Azure AD ici. 
+Pour lister une application dans la galerie d’applications Azure AD, vous devez tout d’abord implémenter l’un des protocoles de fédération suivants pris en charge par Azure AD, puis accepter les conditions générales d’utilisation de la galerie d’applications Azure AD. Lisez les conditions générales d’utilisation de la galerie d’applications Azure AD [ici](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **OpenID Connect** : Créez l’application multilocataire dans Azure AD et implémentez le [framework de consentement Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) pour votre application. Envoyez la demande de connexion à un point de terminaison courant afin que n’importe quel client puisse donner son consentement à l’application. Vous pouvez contrôler l’accès utilisateur en fonction de l’ID de locataire et de l’UPN de l’utilisateur, reçus dans le jeton. Pour intégrer votre application dans Azure AD, suivez les [instructions pour développeurs](active-directory-authentication-scenarios.md).
 

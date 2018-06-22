@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6f755754097336fc97678940ea1fa0aa28315fab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868602"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593589"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -153,6 +153,8 @@ Toutes les questions prédéfinies ci-après sont localisées dans l’ensemble 
 Les questions de sécurité personnalisées ne sont pas localisées pour tous les paramètres régionaux. Toutes les questions personnalisées s’affichent dans la même langue que celle dans laquelle elles sont entrées dans l’interface utilisateur d’administration, même si les paramètres régionaux du navigateur de l’utilisateur sont différents. Si vous avez besoin de questions localisées, vous devez utiliser les questions prédéfinies.
 
 La longueur maximale d’une question de sécurité personnalisée est de 200 caractères.
+
+Pour afficher le portail de réinitialisation de mot de passe et les questions dans une autre langue localisée, ajoutez "?mkt=<Locale>" à la fin de l’URL de réinitialisation du mot de passe avec l’exemple qui suit la localisation en espagnol [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 ### <a name="security-question-requirements"></a>Conditions relatives aux questions de sécurité
 

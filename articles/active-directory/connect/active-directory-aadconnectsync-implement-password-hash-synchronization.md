@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593450"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -81,9 +83,9 @@ Ce qui suit explique en détail comment fonctionne la synchronisation de hachage
 2. Avant l’envoi, le contrôleur de domaine chiffre le hachage de mot de passe MD4 à l’aide d’une clé qui est un hachage [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) de la clé de session RPC et un salt. Il envoie ensuite le résultat à l’agent de synchronisation de hachage de mot de passe via RPC. Le contrôleur de domaine passe également le salt à l’agent de synchronisation à l’aide du protocole de réplication du contrôleur de domaine, pour que l’agent puisse déchiffrer l’enveloppe.
 3.  Une fois que l’agent de synchronisation de hachage de mot de passe dispose de l’enveloppe chiffrée, il utilise [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) et le salt pour générer une clé afin de déchiffrer les données reçues dans leur format MD4 d’origine. L’agent de synchronisation de hachage de mot de passe n’a accès à aucun moment au mot de passe en clair. L’utilisation de MD5 par l’agent de synchronisation de hachage de mot de passe est strictement destinée à assurer la compatibilité du protocole de réplication avec le contrôleur de domaine, et uniquement en local entre le contrôleur de domaine et l’agent de synchronisation de hachage de mot de passe.
 4.  L’agent de synchronisation de hachage de mot de passe étend le hachage de mot de passe binaire de 16 octets à 64 octets en convertissant d’abord le hachage en chaîne hexadécimale de 32 octets, puis en reconvertissant cette chaîne au format binaire avec l’encodage UTF-16.
-5.  L’agent de synchronisation de hachage de mot de passe ajoute un salt de 10 octets de long au fichier binaire de 64 octets pour renforcer la protection du hachage d’origine.
-6.  L’agent de synchronisation de hachage de mot de passe combine alors le hachage MD4 et le salt, puis place le tout dans la fonction [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). 1000 répétitions de l’algorithme de hachage à clé [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) sont utilisées. 
-7.  L’agent de synchronisation de hachage de mot de passe prend le hachage de 32 octets résultant, concatène le salt et le nombre d’itérations SHA256 (pour une utilisation par Azure AD), puis transmet la chaîne d’Azure AD Connect à Azure AD par SSL.</br> 
+5.  L’agent de synchronisation de hachage de mot de passe ajoute pour chaque utilisateur un salt de 10 octets de long au fichier binaire de 64 octets pour renforcer la protection du hachage d’origine.
+6.  L’agent de synchronisation de hachage de mot de passe combine alors le hachage MD4 et le salt par utilisateur, puis place le tout dans la fonction [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). 1000 répétitions de l’algorithme de hachage à clé [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) sont utilisées. 
+7.  L’agent de synchronisation de hachage de mot de passe prend le hachage de 32 octets résultant, concatène le salt par utilisateur et le nombre d’itérations SHA256 (pour une utilisation par Azure AD), puis transmet la chaîne d’Azure AD Connect à Azure AD par SSL.</br> 
 8.  Lorsqu’un utilisateur tente de se connecter à Azure AD et entre son mot de passe, le mot de passe est traité par le même processus MD4+salt+PBKDF2+HMAC-SHA256. Si le hachage résultant correspond au hachage stocké dans Azure AD, l’utilisateur a entré le bon mot de passe et est authentifié. 
 
 >[!Note] 

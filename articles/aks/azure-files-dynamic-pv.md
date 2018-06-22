@@ -6,15 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356441"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597499"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumes persistants avec les fichiers Azure
 
@@ -24,29 +24,20 @@ Pour plus d’informations sur les volumes persistants Kubernetes, y compris sur
 
 ## <a name="create-storage-account"></a>Créer un compte de stockage
 
-Lors de la création dynamique d’un partage de fichiers Azure en tant que volume Kubernetes, il est possible d’utiliser un compte de stockage tant que celui-ci figure dans le même groupe de ressources que le cluster AKS. Si nécessaire, créez un compte de stockage dans le même groupe de ressources que le cluster AKS.
-
-Pour identifier le groupe de ressources approprié, utilisez la commande [az group list][az-group-list].
+Lors de la création dynamique d’un partage de fichiers Azure en tant que volume Kubernetes, il est possible d’utiliser un compte de stockage tant que celui-ci figure dans le **nœud** AKS du groupe de ressources. Obtenez le nom du groupe de ressources avec la commande [az resource show][az-resource-show].
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Recherchez un groupe de ressources présentant un nom comparable à `MC_clustername_clustername_locaton`.
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Utilisez la commande [az storage account create][az-storage-account-create] pour créer le compte de stockage.
 
-À l’aide de cet exemple, mettez à jour `--resource-group` avec le nom du groupe de ressources et `--name` avec le nom de votre choix.
+Mettez à jour `--resource-group` avec le nom du groupe de ressources collecté à la dernière étape et `--name` avec le nom de votre choix.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>Créer la classe de stockage
@@ -77,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure.
 
-Le code YAML ci-après permet de créer une revendication de volume persistant d’une taille de `5GB` avec un accès `ReadWriteOnce`. Pour plus d’informations sur les modes d’accès, consultez la [documentation Kubernetes sur les volumes persistants][access-modes].
+Le code YAML ci-après permet de créer une revendication de volume persistant d’une taille de `5GB` avec un accès `ReadWriteMany`. Pour plus d’informations sur les modes d’accès, consultez la [documentation Kubernetes sur les volumes persistants][access-modes].
 
 Créez un fichier nommé `azure-file-pvc.yaml` et copiez-y le YAML suivant. Vérifiez que `storageClassName` correspond à la classe de stockage créée à la dernière étape.
 
@@ -88,7 +79,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:
@@ -210,6 +201,7 @@ Apprenez-en davantage sur les volumes persistants Kubernetes utilisant Azure Fil
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list

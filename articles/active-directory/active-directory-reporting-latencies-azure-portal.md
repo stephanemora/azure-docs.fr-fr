@@ -1,25 +1,27 @@
 ---
-title: "Latences de création de rapports Azure Active Directory | Microsoft Docs"
-description: "Découvrir le délai nécessaire pour que les événements de rapports apparaissent dans votre portail Azure"
+title: Latences de création de rapports Azure Active Directory | Microsoft Docs
+description: Découvrir le délai nécessaire pour que les événements de rapports apparaissent dans votre portail Azure
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: eda894216c624956aab6efa74057e15ce9a1b3ff
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36230520"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
@@ -37,10 +39,10 @@ Il existe deux zones de rapports d’activité :
 
 Le tableau suivant répertorie les informations de latence pour les rapports d’activité.
 
-| Rapport | Minimale | Moyenne | Remarques |
-| :-- | --- | --- | :-- |
-| Journaux d’audit | 30 minutes  | 1 heure  |Dans certains cas, l’affichage des données d’activité d’audit peut prendre jusqu’à deux heures.|
-| Connexions | 15 minutes  | 2 heures |Dans certains cas, l’affichage des données d’activité de connexion peut prendre jusqu’à 24 heures. Cela inclut les données d’activité de connexion provenant d’applications de bureau héritées. |
+| Rapport | Latence (P95) |Latence (P99)|
+| :-- | --- | --- | 
+| Journaux d’audit | 2 minutes  | 5 minutes  |
+| Connexions | 2 minutes  | 5 minutes |
 
 
 

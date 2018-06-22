@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 0ecfade830b2123257b8039d5f0c26f19f3f3fc6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597516"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie de C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.  
@@ -170,7 +171,7 @@ Pour plus d'informations :
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|  
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Déploiement<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid (identificateur de demande unique)<br /><br /> response<br /><br /> Abonnement<br /><br /> Timestamp: DateTime (point dans le temps où la demande a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> Utilisateur<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
-|context.Api|Id: string<br /><br /> IsRevisionCurrent: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
+|context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificats : IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|  
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  

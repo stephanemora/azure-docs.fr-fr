@@ -17,11 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 892cf2cfc93c86b9196000d94f976407156ec248
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594276"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
 Vous pouvez utiliser [l’octroi des informations d’identification du client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) spécifié dans RFC 6749, parfois appelé *OAuth à deux branches* pour accéder à des ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d'octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l'interaction immédiate d’un utilisateur. Ces types d’application sont souvent appelés *démons* (daemons) ou *comptes de service*.
@@ -62,7 +63,7 @@ Pour utiliser les autorisations d’application dans votre application, effectue
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 1. Accédez à votre application dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [créez une application](active-directory-v2-app-registration.md), si ce n’est déjà fait. Vous devez utiliser au moins une clé secrète d’application lorsque vous créez votre application.
-2. Recherchez la section **Autorisations pour Microsoft Graph**, puis ajoutez les **autorisations d’application** nécessaires à votre application.
+2. Recherchez la section **Autorisations pour Microsoft Graph**, puis ajoutez les **autorisations d’application** nécessaires à votre application.
 3. **Enregistrez** l’inscription de l’application.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recommandé : connectez l’utilisateur à votre application
