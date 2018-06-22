@@ -205,5 +205,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Partenaires
+      href: partners-migration-mysql.md
     - name: Guide pour la migration de base de données
       href: 'https://datamigration.microsoft.com/'
