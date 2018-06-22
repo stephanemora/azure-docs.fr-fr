@@ -417,6 +417,7 @@
 #### Didacticiels
 ##### [Migrer une stratégie MFA classique](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
+##### [Protection de la ligne de base](active-directory-conditional-access-baseline-protection.md)
 ##### [Conditions](active-directory-conditional-access-conditions.md)
 ##### [Conditions d’emplacement](active-directory-conditional-access-locations.md)
 ##### [Contrôles](active-directory-conditional-access-controls.md)

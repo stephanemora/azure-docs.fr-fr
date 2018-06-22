@@ -42,7 +42,7 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 |Points de terminaison|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Répertoires|Espace de noms plat|Vrais objets d’annuaire|  
 |Sensibilité des noms à la casse|Respect de la casse|Non sensible à la casse, mais la casse est conservée|  
-|Capacity|Conteneurs jusqu’à 500 Tio|Partages de fichiers de 5 Tio|  
+|Capacité|Conteneurs jusqu’à 500 Tio|Partages de fichiers de 5 Tio|  
 |Débit|Jusqu’à 60 Mio/s par objet blob de blocs|Jusqu’à 60 Mio/s par partage|  
 |Taille de l’objet|Jusqu'à environ 4,75 Tio par objet blob de blocs|Jusqu'à 1 Tio par fichier|  
 |Capacité facturée|En fonction des octets écrits|En fonction de la taille de fichier|  

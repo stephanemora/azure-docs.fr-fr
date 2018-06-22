@@ -206,7 +206,7 @@
 ### [Migrer vers les paramètres des diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Surveillance des opérations](iot-hub-operations-monitoring.md)
 ## Utiliser des appareils réels
-### [Bien démarrer](iot-hub-get-started.md)
+### [Prise en main](iot-hub-get-started.md)
 ### [Utiliser un simulateur en ligne](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Utiliser un appareil physique](iot-hub-get-started-physical.md)
 #### [Raspberry Pi avec Python](iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -259,6 +259,7 @@
 ## [Centre de développement Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Demandes de données client](iot-hub-customer-data-requests.md)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [Outil DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Outil iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)
 ## [Outil iothub-explorer](https://github.com/Azure/iothub-explorer)
