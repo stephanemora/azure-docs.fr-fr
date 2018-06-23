@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/30/2017
   ms.author: v-jansko
-  ms.openlocfilehash: 55ec3147a07c5c76fe1f1b356d633a9afeb783cc
-  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+  ms.openlocfilehash: 1995f8d58c47b8e098022ca672c7889195dd5328
+  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/20/2018
-  ms.locfileid: "36286906"
+  ms.lasthandoff: 06/22/2018
+  ms.locfileid: "36319178"
 abstract:
   description: L’API de traduction de texte Microsoft Translator Text est un service de traduction basé sur le cloud. Avec cette API, vous pouvez traduire du texte presque en temps réel à partir de n’importe quelle application ou via un simple appel d’API REST. L’API utilise la technologie de traduction automatique neuronale la plus récente, ainsi que la technologie de traduction automatique statistique. Pour obtenir la liste des langues prises en charge pour la traduction automatique neuronale et pour la traduction automatique statistique, consultez <a href="languages.md">Langues prises en charge</a>.
 sections:
@@ -46,26 +46,26 @@ sections:
       values:
       - href: quickstart-csharp-translate
       - href: quickstart-java-translate
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-translate
+      - href: quickstart-python-translate
     - title: Convertir du texte d’un script à un autre
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-transliterate
+      - href: quickstart-python-transliterate
     - title: Identifier la langue du texte
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-detect
+      - href: quickstart-python-detect
     - title: Obtenir des traductions et des usages alternatifs
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-dictionary
+      - href: quickstart-python-dictionary
 - title: Informations de référence
   items:
   - type: paragraph

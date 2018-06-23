@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Mettre à l’échelle les ressources de bases de données uniques
           href: sql-database-single-database-scale.md
-        - name: Pools élastiques et bases de données regroupées
-          items:
-            - name: Pools élastiques et bases de données regroupées
-              href: sql-database-elastic-pool.md
-            - name: Gérer les pools et les bases de données regroupées
-              href: sql-database-elastic-pool-manage.md
-            - name: Limites de ressources basées sur des vCore
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Limites de ressources basées sur des unités DTU
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Mettre à l’échelle des ressources de pool élastique
-          href: sql-database-elastic-pool-scale.md
         - name: Architecture de connectivité
           href: sql-database-connectivity-architecture.md
         - name: Différences de T-SQL
           href: sql-database-transact-sql-information.md
+    - name: Pools élastiques et bases de données regroupées
+      items:
+        - name: Pools élastiques et bases de données regroupées
+          href: sql-database-elastic-pool.md
+        - name: Gérer les pools et les bases de données regroupées
+          href: sql-database-elastic-pool-manage.md
+        - name: Limites de ressources basées sur des vCore
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: Limites de ressources basées sur des unités DTU
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Mettre à l’échelle des ressources de pool élastique
+          href: sql-database-elastic-pool-scale.md
     - name: Instances Managed Instance
       items:
         - name: Instances Managed Instance

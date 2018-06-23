@@ -79,17 +79,17 @@
     - name: REST
       items:
         - name: Render Service
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Service d’itinéraire
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/route'
         - name: Service de recherche
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: Service de fuseau horaire
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: Traffic Service
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
         - name: Gestion de compte Maps
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+          href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript
       items:
         - name: Commandes de la carte
