@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297833"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Configurer des comptes de stockage pour Cost Management
 
@@ -23,7 +24,6 @@ ms.lasthandoff: 04/28/2018
 Vous pouvez enregistrer des rapports Cost Management dans le portail Cloudyn, dans le Stockage Azure ou dans les compartiments de stockage AWS. L’enregistrement de vos rapports sur le portail Cloudyn est gratuit. Toutefois, l’enregistrement de vos rapports sur le stockage de votre fournisseur de services cloud est facultatif et entraîne des coûts supplémentaires. Cet article vous aide à configurer des comptes de stockage Azure et des compartiments de stockage Amazon Web Services (AWS) pour stocker vos rapports.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Vous devez disposer d’un compte de stockage Azure ou d’un compartiment de stockage Amazon.
 
@@ -40,7 +40,7 @@ La configuration de votre compte de stockage Azure pour une utilisation par Cost
 3. Sur la page de votre compte de stockage, sous **Paramètres**, cliquez sur **Clés d’accès**.
 4. Copiez vos **Nom du compte de stockage** et **Chaîne de connexion** sous key1.  
 ![Clés d’accès de stockage Azure](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Ouvrez le portail Cloudyn à partir du portail Azure, ou accédez à https://azure.cloudyn.com et connectez-vous.
+5. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à https://azure.cloudyn.com et connectez-vous.
 6. Cliquez sur le symbole de roue dentée, puis sélectionnez **Gestion des rapports de stockage**.
 7. Cliquez sur **Ajouter nouveau** et assurez-vous que Microsoft Azure est sélectionné. Collez le nom de votre compte de stockage Azure dans la zone **Nom**. Collez votre **chaîne de connexion** dans la zone correspondante. Saisissez un nom de conteneur, puis cliquez sur **Enregistrer**.  
 ![Stockage Cloudyn configuré pour Azure](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -148,7 +148,7 @@ Vous pouvez également définir une autorisation pour créer des rapports sur vo
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Ajouter le stockage de rapports AWS à Cloudnyn
 
-1. Ouvrez le portail Cloudyn à partir du portail Azure, ou accédez à https://azure.cloudyn.com et connectez-vous.
+1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à https://azure.cloudyn.com et connectez-vous.
 2. Cliquez sur le symbole de roue dentée, puis sélectionnez **Gestion des rapports de stockage**.
 3. Cliquez sur **Ajouter nouveau +** et assurez-vous qu’AWS est sélectionné.
 4. Sélectionnez un compte et un compartiment de stockage. Le nom du compartiment de stockage AWS est automatiquement rempli.  

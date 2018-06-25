@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/07/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930855"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849523"
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory
 
@@ -51,7 +52,7 @@ Pour inscrire un appareil auprès d’Azure AD, vous avez trois possibilités :
 
 - **[Appareils inscrits sur Azure AD](device-management-introduction.md#azure-ad-registered-devices)**  : pour inscrire un appareil personnel auprès d’Azure AD
 
-- **[Appareils joints à Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  : pour inscrire auprès d’Azure AD un appareil Windows 10 professionnel qui n’est pas joint à un AD local. 
+- **[Appareils joints à Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  : pour inscrire auprès d’Azure AD un appareil Windows 10 professionnel qui n’est pas joint à une version locale d’AD. 
 
 - **[Appareils joints à une version hybride d’Azure AD](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  : pour inscrire auprès d’Azure AD un appareil Windows 10 joint à un AD local.
 
@@ -67,7 +68,7 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Exige
 
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Ce paramètre s’applique uniquement aux appareils Windows 10 joints à une version locale d’Azure AD. Vous pouvez uniquement inscrire ces appareils auprès d’Azure AD en utilisant une jointure à une version hybride d’Azure AD, ce qui correspond à un [processus automatisé](device-management-hybrid-azuread-joined-devices-setup.md) pour inscrire un appareil Windows 10. 
+Ce paramètre s’applique uniquement aux appareils Windows 10 joints à une version locale d’AD. Vous pouvez uniquement inscrire ces appareils auprès d’Azure AD en utilisant une jointure à une version hybride d’Azure AD, ce qui correspond à un [processus automatisé](device-management-hybrid-azuread-joined-devices-setup.md) pour inscrire un appareil Windows 10. 
 
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

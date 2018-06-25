@@ -1,13 +1,14 @@
 ---
-title: "Configurer des appareils joints à Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer des appareils joints à Azure Active Directory."
+title: Configurer des appareils joints à Azure Active Directory | Microsoft Docs
+description: Découvrez comment configurer des appareils joints à Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260927"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurer des appareils joints à Azure Active Directory
 
@@ -45,12 +47,16 @@ Pour joindre un appareil Windows 10, le service d’inscription des appareils do
 
 - Si vous êtes un utilisateur géré, Windows vous dirige vers le bureau par le biais de la connexion automatique.
 
-- Si vous êtes un utilisateur fédéré, vous devez vous connecter à l’aide de vos informations d’identification.
+- Si vous êtes un utilisateur fédéré, vous devrez vous connecter avec vos informations d’identification.
+
+- Si vous êtes un utilisateur fédéré, votre fournisseur d’identité DOIT prendre en charge le point de terminaison nom d’utilisateur/mot de passe WS-Fed et WS-Trust. Il peut s’agir de la version 1.3 ou de la version 2005. La prise en charge de ce protocole est nécessaire tant pour joindre l’appareil à Azure AD que pour ouvrir une session sur l’appareil avec un mot de passe. 
+
+
 
 
 ## <a name="joining-a-device"></a>Joindre un appareil
 
-Cette section fournit les étapes permettant de joindre votre appareil Windows 10 à Azure AD. Si vous avez correctement joint votre appareil dans Azure AD, la boîte de dialogue **Accès Professionnel ou Scolaire** vous le confirme à l’aide de l’entrée **Connecté à \<votre annuaire Azure AD\>**.
+Cette section fournit les étapes permettant de joindre votre appareil Windows 10 à Azure AD. Un appareil correctement joint apparaît **Connecté à \<votre annuaire Azure AD\>**.
 
 ![Connecté](./media/device-management-azuread-joined-devices-setup/13.png)
 

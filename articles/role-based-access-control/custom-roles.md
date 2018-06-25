@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/12/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3baf616e448f1f6d5292161ae125502d72141940
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161054"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266592"
 ---
 # <a name="create-custom-roles-in-azure"></a>Créer des rôles personnalisés dans Azure
 
-Si les [rôles intégrés](built-in-roles.md) ne répondent pas à vos besoins d’accès, vous pouvez créer vos propres rôles personnalisés. Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un locataire Azure Active Directory (Azure AD) et peuvent être partagés entre les abonnements. Vous pouvez créer des rôles personnalisés à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure et de l’API REST. Cet article décrit un exemple qui initie à la création de rôles personnalisés à l’aide de PowerShell et de l’interface de ligne de commande Azure.
+Si les [rôles intégrés](built-in-roles.md) ne répondent pas à vos besoins d’accès, vous pouvez créer vos propres rôles personnalisés. Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un locataire Azure Active Directory (Azure AD) et peuvent être partagés entre les abonnements. Chaque locataire peut avoir jusqu’à 2000 rôles personnalisés. Vous pouvez créer des rôles personnalisés à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure et de l’API REST.
+
+Cet article décrit un exemple qui initie à la création de rôles personnalisés à l’aide de PowerShell et de l’interface de ligne de commande Azure.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Créer un rôle personnalisé pour ouvrir des demandes de support à l’aide de PowerShell
 

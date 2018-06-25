@@ -1,36 +1,32 @@
 ---
-title: "Instructions conditionnelles - Exécuter des étapes en fonction d’une condition - Azure Logic Apps | Microsoft Docs"
-description: "Exécutez des étapes dans votre application logique uniquement lorsqu’une condition est remplie. Créer des arbres de décision qui exécutent des flux de travail basés sur des conditions spécifiées."
+title: Ajouter des instructions conditionnelles aux workflows – Azure Logic Apps | Microsoft Docs
+description: Comment créer des conditions qui contrôlent des actions dans le workflow dans Azure Logic Apps
 services: logic-apps
-keywords: "instructions conditionnelles, arbres de décision"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298166"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Créer des instructions conditionnelles qui contrôlent des actions de workflow dans Azure Logic Apps
 
-Pour exécuter des étapes uniquement après avoir transmis une condition spécifiée, utilisez une *instruction conditionnelle*. Cette structure compare les données de votre flux de travail à des champs ou des valeurs spécifiques. Vous pouvez ensuite définir différentes étapes à exécuter selon que les données remplissent ou non la condition. Vous pouvez imbriquer les conditions les unes dans les autres.
+Pour exécuter des actions spécifiques dans votre application logique uniquement après avoir rempli une condition spécifiée, ajoutez une *instruction conditionnelle*. Cette structure compare les données de votre workflow à des valeurs ou à des champs spécifiques. Vous pouvez ensuite définir différentes actions à exécuter selon que les données remplissent ou non la condition. Vous pouvez imbriquer les conditions les unes dans les autres.
 
 Par exemple, supposons que vous disposez d’une application logique qui envoie un trop grand nombre d’e-mails lorsque de nouveaux éléments s’affichent dans le flux RSS d’un site web. Vous pouvez ajouter une instruction conditionnelle pour envoyer un e-mail uniquement lorsque le nouvel élément inclut une chaîne spécifique. 
 
 > [!TIP]
 > Pour exécuter différentes étapes en fonction de diverses valeurs spécifiques, utilisez plutôt une [*instruction switch*](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -40,7 +36,7 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
 
 ## <a name="add-a-condition"></a>Ajouter une condition
 
-1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre application logique dans le concepteur d’application logique.
+1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre application logique dans le Concepteur d’applications logiques.
 
 2. Ajoutez une condition à l’emplacement souhaité. 
 
@@ -108,11 +104,11 @@ Maintenant que vous avez créé une application logique avec une instruction con
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées et suggestions de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des fonctionnalités et suggestions ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Switch statements: Run different steps based on specific values in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md) (Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques dans des applications logiques)
+* [Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Loops: Process arrays or repeat actions until a condition is met](../logic-apps/logic-apps-control-flow-loops.md) (Boucles : Traiter des tableaux ou répéter des actions jusqu’à ce qu’une condition soit remplie)
 * [Create or join parallel branches in your logic app](../logic-apps/logic-apps-control-flow-branches.md) (Créer ou joindre des branches parallèles dans votre application logique)
-* [Scopes: Run steps based on group status in logic apps](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) (Étendues : Exécuter des étapes en fonction de l’état d’un groupe dans des applications logiques)
+* [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

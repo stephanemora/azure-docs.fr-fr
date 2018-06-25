@@ -11,37 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203901"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266647"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle
 
-Quand un utilisateur apporte des changements à des définitions ou attributions de rôle au sein de vos abonnements, ceux-ci sont journalisés dans la catégorie Administratif du [Journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Vous pouvez afficher les journaux d’activité pour voir tous les changements RBAC (contrôle d’accès en fonction du rôle) des 90 derniers jours.
+Vous avez parfois besoin d’informations sur les modifications du contrôle d’accès en fonction du rôle (RBAC), par exemple à des fins d’audit ou de dépannage. Quand un utilisateur apporte des changements à des attributions ou des définitions de rôle au sein de vos abonnements, ceux-ci sont journalisés dans la catégorie [Journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Vous pouvez afficher les journaux d’activité pour voir tous les changements RBAC des 90 derniers jours.
 
 ## <a name="operations-that-are-logged"></a>Opérations journalisées
 
 Voici les opérations RBAC qui sont journalisées dans le journal d’activité :
 
-- Créer ou mettre à jour une définition de rôle personnalisée
-- Supprimer la définition de rôle personnalisée
 - Créer une attribution de rôle
 - Supprimer une attribution de rôle
+- Créer ou mettre à jour une définition de rôle personnalisée
+- Supprimer la définition de rôle personnalisée
 
 ## <a name="azure-portal"></a>Portail Azure
 
-Pour commencer, le plus simple consiste à afficher les journaux d’activité avec le portail Azure. La capture d’écran suivante montre un exemple de journal d’activité qui a été filtré pour afficher la catégorie **Administratif**, ainsi que les opérations de définition de rôle et d’attribution de rôle. Il contient également un lien pour télécharger les journaux dans un fichier CSV.
+Pour commencer, le plus simple consiste à afficher les journaux d’activité avec le portail Azure. La capture d’écran suivante montre un exemple de journal d’activité qui a été filtré pour afficher les opérations de définition de rôle et d’attribution de rôle. Il contient également un lien pour télécharger les journaux dans un fichier CSV.
 
 ![Journaux d’activité à l’aide du portail : capture d’écran](./media/change-history-report/activity-log-portal.png)
 
-Pour plus d’informations, consultez [Afficher des événements dans le journal d’activité](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Le journal d’activité dans le portail comporte plusieurs filtres. Voici les filtres RBAC :
+
+|Filtrer  |Valeur  |
+|---------|---------|
+|Catégorie d'événements     | <ul><li>Administratif</li></ul>         |
+|Opération     | <ul><li>Créer une attribution de rôle</li> <li>Supprimer une attribution de rôle</li> <li>Créer ou mettre à jour une définition de rôle personnalisée</li> <li>Supprimer la définition de rôle personnalisée</li></ul>      |
+
+
+Pour plus d’informations sur les journaux d’activité, consultez [Afficher des événements dans le journal d’activité](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -100,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) est un autre outil que vous pouvez utiliser pour collecter et analyser les changements de contrôle d’accès en fonction du rôle de toutes vos ressources Azure. Log Analytics offre les avantages suivants :
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) est un autre outil que vous pouvez utiliser pour collecter et analyser les changements RBAC de toutes vos ressources Azure. Log Analytics offre les avantages suivants :
 
 - Écriture de requêtes et d’une logique complexes
 - Intégration aux alertes, à Power BI et à d’autres outils

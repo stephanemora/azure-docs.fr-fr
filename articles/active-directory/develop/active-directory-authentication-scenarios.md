@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0f535e8a74822319d472c62fe1b65e5145e58a74
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157569"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261642"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scénarios d’authentification pour Azure AD
 
@@ -138,7 +138,7 @@ Cette section décrit une application authentifiant un utilisateur d’un naviga
 1. Quand un utilisateur accède à l’application et doit se connecter, il est redirigé via une demande de connexion au point de terminaison d’authentification d’Azure AD.
 1. L’utilisateur se connecte sur la page de connexion.
 1. Si l’authentification réussit, Azure AD crée un jeton d’authentification et renvoie une réponse de connexion à l’URL de réponse de l’application qui a été configurée dans le portail Azure. Pour une application de production, cette URL de réponse doit être au format HTTPS. Le jeton renvoyé inclut des revendications sur l’utilisateur et Azure AD dont l’application a besoin pour valider le jeton.
-1. L’application valide le jeton à l’aide d’une clé de signature publique et des informations sur l’émetteur disponibles dans le document de métadonnées de fédération pour Azure AD. Une fois que l’application a validé le jeton, Azure AD démarre une nouvelle session avec l’utilisateur. Cette session permet à l’utilisateur d’accéder à l’application jusqu’à expiration de la session.
+1. L’application valide le jeton à l’aide d’une clé de signature publique et des informations sur l’émetteur disponibles dans le document de métadonnées de fédération pour Azure AD. Une fois que l’application a validé le jeton, elle démarre une nouvelle session avec l’utilisateur. Cette session permet à l’utilisateur d’accéder à l’application jusqu’à expiration de la session.
 
 #### <a name="code-samples"></a>Exemples de code
 

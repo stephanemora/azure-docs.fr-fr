@@ -1,46 +1,48 @@
 ---
-title: Privileged Identity Management pour les ressources Azure - Audit des ressources | Microsoft Docs
+title: Auditer les rôles des ressources Azure avec Privileged Identity Management | Microsoft Docs
 description: Explique comment obtenir une vue de toutes les activités de rôle pour une ressource donnée.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b8fa7d5600c0de8a3319ea4de785281372959937
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 211b8c69a1462f7efdcb4002269d96d1d5cf2ae6
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233782"
 ---
-# <a name="privileged-identity-management---resource-roles---audit"></a>Privileged Identity Management - Rôles de ressource - Audit
+# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Auditer les rôles des ressources Azure avec Privileged Identity Management 
 
 L’audit d’une ressource vous donne une vue d’ensemble de l’activité des rôles pour la ressource. Vous pouvez filtrer les informations en choisissant une date prédéfinie ou une plage personnalisée.
-![](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+![Filtrer les informations](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-L’audit d’une ressource fournit également un accès rapide aux détails de l’activité d’un utilisateur. Sous « Type d’audit », sélectionnez « Activer ». Cliquez sur « (activité) » pour afficher les actions de l’utilisateur sur les ressources Azure.
-![](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+L’audit des ressources offre également un accès rapide aux détails de l’activité d’un utilisateur. Sous **Type d’audit**, sélectionnez **Activer**. Cliquez sur **(activité)** pour afficher les actions de cet utilisateur dans les ressources Azure.
+![Détail de l’activité](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-![](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+![Plus de détails sur l’activité](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 # <a name="my-audit"></a>Mon audit
 
 Mon audit vous offre une vue de l’activité du rôle personnel d’un utilisateur. Vous pouvez filtrer les informations en choisissant une date prédéfinie ou une plage personnalisée.
-![](media/azure-pim-resource-rbac/my-audit-time.png)
+![Activité du rôle personnel](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Voir les activations et les activités des ressources Azure
 
-Si vous avez besoin de connaître les actions d’un utilisateur spécifique effectuées sur les différentes ressources, vous pouvez consulter l’activité de la ressource Azure sur une période d’activation donnée (pour les utilisateurs éligibles). Commencez par sélectionner un utilisateur à partir de la vue des membres ou à partir de la liste des membres dans un rôle spécifique. Le résultat affiche une vue graphique des actions de l’utilisateur sur les ressources Azure classées par date ainsi que les activations de rôle récentes sur la même période de temps.
+Pour connaître les actions qu’un utilisateur en particulier a effectuées sur différentes ressources, vous pouvez consulter l’activité en matière de ressources Azure associée à une période d’activation donnée. Commencez par sélectionner un utilisateur dans l’affichage **Membres** ou dans la liste des membres ayant un certain rôle. Le résultat affiche une représentation graphique des actions de l’utilisateur dans les ressources Azure par date. Il montre également les dernières activations de rôle sur cette même période.
 
-![](media/azure-pim-resource-rbac/rbac-user-details.png)
+![Détails de l’utilisateur](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-La sélection d’une activation de rôle affichera les détails de l’activation de rôle ainsi que l’activité de la ressource Azure correspondante survenue lorsque l’utilisateur était actif.
+Si vous sélectionnez une activation de rôle, vous pourrez voir les détails de l’activation de rôle ainsi que l’activité correspondante, en matière de ressources Azure, survenue lorsque l’utilisateur était actif.
 
-![](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+![Sélectionner l’activation de rôle](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 

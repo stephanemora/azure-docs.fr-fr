@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257731"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248718"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
@@ -31,6 +32,7 @@ La sécurité est une priorité pour les organisations qui utilisent le cloud. L
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Cet article vous fournit une vue d’ensemble conceptuelle de l’accès conditionnel dans Azure AD.
+
 
 
 ## <a name="common-scenarios"></a>Scénarios courants
@@ -59,7 +61,7 @@ Ces questions et les réponses associées représentent des scénarios d’accè
 
 ## <a name="conditional-access-policies"></a>Stratégies d’accès conditionnel
 
-Une stratégie d’accès conditionnel est la définition d’un scénario d’accès utilisant le modèle suivant :
+Une stratégie d’accès conditionnel est une définition d’un scénario d’accès utilisant le modèle suivant :
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/10.png)
 
@@ -82,32 +84,8 @@ Avec l’accès conditionnel Azure AD, vous pouvez contrôler la façon dont les
 
 L’un des avantages de l’utilisation d’une approche basée sur des stratégies pour protéger l’accès aux applications cloud est que vous pouvez commencer à définir les critères des stratégies de votre environnement à l’aide de la structure décrite dans cet article, sans vous préoccuper de la mise en œuvre technique. 
 
-## <a name="what-you-need-to-know"></a>Bon à savoir
 
-### <a name="general-requirements-for-using-conditional-access"></a>Exigences générales pour utiliser l’accès conditionnel
-
-Vous pouvez utiliser l’accès conditionnel Azure AD pour protéger les applications cloud quand une tentative d’authentification provient de :
-
-- Un navigateur web
-
-- Une application cliente qui utilise l’authentification moderne
-
-- Exchange ActiveSync
-
-Pour plus d'informations, consultez les [applications clientes](active-directory-conditional-access-conditions.md#client-apps).
-
-Certaines [applications cloud](active-directory-conditional-access-conditions.md#cloud-apps) prennent également en charge des protocoles d’authentification hérités. C’est le cas, par exemple, de SharePoint Online et Exchange Online. Quand une application cliente peut utiliser un protocole d’authentification hérité pour accéder à une application cloud, Azure AD ne peut pas appliquer de stratégie d’accès conditionnel sur cette tentative d’accès. Pour empêcher une application cliente de contourner la mise en œuvre des stratégies, vous devez vérifier s’il est possible d’activer uniquement l’authentification moderne sur les applications cloud concernées.
-
-Voici des exemples d’applications clientes auxquelles l’accès conditionnel ne s’applique pas :
-
-- Office 2010 et versions antérieures
-
-- Office 2013 quand l’authentification moderne n’est pas activée
-
-Pour plus d’informations, consultez [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>Conditions requises de licences pour utiliser l’accès conditionnel
+## <a name="license-requirements-for-using-conditional-access"></a>Conditions requises de licences pour utiliser l’accès conditionnel
 
 L’utilisation de l’accès conditionnel requiert une licence Azure AD Premium. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions gratuite, de base et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 

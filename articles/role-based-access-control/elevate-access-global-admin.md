@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: bagovind
+ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077205"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266498"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Élever l’accès d’un administrateur général dans Azure Active Directory
 
@@ -33,6 +34,8 @@ Si vous êtes un [administrateur général](../active-directory/active-directory
 Par défaut, les rôles d’administrateur Azure AD et les rôles de contrôle d’accès en fonction du rôle (RBAC) ne couvrent pas Azure AD et Azure. En revanche, si vous êtes un administrateur général dans Azure AD, vous pouvez élever votre accès afin de gérer des abonnements et des groupes d’administration Azure. Lorsque vous élevez votre accès, le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) (un rôle RBAC) vous est attribué pour tous les abonnements d’un client particulier. Le rôle Administrateur de l’accès utilisateur vous permet d’accorder à d’autres utilisateurs l’accès aux ressources Azure figurant dans l’étendue racine (`/`).
 
 Cette élévation doit être temporaire et n’avoir lieu qu’en cas de nécessité.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Élever l’accès d’un administrateur général à l’aide du portail Azure
 
@@ -76,9 +79,9 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>Supprimer une attribution de rôle dans l’étendue racine (/) à l’aide de PowerShell
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Supprimer une attribution de rôle dans l’étendue racine (/) avec PowerShell
 
-Pour supprimer une attribution de rôle Administrateur de l’accès utilisateur pour un utilisateur dans l’étendue racine (`/`), utilisez la commande [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+Pour supprimer l’attribution de rôle Administrateur des accès utilisateur d’un utilisateur dans l’étendue racine (`/`), utilisez la commande [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
@@ -110,12 +113,21 @@ Pour élever l’accès d’un administrateur général à l’aide de l’API R
    }
    ```
 
-1. En tant qu’Administrateur de l’accès utilisateur, vous pouvez également supprimer des attributions de rôles dans l’étendue racine (`/`).
+1. En tant qu’Administrateur des accès utilisateur, vous pouvez également supprimer des attributions de rôles dans l’étendue racine (`/`).
 
-1. Révoquez vos privilèges d’Administrateur de l’accès utilisateur jusqu’à ce que vous en ayez de nouveau besoin.
+1. Révoquez vos privilèges d’Administrateur des accès utilisateur jusqu’à ce que vous en ayez de nouveau besoin.
 
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Lister les attributions de rôles dans l’étendue racine (/) avec l’API REST
 
-## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Annuler l’action elevateAccess avec l’API REST
+Vous pouvez lister toutes les attributions de rôles d’un utilisateur dans l’étendue racine (`/`).
+
+- Appelez [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope), où `{objectIdOfUser}` est l’ID objet de l’utilisateur dont vous souhaitez récupérer les attributions de rôles.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## <a name="remove-elevated-access-using-the-rest-api"></a>Supprimer l’accès avec élévation de privilèges avec l’API REST
 
 Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour vous-même. Pour révoquer ces privilèges, vous devez donc supprimer l’attribution.
 
@@ -171,7 +183,7 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
     >[!NOTE] 
     >Un administrateur client ne doit pas avoir beaucoup d’attributions. Si la requête précédente retourne un trop grand nombre d’attributions, vous pouvez aussi interroger toutes les attributions au niveau de l’étendue du client uniquement, puis filtrer les résultats : `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle où l’étendue est « / », `roleDefinitionId` se termine par l’ID du nom du rôle trouvé à l’étape 1, et `principalId` correspond à l’objectId de l’administrateur client. 
+    2. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle pour laquelle l’étendue est « `"/"` », `roleDefinitionId` se termine par l’ID du nom de rôle trouvé à l’étape 1 et `principalId` correspond à l’ID objet de l’administrateur client. 
     
     Exemple d’attribution de rôle :
 

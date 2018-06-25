@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850070"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sur l’utilisation d’Azure Database Migration Service
 Cet article répertorie les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service, ainsi que les réponses associées.
@@ -34,6 +35,9 @@ Azure Database Migration Service est la méthode recommandée pour la migration 
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>Q. Comment Azure Database Migration Service se distingue-t-il de l’offre Azure Migrate ?
 Le service Azure Migrate facilite la migration de machines virtuelles locales vers IaaS Azure. Le service évalue la pertinence de la migration et le dimensionnement en fonction des performances, et fournit des estimations de coût pour l’exécution de vos machines locales dans Azure. Azure Migrate est particulièrement utile pour les migrations de type lift-and-shift des charges de travail basées sur des machines virtuelles locales vers des machines virtuelles IaaS Azure. Toutefois, contrairement à Azure Database Migration Service, Azure Migrate n’est pas une offre de service de migration de bases de données spécialisée pour les plateformes de base de données relationnelle PaaS Azure telles que Azure SQL Database, SQL Azure ou Azure SQL Database Managed Instance.
+
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>Q. Quelles versions de SQL Server Azure Database Migration Service prend-il en source ?
+En ce qui concerne la migration à partir de SQL Server, Azure Database Migration Service prend en charge toutes les versions entre SQL Server 2005 et SQL Server 2017 inclus.
 
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>Q. Quel est le résumé des étapes nécessaires pour utiliser Azure Database Migration Service afin de migrer une base de données ?
 Lors d’une migration de base de données classique et simple, vous effectuez les opérations suivantes :

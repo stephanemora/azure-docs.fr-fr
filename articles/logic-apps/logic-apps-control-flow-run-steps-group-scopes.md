@@ -1,29 +1,25 @@
 ---
-title: "Exécuter des étapes en fonction de l’état de l’action groupée Azure Logic Apps | Microsoft Docs"
-description: "Grouper des actions dans des étendues et exécuter des étapes en fonction de l’état du groupe"
+title: Ajouter des étendues exécutant des actions en fonction en fonction de l’état du groupe – Azure Logic Apps | Microsoft Docs
+description: Comment créer des étendues qui exécutent des actions de workflow en fonction de l’état d’action du groupe dans Azure Logic Apps
 services: logic-apps
-keywords: "branches, traitement en parallèle"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298812"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Étendues : Exécuter des étapes en fonction de l’état du groupe dans des applications logiques
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Créer des étendues qui exécutent des actions de workflow en fonction de l’état du groupe dans Azure Logic Apps
 
-Pour exécuter des étapes uniquement après l’échec ou la réussite d’un groupe d’actions, placez ce groupe dans une *étendue*. Cette structure est utile lorsque vous souhaitez organiser les actions en tant que groupe logique, évaluer l’état de ce groupe et effectuer des actions qui sont basées sur l’état de l’étendue. Une fois que toutes les actions d’une étendue ont été exécutées, l’étendue récupère également son propre état. Par exemple, vous pouvez utiliser des étendues lorsque vous souhaitez implémenter la [gestion des erreurs et des exceptions](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Pour exécuter des actions uniquement après l’échec ou la réussite d’un groupe d’actions, placez ce groupe dans une *étendue*. Cette structure est utile lorsque vous souhaitez organiser les actions en tant que groupe logique, évaluer l’état de ce groupe et effectuer des actions qui sont basées sur l’état de l’étendue. Une fois que toutes les actions d’une étendue ont été exécutées, l’étendue récupère également son propre état. Par exemple, vous pouvez utiliser des étendues lorsque vous souhaitez implémenter la [gestion des erreurs et des exceptions](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Pour vérifier l’état d’une étendue, vous pouvez utiliser les mêmes critères que ceux utilisés pour déterminer l’état d’exécution des applications logiques, tels que « Réussi », « Échec », « Annulé », etc. Par défaut, lorsque toutes les actions de l’étendue réussissent, l’état de l’étendue est défini sur « Réussi ». Mais lorsqu’une action dans l’étendue échoue ou est annulée, l’état de l’étendue est défini sur « Échec ». Pour les limites sur les étendues, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -31,7 +27,7 @@ Par exemple, voici une application logique de haut niveau qui utilise une étend
 
 ![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre l’exemple de cet article, vous avez besoin de ces éléments :
 
@@ -69,7 +65,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
    1. Si vous ne disposez pas d’une connexion à Bing Maps, vous êtes invité à en créer une.
 
-      | Paramètre | Valeur | DESCRIPTION |
+      | Paramètre | Valeur | Description |
       | ------- | ----- | ----------- |
       | **Nom de connexion** | BingMapsConnection | Donnez un nom à votre connexion. | 
       | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. | 
@@ -81,7 +77,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
       Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](https://msdn.microsoft.com/library/ff701717.aspx).
 
-      | Paramètre | Valeur | DESCRIPTION |
+      | Paramètre | Valeur | Description |
       | ------- | ----- | ----------- |
       | **Étape 1** | <*start*> | Entrez l’origine de votre itinéraire. | 
       | **Étape 2** | <*end*> | Entrez la destination de votre itinéraire. | 
@@ -333,9 +329,9 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées et suggestions de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des fonctionnalités et suggestions ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Switch statements: Run different steps based on specific values in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md) (Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques dans des applications logiques)

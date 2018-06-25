@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265841"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
@@ -51,6 +52,7 @@ Pour optimiser les performances, tenez compte des considérations suivantes lors
 -   Utilisez des tables partitionnées le cas échéant.
 -   Chargez les données en parallèle. Évitez tout parallélisme excessif, qui vous ferait atteindre une limite de ressources, et surveillez les ressources à l’aide des mesures disponibles dans le Portail Azure. 
 -   Utilisez l’option `defer-table-indexes` dans mysqlpump lors de la sauvegarde des bases de données, afin que l’index soit créé après le chargement des données de tables.
+-   Copiez les fichiers de sauvegarde dans un magasin/objet blob Azure et effectuez la restauration à partir de celui-ci. Cette opération doit être beaucoup plus rapide que l’exécution de la restauration sur Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Créer un fichier de sauvegarde en ligne de commande avec mysqldump
 Pour sauvegarder une base de données MySQL existante sur le serveur local ou sur une machine virtuelle, exécutez la commande suivante : 
@@ -74,7 +76,6 @@ Pour sélectionner certaines tables en particulier à sauvegarder dans votre bas
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 Pour sauvegarder plusieurs bases de données à la fois, utilisez le commutateur --database et listez les noms de bases de données en les séparant par des espaces. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>Exporter avec PHPMyAdmin
 Pour exporter, vous pouvez utiliser l’outil courant phpMyAdmin, que vous avez peut-être déjà installé localement dans votre environnement. Pour exporter votre base de données MySQL avec PHPMyAdmin :
-- Ouvrez phpMyAdmin.
-- Sélectionnez votre base de données. Cliquez sur le nom de la base de données dans la liste de gauche. 
-- Cliquer sur le lien **Exporter**. Une nouvelle page s’affiche, indiquant la sauvegarde de la base de données.
-- Dans la zone Exporter, cliquez sur le lien **Sélectionner tout** pour choisir les tables de votre base de données. 
-- Dans la zone des options SQL, cliquez sur les options appropriées. 
-- Cliquez sur l’option **Enregistrer en tant que fichier** et sur l’option de compression correspondante, puis sur le bouton **OK**. Une boîte de dialogue vous invite à enregistrer le fichier en local.
+1. Ouvrez phpMyAdmin.
+2. Sélectionnez votre base de données. Cliquez sur le nom de la base de données dans la liste de gauche. 
+3. Cliquer sur le lien **Exporter**. Une nouvelle page s’affiche, indiquant la sauvegarde de la base de données.
+4. Dans la zone Exporter, cliquez sur le lien **Sélectionner tout** pour choisir les tables de votre base de données. 
+5. Dans la zone des options SQL, cliquez sur les options appropriées. 
+6. Cliquez sur l’option **Enregistrer en tant que fichier** et sur l’option de compression correspondante, puis sur le bouton **OK**. Une boîte de dialogue vous invite à enregistrer le fichier en local.
 
 ## <a name="import-using-phpmyadmin"></a>Importer avec PHPMyAdmin
 L’importation d’une base de données est similaire à l’exportation. Effectuez les actions suivantes :
-- Ouvrez phpMyAdmin. 
-- Dans la page de configuration phpMyAdmin, cliquez sur **Ajouter** pour ajouter votre serveur de base de données Azure pour MySQL. Indiquez les détails et informations de connexion.
-- Créez une base de données en lui donnant un nom approprié et sélectionnez-la à gauche de l’écran. Pour réécrire la base de données existante, cliquez sur le nom de la base de données, activez toutes les cases à cocher en regard des noms de table et sélectionnez **Supprimer** pour supprimer les tables existantes. 
-- Cliquez sur le lien **SQL** pour afficher la page dans laquelle vous pouvez taper des commandes SQL ou charger votre fichier SQL. 
-- Utilisez le bouton **Parcourir** pour trouver le fichier de base de données. 
-- Cliquez sur le bouton **OK** pour exporter la sauvegarde, exécuter les commandes SQL et recréer votre base de données.
+1. Ouvrez phpMyAdmin. 
+2. Dans la page de configuration phpMyAdmin, cliquez sur **Ajouter** pour ajouter votre serveur de base de données Azure pour MySQL. Indiquez les détails et informations de connexion.
+3. Créez une base de données en lui donnant un nom approprié et sélectionnez-la à gauche de l’écran. Pour réécrire la base de données existante, cliquez sur le nom de la base de données, activez toutes les cases à cocher en regard des noms de table et sélectionnez **Supprimer** pour supprimer les tables existantes. 
+4. Cliquez sur le lien **SQL** pour afficher la page dans laquelle vous pouvez taper des commandes SQL ou charger votre fichier SQL. 
+5. Utilisez le bouton **Parcourir** pour trouver le fichier de base de données. 
+6. Cliquez sur le bouton **OK** pour exporter la sauvegarde, exécuter les commandes SQL et recréer votre base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Connectez les applications à la base de données Azure pour MySQL](./howto-connection-string.md)
+- [Connecter des applications à Azure Database pour MySQL](./howto-connection-string.md).
+- Pour plus d’informations sur la migration de bases de données vers Azure Database pour MySQL, consultez le [Guide de migration des bases de données](http://aka.ms/datamigration).

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302737"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298407"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Forum aux questions pour Azure Cost Management
 
@@ -72,16 +72,20 @@ Après avoir effectué les étapes précédentes, vous pouvez afficher les recom
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Comment faire pour activer les utilisateurs suspendus ou verrouillés ?
 
+Examinons tout d’abord le scénario le plus courant qui met les comptes d’utilisateur à l’état *initiallySuspended*.
+
+> L’administrateur 1 peut être un programme fournisseur de solutions Microsoft Cloud ou un utilisateur de contrat d’entreprise. Son organisation est prête à commencer à utiliser Cost Management.  Il s’inscrit via le portail Azure et se connecte au portail Cloudyn. En tant que la personne qui s’inscrit au service Cost Management et se connecte au portail Cloudyn, il devient l’*administrateur principal*. L’administrateur 1 ne crée pas de comptes utilisateur. Toutefois, à l’aide du portail Cloudyn, il crée des comptes Azure et définit une hiérarchie d’entité. L’administrateur 1 informe l’administrateur 2, un administrateur client, qu’il doit s’inscrire à Cost Management et se connecter au portail Cloudyn.
+
+> L’administrateur 2 s’inscrit via le portail Azure. Toutefois, lorsqu’il tente de se connecter au portail Cloudyn, il reçoit un message d’erreur indiquant que son compte est **suspendu**. L’administrateur principal, ou administrateur 1, est averti de la suspension du compte. L’administrateur 1 doit activer le compte de l’administrateur 2 et accorder l’*accès à l’entité administrateur* pour les entités appropriées, autorise l’accès à la gestion utilisateur et active le compte d’utilisateur.
+
+
 Si vous recevez une alerte vous demandant d’autoriser l’accès pour un utilisateur, vous devez activer le compte d’utilisateur.
 
 Pour activer le compte d’utilisateur :
 
 1. Connectez-vous à Cloudyn à l’aide du compte d’utilisateur administrateur Azure que vous avez utilisé pour configurer Cloudyn. Ou connectez-vous avec un compte d’utilisateur qui bénéficie de l’accès administrateur.
-
 2. Sélectionnez le symbole d’engrenage dans le coin supérieur droit et sélectionnez **User Management** (Gestion des utilisateurs).
-
 3. Recherchez l’utilisateur, sélectionnez l’icône du crayon, puis modifiez l’utilisateur.
-
 4. Sous **User status** (État de l’utilisateur), modifiez l’état de **Suspended** (Suspendu) à **Active** (Actif).
 
 Les comptes d’utilisateur Cloudyn se connectent à l’aide de l’authentification unique à partir d’Azure. Si un utilisateur ne saisit pas correctement son mot de passe, il peut être verrouillé dans Cloudyn, même s’il a toujours accès à Azure.

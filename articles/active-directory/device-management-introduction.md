@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202131"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850006"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
 
@@ -31,9 +32,9 @@ Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan
 
 Grâce aux appareils, les utilisateurs peuvent accéder aux ressources d’entreprise. Pour protéger vos ressources d’entreprise, en tant qu’administrateur informatique, vous souhaitez avoir le contrôle de ces appareils. Cela vous permet de vous assurer que vos utilisateurs ont accès à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. 
 
-La gestion des appareils est également à la base de [l’accès conditionnel en fonction de l’appareil](active-directory-conditional-access-policy-connected-applications.md). Avec un accès conditionnel en fonction de l’appareil, vous pouvez garantir que l’accès aux ressources de votre environnement est uniquement possible pour les appareils de confiance.   
+La gestion des appareils est également à la base de [l’accès conditionnel en fonction de l’appareil](active-directory-conditional-access-policy-connected-applications.md). Avec l’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement ne soit possible qu’avec des appareils gérés.   
 
-Cette rubrique explique comment fonctionne la gestion des appareils dans Azure Active Directory.
+Cet article explique comment fonctionne la gestion des appareils dans Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Donner le contrôle des appareils à Azure AD
 
@@ -69,12 +70,16 @@ Les appareils joints Azure AD ont pour objectif de simplifier :
 
 - Les déploiements Windows des appareils professionnels 
 - L’accès aux applications et aux ressources d’organisation à partir de n’importe quel appareil Windows
+- Gestion cloud des appareils professionnels
 
 ![Appareils inscrits sur Azure AD](./media/device-management-introduction/02.png)
 
+Il existe différentes manières de déployer Azure AD Join : 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Déploiement en bloc](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Expérience en libre-service](device-management-azuread-joined-devices-frx.md) 
 
-Ces objectifs sont atteints en fournissant aux utilisateurs une expérience libre-service du contrôle des appareils professionnels par Azure AD.  
-**Azure AD Join** est destiné aux organisations axées en priorité ou uniquement sur le cloud. Il n’existe aucune restriction quant à la taille ou au type des organisations qui peuvent déployer Azure AD Join. Azure AD Join fonctionne parfaitement même dans un environnement hybride et permet l’accès aux applications et ressources locales.
+**Azure AD Join** est destiné aux organisations qui souhaitent donner la priorité au cloud (autrement dit, qui utilisent principalement des services cloud, dans l’objectif de réduire l’usage d’une infrastructure locale) ou utiliser exclusivement le cloud (aucune infrastructure locale). Il n’existe aucune restriction quant à la taille ou au type des organisations qui peuvent déployer Azure AD Join. Azure AD Join fonctionne parfaitement même dans un environnement hybride et permet l’accès aux applications et ressources locales et cloud.
 
 L’implémentation d’appareils joints Azure AD vous offre les avantages suivants :
 
@@ -88,10 +93,12 @@ L’implémentation d’appareils joints Azure AD vous offre les avantages suiva
 
 - **La restriction d’accès** aux applications ne s’applique qu’aux appareils qui répondent à la stratégie de conformité.
 
-- **Un accès transparent aux ressources locales** lorsque l’appareil dispose d’une ligne de vue sur le contrôleur de domaine local.
+- **Un accès transparent aux ressources locales** lorsque l’appareil dispose d’une ligne de vue sur le contrôleur de domaine local. 
 
 
-Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne disposent pas d’une infrastructure Windows Server Active Directory locale, vous pouvez également l’utiliser dans les scénarios où :
+Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne disposent pas d’une infrastructure Windows Server Active Directory locale, vous pouvez tout à fait l’utiliser dans les scénarios où :
+
+- Vous souhaitez passer à une infrastructure cloud avec Azure AD et un système de gestion des appareils mobiles comme Intune.
 
 - Vous ne pouvez pas utiliser de jonction de domaine locale, par exemple, si vous avez besoin de contrôler des appareils mobiles, tels que des tablettes et des téléphones.
 
@@ -121,9 +128,9 @@ Si votre environnement comporte une empreinte locale AD et vous souhaitez égale
 
 Vous devez utiliser des appareils joints Azure AD hybrides si :
 
-- Vous disposez d’applications Win32 déployées sur ces appareils qui utilisent NTLM/Kerberos.
+- Des applications Win32 sont déployées sur ces appareils qui s’appuient sur l’authentification d’ordinateur Active Directory.
 
-- Vous avez besoin de stratégies de groupe ou de SCCM/DCM pour gérer les appareils.
+- Vous avez besoin de stratégies de groupe pour gérer les appareils.
 
 - Vous souhaitez continuer à utiliser des solutions de création d’images pour configurer les appareils de vos employés.
 

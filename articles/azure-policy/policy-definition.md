@@ -4,16 +4,16 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194646"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260479"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -64,7 +64,7 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
 }
 ```
 
-Pour découvrir tous les exemples de modèles Azure Policy, consultez [Modèles pour Azure Policy](json-samples.md).
+Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](json-samples.md).
 
 ## <a name="mode"></a>Mode
 
@@ -192,7 +192,7 @@ Une condition évalue si un champ (**field**) répond à certains critères. Les
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Lorsque vous utilisez les conditions **j’aime** et **je n’aime pas**, vous pouvez utiliser un caractère générique (*) dans la valeur.
+Avec les conditions **like** et **notLike**, vous pouvez utiliser un caractère générique (*) dans la valeur. Celle-ci ne doit pas en comporter plus d’un (*).
 
 Lorsque vous utilisez les conditions **correspondance** et **non correspondance** entrez `#` pour représenter un chiffre, `?` pour une lettre et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Autoriser plusieurs modèles de nom](scripts/allow-multiple-name-patterns.md).
 
@@ -204,7 +204,7 @@ Les champs suivants sont pris en charge :
 
 - `name`
 - `fullName`
-  - Retourne le nom complet de la ressource, y compris les parents (par exemple « myServer/myDatabase »)
+  - Retourne le nom complet de la ressource, soit le nom de la ressource précédé du nom de toutes les ressources parentes (par exemple, « monServeur/maBaseDeDonnées »).
 - `kind`
 - `type`
 - `location`
@@ -251,6 +251,8 @@ La valeur peut être une chaîne ou un objet au format JSON.
 
 Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’existence d’une ressource connexe et appliquer une règle et un effet correspondant quand cette ressource n’existe pas. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels.
 Pour obtenir un exemple d’audit quand une extension de machine virtuelle n’est pas déployée, consultez [Auditer si une extension n’existe pas](scripts/audit-ext-not-exist.md).
+
+Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, voir [Présentation des effets des stratégies](policy-effects.md).
 
 ## <a name="aliases"></a>Alias
 
@@ -392,4 +394,4 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez les exemples de modèles Azure Policy en consultant [Modèles pour Azure Policy](json-samples.md).
+- Retrouvez d’autres exemples dans [Exemples Azure Policy](json-samples.md).

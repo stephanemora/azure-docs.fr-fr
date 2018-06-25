@@ -4,7 +4,7 @@ description: Découvrez comment améliorer la vitesse de transfert de fichiers e
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,27 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
-ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260394"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
 
 Il existe deux façons d’activer la compression de fichiers :
 
-- Activer la compression sur votre serveur d’origine. Dans ce cas, le CDN fait transiter les fichiers compressés et les remet aux clients qui les demandent.
-- Activez la compression directement sur les serveurs POP CDN (« compression à la volée »). Dans ce cas, le CDN compresse les fichiers et les sert aux utilisateurs finals, même s’ils ne sont pas compressés par le serveur d’origine.
+- Activer la compression sur votre serveur d’origine. Dans ce cas, Azure CDN fait transiter les fichiers compressés et les remet aux clients qui les demandent.
+- Activez la compression directement sur les serveurs POP CDN (*compression à la volée*). Dans ce cas, le CDN compresse les fichiers et les sert aux utilisateurs finals, même s’ils ne sont pas compressés par le serveur d’origine.
 
 > [!IMPORTANT]
-> Les changements de configuration CDN peuvent prendre un certain temps pour se propager sur le réseau : 
-- Pour les profils **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de dix minutes. 
+> La propagation sur le réseau des changements de configuration d’Azure CDN peut prendre un certain temps : 
+- Pour les profils du **CDN Azure Standard fourni par Microsoft**, la propagation s’effectue généralement dans un délai de 10 minutes. 
 - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
-- Pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes. 
+- Dans le cas des profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes. 
 >
 > Si vous configurez la compression de votre point de terminaison CDN pour la première fois, patientez 1 à 2 heures avant de chercher à résoudre un problème, pour être certain que les paramètres de compression ont été propagés aux POP.
 > 
@@ -75,7 +76,7 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
 
 1. Dans la page de profil CDN, sélectionnez **Gérer**.
    
-    ![Gestion de sélection CDN](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![Sélectionner Gestion du CDN](./media/cdn-file-compression/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
 2. Pointez sur l’onglet **HTTP volumineux**, puis pointez sur le menu volant **Paramètres de cache**. Sélectionnez **Compression**.

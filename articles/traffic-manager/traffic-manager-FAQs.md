@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942354"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301063"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -86,10 +86,18 @@ Lorsqu’une requête DNS arrive sur Traffic Manager, il définit une valeur dan
 
 Vous pouvez définir, au niveau du profil, la durée de vie DNS entre 0 et 2 147 483 647 secondes (la plage maximale conformément à la norme [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Une durée de vie de 0 signifie que les programmes de résolution DNS en aval ne mettent pas en cache les réponses aux requêtes et toutes les requêtes doivent alors atteindre les serveurs DNS Traffic Manager pour être résolues.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Comment comprendre le volume de requêtes entrantes sur mon profil ? 
+Une des métriques fournie par Traffic Manager est le nombre de requêtes ayant obtenu une réponse d’un profil. Vous pouvez obtenir cette information à une agrégation de niveau de profil ou la fractionner encore plus pour voir le volume de requêtes où des points de terminaison spécifiques ont été retournés. En outre, vous pouvez configurer des alertes pour vous avertir si le volume de réponse à des requêtes dépasse les conditions que vous avez définies. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Méthode de routage du trafic « Geographic » (Géographique) de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quels sont les cas d’utilisation dans lesquels le routage géographique est utile ? 
 Le type de routage géographique peut être utilisé dans les scénarios dans lesquels un client Azure doit distinguer ses utilisateurs en fonction de régions géographiques. Par exemple, à l’aide de la méthode de routage de trafic géographique, vous pouvez attribuer une expérience utilisateur différente en fonction de la région. Un autre exemple est le respect des mandats de souveraineté de données locales qui nécessitent que les utilisateurs d’une région spécifique soient servis uniquement par les points de terminaison existant dans cette région.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Comment décider si je dois utiliser la méthode de routage de performances ou la méthode de routage géographique ? 
+La principale différence entre ces deux méthodes de routage populaires est que, dans la méthode de routage de performances, votre objectif principal est d’envoyer du trafic vers le point de terminaison pouvant fournir la latence la plus faible à l’appelant, tandis que, dans le routage géographique, l’objectif principal est d’appliquer à vos appelants une barrière géographique vous permettant de les acheminer délibérément vers un point de terminaison spécifique. Il y a chevauchement, car il y a une corrélation entre la proximité géographique et une latence plus faible, bien que cela ne soit pas toujours vrai. Il est possible qu’un point de terminaison dans une zone géographique différente puisse offrir une meilleure expérience de latence à l’appelant. Dans ce cas, le routage de performances enverra l’utilisateur vers ce point de terminaison, mais le routage géographique l’enverra toujours vers le point de terminaison que vous avez mappé pour sa région géographique. Pour clarifier cet état de fait, prenons l’exemple suivant : le routage géographique vous permet d’effectuer des mappages peu communs, par exemple envoyer tout le trafic en provenance d’Asie vers des point de terminaison aux USA et tout le trafic des USA vers des points de terminaison en Asie. Dans ce cas, routage géographique fait délibérément exactement ce que vous avez configuré, et l’optimisation des performances n’est pas prise en considération. 
+>[!NOTE]
+>Dans certains scénarios, vous pouvez avoir besoin à la fois des capacités de routage de performances et des capacités de routage géographiques. Les scénarios à profils imbriqués seront alors un excellent choix. Par exemple, vous pouvez définir un profil parent avec le routage géographique, envoyer tout le trafic en provenance d’Amérique du Nord à un profil imbriqué dont les points de terminaison se trouvent aux États-Unis et utiliser le routage de performances pour envoyer ce trafic au meilleur point de terminaison de cet ensemble. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quelles sont les régions prises en charge par Traffic Manager pour le routage géographique ? 
 La hiérarchie de pays/régions utilisée par Traffic Manager se trouve [ici](traffic-manager-geographic-regions.md). Lorsque cette page est maintenue à jour avec les éventuelles modifications apportées, vous pouvez également récupérer par programme les mêmes informations à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -331,6 +339,9 @@ Cliquez [ici](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure
 Le nombre de contrôles d’intégrité de Traffic Manager qui atteignent votre point de terminaison varie selon les éléments suivants :
 - La valeur que vous avez définie pour l’intervalle de surveillance (plus l’intervalle est petit, plus le nombre de requêtes atteignant votre point de terminaison est élevé, dans une période de temps donnée).
 - Le nombre d’emplacements d’où proviennent les contrôles d’intégrité (les adresses IP d’où peuvent provenir ces contrôles sont répertoriées dans la rubrique FAQ précédente).
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Comment être informé si l’un de mes points de terminaison tombe en panne ? 
+Une des métriques fournies par Traffic Manager est l’état d’intégrité des points de terminaison d’un profil. Vous pouvez voir cela comme un agrégat de tous les points de terminaison à l’intérieur d’un profil (par exemple, 75 % de vos points de terminaison sont sains), ou par niveau de point de terminaison. Les métriques de Traffic Manager sont indiquées par Azure Monitor, dont vous pouvez utiliser les [fonctionnalités d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être informé en cas de modification de l’état d’intégrité de votre point de terminaison. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Profils Traffic Manager imbriqués
 

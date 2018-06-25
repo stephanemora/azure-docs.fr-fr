@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194017"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833717"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -27,7 +27,6 @@ Vous pouvez utiliser la gestion des mises à jour pour gérer les mises à jour 
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour utiliser la gestion des mises à jour, vous devez avoir :
 
 - Un compte d’identification Azure Automation. Pour savoir comment en créer un, consultez [Prise en main d'Azure Automation](automation-offering-get-started.md).
@@ -36,31 +35,16 @@ Pour utiliser la gestion des mises à jour, vous devez avoir :
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-La gestion de la mise à jour est prise en charge par les systèmes d’exploitation suivants.
+La gestion des mises à jour est prise en charge par les systèmes d’exploitation suivants :
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 et versions ultérieures et les déploiements de mise à jour de Windows Server 2008 R2 SP1 et versions ultérieures. Nano Server n’est pas pris en charge.
-
-  La prise en charge du déploiement des mises à jour vers Windows Server 2008 R2 SP1 nécessite .NET Framework 4.5 et Windows Management Framework 5.0 ou une version ultérieure.
-
-- Les systèmes d’exploitation clients Windows ne sont pas pris en charge.
-
-Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update.
-
-> [!NOTE]
-> System Center Configuration Manager ne peut pas gérer simultanément l’agent Windows.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) et 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) et 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)
-
-- Ubuntu 12.04 LTS et plus récente (x86/x64)
+|Système d’exploitation  |Notes  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
+|Windows Server 2008 R2 SP1 et versions ultérieures     |Windows PowerShell 4.0 ou une version ultérieure sont requis ([télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) est recommandé pour accroître la fiabilité.         |
+|CentOS 6 (x86/x64) et 7 (x 64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|Red Hat Enterprise 6 (x86/x64) et 7 (x 64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
 
 > [!NOTE]
 > Pour empêcher que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations, consultez la [rubrique Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -153,6 +137,9 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
   - Mises à jour de définitions
   - Outils
   - Mises à jour
+
+- **Mises à jour à exclure** : cette action ouvre la page **Exclure**. Entrez les bases de connaissances ou les noms des packages à exclure.
+
 - **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle. Ou bien vous pouvez spécifier une heure différente.
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou selon une planification périodique. Pour définir une planification périodique, sélectionnez l’option **Récurrent** sous **Périodicité**.
 

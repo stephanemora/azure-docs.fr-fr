@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362309"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261931"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
@@ -33,7 +33,7 @@ Load Balancer Standard est un nouveau produit Load Balancer pour toutes les appl
 
 Vous pouvez utiliser Load Balancer Standard comme un équilibreur de charge public ou interne. Et une machine virtuelle peut être connectée à une ressource Load Balancer publique et interne.
 
-Les fonctions de la ressource Load Balancer sont toujours exprimées en tant que définition de serveur frontal, de règle, de sonde d’intégrité et de pool principal.  Une ressource peut contenir plusieurs règles. Vous pouvez placer des machines virtuelles dans le pool principal en spécifiant le pool principal à partir de la ressource de la carte réseau de la machine virtuelle.  Dans le cas d’un groupe de machines virtuelles identiques, ce paramètre est passé via le profil de réseau et développé.
+Les fonctions de la ressource Load Balancer sont toujours exprimées en tant que définition de serveur frontal, de règle, de sonde d’intégrité et de pool principal.  Une ressource peut contenir plusieurs règles. Vous pouvez placer des machines virtuelles dans le pool principal en spécifiant le pool principal à partir de la ressource de la carte réseau de la machine virtuelle.  Ce paramètre est passé via le profil de réseau et développé lorsque vous utilisez des jeux de mise à l’échelle des machines virtuelles.
 
 L’étendue du réseau virtuel pour la ressource constitue un aspect clé.  Bien que Load Balancer de base existe dans l’étendue d’un groupe à haute disponibilité, un Load Balancer Standard est entièrement intégré à l’étendue d’un réseau virtuel et tous les concepts de réseau virtuel s’appliquent.
 
@@ -72,7 +72,7 @@ Consultez les [limites de service pour Load Balancer](https://aka.ms/lblimits), 
 
 Les pools principaux Load Balancer Standard se développent sur n’importe quelle ressource de machine virtuelle dans un réseau virtuel.  Il peut contenir jusqu'à 1 000 instances de serveur principal.  Une instance de serveur principal est une configuration IP, qui est une propriété de ressource de la carte réseau.
 
-Le pool principal peut contenir des machines virtuelles autonomes, des groupes à haute disponibilité ou des groupes de machines virtuelles identiques.  Vous pouvez fusionner les ressources dans le pool principal et il peut contenir n’importe quelle combinaison de ces ressources, jusqu'à 150 au total.
+Le pool principal peut contenir des machines virtuelles autonomes, des groupes à haute disponibilité ou des groupes de machines virtuelles identiques.  Vous pouvez également fusionner les ressources dans le pool principal. Vous pouvez combiner jusqu'à 150 ressources par ressource d’équilibrage de charge dans le pool principal.
 
 Lorsque vous envisagez la conception de votre pool principal, vous pouvez concevoir le moins de ressources de pool principal individuelles pour optimiser davantage la durée des opérations de gestion.  Il n’existe aucune différence de performances ou de mise à l’échelle du plan de données.
 
@@ -90,7 +90,7 @@ Consultez la [discussion détaillée sur les fonctionnalités relatives aux Zone
 
 ### <a name="diagnostics"></a> Diagnostics
 
-Load Balancer Standard fournit des métriques multidimensionnelles via Azure Monitor.  Ces métriques peuvent être filtrées, regroupées et fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service.  Resource Health est également pris en charge.  Voici une brève vue d’ensemble des diagnostics pris en charge :
+Load Balancer Standard fournit des métriques multidimensionnelles via Azure Monitor.  Ces métriques peuvent être filtrées, regroupées et réparties pour une dimension donnée.  Elles fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service.  Resource Health est également pris en charge.  Voici une brève vue d’ensemble des diagnostics pris en charge :
 
 | Métrique | Description |
 | --- | --- |
@@ -118,7 +118,7 @@ Consultez une [discussion détaillée sur les ports HA](load-balancer-ha-ports-o
 
 ### <a name="securebydefault"></a>Sécuriser par défaut
 
-Load Balancer Standard est entièrement intégré au réseau virtuel.  Le réseau virtuel est un réseau privé et fermé.  Étant donné que les équilibreurs de charge Standard et des adresses IP publiques Standard sont conçus pour permettre à ce réseau virtuel d’être accessible depuis l’extérieur du réseau virtuel, ces ressources sont désormais fermées par défaut, sauf si vous les ouvrez. Cela signifie que les Groupes de sécurité réseau (NSG) sont désormais utilisés pour autoriser explicitement et mettre sur liste verte le trafic autorisé.  Vous pouvez créer votre centre de données virtuel complet et décider via le Groupe de sécurité réseau de ce qui doit être disponible et quand.  Si vous n’avez pas de Groupe de sécurité réseau sur un sous-réseau ou une carte réseau de votre ressource de machine virtuelle, nous n’autoriserons pas au trafic d’atteindre cette ressource.
+Load Balancer Standard est entièrement intégré au réseau virtuel.  Le réseau virtuel est un réseau privé et fermé.  Étant donné que les équilibreurs de charge Standard et des adresses IP publiques Standard sont conçus pour permettre à ce réseau virtuel d’être accessible depuis l’extérieur du réseau virtuel, ces ressources sont désormais fermées par défaut, sauf si vous les ouvrez. Cela signifie que les Groupes de sécurité réseau (NSG) sont désormais utilisés pour autoriser explicitement et mettre sur liste verte le trafic autorisé.  Vous pouvez créer votre centre de données virtuel complet et décider via le Groupe de sécurité réseau de ce qui doit être disponible et quand.  Si vous n’avez pas de groupe de sécurité réseau sur un sous-réseau ou une carte réseau de votre ressource de machine virtuelle, le trafic n’est pas autorisé à atteindre cette ressource.
 
 Pour plus d’informations sur les Groupes de sécurité réseau et la façon de les appliquer à votre scénario, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/security-overview.md).
 

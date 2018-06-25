@@ -6,45 +6,37 @@ author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/04/2018
+ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264882"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
 
-## <a name="service-tier-maximums"></a>Valeurs maximales des niveaux de service
-Azure Database pour MySQL vous permet de choisir entre plusieurs niveaux de service lorsque vous créez un serveur. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Nombre maximal de connexions
+Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant : 
 
-Chaque niveau de service offre un nombre maximal de connexions et d’unités compute, ainsi qu’un maximum d’espace de stockage, comme suit : 
+|**Niveau tarifaire**|**vCore(s)**| **Nombre maximal de connexions**|
+|---|---|---|
+|De base| 1| 50|
+|De base| 2| 100|
+|Usage général| 2| 300|
+|Usage général| 4| 625|
+|Usage général| 8| 1250|
+|Usage général| 16| 2 500|
+|Usage général| 32| 5 000|
+|Mémoire optimisée| 2| 600|
+|Mémoire optimisée| 4| 1250|
+|Mémoire optimisée| 8| 2 500|
+|Mémoire optimisée| 16| 5 000|
 
-|**Niveau tarifaire**| **Génération de calcul**|**vCore(s)**| **Nombre maximal de connexions**|
-|---|---|---|---|
-|De base| Gen 4| 1| 50|
-|De base| Gen 4| 2| 100|
-|De base| Gen 5| 1| 50|
-|De base| Gen 5| 2| 100|
-|Usage général| Gen 4| 2| 300|
-|Usage général| Gen 4| 4| 625|
-|Usage général| Gen 4| 8| 1250|
-|Usage général| Gen 4| 16| 2 500|
-|Usage général| Gen 4| 32| 5 000|
-|Usage général| Gen 5| 2| 300|
-|Usage général| Gen 5| 4| 625|
-|Usage général| Gen 5| 8| 1250|
-|Usage général| Gen 5| 16| 2 500|
-|Usage général| Gen 5| 32| 5 000|
-|Mémoire optimisée| Gen 5| 2| 600|
-|Mémoire optimisée| Gen 5| 4| 1250|
-|Mémoire optimisée| Gen 5| 8| 2 500|
-|Mémoire optimisée| Gen 5| 16| 5 000|
-
-Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur suivante :
+Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > ERROR 1040 (08004): Too many connections
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
@@ -85,8 +77,6 @@ Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur su
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 - La restauration à un autre niveau de service et/ou à une autre taille d’unités de calcul et de stockage n’est pas autorisée.
 - La restauration d’un serveur supprimé n’est pas prise en charge.
-
-## <a name="functional-limitations"></a>Limitations fonctionnelles
 
 ### <a name="subscription-management"></a>Gestion des abonnements
 - Le déplacement dynamique de serveurs créés au préalable entre les groupes de ressources et d’abonnements n’est pas pris en charge pour le moment.

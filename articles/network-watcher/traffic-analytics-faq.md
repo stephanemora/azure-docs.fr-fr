@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236397"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - Des journaux de flux de groupe de sécurité réseau activés pour les groupes de sécurité réseau à surveiller
     - Un compte de stockage Azure pour stocker les journaux de flux bruts
     - Un espace de travail Log Analytics (OMS), avec accès en lecture et écriture
-    - Les actions suivantes sur le fournisseur de Microsoft.Network doivent être assignées à votre compte :
+    - L’utilisateur doit avoir l’un des rôles suivants au niveau de l’abonnement :
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    L’utilisateur doit sinon avoir tous les rôles suivants au niveau de l’abonnement : 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -41,6 +49,19 @@ ms.lasthandoff: 04/18/2018
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Pour vérifier les rôles attribués à un utilisateur pour un abonnement, suivez les étapes ci-dessous :
+
+Connectez-vous à Azure avec Login-AzureRmAccount. 
+
+Sélectionnez le bon abonnement avec Select-AzureRmSubscription. 
+
+À présent, pour lister tous les rôles attribués à un utilisateur donné, utilisez Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators. 
+
+Si vous ne voyez pas de sortie après avoir exécuté les commandes, contactez l’administrateur de votre abonnement pour obtenir les accès nécessaires.  
+
+Pour plus d’informations, voir [Gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+
 
 2.  Dans quelles régions l’analyse de trafic est-il disponible ?
 
@@ -106,11 +127,11 @@ ms.lasthandoff: 04/18/2018
 
 14. Puis-je configurer l’analyse de trafic à l’aide de PowerShell ou d’un modèle Azure Resource Manager ?
 
-    Non, l’analyse de trafic peut uniquement être configurée à l’aide du Portail Azure.
+Oui, la configuration de l’analyse de trafic avec Windows PowerShell est prise en charge à partir de la version 6.2.1 ; cependant, la prise en charge des modèles Azure Resource Manager n’est pas disponible à l’heure actuelle. Pour plus d’informations sur la configuration de l’analyse de trafic avec PowerShell, consultez la [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0) suivante. 
 
 15.  Quel est le prix de l’analyse de trafic ?
 
-        L’analyse de trafic est limitée pour améliorer les journaux réduits et stocker les journaux améliorés dans un espace de travail Log Analytics. En mode préversion, l’analyse de trafic n’est pas facturée pour l’amélioration des journaux réduits, bien que la rétention des données dans l’espace de travail soit soumise à facturation aux taux publiés. Cette réponse sera mise à jour une fois le tarif de l’analyse de trafic disponible.
+L’analyse de trafic est effectuée pour les données de journal de flux traitées par le service et pour stocker les journaux améliorés ainsi générés dans un espace de travail Log Analytics. Pour plus d’informations sur les tarifs, [cliquez ici](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
 
 16.  Comment puis-je naviguer dans la vue de la carte géographique à l’aide du clavier ?
 

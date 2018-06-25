@@ -1,12 +1,12 @@
 ---
-title: "Ajouter un dispositif d’authentification à des API personnalisées - Azure Logic Apps | Microsoft Docs"
-description: "Configurer l’authentification pour des appels à des API personnalisées émis par des applications logiques"
+title: Ajouter un dispositif d’authentification à des API personnalisées - Azure Logic Apps | Microsoft Docs
+description: Configurer l’authentification pour des appels à des API personnalisées émis par des applications logiques
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298547"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Sécuriser les appels à des API personnalisées émis par des applications logiques
 
@@ -53,7 +54,7 @@ Votre application logique utilise cette identité d’application Azure AD pour 
 
 **Créer l’identité d’application pour votre application logique dans le Portail Azure**
 
-1. Dans le [Portail Azure](https://portal.azure.com "https://portal.azure.com"), choisissez **Azure Active Directory**. 
+1. Dans le [portail Azure](https://portal.azure.com "https://portal.azure.com"), choisissez **Azure Active Directory**. 
 
 2. Vérifiez que vous vous trouvez dans le même répertoire que votre application web ou votre application API.
 
@@ -116,7 +117,7 @@ Si votre application web ou votre application API est déjà déployée, vous po
 
 **Créer l’identité d’application et activer l’authentification dans le Portail Azure pour les applications déployées**
 
-1. Dans le [Portail Azure](https://portal.azure.com "https://portal.azure.com"), recherchez et sélectionnez votre application web ou votre application API. 
+1. Dans le [portail Azure](https://portal.azure.com "https://portal.azure.com"), recherchez puis sélectionnez votre application web ou votre application API. 
 
 2. Sous **Paramètres**, choisissez **Authentification/Autorisation**. Sous **Authentification App Service**, activez **l’authentification**. Sous **Fournisseurs d’authentification**, sélectionnez **Azure Active Directory**.
 
@@ -190,16 +191,16 @@ Ouvrez votre définition d’application logique en mode code, accédez à la se
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Élément | Requis | Description | 
+| Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| locataire | Oui | GUID du locataire Azure AD | 
-| audience | Oui | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
-| clientId | Oui | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
-| secret | Oui | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
-| type | Oui | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
+| locataire | OUI | GUID du locataire Azure AD | 
+| audience | OUI | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
+| clientId | OUI | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
+| secret | OUI | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
+| Type | OUI | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
 |||| 
 
-Par exemple :
+Par exemple : 
 
 ``` json
 {
@@ -236,11 +237,11 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Élément | Requis | Description | 
+| Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| type | Oui | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
-| password | Oui | Mot de passe pour l’accès au certificat client (fichier PFX) | 
-| pfx | Oui | Contenu codé base 64 du certificat client (fichier PFX) | 
+| Type | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
+| password | OUI | Mot de passe pour l’accès au certificat client (fichier PFX) | 
+| pfx | OUI | Contenu codé base 64 du certificat client (fichier PFX) | 
 |||| 
 
 <a name="basic"></a>
@@ -253,11 +254,11 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Élément | Requis | Description | 
+| Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| type | Oui | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
-| username | Oui | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
-| password | Oui | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
+| Type | OUI | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
+| username | OUI | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
+| password | OUI | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
 |||| 
 
 <a name="azure-ad-code"></a>

@@ -1,19 +1,19 @@
 ---
 title: Utiliser des ensembles d’appareils dans votre application Azure IoT Central | Microsoft Docs
 description: En tant qu’opérateur, comment utiliser des ensembles d’appareils dans votre application Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932c8315b5af22c3adf18de50cf03deaf6b2a53e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpfr
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201147"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261676"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utiliser des ensembles d’appareils dans votre application Azure IoT Central
 
@@ -86,10 +86,40 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
 
     > [!NOTE]
     > Vous pouvez ajouter plusieurs images, liens et grilles.
-
-1. Désactivez le **mode Conception**.
+  
+    1. Désactivez le **mode Conception**.
 
     ![Mode Conception désactivé](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuration de la carte des emplacements dans votre tableau de bord d’ensembles d’appareils 
+Vous pouvez ajouter une carte des emplacements pour visualiser l’emplacement de vos ensembles d’appareils sur une carte. 
+
+Pour ajouter une carte des emplacements à votre tableau de bord d’ensembles d’appareils, vous devez avoir configuré une propriété d’emplacement dans votre modèle d’appareil. Consultez [Créer une propriété d’emplacement optimisée par Azure Maps](howto-set-up-template.md).
+
+
+1. Dans le tableau de bord des ensembles d’appareils, sélectionnez la carte dans la bibliothèque. 
+
+    ![Cartes du tableau de bord des ensembles d’appareils](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Donnez un titre et choisissez la propriété d’emplacement que vous avez déjà configurée dans votre propriété d’appareil.
+
+    ![Configurer les cartes du tableau de bord](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Enregistrez pour afficher la mosaïque de la carte indiquant l’emplacement de vos appareils dans l’ensemble d’appareils.
+
+    ![Enregistrer les cartes du tableau de bord](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils.
+
+    ![Affichage des emplacements sur le tableau de bord de l’opérateur](media/howto-use-device-sets/LocationMaps4.png)
+
+    Vous ne pourrez pas redimensionner la carte à la taille désirée.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurer la liste pour votre ensemble d’appareils
 
@@ -109,7 +139,7 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer la **Li
 
 1. Choisissez **OK**.
 
-## <a name="analytics"></a>Analytique
+## <a name="analytics"></a>Analytics
 
 L’analytique des ensembles d’appareils est identique à celle de l’onglet d’analytique principal dans le menu de navigation gauche. Pour plus d’informations sur l’analytique, consultez [Comment créer une analytique](howto-create-analytics.md).
 

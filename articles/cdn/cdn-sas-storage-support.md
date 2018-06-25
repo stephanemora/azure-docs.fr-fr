@@ -4,7 +4,7 @@ description: Azure CDN prend en charge l’utilisation de la signature d’accè
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261166"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -32,7 +33,6 @@ Avec une signature SAP, vous pouvez définir différents paramètres d’accès 
 Les trois options suivantes sont recommandées pour l’utilisation de SAP avec Azure CDN. Toutes les options partent du principe que vous avez déjà créé une SAP opérationnelle (voir les prérequis). 
  
 ### <a name="prerequisites"></a>Prérequis
-
 Pour commencer, créez un compte de stockage, puis générez une SAP pour votre ressource. Vous pouvez générer deux types de signatures d’accès partagé : une SAP de service ou une SAP de compte. Pour plus d’informations, consultez [Types de signatures d’accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
 Après avoir généré un jeton SAP, vous pouvez accéder à votre fichier de stockage d’objets blob en ajoutant `?sv=<SAS token>` à l’URL. Cette URL a le format suivant : 
@@ -71,7 +71,7 @@ Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est pass�
  
 Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon**. Avec cette option, vous pouvez sécuriser le stockage blob sur le serveur d’origine. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Le jeton SAP, qui est inconnu de l’utilisateur, est nécessaire à quiconque accède aux fichiers dans le conteneur spécifié du serveur d’origine. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN.
  
-1. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL. La propagation des nouvelles règles prend environ 90 minutes.
+1. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL. La propagation des nouvelles règles prend environ 10 minutes.
 
    ![Bouton Gérer du CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -113,7 +113,7 @@ Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous de
        
    Les options de paramètres pour l’authentification de jeton de sécurité diffèrent de celles pour un jeton SAP. Si vous choisissez d’utiliser un délai d’expiration quand vous créez un jeton de sécurité, vous devez lui affecter la même valeur que le délai d’expiration du jeton SAP. Cela garantit le caractère prévisible du délai d’expiration. 
  
-2. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL visant à activer l’accès du jeton SAP à tous les objets blob dans le conteneur. La propagation des nouvelles règles prend environ 90 minutes.
+2. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL visant à activer l’accès du jeton SAP à tous les objets blob dans le conteneur. La propagation des nouvelles règles prend environ 10 minutes.
 
    L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
    
