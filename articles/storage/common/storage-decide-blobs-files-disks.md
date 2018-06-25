@@ -42,7 +42,7 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 |Répertoires|Espace de noms plat|Vrais objets d’annuaire|  
 |Sensibilité des noms à la casse|Respect de la casse|Non sensible à la casse, mais la casse est conservée|  
 |Capacity|Conteneurs jusqu’à 500 Tio|Partages de fichiers de 5 Tio|  
-|Débis|Jusqu’à 60 Mio/s par objet blob de blocs|Jusqu’à 60 Mio/s par partage|  
+|Débit|Jusqu’à 60 Mio/s par objet blob de blocs|Jusqu’à 60 Mio/s par partage|
 |Taille de l’objet|Jusqu'à environ 4,75 Tio par objet blob de blocs|Jusqu'à 1 Tio par fichier|  
 |Capacité facturée|En fonction des octets écrits|En fonction de la taille de fichier|  
 |Bibliothèques clientes|Plusieurs langages|Plusieurs langages|  
@@ -64,7 +64,7 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |Accès à l’aide de REST|Les fichiers du disque dur virtuel ne sont pas accessibles|Les fichiers stockés dans un partage sont accessibles|  
 |Taille maximale|Disque de 4 Tio|Partage de fichiers de 5 Tio et fichier de 1 Tio au sein du partage|  
 |E/S par seconde de 8 Ko max.|500 E/S par seconde|1 000 E/S par seconde|  
-|Débis|Jusqu’à 60 Mio/s par disque|Jusqu’à 60 Mio/s par partage de fichiers|  
+|Débit|Jusqu’à 60 Mio/s par disque|Jusqu’à 60 Mio/s par partage de fichiers|  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
