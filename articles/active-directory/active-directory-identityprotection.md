@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713182"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -36,7 +38,7 @@ Azure Active Directory Identity Protection est une fonctionnalité de l’éditi
 
 Microsoft sécurise les identités basées sur le cloud depuis plus de dix ans. Avec Azure Active Directory Identity Protection, vous pouvez dans votre environnement utiliser les mêmes systèmes de protection que Microsoft pour sécuriser les identités.
 
-La grande majorité des violations de sécurité ont lieu lorsque des cybercriminels parviennent à accéder à un environnement en volant l’identité d’un utilisateur. Aujourd’hui, les cybercriminels arrivent de plus en plus à exploiter les failles de fournisseurs tiers et utilisent des attaques par hameçonnage (ou « phishing ») sophistiquées toujours plus efficaces. Dès qu’un cybercriminel accède à un compte d’utilisateur, même si les privilèges de celui-ci sont faibles, il peut facilement accéder à des ressources importantes pour l’entreprise de manière latérale.
+La grande majorité des violations de sécurité ont lieu lorsque des cybercriminels parviennent à accéder à un environnement en volant l’identité d’un utilisateur. Aujourd’hui, les attaquants arrivent de plus en plus à exploiter les failles de fournisseurs tiers et utilisent des attaques par hameçonnage (ou « phishing ») sophistiquées toujours plus efficaces. Dès qu’un cybercriminel accède à un compte d’utilisateur, même si les privilèges de celui-ci sont faibles, il peut facilement accéder à des ressources importantes pour l’entreprise de manière latérale.
 
 Par conséquent, vous devez :
 
@@ -206,7 +208,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 - Dans le panneau **Azure AD Identity Protection**, dans la section **Configurer**, cliquez sur **Stratégie en matière de risque à la connexion**.
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1014.png "Stratégie en matière de risque des utilisateurs")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1014.png "Stratégie de risque d’utilisateur")
 
 
 
@@ -306,25 +308,25 @@ La boîte de dialogue connexe fournit deux méthodes différentes pour réinitia
 ### <a name="user-risk-security-policy"></a>Stratégie de sécurité en matière de risque des utilisateurs
 Une stratégie de sécurité en matière de risque des utilisateurs est une stratégie d’accès conditionnel qui évalue le niveau de risque d’un utilisateur spécifique et applique des mesures de correction et d’atténuation en fonction de conditions et de règles prédéfinies.
 
-![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1009.png "Stratégie en matière de risque des utilisateurs")
+![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1009.png "Stratégie de risque d’utilisateur")
 
 Azure AD Identity Protection vous aide à gérer les mesures de correction et d’atténuation pour les utilisateurs associés à un indicateur de risque, en vous permettant d’effectuer les opérations suivantes :
 
 * Définir les utilisateurs et les groupes auxquels la stratégie s’applique :
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1010.png "Stratégie en matière de risque des utilisateurs")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1010.png "Stratégie de risque d’utilisateur")
 * Définir le niveau de risque d’un utilisateur (Faible, Moyen ou Élevé) qui déclenche la stratégie :
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1011.png "Stratégie en matière de risque des utilisateurs")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1011.png "Stratégie de risque d’utilisateur")
 * Définir les contrôles à appliquer lorsque la stratégie est déclenchée :
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1012.png "Stratégie en matière de risque des utilisateurs")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1012.png "Stratégie de risque d’utilisateur")
 * Basculer l’état de votre stratégie :
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/403.png "Inscription à MFA")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/403.png "Inscription à MFA")
 * Examiner et évaluer l’impact d’un changement avant de l’appliquer :
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1013.png "Stratégie en matière de risque des utilisateurs")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1013.png "Stratégie de risque d’utilisateur")
 
 La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs.
 Cependant, cela a pour effet d’exclure les utilisateurs associés à un indicateur de risque **Faible** et **Moyen**. Par conséquent, il se peut que des identités ou des appareils déjà identifiés comme potentiellement ou effectivement compromis ne soient pas sécurisés.
@@ -347,7 +349,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 - Dans le panneau **Azure AD Identity Protection**, dans la section **Configurer**, cliquez sur **Stratégie de risque d’utilisateur**.
 
-    ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1009.png "Stratégie en matière de risque des utilisateurs")
+    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1009.png "Stratégie de risque d’utilisateur")
 
 ### <a name="mitigating-user-risk-events"></a>Atténuation des événements à risque d’un utilisateur
 Les administrateurs peuvent définir une stratégie de sécurité en matière de risque des utilisateurs pour bloquer les utilisateurs lors de la connexion selon le niveau de risque.
@@ -366,7 +368,7 @@ Nous vous recommandons d’exiger l’authentification multifacteur d’Azure de
 * Elle fournit une authentification renforcée avec un éventail d’options de vérification simples.
 * Elle joue un rôle clé dans la préparation de votre organisation pour protéger et récupérer les comptes compromis.
 
-![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1019.png "Stratégie en matière de risque des utilisateurs")
+![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/1019.png "Stratégie de risque d’utilisateur")
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](authentication/multi-factor-authentication.md)
 

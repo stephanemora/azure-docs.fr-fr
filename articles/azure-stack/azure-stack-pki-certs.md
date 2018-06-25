@@ -3,7 +3,7 @@ title: Exigences de certificat pour infrastructure à clé publique Azure Stack 
 description: Décrit les exigences du déploiement de certificat pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
-ms.author: jeffgilb
+ms.date: 06/07/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935630"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234839"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -30,7 +30,7 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 - Le processus d’obtention de certificats correspondants à ces spécifications
 - Comment préparer, valider et utiliser ces certificats pendant le déploiement
 
-> [!NOTE]
+> [!Note]  
 > Au cours du déploiement, vous devez copier les certificats dans le dossier de déploiement correspondant au fournisseur d’identité (Azure AD ou AD FS). Si vous utilisez un seul certificat pour tous les points de terminaison, vous devez copier ce fichier de certificat dans chaque dossier de déploiement, comme indiqué dans les tableaux ci-dessous. La structure des dossiers est prédéfinie dans la machine virtuelle de déploiement et se trouve sous : C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
@@ -47,12 +47,12 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Le contenu des champs « Délivré à » et « Délivré par » du certificat ne peut pas être identique.
 - Les mots de passe de tous les fichiers pfx de certificat doivent être identiques au moment du déploiement
 - Le mot de passe pour le fichier de certificats pfx doit être un mot de passe complexe.
-- Assurez-vous que les noms d’objets et les autres noms de l’objet de tous les certificats correspondent aux spécifications décrites dans cet article afin d’éviter un échec des déploiements.
+- Vérifiez que les noms de l’objet et les autres noms de l’objet dans l’extension des autres noms de l’objet (x509v3_config) correspondent. Le champ de l’autre nom de l’objet vous permet de spécifier des noms d’hôtes supplémentaires (sites web, adresses IP, noms communs) en vue de les protéger au moyen d’un seul certificat SSL.
 
-> [!NOTE]
+> [!NOTE]  
 > Les certificats auto-signés ne sont pas pris en charge.
 
-> [!NOTE]
+> [!NOTE]  
 > La présence d’autorités de certification intermédiaires dans la chaîne d’approbation d’un certificat est prise en charge. 
 
 ## <a name="mandatory-certificates"></a>Certificats obligatoires

@@ -1,27 +1,26 @@
 ---
-title: 'Azure Active Directory B2C : Migrer des utilisateurs avec des identités sociales'
-description: Traite des concepts fondamentaux sur la migration des utilisateurs avec des identités sociales dans Azure AD B2C à l’aide de l’API Graph
+title: Migrer des utilisateurs avec des identités sociales dans Azure Active Directory B2C | Microsoft Docs
+description: Traite des concepts fondamentaux sur la migration des utilisateurs avec des identités sociales dans Azure AD B2C à l’aide de l’API Graph.
 services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: a150d8255171c83334ac4c1f81cbcee39c1df70a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 7c83afba1f027771b3407aecf94fefffdc951664
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710557"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C : Migrer des utilisateurs avec des identités sociales
 Quand vous envisagez de migrer votre fournisseur d’identité vers Azure AD B2C, vous devrez peut-être également migrer les utilisateurs avec des identités sociales. Cet article explique comment migrer les comptes d’identités sociales existants, tels que les comptes Google, Microsoft, Facebook et LinkedIn, à Azure AD B2C. Cet article s’applique également aux identités fédérées, quoique ces migrations soient moins courantes.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article est la suite de celui sur la migration des utilisateurs. Il est axé sur la migration des identités sociales. Avant de commencer, lisez [Migration utilisateur](active-directory-b2c-user-migration.md).
 
 ## <a name="social-identities-migration-introduction"></a>Présentation de la migration des identités sociales

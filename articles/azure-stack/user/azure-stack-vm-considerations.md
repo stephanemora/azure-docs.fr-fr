@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076160"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605386"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
@@ -103,7 +103,7 @@ La liste des types de ressources et des versions d’API pris en charge peut var
 Les produits Windows doivent être utilisés conformément aux droits d’utilisation des produits et aux termes des contrats de licence Microsoft. Azure Stack active les machines virtuelles Windows Server à l’aide de la fonctionnalité [Activation automatique des machines virtuelles](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA).
 
 - L’hôte Azure Stack active Windows avec les clés AVMA pour Windows Server 2016. Toutes les machines virtuelles exécutant Windows Server 2012 ou une version ultérieure sont automatiquement activées.
-- Celles qui exécutent Windows Server 2008 R2 doivent être activées manuellement à l’aide de [l’activation MAK](https://technet.microsoft.com/library/ff793438.aspx).
+- Celles qui exécutent Windows Server 2008 R2 doivent être activées manuellement à l’aide de [l’activation MAK](https://technet.microsoft.com/library/ff793438.aspx). Pour utiliser l’activation MAK, vous devez fournir votre propre clé de produit (Product Key).
 
 Microsoft Azure utilise l’activation KMS pour activer les machines virtuelles Windows. Si vous déplacez une machine virtuelle d’Azure Stack vers Azure et rencontrez des problèmes d’activation, consultez [Résoudre les problèmes d’activation de Windows sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Vous trouverez des informations supplémentaires dans le billet de blog [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) publié par l’équipe du support technique Azure.
 

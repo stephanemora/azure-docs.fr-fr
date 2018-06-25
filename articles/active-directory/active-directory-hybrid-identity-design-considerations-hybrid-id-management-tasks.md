@@ -1,30 +1,32 @@
 ---
-title: "Conception d’identités hybrides : tâches de gestion Azure | Microsoft Docs"
-description: "Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
-documentationcenter: 
+title: 'Conception d’identités hybrides : tâches de gestion Azure | Microsoft Docs'
+description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5fcb229690827c7bd508aa0d27dd68b169b4e25e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801324"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planifier le cycle de vie des identités hybrides
-L'identité est un des fondements de la stratégie de mobilité et d'accès aux applications de votre entreprise. Que vous vous connectiez à votre appareil mobile ou à une application SaaS, votre identité est la clé d'accès à tous les éléments. À son niveau le plus élevé, une solution de gestion des identités englobe l'unification et la synchronisation entre vos référentiels d'identités, ce qui inclut l'automatisation et la centralisation du processus d’approvisionnement des ressources. La solution d'identité doit être une identité centralisée en local et dans le cloud et, également, utiliser une forme de fédération d'identité, afin de gérer une authentification centralisée et partager ainsi que collaborer de manière sécurisée avec des utilisateurs et entreprises externes. Les ressources vont de systèmes d'exploitation et d’applications à des personnes dans ou affiliés à une organisation. La structure organisationnelle peut être modifiée pour prendre en compte les stratégies et les procédures d’approvisionnement.
+L'identité est un des fondements de la stratégie de mobilité et d'accès aux applications de votre entreprise. Que vous vous connectiez à votre appareil mobile ou à une application SaaS, votre identité est la clé d'accès à tous les éléments. À son niveau le plus élevé, une solution de gestion des identités englobe l'unification et la synchronisation entre vos référentiels d'identités, ce qui inclut l'automatisation et la centralisation du processus de provisionnement des ressources. La solution d'identité doit être une identité centralisée en local et dans le cloud et, également, utiliser une forme de fédération d'identité, afin de gérer une authentification centralisée et partager ainsi que collaborer de manière sécurisée avec des utilisateurs et entreprises externes. Les ressources vont de systèmes d'exploitation et d’applications à des personnes dans ou affiliés à une organisation. La structure organisationnelle peut être modifiée pour prendre en compte les stratégies et les procédures d’approvisionnement.
 
-Il est également important de disposer d'une solution d'identité conçue pour responsabiliser les utilisateurs en leur fournissant des expériences de libre-service pour qu’ils restent productifs. Votre solution d'identité est plus robuste si elle permet une authentification unique des utilisateurs pour toutes les ressources dont ils ont besoin. Les administrateurs d'accès à tous les niveaux peuvent utiliser des procédures standardisées pour la gestion des informations d'identification des utilisateurs. Certains niveaux d'administration peuvent être réduits ou éliminés, en fonction de l'étendue de la solution de gestion de l'approvisionnement. En outre, vous pouvez en toute sécurité distribuer les capacités d'administration, manuellement ou automatiquement, entre différentes organisations. Par exemple, un administrateur de domaine peut servir uniquement les personnes et les ressources de ce domaine. Cet utilisateur peut exécuter des tâches d'administration et d'approvisionnement, mais il n'est pas autorisé à effectuer des tâches de configuration, telles que la création de flux de travail.
+Il est également important de disposer d'une solution d'identité conçue pour responsabiliser les utilisateurs en leur fournissant des expériences de libre-service pour qu’ils restent productifs. Votre solution d’identité est plus robuste si l’authentification unique est activée pour les utilisateurs sur toutes les ressources auxquelles ils ont besoin d’accéder. Les administrateurs à tous les niveaux peuvent utiliser des procédures standard pour la gestion des informations d’identification utilisateur. Certains niveaux d'administration peuvent être réduits ou éliminés, en fonction de l'étendue de la solution de gestion de l'approvisionnement. En outre, vous pouvez en toute sécurité distribuer les capacités d'administration, manuellement ou automatiquement, entre différentes organisations. Par exemple, un administrateur de domaine peut servir uniquement les personnes et les ressources de ce domaine. Cet utilisateur peut exécuter des tâches d'administration et d'approvisionnement, mais il n'est pas autorisé à effectuer des tâches de configuration, telles que la création de flux de travail.
 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Déterminer les tâches de gestion des identités hybrides
 La distribution de tâches administratives dans votre organisation améliore la précision et l'efficacité de l'administration, ainsi que l'équilibre de la charge de travail de l'organisation. Voici les tableaux croisés dynamiques qui définissent un système de gestion d'identité robuste.
@@ -56,7 +58,7 @@ Lors de la définition de ces exigences, assurez-vous qu'au moins les questions 
 * Si oui, comment, qui sont-ils et quelles fonctionnalités sont disponibles ?
 
 ## <a name="synchronization-management"></a>Gestion de la synchronisation
-Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre tous les fournisseurs d'identité et de les conserver synchronisés. Vous conservez les données synchronisées sur la base d'un fournisseur d'identité principale faisant autorité. Dans un scénario d'identité hybride, avec un modèle de gestion synchronisée vous gérez toutes les identités d'utilisateurs et d'appareils sur un serveur local et synchronisez les comptes et, éventuellement, les mots de passe pour le cloud. L'utilisateur entre le même mot de passe, en local comme dans le cloud et, lors de la connexion, le mot de passe est vérifié par la solution d'identité. Ce modèle utilise un outil de synchronisation d'annuaire.
+Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre tous les fournisseurs d'identité et de les conserver synchronisés. Vous conservez les données synchronisées sur la base d'un fournisseur d'identité principale faisant autorité. Dans un scénario d'identité hybride, avec un modèle de gestion synchronisée vous gérez toutes les identités d'utilisateurs et d'appareils sur un serveur local et synchronisez les comptes et, éventuellement, les mots de passe pour le cloud. L’utilisateur entre le même mot de passe, en local comme dans le cloud et, lors de la connexion, le mot de passe est vérifié par la solution d’identité. Ce modèle utilise un outil de synchronisation d'annuaire.
 
 ![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Pour une conception appropriée la synchronisation de votre solution d'identité hybride, vérifiez que les questions suivantes sont traitées: • Quelles sont les solutions de synchronisation disponibles pour la solution d'identité hybride ?
 • Quelles sont les fonctionnalités d'authentification unique disponibles ?

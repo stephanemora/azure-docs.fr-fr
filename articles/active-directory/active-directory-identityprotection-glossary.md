@@ -1,13 +1,14 @@
 ---
-title: "Glossaire d’Azure Active Directory Identity Protection | Microsoft Docs"
-description: "Glossaire d’Azure Active Directory Identity Protection"
+title: Glossaire d’Azure Active Directory Identity Protection | Microsoft Docs
+description: Glossaire d’Azure Active Directory Identity Protection
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité, glossaire"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité, glossaire
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713389"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossaire d’Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>À risque (utilisateur)
@@ -71,7 +73,7 @@ Méthode d’authentification imposant l’utilisation d’au moins deux modes d
 Détection d’anomalies et évaluation du risque d’un événement, tel qu’une tentative de connexion consécutive à l’événement, concernant un événement qui a déjà eu lieu.
 
 ### <a name="policy-condition"></a>Condition de stratégie
-Partie d’une stratégie de sécurité qui définit les entités (groupes, utilisateurs, applications, plateformes d’appareils, états d’appareils, plages d’adresses IP, types de client) incluses dans la stratégie ou qui en sont exclues.
+Partie d’une stratégie de sécurité qui définit les entités (groupes, utilisateurs, applications, plateformes d’appareils, états d’appareils, plages d’adresses IP, types de client) incluses dans la stratégie ou qui en sont exclues.
 
 ### <a name="policy-rule"></a>Règle de stratégie
 Partie d’une stratégie de sécurité qui décrit les circonstances entraînant le déclenchement de la stratégie ainsi que les actions exécutées lors du déclenchement de la stratégie.
@@ -127,17 +129,17 @@ Processus d’authentification d’une identité dans Azure Active Directory.
 ### <a name="sign-in-n"></a>Connexion (n)
 Processus ou action d’authentification d’une identité dans Azure Active Directory et événement qui capture cette opération.
 
-### <a name="sign-in-from-anonymous-ip-address"></a>Connexion à partir d’une adresse IP anonyme
+### <a name="sign-in-from-anonymous-ip-address"></a>Connexion à partir d’une adresse IP anonyme
 Événement à risque déclenché après une réussite de connexion à partir d’une adresse IP ayant été identifiée comme adresse IP proxy anonyme.
 
 ### <a name="sign-in-from-infected-device"></a>Connexion à partir d’un appareil infecté
-Événement à risque déclenché lors d’une connexion provenant d’une adresse IP utilisée par un ou plusieurs appareils corrompus qui tentent activement de communiquer avec un serveur robot.
+Événement à risque déclenché lors d’une connexion provenant d’une adresse IP utilisée par un ou plusieurs appareils corrompus qui tentent activement de communiquer avec un serveur robot.
 
-### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Connexion à partir d’une adresse IP affichant une activité suspecte
+### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Connexion à partir d’une adresse IP affichant une activité suspecte
 Événement à risque déclenché après une réussite de connexion à partir d’une adresse IP associée à un grand nombre de tentatives de connexion effectuées pendant une courte période sur plusieurs comptes d’utilisateur.
 
 ### <a name="sign-in-from-unfamiliar-location"></a>Connexion à partir d’un emplacement inconnu
-Événement à risque déclenché lorsqu’un utilisateur parvient à se connecter depuis un nouvel emplacement (adresse IP, latitude/longitude et ASN).
+Événement à risque déclenché lorsqu’un utilisateur parvient à se connecter depuis un nouvel emplacement (adresse IP, latitude/longitude et ASN).
 
 ### <a name="sign-in-risk"></a>Risque à la connexion
 Voir « Niveau de risque (connexion) »

@@ -1,35 +1,37 @@
 ---
-title: "Conception d’identités hybrides : exigences en matière de contrôle d’accès Azure | Microsoft Docs"
-description: "Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride."
-documentationcenter: 
+title: 'Conception d’identités hybrides : exigences en matière de contrôle d’accès Azure | Microsoft Docs'
+description: Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801216"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
-Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d'accès pour les ressources qu'elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
+Lorsqu’une organisation conçoit sa solution d’identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d’accès pour les ressources qu’elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
 
 * Administration
 * Authentification
 * Authorization
 * Audit
 
-Les sections suivantes couvriront l'authentification et l'autorisation de manière plus détaillée, l'administration et l'audit font partie du cycle de vie de l'identité hybride. Lire [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) pour plus d'informations sur ces fonctionnalités.
+Les sections suivantes couvrent l’authentification et l’autorisation de manière plus détaillée ; l’administration et l’audit font partie du cycle de vie de l’identité hybride. Lire [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) pour plus d'informations sur ces fonctionnalités.
 
 > [!NOTE]
 > Lire [Les quatre piliers de l'identité - Gestion des identités à l'ère de l'informatique hybride](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) pour plus d'informations sur chacun de ces piliers.
@@ -41,13 +43,13 @@ Il existe différents scénarios d'authentification et d'autorisation aux exigen
 
 * Votre organisation authentifiera et autorisera-t-elle uniquement des utilisateurs se trouvant sur son système de gestion d'identité ?
   * Existe-t-il des plans pour les scénarios B2B ?
-  * Si oui, savez-vous déjà quels protocoles (SAML, OAuth, Kerberos, jetons ou certificats) seront utilisés pour connecter les deux entreprises ?
+  * Si oui, savez-vous déjà quels protocoles (SAML, OAuth, Kerberos ou certificats) seront utilisés pour connecter les deux entreprises ?
 * La solution d'identité hybride que vous vous apprêtez à adopter prend-elle en charge ces protocoles ?
 
 Un autre point important à prendre en compte est l'endroit où se trouvera le référentiel d'authentification qui sera utilisé par les utilisateurs et les partenaires et le modèle d'administration à utiliser. Examinez les deux options principales suivantes :
 
 * Centralisée : dans ce modèle, les informations d’identification de l’utilisateur, les stratégies et l’administration peuvent être centralisées localement ou dans le cloud.
-* Hybride : dans ce modèle, les informations d’identification de l’utilisateur, les stratégies et l’administration peuvent être centralisées localement et répliquées dans le cloud.
+* Hybride : dans ce modèle, les informations d’identification de l’utilisateur, les stratégies et l’administration sont centralisées localement et répliquées dans le cloud.
 
 Le modèle adopté par votre organisation variera en fonction de ses besoins métiers. Veuillez répondre aux questions suivantes pour identifier où le système de gestion d'identité se trouvera et quel mode d'administration devra être utilisé :
 
@@ -58,7 +60,7 @@ Le modèle adopté par votre organisation variera en fonction de ses besoins mé
   * Si oui, l'adoption d'un modèle d'identité hybride affecte-t-elle ce processus ?
 
 ## <a name="access-control"></a>Contrôle d’accès
-Bien que l'authentification et l'autorisation soient des éléments essentiels pour activer l'accès aux données d'entreprise grâce à la validation de l'utilisateur, il est également important de contrôler le niveau d'accès de ces utilisateurs, ainsi que le niveau d'accès des administrateurs aux ressources qu'ils gèrent. Votre solution d'identité hybride doit être en mesure de fournir un accès granulaire aux ressources, la délégation et le contrôle d'accès basé sur les rôles. Assurez-vous que les questions suivantes sur le contrôle d'accès ont fait l'objet d'une réponse :
+Bien que l'authentification et l'autorisation soient des éléments essentiels pour activer l'accès aux données d'entreprise grâce à la validation de l'utilisateur, il est également important de contrôler le niveau d'accès de ces utilisateurs, ainsi que le niveau d'accès des administrateurs aux ressources qu'ils gèrent. Votre solution d’identité hybride doit être en mesure de fournir un accès granulaire aux ressources, la délégation et le contrôle d’accès en fonction du rôle (RBAC). Assurez-vous que les questions suivantes sur le contrôle d’accès ont fait l’objet d’une réponse :
 
 * Votre entreprise a-t-elle plus d'un utilisateur avec des privilèges élevés pour gérer votre système d'identité ?
   * Si oui, chaque utilisateur a-t-il besoin du même niveau d'accès ?

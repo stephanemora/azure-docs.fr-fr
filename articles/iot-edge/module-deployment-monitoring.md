@@ -1,19 +1,19 @@
 ---
-title: "Déployer des modules pour Azure IoT Edge | Microsoft Docs"
-description: "En savoir plus sur la façon dont les modules sont déployés sur les appareils périphériques"
-services: iot-edge
-keywords: 
+title: Déployer des modules pour Azure IoT Edge | Microsoft Docs
+description: En savoir plus sur la façon dont les modules sont déployés sur les appareils périphériques
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725324"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Comprendre les déploiements IoT Edge pour les appareils uniques ou à l’échelle - Aperçu
 
@@ -25,7 +25,7 @@ Les appareils Azure IoT Edge suivent un [cycle de vie des appareils] [ lnk-lifec
 
 Azure IoT Edge propose deux façons de configurer les modules à exécuter sur les appareils IoT Edge : une pour le développement et les itérations rapides sur un appareil unique (que vous avez utilisé dans les didacticiels Azure IoT Edge), et une pour la gestion des fleets volumineux des appareils IoT Edge. Ces deux approches sont disponibles dans le portail Azure et par programme.
 
-Cet article se concentre sur la configuration et la surveillance des étapes pour les flottes des périphériques, collectivement appelées des déploiements IoT Edge. Les étapes de déploiement global sont les suivantes :   
+Cet article se concentre sur les étapes de configuration et de surveillance des appareils, collectivement appelées des déploiements automatiques IoT Edge. Les étapes de déploiement global sont les suivantes :   
 
 1. Un opérateur définit un déploiement qui décrit un ensemble de modules, ainsi que les appareils cibles. Chaque déploiement possède un manifeste de déploiement qui reflète ces informations. 
 1. Le service de IoT Hub communique avec tous les appareils ciblés pour les configurer avec les modules souhaités. 
@@ -36,7 +36,7 @@ Cet article définit chaque composant impliqué dans la configuration et la surv
 
 ## <a name="deployment"></a>Déploiement
 
-Un déploiement affecte aux modules IoT Edge des images à exécuter en tant qu’instances sur un ensemble ciblé de périphériques IoT Edge. Il fonctionne en configurant un manifeste de déploiement IoT Edge pour inclure une liste de modules comprenant les paramètres d’initialisation correspondants. Un déploiement peut être affecté à un périphérique unique (généralement basé sur l’ID de l’appareil) ou à un groupe d’appareils (basé sur des balises). Une fois qu’un périphérique IoT Edge reçoit un manifeste de déploiement, il télécharge et installe les images conteneurs du module à partir des référentiels conteneurs respectifs, et les configure en conséquence. Une fois qu’un déploiement est créé, un opérateur peut surveiller l’état de déploiement pour voir si les appareils ciblés sont configurés correctement.   
+Un déploiement automatique IoT Edge assigne des images de module IoT Edge à exécuter en tant qu’instances sur un ensemble ciblé d’appareils IoT Edge. Il fonctionne en configurant un manifeste de déploiement IoT Edge pour inclure une liste de modules comprenant les paramètres d’initialisation correspondants. Un déploiement peut être affecté à un périphérique unique (généralement basé sur l’ID de l’appareil) ou à un groupe d’appareils (basé sur des balises). Une fois qu’un périphérique IoT Edge reçoit un manifeste de déploiement, il télécharge et installe les images conteneurs du module à partir des référentiels conteneurs respectifs, et les configure en conséquence. Une fois qu’un déploiement est créé, un opérateur peut surveiller l’état de déploiement pour voir si les appareils ciblés sont configurés correctement.   
 
 Les périphériques doivent être approvisionnés en tant qu’appareils IoT Edge pour être configurés avec un déploiement. Les éléments suivants sont des composants requis et ne sont pas inclus dans le déploiement :
 * Le système d’exploitation de base
@@ -59,7 +59,7 @@ Les métadonnées de configuration pour chaque module incluent :
 
 La condition cible est évaluée en permanence pour inclure les nouveaux appareils qui répondent aux exigences ou pour supprimer les appareils qui n’y répondent plus tout au long de la durée de vie du déploiement. Celui-ci sera réactivé si le service détecte une modification de la condition cible. Prenons l’exemple d’un déploiement A comportant la condition cible tags.environment = ’prod’. Au lancement du déploiement, il existe 10 appareils de production. Les modules sont correctement installés sur ces 10 appareils. L’état de l’Agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 échecs de réponse et 0 réponses en attente. On ajoute maintenant 5 appareils avec tags.environment = ’prod’. Le service détecte la modification, et l’état de l’Agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 échecs de réponses et 5 réponses en attente lorsqu’il tente de déployer les cinq nouveaux appareils.
 
-Utilisez une condition booléenne sur des balises des jumeaux d’appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+Utilisez une condition booléenne sur des balises des jumeaux d’appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exemples de conditions cibles :
 * deviceId =’linuxprod1’

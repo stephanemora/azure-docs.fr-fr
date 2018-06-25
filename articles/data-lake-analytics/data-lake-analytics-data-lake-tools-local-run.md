@@ -1,28 +1,29 @@
 ---
-title: "Tester et déboguer des travaux U-SQL à l’aide d’une exécution locale et du Kit de développement logiciel (SDK) Azure Data Lake U-SQL | Microsoft Docs"
-description: "Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio et le Kit de développement logiciel (SDK) Azure Data Lake U-SQL pour tester et déboguer des travaux U-SQL sur votre station de travail locale."
+title: Exécuter des scripts U-SQL localement à l’aide du Kit SDK Azure Data Lake U-SQL
+description: Cet article explique comment utiliser Azure Data Lake Tools pour Visual Studio pour tester et déboguer des travaux U-SQL sur votre station de travail locale.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/15/2016
+author: mumian
 ms.author: yanacai
-ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
+ms.topic: conceptual
+ms.date: 11/15/2016
+ms.openlocfilehash: 322278f00f49f718b1ba560e9d21d0af0be49b18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736001"
 ---
-# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Tester et déboguer des travaux U-SQL à l’aide d’une exécution locale et du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
+# <a name="runing-u-sql-scripts-locally"></a>Exécution de scripts U-SQL localement
 
-Vous pouvez utiliser Azure Data Lake Tools pour Visual Studio et le Kit de développement logiciel (SDK) U-SQL pour exécuter des travaux U-SQL sur votre station de travail, comme vous pouvez le faire dans le service Azure Data Lake. Ces deux fonctionnalités d’exécution locale accélèrent les procédures de test et de débogage de vos travaux U-SQL.
+Au lieu d’exécuter U-SQL dans Azure, vous pouvez exécuter U-SQL sur votre propre boîte. Il s’agit d’une « exécution locale ». 
+
+L’exécution locale U-SQL est disponible dans les outils suivants :
+* Azure Data Lake Tools pour Visual Studio
+* Kit SDK Azure Data Lake U-SQL
 
 ## <a name="understand-the-data-root-folder-and-the-file-path"></a>Comprendre le dossier racine de données et le chemin d’accès
 
@@ -75,7 +76,7 @@ Vous pouvez également cliquer sur le compte **(Local)** en haut de la fenêtre 
 
 ### <a name="debug-scripts-and-c-assemblies-locally"></a>Déboguer localement des scripts et des assemblys C#
 
-Vous pouvez déboguer des assemblys C# sans les envoyer ni les inscrire auprès du service Azure Data Lake Analytics. Vous pouvez définir des points d'arrêt à la fois dans les fichier code-behind et dans un projet C# référencé.
+Vous pouvez déboguer des assemblys C# sans les envoyer ni les inscrire auprès du service Azure Data Lake Analytics. Vous pouvez définir des points d'arrêt à la fois dans les fichiers code-behind et dans un projet C# référencé.
 
 #### <a name="to-debug-local-code-in-code-behind-file"></a>Pour déboguer le code local dans le fichier code-behind
 

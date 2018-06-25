@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202439"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726259"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -94,7 +94,7 @@ Load Balancer offre les fonctionnalités de base suivantes pour les applications
 
     - **Sonde personnalisée TCP** : cette sonde s’appuie sur l’établissement réussi d’une session TCP sur un port de sonde défini. Tant que l’écouteur spécifié sur la machine virtuelle existe, cette sonde réussit. Si la connexion est refusée, la sonde échoue. Cette sonde remplace la sonde d’agent invité par défaut.
 
-    - **Sonde d’agent invité (sur machines virtuelles de plateforme en tant que service [PaaS] uniquement)** : l’équilibreur de charge peut également exploiter l’agent invité dans la machine virtuelle. L’agent invité écoute et répond HTTP 200 OK uniquement quand l’instance est prête. Si l’agent ne répond pas HTTP 200 OK, l’équilibreur de charge marque l’instance comme ne répondant pas et arrête d’envoyer du trafic vers cette instance. L’équilibreur de charge continue d’essayer d’atteindre l’instance. Si l’agent invité répond avec HTTP 200, l’équilibreur de charge renvoie du trafic vers cette instance. Ne faites appel aux sondes d’agent invité qu’en dernier recours. Ne les utilisez pas si des configurations de sondes HTTP ou TCP personnalisées sont possibles. 
+    - **Sonde d’agent invité** : l’équilibreur de charge peut également exploiter l’agent invité dans la machine virtuelle. L’agent invité écoute et répond HTTP 200 OK uniquement quand l’instance est prête. Si l’agent ne répond pas HTTP 200 OK, l’équilibreur de charge marque l’instance comme ne répondant pas et arrête d’envoyer du trafic vers cette instance. L’équilibreur de charge continue d’essayer d’atteindre l’instance. Si l’agent invité répond avec HTTP 200, l’équilibreur de charge renvoie du trafic vers cette instance. Ne faites appel aux sondes d’agent invité _qu’en dernier recours_. Ne les utilisez pas si des configurations de sondes HTTP ou TCP personnalisées sont possibles. 
     
 * **Connexions sortantes (SNAT)**
 

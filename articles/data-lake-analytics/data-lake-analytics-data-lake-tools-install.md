@@ -1,32 +1,27 @@
 ---
-title: Installer Azure Data Lake Tools pour Visual Studio | Microsoft Docs
-description: Découvrez comment installer Azure Data Lake Tools pour Visual Studio.
+title: Installer Azure Data Lake Tools pour Visual Studio
+description: Cet article explique comment installer Azure Data Lake Tools pour Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
+ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: saveenr, yanacai
-ms.openlocfilehash: 37b01c404006bbba79b185049aea6c7f77ce3c68
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c520c437212c23cc9dc8327c95b9f2a77b08e1ac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887349"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622868"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Installation de Data Lake Tools pour Visual Studio
 
 Découvrez comment utiliser Visual Studio pour créer des comptes Azure Data Lake Analytics, définir des travaux dans [U-SQL](data-lake-analytics-u-sql-get-started.md) et envoyer des travaux au service Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * **Visual Studio** : toutes les éditions sauf Express sont prises en charge.
     * Visual Studio 2017

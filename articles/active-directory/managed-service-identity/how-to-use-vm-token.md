@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165449"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796301"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons 
 
@@ -30,7 +30,6 @@ L’identité du service administré fournit des services Azure avec une identit
 Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -314,6 +313,8 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 | Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux dans *\<Chemin d’accès de fichier\>* | Vérifiez que l’identité du service administré a été activée dans la machine virtuelle. Consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](qs-configure-portal-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Consultez « l’exemple de demande » dans la [section REST précédente](#rest) pour obtenir un exemple, ou les [services Azure prenant en charge l’authentification Azure AD](services-support-msi.md) pour obtenir une liste des services et leur ID de ressource respectif.
 
 ## <a name="retry-guidance"></a>Conseils sur les nouvelles tentatives 
+
+Il est recommandé d’effectuer une nouvelle tentative si vous recevez un code d’erreur 404, 429 ou 5xx (consultez la section [Gestion des erreurs](#error-handling) ci-dessus).
 
 La limitation s’applique au nombre d’appels effectués au point de terminaison IMDS. Quand le seuil de limitation est dépassé, le point de terminaison IMDS limite toutes les autres requêtes pendant que la limitation est appliquée. Pendant cette période, le point de terminaison IMDS retourne le code d’état HTTP 429 (« Trop de requêtes ») et les requêtes échouent. 
 

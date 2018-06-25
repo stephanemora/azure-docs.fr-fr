@@ -12,17 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/04/2018
+ms.date: 05/31/2018
 ms.author: maghan
-ms.openlocfilehash: 1bc641e210a5bd965c5cdbf41efe853e9b297132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d68a950438a332cdf8ddd8d4f13a316c87aa0a5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715919"
 ---
-# <a name="about-power-bi-embedded"></a>À propos de Power BI Embedded
+# <a name="what-is-power-bi-embedded"></a>Présentation de Power BI Embedded
 
-Power BI Embedded vise à simplifier la façon dont les éditeurs de logiciels indépendants et les développeurs utilisent les fonctionnalités de Power BI. Power BI Embedded simplifie les fonctionnalités de Power BI en vous permettant d’ajouter rapidement des visuels, des rapports et des tableaux de bord dans vos applications. Comme les applications reposant sur Microsoft Azure, il utilise des services tels que Machine Learning et IoT. En simplifiant l’exploration des données dans leurs applications, les éditeurs de logiciels indépendants permettent à leurs clients de prendre des décisions éclairées et rapides en contexte.
+Power BI Embedded vise à simplifier la façon dont les éditeurs de logiciels indépendants et les développeurs utilisent les fonctionnalités de Power BI. Power BI Embedded simplifie les fonctionnalités de Power BI en vous permettant d’ajouter rapidement des visuels, des rapports et des tableaux de bord dans vos applications. Comme les applications reposant sur Microsoft Azure, il utilise des services tels que Machine Learning et IoT. En simplifiant l’exploration des données dans leurs applications, les éditeurs de logiciels indépendants permettent à leurs clients de prendre des décisions éclairées et rapides en contexte.
 
 > [!VIDEO https://www.youtube.com/embed/iEHfUuoZseo]
 
@@ -30,7 +31,7 @@ En mai 2017, nous avons annoncé la convergence des services Power BI et Power B
 
 Avec Power BI Embedded, les éditeurs de logiciels indépendants et les développeurs bénéficient d’une souplesse accrue dans la façon dont ils incorporent l’intelligence dans leurs applications à l’aide des API Power BI. Les éditeurs de logiciels indépendants et les développeurs peuvent profiter d’une réduction des efforts de développement pour raccourcir le délai de commercialisation et se différencier en incorporant le moteur analytique de premier ordre de Microsoft dans leur application. De même, les développeurs peuvent consacrer davantage de temps à leur solution afin de répondre aux demandes des clients, au lieu de développer des fonctionnalités d’analytique visuelle. Power BI Embedded vous permet également de travailler dans les environnements de développement qui vous sont familiers, à savoir Visual Studio et Azure.
 
-Vous avez une application avec du contenu Power BI incorporé qui utilise Power BI Premium ? Si vous êtes un éditeur de logiciels ou un développeur et que vous fournissez des applications, ou si vous êtes une organisation qui utilisent des applications, aucune action n’est nécessaire. Vos clients et vous-même pouvez continuer à utiliser ces applications sans interruption. Si vous avez une application qui repose sur le service Collections d’espaces de travail Power BI et que vous souhaitez tirer parti de la surface d’API mise en convergence et des nouveaux SKU Azure basés sur la capacité, consultez la documentation pour obtenir des conseils de migration.
+Avez-vous une application avec du contenu Power BI incorporé qui utilise Power BI Premium ? Si vous êtes un éditeur de logiciels ou un développeur et que vous fournissez des applications, ou si vous êtes une organisation qui utilisent des applications, aucune action n’est nécessaire. Vos clients et vous-même pouvez continuer à utiliser ces applications sans interruption. Si vous avez une application qui repose sur le service Collections d’espaces de travail Power BI et que vous souhaitez tirer parti de la surface d’API mise en convergence et des nouveaux SKU Azure basés sur la capacité, consultez la documentation pour obtenir des conseils de migration.
 
 ## <a name="comparing-power-bi-embedded-with-power-bi-premium"></a>Comparaison de Power BI Embedded et de Power BI Premium
 
@@ -38,7 +39,7 @@ Power BI Embedded s’adresse aux développeurs qui créent des applications. Vo
 
 ## <a name="easy-to-use-tools"></a>Outils simples d’utilisation
 
-Power BI Embedded vous aide à vous concentrer sur ce que vous maîtrisez le mieux, à savoir le développement de belles applications. Vous pouvez gérer et développer des applications dans Power BI Embedded à l’aide des outils et des compétences dont vous disposez déjà.
+Power BI Embedded vous aide à vous concentrer sur ce que vous maîtrisez le mieux, à savoir le développement de belles applications. Vous pouvez gérer et développer des applications avec Power BI Embedded à l’aide des outils et des compétences dont vous disposez déjà.
 
 * [**Portail Azure**](https://portal.azure.com/) : application web dédiée à la gestion de tous les services Azure
 * [**Visual Studio Code**](https://code.visualstudio.com/docs) : éditeur de code gratuit, téléchargeable et open source pour Windows, macOS et Linux qui prend en charge les extensions

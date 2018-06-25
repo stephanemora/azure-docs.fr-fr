@@ -2,34 +2,35 @@
 title: Azure Stream Analytics sur IoT Edge (version préliminaire)
 description: Créez des tâches de périphérie dans Azure Stream Analytics et déployez-les sur des appareils exécutant Azure IoT Edge.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802525"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics sur IoT Edge (version préliminaire)
 
 > [!IMPORTANT]
-> Cette fonctionnalité n’existe qu’en version préliminaire. Nous ne recommandons pas une utilisation en production.
+> Cette fonctionnalité est en préversion et il n’est pas recommandé de l’utiliser en production.
  
-Azure Stream Analytics (ASA) sur IoT Edge encourage les développeurs à déployer une intelligence analytique quasiment en temps réel plus proche des appareils IoT pour leur permettre de déverrouiller la valeur complète des données générées par l’appareil. Conçu pour une latence faible, une résilience, une utilisation efficace de la bande passante et la conformité, les entreprises peuvent désormais déployer la logique de contrôle proche des opérations industrielles et compléter l’analytique du Big Data effectuée dans le cloud.  
-Azure Stream Analytics sur IoT Edge s’exécute dans le framework [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Une fois que le travail est créé dans ASA, déployez et gérez des travaux ASA à l’aide de IoT Hub.
-Cette fonctionnalité est en préversion, si vous avez des questions ou des commentaires, vous pouvez utiliser [ce questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) pour contacter l’équipe produit. 
+Azure Stream Analytics (ASA) sur IoT Edge encourage les développeurs à déployer une intelligence analytique quasiment en temps réel plus proche des appareils IoT pour leur permettre de déverrouiller la valeur complète des données générées par l’appareil. Azure Stream Analytics est conçu pour une latence faible, une résilience, une utilisation efficace de la bande passante et la conformité. Les entreprises peuvent désormais déployer la logique de contrôle proche des opérations industrielles et compléter l’analytique du Big Data effectuée dans le cloud.  
+
+Azure Stream Analytics sur IoT Edge s’exécute dans le framework [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Une fois que le travail est créé dans ASA, vous pouvez déployer et gérer des travaux ASA à l’aide d’IoT Hub. Cette fonctionnalité est en préversion. Si vous avez des questions ou des commentaires, vous pouvez utiliser [ce questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) pour contacter l’équipe produit. 
 
 ## <a name="scenarios"></a>Scénarios
 ![Diagramme général](media/stream-analytics-edge/ASAedge_highlevel.png)
 
 * **Contrôle et commande de faible latence**: par exemple, les systèmes de sécurité de fabrication doivent répondre aux données opérationnelles avec une latence très faible. Avec ASA sur IoT Edge, vous pouvez analyser les données de capteur quasiment en temps réel et émettre des commandes lorsque vous détectez des anomalies pour arrêter une machine ou déclencher des alertes.
 *   **Connectivité au cloud limitée** : les systèmes stratégiques, tels que les équipements miniers à distance, les navires connectés ou les installations de forage offshore, ont besoin d’analyser les données et d’y réagir, même lorsque la connectivité au cloud est intermittente. Avec ASA, votre logique de diffusion en continu s’exécute indépendamment de la connectivité réseau et vous pouvez choisir ce que vous envoyez sur le cloud pour un traitement ultérieur ou pour y être stocké.
-* **Bande passante limitée** : le volume de données produites par les moteurs à réaction ou par les voitures connectées peut être tellement important que les données doivent être filtrées ou traitées au préalable avant d’être envoyées vers le cloud. À l’aide de ASA, vous pouvez filtrer ou agréger les données qui doivent être envoyés vers le cloud.
+* **Bande passante limitée** : le volume de données produites par les moteurs à réaction ou par les voitures connectées peut être tellement important que les données doivent être filtrées ou traitées au préalable avant d’être envoyées vers le cloud. À l’aide d’ASA, vous pouvez filtrer ou agréger les données qui doivent être envoyées vers le cloud.
 * **Conformité** : pour obtenir une conformité réglementaire, certaines données peuvent être rendues anonymes localement ou agrégées avant d’être envoyés vers le cloud.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Tâches de périphérie dans Azure Stream Analytics
@@ -48,8 +49,8 @@ ASA utilise IoT Hub pour déployer des tâches de périphérie sur les périphé
 La procédure générale est décrite dans le tableau suivant. Vous obtiendrez plus de détails dans les sections suivantes.
 |      |Étape   | Emplacement     | Notes   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Créer une tâche ASA Edge**   | Portail Azure      |  Créez une nouvelle tâche, sélectionnez **Edge** en tant qu’**environnement d’hébergement**. <br> Ces tâches sont créées/gérées à partir du cloud et s’exécutent sur vos propres appareils IoT Edge.     |
-| 2   | **Créer un conteneur de stockage**   | Portail Azure       | Les conteneurs de stockage sont utilisés pour enregistrer votre définition de tâche, là où ils sont accessibles par vos appareils IoT. <br>  Vous pouvez réutiliser un conteneur de stockage existant.     |
+| 1   | **Créer un conteneur de stockage**   | Portail Azure       | Les conteneurs de stockage sont utilisés pour enregistrer votre définition de tâche, là où ils sont accessibles par vos appareils IoT. <br>  Vous pouvez réutiliser un conteneur de stockage existant.     |
+| 2   | **Créer une tâche ASA Edge**   | Portail Azure      |  Créez une nouvelle tâche, sélectionnez **Edge** en tant qu’**environnement d’hébergement**. <br> Ces tâches sont créées/gérées à partir du cloud et s’exécutent sur vos propres appareils IoT Edge.     |
 | 3   | **Configurer votre environnement IoT Edge sur vos appareils**   | Appareil(s)      | Instructions pour [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Déployer ASA sur vos appareils IoT Edge**   | Portail Azure      |  La définition de tâche ASA est exportée vers le conteneur de stockage créé précédemment.       |
 Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) pour déployer votre première tâche ASA sur IoT Edge. La vidéo suivante permet de comprendre le processus d’exécution d’une tâche Stream Analytics sur un appareil IoT Edge :  
@@ -57,7 +58,12 @@ Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-
+#### <a name="create-a-storage-container"></a>Créer un conteneur de stockage
+Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée et la configuration de tâche. Il est utilisé pour configurer l’image ASA Docker avec votre requête spécifique. 
+1. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage à partir du portail Azure. Vous pouvez conserver toutes les options par défaut pour utiliser ce compte avec ASA.
+2. Dans le compte de stockage nouvellement créé, créez un conteneur de stockage d’objets blob :
+    1. Cliquez sur **BLOB**, puis  **+ Conteneur »**. 
+    2. Entrez un nom et conservez le conteneur en tant que **Privé**.
 
 #### <a name="create-an-asa-edge-job"></a>Créer une tâche ASA Edge
 > [!Note]
@@ -71,17 +77,11 @@ Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/
     2. Définissez les données de référence (facultatif).
     3. **Définir le(s) flux de sortie**. Définissez un ou plusieurs flux de sortie pour votre tâche. 
     4. **Définir la requête**. Définissez la requête ASA dans le cloud à l’aide de l’éditeur inclus. Le compilateur vérifie automatiquement la syntaxe prise en charge par ASA Edge. Vous pouvez également tester votre requête en téléchargeant des exemples de données. 
-4. Définir des paramètres facultatifs
+4. Définissez les informations du conteneur de stockage dans le menu **Paramètres IoT Edge**.
+5. Définir des paramètres facultatifs
     1. **Ordre des événements**. Vous pouvez configurer une stratégie d’arrivée en désordre dans le portail. La documentation est disponible [ici](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Paramètres régionaux**. Définissez le format d’internationalisation.
 
-
-#### <a name="create-a-storage-container"></a>Créer un conteneur de stockage
-Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée et la configuration de tâche. Il est utilisé pour configurer l’image ASA Docker avec votre requête spécifique. 
-1. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage à partir du portail Azure. Vous pouvez conserver toutes les options par défaut pour utiliser ce compte avec ASA.
-2. Dans le compte de stockage nouvellement créé, créez un conteneur de stockage d’objets blob :
-    1. Cliquez sur « BLOB », puis « + conteneur ». 
-    2. Entrez un nom et conservez le conteneur en tant que « Privé ».
 
 
 > [!Note]
@@ -91,23 +91,23 @@ Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Configurer votre environnement IoT Edge sur vos appareils
 Les tâches de périphérie peuvent être déployées sur les appareils exécutant Azure IoT Edge.
 Pour ce faire, vous devez procéder comme suit :
-- Créez un Iot Hub ;
-- Installez le runtime Docker et IoT Edge sur vos appareils de périphérie ;
-- Définissez vos appareils comme « Appareils IoT Edge » dans le IoT Hub.
+- Créez un IoT Hub.
+- Installez le runtime Docker et IoT Edge sur vos appareils de périphérie.
+- Définissez vos appareils comme **Appareils IoT Edge** dans IoT Hub.
 
 Ces étapes sont décrites dans la documentation IoT Edge pour [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Déployer ASA sur vos appareils IoT Edge
 ##### <a name="add-asa-to-your-deployment"></a>Ajouter ASA à votre déploiement
-- Dans le portail Azure, ouvrez IoT Hub, accédez à l’explorateur IoT Edge et ouvrez le panneau des appareils.
-- Sélectionnez **Définir modules** puis **Importer le module IoT Edge d’Azure Service**.
-- Sélectionnez l’abonnement et la tâche ASA Edge que vous avez créée. Sélectionnez ensuite votre compte de stockage. Cliquez sur Enregistrer.
+- Dans le portail Azure, ouvrez IoT Hub, accédez à **IoT Edge**, puis cliquez sur l’appareil que vous souhaitez cibler pour ce déploiement.
+- Sélectionnez **Set modules** (Définir les modules), puis sélectionnez **+ Ajouter** et choisissez **Azure Stream Analytics Module** (Module Azure Stream Analytics).
+- Sélectionnez l’abonnement et la tâche ASA Edge que vous avez créée. Cliquez sur Enregistrer.
 ![Ajouter un module ASA dans votre déploiement](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> Au cours de cette étape, ASA demande l’accès au conteneur de stockage sélectionné, puis crée un dossier nommé « EdgeJobs ». Pour chaque déploiement, un nouveau sous-dossier est créé dans le dossier « EdgeJobs ».
+> Dans cette étape, ASA crée un dossier nommé « EdgeJobs » dans le conteneur de stockage (s’il n’existe pas déjà). Pour chaque déploiement, un nouveau sous-dossier est créé dans le dossier « EdgeJobs ».
 > Pour déployer votre projet sur les appareils en périphérie, ASA crée une signature d’accès partagé (SAP) pour le fichier de définition de tâche. La clé SAP est transmise de façon sécurisée aux appareils IoT Edge à l’aide de jumeaux d’appareil. La durée avant expiration de cette clé est de trois ans à partir du jour de sa création.
 
 
@@ -140,7 +140,7 @@ Cet exemple définit les itinéraires suivants :
 
 ## <a name="technical-information"></a>Informations techniques
 ### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>Limitations actuelles pour les tâches de périphérie par rapport aux tâches cloud
-L’objectif est d’obtenir la parité entre les tâches de périphérie et les tâches cloud. La plupart des fonctionnalités de notre langage de requête SQL sont déjà prises en charge.
+L’objectif est d’obtenir la parité entre les tâches de périphérie et les tâches cloud. La plupart des fonctionnalités du langage de requête SQL sont déjà prises en charge.
 Cependant, les fonctionnalités suivantes ne sont pas encore prises en charge pour les tâches de périphérie :
 * Fonctions définies par l’utilisateur (UDF) et agrégats définis par l’utilisateur (UDA).
 * Fonctions Azure ML.
@@ -165,7 +165,7 @@ Pour exécuter ASA sur IoT Edge, vous avez besoin d’appareils pouvant exécute
 
 ASA et Azure IoT Edge utilisent des conteneurs **Docker** pour fournir une solution portable s’exécutant sur plusieurs systèmes d’exploitation hôtes (Windows, Linux).
 
-ASA sur IoT Edge est mis à disposition en tant qu’image Windows et Linux, s’exécutant sur les architectures x86-64 ou ARM. 
+ASA sur IoT Edge est mis à disposition en tant qu’image Windows et Linux, s’exécutant sur les architectures x86-64 ou Azure Resource Manager. 
 
 
 ### <a name="input-and-output"></a>Entrée et sortie
@@ -176,12 +176,14 @@ Les formats CSV et JSON sont pris en charge pour les entrées et sorties.
 
 Pour chaque flux d’entrée et de sortie que vous créez dans votre tâche ASA, un point de terminaison correspondant est créé dans votre module déployé. Ces points de terminaison sont utilisables dans les itinéraires de votre déploiement.
 
+Actuellement, les seuls types d’entrée et de sortie de flux pris en charge sont Edge Hub. L’entrée de référence prend en charge le type de fichier de référence. D’autres sorties peuvent être atteintes à l’aide d’un travail cloud en aval. Par exemple, un travail Stream Analytics hébergé dans Edge envoie la sortie à Edge Hub, qui peuvent ensuite envoyer la sortie à IoT Hub. Vous pouvez utiliser un deuxième travail Azure Stream Analytics Analytique hébergé sur le cloud avec une entrée d’IoT Hub et une sortie vers Power BI ou un autre type de sortie.
+
 
 
 ##### <a name="reference-data"></a>Données de référence
-Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature. Elles sont utilisées pour effectuer des recherches ou pour effectuer des mises en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Pour plus d’informations, consultez la [documentation ASA sur les données de référence](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature. Elles sont utilisées pour effectuer des recherches ou pour effectuer des mises en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Pour plus d’informations, consultez la [documentation ASA sur les données de référence](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
 
-Pour pouvoir utiliser les données de référence pour ASA sur Iot Edge, vous devez procédez comme suit : 
+Pour utiliser des données de référence pour ASA sur IoT Edge, procédez comme suit : 
 1. Créez une nouvelle entrée pour votre tâche.
 2. Choisissez **données de référence** pour le **type de source**.
 3. Définissez le chemin d’accès du fichier. Le chemin d’accès du fichier doit être un chemin d’accès **absolu** pour la ![création de données de référence](media/stream-analytics-edge/ReferenceData.png) du périphérique.

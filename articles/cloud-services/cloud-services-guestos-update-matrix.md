@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 73771aaff59c3db46907ffd9f74c03f0ac0830cb
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765771"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736777"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -40,9 +40,12 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 >
 >
 
-Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
+Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+###### <a name="june-1-2018"></a>**1er juin 2018**
+Le système d’exploitation invité de mai a été publié.
+
 ###### <a name="may-4-2018"></a>**4 mai 2018**
 Le système d’exploitation invité d’avril a été publié.
 
@@ -70,9 +73,6 @@ Publication de l’OS invité octobre.
 ###### <a name="october-6-2017"></a>**6 octobre 2017**
 Publication du SE invité septembre. Pour la version de septembre de Windows Server 2016, netfx3 est activé par défaut. Les clients doivent ajouter « dism /online /disable-feature /featurename:netfx3 » dans leur OnStart si leur flux de travail en a besoin pour exécuter une application .NET 2.x avec un runtime 4.x ou s’ils ont exécuté une application .NET 2.x, ont géré une erreur, puis ont exécuté une application .NET 4.x.
 
-###### <a name="september-14-2017"></a>**14 septembre 2017**
-Le déploiement du système d’exploitation invité du mois de septembre commence le 14 septembre, et sa publication est prévue le 9 octobre.
-
 
 
 ## <a name="releases"></a>Publications
@@ -89,8 +89,9 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.19_201805-01 |1er juin 2018 |Après 5.21 |TBD |
 | WA-GUEST-OS-5.18_201804-01 |4 mai 2018 |Post 5.20 |TBD |
-| WA-GUEST-OS-5.17_201803-01 |6 avril 2018 |Post 5.19 |TBD |
+|~~WA-GUEST-OS-5.17_201803-01~~ |6 avril 2018 |1er juin 2018|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |12 mars 2018 |4 mai 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
@@ -98,10 +99,6 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
-|~~WA-GUEST-OS-5.9_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
-|~~WA-GUEST-OS-5.8_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
-|~~WA-GUEST-OS-5.7_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
-|~~WA-GUEST-OS-5.6_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 
 
 ## <a name="family-4-releases"></a>Publications de famille 4
@@ -116,8 +113,9 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.54_201805-01 |1er juin 2018 |Après 4.56 |TBD |
 | WA-GUEST-OS-4.53_201804-01 |4 mai 2018 |Post 4.55 |TBD |
-| WA-GUEST-OS-4.52_201803-01 |6 avril 2018 |Post 4.54 |TBD |
+|~~WA-GUEST-OS-4.52_201803-01~~ |6 avril 2018 |1er juin 2018 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |12 mars 2018 |4 mai 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
@@ -125,10 +123,7 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
-|~~WA-GUEST-OS-4.44_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
-|~~WA-GUEST-OS-4.43_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
-|~~WA-GUEST-OS-4.42_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
-|~~WA-GUEST-OS-4.41_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
+
 
 
 ## <a name="family-3-releases"></a>Publications de famille 3
@@ -143,8 +138,9 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.61_201805-01 |1er juin 2018 |Après 3.63 |TBD |
 | WA-GUEST-OS-3.60_201804-01 |4 mai 2018 |Post 3.62 |TBD |
-| WA-GUEST-OS-3.59_201803-01 |6 avril 2018 |Post 3.61 |TBD |
+|~~WA-GUEST-OS-3.59_201803-01~~ |6 avril 2018 |1er juin 2018 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |19 mars 2018 |4 mai 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |29 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 janvier 2018 |19 mars 2018 |TBD |
@@ -152,10 +148,6 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
-|~~WA-GUEST-OS-3.51_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
-|~~WA-GUEST-OS-3.50_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
-|~~WA-GUEST-OS-3.49_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
-|~~WA-GUEST-OS-3.48_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 
 
 ## <a name="family-2-releases"></a>Publications de famille 2
@@ -170,8 +162,9 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.74_201805-01 |1er juin 2018 |Après 2.76 |TBD |
 | WA-GUEST-OS-2.73_201804-01 |4 mai 2018 |Post 2.75 |TBD |
-| WA-GUEST-OS-2.72_201803-01 |6 avril 2018 |Post 2.74 |TBD |
+|~~WA-GUEST-OS-2.72_201803-01~~ |6 avril 2018 |1er juin 2018 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |12 mars 2018 |4 mai 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |29 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
@@ -179,11 +172,6 @@ Le déploiement du système d’exploitation invité du mois de septembre commen
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
-|~~WA-GUEST-OS-2.64_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
-|~~WA-GUEST-OS-2.63_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
-|~~WA-GUEST-OS-2.62_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
-|~~WA-GUEST-OS-2.61_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
-|~~WA-GUEST-OS-2.60_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC
@@ -241,6 +229,7 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
+[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
 [Flux RSS de mise à jour du SE invité]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md

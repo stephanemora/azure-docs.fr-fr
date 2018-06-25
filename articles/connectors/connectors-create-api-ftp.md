@@ -1,25 +1,22 @@
 ---
-title: Découvrez comment utiliser le connecteur FTP dans des applications logiques | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. Connectez-vous à un serveur FTP pour gérer vos fichiers. Vous pouvez exécuter diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers dans le serveur FTP.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+title: Se connecter à un serveur FTP - Azure Logic Apps | Microsoft Docs
+description: Créer, surveiller et gérer des fichiers sur un serveur FTP avec Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 07/22/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 983e8f84e6e44bc9e5de5f4e7fff361b92b316c9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295691"
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Prise en main du connecteur FTP
 Utilisez le connecteur FTP pour surveiller, gérer et créer des fichiers sur un serveur FTP. 

@@ -1,20 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : Exemples et définitions de journaux d’audit'
-description: Guide et exemples relatifs à l’accès aux journaux d’audit Azure AD B2C
+title: Exemples et définitions de journaux d’audit dans Azure Active Directory B2C | Microsoft Docs
+description: Guide et exemples relatifs à l’accès aux journaux d’audit Azure AD B2C.
 services: active-directory-b2c
-author: sromeroz
-manager: sasubram
-ms.author: sezambra
-ms.service: active-directory-b2c
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.openlocfilehash: 8cc48853b0677230c4e19df4f0ecd93ce88b119d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 4828bf2f0faa596c8222c3a36dc3d38ec1b3bd1a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206322"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709816"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -65,7 +66,6 @@ La liste des activités journalisées pendant les sept derniers jours apparaît.
 Les journaux d’audit sont publiés dans le même pipeline que les autres activités Azure Active Directory, afin d’être accessibles par le biais de l’[API de création de rapports Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
 ###<a name="prerequisites"></a>Prérequis
-
 Pour vous authentifier auprès de l’API de création de rapports Azure AD, vous devez tout d’abord inscrire une application. Veillez à suivre les étapes indiquées dans [Prérequis pour accéder à l’API de création de rapports Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ###<a name="accesing-the-api"></a>Accès à l’API

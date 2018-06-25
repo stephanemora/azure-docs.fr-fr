@@ -1,24 +1,19 @@
 ---
 title: Protection des applications Azure Service Bus contre les pannes et les sinistres | Microsoft Docs
-description: "Techniques permettant de protéger les applications contre une panne Service Bus potentielle."
+description: Techniques permettant de protéger les applications contre une panne Service Bus potentielle.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802304"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
@@ -34,7 +29,9 @@ Service Bus utilise plusieurs banques de messagerie pour stocker les messages so
 Toutes les entités de messagerie Service Bus (files d’attente, rubriques, relais) résident dans un espace de noms de service, qui est affilié à un centre de données. Service Bus prend désormais en charge la [*géorécupération d’urgence* et la *géoréplication*](service-bus-geo-dr.md) au niveau de l’espace de noms.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protection des files d’attente et des rubriques contre les défaillances de la banque de messagerie
-Une file d’attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n’est pas disponible, toutes les opérations sur cette file d’attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
+Une file d’attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n’est pas disponible, toutes les opérations sur cette file d’attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Les entités partitionnées ne sont plus prises en charge dans la [référence SKU Premium](service-bus-premium-messaging.md). 
+
+Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protection contre les pannes ou les sinistres du centre de données
 Pour permettre un basculement entre deux centres de données, vous pouvez créer un espace de noms de service Service Bus dans chaque centre de données. Par exemple, l’espace de noms de service Service Bus **contosoPrimary.servicebus.windows.net** peut se trouver dans la région États-Unis (Nord/Centre) et **contosoSecondary.servicebus.windows.net** peut se trouver dans la région États-Unis (Sud/Centre). Si une entité de messagerie Service Bus doit rester accessible en cas de panne du centre de données, vous pouvez créer cette entité dans les deux espaces de noms.

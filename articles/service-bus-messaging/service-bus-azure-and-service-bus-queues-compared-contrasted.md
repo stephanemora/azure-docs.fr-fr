@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802351"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les ressemblances entre les deux types de file d’attente proposés aujourd’hui par Microsoft Azure : les files d’attente Azure et les files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -47,7 +48,6 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 
 * Votre solution doit être en mesure de recevoir des messages sans devoir interroger la file d'attente. Avec Service Bus, ceci peut être réalisé avec l'utilisation de l'opération de réception à interrogation longue à l'aide des protocoles TCP pris en charge par Service Bus.
 * Votre solution nécessite la file d'attente pour fournir une livraison organisée selon la méthode Premier entré, premier sortie.
-* Vous souhaitez créer une expérience symétrique dans Azure et Windows Server (cloud privé). Pour plus d’informations, consultez [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * Votre solution doit pouvoir prendre en charge la détection automatique des doublons.
 * Vous voulez que votre application traite les messages sous forme de flux de longue durée parallèles (les messages sont associés à un flux à l’aide de la propriété [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) du message). Dans ce modèle, chaque nœud de l'application consommatrice entre en concurrence pour les flux, contrairement aux messages. Lorsqu'un flux est donné à un nœud consommateur, le nœud peut examiner l'état du flux de l'application à l'aide de transactions.
 * Votre solution nécessite un comportement transactionnel et l'atomicité lors de l'envoi ou de la réception de plusieurs messages à partir d'une file d'attente.
@@ -65,7 +65,7 @@ Dans les sections suivantes, les tableaux regroupent logiquement les fonctionnal
 ## <a name="foundational-capabilities"></a>Fonctions de base
 Cette section compare certaines des fonctionnalités de base fournies par les files d’attente Azure et les files d’attente Service Bus.
 
-| Critères de comparaison | Files d’attente de stockage | Files d'attente Service Bus |
+| Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
 | Garantie de classement |**Non** <br/><br>Pour plus d’informations, consultez la première remarque dans la section « Informations supplémentaires ».</br> |**Oui - Premier entré premier sorti (PEPS)**<br/><br>(par le biais de l’utilisation de sessions de messagerie) |
 | Garantie de livraison |**Au moins une fois** |**Au moins une fois**<br/><br/>**Une fois au maximum** |
@@ -97,7 +97,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 ## <a name="advanced-capabilities"></a>Fonctionnalités avancées
 Cette section compare les fonctionnalités avancées des files d’attente Azure et des files d’attente Service Bus.
 
-| Critères de comparaison | Files d’attente de stockage | Files d'attente Service Bus |
+| Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
 | Remise planifiée |**Oui** |**Oui** |
 | Lettre morte automatique |**Non** |**Oui** |
@@ -128,7 +128,7 @@ Cette section compare les fonctionnalités avancées des files d’attente Azure
 ## <a name="capacity-and-quotas"></a>Capacité et quotas
 Cette section compare les files d’attente de stockage et les files d’attente Service Bus du point de vue [des capacités et des quotas](service-bus-quotas.md) applicables.
 
-| Critères de comparaison | Files d’attente de stockage | Files d'attente Service Bus |
+| Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
 | Taille de file d'attente maximale |**500 To**<br/><br/>(limitée à une [capacité de compte de stockage unique](../storage/common/storage-introduction.md#queue-storage)) |**1 Go à 80 Go**<br/><br/>(définie lors de la création d’une file d’attente et d’une [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires ») |
 | Taille de message maximale |**64 Ko**<br/><br/>(48 Ko avec un codage en **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d’attente et des objets blob. Dans ce cas, vous pouvez placer jusqu’à 200 Go en file d’attente pour un seul élément. |**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Dépend du [niveau de service](service-bus-premium-messaging.md). |
@@ -138,7 +138,7 @@ Cette section compare les files d’attente de stockage et les files d’attente
 
 ### <a name="additional-information"></a>Informations supplémentaires
 * Service Bus applique les limites en termes de taille de file d'attente. La taille de file d'attente maximale est spécifiée lors de la création de la file d'attente et peut avoir une valeur comprise entre 1 Go et 80 Go. Si la valeur de taille de la file d'attente définie lors de la création de celle-ci est atteinte, les messages entrants supplémentaires seront rejetés et une exception sera reçue par le code appelant. Pour plus d’informations sur les quotas dans Service Bus, consultez [Quotas Service Bus](service-bus-quotas.md).
-* Dans le [niveau Standard](service-bus-premium-messaging.md), vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Dans le niveau Premium, vous pouvez créer des files d’attente pouvant atteindre 80 Go. Dans le niveau Standard, avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions la taille maximale de la file d’attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal]. Dans le niveau Premium, seules 2 partitions sont créées par file d’attente.
+* Le partitionnement n’est pas pris en charge dans le niveau [Premium](service-bus-premium-messaging.md). Dans le niveau Standard, vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Dans le niveau Standard, avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions la taille maximale de la file d’attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure][Azure portal].
 * Avec les files d’attente de stockage, si le contenu du message n’est pas sécurisé pour XML, il doit être encodé au format **Base64**. Si vous encodez le message au format **Base64**, la charge utilisateur peut atteindre 48 Ko, au lieu de 64 Ko.
 * Avec les files d’attente Service Bus, chaque message stocké dans une file d’attente est composé de deux parties : un en-tête et un corps. La taille totale du message ne peut pas dépasser la taille de message maximale prise en charge par le niveau de service.
 * Lorsque des clients communiquent avec des files d'attente Service Bus au moyen du protocole TCP, le nombre maximal de connexions simultanées à une file d'attente Service Bus unique est limité à 100. Ce nombre est partagé entre les expéditeurs et les destinataires. Si ce quota est atteint, les requêtes suivantes pour des connexions supplémentaires sont rejetées et une exception sera reçue par le code appelant. Cette limite n'est pas appliquée aux clients qui se connectent aux files d'attente à l'aide d'une API REST.
@@ -171,7 +171,7 @@ Cette section compare les fonctionnalités de gestion fournies par les files d�
 ## <a name="authentication-and-authorization"></a>Authentification et autorisation
 Cette section décrit les fonctionnalités d’authentification et d’autorisation prises en charge par les files d’attente Service Bus et les files d’attente de stockage.
 
-| Critères de comparaison | Files d’attente de stockage | Files d'attente Service Bus |
+| Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
 | Authentification |**Clé symétrique** |**Clé symétrique** |
 | Modèle de sécurité |Accès délégué via des jetons SAS. |SAS |

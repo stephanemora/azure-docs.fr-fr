@@ -1,19 +1,19 @@
 ---
 title: Gérer les appareils dans votre application Azure IoT Central | Microsoft Docs
 description: En tant qu’opérateur, apprenez à gérer des appareils dans votre application Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303577"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807473"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -77,8 +77,33 @@ Pour l’inscription en masse d’appareils :
 
     [![Importation en masse réussie](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Si l’importation d’appareils échoue, une erreur s’affichera sur la grille de l’appareil. Un fichier journal capturant toutes les erreurs est généré et peut être téléchargé en cliquant sur le message d’erreur.
+Si l’importation d’appareils échoue, un message d’erreur s’affichera sur la grille de l’appareil. Un fichier journal capturant toutes les erreurs est généré et peut être téléchargé en cliquant sur le message d’erreur.
 
+## <a name="export-devices"></a>Exporter des appareils
+
+Pour provisionner des appareils pour la connexion à IoT Central, vous aurez besoin de la chaîne de connexion de l’appareil qui est générée par IoT Central. Vous pouvez utiliser la fonctionnalité d’exportation pour obtenir les chaînes de connexion et d’autres propriétés des appareils en bloc à partir de votre application. L’exportation crée un fichier CSV avec l’identité de l’appareil, le nom de l’appareil et la chaîne de connexion principale pour tous les appareils sélectionnés.
+
+Pour exporter en bloc des appareils à partir de votre application :
+1. Choisissez **Explorer** dans le menu de navigation gauche.
+
+1. Dans le volet gauche, choisissez le modèle d’appareil pour lequel vous souhaitez exporter les appareils.
+
+1. Sélectionnez les appareils que vous souhaitez exporter, puis cliquez sur l’action **Exporter**.
+
+    [![Exporter](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Le processus d’exportation démarre et vous pouvez en suivre l’état en haut de la grille. 
+
+1. Une fois l’exportation terminée, un message de réussite s’affiche avec un lien pour télécharger le fichier généré.
+
+1. Cliquez sur le **message de réussite** pour télécharger le fichier vers un dossier local sur le disque.
+
+    [![Exportation réussie](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. Le fichier CSV exporté contient les informations suivantes :
+    1. NOM
+    1. ID de périphérique
+    1. Chaîne de connexion principale
 
 
 ## <a name="delete-a-device"></a>Suppression d’un appareil

@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801413"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -41,11 +43,11 @@ Pour afficher l’état d’une unité d’échelle :
  
 Ici, vous pouvez afficher les informations suivantes :
 
-- Nom de la région
+- Nom de la région. Le nom de la région est référencé avec **-Location** dans le module PowerShell.
 - Type de système
 - Total des cœurs logiques
 - Quantité totale de mémoire
-- Liste des nœuds individuels et leur état (en cours d’exécution ou arrêté)
+- Liste des nœuds individuels et leur état (**en cours d’exécution** ou **arrêté**)
 
 ![Vignette d’unité de mise à l’échelle indiquant l’état En cours d’exécution pour chaque nœud](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ Cette action est généralement utilisée lorsqu’un nœud est dans un état su
 Pour exécuter l’action de mise hors tension via PowerShell :
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 Dans le cas peu probable où la mise hors tension ne fonctionnerait pas, utilisez l’interface web du BMC.
@@ -102,7 +104,7 @@ L’action de **mise sous tension** active le nœud. Cela revient à appuyer sur
 Pour exécuter l’action de mise sous tension via PowerShell :
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 Dans le cas peu probable où la mise sous tension ne fonctionnerait pas, utilisez l’interface web du BMC.
@@ -113,13 +115,13 @@ L’action de **vidage** évacue toutes les charges de travail actives en les r�
 
 Cette action est généralement utilisée au cours du remplacement de champs de parties, telles que le remplacement d’un nœud complet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Assurez-vous de vider un nœud uniquement au cours de la période de maintenance planifiée, où les utilisateurs ont été notifiés. Sous certaines conditions, les charges de travail actives peuvent subir des interruptions.
 
 Pour exécuter l’action de vidage via PowerShell :
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>Reprendre
@@ -129,7 +131,7 @@ L’action de **reprise** reprend un nœud vidé et le marque comme actif pour l
 Pour exécuter l’action de reprise via PowerShell :
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>Réparation
@@ -139,7 +141,7 @@ L’action de **réparation** répare un nœud. À utiliser uniquement pour un d
 - Remplacement de nœud complet (avec ou sans nouveaux disques de données)
 - Après la défaillance et le remplacement d’un composant matériel (Si cela est conseillé dans la documentation sur les unités remplaçables sur site.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Consultez la documentation sur les unités remplaçables sur site de votre fabricant de matériel OEM pour connaître les étapes exactes relatives au remplacement d’un nœuds ou de composants matériels individuels. La documentation sur les unités remplaçables sur site indique s’il faut exécuter l’action de réparation après le remplacement d’un composant matériel.  
 
 Lorsque vous exécutez l’action de réparation, vous devez spécifier l’adresse IP du BMC. 
@@ -147,7 +149,9 @@ Lorsque vous exécutez l’action de réparation, vous devez spécifier l’adre
 Pour exécuter l’action de réparation via PowerShell :
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Pour en savoir plus sur le module administrateur Azure Stack Fabric, consultez [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 42fabb9a2ad05dbd6a449f3f9e6a729917750165
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930127"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700006"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurer une MSI de groupe de machines virtuelles identiques à l’aide de PowerShell
 
@@ -27,14 +27,13 @@ ms.locfileid: "33930127"
 
 L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous allez découvrir comment effectuer les opérations MSI suivantes sur un groupe de machines virtuelles identiques Azure à l’aide de PowerShell :
+Dans cet article, vous allez découvrir comment effectuer les opérations MSI sur un groupe de machines virtuelles identiques à l’aide de PowerShell :
 - Activer et désactiver l’identité attribuée par le système sur un groupe de machines virtuelles identiques Azure
 - Ajouter et supprimer une identité attribuée par l’utilisateur sur un groupe de machines virtuelles identiques Azure
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identités attribuées par le système et celles attribuées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Installez [la dernière version d’Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) si ce n’est déjà fait. 
 
@@ -123,8 +122,7 @@ Pour attribuer une identité attribuée par l’utilisateur à un groupe de mach
 
 2. Commencez par récupérer les propriétés de la machine virtuelle à l’aide de la cmdlet `Get-AzureRmVM`. Ensuite, pour attribuer une identité attribuée par l’utilisateur au groupe de machines virtuelles identiques Azure, utilisez les commutateurs `-IdentityType` et `-IdentityID` avec la cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm). Remplacez `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>` et `USER ASSIGNED ID2` par vos propres valeurs.
 
-   > [!IMPORTANT]
-   > La création d’identités attribuées par l’utilisateur ne prend en charge que les caractères alphanumériques et traits d’union (0-9 ou a-z ou A-Z ou -). En outre, le nom doit être limité à 24 caractères pour que l’attribution à la machine virtuelle ou au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, voir [FAQ et problèmes connus](known-issues.md).
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

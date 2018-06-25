@@ -1,31 +1,25 @@
 ---
-title: "Utiliser la vue d’exécution du vertex dans Data Lake Tools pour Visual Studio | Microsoft Docs"
-description: "Découvrez comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics."
+title: Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio
+description: Cet article décrit comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735439"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio
 Découvrez comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics.
 
-## <a name="prerequisites"></a>Composants requis
-
-Vous devez posséder des connaissances élémentaires sur l’utilisation de Data Lake Tools pour Visual Studio afin de développer un script U-SQL.  Consultez [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="open-the-vertex-execution-view"></a>Affichage de la vue d’exécution du vertex
 Ouvrez une tâche U-SQL dans Data Lake Tools pour Visual Studio. Dans l’angle inférieur gauche, cliquez sur **Vue de l’exécution du vertex**. Vous pouvez être invité à charger d’abord les profils, et cette opération peut prendre un certain temps en fonction de la connectivité réseau.

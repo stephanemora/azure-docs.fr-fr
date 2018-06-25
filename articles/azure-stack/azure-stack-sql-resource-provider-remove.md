@@ -1,6 +1,6 @@
 ---
-title: Utilisation de bases de données SQL sur Azure Stack | Microsoft Docs
-description: Découvrez comment déployer des bases de données SQL en tant que service sur Azure Stack et les étapes rapides à suivre pour déployer l’adaptateur de fournisseur de ressources SQL Server.
+title: Suppression du fournisseur de ressources SQL sur Azure Stack | Microsoft Docs
+description: Découvrez comment vous pouvez supprimer le fournisseur de ressources SQL de votre déploiement Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,33 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c2686a2d5241af46e70263d1827028aa7e9b2138
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9f90201cad0f74923460c2f25eff4de98dc6690a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206161"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294778"
 ---
-# <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
+# <a name="removing-the-mysql-resource-provider"></a>Suppression du fournisseur de ressources MySQL  
+Avant de supprimer le fournisseur de ressources SQL, il est essentiel de supprimer toutes les dépendances.
 
-Pour supprimer le fournisseur de ressources SQL, il est essentiel de supprimer d’abord toutes les dépendances :
+## <a name="remove-the-mysql-resource-provider"></a>Supprimer le fournisseur de ressources MySQL 
 
-1. Vérifiez que vous disposez du package de déploiement d’origine que vous avez téléchargé pour cette version de l’adaptateur du fournisseur de ressources SQL.
+1. Vérifiez que vous avez supprimé toutes les dépendances du fournisseur de ressources SQL existantes.
 
-2. Toutes les bases de données utilisateur doivent être supprimées du fournisseur de ressources. (La suppression des bases de données utilisateur ne supprime pas les données.) Cette tâche doit être effectuée par les utilisateurs eux-mêmes.
+  > [!NOTE]
+  > La désinstallation du fournisseur de ressources SQL est effectuée même si des ressources dépendantes utilisent le fournisseur de ressources. 
+  
+2. Vérifiez que vous disposez du package de déploiement d’origine que vous avez téléchargé pour cette version de l’adaptateur du fournisseur de ressources SQL.
+3. Réexécutez le script de déploiement à l’aide des paramètres suivants :
+    - Paramètre -Uninstall
+    - Adresse IP ou nom DNS du point de terminaison privilégié.
+    - Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
+    - Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.
 
-3. L’administrateur doit supprimer les serveurs d’hébergement de l’adaptateur du fournisseur de ressources SQL.
-
-4. L’administrateur doit supprimer tous les plans qui référencent l’adaptateur du fournisseur de ressources SQL.
-
-5. L’administrateur doit supprimer toutes les références SKU et tous les quotas associés à l’adaptateur du fournisseur de ressources SQL.
-
-6. Réexécutez le script de déploiement avec les éléments suivants :
-    - Le paramètre -Désinstaller
-    - Les points de terminaison Azure Resource Manager
-    - Le DirectoryTenantID
-    - Les informations d’identification du compte d’administrateur local du service
-
+## <a name="next-steps"></a>Étapes suivantes
+[Offrir App Services en tant que PaaS](azure-stack-app-service-overview.md)

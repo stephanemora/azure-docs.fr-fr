@@ -6,13 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: marsma
-ms.openlocfilehash: 818bae2e05f6a3256ccbf0cbcc901dd337b9a260
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757006"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuration réseau dans Azure Kubernetes Service (AKS)
 
@@ -38,7 +39,7 @@ Les nœuds d’un cluster AKS configurés pour la mise en réseau avancée utili
 La mise en réseau avancée procure les avantages suivants :
 
 * Déployez votre cluster AKS dans un réseau virtuel existant ou créez un nouveau réseau virtuel et un sous-réseau pour votre cluster.
-* Chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel, et peut communiquer directement avec les autres pods du cluster et les autres machines virtuelles du réseau virtuel.
+* Chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel et peut communiquer directement avec les autres pods du cluster et les autres nœuds du réseau virtuel.
 * Un pod peut se connecter à d’autres services dans un réseau virtuel appairé, et à d’autres réseaux locaux via des connexions ExpressRoute et VPN site à site (S2S). Les pods sont également accessibles en local.
 * Exposez un service Kubernetes en interne ou en externe via Azure Load Balancer. Également une fonction de la mise en réseau de base.
 * Les pods dans un sous-réseau disposant de points de terminaison de service activés peuvent se connecter en toute sécurité aux services Azure (Stockage et SQL Database, par exemple).
@@ -46,7 +47,33 @@ La mise en réseau avancée procure les avantages suivants :
 * Les pods peuvent accéder aux ressources sur les réseaux Internet publics. Également une fonction de la mise en réseau de base.
 
 > [!IMPORTANT]
-> Chaque nœud d’un cluster AKS configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**. Chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP** (/20).
+> Chaque nœud d’un cluster AKS configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**. Chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**.
+
+## <a name="advanced-networking-prerequisites"></a>Conditions préalables de mise en réseau avancée
+
+* Le réseau virtuel du cluster AKS doit autoriser la connectivité Internet sortante.
+* Ne créez pas plus d’un cluster AKS dans le même sous-réseau.
+* La mise en réseau avancée pour AKS ne prend pas en charge les réseaux virtuels qui utilisent les zones DNS privées Azure.
+* Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16` ou `172.31.0.0/16` pour la plage d’adresses de service Kubernetes.
+* Le principal de service utilisé pour le cluster AKS doit avoir des autorisations `Contributor` pour le groupe de ressources qui contient le réseau virtuel existant.
+
+## <a name="plan-ip-addressing-for-your-cluster"></a>Planifier l’adressage IP pour votre cluster
+
+Les clusters configurés avec la mise en réseau avancée nécessitent une planification supplémentaire. La taille de votre réseau virtuel et de son sous-réseau doit être suffisante pour prendre en charge le nombre de pods que vous envisagez d’exécuter, ainsi que le nombre de nœuds du cluster.
+
+Les adresses IP des pods et des nœuds de cluster sont affectées à partir du sous-réseau spécifié du réseau virtuel. Chaque nœud est configuré avec une adresse IP primaire, qui est l’adresse IP du nœud, et 30 adresses IP supplémentaires préconfigurées par Azure CNI, qui sont affectées aux pods planifiés sur le nœud. Lorsque vous faites monter en charge votre cluster, chaque nœud est configuré de manière similaire avec des adresses IP du sous-réseau.
+
+Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel, au moins un sous-réseau pour les nœuds et les pods, et une plage d’adresses de service Kubernetes.
+
+| Plage Azure/ressource Azure | Limites et tailles |
+| --------- | ------------- |
+| Réseau virtuel | Un réseau virtuel Azure peut avoir un volume maximal de /8, mais peut uniquement avoir 4 096 adresses IP configurées. |
+| Sous-réseau | Doit être suffisamment grand pour contenir les nœuds et les pods. Pour calculer la taille minimale de votre sous-réseau : (nombre de nœuds) + (nombre de nœuds * pods par nœud). Pour un cluster à 50 nœuds : (50) + (50 * 30) = 1 550 ; votre sous-réseau doit être /21 ou plus grand. |
+| Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connectée à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. |
+| Adresse IP du service DNS Kubernetes | Adresse IP dans la plage d’adresses de service Kubernetes, qui sera utilisée par la détection de service de cluster (kube-dns). |
+| Adresse de pont Docker | Adresse IP (en notation CIDR) utilisée en tant qu’adresse IP de pont Docker sur les nœuds. Valeur par défaut : 172.17.0.1/16. |
+
+Comme indiqué précédemment, chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**. Chaque nœud de cluster configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**.
 
 ## <a name="configure-advanced-networking"></a>Configurer la mise en réseau avancée
 
@@ -66,14 +93,6 @@ La capture d’écran suivante de votre portail Azure représente un exemple de 
 
 ![Configuration de la mise en réseau avancée dans le portail Azure][portal-01-networking-advanced]
 
-## <a name="plan-ip-addressing-for-your-cluster"></a>Planifier l’adressage IP pour votre cluster
-
-Les clusters configurés avec la mise en réseau avancée nécessitent une planification supplémentaire. Les tailles de votre réseau virtuel et de son sous-réseau doivent être suffisantes pour prendre en charge le volume de pods que vous envisagez d’exécuter en simultané dans le cluster, ainsi que vos exigences de mise à l’échelle.
-
-Les adresses IP des pods et des nœuds de cluster sont affectées à partir du sous-réseau spécifié du réseau virtuel. Chaque nœud est configuré avec une adresse IP primaire, qui est l’adresse IP du nœud, et 30 adresses IP supplémentaires préconfigurées par Azure CNI, qui sont affectées aux pods planifiés sur le nœud. Lorsque vous faites monter en charge votre cluster, chaque nœud est configuré de manière similaire avec des adresses IP du sous-réseau.
-
-Comme indiqué précédemment, chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP** (/20). Chaque nœud de cluster configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**.
-
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 La série suivante de questions-réponses s’applique à la configuration réseau **avancée**.
@@ -92,7 +111,7 @@ La série suivante de questions-réponses s’applique à la configuration rése
 
 * *Le nombre maximal de pods pouvant être déployés sur un nœud peut-il être configuré ?*
 
-  Par défaut, chaque nœud peut héberger 30 pods au maximum. Actuellement, pour modifier la valeur maximale, vous pouvez uniquement modifier la propriété `maxPods` lors du déploiement d’un cluster avec un modèle Resource Manager.
+  Par défaut, chaque nœud peut héberger 30 pods au maximum. Pour modifier la valeur maximale, vous pouvez uniquement modifier la propriété `maxPods` lors du déploiement d’un cluster avec un modèle Resource Manager.
 
 * *Comment configurer des propriétés supplémentaires pour le sous-réseau développé lors de la création du cluster AKS ? Par exemple, des points de terminaison du service.*
 

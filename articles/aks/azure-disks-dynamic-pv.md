@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3841222d08b23f43f69e77fa43c469793b70ce63
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801379"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volumes persistants avec les disques Azure
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Les revendications de volume persistant sont spécifiées dans Gio mais les disques managés Azure sont facturés par référence SKU pour une taille spécifique. Ces références SKU vont de 32 Gio pour les disques S4 ou P4 à 4 Tio pour les disques S50 ou P50. En outre, le débit et les performances d’E/S d’un disque managé Premium dépend à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Consultez [Tarification et performances des disques managés][managed-disk-pricing-performance].
+
 ## <a name="create-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
 Une revendication de volume persistant (PVC) est utilisée pour configurer automatiquement le stockage basé sur une classe de stockage. Dans ce cas, une PVC peut utiliser une des classes de stockage créées au préalable pour créer un disque géré Azure standard ou Premium.
 
-Créez un fichier nommé `azure-premimum.yaml` et copiez-y le manifeste suivant.
+Créez un fichier nommé `azure-premium.yaml` et copiez-y le manifeste suivant.
 
 Notez que la classe de stockage `managed-premium` est spécifiée dans l’annotation et que la revendication demande un disque de taille `5GB` avec l’accès `ReadWriteOnce`.
 
@@ -63,7 +67,7 @@ spec:
 Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Utilisation du volume persistant
@@ -103,16 +107,17 @@ Vous disposez maintenant d’un pod en cours d’exécution avec le disque Azure
 Découvrez plus en détail les volumes persistants Kubernetes utilisant des disques Azure.
 
 > [!div class="nextstepaction"]
-> [Plug-in Kubernetes pour les disques Azure][kubernetes-disk]
+> [Plug-in Kubernetes pour les disques Azure][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md 
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

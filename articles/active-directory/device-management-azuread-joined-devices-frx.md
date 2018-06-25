@@ -1,13 +1,14 @@
 ---
-title: "Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation | Microsoft Docs"
-description: "Rubrique qui explique comment les utilisateurs peuvent configurer Azure AD Join lors de la première utilisation."
+title: Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation | Microsoft Docs
+description: Rubrique qui explique comment les utilisateurs peuvent configurer Azure AD Join lors de la première utilisation.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757390"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation
 
@@ -37,6 +39,8 @@ Dans *l’expérience OOBE (out-of-box experience)* de Windows, la jonction à u
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
+
+De plus, si votre locataire est fédéré, votre fournisseur d’identité DOIT prendre en charge le point de terminaison nom d’utilisateur/mot de passe WS-Fed et WS-Trust. Il peut s’agir de la version 1.3 ou de la version 2005. La prise en charge de ce protocole est nécessaire tant pour joindre l’appareil à Azure AD que pour ouvrir une session sur l’appareil avec un mot de passe.
 
 ## <a name="joining-a-device"></a>Joindre un appareil
 

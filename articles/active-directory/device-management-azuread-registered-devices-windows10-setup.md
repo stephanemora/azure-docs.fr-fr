@@ -1,13 +1,14 @@
 ---
-title: "Configurer des appareils inscrits à Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer des appareils inscrits à Azure Active Directory."
+title: Configurer des appareils inscrits à Azure Active Directory | Microsoft Docs
+description: Découvrez comment configurer des appareils inscrits à Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 541f37bb11c604567b356716db282d0e4e2f629b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713522"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Configurer des appareils Windows 10 inscrits à Azure Active Directory
 
-La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, voir [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
+La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
-Pour le scénario **BYOD (Bring Your Own Device)**, configurez les appareils inscrits à Azure AD. Dans Azure AD, vous pouvez configurer les appareils inscrits à Azure AD pour Windows 10, iOS, Android et macOS. Cette rubrique contient les étapes à suivre pour les appareils Windows 10. 
+Pour le scénario **BYOD (Bring Your Own Device)**, configurez les appareils inscrits à Azure AD. Dans Azure AD, vous pouvez configurer les appareils inscrits à Azure AD pour Windows 10, iOS, Android et macOS. Cet article contient les étapes à suivre pour les appareils Windows 10. 
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour inscrire un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
+Pour inscrire un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En outre, vous devez avoir moins d’appareils inscrits que la valeur maximale configurée. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
@@ -49,7 +51,7 @@ Lorsque vous inscrivez un appareil, gardez à l’esprit les éléments suivants
 
 ## <a name="registering-a-device"></a>Inscription d’un appareil
 
-Cette section fournit les étapes permettant d’inscrire votre appareil Windows 10 dans Azure AD. Si vous avez correctement inscrit votre appareil dans Azure AD, la boîte de dialogue **Accès Professionnel ou Scolaire** vous le confirme avec l’entrée **Compte professionnel ou scolaire**.
+Cette section fournit les étapes permettant d’inscrire votre appareil Windows 10 dans Azure AD. Un appareil inscrit correctement s’affiche avec une entrée **Compte professionnel ou scolaire**.
 
 ![Register ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -94,7 +96,7 @@ Pour vérifier si un appareil est joint à un annuaire Azure AD, consultez la bo
 
 ![Register ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
-Vous pouvez également examiner les paramètres de l’appareil dans le portail Azure AD.
+Vous pouvez également passer en revue les paramètres de l’appareil dans le portail Azure AD.
 
 ![Register ](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
@@ -106,7 +108,7 @@ Vous pouvez également examiner les paramètres de l’appareil dans le portail 
 
 - Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
-- Pour plus d’informations sur la gestion des appareils dans le portail Azure AD, consultez [Gestion des appareils via le portail Azure](device-management-azure-portal.md).
+- Pour plus d’informations sur la gestion des appareils dans le portail Azure AD, consultez [Gestion des appareils avec le portail Azure](device-management-azure-portal.md).
 
 
 

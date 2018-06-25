@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: a7ba5f1947da09177e7d2d9d0e9e926d858dff7e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302588"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700122"
 ---
 # <a name="azure-stack-1804-update"></a>Mise à jour 1804 d’Azure Stack
 
@@ -41,10 +41,19 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
  
 - <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
-  - *Abonnement Fournisseur par défaut*. Utilisez cet abonnement pour l’infrastructure principale uniquement. Ne déployez pas de ressources ou de fournisseurs de ressources sur cet abonnement.
-  - *Abonnement À l’usage*. Utilisez cet abonnement pour le déploiement de fournisseurs de ressources. Les ressources déployées sur cet abonnement ne sont pas facturées.
-  - *Abonnement Consommation*. Utilisez cet abonnement pour toute autre charge de travail que vous voulez déployer. Les ressources déployées ici sont facturées aux prix d’utilisation normale.
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+
+  Si vous mettez à jour Azure Stack vers la version 1804, les deux nouveaux types d’abonnement ne sont pas visibles. Toutefois, les nouveaux déploiements de systèmes intégrés Azure Stack et les installations du Kit de développement Azure Stack versions 1804 ou ultérieures ont accès aux trois types d’abonnement.  
+
+  Ces nouveaux types d’abonnement s’inscrivent dans un changement plus large destiné à sécuriser l’abonnement Fournisseur par défaut et à faciliter le déploiement de ressources partagées telles que les serveurs d’hébergement SQL. À mesure que nous étofferons ce changement au travers de mises à jour d’Azure Stack, les ressources déployées sous ces nouveaux types d’abonnement pourront être perdues. 
+
+  Les trois types d’abonnement maintenant visibles sont les suivants :  
+  - Abonnement Fournisseur par défaut : continuez à utiliser ce type d’abonnement. 
+  - Abonnement À l’usage : *n’utilisez pas ce type d’abonnement.*
+  - Abonnement Consommation : *n’utilisez pas ce type d’abonnement*
+
+  
+
 
 
 ## <a name="fixed-issues"></a>Problèmes résolus
@@ -71,13 +80,14 @@ Les versions suivantes sont maintenant disponibles, mais ne nécessitent pas la 
 ## <a name="before-you-begin"></a>Avant de commencer    
 
 ### <a name="prerequisites"></a>Prérequis
-
 - Installez la [mise à jour 1803](azure-stack-update-1803.md) d’Azure Stack avant d’appliquer la mise à jour 1804 d’Azure Stack.    
 
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour   
 - Pendant l’installation de la mise à jour 1804, des alertes avec le titre *Erreur - Le modèle de FaultType UserAccounts.New est manquant.* peuvent s’afficher.  Vous pouvez ignorer ces alertes de manière sécurisée. Elles se fermeront automatiquement une fois la mise à jour 1804 terminée.   
  
 - <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+
+
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
 *Il n’existe aucune étape après la mise à jour pour la mise à jour 1804.*
 
@@ -87,6 +97,15 @@ Les versions suivantes sont maintenant disponibles, mais ne nécessitent pas la 
 Les éléments suivants sont des problèmes connus de post-installation pour la build **20180513.1**.
 
 #### <a name="portal"></a>Portail
+- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+  Solution de contournement : Utiliser PowerShell pour voir des informations sur les unités d’échelle. Pour plus d’informations, consultez le contenu [d’aide](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) du Module Azure Stack 1.3.0. 
+
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solution de contournement : Pour résoudre ce problème après avoir installé cette mise à jour, utilisez l’étape 3 de la procédure [Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) afin de réinitialiser le propriétaire de l’abonnement Fournisseur par défaut.   
+
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+
+
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - Pour les systèmes Azure Stack intégrés, utilisez https://aka.ms/newsupportrequest.
 
@@ -106,6 +125,24 @@ Les éléments suivants sont des problèmes connus de post-installation pour la 
 
   Cette alerte peut être ignorée en toute sécurité. 
 
+
+#### <a name="health-and-monitoring"></a>Intégrité et surveillance
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerte 1 :
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+
+  Alerte 2 :
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+
+  Ces deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement dans le temps.  
+ 
 
 #### <a name="compute"></a>Calcul
 - <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
@@ -128,7 +165,7 @@ Les éléments suivants sont des problèmes connus de post-installation pour la 
 
 - <!-- TBD - IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 - <!-- TBD - IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -242,17 +279,17 @@ Les éléments suivants sont des problèmes connus de post-installation pour la 
 
 
 #### <a name="app-service"></a>App Service
-- <!-- TBD - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
+- <!-- TBD - IS ASDK --> App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
 
 #### <a name="usage"></a>Usage  
 - <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 
 <!-- #### Identity -->
-<!-- #### Health and monitoring --> 
 <!-- #### Marketplace --> 
 
 

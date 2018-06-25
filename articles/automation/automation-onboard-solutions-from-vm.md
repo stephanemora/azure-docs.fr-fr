@@ -4,21 +4,21 @@ description: Découvrez comment intégrer une machine virtuelle Azure avec Updat
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193092"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830559"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
-Azure Automation fournit des solutions pour gérer les mises à jour de sécurité du système d’exploitation, le suivi des modifications et l’inventaire de ce qui est installé sur vos ordinateurs. Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer la solution à partir d’une machine virtuelle, [à partir de votre compte Automation](automation-onboard-solutions-from-automation-account.md) ou par le biais d’un [runbook](automation-onboard-solutions.md). Cet article traite de l’intégration de ces solutions à partir d’une machine virtuelle Azure.
+Azure Automation fournit des solutions pour gérer les mises à jour de sécurité du système d’exploitation, le suivi des modifications et l’inventaire de ce qui est installé sur vos ordinateurs. Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer la solution à partir d’une machine virtuelle, [à partir de votre compte Automation](automation-onboard-solutions-from-automation-account.md), [par la navigation sur plusieurs machines](automation-onboard-solutions-from-browse.md) ou par [runbook](automation-onboard-solutions.md). Cet article traite de l’intégration de ces solutions à partir d’une machine virtuelle Azure.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -28,13 +28,13 @@ Connectez-vous à Azure à l’adresse https://portal.azure.com.
 
 Accédez à une machine virtuelle existante et sélectionnez **Update Management**, **Inventory** ou **Change Tracking** sous **OPÉRATIONS**.
 
+Pour activer la solution pour la machine virtuelle uniquement, vérifiez que la case d’option **Activer pour cette machine virtuelle** est sélectionnée, pour intégrer plusieurs machines à la solution, sélectionnez **Activer pour les machines virtuelles dans cet abonnement** et cliquez sur **Cliquer pour sélectionner les machines à activer**. Consultez [Intégrer les solutions Update Management, Change Tracking et Inventory](automation-onboard-solutions-from-automation-account.md) pour consulter les étapes à exécuter pour intégrer plusieurs machines à la fois.
+
 Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
 ![Intégrer la solution Update](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Accédez aux autres solutions, puis cliquez sur **Activer**. Les listes déroulantes des comptes Log Analytics et Automation sont désactivées, car elles utilisent le même espace de travail et le même compte Automation que la solution précédemment activée.
-
-![Intégrer la solution Update](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Change Tracking** et **Inventory** utilisent la même solution. Quand l’une est activée, l’autre l’est aussi.

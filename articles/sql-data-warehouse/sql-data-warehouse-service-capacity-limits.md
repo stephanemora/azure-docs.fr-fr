@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b79d928f3c1c3d81fbca0b8d676d4a4cbf83369a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189681"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839637"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -24,7 +24,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 | Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour un SQL Data Warehouse unique | Gen1 : DW6000<br></br>Gen2 : DW30000c |
-| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
+| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données |Sessions simultanées ouvertes |1 024<br/><br/>Chacune des 1024 sessions actives peut envoyer des requêtes à une base de données SQL Data Warehouse en même temps. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
 | [gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes concurrentes |32<br/><br/> Par défaut, SQL Data Warehouse peut exécuter un maximum de 32 requêtes et files d’attente simultanées.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque SQL Data Warehouse a un paramètre [d’unité d’entrepôt de données](memory-and-concurrency-limits.md) inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter. |
@@ -33,7 +33,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 ## <a name="database-objects"></a>Objets de base de données
 | Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
-| Base de données |Taille maximale |240 To compressés sur disque<br/><br/>Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). |
+| Base de données |Taille maximale | Gen1 : 240 To compressés sur disque. Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). <br/><br/> Gen2 : 240 To pour rowstore et stockage illimité pour les tables columnstore |
 | Table |Taille maximale |60 To compressés sur disque |
 | Table |Tables par base de données |10 000 |
 | Table |Colonnes par table |1 024 colonnes |

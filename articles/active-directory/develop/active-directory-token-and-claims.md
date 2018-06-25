@@ -17,11 +17,12 @@ ms.date: 05/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801862"
 ---
 # <a name="azure-ad-token-reference"></a>Référence de jeton Azure AD
 Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton. 
@@ -55,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | Revendication JWT | NOM | Description |
 | --- | --- | --- |
 | `aud` |Audience |Destinataire du jeton. L'application qui reçoit le jeton doit vérifier que la valeur de l'audience est correcte et rejeter les jetons destinés à une autre audience. <br><br> **Exemple de valeur SAML** : <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Exemple de valeur JWT** : <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Référence de classe du contexte d’authentification de l’application |Indique comment le client a été authentifié. Pour un client public, la valeur est 0. Si l'ID client et la clé secrète client sont utilisés, la valeur est 1. <br><br> **Exemple de valeur JWT** : <br> `"appidacr": "0"` |
+| `appidacr` |Référence de classe du contexte d’authentification de l’application |Indique comment le client a été authentifié. Pour un client public, la valeur est 0. Si l'ID client et la clé secrète client sont utilisés, la valeur est 1. Si un certificat client a été utilisé pour l’authentification, la valeur est 2. <br><br> **Exemple de valeur JWT** : <br> `"appidacr": "0"` |
 | `acr` |Référence de classe du contexte d'authentification |Indique comment le sujet a été authentifié, et non pas le client comme dans la revendication de référence de classe du contexte de l’authentification de l’application. La valeur « 0 » indique que l'authentification de l'utilisateur final ne répondait pas aux exigences de la norme ISO/IEC 29115. <br><br> **Exemple de valeur JWT** : <br> `"acr": "0"` |
 | Moment d’authentification |Enregistre la date et l’heure de l’authentification. <br><br> **Exemple de valeur SAML** : <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Méthode d'authentification |Identifie comment le sujet du jeton a été authentifié. <br><br> **Exemple de valeur SAML** : <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Exemple de valeur JWT** : `“amr”: ["pwd"]` |
@@ -152,21 +153,31 @@ Pour obtenir la liste complète des revendications que votre application doit va
 ## <a name="token-revocation"></a>Révocation de jetons
 
 Les jetons d’actualisation peuvent être rendus non valides ou révoqués à tout moment, et ce pour diverses raisons, classées dans deux grandes catégories : les délais d’expiration et les révocations. 
-* Délais d’expiration des jetons
-  * MaxInactiveTime : si le jeton d’actualisation n’a pas été utilisé dans le délai défini par MaxInactiveTime, il ne sera plus valide. 
-  * MaxSessionAge : si MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ont été définis sur une valeur autre que la valeur par défaut (Until-revoked), une réauthentification sera nécessaire après écoulement du délai défini dans MaxAgeSession*. 
-  * Exemples :
-    * Le client a un MaxInactiveTime de cinq jours et l’utilisateur est parti en congé pour une semaine ; par conséquent, AAD n’a pas reçu de nouvelle demande de jeton de sa part depuis sept jours. La prochaine fois que l’utilisateur demandera un nouveau jeton, il s’apercevra que son jeton d’actualisation a été révoqué, et il devra entrer à nouveau ses informations d’identification. 
-    * Une application sensible a un MaxAgeSessionSingleFactor d’un jour. Si un utilisateur se connecte le lundi et le mardi (après 25 heures), il devra s’authentifier à nouveau. 
-* Révocation
-  * Changement de mot de passe volontaire : si un utilisateur modifie son mot de passe, il devra peut-être s’authentifier de nouveau sur certaines applications, selon la façon dont le jeton a été acquis. Consultez les notes ci-dessous pour connaître les exceptions. 
-  * Modification de mot de passe involontaire : si un administrateur oblige un utilisateur à modifier ou à réinitialiser son mot de passe, les jetons de ce dernier sont invalidés s’ils ont été acquis à l’aide de son mot de passe. Consultez les notes ci-dessous pour connaître les exceptions. 
-  * Violation de la sécurité : en cas de violation de la sécurité (par exemple, une violation du magasin local de mots de passe), l’administrateur a la possibilité de révoquer tous les jetons d’actualisation actuellement émis, ce qui force tous les utilisateurs à se réauthentifier. 
+
+**Délais d’expiration des jetons**
+
+* MaxInactiveTime : si le jeton d’actualisation n’a pas été utilisé dans le délai défini par MaxInactiveTime, il ne sera plus valide. 
+* MaxSessionAge : si MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ont été définis sur une valeur autre que la valeur par défaut (Until-revoked), une réauthentification sera nécessaire après écoulement du délai défini dans MaxAgeSession*. 
+* Exemples :
+  * Le client a un MaxInactiveTime de cinq jours et l’utilisateur est parti en congé pour une semaine ; par conséquent, AAD n’a pas reçu de nouvelle demande de jeton de sa part depuis sept jours. La prochaine fois que l’utilisateur demandera un nouveau jeton, il s’apercevra que son jeton d’actualisation a été révoqué, et il devra entrer à nouveau ses informations d’identification. 
+  * Une application sensible a un MaxAgeSessionSingleFactor d’un jour. Si un utilisateur se connecte le lundi et le mardi (après 25 heures), il devra s’authentifier à nouveau. 
+
+**Révocation**
+
+|   | Cookie basé sur mot de passe | Jeton basé sur mot de passe | Cookie non basé sur mot de passe | Jeton non basé sur mot de passe | Jeton client confidentiel| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Le mot de passe expire| Reste actif|Reste actif|Reste actif|Reste actif|Reste actif|
+|Mot de passe modifié par l’utilisateur| Révoqué | Révoqué | Reste actif|Reste actif|Reste actif|
+|L’utilisateur effectue SSPR|Révoqué | Révoqué | Reste actif|Reste actif|Reste actif|
+|L’administrateur réinitialise le mot de passe|Révoqué | Révoqué | Reste actif|Reste actif|Reste actif|
+|L’utilisateur révoque ses jetons d’actualisation [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Révoqué | Révoqué |Révoqué | Révoqué |Révoqué | Révoqué |
+|L’administrateur révoque tous les jetons d’actualisation pour le locataire [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Révoqué | Révoqué |Révoqué | Révoqué |Révoqué | Révoqué |
+|[Déconnexion unique](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) sur le web | Révoqué | Reste actif |Révoqué | Reste actif |Reste actif |Reste actif |
 
 > [!NOTE]
->Si une méthode d’authentification sans mot de passe a été utilisée (Windows Hello, l’application Authenticator ou la biométrie, par exemple, une empreinte faciale ou digitale) pour acquérir le jeton, le fait de modifier le mot de passe de l’utilisateur ne l’obligera pas à se réauthentifier (mais forcera son application Authenticator à le faire). En effet, l’entrée d’authentification (un visage, par exemple) n’ayant pas changé, elle est de nouveau utilisable pour la réauthentification.
+> Une connexion « non basée sur mot de passe » est une connexion où l’utilisateur n’a pas saisi un mot de passe.  Par exemple, l’utilisation de votre visage avec Windows Hello, une clé FIDO ou un code PIN. 
 >
-> Les clients confidentiels ne sont pas affectés par les révocations de modifications de mot de passe. Un client confidentiel avec un jeton d’actualisation émis avant une modification de mot de passe sera toujours en mesure d’utiliser ce jeton d’actualisation pour obtenir plus de jetons. 
+> Il existe un problème connu avec le jeton d’actualisation principal de Windows.  Si le jeton d’actualisation principal est obtenu via un mot de passe, puis que l’utilisateur se connecte via Hello, cela ne modifie pas l’origine du jeton d’actualisation principal, et il sera révoqué si l’utilisateur modifie son mot de passe. 
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 
