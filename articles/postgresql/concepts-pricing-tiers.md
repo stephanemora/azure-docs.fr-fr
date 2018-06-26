@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272180"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756634"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -24,7 +24,7 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Mémoire par vCore | Ligne de base | 2x De base | 2x Usage général |
+| Mémoire par vCore | 2 Go | 5 GO | 10 Go |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
@@ -40,7 +40,7 @@ Pour choisir un niveau tarifaire, utilisez le tableau suivant comme point de dé
 Après avoir créé un serveur, le nombre de vCores peut être augmenté ou diminué (au sein du même niveau de tarification) en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
 
 
-## <a name="compute-generations-vcores-and-memory"></a>Générations de calcul, vCores et mémoire
+## <a name="compute-generations-and-vcores"></a>Générations de calcul et vCores
 
 Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité). 
 
@@ -64,14 +64,12 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Asie du Sud-Est | X | X |
 | Est de l’Australie |  | X |
 | Sud-est de l’Australie |  | X |
-| Inde centrale | X |  |
-| Inde occidentale | X |  |
+| Inde centrale | X | X |
+| Inde occidentale | X | X |
 | Inde du Sud |  | X |
 | Est du Japon | X | X |
 | Ouest du Japon | X | X |
 | Corée du Sud |  | X |
-
-Selon le niveau tarifaire, chaque vCore est doté d’une quantité spécifique de mémoire. Lorsque vous augmentez ou diminuez le nombre de vCores pour votre serveur, la mémoire augmente ou diminue proportionnellement. Le niveau Usage général fournit le double de quantité de mémoire par vCore par rapport au niveau De base. Le niveau À mémoire optimisée fournit le double de quantité de mémoire par rapport au niveau Usage général.
 
 ## <a name="storage"></a>Stockage
 

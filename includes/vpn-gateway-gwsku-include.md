@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196797"
 ---
 Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service.
 
@@ -28,7 +29,7 @@ Les nouvelles références SKU de passerelle VPN rationalisent les ensembles de 
 
 | **Référence (SKU)**| **Caractéristiques**|
 | ---    | ---         |
-|**De base** (**)   | **VPN basés sur un itinéraire** : 10 tunnels avec P2S ; aucune authentification RADIUS pour P2S ; aucune IKEV2 pour P2S<br>**VPN basés sur les stratégies** : (IKEv1) : 1 itinéraire; aucune P2S|
+|**De base** (\*\*)   | **VPN basés sur un itinéraire** : 10 tunnels avec P2S ; aucune authentification RADIUS pour P2S ; aucune IKEV2 pour P2S<br>**VPN basés sur les stratégies** : (IKEv1) : 1 itinéraire; aucune P2S|
 | **VpnGw1, VpnGw2 et VpnGw3** | **VPN basés sur le routage** : jusqu’à 30 itinéraires (*), P2S, BGP, actif/passif, stratégie IPsec/IKE personnalisée, coexistence ExpressRoute/VPN |
 |        |             |
 
@@ -43,9 +44,9 @@ En raison de différences des contrats de niveau de service et des ensembles de 
 | **Charge de travail**                       | **Références SKU**               |
 | ---                                | ---                    |
 | **Production, charges de travail critiques** | VpnGw1, VpnGw2, VpnGw3 |
-| **Développement-Test ou preuve de concept**   | De base (**)                 |
+| **Développement-Test ou preuve de concept**   | De base (\*\*)                 |
 |                                    |                        |
 
-(**) La référence SKU De base est considéré comme une référence SKU héritée et présente des limitations en termes de fonctionnalités. Vérifiez que la fonctionnalité dont vous avez besoin est prise en charge avant d’utiliser la référence SKU De base.
+(\*\*) La référence SKU De base est considéré comme une référence SKU héritée et présente des limitations en termes de fonctionnalités. Vérifiez que la fonctionnalité dont vous avez besoin est prise en charge avant d’utiliser la référence SKU De base.
 
 Si vous utilisez les anciennes références SKU (héritées), les recommandations en termes de références SKU de production sont Standard et HighPerformance. Pour obtenir plus d’informations et des instructions sur les anciennes références SKU, consultez [Références SKU de passerelle (héritées)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
