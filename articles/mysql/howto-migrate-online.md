@@ -1,6 +1,6 @@
 ---
 title: Migration avec temps d’arrêt minimal vers Azure Database pour MySQL
-description: Cet article explique comment effectuer une migration avec temps d’arrêt minimal d’une base de données MySQL vers Azure Database pour MySQL et comment configurer la charge initiale et la synchronisation des données en continu depuis la base de données source vers la base de données cible à l’aide d’Attunity Replicate pour Microsoft Migrations.
+description: Cet article décrit comment effectuer une migration de base de données MySQL vers Azure Database pour MySQL avec un temps d’arrêt minimal à l’aide du service Azure Database Migration Service.
 services: mysql
 author: HJToland3
 ms.author: jtoland
@@ -8,32 +8,24 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 99add55188615debdc96b6cfc8b21e34552fd9d4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: ecbd35bd45bd11292bbe4a032329d704858d4c77
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267252"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293919"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migration avec temps d’arrêt minimal vers Azure Database pour MySQL
-Pour migrer votre base de données MySQL existante vers Azure Database pour MySQL, utilisez Attunity Replicate pour Microsoft Migrations. Attunity Replicate est une offre commune d’Attunity et de Microsoft. Fournie avec Azure Database Migration Service, cette solution est offerte sans frais supplémentaires aux clients Microsoft. 
+Vous pouvez effectuer des migrations MySQL vers Azure Database pour MySQL avec un temps d’arrêt minimal à l’aide de la toute nouvelle **fonctionnalité de synchronisation continue** du service [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). Cette fonctionnalité limite les temps d’arrêt affectant l’application.
 
-Attunity Replicate permet de réduire les temps d’arrêt durant les migrations de base de données. De fait, la base de données source demeure opérationnelle tout au long du processus.
+## <a name="overview"></a>Vue d'ensemble
+DMS procède à une charge initiale de votre instance locale vers Azure Database pour MySQL, puis synchronise en continu les nouvelles transactions vers Azure tandis que l’application s’exécute. Une fois les données à jour sur le côté Azure cible, vous arrêtez momentanément l’application (temps d’arrêt minimal), vous attendez que le dernier lot de données apparaisse côté cible (à partir du moment où vous arrêtez l’application jusqu’à ce qu’elle ne soit plus disponible pour accepter du trafic), puis vous mettez à jour votre chaîne de connexion pour qu’elle pointe vers Azure. Lorsque vous avez terminé, votre application sera disponible sur Azure !
 
-Attunity Replicate est un outil de réplication des données qui prend en charge la synchronisation des données entre diverses sources et cibles. Il propage le script de création de schéma et les données associés à chaque table de base de données. Attunity Replicate ne propage pas les autres artefacts (tels que les procédures stockées, les déclencheurs, les fonctions, etc.), ni ne convertit, par exemple, le code PL/SQL hébergé dans ces artefacts en code T-SQL.
+![Synchronisation continue avec le service Azure Database Migration Service](./media/howto-migrate-online/ContinuousSync.png)
 
-> [!NOTE]
-> Bien qu’Attunity Replicate prenne en charge un large éventail de scénarios de migration, cette solution se concentre sur la prise en charge d’un sous-ensemble spécifique de paires source/cible.
+La migration DMS des sources MySQL est actuellement en préversion. Si vous souhaitez essayer le service pour migrer vos charges de travail MySQL, inscrivez-vous via la [page de préversion](https://aka.ms/dms-preview) Azure DMS pour nous faire part de votre intérêt. Vos commentaires sont plus que précieux pour nous aider à améliorer le service.
 
-Schématiquement, le processus de migration avec temps d’arrêt minimal inclut les phases suivantes :
-
-* **Migration du schéma source MySQL** vers un service de base de données géré Azure Database pour MySQL à l’aide de [MySQL Workbench](https://www.mysql.com/products/workbench/).
-
-* **Configuration de la charge initiale et de la synchronisation des données en continu depuis la base de données source vers la base de données cible** à l’aide d’Attunity Replicate pour Microsoft Migrations. Cette opération réduit le temps pendant lequel vous devez définir la base de données source en lecture seule en vue du basculement de vos applications vers la base de données MySQL cible sur Azure.
-
-Pour plus d’informations sur l’offre Attunity Replicate pour Microsoft Migrations, consultez les ressources suivantes :
- - Accédez à la page web d’[Attunity Replicate pour Microsoft Migrations](https://aka.ms/attunity-replicate).
- - Téléchargez [Attunity Replicate pour Microsoft Migrations](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Accédez à la [Communauté Attunity Replicate](https://aka.ms/attunity-community), où vous trouverez un Guide de démarrage rapide, des didacticiels et un support.
- - Pour obtenir des instructions sur l’utilisation d’Attunity Replicate afin d’effectuer une migration depuis MySQL vers Azure Database pour MySQL, reportez-vous au [Guide de migration de base de données](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+## <a name="next-steps"></a>Étapes suivantes
+- Regardez la vidéo [Easily migrate MySQL/PostgreSQL apps to Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201) (Migration facile des applications MySQL/PostgreSQL vers un service géré Azure) qui comprend une démonstration sur la migration des applications MySQL vers Azure Database pour MySQL.
+- Inscrivez-vous pour obtenir la préversion limitée des migrations avec temps d’arrêt minimal des migrations de MySQL vers Azure Database pour MySQL via la [page de préversion](https://aka.ms/dms-preview) Azure DMS.

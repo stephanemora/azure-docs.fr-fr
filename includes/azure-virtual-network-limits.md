@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568124"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297964"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35568124"
 | Adresses IP privées par réseau virtuel |4096 |4096 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
 | Groupes de sécurité réseau (NSG) |100 |200 |
-| Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |400 |
+| Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |1 000 |
 | Tables d'itinéraires définis par l'utilisateur |100 |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
 | Adresses IP publiques (dynamiques) |5. |contacter le support |
@@ -50,7 +50,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Groupes de sécurité réseau (NSG) |100 |5 000 |
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000** |1 000 |
 | Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |2000 |4000 |
-| Groupes de sécurité d’application |200 |500 |
+| Groupes de sécurité d’application |500 |3000 |
 | Groupes de sécurité d’application par configuration IP, par carte réseau |10 |20 |
 | Configurations IP par groupe de sécurité d’application |1 000 |4000 |
 | Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |50 |100 |
@@ -64,6 +64,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 **Ces limites par défaut s’appliquent aux abonnements dont ces limites n’ont pas été précédemment augmentées par le biais du support
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md)
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |

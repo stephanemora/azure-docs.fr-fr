@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03-20-2018
   ms.author: juliako
-  ms.openlocfilehash: 7e250b59ae9ea370b2c019c012d1e2a0e6be3cb4
-  ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+  ms.openlocfilehash: 4cab323284bd17de865d97a16b056dd1230010fe
+  ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36217610"
+  ms.lasthandoff: 06/25/2018
+  ms.locfileid: "36936307"
 abstract:
   description: Découvrez comment diffuser des vidéos en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 sections:
@@ -37,7 +37,7 @@ sections:
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: 'Découvrez comment diffuser des fichiers en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services :'
+    text: 'Découvrez comment diffuser des fichiers en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3 :'
   - type: list
     style: icon48
     items:
@@ -53,6 +53,33 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       text: Analyser vos vidéos
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+- title: Exemples
+  items:
+  - type: paragraph
+    text: 'Exemples montrant comment utiliser des API pour diffuser des vidéos en continu, diffuser en direct et analyser vos vidéos avec Media Services v3 :'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
+    - image:
+        src: media/index/rest.svg
+      text: REST avec Postman
+      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
+    - image:
+        src: media/index/logo_dotnet_core.svg
+      text: .NET Core avec Visual Studio Code
+      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
+    - image:
+        src: media/index/dotnet.svg
+      text: .NET avec Visual Studio
+      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
 - title: Informations de référence
   items:
   - type: paragraph

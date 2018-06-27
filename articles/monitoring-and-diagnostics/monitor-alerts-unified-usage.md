@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264338"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287835"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes à l’aide d’Azure Monitor  
 
@@ -148,7 +148,13 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 2. Le **tableau de bord des alertes** s’affiche. Il contient toutes les alertes Azure unifiées et rassemblées dans un ![tableau de bord d’alertes](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png) unique.
 3. De gauche à droite, le tableau de bord affiche les éléments suivants (cliquez pour afficher la liste détaillée) :
     - *Alertes déclenchées* : nombre d’alertes correspondant à la logique et déclenchées
-    - *Nombre total de règles d’alerte* : nombre de règles d’alerte créées et, implicitement, nombre d’alertes actuellement activées
+    - *Nombre total de règles d’alerte* : nombre de règles d’alerte créées et, implicitement, nombre d’alertes actuellement activées 
+    
+
+        > [!NOTE]
+        > Pour garantir un tableau de bord cohérent avec des détails sur toutes les alertes déclenchées, y compris les alertes de journaux pour Application Insights et Log Analytics ; [Enhanced unified alert (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) (Alerte unifiée améliorée (préversion) doit être utilisé
+  
+  
 4. La liste de toutes les alertes déclenchées est affichée : l’utilisateur peut cliquer pour voir les détails.
 5. Pour rechercher des alertes spécifiques, vous pouvez utiliser les options de liste déroulante (en haut) pour filtrer les *abonnements, groupes de ressources et/ou ressources*. Pour les alertes non résolues, utilisez l’option de *filtrage d’alerte* pour rechercher un mot clé en fonction *du nom, des critères d’alerte, du groupe de ressources et de la ressource cible*.
 

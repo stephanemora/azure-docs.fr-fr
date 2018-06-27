@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195962"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218953"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Transférer des données de rapport Azure Automation DSC à Log Analytics
 
@@ -28,7 +28,6 @@ L’état de conformité est visible dans le portail Azure, ou avec PowerShell, 
 * Visualiser votre historique de conformité associé aux nœuds au fil du temps
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour commencer à envoyer vos rapports Automation DSC à Log Analytics, vous devez disposer des éléments suivants :
 
@@ -87,14 +86,14 @@ Vous pouvez également affiner la requête par nom d’opération. Par exemple 
 
 L’une des demandes majeures de nos clients est de pouvoir envoyer un e-mail ou un message texte lorsqu’une erreur survient avec une configuration DSC.   
 
-Pour créer une règle d’alerte, vous commencez par créer une recherche dans les journaux pour les enregistrements de rapport DSC qui doivent appeler l’alerte.  Cliquez sur le bouton **Alerte** pour créer et configurer la règle d’alerte.
+Pour créer une règle d’alerte, vous commencez par créer une recherche dans les journaux pour les enregistrements de rapport DSC qui doivent appeler l’alerte.  Cliquez sur le bouton **+ Nouvelle règle d’alerte** pour créer et configurer la règle d’alerte.
 
 1. Dans la page de présentation de Log Analytics, cliquez sur **Recherche de journal**.
 1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`.
 
   Si vous avez configuré des journaux dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation.  
   Le nom du compte Automation peut être dérivé du champ Ressource dans la recherche de DscNodeStatusData.  
-1. Cliquez sur **Alerte** en haut de la page pour ouvrir l’écran **Ajouter une règle d’alerte**. Pour plus d’informations sur les options de configuration de l’alerte, consultez [Comprendre les alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, consultez [Créer une règle d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Rechercher les ressources DSC ayant échoué dans tous les nœuds
 

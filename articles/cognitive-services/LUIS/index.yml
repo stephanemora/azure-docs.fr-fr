@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Language Understanding (LUIS)
+metadata:
+  document_id: 
+  title: Language Understanding (LUIS) - Tutoriels, démarrages rapides, référence de l’API
+  description: Découvrez comment utiliser le service Language Understanding pour permettre à votre application de comprendre ce qu’une personne souhaite avec ses propres mots.
+  author: Kaiqb
+  manager: carolz
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/25/2018
+  ms.author: kamrani
+  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
+  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/08/2018
+  ms.locfileid: "35357454"
+abstract:
+  description: Le service Language Understanding (LUIS) permet à votre application de comprendre ce qu’une personne souhaite avec ses propres mots. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
+sections:
+- title: Démarrages en 5 minutes
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="luis-get-started-create-app.md">Créer une application pour un domaine prédéfini</a>
+    - html: <a href="luis-quickstart-intents-only.md">Créer une application pour un domaine personnalisé</a>
+- title: Didacticiels pas à pas
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Extraire des données de message depuis un énoncé à l’aide de l’entité simple</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Extraire les numéros de l’article de la base de connaissances depuis un énoncé à l’aide de l’entité d’expression régulière</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Extraire les informations de la commande de boissons depuis un énoncé à l’aide de l’entité de liste</a>
+    - html: <a href="luis-tutorial-pattern">Améliorer la précision des prédictions d’intention et d’entité avec des modèles</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">Améliorer l’importance des mots avec une liste d’expressions</a>
+    - html: <a href="luis-get-started-cs-get-intent">Envoyer un énoncé au service LUIS et recevoir la réponse de prédiction du point de terminaison - C#</a>
+    - html: <a href="luis-get-started-cs-add-utterance">Ajouter un exemple d’énoncé à une intention et former l’application LUIS - C#</a>
+- title: vidéos
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" >Azure Friday à Build 2018 - Cognitive Services - Langage (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" >Présentation de l’IA à Build 2018 - Nouveautés du service Language Understanding (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Session Build 2018 - Intelligence Bot, fonctionnalités vocales et meilleures pratiques NLU</a>
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API REST v2
+      html: <p><a href="https://aka.ms/luis-endpoint-apis">API de point de terminaison</a></p><p><a href="https://aka.ms/luis-authoring-apis">Création d’API</a></p>
+    - title: Kits de développement logiciel (SDK)
+      html: <p><a href="https://aka.ms/luis-endpoint-sdk">SDK du point de terminaison .NET</a></p><p><a href="https://aka.ms/luis-authoring-sdk">SDK de création .NET</a></p>
+    - title: Exemples de code
+      html: <p><a href="https://aka.ms/luis-code-samples">Exemples de code</a></p>

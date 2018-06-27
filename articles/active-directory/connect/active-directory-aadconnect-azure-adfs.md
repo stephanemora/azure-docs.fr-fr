@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595197"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212670"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
@@ -305,7 +305,7 @@ Le moyen le plus simple consiste à tester AD FS à l’aide de la page IdpIniti
 
 1. À l’aide de PowerShell, exécutez l’applet de commande ci-dessous sur le serveur AD FS pour l’activer.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. À partir d’une machine externe, accédez à https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. À partir d’une machine externe, accédez à https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. Vous devriez accéder à la page AD FS ci-dessous :
 
 ![Page de connexion de test](./media/active-directory-aadconnect-azure-adfs/test1.png)

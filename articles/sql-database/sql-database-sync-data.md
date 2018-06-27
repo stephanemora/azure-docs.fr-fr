@@ -1,22 +1,23 @@
 ---
-title: Azure SQL Data Sync (Préversion) | Microsoft Docs
-description: Cette vue d’ensemble présente Azure SQL Data Sync (Préversion).
+title: Azure SQL Data Sync | Microsoft Docs
+description: Cette vue d’ensemble présente Azure SQL Data Sync
 services: sql-database
 author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296916"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync (préversion)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
 SQL Data Sync est un service conçu sur la base de données SQL Azure qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server.
 
@@ -52,15 +53,15 @@ Data Sync est utile dans les cas où les données doivent être mises à jour en
 
 -   **Applications distribuées globalement :** De nombreuses entreprises sont présentes dans plusieurs régions et même dans plusieurs pays. Afin de réduire la latence du réseau, il est préférable de conserver vos données dans une région proche. Avec Data Sync, vous pouvez facilement synchroniser des bases de données dans différentes régions partout dans le monde.
 
-Data Sync ne convient pas aux scénarios suivants :
+Data Sync n’est pas la meilleure solution pour les scénarios suivants :
 
--   Récupération d’urgence
-
--   Mise à l’échelle en lecture
-
--   ETL (OLTP vers OLAP)
-
--   Migration du serveur local SQL vers la base de données Azure SQL Database
+| Scénario | Certaines solutions recommandées |
+|----------|----------------------------|
+| Récupération d’urgence | [Sauvegardes géoredondantes Azure](sql-database-automated-backups.md) |
+| Mise à l’échelle en lecture | [Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (préversion)](sql-database-read-scale-out.md) |
+| ETL (OLTP vers OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migration du serveur local SQL vers la base de données Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>Comment fonctionne Data Sync ? 
 
@@ -81,6 +82,8 @@ Data Sync ne convient pas aux scénarios suivants :
 
 #### <a name="performance-impact"></a>Impact sur les performances
 Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppression pour effectuer le suivi des modifications. Cela crée des tables latérales dans la base de données utilisateur pour le suivi des modifications. Ces activités de suivi des modifications ont un impact sur votre charge de travail de base de données. Évaluez votre niveau de service et effectuez une mise à niveau si nécessaire.
+
+Le provisionnement et le déprovisionnement lors de la création, la mise à jour et la suppression du groupe de synchronisation peuvent également avoir un impact sur les performances de la base de données. 
 
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -124,13 +127,13 @@ Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppres
 
 ## <a name="faq-about-sql-data-sync"></a>FAQ sur SQL Data Sync
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Combien coûte le service de synchronisation des données SQL Data Sync (préversion) ?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Combien coûte le service de synchronisation des données SQL Data Sync ?
 
-L’utilisation de la préversion de SQL Data Sync n’engendre aucun coût lié au service proprement dit.  Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour en savoir plus, voir [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Aucun frais n’est facturé pour le service SQL Data Sync en lui-même.  Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour en savoir plus, voir [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Quelles régions prennent en charge la synchronisation des données ?
 
-SQL Data Sync (préversion) est disponible dans toutes les régions de cloud public.
+SQL Data Sync est disponible dans toutes les régions de cloud public.
 
 ### <a name="is-a-sql-database-account-required"></a>Un compte SQL Database est-il requis ? 
 
@@ -149,7 +152,7 @@ Oui. Créez manuellement le schéma dans la nouvelle base de données en créant
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Dois-je utiliser SQL Data Sync pour sauvegarder et restaurer mes bases de données ?
 
-Il est déconseillé d’utiliser SQL Data Sync (préversion) pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps, car les synchronisations de SQL Data Sync (version préliminaire) ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync (préversion) ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
+Il est déconseillé d’utiliser SQL Data Sync pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps, car les synchronisations de SQL Data Sync ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
 
 Consultez [Copie d'une base de données SQL Azure](sql-database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
 
@@ -169,7 +172,7 @@ Oui. SQL Data Sync prend en charge le classement dans les scénarios suivants :
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>La fédération est-elle prise en charge dans SQL Data Sync ?
 
-La base de données racine de fédération peut être utilisée sans limitation dans SQL Data Sync (préversion). Vous ne pouvez pas ajouter de point de terminaison de base de données fédérée à la version actuelle de SQL Data Sync (préversion).
+La base de données racine de fédération peut être utilisée sans limitation dans SQL Data Sync. Vous ne pouvez pas ajouter de point de terminaison de base de données fédérée à la version actuelle de SQL Data Sync.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

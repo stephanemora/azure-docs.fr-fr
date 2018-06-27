@@ -1,24 +1,22 @@
 ---
 title: Planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure| Microsoft Docs
-description: Cet article décrit le mode d’exécution du planificateur de déploiement Azure Site Recovery lorsque vous passez de Hyper-V vers Azure.
-services: site-recovery
+description: Cet article explique comment exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236227"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287488"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure
 
-## <a name="modes-of-running-the-deployment-planner"></a>Modes d’exécution du planificateur de déploiement
-Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des quatre modes suivants : 
+Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) du planificateur de déploiement Site Recovery dans l’un des quatre modes suivants : 
 -   [Accéder à la liste de machines virtuelles](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Profil](#profile-hyper-v-vms)
 -   [Générer un rapport](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | Le nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
-|-ServerListFile | Fichier avec la liste des serveurs contenant les machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Ce fichier doit contenir une des valeurs suivantes dans chaque ligne :<ul><li>Nom ou adresse IP d’hôte Hyper-V</li><li>Nom ou adresse IP de cluster Hyper-V</li></ul><br>**Exemple :** le fichier ServerList.txt contient les serveurs suivants :<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | Fichier avec la liste des serveurs contenant les machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Ce fichier doit contenir une des valeurs suivantes dans chaque ligne :<ul><li>Nom ou adresse IP d’hôte Hyper-V</li><li>Nom ou adresse IP de cluster Hyper-V</li></ul><br>**Exemple :** le fichier ServerList.txt contient les serveurs suivants :<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Répertoire|(Facultatif) La convention d’affectation de noms universelle (UNC) ou le chemin d’accès du répertoire local pour stocker les données générées pendant cette opération. Si aucun nom n’est spécifié, le répertoire ProfiledData figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut.|
-|-OutputFile| (Facultatif) Le fichier dans lequel la liste des machines virtuelles extraites à partir des serveurs Hyper-V donnés est enregistré. Si un nom n’est pas indiqué, les détails sont alors stockés dans VMList.txt.  Utilisez le fichier pour démarrer le profilage après avoir supprimé les machines virtuelles que vous n’avez pas besoin de profiler.|
+|-OutputFile| (Facultatif) Le fichier avec la liste des machines virtuelles extraites à partir des serveurs Hyper-V donnés est enregistré. Si un nom n’est pas indiqué, les détails sont alors stockés dans VMList.txt.  Utilisez le fichier pour démarrer le profilage après avoir supprimé les machines virtuelles que vous n’avez pas besoin de profiler.|
 |-Mot de passe|(Facultatif) Le mot de passe pour se connecter à l’hôte Hyper-V. Si vous ne le spécifiez pas comme paramètre, il vous sera demandé lors de l’exécution de la commande.|
 
 ### <a name="getvmlist-discovery"></a>Découverte de GetVMList
-**Cluster Hyper-V** : lorsque le nom de cluster Hyper-V est indiqué dans le fichier de la liste des serveurs, l’outil recherche tous les nœuds Hyper-V du cluster et obtient les machines virtuelles présentes sur chacun des hôtes Hyper-V.
 
+- **Cluster Hyper-V** : lorsque le nom de cluster Hyper-V est indiqué dans le fichier de la liste des serveurs, l’outil recherche tous les nœuds Hyper-V du cluster et obtient les machines virtuelles présentes sur chacun des hôtes Hyper-V.
 **Hôte Hyper-V** : lorsque le nom d’hôte Hyper-V est indiqué, l’outil vérifie d’abord s’il fait partie d’un cluster. Si oui, l’outil extrait les nœuds appartenant au cluster. Il obtient ensuite les machines virtuelles de chaque hôte Hyper-V. 
 
 Vous pouvez également choisir de répertorier dans un fichier les noms conviviaux ou adresses IP des machines virtuelles que vous souhaitez profiler manuellement.
@@ -154,7 +152,7 @@ Si le serveur sur lequel s’exécute l’outil est redémarré ou est tombé en
 
 Lorsque le nom et la clé du compte de stockage sont transmis, l’outil mesure le débit au cours de la dernière étape du profilage. Si l’outil est fermé avant la fin du profilage, le débit n’est pas calculé. Pour trouver le débit avant de générer le rapport, vous pouvez exécuter l’opération GetThroughput à partir de la console de ligne de commande. Autrement, le rapport généré ne contient pas d’informations de débit.
 
-Azure Site Recovery ne prend pas en charge les machines virtuelles contenant des disques iSCSI et pass-through. L’outil ne peut toutefois pas détecter et profiler des disques iSCSI et pass-through joints aux machines virtuelles.
+Azure Site Recovery ne prend pas en charge les machines virtuelles contenant des disques iSCSI et pass-through. L’outil ne peut pas détecter et profiler des disques iSCSI et pass-through joints aux machines virtuelles.
 
 ## <a name="generate-a-report"></a>Générer un rapport
 L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport. Il récapitule toutes les recommandations concernant le déploiement. Le rapport est intitulé DeploymentPlannerReport_*identificateur numérique unique*.xlsm et placé dans le répertoire spécifié.

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/27/2017
+ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263175"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220082"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
 
@@ -40,7 +40,7 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 | Alertes de métrique Azure Monitor | Notifications | [Consulter la liste ici](monitoring-supported-metrics.md) | <ul><li>**Webhook:**[Alertes de métrique Azure](insights-webhooks-alerts.md)</li></ul> |
 | Alertes Journal d’activité Azure Monitor | Notifications | Tous les services Azure | <ul><li>**Webhook :** Alertes Journal d’activité Azure</li></ul> |
 | Notifications de mise à l’échelle automatique | Notifications | [Consulter la liste ici](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook :**[Schéma de la charge utile du webhook de notification de mise à l’échelle automatique](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertes Requête de recherche dans les journaux | Notifications | Log Analytics | <ul><li>**Webhook :**[Alertes Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Alertes Requête de recherche dans les journaux | Notifications | Log Analytics | <ul><li>**Webhook:** [Action webhook pour les règles d’alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Alertes de métrique Application Insights | Notifications | Application Insights | <ul><li>**Webhook :**[Alertes Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Tests web Application Insights | Notifications | Application Insights | <ul><li>**Webhook :**[Alertes Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

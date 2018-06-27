@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658670"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292034"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -39,7 +39,7 @@ Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure
 
 ## <a name="work-with-network-security-groups"></a>Utiliser des groupes de sécurité réseau
 
-Vous pouvez effectuer différentes opérations concernant les groupes de sécurité réseau : en créer, [les voir tous](#view-all-network-security-groups), [afficher les détails d’un des groupes](#view-details-of-a-network-security-group), [les changer](#change-a-network-security-group) et [en supprimer](#delete-a-network-security-group). Vous pouvez également [associer ou dissocier](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) un groupe de sécurité réseau à ou d’une interface réseau ou sous-réseau.
+Vous pouvez effectuer différentes opérations concernant les groupes de sécurité réseau : en créer, [les voir tous](#view-all-network-security-groups), [afficher les détails d’un des groupes](#view-details-of-a-network-security-group), [les changer](#change-a-network-security-group) et [en supprimer](#delete-a-network-security-group). Vous pouvez également [associer ou dissocier](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) un groupe de sécurité réseau à ou d’une interface réseau ou sous-réseau.
 
 ### <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
@@ -121,9 +121,9 @@ Le nombre de règles par groupe de sécurité réseau que vous pouvez créer par
     
     |Paramètre  |Valeur  |Détails  |
     |---------|---------|---------|
-    |Source     | Sélectionnez **Tout**, **Adresses IP** ou **Balise de service**.        | Si vous sélectionnez **Adresses IP**, vous devez spécifier les **Plages d’adresses IP/CIDR sources**. Vous pouvez spécifier une valeur unique ou une liste de valeurs séparées par des virgules. Un exemple de plusieurs valeurs est 10.0.0.0/16, 192.188.1.1. Le nombre de valeurs que vous pouvez spécifier est limité. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Si vous sélectionnez **Balise de service**, vous devez sélectionner une balise de service. Une balise de service est un identificateur prédéfini pour une catégorie d’adresses IP. Pour en savoir plus sur les balises de service disponibles et ce que représente chaque balise, consultez [Balises de service](security-overview.md#service-tags).        |
+    |Source     | Sélectionnez **Tout**, **Adresses IP** ou **Balise de service**.        | Si vous sélectionnez **Adresses IP**, vous devez spécifier les **Plages d’adresses IP/CIDR sources**. Vous pouvez spécifier une valeur unique ou une liste de valeurs séparées par des virgules. Un exemple de plusieurs valeurs est 10.0.0.0/16, 192.188.1.1. Le nombre de valeurs que vous pouvez spécifier est limité. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Si vous sélectionnez **Balise de service**, vous devez sélectionner une balise de service. Une balise de service est un identificateur prédéfini pour une catégorie d’adresses IP. Pour en savoir plus sur les balises de service disponibles et ce que représente chaque balise, consultez [Balises de service](security-overview.md#service-tags). Si l’adresse IP que vous spécifiez est affectée à une machine virtuelle Azure, veillez à spécifier l’adresse IP privée, et non l’adresse IP publique, si une adresse IP publique est affectée à la machine virtuelle. Les règles de sécurité sont traitées une fois qu’Azure a converti l’adresse IP publique en adresse IP privée pour les règles de sécurité liées au trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour les règles de trafic sortant. Pour plus d’informations sur les adresses IP privées et publiques dans Azure, consultez [Types d’adresses IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Plages de ports source     | Spécifiez un port unique, tel que 80, une plage de ports, telle que 1024-65535, ou une liste séparée par des virgules de ports uniques et/ou de plages de ports, telle que 80, 1024-65535. Entrez un astérisque pour autoriser le trafic sur n’importe quel port. | Les ports et les plages spécifient les ports sur lesquels la règle autorise ou refuse le trafic. Le nombre de ports que vous pouvez spécifier est limité. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).  |
-    |Destination     | Sélectionnez **Tout**, **Adresses IP** ou **Réseau virtuel**.        | Si vous sélectionnez **Adresses IP**, vous devez spécifier les **Plages d’adresses IP/CIDR de destination**. À l’image de **Source** et de **Plages d’adresses IP/CIDR sources**, vous pouvez spécifier une seule adresse ou plage, ou plusieurs dans une certaine limite. Si vous sélectionnez **Réseau virtuel**, qui est une balise de service, le trafic est autorisé sur toutes les adresses IP dans l’espace d’adressage du réseau virtuel.        |
+    |Destination     | Sélectionnez **Tout**, **Adresses IP** ou **Réseau virtuel**.        | Si vous sélectionnez **Adresses IP**, vous devez spécifier les **Plages d’adresses IP/CIDR de destination**. À l’image de **Source** et de **Plages d’adresses IP/CIDR sources**, vous pouvez spécifier une seule adresse ou plage, ou plusieurs dans une certaine limite. Si vous sélectionnez **Réseau virtuel**, qui est une balise de service, le trafic est autorisé sur toutes les adresses IP dans l’espace d’adressage du réseau virtuel. Si l’adresse IP que vous spécifiez est affectée à une machine virtuelle Azure, veillez à spécifier l’adresse IP privée, et non l’adresse IP publique, si une adresse IP publique est affectée à la machine virtuelle. Les règles de sécurité sont traitées une fois qu’Azure a converti l’adresse IP publique en adresse IP privée pour les règles de sécurité liées au trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour les règles de trafic sortant. Pour plus d’informations sur les adresses IP privées et publiques dans Azure, consultez [Types d’adresses IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Plages de ports de destination     | Spécifiez une valeur unique ou une liste de valeurs séparées par des virgules. | À l’image de **Plages de ports sources**, vous pouvez spécifier un seul port et une seule plage, ou plusieurs dans une certaine limite. |
     |Protocole     | Sélectionnez **Tout**, **TCP** ou **UDP**.        |         |
     |Action     | Sélectionnez **Autoriser** ou **Refuser**.        |         |

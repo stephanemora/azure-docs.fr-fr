@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236363"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285795"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -31,7 +31,7 @@ Azure Migrate vous aide à :
 
 - Actuellement, vous pouvez seulement évaluer les machines virtuelles VMware locales pour la migration vers les machines virtuelles Azure. Les machines virtuelles VMware doivent être gérées par vCenter Server (version 5.5, 6.0 ou 6.5).
 - La prise en charge de Hyper-V est sur notre feuille de route. En attendant, nous vous recommandons d’utiliser le [Planificateur de déploiement Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) pour planifier la migration des charges de travail Hyper-V.
-- Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation.
+- Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation. Si vous voulez découvrir un environnement plus grand, vous pouvez séparer la découverte et créer plusieurs projets. [En savoir plus](how-to-scale-assessment.md). Azure Migrate prend en charge jusqu’à 20 projets par abonnement.
 - Vous ne pouvez créer un projet Azure Migrate que dans la région Centre-Ouest ou Est des États-Unis. Toutefois, cela n’affecte pas votre capacité à planifier la migration pour un autre emplacement Azure cible. L’emplacement du projet de migration est utilisé uniquement pour stocker les métadonnées détectées à partir de l’environnement local.
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 
@@ -50,7 +50,10 @@ Une évaluation vous permet de déterminer dans quelle mesure vos machines virtu
 **Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>À l’heure actuelle, Azure Migrate prend en charge les 30 régions suivantes : Allemagne Centre, Allemagne Nord-Ouest, Asie de l’Est, Canada Centre, Canada Est, Centre de l’Inde, Chine Est, Chine Nord, Corée Centre, Corée Sud, Est de l’Australie, Europe de l’Ouest, Europe du Nord, Inde de l’Ouest, Inde du Sud, Japon de l’Est, Japon de l’Ouest, Nord du centre des États-Unis, Royaume-Uni Ouest, Royaume-Uni Sud, Sud du Brésil, Sud du centre des États-Unis, Sud-Est asiatique, Sud-Est de l’Australie, US Gov Arizona, US Gov Texas, US Gov Virginie, États-Unis Centre-Ouest, États-Unis Ouest 2, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest et États-Unis du Centre. Ouest des États-Unis 2 est l’emplacement cible par défaut.
 **Type de stockage** | Vous pouvez spécifier le type de disques que vous souhaitez allouer dans Azure. Cette propriété s’applique lorsque le critère de dimensionnement est en dimensionnement local. Vous pouvez spécifier le type de disque cible en tant que disques managés Premium ou disques managés Standard. La valeur par défaut est Disques managés Premium. Pour le dimensionnement basé sur les performances, la suggestion du disque est automatiquement effectuée selon les données de performances des machines virtuelles. Notez qu’Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 **Critère de dimensionnement** | Critère utilisé par Azure Migrate pour dimensionner correctement les machines virtuelles pour Azure. Vous pouvez effectuer le dimensionnement en fonction de *l’historique des performances* des machines virtuelles locales ou dimensionner les machines virtuelles *locales* pour Azure sans tenir compte de l’historique des performances. La valeur par défaut est en dimensionnement local.
-**Plans de tarification** | Pour les calculs de coût, l’évaluation prend en compte le fait que vous soyez inscrit Software Assurance et que vous puissiez utiliser [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Elle prend également en compte les [offres Azure](https://azure.microsoft.com/support/legal/offer-details/) auxquelles vous êtes abonné et vous permet d’indiquer des réductions spécifiques aux abonnements (%), que vous obtenez en plus de l’offre.
+**Offre Azure** | Vous pouvez spécifier l’[Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous avez souscrit et Azure Migrate estime le coût en fonction.
+**Azure Hybrid Benefit** | Vous pouvez spécifier si vous disposez de Software Assurance et que vous êtes éligible à [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) pour obtenir des réductions.
+**Instances réservées** |  Vous pouvez aussi spécifier si vous disposez d’[instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans Azure, et Azure Migrate estimera le coût en fonction.
+**Durée de fonctionnement de la machine virtuelle** | Si vos machines virtuelles ne s’exécutent pas 24/7 dans Azure, vous pouvez spécifier leur durée d’exécution dans Azure et l’estimation des coûts sera calculée en fonction.
 **Niveau tarifaire** | Vous pouvez spécifier le [niveau tarifaire (de base/standard)](../virtual-machines/windows/sizes-general.md) des machines virtuelles Azure cibles. Par exemple, si vous envisagez de migrer un environnement de production, vous pouvez prendre en compte le niveau Standard, qui fournit des machines virtuelles avec une faible latence, mais est sans doute plus coûteux. En revanche, dans un environnement de développement et de test, vous pouvez prendre en compte le niveau de base, qui fournit des machines virtuelles avec une latence plus élevée, moins coûteuses. Par défaut le niveau [Standard](../virtual-machines/windows/sizes-general.md) est utilisé.
 **Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %. Vous pouvez modifier ces valeurs dans les propriétés de l’évaluation.
 **Séries de machine virtuelle** | Vous pouvez spécifier les séries de machines virtuelles à prendre en compte pour le dimensionnement. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste de séries : le dimensionnement sera alors effectué uniquement dans les séries sélectionnées.  

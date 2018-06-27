@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699901"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295526"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -115,7 +115,7 @@ Non, mais vous pouvez déployer d’autres passerelles d’application dans le s
 
 Les groupes de sécurité réseau sont pris en charge sur le sous-réseau d’Application Gateway avec les restrictions suivantes :
 
-* Des exceptions doivent être imposées au trafic entrant sur les ports 65503-65 534 pour que l’intégrité backend opère correctement.
+* Des exceptions doivent être placées pour le trafic entrant par les ports 65503-65534. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
 
 * La connectivité Internet sortante ne peut pas être bloquée.
 
@@ -159,13 +159,17 @@ Ce scénario peut être réalisé en utilisant des groupes de sécurité réseau
 
 * Autoriser le trafic entrant à partir de l’adresse IP ou de la plage d’adresses IP sources.
 
-* Autoriser les demandes entrantes de toutes sources aux ports 65503-65 534 pour les [communications relatives à l’intégrité backend](application-gateway-diagnostics.md).
+* Autoriser les demandes entrantes de toutes sources aux ports 65503-65 534 pour les [communications relatives à l’intégrité backend](application-gateway-diagnostics.md). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
 
 * Autoriser les sondes entrantes d’Azure Load Balancer (balise AzureLoadBalancer) et le trafic réseau virtuel entrant (balise VirtualNetwork) sur le [Groupe de sécurité réseau](../virtual-network/security-overview.md).
 
 * Bloquer tout autre trafic entrant avec une règle Refuser tout.
 
 * Autoriser le trafic sortant vers internet pour toutes les destinations.
+
+**Q. Le même port peut-il être utilisé pour les écouteurs publics et privés ?**
+
+Non, ce n’est pas pris en charge.
 
 ## <a name="performance"></a>Performances
 

@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes de contrôle d’accès en fonction du rôle Azure RBAC | Microsoft Docs
-description: Obtenez de l’aide en cas de problèmes ou de questions concernant les ressources de contrôle d’accès en fonction du rôle.
+title: Résolution des problèmes liés au contrôle d’accès en fonction du rôle dans Azure | Microsoft Docs
+description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267167"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295390"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Résolution des problèmes de contrôle d’accès en fonction du rôle Azure 
+# <a name="troubleshooting-rbac-in-azure"></a>Résolution des problèmes liés au contrôle d’accès en fonction du rôle dans Azure
 
-Cet article répond aux questions fréquentes sur les droits d’accès spécifiques accordés aux rôles, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès. Ces trois rôles couvrent tous les types de ressources :
+Cet article répond aux questions fréquentes sur le contrôle d’accès en fonction du rôle, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès. Ces trois rôles couvrent tous les types de ressources :
 
 * Propriétaire  
 * Contributeur  
 * Lecteur  
 
-Les propriétaires et collaborateurs disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. Consultez l’ [article Prise en main du contrôle d’accès en fonction du rôle](role-assignments-portal.md) pour plus d’informations sur la façon d’octroyer l’accès.
+Les utilisateurs ayant le rôle Propriétaire ou Contributeur disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un utilisateur avec le rôle Contributeur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. Le rôle Lecteur est un peu plus intéressant, et c’est ce sur quoi nous allons nous attarder. Pour plus d’informations sur l’octroi des accès, consultez [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure).
 
 ## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Fonctionnalités d’accès en écriture
@@ -97,9 +97,7 @@ Les éléments suivants requièrent l’accès **en écriture** à la **machine 
 
 Si vous ne pouvez accéder à aucune de ces vignettes, demandez l’accès Collaborateur au groupe de ressources à votre administrateur.
 
-## <a name="see-more"></a>En savoir plus
-* [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md): découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
-* [Rôles intégrés](built-in-roles.md): obtenez des informations sur les rôles qui livrés en standard dans RBAC.
-* [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](custom-roles.md): découvrez comment créer des rôles personnalisés selon vos besoins d'accès.
-* [Créer un rapport d’historique des modifications d’accès](change-history-report.md): effectuez le suivi des changements d'affection de rôle dans RBAC.
+## <a name="next-steps"></a>Étapes suivantes
+* [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
+* [Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle](change-history-report.md)
 

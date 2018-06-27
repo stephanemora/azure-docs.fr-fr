@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103929"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285914"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
 Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
@@ -51,7 +51,7 @@ Dans cet exemple, nous allons examiner la recommandation de correction de l’in
 
   - **CCEID** : identificateur unique CCE pour la règle. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration.
   - **Nom** : nom de la règle non respectée.
-  - **Type de règle** : *clé de Registre*, *stratégie de sécurité* ou *stratégie d’audit*.
+  - **Type de règle** : *clé de Registre*, *stratégie de sécurité* ou *stratégie d’audit* ou *IIS*.
   - **Nombre de machines virtuelles et d’ordinateurs** : nombre total de machines virtuelles et d’ordinateurs ne respectant pas cette règle.
   - **Gravité de la règle** : valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
   - **État** : état actuel de la recommandation :
@@ -93,17 +93,17 @@ Dans cet exemple, nous allons examiner la recommandation de correction de l’in
 
    ![Informations détaillées sur l’ordinateur sélectionné][6]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment implémenter la recommandation de Security Center « Corriger les configurations de sécurité ». Pour savoir comment personnaliser les évaluations de configuration de sécurité, consultez la section [Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)](security-center-customize-os-security-config.md).
 
 Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations spécifiques surveillées. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration. Consultez le site [CCE](https://nvd.nist.gov/cce/index.cfm) pour plus d’informations.
 
 Pour plus d’informations sur Security Center, consultez les ressources suivantes :
 
-* Pour une liste des machines virtuelles Windows et Linux prises en charge, consultez [Plateformes prises en charge dans Azure Security Center](security-center-os-coverage.md). 
-* Pour découvrir comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md). 
-* Pour découvrir la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure, consultez la section [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md). 
-* Pour découvrir comment surveiller l’intégrité de vos ressources Azure, consultez la section [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). 
+* Pour une liste des machines virtuelles Windows et Linux prises en charge, consultez [Plateformes prises en charge dans Azure Security Center](security-center-os-coverage.md).
+* Pour découvrir comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md).
+* Pour découvrir la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure, consultez la section [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
+* Pour découvrir comment surveiller l’intégrité de vos ressources Azure, consultez la section [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md).
 * Pour découvrir comment gérer et résoudre les alertes de sécurité, consultez la section [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Pour découvrir comment surveiller l’état d’intégrité de vos solutions de partenaire, consultez la section [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md).
 * Pour obtenir des réponses aux questions concernant l’utilisation de ce service, consultez la section [FAQ Azure Security Center](security-center-faq.md).

@@ -1,29 +1,31 @@
 ---
 title: Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel | Microsoft Docs
-description: Découvrez comment joindre un runtime d’intégration Azure-SSIS à un réseau virtuel Azure.
+description: Découvrez comment joindre le runtime d’intégration Azure-SSIS à un réseau virtuel Azure.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: douglasl
-ms.openlocfilehash: 2bb6491a470e7041568bb6b9183e996d2a9119d9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/13/2018
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: fa496271d949f131da53a4cdab0f3b9a15e82007
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939906"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267891"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Joignez le runtime d’intégration (IR) Azure-SSIS à un réseau virtuel Azure dans les scénarios suivants : 
 
-- Vous hébergez la base de données du catalogue SQL Server Integration Services (SSIS) sur Azure SQL Database Managed Instance (préversion) sur un réseau virtuel.
 - Vous souhaitez vous connecter à des magasins de données sur site à partir de packages SSIS en cours d’exécution sur un runtime d’intégration Azure-SSIS.
+
+- Vous hébergez la base de données du catalogue SQL Server Integration Services (SSIS) sur Azure SQL Database avec des point de terminaison de service de réseau virtuel/Managed Instance (préversion).
 
  Azure Data Factory version 2 (préversion) vous permet de joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel créé par le biais du modèle de déploiement classique ou du modèle de déploiement Azure Resource Manager. 
 
@@ -40,18 +42,17 @@ Voici quelques points importants à prendre en compte :
 - S’il existe déjà un réseau virtuel classique connecté à votre réseau local, à un autre emplacement que celui de votre runtime d’intégration Azure-SSIS, vous devez commencer par créer un [réseau virtuel classique](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) pour le runtime d’intégration Azure-SSIS à joindre. Ensuite, configurez une connexion de [réseau virtuel classique vers classique](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md). Vous pouvez également créer un [réseau virtuel Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) pour le runtime d’intégration Azure-SSIS à joindre. Ensuite, configurez une connexion du type [réseau virtuel classique vers Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 - S’il existe déjà un réseau virtuel Azure Resource Manager connecté à votre réseau local, à un autre emplacement que celui de votre runtime d’intégration Azure-SSIS, vous devez commencer par créer un [réseau virtuel Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) pour le runtime d’intégration Azure-SSIS à joindre. Ensuite, configurez une connexion du type réseau virtuel Azure Resource Manager vers Azure Resource Manager. Vous pouvez également créer un [réseau virtuel classique](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) pour le runtime d’intégration Azure-SSIS à joindre. Ensuite, configurez une connexion du type [réseau virtuel classique vers Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-## <a name="host-the-ssis-catalog-database-on-azure-sql-database-managed-instance"></a>Héberger la base de données du catalogue SSIS sur Azure SQL Database Managed Instance 
-Si le catalogue SSIS est hébergé dans SQL Database Managed Instance (préversion) sur un réseau virtuel, vous pouvez joindre un runtime d’intégration Azure SSIS :
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance-preview"></a>Héberger la base de données du catalogue sur Azure SQL Database avec des point de terminaison de service de réseau virtuel/Managed Instance (préversion)
+Si le catalogue SSIS est hébergé dans Azure SQL Database avec des point de terminaison de service de réseau virtuel/Managed Instance (préversion), vous pouvez joindre votre runtime d’intégration Azure SSIS :
 
-- Au même réseau virtuel.
-- À un réseau virtuel différent qui dispose d’une connexion réseau-à-réseau avec celui où se trouve SQL Database Managed Instance (préversion). 
+- Au même réseau virtuel
+- À un réseau virtuel différent qui dispose d’une connexion réseau-à-réseau avec celui qui est utilisé pour Azure SQL Database avec des point de terminaison de service de réseau virtuel/Managed Instance (préversion)
 
-Le réseau virtuel peut être déployé par le biais du modèle de déploiement classique ou du modèle de déploiement Azure Resource Manager. Si vous envisagez de joindre le runtime d’intégration Azure SSIS au *même réseau virtuel* que celui où se trouve SQL Database Managed Instance (préversion), vérifiez que le runtime d’intégration Azure SSIS est sur un *autre sous-réseau* que celui où se trouve SQL Database Managed Instance (préversion).   
+Le réseau virtuel peut être déployé par le biais du modèle de déploiement classique ou du modèle de déploiement Azure Resource Manager. Si vous envisagez de joindre votre runtime d’intégration Azure SSIS au *même réseau virtuel* qui est déjà joint par Managed Instance (préversion), vérifiez que votre runtime d’intégration Azure SSIS est sur un *autre sous-réseau* que celui utilisé pour Managed Instance (préversion).   
 
 Pour plus d’informations, lisez les sections suivantes.
 
 ## <a name="requirements-for-virtual-network-configuration"></a>Conditions requises pour la configuration du réseau virtuel
-
 -   Vérifiez que `Microsoft.Batch` est un fournisseur inscrit sous l’abonnement de votre sous-réseau de machine virtuelle qui héberge le runtime d’intégration Azure SSIS. Si vous utilisez un réseau virtuel classique, vous devez également joindre `MicrosoftAzureBatch` au rôle Collaborateur de machine virtuelle classique pour ce réseau virtuel.
 
 -   Sélectionnez le sous-réseau approprié pour héberger le runtime d’intégration Azure SSIS. Consultez [Sélectionner le sous-réseau](#subnet).
@@ -69,7 +70,7 @@ Pour plus d’informations, lisez les sections suivantes.
 
 -   Vérifiez que le sous-réseau sélectionné dispose de suffisamment d’espace d’adressage pour le runtime d’intégration Azure-SSIS. Laissez au moins deux fois le nombre de nœuds de runtime d’intégration dans les adresses IP disponibles. Azure réserve dans chaque sous-réseau des adresses IP qui ne peuvent pas être utilisées. Les première et dernière adresse IP des sous-réseaux sont réservées à la conformité du protocole, et 3 adresses supplémentaires sont utilisées pour les services Azure. Pour plus d’informations, consultez la section [L’utilisation des adresses IP au sein de ces sous-réseaux est-elle soumise à des restrictions ?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
--   N’utilisez pas un sous-réseau qui est exclusivement occupé par d’autres services Azure (par exemple, SQL Database Managed Instance, App Service).
+-   N’utilisez pas un sous-réseau qui est exclusivement occupé par d’autres services Azure (par exemple, SQL Database Managed Instance (préversion), App Service, etc).
 
 ### <a name="dns_server"></a> Serveur Domain Name Services (DNS) 
 Si vous devez utiliser votre propre serveur DNS (Domain Name Services) dans un réseau virtuel joint par le runtime d’intégration Azure SSIS, vérifiez qu’il peut résoudre les noms d’hôte Azure publics (par exemple, un nom Azure Storage Blob, `<your storage account>.blob.core.windows.net`).
@@ -87,13 +88,12 @@ Si vous avez besoin d’implémenter un groupe de sécurité réseau (NSG) sur u
 
 | Direction | Protocole de transfert | Source | Plage de ports sources | Destination | Plage de ports de destination | Commentaires |
 |---|---|---|---|---|---|---|
-| Trafic entrant | TCP | Internet | * | VirtualNetwork | 29876, 29877 (si vous joignez le runtime d’intégration à un réseau virtuel Azure Resource Manager) <br/><br/>10100, 20100, 30100 (si vous joignez le runtime d’intégration à un réseau virtuel classique)| Le service Data Factory utilise ces ports pour communiquer avec les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel. |
+| Trafic entrant | TCP | Internet | * | VirtualNetwork | 29876, 29877 (si vous joignez le runtime d’intégration à un réseau virtuel Azure Resource Manager) <br/><br/>10100, 20100, 30100 (si vous joignez le runtime d’intégration à un réseau virtuel classique)| Le service Data Factory utilise ces ports pour communiquer avec les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel. <br/><br/> Que vous spécifiiez ou non un groupe de sécurité réseau, Data Factory configure toujours un groupe de sécurité réseau au niveau des cartes d’interface réseau (NIC) connectées aux machines virtuelles qui hébergent le runtime d'intégration Azure-SSIS. Seul le trafic entrant provenant d’adresses IP Data Factory est autorisé. Même si vous ouvrez ces ports pour le trafic Internet, le trafic provenant d’adresses IP qui ne sont pas des adresses IP Data Factory est bloqué au niveau de la carte réseau. |
 | Règle de trafic sortant | TCP | VirtualNetwork | * | Internet | 443 | Les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel utilisent ce port pour accéder aux services Azure comme Stockage Azure et Azure Event Hubs. |
-| Règle de trafic sortant | TCP | VirtualNetwork | * | Internet ou SQL | 1433, 11000-11999, 14000-14999 | Les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel utilisent ces ports pour accéder à la base de données SSISDB hébergée par le serveur Azure SQL Database. Ne s’applique pas à la base de données SSISDB hébergée par SQL Database Managed Instance (préversion). |
+| Règle de trafic sortant | TCP | VirtualNetwork | * | Internet ou SQL | 1433, 11000-11999, 14000-14999 | Les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel utilisent ces ports pour accéder à la base de données SSISDB hébergée par le serveur Azure SQL Database (ne s’applique pas à la base de données SSISDB hébergée par Managed Instance (préversion)). |
 ||||||||
 
 ### <a name="route"></a> Utiliser Azure ExpressRoute ou un itinéraire défini par l’utilisateur
-
 Vous pouvez connecter un circuit [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) à votre infrastructure de réseau virtuel pour étendre votre réseau local à Azure. 
 
 L’une des configurations courantes consiste à utiliser le tunneling forcé (annoncer un itinéraire BGP, 0.0.0.0/0 vers le réseau virtuel) qui force le trafic Internet sortant du flux de réseau virtuel vers l’appliance réseau locale à des fins d’inspection et de journalisation. Ce flux de trafic rompt la connectivité entre le runtime d’intégration Azure-SSIS du réseau virtuel et les services Azure Data Factory dépendants. La solution consiste à définir un (ou plusieurs) [itinéraires définis par l’utilisateur (UDR)](../virtual-network/virtual-networks-udr-overview.md) sur le sous-réseau qui contient le runtime d’intégration Azure-SSIS. Un itinéraire défini par l’utilisateur définit les itinéraires propres au sous-réseau qui seront respectés au lieu de l’itinéraire BGP.
@@ -137,9 +137,9 @@ Vous devez configurer un réseau virtuel avant d’y joindre un runtime d’int�
 
    b. Sélectionnez votre abonnement. 
    
-   c. Sélectionnez **Fournisseurs de ressources** sur la gauche, puis confirmez que **Microsoft.Batch** est un fournisseur inscrit.     
+   c. Sélectionnez **Fournisseurs de ressources** sur la gauche, puis confirmez que **Microsoft.Batch** est un fournisseur inscrit.
       ![Confirmation de l’état « Inscrit »](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
-
+      
    Si **Microsoft.Batch** ne figure pas dans la liste, il vous faut l’inscrire. Pour cela, [créez un compte Azure Batch vide](../batch/batch-account-create-portal.md) dans votre abonnement. Vous pourrez le supprimer par la suite.
 
 ### <a name="use-the-portal-to-configure-a-classic-virtual-network"></a>Utiliser le portail pour configurer un réseau virtuel classique
@@ -149,40 +149,39 @@ Vous devez configurer un réseau virtuel avant d’y joindre un runtime d’int�
 2. Connectez-vous au [Portail Azure](https://portal.azure.com).
 3. Sélectionnez **Plus de services**. Filtrez et sélectionnez **Réseaux virtuels (classiques)**.
 4. Filtrez et sélectionnez votre réseau virtuel dans la liste. 
-5. Dans la page **Réseau virtuel (classique)**, sélectionnez **Propriétés**. 
-
+5. Dans la page **Réseau virtuel (classique)**, sélectionnez **Propriétés**.
     ![ID de ressource de réseau virtuel classique](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
-5. Sélectionnez le bouton Copier au niveau de **ID DE RESSOURCE** pour copier l’ID de ressource du réseau classique dans le Presse-papiers. Enregistrez dans OneNote ou un fichier l’ID se trouvant dans le Presse-papiers.
-6. Sélectionnez **Sous-réseaux** dans le menu de gauche. Vérifiez que le nombre d’**adresses disponibles** est supérieur à celui des nœuds dans votre runtime d’intégration Azure-SSIS.
-
+    
+6. Sélectionnez le bouton Copier au niveau de **ID DE RESSOURCE** pour copier l’ID de ressource du réseau classique dans le Presse-papiers. Enregistrez dans OneNote ou un fichier l’ID se trouvant dans le Presse-papiers.
+7. Sélectionnez **Sous-réseaux** dans le menu de gauche. Vérifiez que le nombre d’**adresses disponibles** est supérieur à celui des nœuds dans votre runtime d’intégration Azure-SSIS.
     ![Nombre d’adresses disponibles sur le réseau virtuel](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
-7. Joignez **MicrosoftAzureBatch** au rôle **Contributeur de machines virtuelles classiques** pour le réseau virtuel.
+    
+8. Joignez **MicrosoftAzureBatch** au rôle **Contributeur de machines virtuelles classiques** pour le réseau virtuel.
 
-    a. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche, sur **Ajouter** dans la barre d’outils. 
-       ![Boutons « Contrôle d’accès » et « Ajouter »](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
-
-    b. Dans la page **Ajouter des autorisations**, sélectionnez **Contributeur de machines virtuelles classiques** pour **Rôle**. Collez **ddbf3205-c6bd-46ae-8127-60eb93363864** dans la zone **Sélectionner**, puis sélectionnez **Microsoft Azure Batch** dans la liste des résultats de recherche.   
-       ![Résultats de recherche dans la page « Ajouter des autorisations »](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
-
-    c. Sélectionnez **Enregistrer** pour enregistrer les paramètres et fermer la page.  
-       ![Enregistrer les paramètres d’accès](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
-
-    d. Confirmez que **Microsoft Azure Batch** apparaît bien dans la liste des contributeurs.  
-       ![Confirmer l’accès à Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
-
-5. Vérifiez que le fournisseur Azure Batch est bien inscrit dans l’abonnement Azure qui contient le réseau virtuel. Si ce n’est pas le cas, inscrivez le fournisseur Azure Batch. Si vous possédez déjà un compte Azure Batch dans votre abonnement, ce dernier est inscrit pour Azure Batch. (Si vous créez le runtime d’intégration Azure SSIS dans le portail Data Factory, le fournisseur Azure Batch est inscrit automatiquement pour vous.)
+    a. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche, sur **Ajouter** dans la barre d’outils.
+      ![Boutons « Contrôle d’accès » et « Ajouter »](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
+      
+    b. Dans la page **Ajouter des autorisations**, sélectionnez **Contributeur de machines virtuelles classiques** pour **Rôle**. Collez **ddbf3205-c6bd-46ae-8127-60eb93363864** dans la zone **Sélectionner**, puis sélectionnez **Microsoft Azure Batch** dans la liste des résultats de recherche.
+      ![Résultats de recherche dans la page « Ajouter des autorisations »](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+      
+    c. Sélectionnez **Enregistrer** pour enregistrer les paramètres et fermer la page.
+      ![Enregistrer les paramètres d’accès](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
+      
+    d. Confirmez que **Microsoft Azure Batch** apparaît bien dans la liste des contributeurs.
+      ![Confirmer l’accès à Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
+      
+9. Vérifiez que le fournisseur Azure Batch est bien inscrit dans l’abonnement Azure qui contient le réseau virtuel. Si ce n’est pas le cas, inscrivez le fournisseur Azure Batch. Si vous possédez déjà un compte Azure Batch dans votre abonnement, ce dernier est inscrit pour Azure Batch. (Si vous créez le runtime d’intégration Azure SSIS dans le portail Data Factory, le fournisseur Azure Batch est inscrit automatiquement pour vous.)
 
    a. Dans le portail Azure, sélectionnez **Abonnements** dans le menu de gauche.
 
    b. Sélectionnez votre abonnement.
 
-   c. Sélectionnez **Fournisseurs de ressources** sur la gauche, puis confirmez que **Microsoft.Batch** est un fournisseur inscrit.     
+   c. Sélectionnez **Fournisseurs de ressources** sur la gauche, puis confirmez que **Microsoft.Batch** est un fournisseur inscrit.
       ![Confirmation de l’état « Inscrit »](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
-
+      
    Si **Microsoft.Batch** ne figure pas dans la liste, il vous faut l’inscrire. Pour cela, [créez un compte Azure Batch vide](../batch/batch-account-create-portal.md) dans votre abonnement. Vous pourrez le supprimer par la suite. 
 
 ### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel
-
 1. Démarrez Microsoft Edge ou Google Chrome. Actuellement, l’interface utilisateur de Data Factory est prise en charge uniquement dans ces navigateurs web.
 2. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas **Fabriques de données** dans le menu, sélectionnez **Autres services**, puis sélectionnez **Fabriques de données** dans la section **INTELLIGENCE + ANALYSE**. 
     
@@ -215,25 +214,23 @@ Vous devez configurer un réseau virtuel avant d’y joindre un runtime d’int�
 
    d. Pour **Nom du sous-réseau**, sélectionnez votre sous-réseau sur le réseau virtuel.
 
-   e. Sélectionnez **Update**. 
+   e. Cliquez sur **Validation du réseau virtuel** et en cas de réussite, cliquez sur **Mettre à jour**. 
 
    ![Paramètres avancés pour la configuration du runtime d’intégration](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
-8. Maintenant, vous pouvez démarrer le runtime d’intégration à l’aide du bouton **Démarrer** situé dans la colonne **Actions** en regard de votre runtime d’intégration Azure SSIS. Le démarrage d’un runtime d’intégration Azure SSIS prend 20 minutes environ. 
-
+8. Maintenant, vous pouvez démarrer le runtime d’intégration à l’aide du bouton **Démarrer** situé dans la colonne **Actions** en regard de votre runtime d’intégration Azure SSIS. Le démarrage d’un runtime d’intégration Azure SSIS prend entre 20 et 30 minutes environ. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 ### <a name="configure-a-virtual-network"></a>Configurer un réseau virtuel
-Vous devez configurer un réseau virtuel avant d’y joindre un runtime d’intégration Azure-SSIS. Pour configurer automatiquement les paramètres/autorisations du réseau virtuel pour le runtime d’intégration Azure-SSIS à joindre au réseau virtuel, ajoutez le script suivant :
+Vous devez configurer un réseau virtuel avant d’y joindre votre runtime d’intégration Azure-SSIS. Pour configurer automatiquement les paramètres/autorisations du réseau virtuel pour le runtime d’intégration Azure-SSIS à joindre au réseau virtuel, ajoutez le script suivant :
 
 ```powershell
-# Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
+    # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -258,15 +255,13 @@ Le script fourni dans l’article [Créer un runtime d’intégration Azure-SSIS
 3. Démarrez le runtime d’intégration Azure-SSIS. 
 
 ### <a name="define-the-variables"></a>Définir les variables
-
 ```powershell
-$ResourceGroupName = "<Azure resource group name>"
-$DataFactoryName = "<Data factory name>" 
-$AzureSSISName = "<Specify Azure-SSIS IR name>"
-## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (Preview) 
-# Specify information about your classic or Azure Resource Manager virtual network.
-$VnetId = "<Name of your Azure virtual network>"
-$SubnetName = "<Name of the subnet in the virtual network>"
+$ResourceGroupName = "<your Azure resource group name>"
+$DataFactoryName = "<your Data Factory name>" 
+$AzureSSISName = "<your Azure-SSIS IR name>"
+# Specify the information about your classic or Azure Resource Manager virtual network.
+$VnetId = "<your Azure virtual network resource ID>"
+$SubnetName = "<the name of subnet in your virtual network>"
 ```
 
 ### <a name="stop-the-azure-ssis-ir"></a>Arrêter le runtime d’intégration Azure-SSIS
@@ -274,18 +269,19 @@ Arrêtez le runtime d’intégration Azure-SSIS avant de le joindre à un résea
 
 ```powershell
 Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force 
+                                            -DataFactoryName $DataFactoryName `
+                                            -Name $AzureSSISName `
+                                            -Force 
 ```
-### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Configurer les paramètres du réseau virtuel pour le runtime d’intégration Azure-SSIS à joindre
 
+### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Configurer les paramètres du réseau virtuel pour le runtime d’intégration Azure-SSIS à joindre
 ```powershell
-# Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    # Register to the Azure Batch resource provider
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -303,12 +299,12 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 Pour configurer le runtime d’intégration Azure-SSIS afin qu’il joigne le réseau virtuel, exécutez la commande `Set-AzureRmDataFactoryV2IntegrationRuntime` : 
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupName `
-                                            -DataFactoryName $DataFactoryName `
-                                            -Name $AzureSSISName `
-                                            -Type Managed `
-                                            -VnetId $VnetId `
-                                            -Subnet $SubnetName
+Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                           -DataFactoryName $DataFactoryName `
+                                           -Name $AzureSSISName `
+                                           -Type Managed `
+                                           -VnetId $VnetId `
+                                           -Subnet $SubnetName
 ```
 
 ### <a name="start-the-azure-ssis-ir"></a>Démarrer le runtime d’intégration Azure-SSIS
@@ -321,13 +317,14 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
                                              -Force
 
 ```
+
 Cette commande prend de 20 à 30 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le runtime Azure-SSIS, consultez les rubriques suivantes : 
 
 - [Runtime d’intégration Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Cet article fournit des informations conceptuelles sur les runtimes d’intégration en général, notamment sur le runtime d’intégration Azure-SSIS. 
-- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions pas à pas pour créer un runtime d’intégration Azure-SSIS. Il utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
-- [Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance (préversion) et de joindre le runtime d’intégration à un réseau virtuel. 
+- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions pas à pas pour créer un runtime d’intégration Azure-SSIS. Il utilise Azure SQL Database pour héberger le catalogue SSIS. 
+- [Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Database avec des point de terminaison de service de réseau virtuel/Managed Instance (préversion) pour accueillir le catalogue SSIS et joindre le runtime d’intégration à un réseau virtuel. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Surveiller le runtime d’intégration Azure-SSIS). Cet article explique comment récupérer des informations sur un runtime d’intégration Azure-SSIS ainsi que des descriptions d’état dans les informations renvoyées. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment faire monter le runtime d’intégration Azure-SSIS en puissance en lui ajoutant des nœuds. 

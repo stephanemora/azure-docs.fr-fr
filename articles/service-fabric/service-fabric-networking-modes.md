@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205652"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287624"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -231,7 +231,23 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
      </Endpoints>
    </Resources>
    ```
+   
+6. Pour Windows, un redémarrage de la machine virtuelle entraîne la recréation du réseau ouvert. Il s’agit d’atténuer un problème sous-jacent dans la pile du réseau. Le comportement par défaut est de recréer le réseau. Si vous voulez désactiver ce comportement, vous pouvez utiliser la configuration suivante suivie d’une mise à niveau de la configuration.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
 * [En savoir plus sur les ressources du manifeste du service Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

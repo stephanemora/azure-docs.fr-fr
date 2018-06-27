@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 36875ebba606728123b64526a54628a9774f62a5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4ca555b53de3dd626c52a5a5d17196a82829d3e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266752"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293245"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -66,13 +66,13 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver --lo
 ## <a name="configure-firewall-rule"></a>Configurer une règle de pare-feu
 Créez une règle de pare-feu au niveau du serveur Azure Database pour MySQL avec la commande az mysql server firewall-rule create. Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil de ligne de commande **mysql** ou MySQL Workbench de se connecter à votre serveur via le pare-feu du service Azure MySQL. 
 
-L’exemple suivant crée une règle de pare-feu pour une plage d’adresses prédéfinie. Cet exemple montre l’intégralité de la plage possible d’adresses IP.
+L’exemple suivant crée une règle de pare-feu appelée `AllowMyIP` qui autorise les connexions à partir d’une adresse IP spécifique, 192.168.0.1. Substituez l’adresse IP ou la plage d’adresses IP qui correspondt à l’endroit depuis lequel vous vous connecterez. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIPs --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
 
-## <a name="get-the-connection-information"></a>Obtenir des informations de connexion
+## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
 
 Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès.
 ```azurecli-interactive

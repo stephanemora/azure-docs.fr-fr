@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d3e0f2680cbe703edc553ddff310fba2d1ddf77f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dba5a094ce4dfd55efd892c268e903d89fff90a9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323814"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269593"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -83,10 +83,22 @@ ACU : 160-180 <sup>1</sup>
 
 | Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64s  | 64   | 1 024        | 2 048           | 64             | 80,000 / 800 (6348)       | 40 000 / 1 000                            | 8 / 16 000          |
-| Standard_M64ms  | 64   | 1792        | 2 048           | 64             | 80,000 / 800 (6348)       | 40 000 / 1 000                            | 8 / 16 000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2 048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3892        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30000          |
+| M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10 000 / 100 (793)  | 5 000  / 125 | 4 / 2 000 |
+| M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20 000 / 200 (1,587) | 10 000 / 250 | 8 / 4 000 |
+| Standard_M32ts | 32 | 192    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
+| Standard_M32ls | 32 | 256    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
+| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
+| Standard_M64s  | 64 | 1 024   | 2 048 | 64 | 80 000 / 800 (6 348)| 40 000 / 1 000 | 8 / 16 000          |
+|Standard_M64ls  | 64 | 512    | 2 048 | 64 | 80 000 / 800 (6 348) | 40 000 / 1 000 | 8 / 16 000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1 792 | 2 048 | 64 | 80 000 / 800 (6 348)| 40 000 / 1 000 | 8 / 160,00          |
+| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2 048        | 4 096  | 64 | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30 000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3 892  | 4 096 | 64 | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30 000          |
+| Standard_M64   | 64  | 1 024 | 7 168  | 64 | 80 000  / 800  (1,228) | 40 000 / 1000 | 8 / 16 000 |
+| Standard_M64m  | 64  | 1 792 | 7 168  | 64 | 80 000  / 800  (1,228) | 40 000 / 1000 | 8 / 16 000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2 048 | 14 336 | 64 | 250 000 / 1 600 (2,456) | 80 000 / 2000 | 8 / 32000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3 892 | 14 336 | 64 | 250 000 / 1 600 (2,456) | 80 000 / 2000 | 8 / 32000 |
+
+
 
 <sup>1</sup> Machines virtuelles de série M dotées de la technologie Hyper-Threading d’Intel®
 

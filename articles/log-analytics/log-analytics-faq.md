@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637172"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221533"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -75,18 +75,21 @@ Log Analytics utilise l’heure UTC ; chaque jour commence à minuit UTC. Si l�
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Comment être informé de l’arrêt de la collecte de données ?
 
-R : Suivez les étapes décrites dans [Créer une règle d’alerte](log-analytics-alerts-creating.md#create-an-alert-rule) pour être averti lorsque la collecte de données s’arrête.
+R : Suivez les étapes décrites dans [Créer une nouvelle alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsque la collecte de données s’arrête.
 
 Lorsque vous créez l’alerte d’arrêt de la collecte de données, définissez les valeurs suivantes :
-- **Nom** : *Collecte de données arrêtée*
-- **Gravité** : *Avertissement*
-- **Requête de recherche** sur `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Fenêtre de temps** à *30 minutes*.
-- **Fréquence des alertes** toutes les *dix* minutes.
-- **Générer l’alerte selon** sur *nombre de résultats*
-- **Nombre de résultats** sur *Greater than 0* (Supérieur à 0)
 
-Cette alerte se déclenche lorsque la requête renvoie les résultats uniquement si les pulsations sont absentes pendant plus de 15 minutes.  Utilisez les étapes décrites dans [Ajouter des actions à des règles d’alerte dans Log Analytics](log-analytics-alerts-actions.md) pour configurer une action de messagerie, de webhook ou de runbook pour la règle d’alerte.
+- **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
+- **Critères d’alerte** spécifiez les éléments suivants :
+   - **Nom du signal** sélectionnez **Recherche personnalisée dans les journaux**.
+   - **Requête de recherche** sur `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
+   - **Période de temps** de *30* minutes et **Fréquence d’alerte** toutes les *10* minutes
+- **Définir les détails de l’alerte** spécifiez les éléments suivants :
+   - **Nom** : *Collecte de données arrêtée*
+   - **Gravité** : *Avertissement*
+
+Spécifiez un [groupe d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) existant ou créez-en un nouveau afin que l’alerte de journal corresponde aux critères, vous êtes informé si vous disposez d’une pulsation manquante pendant plus de 15 minutes.
 
 ## <a name="configuration"></a>Configuration
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Puis-je modifier le nom du conteneur Blob ou Table utilisé pour lire sur Azure Diagnostics (WAD) ?

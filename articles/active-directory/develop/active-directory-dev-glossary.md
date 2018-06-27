@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158147"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267881"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossaire du développeur Azure Active Directory
 Cet article contient des définitions pour certains des principaux concepts de développeur Azure Active Directory (AD), qui s’avèrent utiles lors de l’apprentissage du développement d’applications pour Azure AD.
@@ -132,7 +132,7 @@ Comme les [étendues](#scopes), les rôles offrent au [serveur de ressources](#r
 
 Les rôles sont des chaînes définies par les ressources (par exemple, « Expense approver », « Read-only » ou « Directory.ReadWrite.All »), gérées dans le [portail Azure][AZURE-portal] via le [manifeste d’application](#application-manifest) de la ressource et stockées dans la [propriété appRoles][AAD-Graph-Sp-Entity] de cette dernière. Le portail Azure est également utilisé pour affecter des utilisateurs aux rôles « utilisateur » et pour configurer les [autorisations d’application](#permissions) du client, lui permettant d’accéder à un rôle « application ».
 
-Pour une présentation détaillée des rôles d’application exposés par l’API Graph Azure AD, consultez [Graph API Permission Scopes (Étendues des autorisations de l’API Graph)][AAD-Graph-Perm-Scopes]. Pour un exemple d’implémentation étape par étape, consultez [Role based access control in cloud applications using Azure AD (Contrôle d’accès en fonction du rôle basé dans les applications cloud à l’aide d’Azure AD)][Duyshant-Role-Blog].
+Pour une présentation détaillée des rôles d’application exposés par l’API Graph Azure AD, consultez [Graph API Permission Scopes (Étendues des autorisations de l’API Graph)][AAD-Graph-Perm-Scopes]. Pour obtenir un exemple d’implémentation pas à pas, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>étendues
 Comme les [rôles](#roles), les étendues offrent au [serveur de ressources](#resource-server) un moyen de régir l’accès à ses ressources protégées. Les portées sont utilisées pour implémenter un contrôle d’accès [en fonction de la portée][OAuth2-Access-Token-Scopes], pour une [application cliente](#client-application) qui s’est vu attribuer un accès délégué à la ressource par son propriétaire.
@@ -181,7 +181,7 @@ Type d’ [application cliente](#client-application) qui exécute tout le code s
 ## <a name="next-steps"></a>Étapes suivantes
 Le [Guide du développeur Azure AD][AAD-Dev-Guide] est la page d’accueil rassemblant toutes les rubriques liées au développement Azure AD, notamment une présentation de [l’intégration d’applications][AAD-How-To-Integrate] et les principes de base de [l’authentification Azure AD et des scénarios d’authentification pris en charge][AAD-Auth-Scenarios]. Vous pouvez également trouver des exemples de code et des didacticiels pour vous aider à devenir rapidement opérationnel sur [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Utilisez la section des commentaires suivante pour fournir des commentaires et nous aider à affiner et à présenter notre contenu, y compris les demandes de nouvelles définitions ou la mise à jour de définitions existantes !
+Utilisez la section des commentaires suivante pour fournir des commentaires et nous aider à affiner et à présenter notre contenu, y compris les demandes de nouvelles définitions ou la mise à jour de définitions existantes !
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Utilisez la section des commentaires suivante pour fournir des commentaires et n
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Utilisez la section des commentaires suivante pour fournir des commentaires et n
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

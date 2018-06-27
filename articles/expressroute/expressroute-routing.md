@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178753"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295424"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -67,6 +67,7 @@ Vous devez utiliser des adresses IP publiques que vous possédez pour configurer
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Adresses IP utilisées pour l’homologation Microsoft
 Vous devez utiliser des adresses IP publiques que vous possédez pour configurer les sessions BGP. Microsoft doit être en mesure de vérifier la propriété des adresses IP via les Registres Internet de routage régional (RIR) et les Registres Internet de routage (IRR).
 
+* Les adresses IP répertoriées dans le portail pour les préfixes publics publiés pour l’homologation Microsoft créent les listes de contrôle d’accès pour les routeurs principaux Microsoft pour autoriser le trafic entrant à partir de ces adresses IP. 
 * Vous devez utiliser un sous-réseau unique /29 (IPv4) ou /125 (IPv6) ou bien deux sous-réseaux /30 (IPv4) ou /126 (IPv6) afin de configurer l’homologation BGP pour chaque homologation par circuit ExpressRoute (si vous en avez plusieurs).
 * Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30.
 * Le premier sous-réseau /30 est utilisé pour le lien principal, et le second sous-réseau /30 sera utilisé pour le lien secondaire.
@@ -186,7 +187,7 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | **Australie** | |
 | Est de l’Australie | 12076:51015 |
 | Sud-est de l’Australie | 12076:51016 |
-| **Gouvernement australien** | |
+| **Secteur public australien** | |
 | Centre de l’Australie | 12076:51032 |
 | Centre de l’Australie 2 | 12076:51033 |
 | **Inde** | |

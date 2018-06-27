@@ -4,14 +4,14 @@ description: Offre une vue d’ensemble des calculs d’évaluation dans le serv
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639144"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287886"
 ---
 # <a name="assessment-calculations"></a>Calculs d’évaluation
 
@@ -132,7 +132,7 @@ Tous les points de données d’une évaluation peuvent ne pas être disponibles
 
 Une fois les recommandations de dimensionnement terminées, Azure Migrate calcule les coûts de calcul et de stockage après la migration.
 
-- **Calcul du coût** : à partir de la taille de machine virtuelle Azure recommandée, Azure Migrate utilise l’API de facturation pour calculer le coût mensuel de la machine virtuelle. Le calcul prend en compte les paramètres de système d’exploitation, de Software Assurance, d’emplacement et de devise. Il agrège le coût de toutes les machines pour calculer le coût de calcul mensuel total.
+- **Calcul du coût** : à partir de la taille de machine virtuelle Azure recommandée, Azure Migrate utilise l’API de facturation pour calculer le coût mensuel de la machine virtuelle. Le calcul tient compte du système d’exploitation, de Software Assurance, des instances réservées, de la durée de fonctionnement de la machine virtuelle, de l’emplacement et des paramètres de la devise. Il agrège le coût de toutes les machines pour calculer le coût de calcul mensuel total.
 - **Coût de stockage** : le coût de stockage mensuel d’une machine est calculé en additionnant le coût mensuel de tous les disques qui lui sont attachés. Azure Migrate calcule les coûts totaux de stockage mensuel en additionnant le coût de stockage de toutes les machines. Actuellement, le calcul ne prend pas en compte les offres spécifiées dans les paramètres d’évaluation.
 
 Les coûts sont affichés dans la devise spécifiée dans les paramètres d’évaluation.

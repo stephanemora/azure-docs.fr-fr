@@ -12,23 +12,17 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83d97d9ed9c51d59500115c4ee3896d471024999
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8e179e2af3ee7a19c39a2f2c688e0eb25a0c02ca
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359755"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287532"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
-
-> [!div class="op_single_selector"]
-> * [Portail Azure](batch-account-create-portal.md)
-> * [Gestion de lots .NET](batch-management-dotnet.md)
->
->
 
 Apprenez à créer un compte Azure Batch dans le [portail Azure][azure_portal] et choisissez les propriétés du compte qui correspondent à votre scénario de calcul. Découvrez où se trouvent les propriétés du compte importantes, telles que les clés d’accès et les URL du compte.
 
@@ -40,7 +34,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
 1. Connectez-vous au [portail Azure][azure_portal].
 
-2. Cliquez sur **Nouveau** > **Calcul** > **Service Batch**.
+2. Sélectionnez **Créer une ressource** > **Calcul** > **Service Batch**.
 
     ![Batch dans Marketplace][marketplace_portal]
 
@@ -62,7 +56,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
     f. **Mode d’allocation de pool** : pour la plupart des scénarios, acceptez le **service Batch** par défaut.
 
-4. Cliquez sur **Créer** pour créer le compte.
+4. Sélectionnez **Créer** pour créer le compte.
 
 
 
@@ -73,13 +67,13 @@ Une fois le compte créé, cliquez dessus pour accéder à ses propriétés et p
 
 * **Nom, URL et clés de compte Batch** : lorsque vous développez une application avec les [API Batch](batch-apis-tools.md#azure-accounts-for-batch-development), vous avez besoin d’une URL de compte et d’une clé pour accéder à vos ressources Batch. Batch prend également en charge l’authentification Azure Active Directory.
 
-    Pour afficher les informations d’accès du compte Batch, cliquez sur **Clés**.
+    Pour afficher les informations d’accès du compte Batch, sélectionnez **Clés**.
 
     ![Clés de compte Batch dans le portail Azure][account_keys]
 
-* Pour afficher le nom et les clés du compte de stockage associé à votre compte Batch, cliquez sur **Compte de stockage**.
+* Pour afficher le nom et les clés du compte de stockage associé à votre compte Batch, sélectionnez **Compte de stockage**.
 
-* Pour afficher les quotas de ressources qui s’appliquent au compte Batch, cliquez sur **Quotas**. Pour plus de détails, consultez [Quotas et limites du service Batch](batch-quota-limit.md).
+* Pour afficher les quotas de ressources qui s’appliquent au compte Batch, sélectionnez **Quotas**. Pour plus de détails, consultez [Quotas et limites du service Batch](batch-quota-limit.md).
 
 
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Configuration supplémentaire pour le mode d’abonnement utilisateur
@@ -91,9 +85,13 @@ Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vou
 
 1. Connectez-vous au [portail Azure][azure_portal].
 
-2. Cliquez sur **Plus de services** > **Abonnements**, puis cliquez sur l’abonnement que vous souhaitez utiliser pour le compte Batch.
+2. Sélectionnez **Tous les services** > **Abonnements**, puis cliquez sur l’abonnement que vous souhaitez utiliser pour le compte Batch.
 
-3. Dans la page **Abonnement**, cliquez sur **Contrôle d’accès (IAM)** > **Ajouter**.
+3. Dans la page **Abonnement**, sélectionnez **Fournisseurs de ressources**et recherchez **Microsoft.Batch**. Vérifiez que le fournisseur de ressources **Microsoft.Batch** est enregistré dans l’abonnement. S’il n’est pas enregistré, cliquez sur le lien **Inscrire**.
+
+    ![Inscrire le fournisseur Microsoft.Batch][register_provider]
+
+3. Dans la page **Abonnement**, sélectionnez **Contrôle d’accès (IAM)** > **Ajouter**.
 
     ![Contrôle d’accès à l’abonnement][subscription_access]
 
@@ -102,7 +100,7 @@ Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vou
     2. **Microsoft Azure Batch**. Les locataires Azure AD les plus récents peuvent utiliser ce nom.
     3. La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID de l’API Batch. 
 
-5. Une fois que vous avez trouvé l’API Batch, sélectionnez-la, puis cliquez sur **Enregistrer**.
+5. Une fois que vous avez trouvé l’API Batch, sélectionnez-la, puis cliquez sur **Enregistrer**.
 
     ![Ajouter des autorisations Batch][add_permission]
 
@@ -137,4 +135,5 @@ Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mai
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
+[register_provider]: ./media/batch-account-create-portal/register_provider.png
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802049"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209814"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 Log Analytics inclut des informations sur la quantité de données collectées, les sources qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour examiner et analyser l’utilisation de données. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.
@@ -59,7 +59,9 @@ Cette section décrit la création d’une alerte si :
 - Le volume de données dépasse une quantité spécifiée.
 - Le volume de données est censé dépasser une quantité spécifiée.
 
-Les [alertes](log-analytics-alerts-creating.md) Log Analytics utilisent des requêtes de recherche. La requête suivante obtient un résultat quand plus de 100 Go de données sont collectés dans les dernières 24 heures :
+Les Alertes Azure prennent en charge les [alertes de journal](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) qui utilisent des requêtes de recherche. 
+
+La requête suivante obtient un résultat quand plus de 100 Go de données sont collectés dans les dernières 24 heures :
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ La requête suivante utilise une formule simple pour prévoir le moment où plus
 
 Pour alerter sur un volume de données différent, remplacez la valeur de 100 dans les requêtes par le nombre de Go pour lequel vous souhaitez créer une alerte.
 
-Utilisez les étapes décrites dans [Création d’une règle d’alerte](log-analytics-alerts-creating.md#create-an-alert-rule) pour être averti lorsque la collection de données est plus volumineuse que prévu.
+Utilisez les étapes décrites dans [Création d’une alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsque la collection de données est plus volumineuse que prévu.
 
 Lors de la création de l’alerte pour la première requête, lorsque plus de 100 Go de données sont collectés en 24 heures, définissez :  
-- **Nom** sur *Data volume greater than 100 GB in 24 hours* (Volume de données supérieur à 10 Go en 24 heures)  
-- **Gravité** : *Avertissement*  
-- **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Fenêtre de temps** sur *24 heures*
-- **Fréquence de l’alerte** : une heure, car les données d’utilisation ne sont mises à jour qu’une fois par heure.
-- **Générer l’alerte selon** sur *nombre de résultats*
-- **Nombre de résultats** sur *Greater than 0* (Supérieur à 0)
 
-Utilisez les étapes décrites dans [Ajouter des actions à des règles d’alerte dans Log Analytics](log-analytics-alerts-actions.md) pour configurer une action de messagerie, de webhook ou de runbook pour la règle d’alerte.
+- **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
+- **Critères d’alerte** spécifiez les éléments suivants :
+   - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
+   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
+   - **Période de temps** de *1440* minutes et **fréquence des alertes** toutes les *60* minutes comme les données d’utilisation ne se mettent à jour qu’une fois par heure.
+- **Définir les détails de l’alerte** spécifiez les éléments suivants :
+   - **Nom** sur *Data volume greater than 100 GB in 24 hours* (Volume de données supérieur à 10 Go en 24 heures)
+   - **Gravité** : *Avertissement*
+
+Spécifiez un [groupe d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) existant ou créez-en un nouveau afin que l’alerte de journal corresponde aux critères, vous êtes informé.
 
 Lors de la création de l’alerte pour la seconde requête, lorsqu’il est prévu que plus de 100 Go de données seront collectés en 24 heures, définissez :
-- **Nom** à *Data volume expected to greater than 100 GB in 24 hours* (Volume de données attendu supérieur à 10 Go en 24 heures)
-- **Gravité** sur *Avertissement*
-- **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Fenêtre de temps** sur *3 Hours* (3 heures)
-- **Fréquence des alertes** sur une heure, car les données d’utilisation sont uniquement mises à jour une fois par heure.
-- **Générer l’alerte selon** sur *nombre de résultats*
-- **Nombre de résultats** sur *Greater than 0* (Supérieur à 0)
+
+- **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
+- **Critères d’alerte** spécifiez les éléments suivants :
+   - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
+   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
+   - **Période de temps** de *180* minutes et **fréquence des alertes** toutes les *60* minutes comme les données d’utilisation ne se mettent à jour qu’une fois par heure.
+- **Définir les détails de l’alerte** spécifiez les éléments suivants :
+   - **Nom** à *Data volume expected to greater than 100 GB in 24 hours* (Volume de données attendu supérieur à 10 Go en 24 heures)
+   - **Gravité** : *Avertissement*
+
+Spécifiez un [groupe d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) existant ou créez-en un nouveau afin que l’alerte de journal corresponde aux critères, vous êtes informé.
 
 Lorsque vous recevez une alerte, utilisez les étapes de la section suivante pour résoudre les problèmes à l’origine d’une utilisation plus importante que prévu.
 
@@ -155,12 +165,11 @@ Cliquez sur **Afficher tout...**  pour consulter la liste complète des ordinate
 
 Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Recherche de données à l’aide de recherches de journal](log-analytics-log-searches.md) pour apprendre à utiliser le langage de recherche. Vous pouvez utiliser des requêtes de recherche pour effectuer des analyses supplémentaires sur les données d’utilisation.
-* Utilisez les étapes décrites dans [Création d’une règle d’alerte](log-analytics-alerts-creating.md#create-an-alert-rule) pour être averti lorsqu’un critère de recherche est rempli.
-* Utiliser le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement
-* Pour configurer une règle efficace de collecte d’événements de sécurité, passez en revue [Stratégie de filtrage de Azure Security Center ](../security-center/security-center-enable-data-collection.md)
-* Modifier la [configuration du compteur de performances](log-analytics-data-sources-performance-counters.md)
-* Pour modifier vos paramètres de collecte d’événements, consultez [Configuration du journal des événements](log-analytics-data-sources-windows-events.md)
-* Pour modifier vos paramètres de collecte de messages syslog, consultez [Configuration de syslog](log-analytics-data-sources-syslog.md)
+* Utilisez les étapes décrites dans [Création d’une alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsqu’un critère de recherche est rempli.
+* Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
+* Pour configurer une règle efficace de collecte d’événements de sécurité, passez en revue [Stratégie de filtrage de Azure Security Center](../security-center/security-center-enable-data-collection.md).
+* Modifier la [configuration du compteur de performances](log-analytics-data-sources-performance-counters.md).
+* Pour modifier vos paramètres de collecte d’événements, consultez [Configuration du journal des événements](log-analytics-data-sources-windows-events.md).
+* Pour modifier vos paramètres de collecte de messages syslog, consultez [Configuration syslog](log-analytics-data-sources-syslog.md).

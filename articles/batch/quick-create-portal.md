@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: de8b53756c64867c9b24bcd609e5b994e870da9f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31514541"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285581"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : exécution de votre premier travail Batch dans le portail Azure
 
@@ -32,7 +32,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 Suivez ces étapes pour créer un compte Batch d’exemple à des fins de test. Vous avez besoin d’un compte Batch pour créer des pools et des travaux. Comme indiqué ici, vous pouvez lier un compte de stockage Azure avec le compte Batch. Bien que ce ne soit pas obligatoire pour ce démarrage rapide, le compte de stockage est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles.
 
 
-1. Cliquez sur **Nouveau** > **Calcul** > **Service Batch**. 
+1. Sélectionnez **Créer une ressource** > **Compute** > **Service Batch**. 
 
   ![Batch dans Marketplace][marketplace_portal]
 
@@ -40,7 +40,7 @@ Suivez ces étapes pour créer un compte Batch d’exemple à des fins de test. 
 
 3. Sous **Compte de stockage**, sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage.
 
-4. Conserver les valeurs par défaut pour les paramètres restants, puis cliquez sur **Créer** pour créer le compte.
+4. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **Créer** pour créer le compte.
 
   ![Création d’un compte Batch][account_portal]  
 
@@ -81,15 +81,15 @@ Azure Batch crée le pool immédiatement, mais prend quelques minutes pour allou
 
 ![Pool en état de redimensionnement][pool_resizing]
 
-Après quelques minutes, l’état du pool est **Stable** et les nœuds démarrent. Cliquez sur **Nœuds** pour vérifier l’état des nœuds. Lorsque l’état d’un nœud est **Inactif**, il est prêt à exécuter des tâches. 
+Après quelques minutes, l’état du pool est **Stable** et les nœuds démarrent. Sélectionnez **Nœuds** pour vérifier l’état des nœuds. Lorsque l’état d’un nœud est **Inactif**, il est prêt à exécuter des tâches. 
 
 ## <a name="create-a-job"></a>Création d’un travail
 
 Maintenant que vous disposez d’un pool, créez un travail à exécuter sur celui-ci. Un travail Batch est un groupe logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. Dans un premier temps, le travail n’a aucune tâche. 
 
-1. Dans la vue de compte Batch, cliquez sur **Travaux** > **Ajouter**. 
+1. Dans la vue de compte Batch, sélectionnez **Travaux** > **Ajouter**. 
 
-2. Entrez un **ID de travail** appelé *myjob*. Dans **Pool**, sélectionnez *mypool*. Conservez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+2. Entrez un **ID de travail** appelé *myjob*. Dans **Pool**, sélectionnez *mypool*. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **OK**.
 
   ![Création d’un travail][job_create]
 
@@ -103,11 +103,11 @@ Lorsque vous utilisez Azure Batch, la ligne de commande se trouve là où vous s
 
 Pour créer la première tâche :
 
-1. Cliquez sur **Add**.
+1. Sélectionnez **Ajouter**.
 
 2. Entrez un **ID de tâche** appelé *mytask*. 
 
-3. Dans **Ligne de commande**, entrez `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Conservez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+3. Dans **Ligne de commande**, entrez `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **OK**.
 
   ![Créer une tâche][task_create]
 
@@ -127,7 +127,7 @@ Le contenu affiche les variables d’environnement Azure Batch qui sont définie
 
 Si vous souhaitez poursuivre les exemples et didacticiels Azure Batch, utilisez le compte Batch et le compte de stockage lié créés dans ce démarrage rapide. Il n’existe aucun frais pour le compte Batch proprement dit.
 
-Vous êtes facturé pour le pool pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin du pool, supprimez-le. Dans la vue de compte, cliquez sur **Pools** et le nom du pool. Ensuite, cliquez sur **Supprimer**.  Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. 
+Vous êtes facturé pour le pool pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin du pool, supprimez-le. Dans la vue de compte, sélectionnez **Pools** et le nom du pool. Puis sélectionnez **Supprimer**.  Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. 
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Batch et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources pour le compte Batch, puis cliquez sur **Supprimer le groupe de ressources**.
 

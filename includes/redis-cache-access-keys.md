@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4148370828f4ac2b7e75b49ed13cf1d1dafb8844
+ms.sourcegitcommit: 7de1432648c4ff3bcd09530c079418477d9f4d00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196530"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35719427"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Récupération du nom d’hôte, des ports et des clés d’accès à l’aide du portail Azure
+### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Récupération du nom d’hôte, des ports et des clés d’accès à l’aide du portail Azure
 
 Lors de la connexion à une instance Cache Redis Azure, les clients de cache ont besoin du nom d’hôte, des ports et d’une clé pour le cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Vous pouvez récupérer ces informations dans le portail Azure.
 
-Pour récupérer les clés d’accès à l’aide du [portail Azure](https://portal.azure.com), accédez à votre cache, puis cliquez sur **Clés d’accès**. 
+#### <a name="to-retrieve-the-access-keys-and-host-name"></a>Récupération des clés d'accès et du nom d’hôte
 
-![Clés du cache Redis](media/redis-cache-access-keys/redis-cache-keys.png)
+1. Pour récupérer les clés d’accès à l’aide du [portail Azure](https://portal.azure.com), accédez à votre cache, puis sélectionnez **Clés d’accès**. 
 
-Pour récupérer les informations relatives au nom d’hôte et aux ports, cliquez sur **Propriétés**.
+    ![Clés du cache Redis Azure](media/redis-cache-access-keys/redis-cache-keys.png)
 
-![Propriétés du cache Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+2. Pour récupérer le nom d’hôte et les ports, sélectionnez **Propriétés**.
+
+    ![Propriétés du cache Redis Azure](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

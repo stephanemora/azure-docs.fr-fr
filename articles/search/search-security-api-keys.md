@@ -8,18 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185941"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284979"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Créer et gérer des clés API pour un service Recherche Azure
 
-Toutes les demandes adressées à votre service de recherche ont besoin d’une clé API générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche. 
+Toutes les demandes adressées à un service de recherche ont besoin d’une clé API en lecture seule générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche et doit être incluse dans chaque demande. Dans les [solutions REST](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), la clé API est généralement spécifiée dans un en-tête de demande. Dans les [solutions .NET](search-howto-dotnet-sdk.md#core-scenarios), une clé est souvent spécifiée sous forme de paramètre de configuration, puis transmise en tant que [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clé d’administration) ou de [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clé de requête) sur [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+Lors du provisionnement du service, les clés sont créées avec votre service de recherche. Vous pouvez afficher et obtenir des valeurs de clés dans le [portail Azure](https://portal.azure.com).
+
+![Page du portail, section Paramètres\Clés](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>Qu’est-ce qu’une clé API ?
 
 Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Par le biais des [autorisations basées sur le rôle](search-security-rbac.md), vous pouvez supprimer ou lire les clés, mais vous ne pouvez pas remplacer une clé avec un mot de passe défini par l’utilisateur ou utiliser Active Directory en tant que méthode d’authentification principale pour accéder aux opérations de recherche. 
 

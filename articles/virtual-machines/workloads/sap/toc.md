@@ -3,6 +3,7 @@
 ## [Certifications](sap-certifications.md)
 # SAP HANA sur Azure (grandes instances)
 ## [Présentation et architecture](hana-overview-architecture.md)
+### [Scénarios HLI pris en charge](hana-supported-scenario.md)
 ## [Infrastructure et connectivité](hana-overview-infrastructure-connectivity.md)
 ## [Installation de SAP HANA](hana-installation.md)
 ## [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md)

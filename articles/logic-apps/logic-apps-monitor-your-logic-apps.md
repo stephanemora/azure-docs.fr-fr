@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 061269050ad598e1877c3b7bc6745d4095816020
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301216"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293521"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -118,19 +118,11 @@ Pour rechercher et afficher dans votre application logique des événements tels
 
    ![Sélectionnez votre espace de travail Log Analytics.](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Sous **Gestion**, choisissez **Portail OMS**.
+3. Sous **Gestion**, choisissez **Recherche dans les journaux**.
 
-   ![Choisir « Portail OMS »](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   ![Choisir « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. Dans votre page d’accueil, choisissez **Recherche dans les journaux**.
-
-   ![Dans la page d’accueil, choisir « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   -ou-
-
-   ![Dans le menu, choisir « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. Dans la zone de recherche, spécifiez un champ que vous souhaitez trouver, puis appuyez sur **Entrée**. Lorsque vous commencez à taper, vous voyez les opérations et les correspondances possibles que vous pouvez utiliser. 
+4. Dans la zone de recherche, spécifiez un champ que vous souhaitez trouver, puis appuyez sur **Entrée**. Lorsque vous commencez à taper, vous voyez les opérations et les correspondances possibles que vous pouvez utiliser. 
 
    Par exemple, pour rechercher les 10 principaux événements qui se sont produits, entrez et sélectionnez la requête de recherche suivante : **search Category == WorkflowRuntime | limit 10**
 
@@ -138,27 +130,27 @@ Pour rechercher et afficher dans votre application logique des événements tels
 
    Pour en savoir plus, voir [Recherche de données à l’aide de recherches de journal](../log-analytics/log-analytics-log-searches.md).
 
-6. Dans la page de résultats, dans la barre de gauche, choisissez la plage de temps que vous souhaitez afficher.
+5. Dans la page de résultats, dans la barre de gauche, choisissez la plage de temps que vous souhaitez afficher.
 Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
    ![Choisir un plage de temps pour les résultats de la requête](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. Sous **Ajouter des filtres**, entrez le nom du filtre afin de trouver le filtre souhaité. Sélectionnez le filtre, puis choisissez **+Ajouter**.
+6. Sous **Ajouter des filtres**, entrez le nom du filtre afin de trouver le filtre souhaité. Sélectionnez le filtre, puis choisissez **+Ajouter**.
 
    Cet exemple utilise le mot « status » pour rechercher les échecs d’événements sous **AzureDiagnostics**.
    Ici, le filtre pour **status_s** est déjà sélectionné.
 
    ![Sélectionner le filtre](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. Dans la barre de gauche, sélectionnez la valeur de filtre que vous souhaitez utiliser, puis choisissez **Appliquer**.
+7. Dans la barre de gauche, sélectionnez la valeur de filtre que vous souhaitez utiliser, puis choisissez **Appliquer**.
 
    ![Sélectionner la valeur de filtre, choisir « Appliquer »](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. Revenez à présent à la requête que vous créez. Votre requête est mis à jour avec le filtre et la valeur sélectionnés. Vos résultats précédents sont à présent également filtrés.
+8. Revenez à présent à la requête que vous créez. Votre requête est mis à jour avec le filtre et la valeur sélectionnés. Vos résultats précédents sont à présent également filtrés.
 
    ![Revenir à votre requête avec les résultats filtrés](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. Pour enregistrer votre requête en vue d’une utilisation ultérieure, choisissez **Enregistrer**. Découvrez comment [Enregistrer votre requête](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Pour enregistrer votre requête en vue d’une utilisation ultérieure, choisissez **Enregistrer**. Découvrez comment [Enregistrer votre requête](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 

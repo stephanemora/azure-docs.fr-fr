@@ -1,6 +1,6 @@
 ---
-title: Conditions dans l’accès conditionnel Azure Active Directory | Microsoft Docs
-description: Découvrez comment les affectations sont utilisées dans l’accès conditionnel Azure Active Directory pour déclencher une stratégie.
+title: Que sont les conditions dans l’accès conditionnel Azure Active Directory ? | Microsoft Docs
+description: Découvrez comment les conditions sont utilisées dans l’accès conditionnel Azure Active Directory pour déclencher une stratégie.
 services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735139"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232020"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Conditions dans l’accès conditionnel Azure Active Directory 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
 
 Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») sur la raison du déclenchement de votre stratégie (« quand cela se produit »). 
 
@@ -140,7 +140,7 @@ Les cas d’utilisation courants pour cette condition sont des stratégies qui 
 
 - Bloquez l’accès pour les utilisateurs accédant à un service à partir de pays ou régions spécifiques. 
 
-Pour plus d’informations, consultez [Conditions d’emplacement dans l’accès conditionnel Azure Active Directory](active-directory-conditional-access-locations.md).
+Pour plus d’informations, consultez [Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ?](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>Applications clientes
@@ -241,7 +241,7 @@ Non. Il n’existe aucun changement de comportement dans la stratégie par défa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

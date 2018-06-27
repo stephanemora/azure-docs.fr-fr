@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737807"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294088"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync (préversion) pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -91,7 +91,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-region-availability"></a>
 **Quelles sont les régions prises en charge par Azure File Sync (préversion) ?**  
-    À l’heure actuelle, Azure File Sync est disponible dans les régions Est de l’Australie, Centre du Canada, États-Unis de l’Est, Sud-Est asiatique, Royaume-Uni Sud, Europe de l’Ouest et États-Unis de l’Ouest. La prise en charge d’autres régions sera ajoutée d’ici la date de disponibilité générale. Pour plus d’informations, consultez [Disponibilité des régions](storage-sync-files-planning.md#region-availability).
+    Actuellement, Azure File Sync est disponible dans l’est de l’Australie, le sud-est de l’Australie, le centre du Canada, l’est du Canada, le centre des États-Unis, l’Asie orientale, l’est des États-Unis, l’est des États-Unis 2, l’Europe du nord, l’Asie du Sud-est, le Royaume-Uni, l’ouest du Royaume-Uni, l’Europe de l’ouest et l’ouest des États-Unis. La prise en charge d’autres régions sera ajoutée d’ici la date de disponibilité générale. Pour plus d’informations, consultez [Disponibilité des régions](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Un même groupe de synchronisation peut-il contenir des serveurs joints à un domaine et des serveurs non joints à un domaine ?**  

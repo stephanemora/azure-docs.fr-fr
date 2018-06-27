@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Stratégie de sécurité avec la stratégie Azure
           href: security-center-azure-policy.md
+        - name: Visibilité à l’échelle du locataire
+          href: security-center-management-groups.md
     - name: Implémenter les recommandations en matière de sécurité
       href: security-center-recommendations.md
     - name: Surveiller l’intégrité de la sécurité

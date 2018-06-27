@@ -250,7 +250,7 @@
 #### [Signature de certificat avancée pour les applications SAML](manage-apps/certificate-signing-options.md)
 #### [Masquer une application à partir de l’expérience utilisateur](manage-apps/hide-application-from-user-portal.md)
 ### [Configurer l’accélération automatique de la connexion à l’aide de la stratégie HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Migrer des applications AD FS vers Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Migrer des applications AD FS vers Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Gérer l’accès aux applications](manage-apps/what-is-access-management.md)
 #### [Accès par authentification unique](manage-apps/what-is-single-sign-on.md)
 #### [Certificats pour authentification unique](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Déléguer l’accès aux ressources
 ### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
-#### [Affecter un rôle d’administrateur à un utilisateur](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Comparer les autorisations des invités et des membres](fundamentals/users-default-permissions.md) 
-### [Sécurisation de l’accès privilégié](admin-roles-best-practices.md)  
-### [Créer les comptes d’administration d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Autorisations utilisateur par défaut](fundamentals/users-default-permissions.md)
+#### [Affecter un rôle d’administrateur à un utilisateur](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Comparer les autorisations des invités et des membres](fundamentals/users-default-permissions.md)
+### [Sécurisation des rôles d’administrateur](admin-roles-best-practices.md)  
+#### [Créer les comptes d’administrateur d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
 ### [Sécuriser des rôles privilégiés](admin-roles-best-practices.md)

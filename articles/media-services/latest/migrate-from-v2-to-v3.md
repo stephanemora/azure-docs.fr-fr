@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659529"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292044"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Migrer de Media Services v2 vers v3
 
@@ -50,6 +50,10 @@ Cet article décrit les changements qui ont été introduits dans Azure Media Se
 
 ## <a name="changes-from-v2"></a>Changements par rapport à la v2
 
+* Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
+
+    Pour les ressources créées avec la version v3, Media Services prend en charge le chiffrement de stockage côté serveur [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    
 * Les kits SDK Media Services sont découplés du kit SDK Stockage, ce qui donne davantage de contrôle sur le SDK Stockage utilisé et évite les problèmes de gestion des versions. 
 * Dans Azure Media Services v3, toutes les vitesses d’encodage sont données en bits par seconde. Ceci diffère des préréglages de Media Encoder Standard de REST v2. Par exemple, un débit en bits dans v2 serait spécifié sous la forme « 128 », mais dans v3, il serait de « 128000 ». 
 * AssetFiles, AccessPolicies, IngestManifests n’existent pas dans v3.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Créer une stratégie de clé de contenu
 2. Créer un Asset
 3. Charger du contenu ou utiliser un Asset comme JobOutput
-4. Créer un Locator
+4. Créer un localisateur de diffusion en continu
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,24 +3,24 @@ title: FAQ sur les rapports Azure Active Directory | Microsoft Docs
 description: FAQ sur les rapports Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588588"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231998"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
@@ -72,7 +72,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Combien d’enregistrements peut-on télécharger à partir du Portail Azure ?**
 
-**R :** Vous pouvez télécharger jusqu’à 120 000 enregistrements à partir du Portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 120 000 enregistrements les plus récents. 
+**R :** Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 5 000 enregistrements les plus récents. Pour les tailles d’enregistrements supérieures à 5 000, choisissez vos conditions de filtre et cliquez sur le bouton *Script* sur le portail Azure. Cette opération télécharge un script PowerShell, que vous pouvez exécuter pour générer un fichier CSV de tous les enregistrements correspondant à vos conditions de filtre. Vous devez exécuter le script PowerShell en *mode administrateur*. Pour plus d’informations, consultez [Télécharger les activités de connexion](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Comment obtenir une licence Premium ?**
 
-**R :** Consultez [Prise en main d’Azure Active Directory Premium](active-directory-get-started-premium.md) pour connaître la réponse à cette question.
+**R :** Consultez [Prise en main d’Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) pour connaître la réponse à cette question.
 
 ---
 

@@ -1,26 +1,26 @@
 ---
-title: Résoudre les problèmes liés à Azure SQL Data Sync (Préversion) | Microsoft Docs
-description: Découvrez comment résoudre les problèmes courants liés à Azure SQL Data Sync (Préversion).
+title: Résoudre les problèmes liés à Azure SQL Data Sync | Microsoft Docs
+description: Découvrez comment résoudre les problèmes courants liés à Azure SQL Data Sync.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 43d230b013f95c56fb162be3e361a6b68d1b26fe
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757534"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296826"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Résoudre les problèmes liés à SQL Data Sync (préversion)
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Résoudre les problèmes liés à SQL Data Sync
 
-Cet article explique comment résoudre les problèmes connus liés à Azure SQL Data Sync (Préversion). S’il existe un moyen de résoudre un problème, celui-ci est décrit ici.
+Cet article explique comment résoudre les problèmes connus liés à Azure SQL Data Sync. S’il existe un moyen de résoudre un problème, celui-ci est décrit ici.
 
-Pour obtenir une vue d’ensemble de SQL Data Sync (préversion), consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)](sql-database-sync-data.md).
+Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Problèmes de synchronisation
 
@@ -28,7 +28,7 @@ Pour obtenir une vue d’ensemble de SQL Data Sync (préversion), consultez [Syn
 
 #### <a name="description-and-symptoms"></a>Description et symptômes
 
-La synchronisation de bases de données locales associées à l’agent échoue dans l’interface utilisateur du portail SQL Data Sync (Préversion). Sur l’ordinateur local qui exécute l’agent, le journal des événements affiche des erreurs System.IO.IOException. Ces erreurs indiquent que l’espace disponible sur le disque est insuffisant.
+La synchronisation de bases de données locales associées à l’agent échoue dans l’interface utilisateur du portail SQL Data Sync. Sur l’ordinateur local qui exécute l’agent, le journal des événements affiche des erreurs System.IO.IOException. Ces erreurs indiquent que l’espace disponible sur le disque est insuffisant.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -38,7 +38,7 @@ Libérez de l’espace sur le lecteur où se trouve le répertoire %TEMP%.
 
 #### <a name="description-and-symptoms"></a>Description et symptômes
 
-Un groupe de synchronisation de SQL Data Sync (Préversion) est en cours de traitement depuis un certain temps. Il ne répond pas à la commande d’**arrêt** et aucune nouvelle entrée n’apparaît dans les journaux.
+Un groupe de synchronisation de SQL Data Sync est en cours de traitement depuis un certain temps. Il ne répond pas à la commande d’**arrêt** et aucune nouvelle entrée n’apparaît dans les journaux.
 
 #### <a name="cause"></a>Cause :
 
@@ -48,14 +48,14 @@ L’une des conditions suivantes peut provoquer le blocage d’un groupe de sync
 
 -   **L’agent client est désinstallé ou manquant**. Si l’agent client est désinstallé ou manquant :
 
-    1. Accédez au dossier d’installation de SQL Data Sync (Préversion) et supprimez le fichier XML de l’agent, si ce fichier existe.
+    1. Accédez au dossier d’installation de SQL Data Sync et supprimez le fichier XML de l’agent, si ce fichier existe.
     2. Installez l’agent sur un ordinateur local (il peut s’agir du même ordinateur ou d’un autre ordinateur). Envoyez ensuite la clé générée dans le portail pour l’agent qui apparaît comme étant hors connexion.
 
 -   **Le service SQL Data Sync est arrêté**.
 
     1. Dans le menu **Démarrer**, recherchez **Services**.
     2. Dans les résultats de la recherche, sélectionnez **Services**.
-    3. Recherchez le service **SQL Data Sync (Préversion)**.
+    3. Trouvez le service **SQL Data Sync**.
     4. Si l’état du service est **Arrêté**, cliquez avec le bouton droit sur le nom du service, puis sélectionnez **Démarrer**.
 
 #### <a name="resolution"></a>Résolution :
@@ -70,7 +70,7 @@ Si des tables portant le même nom mais provenant de schémas de base de donnée
 
 #### <a name="cause"></a>Cause :
 
-Le processus de déploiement de SQL Data Sync (Préversion) utilise les mêmes tables de suivi pour les tables qui portent le même nom mais proviennent de schémas différents. Par conséquent, les modifications des deux tables sont répercutées dans la même table de suivi. Et cela génère des modifications de données erronées pendant la synchronisation.
+Le processus de déploiement de SQL Data Sync utilise les mêmes tables de suivi pour les tables qui portent le même nom mais proviennent de schémas différents. Par conséquent, les modifications des deux tables sont répercutées dans la même table de suivi. Et cela génère des modifications de données erronées pendant la synchronisation.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -109,10 +109,10 @@ Le meilleur correctif est la prévention. Vérifiez l’absence de références 
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>Le message suivant s’affiche : « Impossible d’insérer la valeur NULL dans la colonne \<colonne\>. Cette colonne n’accepte pas les valeurs NULL. » Que signifie cette erreur et comment puis-je la corriger ? 
 Ce message d’erreur indique que l’un des deux problèmes suivants est survenu :
 -  Une table ne possède pas de clé primaire. Pour résoudre ce problème, ajoutez une clé primaire à toutes les tables que vous synchronisez.
--  Votre instruction CREATE INDEX contient une clause WHERE. Data Sync (Préversion) ne traite pas cette condition. Pour résoudre ce problème, supprimez la clause WHERE ou apportez manuellement les modifications à toutes les bases de données. 
+-  Votre instruction CREATE INDEX contient une clause WHERE. Data Sync ne traite pas cette condition. Pour résoudre ce problème, supprimez la clause WHERE ou apportez manuellement les modifications à toutes les bases de données. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Comment Data Sync (Préversion) traite-t-il les références circulaires ? Autrement dit, lorsque les mêmes données sont synchronisées dans plusieurs groupes de synchronisation et changent constamment en conséquence ?
-Data Sync (Préversion) ne traite pas les références circulaires. Veillez à les éviter. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Comment Data Sync traite-t-il les références circulaires ? Autrement dit, lorsque les mêmes données sont synchronisées dans plusieurs groupes de synchronisation et changent constamment en conséquence ?
+Data Sync ne traite pas les références circulaires. Veillez à les éviter. 
 
 ## <a name="client-agent-issues"></a>Problèmes liés à l’agent client
 
@@ -131,27 +131,6 @@ Pour rechercher la cause spécifique de l’échec rencontré, générez et cons
 
 Vous pouvez également activer la journalisation pour toutes les installations effectuées par Windows Installer. L’article de la Base de connaissances Microsoft [Guide pratique pour activer la journalisation de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fournit une solution en un clic pour activer la journalisation pour Windows Installer. Il indique également l’emplacement des journaux.
 
-### <a name="my-client-agent-doesnt-work"></a>Mon agent client ne fonctionne pas
-
-#### <a name="description-and-symptoms"></a>Description et symptômes
-
-Les messages suivants s’affichent lorsque vous essayez d’utiliser l’agent client :
-
-« Échec de la synchronisation avec l’exception Une erreur s’est produite durant la tentative de désérialisation du paramètre www.microsoft.com/.../05:GetBatchInfoResult. Consultez InnerException pour obtenir plus d’informations. »
-
-« Message de l’exception interne : Le type « Microsoft.Synchronization.ChangeBatch » est un type de collection non valide, car il n’a pas de constructeur par défaut. »
-
-#### <a name="cause"></a>Cause :
-
-Il s’agit d’un problème connu avec l’installation de SQL Data Sync (Préversion). L’affichage de ce message est probablement dû à l’une des causes suivantes :
-
--   Vous exécutez Windows 8 Developer Preview.
--   .NET Framework 4.5 est installé.
-
-#### <a name="resolution"></a>Résolution :
-
-Veillez à installer l’agent client sur un ordinateur qui n’exécute pas Windows 8 Developer Preview et sur lequel .NET Framework 4.5 n’est pas installé.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>Mon agent client ne fonctionne pas après l’annulation de la désinstallation
 
 #### <a name="description-and-symptoms"></a>Description et symptômes
@@ -160,7 +139,7 @@ L’agent client ne fonctionne pas, même après l’annulation de sa désinstal
 
 #### <a name="cause"></a>Cause :
 
-Ce problème survient car l’agent client SQL Data Sync (Préversion) ne stocke pas les informations d’identification.
+Ce problème survient car l’agent client SQL Data Sync ne stocke pas les informations d’identification.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -215,18 +194,18 @@ Cette erreur peut être due au fait que le mot de passe du serveur local a chang
 
 Remplacez le mot de passe de l’agent par le mot de passe actuel du serveur :
 
-1. Recherchez le service Préversion de l’agent client SQL Data Sync (Préversion).  
+1. Recherchez le service de l’agent du client SQL Data Sync.  
     a. Sélectionnez **Démarrer**.  
     b. Dans la zone de recherche, entrez **services.msc**.  
     c. Dans les résultats de la recherche, sélectionnez **Services**.  
-    d. Dans la fenêtre **Services**, faites défiler jusqu’à l’entrée **Aperçu de l’agent SQL Data Sync (préversion)**.  
-2. Cliquez avec le bouton droit sur **Aperçu de l’agent SQL Data Sync (Préversion)**, puis sélectionnez **Arrêter**.
-3. Cliquez avec le bouton droit sur **Aperçu de l’agent SQL Data Sync (Préversion)**, puis sélectionnez **Propriétés**.
-4. Dans **Propriétés de l’Aperçu de l’agent SQL Data Sync (Préversion)**, sélectionnez l’onglet **Connexion**.
+    d. Dans la fenêtre **Services**, faites défiler jusqu’à l’entrée **Agent SQL Data Sync**.  
+2. Cliquez avec le bouton droit sur **Agent SQL Data Sync**, puis sélectionnez **Arrêter**.
+3. Cliquez avec le bouton droit sur **Agent SQL Data Sync**, puis sélectionnez **Propriétés**.
+4. Dans **Propriétés de l’agent SQL Data Sync**, sélectionnez l’onglet **Connexion**.
 5. Dans la zone **Mot de passe**, entrez votre mot de passe.
 6. Dans la zone **Confirmer le mot de passe**, entrez de nouveau votre mot de passe.
 7. Sélectionnez **Apply** (Appliquer), puis **OK**.
-8. Dans la fenêtre **Services**, cliquez avec le bouton droit sur le service **Aperçu de l’agent SQL Data Sync (Préversion)**, puis cliquez sur **Démarrer**.
+8. Dans la fenêtre **Services**, cliquez avec le bouton droit sur le service **Agent SQL Data Sync**, puis cliquez sur **Démarrer**.
 9. Fermez la fenêtre **Services**.
 
 ### <a name="i-cant-submit-the-agent-key"></a>Je ne parviens pas à envoyer la clé d’un agent
@@ -239,8 +218,8 @@ Une fois que vous avez créé ou recréé la clé d’un agent, vous essayez d�
 
 Avant de continuer, vérifiez que les conditions suivantes sont réunies :
 
--   Le service Windows SQL Data Sync (Préversion) est en cours d’exécution.  
--   Le compte de service pour le service Windows SQL Data Sync (Préversion) a accès au réseau.    
+-   Le service Windows SQL Data Sync est en cours d’exécution.  
+-   Le compte de service pour le service Windows SQL Data Sync a accès au réseau.    
 -   Le port 1433 de trafic sortant est ouvert dans votre règle de pare-feu local.
 -   L’adresse IP locale est ajoutée au serveur ou à la règle de pare-feu de base de données pour la base de données de métadonnées de synchronisation.
 
@@ -248,7 +227,7 @@ Avant de continuer, vérifiez que les conditions suivantes sont réunies :
 
 La clé d’agent identifie de façon unique chaque agent local. La clé doit remplir deux conditions :
 
--   La clé de l’agent client sur le serveur SQL Data Sync (préversion) et l’ordinateur local doivent être identiques.
+-   La clé de l’agent client sur le serveur SQL Data Sync et l’ordinateur local doivent être identiques.
 -   La clé de l’agent client ne peut être utilisée qu’une seule fois.
 
 #### <a name="resolution"></a>Résolution :
@@ -272,7 +251,7 @@ Pour appliquer la nouvelle clé à l’agent :
 
 #### <a name="description-and-symptoms"></a>Description et symptômes
 
-Si un point de terminaison local (autrement dit, une base de données) inscrite auprès d’un agent client SQL Data Sync (Préversion) devient inaccessible, l’agent client ne peut pas être supprimé.
+Si un point de terminaison local (autrement dit, une base de données) inscrite auprès d’un agent client SQL Data Sync devient inaccessible, l’agent client ne peut pas être supprimé.
 
 #### <a name="cause"></a>Cause :
 
@@ -295,8 +274,8 @@ Essayez les étapes suivantes :
 2. Ouvrez le panneau Services de composants.  
     a. Dans la zone de recherche de la barre des tâches, entrez **services.msc**.  
     b. Dans les résultats de la recherche, double-cliquez sur **Services**.  
-3. Arrêtez le service **Aperçu de SQL Data Sync (Préversion)**.
-4. Redémarrez le service **Aperçu de SQL Data Sync (Préversion)**.  
+3. Arrêtez le service **SQL Data Sync**.
+4. Redémarrez le service **SQL Data Sync**.  
 5. Rouvrez l’application.
 
 ## <a name="setup-and-maintenance-issues"></a>Problèmes d’installation et de maintenance
@@ -335,12 +314,12 @@ Pour résoudre l’échec de suppression d’un groupe de synchronisation :
 
 -   Vérifiez que l’agent client est en ligne, puis réessayez.
 -   Si l’agent client est désinstallé ou manquant :  
-    a. Accédez au dossier d’installation de SQL Data Sync (Préversion) et supprimez le fichier XML de l’agent, si ce fichier existe.  
+    a. Accédez au dossier d’installation de SQL Data Sync et supprimez le fichier XML de l’agent, si ce fichier existe.  
     b. Installez l’agent sur un ordinateur local (il peut s’agir du même ordinateur ou d’un autre ordinateur). Envoyez ensuite la clé générée dans le portail pour l’agent qui apparaît comme étant hors connexion.
--   Vérifiez que le service SQL Data Sync (Préversion) est en cours d’exécution :  
+-   Vérifiez que le service SQL Data Sync est en cours d’exécution :  
     a. Dans le menu **Démarrer**, recherchez **Services**.  
     b. Dans les résultats de la recherche, sélectionnez **Services**.  
-    c. Recherchez le service **SQL Data Sync (Préversion)**.  
+    c. Trouvez le service **SQL Data Sync**.  
     d. Si l’état du service est **Arrêté**, cliquez avec le bouton droit sur le nom du service, puis sélectionnez **Démarrer**.
 -   Vérifiez que vos bases de données SQL et SQL Server sont toutes en ligne.
 -   Attendez que le processus de déploiement ou de synchronisation se termine, puis essayez à nouveau de supprimer le groupe de synchronisation.
@@ -361,7 +340,7 @@ Si cette opération ne permet pas de supprimer la base de données du groupe de 
     a. Sélectionnez le menu **Démarrer**.  
     b. Dans la zone de recherche, entrez **services.msc**.  
     c. Dans la section **Programmes** du volet des résultats de la recherche, double-cliquez sur **Services**.  
-    d. Cliquez avec le bouton droit sur le service **SQL Data Sync (Préversion)**.  
+    d. Faites un clic droit sur le service **SQL Data Sync**.  
     e. Si le service est en cours d’exécution, arrêtez-le.  
     f. Cliquez avec le bouton droit sur le service, puis sélectionnez **Démarrer**.  
     g. Vérifiez si la base de données est toujours inscrite. Si elle n’est plus inscrite, vous avez terminé. Sinon, passez à l’étape suivante.
@@ -391,7 +370,7 @@ Accordez des informations d’identification « Ouvrir une session en tant que 
 
 #### <a name="cause"></a>Cause :
 
-SQL Data Sync (Préversion) supprime du service les bases de données qui sont hors connexion depuis 45 jours ou plus (délai calculé à partir du moment où la base de données a basculé hors connexion). Si une base de données est hors connexion pendant au moins 45 jours, puis qu’elle rebascule en ligne, son état est défini sur **Obsolète**.
+SQL Data Sync supprime du service les bases de données qui sont hors connexion depuis 45 jours ou plus (délai calculé à partir du moment où la base de données a basculé hors connexion). Si une base de données est hors connexion pendant au moins 45 jours, puis qu’elle rebascule en ligne, son état est défini sur **Obsolète**.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -421,14 +400,14 @@ Si l’état d’un groupe de synchronisation est **Obsolète**, supprimez le gr
 
 #### <a name="description-and-symptoms"></a>Description et symptômes
 
-Vous ne pouvez pas supprimer un groupe de synchronisation dans les trois minutes qui suivent la désinstallation ou l’arrêt de l’agent client SQL Data Sync (Préversion) associé.
+Vous ne pouvez pas supprimer un groupe de synchronisation dans les trois minutes qui suivent la désinstallation ou l’arrêt de l’agent client SQL Data Sync associé.
 
 #### <a name="resolution"></a>Résolution :
 
 1. Supprimez un groupe de synchronisation pendant que les agents de synchronisation associés sont en ligne (recommandé).
-2. Si l’agent est hors connexion mais installé, mettez-le en ligne sur l’ordinateur local. Attendez que l’état de l’agent apparaisse comme **En ligne** sur le portail SQL Data Sync (Préversion). Puis supprimez le groupe de synchronisation.
+2. Si l’agent est hors connexion mais installé, mettez-le en ligne sur l’ordinateur local. Attendez que l’état de l’agent apparaisse comme **En ligne** sur le portail SQL Data Sync. Puis supprimez le groupe de synchronisation.
 3. Si l’agent est hors connexion parce qu’il a été désinstallé :  
-    a.  Accédez au dossier d’installation de SQL Data Sync (Préversion) et supprimez le fichier XML de l’agent, si ce fichier existe.  
+    a.  Accédez au dossier d’installation de SQL Data Sync et supprimez le fichier XML de l’agent, si ce fichier existe.  
     b.  Installez l’agent sur un ordinateur local (il peut s’agir du même ordinateur ou d’un autre ordinateur). Envoyez ensuite la clé générée dans le portail pour l’agent qui apparaît comme étant hors connexion.  
     c. Essayez de supprimer le groupe de synchronisation.
 
@@ -437,16 +416,16 @@ Vous ne pouvez pas supprimer un groupe de synchronisation dans les trois minutes
 Si vous restaurez une base de données perdue ou endommagée à partir d’une sauvegarde, un problème de non-convergence des données peut survenir dans les groupes de synchronisation auxquels la base de données appartient.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur SQL Data Sync (préversion), consultez :
+Pour plus d’informations sur SQL Data Sync, consultez :
 
--   [Synchroniser des données entre plusieurs bases de données sur site et cloud avec Azure SQL Data Sync (préversion)](sql-database-sync-data.md)  
--   [Configurer Azure SQL Data Sync (Préversion)](sql-database-get-started-sql-data-sync.md)  
--   [Bonnes pratiques pour Azure SQL Data Sync (Préversion)](sql-database-best-practices-data-sync.md)  
--   [Surveiller Azure SQL Data Sync (préversion) avec Log Analytics](sql-database-sync-monitor-oms.md)  
--   Exemples PowerShell complets sur la configuration de SQL Data Sync (préversion) :  
+-   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)  
+-   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)  
+-   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)  
+-   [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :  
     -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Télécharger la documentation de l’API REST de SQL Data Sync (préversion)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Pour plus d’informations sur SQL Database, consultez :
 

@@ -5,38 +5,39 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737103"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286577"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
+Dans cet article, nous vous montrons comment effectuer un exercice de récupération d’urgence pour une machine locale vers Azure, à l’aide d’un test de basculement. Un exercice valide votre stratégie de réplication sans perte de données.
 
-- Il s’agit du quatrième didacticiel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware locales. Il suppose que vous avez effectué les deux premiers didacticiels :
+Il s’agit du quatrième didacticiel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware locales.
+
+Ce tutoriel suppose que vous avez effectué les trois premiers tutoriels : 
     - Dans le [premier didacticiel](tutorial-prepare-azure.md), nous avons configuré les composants Azure nécessaires pour la récupération d’urgence de VMware.
     - Dans le [deuxième didacticiel](vmware-azure-tutorial-prepare-on-premises.md), nous avons préparé des composants locaux pour la récupération d’urgence et nous avons passé en revue les conditions préalables.
     - Dans le [troisième didacticiel](vmware-azure-tutorial.md), nous avons configuré et activé la réplication pour notre machine virtuelle VMware locale.
-- Les didacticiels sont conçus pour vous montrer le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. 
+- Les didacticiels sont conçus pour vous montrer le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Tous les tutoriels configurent Site Recovery avec les paramètres les plus simples, à l’aide des valeurs par défaut le cas échéant. Si vous souhaitez en savoir plus sur les étapes de basculement de test, lisez le [guide de procédure](site-recovery-test-failover-to-azure.md).
 
-
-Dans cet article, nous vous montrons comment effectuer un exercice de récupération d’urgence pour une machine locale vers Azure, à l’aide d’un test de basculement. Un exercice valide votre stratégie de réplication sans perte de données. Découvrez comment :
+Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Configurer un réseau isolé pour le test de basculement
 > * Préparer la connexion à la machine virtuelle Azure après le basculement
 > * Exécuter un test de basculement pour une seule machine
 
-Ce didacticiel définit la récupération d’urgence VMware vers Azure avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les étapes de basculement de test, lisez le [guide de procédure](site-recovery-test-failover-to-azure.md).
+Ce tutoriel
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
-Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle VMware et assurez-vous que la machine virtuelle Hyper-V [hyper-v-azure-support-matrix.md#replicated-vms], [la machine virtuelle VMware ou le serveur physique](vmware-physical-azure-support-matrix.md#replicated-machines) sont conformes aux exigences d’Azure.
+Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle VMware et assurez-vous que la [machine virtuelle Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms), ou la [machine virtuelle VMware/serveur physique](vmware-physical-azure-support-matrix.md#replicated-machines) soient conformes aux exigences d’Azure.
 
 1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués**, puis sur la machine virtuelle.
 2. Dans le volet **Élément répliqué**, vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.

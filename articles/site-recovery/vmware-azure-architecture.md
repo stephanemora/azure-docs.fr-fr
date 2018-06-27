@@ -3,15 +3,15 @@ title: Architecture de réplication VMware sur Azure avec Azure Site Recovery | 
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles VMware locales vers Azure, à l’aide d’Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61c283c178936c98a9a18509c1b46035e48f8f24
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184579"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285268"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Architecture de la réplication VMware vers Azure
 

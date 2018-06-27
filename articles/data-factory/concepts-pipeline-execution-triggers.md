@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715035"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293477"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline
 
 - Déclencheur de fenêtre bascule : un déclencheur qui fonctionne sur un intervalle périodique, tout en conservant son état. Azure Data Factory ne prend actuellement pas en charge les déclencheurs d’événements. Par exemple, le déclencheur pour l’exécution d’un pipeline qui répond à un événement de réception d’un fichier n’est pas pris en charge.
 
+- Déclencheur basé sur des événements : un déclencheur qui répond à un événement.
+
 Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent lancer un même pipeline et un seul déclencheur peut lancer plusieurs pipelines. Dans la définition de déclencheur suivante, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier. La définition de propriété inclut des valeurs pour les paramètres de pipeline.
 
 ### <a name="basic-trigger-definition"></a>Définition du déclencheur de base
@@ -175,11 +177,6 @@ Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plus
 Un déclencheur de planification exécute les pipelines selon un planning horaire. Ce déclencheur prend en charge les options de calendrier périodiques et avancées. Par exemple, le déclencheur prend en charge les intervalles comme « toutes les semaines » ou « lundi à 17h00 et jeudi à 21h00.» Le déclencheur de planification est flexible, car le modèle de jeu de données n’est pas spécifié et le déclencheur ne distingue pas les données de série chronologique des données de série non chronologique.
 
 Pour obtenir plus d’informations sur les déclencheurs de planification ainsi que des exemples, consultez [Créer un déclencheur de planification](how-to-create-schedule-trigger.md).
-
-## <a name="tumbling-window-trigger"></a>Déclencheur de fenêtre bascule
-Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas.
-
-Pour obtenir plus d’informations sur les déclencheurs de fenêtre bascule ainsi que des exemples, consultez [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Définition du déclencheur de planification
 Quand vous créez un déclencheur de planification, vous spécifiez la planification et la périodicité à l’aide d’une définition JSON. 
@@ -322,6 +319,17 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 | **weekDays** | Jours d’exécution du déclencheur dans la semaine. La valeur ne peut être spécifiée qu’avec une fréquence hebdomadaire.|<br />- Lundi<br />- Mardi<br />- Mercredi<br />- Jeudi<br />- Vendredi<br />- Samedi<br />- Dimanche<br />- Tableau des valeurs de jour (la taille maximale du tableau est de 7)<br /><br />Les valeurs de jour ne respectent pas la casse|
 | **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Tableau d’objets **monthlyOccurence** : `{ "day": day,  "occurrence": occurence }`<br />- L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.<br />- L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.|
 | **monthDays** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Toute valeur <= -1 et >= -31<br />- Toute valeur >= 1 et <= 31<br />- Tableau de valeurs|
+
+## <a name="tumbling-window-trigger"></a>Déclencheur de fenêtre bascule
+Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas.
+
+Pour obtenir plus d’informations sur les déclencheurs de fenêtre bascule ainsi que des exemples, consultez [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
+
+## <a name="event-based-trigger"></a>Déclencheur basé sur des événements
+
+Les déclencheurs basés sur des événements exécutent des pipelines en réponse aux événements, comme pour l’arrivée ou la suppression d’un fichier, dans le stockage Blob Azure.
+
+Pour plus d’informations sur les déclencheurs basés sur des événements, consultez [Créer un déclencheur qui exécute un pipeline en réponse à un événement](how-to-create-event-trigger.md).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemples de planifications de périodicité de déclencheur
 Cette section fournit des exemples de planifications de périodicité. Elle se concentre sur l’objet **schedule** et ses éléments.

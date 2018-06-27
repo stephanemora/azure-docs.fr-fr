@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312693"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267572"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder un [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce didacticiel.
@@ -43,7 +43,6 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) versions 15.5 ou ultérieures avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
@@ -75,9 +74,21 @@ Commencez par créer le web frontal de l’application de vote à l’aide d’A
    ![Explorateur de solutions après la création de l’application avec un service API Web ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>Ajouter AngularJS au service VotingWeb
-Ajoutez [AngularJS](http://angularjs.org/) à votre service à l’aide de la fonction [Assistant Bower](/aspnet/core/client-side/bower). Tout d’abord, ajoutez un fichier de configuration Bower au projet.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **VotingWeb**, puis sélectionnez **Ajouter->Nouvel élément**. Sélectionnez **Web**, puis **Fichier de configuration Bower**.  Le fichier *bower.json* est créé.
+Ajoutez [AngularJS](http://angularjs.org/) à votre service à l’aide de la fonction [Assistant Bower](/aspnet/core/client-side/bower). Tout d’abord, ajoutez un fichier de paramètres *.bowerrc* au projet.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **VotingWeb**, puis sélectionnez **Ajouter->Nouvel élément**. Sélectionnez **C#** , puis **Fichier JSON**.  Entrez **.bowerrc** dans le champ *Nom* et cliquez sur **Ajouter**.
 
-Ouvrez *bower.json* et ajoutez des entrées pour angular et angular-bootstrap, puis enregistrez vos modifications.
+Ouvrez *.bowerrc* et remplacez le contenu par ce qui suit, qui indique que Bower installera les composants du package dans le répertoire *wwwroot/lib*.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Enregistrez les modifications apportées à *.bowerrc*.  Cette opération crée un fichier *.bowerrc* dans le dossier de votre projet.  
+
+Ensuite, ajoutez un fichier de configuration Bower au projet.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **VotingWeb**, puis sélectionnez **Ajouter->Nouvel élément**. Sélectionnez **C#** , puis **Fichier JSON**.  Entrez **bower.json** dans le champ *Nom* champ et cliquez sur **Ajouter**.
+
+Ouvrez *bower.json* et remplacez le contenu par les entrées suivantes pour angular et angular-bootstrap, puis enregistrez vos modifications.
 
 ```json
 {
@@ -93,7 +104,8 @@ Ouvrez *bower.json* et ajoutez des entrées pour angular et angular-bootstrap, p
   }
 }
 ```
-Lors de l’enregistrement du fichier *bower.json*, Angular est installé dans votre dossier de projet *wwwroot/lib*. En outre, il est répertorié dans le dossier *Dependencies/Bower*.
+
+Lors de l’enregistrement du fichier *bower.json*, Angular est installé dans votre dossier de projet *wwwroot/lib* via la fonction Assistant Bower de Visual Studio. En outre, il est répertorié dans le dossier *Dependencies/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Mettre à jour le fichier site.js
 Ouvrez le fichier *wwwroot/js/site.js*.  Remplacez son contenu par le code JavaScript utilisé par les vues d’accueil :

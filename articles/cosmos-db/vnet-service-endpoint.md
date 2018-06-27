@@ -1,19 +1,20 @@
 ---
-title: "Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service \nRéseau virtuel Azure | Microsoft Docs"
+title: Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure | Microsoft Docs
 description: Ce document décrit les étapes nécessaires pour configurer le point de terminaison de service de réseau virtuel Azure Cosmos DB.
 services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293993"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
 
@@ -48,7 +49,7 @@ Une fois qu’un compte Azure Cosmos DB est configuré avec un point de terminai
    ![Sélectionner un réseau virtuel et un sous-réseau](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Si aucun point de terminaison de service pour Azure Cosmos DB n’a encore été configuré pour les réseaux virtuels et les sous-réseaux Azure sélectionnés, vous pouvez le configurer dans le cadre de cette opération. L’activation de l’accès prendra jusqu’à 15 minutes. 
+   > Si aucun point de terminaison de service pour Azure Cosmos DB n’a encore été configuré pour les réseaux virtuels et les sous-réseaux Azure sélectionnés, vous pouvez le configurer dans le cadre de cette opération. L’activation de l’accès prendra jusqu’à 15 minutes. Il est très important de désactiver le pare-feu IP après avoir noté le contenu de la liste de contrôle d'accès du pare-feu afin de les réactiver plus tard. 
 
    ![Réseau virtuel et sous-réseau configurés correctement](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -58,7 +59,10 @@ Désormais, votre compte Azure Cosmos DB autorisera uniquement le trafic provena
 
 1. À partir du panneau **Toutes les ressources**, recherchez le compte Azure Cosmos DB que vous souhaitez sécuriser.  
 
-2. Avant d’activer le point de terminaison de service de réseau virtuel, copiez les informations sur le pare-feu IP associé à votre compte Azure Cosmos DB pour un usage ultérieur. Vous pourrez réactiver le pare-feu IP après avoir configuré le point de terminaison de service.  
+> [!NOTE]
+> Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez le point de terminaison de service. Si vous activez le point de terminaison de service sans désactiver le pare-feu, le trafic à partir de cette plage IP perdra l’identité de l’IP virtuelle et il est supprimé avec un message d’erreur de filtre IP. Donc pour éviter cette erreur, vous devez toujours désactiver les règles de pare-feu, les copier, activer le point de terminaison de service à partir du sous-réseau puis activer l’ACL du sous-réseau à partir de Cosmos DB. Une fois le point de terminaison de service configuré et l’ACL ajoutée, vous pouvez réactiver le pare-feu IP si nécessaire.
+
+2. Avant d’activer le point de terminaison de service de réseau virtuel, copiez les informations sur le pare-feu IP associé à votre compte Azure Cosmos DB pour une utilisation ultérieure. Vous pourrez réactiver le pare-feu IP après avoir configuré le point de terminaison de service.  
 
 3. Sélectionnez **Pare-feu et réseaux virtuels Azure** dans le menu Paramètres et choisissez Autoriser l’accès dans **Réseaux sélectionnés**.  
 
@@ -76,7 +80,7 @@ Une fois que les points de terminaison de service de réseau virtuel Azure sont 
 
 Si votre compte Azure Cosmos DB est utilisé par d’autres services Azure tels que Recherche Azure, ou s’il est accessible à partir de Stream Analytics ou de Power BI, vous pouvez autoriser l’accès en cochant **Autoriser l’accès aux services Azure**.
 
-Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du portail, vous devez activer l’option **Autoriser l’accès au portail Azure**. Pour en savoir plus sur ces options, consultez les sections [Connexions à partir du Portail Azure](firewall-support.md#connections-from-the-azure-portal) et [Connexions à partir d’autres services Azure PaaS](firewall-support.md#connections-from-other-azure-paas-services). Après avoir sélectionné l’accès, sélectionnez **Enregistrer** pour enregistrer les paramètres.
+Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du portail, vous devez activer l’option **Autoriser l’accès au portail Azure**. Pour en savoir plus sur ces options, consultez les sections [Connexions à partir du Portail Azure](firewall-support.md#connections-from-the-azure-portal) et [Connexions à partir d’autres services Azure PaaS](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services). Après avoir sélectionné l’accès, sélectionnez **Enregistrer** pour enregistrer les paramètres.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Supprimer un réseau virtuel ou un sous-réseau 
 
@@ -95,6 +99,10 @@ Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du por
 Effectuez les étapes suivantes afin de configurer le point de terminaison de service pour un compte Azure Cosmos DB à l’aide d’Azure PowerShell :  
 
 1. Installez la dernière version d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) et [connectez-vous](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Prenez note des paramètres de pare-feu IP et supprimez complètement le pare-feu IP avant d’activer le point de terminaison de service pour le compte.
+
+
+> [!NOTE]
+> Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez le point de terminaison de service. Si vous activez le point de terminaison de service sans désactiver le pare-feu, le trafic à partir de cette plage IP perdra l’identité de l’IP virtuelle et il est supprimé avec un message d’erreur de filtre IP. Donc pour éviter cette erreur, vous devez toujours désactiver les règles de pare-feu, les copier, activer le point de terminaison de service à partir du sous-réseau puis activer l’ACL du sous-réseau à partir de Cosmos DB. Une fois le point de terminaison de service configuré et l’ACL ajoutée, vous pouvez réactiver le pare-feu IP si nécessaire.
 
 2. Avant d’activer le point de terminaison de service de réseau virtuel, copiez les informations sur le pare-feu IP associé à votre compte Azure Cosmos DB pour une utilisation ultérieure. Vous réactiverez le pare-feu IP après avoir configuré le point de terminaison de service.  
 
@@ -219,9 +227,13 @@ Ceci est nécessaire uniquement quand vous souhaitez que votre compte Azure Cosm
 
 64 points de terminaison de service de réseau virtuel sont autorisés pour un compte Azure Cosmos DB.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>Quelle est la relation entre le point de terminaison de service et les règles de groupe de sécurité réseau (NSG) ?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>Quelle est la relation entre le point de terminaison de service et les règles du groupe de sécurité réseau (NSG) ?  
 
-La règle NSG d’Azure Cosmos DB autorise la restriction de l’accès uniquement à la plage d’adresses IP d’Azure Cosmos DB.
+Les règles du groupe de sécurité réseau dans Azure Cosmos DB vous permettent de restreindre l’accès à la plage d’adresses IP de Azure Cosmos DB. Si vous souhaitez autoriser l’accès à une instance de Azure Cosmos DB présente dans une [région](https://azure.microsoft.com/global-infrastructure/regions/) spécifique, vous pouvez spécifier la région au format suivant : 
+
+    AzureCosmosDB.<region name>
+
+Pour en savoir plus sur les balises NSG, consultez l’article [Balises de service de réseau virtuel](../virtual-network/security-overview.md#service-tags). 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>Quelle est la relation entre un pare-feu IP et la fonctionnalité de point de terminaison de service de réseau virtuel ?  
 

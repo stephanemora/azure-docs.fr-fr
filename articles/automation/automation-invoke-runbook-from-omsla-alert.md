@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0094362ee083511b05027f22b37ed62d56d68d41
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192660"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217123"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Appeler un runbook Azure Automation à partir d’une alerte Log Analytics
 
@@ -33,7 +33,7 @@ Deux méthodes permettent d’appeler un runbook lorsque vous configurez une ale
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Appel d’un runbook à l’aide d’un Webhook
 
-Un Webhook vous permet de démarrer un runbook particulier dans Azure Automation via une simple requête HTTP. Avant de configurer l’[alerte Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules) pour appeler le runbook à l’aide d’un Webhook en tant qu’action d’alerte, vous devez [créer un Webhook](automation-webhooks.md#creating-a-webhook) pour le runbook appelé via cette méthode. N’oubliez pas d’enregistrer l’URL du Webhook afin de pouvoir la référencer lors de la configuration de la règle d’alerte.   
+Un Webhook vous permet de démarrer un runbook particulier dans Azure Automation via une simple requête HTTP. Avant de configurer l’[action Webhook pour alertes de journal ](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) afin d’appeler le runbook à l’aide d’un Webhook en tant qu’action d’alerte, vous devez [créer un Webhook](automation-webhooks.md#creating-a-webhook) pour le runbook appelé via cette méthode. N’oubliez pas d’enregistrer l’URL du Webhook afin de pouvoir la référencer lors de la configuration de la règle d’alerte.   
 
 ## <a name="calling-a-runbook-directly"></a>Appel direct d’un runbook
 
@@ -99,6 +99,6 @@ Sinon, si vous êtes dépourvu de compte Automation lié à votre espace de trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les alertes de Log Analytics et sur leur création, consultez [Alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md).
+* Pour en savoir plus sur la création d’un alerte Azure à l’aide d’une recherche de journal, consultez [Alertes e journal dans Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 * Pour découvrir comment déclencher des runbooks à l’aide d’un Webhook, consultez [Webhooks Azure Automation](automation-webhooks.md).

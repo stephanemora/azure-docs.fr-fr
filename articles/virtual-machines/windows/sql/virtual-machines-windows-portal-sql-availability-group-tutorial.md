@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716718"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287801"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -56,7 +56,7 @@ Avant de commencer ce didacticiel, vous devez [remplir les conditions préalable
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Création du cluster
+## <a name="create-the-cluster"></a>Création du cluster
 
 Une fois les conditions préalables remplies, la première étape consiste à créer un cluster de basculement Windows Server comprenant deux serveurs SQL Server et un serveur témoin.
 
@@ -413,8 +413,8 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    | **Name** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |
    | **Protocole** | Choisissez TCP. |TCP |
-   | **Port** | Utilisez le port de l’instance de SQL Server. | 1433 |
-   | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 1433 |
+   | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 1435 |
+   | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 1435 |
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | SQLAlwaysOnEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
    | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |

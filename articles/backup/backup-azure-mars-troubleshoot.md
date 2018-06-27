@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
 ms.author: saurse
-ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605754"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228388"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Résoudre les problèmes liés à la configuration et l’inscription de l’agent Sauvegarde Azure
 ## <a name="recommended-steps"></a>Étapes recommandées
@@ -36,13 +36,19 @@ Reportez-vous aux actions recommandées dans les tableaux suivants pour résoudr
 
 | Détails de l’erreur | Causes possibles | Actions recommandées |
 | ---     | ---     | ---    |      
-| **Error** </br>*Échec de définition de la clé de chiffrement pour les sauvegardes sécurisées. Échec de l’opération en cours en raison d’une erreur de service interne « Erreur d’entrée non valide ». Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft*. |Le serveur est déjà inscrit auprès d’un autre coffre.| Désinscrivez le serveur du coffre et réinscrivez-le.
+| **Error** </br>*Impossible de définir la clé de chiffrement pour les sauvegardes sécurisées. L’activation n’a pas entièrement réussi, mais la phrase secrète de chiffrement a été enregistrée dans le fichier suivant*. |<li>Le serveur est déjà inscrit auprès d’un autre coffre.<li>Lors de la configuration, la phrase secrète a été endommagée.| Désinscrivez le serveur du coffre et réinscrivez-le avec une nouvelle phrase secrète.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]
 
 | Détails de l’erreur | Causes possibles | Actions recommandées |
 | ---     | ---     | ---    |          
-| **Error** </br><ol><li>*L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft* <li>*Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas correctement configurée*. | <li> Le dossier temporaire se situe sur un volume dont l’espace est insuffisant. <li> Le dossier temporaire a été incorrectement déplacé vers un autre emplacement. <li> Le fichier OnlineBackup.KEK est manquant. | <li>Déplacez le dossier temporaire ou l’emplacement du cache vers un volume avec un espace disponible équivalent à 5-10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions sur l’agent de Sauvegarde Microsoft Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier temporaire ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Error** </br><ol><li>*L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft*| <li> Le dossier temporaire se situe sur un volume dont l’espace est insuffisant. <li> Le dossier temporaire a été incorrectement déplacé vers un autre emplacement. <li> Le fichier OnlineBackup.KEK est manquant. | <li>Effectuez une mise à niveau vers la [dernière version](http://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez le dossier temporaire ou l’emplacement du cache vers un volume avec un espace disponible équivalent à 5-10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions sur l’agent de Sauvegarde Microsoft Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier temporaire ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas configurée correctement.
+
+| Détails de l’erreur | Causes possibles | Actions recommandées |
+| ---     | ---     | ---    |          
+| **Error** </br><ol><li>*Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas correctement configurée*. | <li> Le dossier temporaire se situe sur un volume dont l’espace est insuffisant. <li> Le dossier temporaire a été incorrectement déplacé vers un autre emplacement. <li> Le fichier OnlineBackup.KEK est manquant. | <li>Effectuez une mise à niveau vers la [dernière version](http://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez le dossier temporaire ou l’emplacement du cache vers un volume avec un espace disponible équivalent à 5-10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions sur l’agent de Sauvegarde Microsoft Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier temporaire ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

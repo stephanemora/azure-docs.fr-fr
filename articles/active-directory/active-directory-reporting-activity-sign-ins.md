@@ -3,25 +3,25 @@ title: Rapports d’activité de connexion dans le portail Azure Active Director
 description: Présentation des rapports d’activité de connexion dans le portail Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588605"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231992"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -153,7 +153,7 @@ Vous pouvez télécharger les données des activités de connexion si vous souha
 
 ![Télécharger](./media/active-directory-reporting-activity-sign-ins/71.png "Télécharger")
 
-En cliquant sur **Télécharger**, un fichier CSV contenant les 5K enregistrements les plus récents est créé. Si vous avez besoin de davantage de souplesse, vous pouvez utiliser la solution de script. En cliquant sur **Script**, un script comprenant tous les filtres que vous avez définis est créé. En plus de l’implémentation technique, le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](active-directory-reporting-retention.md).  
+En cliquant sur **Télécharger**, un fichier CSV contenant les 5K enregistrements les plus récents est créé. Si vous avez besoin de davantage de souplesse, vous pouvez utiliser la solution de script. En cliquant sur **Script**, un script PowerShell comprenant tous les filtres que vous avez définis est créé. Téléchargez et exécutez ce script en **mode administrateur** pour générer le fichier CSV. En plus de l’implémentation technique, le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](active-directory-reporting-retention.md).  
 
 
 

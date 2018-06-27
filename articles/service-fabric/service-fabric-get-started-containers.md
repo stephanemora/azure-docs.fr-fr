@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643207"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294810"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -40,17 +40,17 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
   
   Pour déterminer la version de Windows Server avec conteneurs dont vous avez besoin pour votre cluster, exécutez la commande `ver` à partir d’une invite de commandes Windows sur votre ordinateur de développement :
 
-  * Si la version contient *x.x.14323.x*, [créez un cluster](service-fabric-cluster-creation-via-portal.md) en veillant à sélectionner *WindowsServer 2016-Datacenter-with-Containers* pour le système d’exploitation ou [essayez gratuitement Service Fabric](https://aka.ms/tryservicefabric) avec un cluster tiers.
-  * Si la version contient *x.x.16299.x*, [créez un cluster](service-fabric-cluster-creation-via-portal.md) en veillant à sélectionner *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* pour le système d’exploitation. Vous ne pouvez pas utiliser un cluster tiers.
+  * Si la version contient *x.x.14323.x*, sélectionnez *WindowsServer 2016-Datacenter-with-Containers* comme système d’exploitation lors de la [création du cluster](service-fabric-cluster-creation-via-portal.md). Vous pouvez également [essayer Service Fabric gratuitement](https://aka.ms/tryservicefabric) avec un cluster tiers.
+  * Si la version contient *x.x.16299.x*, sélectionnez *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* comme système d’exploitation lors de la [création d’un cluster](service-fabric-cluster-creation-via-portal.md). Cependant, vous ne pouvez pas utiliser de cluster tiers.
 
 * Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure.
 
 > [!NOTE]
-> Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 ou sur un cluster avec Docker CE n’est pas pris en charge. Cette procédure réalise des tests localement à l’aide du moteur Docker sur Windows 10, puis déploie les services de conteneur sur un cluster Windows Server dans Azure en exécutant Docker EE. 
+> Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 est pris en charge.  Consultez [cet article](service-fabric-how-to-debug-windows-containers.md) pour plus d’informations sur la configuration de Windows 10 pour exécuter des conteneurs Windows.
 >   
 
 > [!NOTE]
-> Service Fabric version 6.1 prend en charge la version préliminaire de Windows Server version 1709. La mise en réseau ouvert et le service DNS dans Service Fabric ne fonctionnent pas avec Windows Server version 1709. 
+> La version 6.2 de Service Fabric et les versions ultérieures prennent en charge le déploiement de conteneurs pour les clusters exécutant Windows Server version 1709.  
 > 
 
 ## <a name="define-the-docker-container"></a>Définir le conteneur Docker
@@ -396,7 +396,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Système d’exploitation de conteneur Windows Server et compatibilité avec le système d’exploitation hôte
 
-Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d’un système d’exploitation hôte. Par exemple :
+Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d’un système d’exploitation hôte. Par exemple : 
  
 - Les conteneurs Windows Server créés à l’aide de Windows Server version 1709 ne fonctionnent pas sur un hôte exécutant Windows Server version 2016. 
 - Les conteneurs Windows Server créés à l’aide de Windows Server 2016 fonctionnent en mode d’isolation Hyper-V uniquement sur un hôte exécutant Windows Server version 1709. 
@@ -404,7 +404,7 @@ Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d
  
 Pour plus d’informations, consultez [Compatibilité des versions avec les conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Examinez la compatibilité du système d’exploitation hôte et le système d’exploitation de votre conteneur pour créer et déployer des conteneurs sur votre cluster Service Fabric. Par exemple :
+Examinez la compatibilité du système d’exploitation hôte et le système d’exploitation de votre conteneur pour créer et déployer des conteneurs sur votre cluster Service Fabric. Par exemple : 
 
 - Vérifiez que vous déployez des conteneurs avec un système d’exploitation compatible avec le système d’exploitation exécuté sur vos nœuds de cluster.
 - Vérifiez que le mode d’isolation spécifié pour votre application de conteneur est cohérent avec la prise en charge du système d’exploitation de conteneur sur le nœud sur lequel il est en cours de déploiement.

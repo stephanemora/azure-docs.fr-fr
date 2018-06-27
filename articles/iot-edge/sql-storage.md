@@ -9,12 +9,12 @@ ms.date: 02/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30dc833edabfe3d13769bafc9fa0eb6bdd51bb23
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632398"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287205"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -33,7 +33,7 @@ Les articles suivants ne sont pas obligatoires pour suivre ce didacticiel, mais 
 * [Utiliser Visual Studio Code pour développer et déployer des fonctions Azure Functions sur Azure IoT Edge | Microsoft Docs](how-to-vscode-develop-azure-function.md)
 
 Une fois que vous aurez suivi tous les didacticiels requis, vous disposerez de la configuration requise sur votre ordinateur : 
-* Une installation Azure IoT Hub active.
+* Un Azure IoT Hub actif avec au moins un appareil IoT Edge.
 * Un appareil IoT Edge avec au moins 2 Go de RAM et un disque dur de 2 Go.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extension Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -43,7 +43,6 @@ Une fois que vous aurez suivi tous les didacticiels requis, vous disposerez de l
 * [Python 2.7](https://www.python.org/downloads/)
 * [Script de contrôle IoT Edge](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * Modèle AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* Un IoT Hub actif avec au moins un appareil IoT Edge.
 
 Pour ce didacticiel, vous pouvez utiliser des conteneurs Windows et Linux sur des architectures de processeur x64. SQL Server ne prend pas en charge les processeurs ARM.
 

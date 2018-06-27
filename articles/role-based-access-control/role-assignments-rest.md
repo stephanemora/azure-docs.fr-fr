@@ -1,6 +1,6 @@
 ---
-title: Contrôle d’accès en fonction des rôles avec REST - Azure AD | Microsoft Docs
-description: Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
+title: Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et de l’API REST - Azure | Microsoft Docs
+description: Découvrez comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d'accès en fonction du rôle (RBAC) et de l’API REST. Cela inclut l’énumération des accès, l’octroi de l’accès et la suppression de l’accès.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267473"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294460"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Gérer le contrôle d’accès en fonction des rôles à l’aide de l’API REST
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [interface de ligne de commande Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et de l’API REST
 
-Le contrôle d’accès en fonction du rôle (RBAC) vous permet de définir l’accès des utilisateurs, des groupes et des principaux de service en attribuant des rôles dans une étendue déterminée. Cet article explique comment gérer l’accès à l’aide de l’API REST.
+Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et de l’API REST.
 
 ## <a name="list-all-role-assignments"></a>Répertorie toutes les affectations de rôle
 Répertorie toutes les affectations de rôle de la portée spécifiée et des étendues secondaires.
 
-Pour répertorier les attributions de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` dans la portée. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour répertorier les attributions de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` dans la portée. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **GET** avec l’URI suivant :
@@ -83,7 +79,7 @@ Code d’état : 200
 ## <a name="get-information-about-a-role-assignment"></a>Obtention d’informations sur une affectation de rôle
 Obtient des informations sur une affectation de rôle unique spécifiée par l’identificateur d’affectation de rôle.
 
-Pour obtenir des informations sur une affectation de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` . Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour obtenir des informations sur une affectation de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` . Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **GET** avec l’URI suivant :
@@ -121,10 +117,10 @@ Code d’état : 200
 
 ```
 
-## <a name="create-a-role-assignment"></a>Créer une affectation de rôle
+## <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
 Créer une affectation de rôle dans la portée spécifiée pour le principal qui octroie le rôle spécifié.
 
-Pour créer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write` . Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour créer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write` . Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **PUT** avec l’URI suivant :
@@ -179,10 +175,10 @@ Code d’état : 201
 
 ```
 
-## <a name="delete-a-role-assignment"></a>Supprimer une affectation de rôle
+## <a name="delete-a-role-assignment"></a>Supprimer une attribution de rôle
 Supprimez une affectation de rôle au niveau de la portée spécifiée.
 
-Pour supprimer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/delete` . Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour supprimer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/delete` . Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **DELETE** avec l’URI suivant :
@@ -223,7 +219,7 @@ Code d’état : 200
 ## <a name="list-all-roles"></a>Répertorier tous les rôles
 Répertorie tous les rôles disponibles à l’attribution sur la portée spécifiée.
 
-Pour répertorier les rôles, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read` dans la portée. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour répertorier les rôles, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read` dans la portée. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **GET** avec l’URI suivant :
@@ -303,10 +299,10 @@ Code d’état : 200
 
 ```
 
-## <a name="get-information-about-a-role"></a>Obtention des informations sur un rôle
+## <a name="get-information-about-a-role"></a>Obtenir des informations sur un rôle
 Obtient des informations sur un rôle unique spécifié par l’identificateur de définition de rôle. Pour obtenir des informations sur un rôle unique en utilisant son nom d’affichage, voir [Répertorier tous les rôles](role-assignments-rest.md#list-all-roles).
 
-Pour obtenir des informations sur un rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read` . Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour obtenir des informations sur un rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read` . Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **GET** avec l’URI suivant :
@@ -386,7 +382,7 @@ Code d’état : 200
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 Créez un rôle personnalisé.
 
-Pour créer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour créer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **PUT** avec l’URI suivant :
@@ -489,7 +485,7 @@ Code d’état : 201
 ## <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
 Modifiez un rôle personnalisé.
 
-Pour modifier un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour modifier un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **PUT** avec l’URI suivant :
@@ -592,7 +588,7 @@ Code d’état : 201
 ## <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
 Supprimez un rôle personnalisé.
 
-Pour supprimer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/delete` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
+Pour supprimer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/delete` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion de l’accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Requête
 Utilisez la méthode **DELETE** avec l’URI suivant :

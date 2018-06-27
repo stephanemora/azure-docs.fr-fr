@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605166"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286398"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -23,7 +23,7 @@ Pour analyser rapidement les sections de cet article, utilisez les liens sur la 
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Configuration de la tâche de sauvegarde pour les fichiers Azure
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Pourquoi ne puis-je pas voir certains des comptes de stockage que je souhaite protéger et contenant des partages de fichiers Azure valides ? <br/>
-Dans la préversion, la sauvegarde pour les partages de fichiers Azure ne prend pas en charge tous les types de comptes de stockage. Reportez-vous à la liste [ici](troubleshoot-azure-files.md#preview-boundaries) pour afficher la liste des comptes de stockage pris en charge. Il est également possible que le compte de stockage que vous recherchez soit déjà protégé ou inscrit auprès d’un autre coffre. [Annuler l’inscription](troubleshoot-azure-files.md#configuring-backup) auprès du coffre pour découvrir le compte de stockage dans d’autres coffres pour la protection.
+Dans la préversion, la sauvegarde pour les partages de fichiers Azure ne prend pas en charge tous les types de comptes de stockage. Reportez-vous à la liste [ici](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) pour afficher la liste des comptes de stockage pris en charge. Il est également possible que le compte de stockage que vous recherchez soit déjà protégé ou inscrit auprès d’un autre coffre. [Annuler l’inscription](troubleshoot-azure-files.md#configuring-backup) auprès du coffre pour découvrir le compte de stockage dans d’autres coffres pour la protection.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Pourquoi ne puis-je pas voir certains de mes partages de fichiers Azure dans le compte de stockage lorsque j’essaie de configurer la sauvegarde ? <br/>
 Vérifiez si le partage de fichiers Azure est déjà protégé dans le même coffre Recovery Services ou s’il a été supprimé récemment.
@@ -39,13 +39,13 @@ Oui. Toutefois, vous devrez [arrêter la protection](backup-azure-files.md#stop-
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Dans quelles zones géographiques puis-je sauvegarder des partages de fichiers Azure ? <br/>
 La sauvegarde pour les partages de fichiers Azure est actuellement en préversion et disponible uniquement dans les zones géographiques suivantes : 
--   Sud-Est de l’Australie (ASE) 
+-   Est de l’Australie (AE) 
+- Sud-Est de l’Australie (ASE) 
 - Sud du Brésil (BRS)
 - Centre du Canada (CNC)
 -   Est du Canada (CE)
 -   Centre des États-Unis (CUS)
 -   Est de l’Asie (EA)
--   Est d’Australie (AE) 
 -   Est des États-Unis (EUS)
 -   Est des États-Unis 2 (EUS2)
 - Est du Japon (JPE)

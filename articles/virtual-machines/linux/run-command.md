@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267453"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285754"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec la commande Run
 
@@ -33,6 +33,7 @@ Voici une liste des restrictions présentes lors de l’utilisation de la comman
 * La durée minimale d’exécution d’un script est d’environ 20 secondes
 * Les scripts s’exécutent par défaut en tant qu’un utilisateur avec élévation de privilèges sous Linux
 * Vous ne pouvez exécuter qu’un script à la fois
+* Les scripts qui demandent des informations (mode interactif) ne sont pas pris en charge.
 * Vous ne pouvez pas annuler un script en cours d’exécution
 * La durée maximale d’exécution d’un script est de 90 minutes (le script expiré après ce délai)
 

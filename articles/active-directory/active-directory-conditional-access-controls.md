@@ -1,5 +1,5 @@
 ---
-title: Contrôles d’accès dans l’accès conditionnel Azure Active Directory | Microsoft Docs
+title: Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ? | Microsoft Docs
 description: Découvrez comment fonctionnent les contrôles d’accès dans l’accès conditionnel Azure Active Directory.
 services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 85c91ee7a03df221b2bf591aca6bf937c98313c7
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723641"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232021"
 ---
-# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Contrôles d’accès dans l’accès conditionnel Azure Active Directory 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ? 
 
 Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») sur la raison du déclenchement de votre stratégie (« quand cela se produit »). 
 
@@ -173,6 +173,6 @@ Pour savoir plus en détails comment exiger un accès limité avec SharePoint, c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 

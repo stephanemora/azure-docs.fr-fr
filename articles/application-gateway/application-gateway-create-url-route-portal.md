@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356169"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263990"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
@@ -141,8 +141,8 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
 1. Cliquez sur **Règles**, puis sur **Path-based** (Basé sur le chemin).
 2. Entrez *rule2* pour le nom.
-3. Entrez *Images* pour le nom du premier chemin. Entrez */images/** pour le chemin d’accès. Sélectionnez **imagesBackendPool** pour le pool principal.
-4. Entrez *Video* pour le nom du second chemin. Entrez */video/** pour le chemin d’accès. Sélectionnez **videoBackendPool** pour le pool principal.
+3. Entrez *Images* pour le nom du premier chemin. Entrez */images/*\* pour le chemin d’accès. Sélectionnez **imagesBackendPool** pour le pool principal.
+4. Entrez *Video* pour le nom du second chemin. Entrez */video/*\* pour le chemin d’accès. Sélectionnez **videoBackendPool** pour le pool principal.
 
     ![Créer une règle basée sur le chemin](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

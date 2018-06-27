@@ -1,27 +1,28 @@
 ---
-title: Installation personnalisée du runtime d’intégration Azure SSIS | Microsoft Docs
-description: Cet article décrit comment utiliser l’interface d’installation personnalisée du runtime d’intégration Azure-SSIS
+title: Personnaliser l’installation du runtime d’intégration Azure-SSIS | Microsoft Docs
+description: Cet article décrit comment utiliser l’interface d’installation personnalisée du runtime d’intégration Azure-SSIS pour installer des composants supplémentaires ou modifier des paramètres
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: ff47060ddfee458279c9fed0fd3fcafcf35229d2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885436"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267871"
 ---
-# <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Installation personnalisée du runtime d’intégration Azure-SSIS
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 
-L’interface d’installation personnalisée du runtime d’intégration Azure-SSIS vous permet de modifier la configuration ou l’environnement d’exploitation par défaut (par exemple, pour démarrer des services supplémentaires Windows) ou d’installer des composants supplémentaires (par exemple, des assemblys, des pilotes ou des extensions) sur chaque nœud de votre IR Azure-SSIS. En règle générale, elle fournit une interface permettant d’ajouter vos propres étapes de configuration lors de l’approvisionnement ou de la nouvelle configuration de votre IR Azure-SSIS.
+L’interface d’installation personnalisée pour le runtime d'intégration Azure-SSIS fournit une interface permettant d’ajouter vos propres étapes de configuration lors de l’approvisionnement ou de la nouvelle configuration de votre IR Azure-SSIS. L’installation personnalisée vous permet de modifier la configuration ou l’environnement d’exploitation par défaut (par exemple, pour démarrer des services supplémentaires Windows) ou d’installer des composants supplémentaires (par exemple, des assemblys, des pilotes ou des extensions) sur chaque nœud de votre IR Azure-SSIS.
 
 Vous configurez votre installation personnalisée en préparant un script et ses fichiers associés et en les téléchargeant dans un conteneur d’objets blob de votre compte de stockage Azure. Vous fournissez un Uniform Resource Identifier (URI) à signature d’accès partagé (SAP) pour votre conteneur lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS. Chaque nœud de votre IR Azure-SSIS télécharge ensuite le script et ses fichiers associés à partir de votre conteneur et exécute votre installation personnalisée avec des privilèges élevés. Lorsque l’installation personnalisée est terminée, chaque nœud télécharge la sortie standard de l’exécution et d’autres journaux dans votre conteneur.
 
@@ -30,16 +31,15 @@ Vous pouvez installer des composants libres, ou sans licence, et des composants 
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
--   Si vous souhaitez utiliser `gacutil.exe` pour installer des assemblys dans Global Assembly Cache (GAC), vous devez le fournir dans le cadre de votre installation personnalisée, ou utiliser l’exemplaire fourni dans le conteneur Préversion publique.
+-   Si vous souhaitez utiliser `gacutil.exe` pour installer des assemblys dans Global Assembly Cache (GAC), vous devez fournir `gacutil.exe` dans le cadre de votre installation personnalisée, ou utiliser l’exemplaire fourni dans le conteneur Préversion publique.
 
--   Si vous devez accompagner votre IR Azure-SSIS d’une installation personnalisée pour former un réseau virtuel, seul le réseau virtuel Azure Resource Manager est pris en charge. Le réseau virtuel classique n’est pas pris en charge.
+-   Si vous souhaitez faire référence à un sous-dossier dans votre script, `msiexec.exe` ne prend pas en charge la notation `.\` pour référencer le dossier racine. Utilisez une commande telle que `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` au lieu de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
+
+-   Si vous devez joindre votre IR Azure-SSIS avec une installation personnalisée à un réseau virtuel, seul le réseau virtuel Azure Resource Manager est pris en charge. Le réseau virtuel classique n'est pas pris en charge.
 
 -   Actuellement, le partage administratif n’est pas pris en charge sur l’IR Azure-SSIS.
 
--   Si vous souhaitez mapper un partage de fichiers à un lecteur dans votre configuration personnalisée, la commande `net use` n’est actuellement pas prise en charge. Par conséquent, vous ne pouvez pas utiliser une commande telle que `net use d: \\fileshareserver\sharename`. Au lieu de cela, utilisez la commande `cmdkey`, par exemple `cmdkey /add:fileshareserver /user:yyy /pass:zzz`, pour accéder à `\\fileshareserver\folder` directement dans vos packages.
-
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
@@ -59,8 +59,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
     1.  Vous devez avoir un fichier de script nommé `main.cmd`, qui est le point d’entrée de votre installation personnalisée.
 
-    2.  Si vous souhaitez que les fichiers journaux supplémentaires générés par d’autres outils (par exemple, `msiexec.exe`) soient chargés dans votre conteneur, spécifiez la variable d’environnement prédéfinie `CUSTOM_SETUP_SCRIPT_LOG_DIR` comme dossier de journal dans vos scripts (par exemple, `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Si vous souhaitez que les fichiers journaux supplémentaires générés par d’autres outils (par exemple, `msiexec.exe`) soient chargés dans votre conteneur, spécifiez la variable d’environnement prédéfinie `CUSTOM_SETUP_SCRIPT_LOG_DIR` comme dossier de journal dans vos scripts (par exemple, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  Téléchargez, installez et lancez [l’Explorateur Stockage Azure](http://storageexplorer.com/).
 
