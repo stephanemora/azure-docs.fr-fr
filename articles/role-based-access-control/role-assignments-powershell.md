@@ -1,6 +1,6 @@
 ---
-title: Gestion du contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell | Microsoft Docs
-description: Comment gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell, notamment le référencement des rôles, l’attribution de rôles et la suppression d’attributions de rôle.
+title: Gérer l’accès avec RBAC et Azure PowerShell | Microsoft Docs
+description: Découvrez comment gérer l’accès pour les utilisateurs, groupes et applications, à l’aide du Contrôle d'accès en fonction du rôle (RBAC) et Azure PowerShell. Cela inclut l’énumération des accès, l’octroi de l’accès et la suppression de l’accès.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,27 +14,23 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 00646187da1f93c01c3a57b50905239afd5e2bc8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 231f7b915c324a5af91564c80d17bbad335d658d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266796"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294767"
 ---
-# <a name="manage-role-based-access-control-with-azure-powershell"></a>Gestion du contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [interface de ligne de commande Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-azure-powershell"></a>Gérer l’accès avec RBAC et Azure PowerShell
 
-Le contrôle d’accès en fonction du rôle (RBAC) vous permet de définir l’accès des utilisateurs, des groupes et des principaux de service en attribuant des rôles dans une étendue déterminée. Cet article explique comment gérer l’accès à l’aide d’Azure PowerShell.
+Le [Contrôle d’accès en fonction du rôle (RBAC)](overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Cet article décrit comment gérer l’accès pour les utilisateurs, groupes et applications à l’aide de RBAC et d’Azure PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant d’utiliser PowerShell pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer de l’un des éléments suivants :
 
 * [PowerShell dans Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell 5.1.0 ou version ultérieure](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
 ## <a name="list-roles"></a>Répertorier les rôles
 
@@ -146,9 +142,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="see-who-has-access"></a>Voir quel utilisateur a des autorisations d’accès
+## <a name="list-access"></a>Répertorier les accès
 
-Pour répertorier les attributions d’accès RBAC, utilisez [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Dans RBAC, pour énumérer les accès, vous répertoriez les attributions de rôles.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Répertorier les attributions de rôle dans une étendue spécifique
 
@@ -174,7 +170,7 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-roles-assigned-to-a-user"></a>Répertorier les rôles attribués à un utilisateur
+### <a name="list-role-assignments-for-a-user"></a>Répertorier les attributions de rôles pour un utilisateur
 
 Pour répertorier tous les rôles qui sont attribués à un utilisateur, utilisez [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
@@ -200,15 +196,17 @@ Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>Répertorier les affectations classiques des rôles Administrateur de service et Coadministrateur
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Répertorier les attributions de rôles pour l’administrateur de service classique et les coadministrateurs
 
-Pour répertorier les attributions d'accès des administrateurs et des coadministrateurs d'abonnements classiques, utilisez [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) :
+Pour répertorier les attributions de rôle des administrateurs et des coadministrateurs d'abonnements classiques, utilisez [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) :
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>Accorder l'accès
+
+Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle.
 
 ### <a name="search-for-object-ids"></a>Rechercher des ID d’objet
 
@@ -228,7 +226,7 @@ Pour obtenir l’ID d’objet pour un principal du service ou une application Az
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Affectation d'un rôle à une application pour l'abonnement
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Créer une attribution de rôle pour une application à une étendue d’abonnement
 
 Pour accorder l'accès à une application dans l’étendue de l'abonnement, utilisez [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) :
 
@@ -250,7 +248,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Affectation d'un rôle à un utilisateur pour le groupe de ressources
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Créer une attribution de rôle pour un utilisateur à une étendue de groupe de ressources
 
 Pour accorder l'accès à un utilisateur dans l’étendue du groupe de ressources, utilisez [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) :
 
@@ -274,7 +272,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Affectation d'un rôle à un utilisateur pour des ressources
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Créer une attribution de rôle pour un groupe à une étendue de ressources
 
 Pour accorder l'accès à un groupe dans l’étendue des ressources, utilisez [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) :
 
@@ -307,7 +305,7 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Suppression d'accès
 
-Pour supprimer l'accès pour des utilisateurs, des groupes et des applications, utilisez [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) :
+Dans RBAC, pour supprimer l’accès, vous supprimez une attribution de rôle à l’aide de [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) :
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -581,7 +579,7 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation d'Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 

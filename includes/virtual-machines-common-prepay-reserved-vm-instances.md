@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307564"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683047"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prépayer les machines virtuelles avec Azure Reserved VM Instances
 
@@ -16,7 +16,14 @@ Vous pouvez acheter une instance réservée Azure sur le [portail Azure](https:/
 -   Pour les abonnements Entreprise, les achats d’instance réservée doivent être activés dans le [portal EA](https://ea.azure.com).
 -   Pour le programme CSP, seuls les agents administrateurs ou les agents commerciaux peuvent acheter les instances réservées.
 
-## <a name="buy-a-reserved-instance"></a>Acheter une instance réservée
+[!IMPORTANT]
+Vous devez utiliser une des méthodes décrites ci-dessous pour identifier la taille de machine virtuelle correcte pour un achat de réservation.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Déterminer la bonne taille de machine virtuelle avant l’achat
+1. Consultez le champ AdditionalInfo dans votre fichier d’utilisation ou l’API d’utilisation pour déterminer la taille correcte de la machine virtuelle pour un achat de réservation. N’utilisez pas les valeurs des champs de sous-catégorie du compteur ou de produit, car ces champs ne distinguent pas les versions S et non S d’une machine virtuelle.
+2. Vous pouvez également obtenir des informations précises sur la taille d’une machine virtuelle à l’aide de PowerShell, d’Azure Resource Manager ou des détails de la machine virtuelle dans le portail Azure.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Acheter une instance de machine virtuelle réservée
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez **Ajouter** pour acheter une nouvelle instance réservée.
