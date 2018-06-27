@@ -452,7 +452,7 @@ Par conséquent, le déploiement sur des appareils IoT Edge implique trois envir
 Ce didacticiel montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu de VSTS ou TFS. 
 
 * Pour plus d’informations sur le déploiement IoT Edge, consultez [Comprendre les déploiements IoT Edge pour les appareils uniques ou à l’échelle](module-deployment-monitoring.md).
-* Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller des modules IoT Edge à l’échelle][how-to-deploy-monitor.md].
+* Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-monitor.md).
 
 
 

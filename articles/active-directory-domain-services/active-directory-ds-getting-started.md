@@ -1,27 +1,41 @@
 ---
-title: "Bien démarrer avec Azure Active Directory Domain Services | Microsoft Docs"
-description: "Activer Azure Active Directory Domain Services à l’aide du portail Azure"
+title: Bien démarrer avec Azure Active Directory Domain Services | Microsoft Docs
+description: Activer Azure Active Directory Domain Services à l’aide du portail Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265267"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 Cet article explique comment activer Azure Active Directory Domain Services (Azure AD DS) au moyen du portail Azure.
+
+
+## <a name="before-you-begin"></a>Avant de commencer
+Pour effectuer les tâches décrites dans cet article, vous avez besoin de ce qui suit :
+
+* Un **abonnement Azure**valide.
+* Un **répertoire Azure AD** , synchronisé avec un répertoire local ou un répertoire cloud uniquement.
+* **L’abonnement Azure Étape 2 doit être associé à votre répertoire Azure AD**.
+* Vous devez disposer des privilèges **Administrateur global** dans votre répertoire Azure AD pour activer Azure AD Domain Services.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Activer Azure AD Domain Services
 
 Pour lancer l’Assistant **Activer Azure AD Domain Services**, procédez comme suit :
 
@@ -39,7 +53,7 @@ Pour lancer l’Assistant **Activer Azure AD Domain Services**, procédez comme 
 
 
 ## <a name="task-1-configure-basic-settings"></a>Tâche 1 : Configurer les paramètres de base
-Dans la page **Fonctions de base** de l’Assistant, vous pouvez spécifier le nom de domaine DNS pour le domaine managé. Vous pouvez également choisir le groupe de ressources et l’emplacement Azure sur lequel le domaine managé doit être déployé.
+Dans la page **Fonctions de base** de l’Assistant, spécifiez le nom de domaine DNS pour le domaine managé. Vous pouvez également choisir le groupe de ressources et l’emplacement Azure sur lequel le domaine managé doit être déployé.
 
 ![Configurer les fonctions de base](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +73,11 @@ Dans la page **Fonctions de base** de l’Assistant, vous pouvez spécifier le n
 
 2. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
 
-3. Sélectionnez le **Groupe de ressources** auquel le domaine managé doit appartenir. Vous avez le choix entre les options **Créer** ou **Utiliser l’existant** pour sélectionner le groupe de ressources.
+3. Sélectionnez le **Groupe de ressources** auquel le domaine managé doit appartenir. Choisissez entre les options **Créer** ou **Utiliser l’existant** pour sélectionner le groupe de ressources.
 
 4. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Dans la page **Réseau** de l’Assistant, vous voyez uniquement les réseaux virtuels appartenant à l’emplacement que vous avez sélectionné.
 
-5. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Réseau** de l’Assistant.
+5. Cliquez sur **OK** pour accéder à la page **Réseau** de l’Assistant.
 
 
 ## <a name="next-step"></a>Étape suivante

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234516"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293714"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
 
@@ -46,7 +46,7 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
 <a name="platform"></a>
-**Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
+**Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le niveau De base ou Standard. Les niveaux Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 **Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des WebJobs en continu ou après déclenchement par une expression CRON, activez l’option **Toujours actif**. Sinon, ils risquent de ne pas s’exécuter de façon fiable.
 
 **Version de pipeline gérée**. Définit le [mode pipeline]d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
+
+**Version HTTP**. Utilisez la version **2.0** pour activer la prise en charge du protocole [HTTPS/2](https://wikipedia.org/wiki/HTTP/2). 
+
+> [!NOTE]
+> Les navigateurs les plus récents prennent en charge le protocole HTTP/2 sur TLS uniquement, alors que le trafic non chiffré continue d’utiliser HTTP/1.1. Pour vous assurer que les navigateurs clients se connectent à votre application par HTTP/2, [achetez un certificat de service d’application](web-sites-purchase-ssl-web-site.md) pour le domaine personnalisé de votre application ou [liez un certificat tiers](app-service-web-tutorial-custom-ssl.md).
+
+**Affinité ARR**. Dans une application montée en charge en plusieurs instances de machine virtuelle, les cookies Affinité ARR garantissent l’acheminement du client vers la même instance pour la durée de vie de la session. Pour améliorer les performances des applications sans état, définissez cette option sur **Off**.   
 
 **Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application web en production automatiquement lorsque vous enverrez une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
 
