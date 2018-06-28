@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 501a8f2dad0537f0288dfd6a6d7bedcac054ab86
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293167"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332284"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub et lire les données de télémétrie depuis le concentrateur avec une application back-end (C#)
 
@@ -88,7 +88,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 2. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.cs**.
 
-    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Puis, enregistrez les modifications apportées au fichier **SimulatedDevice.cs**.
+    Remplacez la valeur de la variable `s_connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Puis, enregistrez les modifications apportées au fichier **SimulatedDevice.cs**.
 
 3. Dans la fenêtre de terminal, exécutez les commandes suivantes pour installer les packages requis pour l’application d’appareil simulé :
 
@@ -116,9 +116,9 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     | Variable | Valeur |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
-    | `eventHubsCompatiblePath`     | Remplacez la valeur de la variable par le chemin d’accès compatible Event Hubs que vous avez noté précédemment. |
-    | `iotHubSasKey`                | Remplacez la valeur de la variable par la clé principale iothubowner que vous avez notée précédemment. |
+    | `s_eventHubsCompatibleEndpoint` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
+    | `s_eventHubsCompatiblePath`     | Remplacez la valeur de la variable par le chemin d’accès compatible Event Hubs que vous avez noté précédemment. |
+    | `s_iotHubSasKey`                | Remplacez la valeur de la variable par la clé principale iothubowner que vous avez notée précédemment. |
 
 3. Dans la fenêtre de terminal, exécutez les commandes suivantes pour installer les bibliothèques requises pour l’application back-end :
 

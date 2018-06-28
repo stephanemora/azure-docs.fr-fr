@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738171"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029321"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Cet article vous explique les bases de l’utilisation des partages de fichiers Azure à l’aide de l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). L’Explorateur Stockage est un outil client populaire qui est disponible pour Windows, macOS et Linux. Vous pouvez utiliser l’Explorateur Stockage pour gérer les partages de fichiers Azure et d’autres ressources de stockage.
@@ -97,7 +97,7 @@ La progression du téléchargement s’affiche dans le volet **Activités** en b
 
 ## <a name="create-and-modify-share-snapshots"></a>Créer et modifier des instantanés de partage
 Un instantané conserve une copie d’un point dans le temps d’un partage de fichiers Azure. Les instantanés de partage de fichiers sont similaires à d’autres technologies que vous connaissez peut-être déjà :
-- Le [service VSS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) pour les systèmes de fichiers Windows comme NTFS et ReFS
+- Le [service VSS](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS
 

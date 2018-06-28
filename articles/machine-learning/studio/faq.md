@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024688"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -73,7 +75,7 @@ Vous pouvez également utiliser l’exemple de classeur Microsoft Excel créé 
 
 **Quelles sont les principales mises à jour apportées à Azure Machine Learning ?**
 
-Pour accéder aux mises à jour les plus récentes, consultez [Nouveautés d’Azure Machine Learning](whats-new.md).
+Pour accéder aux mises à jour les plus récentes, consultez [Nouveautés d’Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Questions sur Machine Learning Studio
 ### <a name="import-and-export-data-for-machine-learning"></a>Importation et exportation de données pour Machine Learning
@@ -472,7 +474,7 @@ Oui. Les services web Classic sont toujours disponibles dans Azure Machine Lear
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Niveaux Gratuit et Standard d’Azure Machine Learning
 **Qu’est-ce qui est inclus dans le niveau Gratuit d’Azure Machine Learning ?**
 
-Le niveau Gratuit d’Azure Machine Learning offre une introduction complète à Azure Machine Learning Studio. Il vous suffit d'un compte Microsoft pour vous inscrire. Le niveau Gratuit inclut un accès gratuit à un espace de travail Azure Machine Learning Studio par [compte Microsoft](https://www.microsoft.com/account/default.aspx). Dans ce niveau, vous pouvez utiliser jusqu’à 10 Go de stockage et rendre des modèles opérationnels en tant qu’API intermédiaires. Les charges de travail du niveau Gratuit ne sont couvertes par aucun contrat de niveau de service et sont uniquement destinées au développement et à une utilisation personnelle. 
+Le niveau Gratuit d’Azure Machine Learning offre une introduction complète à Azure Machine Learning Studio. Il vous suffit d'un compte Microsoft pour vous inscrire. Le niveau Gratuit inclut un accès gratuit à un espace de travail Azure Machine Learning Studio par [compte Microsoft](https://account.microsoft.com/account). Dans ce niveau, vous pouvez utiliser jusqu’à 10 Go de stockage et rendre des modèles opérationnels en tant qu’API intermédiaires. Les charges de travail du niveau Gratuit ne sont couvertes par aucun contrat de niveau de service et sont uniquement destinées au développement et à une utilisation personnelle. 
 
 Les espaces de travail du niveau Gratuit présentent les limites suivantes :
 

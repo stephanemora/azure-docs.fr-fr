@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808279"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959965"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -33,7 +33,7 @@ Ce exemple montre comment utiliser la [bibliothèque de tables Microsoft Azure 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous aurez besoin des éléments suivants pour suivre cet exemple :
+Vous aurez besoin des éléments suivants pour suivre cet exemple :
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Bibliothèque commune de stockage Azure pour .NET (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Il s’agit d’un package de préversion requis pris en charge dans les environnements de production. 
@@ -95,7 +95,7 @@ Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit�
 > 
 
 > [!TIP]
-> Les développeurs déjà familiarisés avec le stockage Table Azure peuvent avoir utilisé le package [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) dans le passé. Il est recommandé que toutes les nouvelles applications de table utilisent la [Bibliothèque commune du stockage Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) et la[Bibliothèque de Tables Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), mais le package WindowsAzure.Storage est toujours pris en charge. Si vous utilisez la bibliothèque WindowsAzure.Storage, incluez Microsoft.WindowsAzure.Storage.Table dans vos instructions d’utilisation.
+> Les développeurs déjà familiarisés avec le stockage Table Azure peuvent avoir utilisé le package [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) dans le passé. Il est recommandé que toutes les nouvelles applications de table utilisent la [Bibliothèque commune du stockage Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) et la[Bibliothèque de Tables Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), mais le package WindowsAzure.Storage est toujours pris en charge. Si vous utilisez la bibliothèque WindowsAzure.Storage, incluez Microsoft.WindowsAzure.Storage.Table dans vos instructions d’utilisation.
 >
 >
 

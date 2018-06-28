@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157371"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028861"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparer Flow, Logic Apps, Functions et WebJobs
 
@@ -43,14 +43,14 @@ Flow permet à n’importe quel employé de bureau d’effectuer des intégratio
 
 Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mieux à une intégration donnée.
 
-|  | Flux | Logic Apps |
+|  | Flux | Logic Apps |
 | --- | --- | --- |
 | Utilisateurs |Employés de bureau, utilisateurs de l’entreprise, administrateurs SharePoint |Intégrateurs et développeurs professionnels, professionnels de l’informatique |
 | Scénarios |Libre-service |Intégrations avancées |
 | Outil de conception |Dans le navigateur et application mobile, interface utilisateur uniquement |Dans le navigateur et [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [mode Code](../logic-apps/logic-apps-author-definitions.md) disponible |
 | Application Lifecycle Management (ALM) |Concevez et testez au sein d’environnements hors production, passez en production lorsque vous êtes prêt. |DevOps : contrôle de code source, tests, support, et automatisation et gestion simplifiée dans [Gestion des ressources Azure](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Expérience administrateur |Gérer les stratégies des environnements Flow et de prévention contre la perte des données, suivre la gestion des licences [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Gérer les groupes de ressources, les connexions, la gestion des accès et la connexion [https://portal.azure.com](https://portal.azure.com) |
-| Sécurité |Journaux d’audit de sécurité et conformité Office 365, prévention contre la perte de données, [chiffrement au repos](https://wikipedia.org/wiki/Data_at_rest#Encryption) pour les données sensibles, etc. |Garantie de sécurité d’Azure : [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [journaux d’audit](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), etc. |
+| Sécurité |Journaux d’audit de sécurité et conformité Office 365, prévention contre la perte de données, [chiffrement au repos](https://wikipedia.org/wiki/Data_at_rest#Encryption) pour les données sensibles, etc. |Garantie de sécurité d’Azure : [Azure Security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [journaux d’audit](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), etc. |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparer Azure Functions et Azure Logic Apps
 
@@ -60,7 +60,7 @@ Pour Azure Functions, vous développez des orchestrations en écrivant du code e
 
 Vous pouvez mélanger et associer les services lorsque vous créez une orchestration, en appelant des fonctions à partir d’applications logiques et inversement. Vous pouvez opter pour l’un ou l’autre des services pour créer chacune de vos orchestrations en fonction des capacités de ceux-ci ou de vos préférences. Le tableau suivant répertorie certaines des principales différences entre ces services :
  
-|  | Fonctions durables | Logic Apps |
+|  | Fonctions durables | Logic Apps |
 | --- | --- | --- |
 | Développement | Orienté code (impératif) | Orienté concepteur (déclaratif) |
 | Connectivité | [Environ une douzaine de types de liaison intégrés](functions-triggers-bindings.md#supported-bindings), écriture de code pour les liaisons personnalisées | [Grande collection de connecteurs](../connectors/apis-list.md), [Enterprise Integration Pack pour les scénarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [intégration de connecteurs personnalisés](../logic-apps/custom-connector-overview.md) |
@@ -85,7 +85,7 @@ Les WebJobs et le Kit de développement logiciel (SDK) WebJobs fonctionnent mieu
 
 Azure Functions repose sur le Kit de développement logiciel (SDK) WebJobs, donc il partage beaucoup de déclencheurs d’événements et de connexions à d’autres services Azure. Voici quelques facteurs à prendre en compte quand vous devez choisir entre Azure Functions et WebJobs avec le Kit de développement logiciel (SDK) WebJobs :
 
-|  | Functions | WebJobs avec le Kit de développement logiciel (SDK) WebJobs |
+|  | Fonctions | WebJobs avec le Kit de développement logiciel (SDK) WebJobs |
 | --- | --- | --- |
 |[Modèle d’application sans serveur](https://azure.microsoft.com/overview/serverless-computing/) avec [mise à l’échelle automatique](functions-scale.md#how-the-consumption-plan-works)|✔||
 |[Développement et test dans un navigateur](functions-create-first-azure-function.md) |✔||

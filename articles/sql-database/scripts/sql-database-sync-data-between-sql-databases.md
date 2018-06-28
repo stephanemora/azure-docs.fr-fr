@@ -3,7 +3,7 @@ title: Exemple de synchronisation PowerShell entre plusieurs bases de données A
 description: Exemple de script Azure PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags: ''
@@ -15,23 +15,24 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: jognanay
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: cf3d6ca00f884bf16d9c20a483df9853a2e64975
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c03384f71787e4ab3ad3bd56e2355558e8d0155a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024679"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Utiliser PowerShell pour la synchronisation entre plusieurs bases de données SQL
  
-Cet exemple PowerShell configure SQL Data Sync (préversion) pour effectuer une synchronisation entre plusieurs bases de données Azure SQL.
+Cet exemple PowerShell configure la synchronisation des données entre plusieurs bases de données Azure SQL.
 
 Cet exemple requiert le module Azure PowerShell version 4.2 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
-Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)](../sql-database-sync-data.md).
+Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Exemple de script
 

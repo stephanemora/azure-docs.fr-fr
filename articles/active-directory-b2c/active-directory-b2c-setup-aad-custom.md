@@ -11,10 +11,10 @@ ms.date: 04/04/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: 9d010564aadcb6ea33312b7fb40854cfd0a97f1a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34709238"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C : se connecter à l’aide de comptes Azure AD
@@ -24,7 +24,6 @@ ms.locfileid: "34709238"
 Cet article explique comment autoriser la connexion d’utilisateurs d’une organisation Azure Active Directory (Azure AD) spécifique en utilisant des [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
