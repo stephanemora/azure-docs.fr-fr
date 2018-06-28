@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218892"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Didacticiel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile
 
@@ -114,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Contact l’[équipe de support technique Tangoe Command Premium Mobile](https://www.tangoe.com/contact-2/) pour obtenir ces valeurs. 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Contact l’[équipe de support technique Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) pour obtenir ces valeurs. 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Section Configuration de Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Pour configurer l’authentification unique pour votre application, contactez l’[équipe de support Tangoe Command Premium Mobile](https://www.tangoe.com/contact-2/) en lui fournissant les éléments suivants :
+7. Pour configurer l’authentification unique pour votre application, contactez l’[équipe de support Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) en lui fournissant les éléments suivants :
 
    - le fichier de métadonnées téléchargé ;
    - L’**ID d’entité SAML**
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Tangoe Command Premium Mobile. 
 
-Tous les utilisateurs de Tangoe Command Premium Mobile doivent être configurés dans cette application avant de procéder à l’authentification unique. Par conséquent, appuyez-vous sur l’[équipe de support Tangoe Command Premium Mobile](https://www.tangoe.com/contact-2/) pour configurer tous ces utilisateurs dans l’application. 
+Tous les utilisateurs de Tangoe Command Premium Mobile doivent être configurés dans cette application avant de procéder à l’authentification unique. Par conséquent, appuyez-vous sur l’[équipe de support Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) pour configurer tous ces utilisateurs dans l’application. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

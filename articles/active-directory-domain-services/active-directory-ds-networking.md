@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265040"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300993"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
 Les instructions suivantes vous aident à sélectionner un réseau virtuel en vue de l’utiliser avec les services de domaine Azure AD.
 
 ### <a name="type-of-azure-virtual-network"></a>Type de réseau virtuel Azure
-* **Réseaux virtuels basés sur Resource Manager** : Il est possible d’activer les services de domaine Azure AD dans les réseaux virtuels créés à l’aide d’Azure Resource Manager.
+* **Réseaux virtuels basés sur Resource Manager** : Il est possible d’activer les services de domaine Azure AD dans les réseaux virtuels créés à l’aide de Azure Resource Manager.
 * Vous ne pouvez pas activer Azure AD Domain Services dans un réseau virtuel Azure Classic.
 * Vous pouvez connecter d’autres réseaux virtuels à celui dans lequel Azure AD Domain Services est activé. Pour plus d’informations, consultez la section [Connectivité réseau](active-directory-ds-networking.md#network-connectivity).
 
@@ -107,7 +107,7 @@ En outre, le groupe de sécurité réseau illustre comment verrouiller l’accè
 
 ![Exemple de groupe de sécurité réseau pour l’accès LDAP sécurisé via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Informations supplémentaires** - [Créer un groupe de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Informations supplémentaires** - [Créer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Connectivité réseau
@@ -145,4 +145,4 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 * [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Groupes de sécurité réseau Azure](../virtual-network/security-overview.md)
-* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/manage-network-security-group.md)
