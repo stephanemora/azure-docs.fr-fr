@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012476"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307864"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
 
@@ -65,7 +65,7 @@ Pour plus d’informations, consultez la [classe VirtualMachineExtension](https:
                         }
                     },
                     {
-                        "RegistrationUrl": "registrationUrl",
+                        "RegistrationUrl": "registrationUrl"
                     },
                     {
                         "NodeConfigurationName": "nodeConfigurationName"
@@ -115,7 +115,7 @@ Pour plus d’informations, consultez la [classe VirtualMachineScaleSetExtension
                             },
                         },
                         {
-                            "RegistrationUrl": "registrationUrl",
+                            "RegistrationUrl": "registrationUrl"
                         },
                         {
                             "NodeConfigurationName": "nodeConfigurationName"

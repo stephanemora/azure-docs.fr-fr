@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231998"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335055"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
@@ -72,7 +72,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Combien d’enregistrements peut-on télécharger à partir du Portail Azure ?**
 
-**R :** Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 5 000 enregistrements les plus récents. Pour les tailles d’enregistrements supérieures à 5 000, choisissez vos conditions de filtre et cliquez sur le bouton *Script* sur le portail Azure. Cette opération télécharge un script PowerShell, que vous pouvez exécuter pour générer un fichier CSV de tous les enregistrements correspondant à vos conditions de filtre. Vous devez exécuter le script PowerShell en *mode administrateur*. Pour plus d’informations, consultez [Télécharger les activités de connexion](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**R :** Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 5 000 enregistrements les plus récents.
 
 ---
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 601819756b78ffe8762bdfbfd5f802bc2d76e9c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35268051"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319724"
 ---
 **Exigences des serveur de configuration/de traitement**
 
@@ -36,7 +36,7 @@ IIS | - Aucun site web par défaut préexistant <br> - Aucune application/aucun 
 | 
 **PARAMÈTRES RÉSEAU** | 
 Type d’adresse IP | statique 
-Accès à Internet | Le serveur doit également accéder à ces URL (directement ou par le biais d’un proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (si vous configurez un serveur de configuration) <br> - time.nist.gov <br> - time.windows.com 
+Accès à Internet | Le serveur doit également accéder à ces URL (directement ou par le biais d’un proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (si vous configurez un serveur de configuration) <br> - time.nist.gov <br> - time.windows.com 
 Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données) 
 Type de carte réseau | VMXNET3 (si le serveur de configuration est une machine virtuelle VMware)
  | 

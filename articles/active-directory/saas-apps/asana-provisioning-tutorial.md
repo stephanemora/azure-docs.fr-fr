@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 2abd10f90d2e6d86d7f82aa43016a31bfdbd324b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231421"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332209"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs
 
@@ -36,7 +36,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 *   un compte d’utilisateur dans Asana avec des autorisations d’administration. 
 
 > [!NOTE] 
-> L’intégration de l’attribution Azure AD repose sur [l’API Asana](https://app.asana.com/api/1.0/scim/Users), qui est accessible à Asana.
+> L’intégration de l’attribution Azure AD repose sur [l’API Asana](https://asana.com/developers/api-reference/users), qui est accessible à Asana.
 
 ## <a name="assign-users-to-asana"></a>Affecter des utilisateurs à Asana
 

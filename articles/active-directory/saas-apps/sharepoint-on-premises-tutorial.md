@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 8cae1e2670ba449c0db28209c54b740e927bbb73
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 02421ace226f42da58eb9864fe0ef2e1ca550391
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210375"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory avec SharePoint (local)
 
@@ -74,7 +73,7 @@ Pour configurer l’intégration de SharePoint (local) avec Azure AD, vous devez
 
 4. Dans la zone de recherche, tapez **SharePoint (local)**, sélectionnez **SharePoint (local)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![SharePoint (local) dans la liste des résultats](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![SharePoint (local) dans la liste des résultats](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -102,11 +101,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Boîte de dialogue Authentification unique](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Boîte de dialogue Authentification unique](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. Dans la section **Domaine et URL SharePoint (local)**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL de SharePoint (local)](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL de SharePoint (local)](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -117,15 +116,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur avec l’extension .cer. Copiez et collez le chemin complet du fichier de métadonnées téléchargé dans le Bloc-notes.
 
-    ![Lien Téléchargement de certificat](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![Lien Téléchargement de certificat](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de SharePoint (local)**, cliquez sur **Configurer SharePoint (local)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configuration de SharePoint (local)](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![Configuration de SharePoint (local)](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > L’application SharePoint (local) utilise un jeton SAML 1.1. Azure Active Directory attend donc une demande WS Fed en provenance de SharePoint Server, et après l’authentification il émet le jeton SAML 1.1.
@@ -148,6 +147,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
     $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" -IncomingClaimTypeDisplayName "GivenName" -SameAsIncoming
     $map3 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" -IncomingClaimTypeDisplayName "SurName" -SameAsIncoming
+    $map4 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "Email" -SameAsIncoming
     $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ```
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Cliquez sur **OK**.
 
-    ![Configuration de votre fournisseur d’authentification](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![Configuration de votre fournisseur d’authentification](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -175,19 +175,19 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Bouton Azure Active Directory](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
-    ![Bouton Ajouter](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![Bouton Ajouter](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
-    ![Boîte de dialogue Utilisateur](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![Boîte de dialogue Utilisateur](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
     a. Dans la zone **Nom**, tapez **BrittaSimon**.
 
@@ -207,7 +207,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 4. Dans Stratégie pour l’application web, cliquez sur **Ajouter des utilisateurs**.
 
-    ![Recherche d’un utilisateur en fonction de sa revendication de nom](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![Recherche d’un utilisateur en fonction de sa revendication de nom](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. Dans la boîte de dialogue **Ajouter des utilisateurs**, cliquez sur la zone appropriée dans **Zones**, puis sur **Suivant**.
 
@@ -219,7 +219,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 9. Dans Autorisations, cliquez sur **Contrôle total**.
 
-    ![Octroi du contrôle total à un utilisateur de revendications](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![Octroi du contrôle total à un utilisateur de revendications](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. Cliquez sur **Terminer**, puis sur **OK**.
 
@@ -227,7 +227,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Les utilisateurs peuvent maintenant se connecter à SharePoint 2016 à l’aide d’identités Azure AD, mais il est encore possible d’améliorer l’expérience utilisateur. Par exemple, la recherche d’un utilisateur présente plusieurs résultats de recherche dans le sélecteur de personnes. Il existe un résultat de recherche pour chacun des trois types de revendications qui ont été créés dans le mappage de revendications. Pour choisir un utilisateur à l’aide du sélecteur de personnes, vous devez taper son nom d’utilisateur exactement et choisir le résultat de revendication **nom**.
 
-![Résultats de recherche de revendications](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![Résultats de recherche de revendications](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 Il n’existe aucune validation des valeurs que vous recherchez, ce qui peut entraîner des fautes d’orthographe ou faire en sorte que des utilisateurs choisissent accidentellement le type de revendication incorrect à affecter, comme la revendication **SurName**. Cela risque d’empêcher les utilisateurs d’accéder aux ressources.
 
@@ -237,7 +237,7 @@ Pour faciliter ce scénario, il existe une solution open source appelée [AzureC
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SharePoint (local).
 
-![Attribuer le rôle utilisateur][200] 
+![Attribuer le rôle utilisateur][200]
 
 **Pour affecter Britta Simon à SharePoint (local), effectuez les étapes suivantes :**
 
@@ -247,7 +247,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **SharePoint (local)**.
 
-    ![Lien SharePoint dans la liste des applications](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![Lien SharePoint dans la liste des applications](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -275,17 +275,18 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
+
 <!--Image references-->
 
-[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
+[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
+[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
+[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
+[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
 
-[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
+[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
 
-[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png
+[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
+[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
+[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
+[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
 

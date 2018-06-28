@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220632"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Business Object Cloud
 
@@ -129,7 +129,7 @@ Pour configurer l’authentification Azure AD avec SAP Business objet Cloud :
     ![URL de la page URL et domaine SAP Business Object Cloud](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Les valeurs de ces URL sont uniquement à des fins de démonstration. Mettez à jour les valeurs avec les URL de connexion et de l’identificateur réels. Pour obtenir l’URL de connexion, contactez [l’équipe de support technique SAP Business Object Cloud Client](https://www.sap.com/product/analytics/cloud-analytics.support.html). Vous pouvez obtenir l’URL de l’identificateur en téléchargeant les métadonnées SAP Business Object Cloud depuis la console d’administration. Une explication sera fournie plus loin dans ce didacticiel. 
+    > Les valeurs de ces URL sont uniquement à des fins de démonstration. Mettez à jour les valeurs avec les URL de connexion et de l’identificateur réels. Pour obtenir l’URL de connexion, contactez [l’équipe de support technique SAP Business Object Cloud Client](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Vous pouvez obtenir l’URL de l’identificateur en téléchargeant les métadonnées SAP Business Object Cloud depuis la console d’administration. Une explication sera fournie plus loin dans ce didacticiel. 
 
 4. Sous **le certificat de signature SAML**, sélectionnez **XML des métadonnées**. Ensuite, enregistrez le fichier de métadonnées sur votre ordinateur.
 

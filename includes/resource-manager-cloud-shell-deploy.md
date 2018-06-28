@@ -2,7 +2,7 @@
 
 Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour déployer votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le compte de stockage de votre cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../articles/cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 1. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
 

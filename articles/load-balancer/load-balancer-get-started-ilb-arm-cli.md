@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a4093926ea2ea2bb0e477372a1ceb2dfbf22e8f0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264470"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330966"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Créer un équilibreur de charge interne pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -28,7 +28,7 @@ Cet article explique comment créer un équilibreur de charge interne pour équi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter une version d’Azure CLI 2.0.28 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans ce tutoriel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -47,7 +47,7 @@ Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet*
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -119,7 +119,7 @@ Créez un groupe de sécurité réseau pour définir les connexions entrantes ve
 
 ### <a name="create-a-network-security-group-rule"></a>Créer une règle de groupe de sécurité réseau
 
-Créez une règle de groupe de sécurité réseau visant à autoriser les connexions entrantes via le port 80.
+Créez une règle de groupe de sécurité réseau pour autoriser les connexions entrantes via le port 80.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -131,7 +131,7 @@ Créez une règle de groupe de sécurité réseau visant à autoriser les connex
     --source-address-prefix '*' \
     --source-port-range '*' \
     --destination-address-prefix '*' \
-    --destination-port-range 22 \
+    --destination-port-range 80 \
     --access allow \
     --priority 300
 ```
@@ -158,7 +158,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 ### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-Créez un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic#az_network_availabilityset_create)
+Créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic#az_network_availabilityset_create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -249,7 +249,7 @@ Pour obtenir l’adresse IP privée de l’équilibreur de charge, utilisez la c
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Tester l’équilibreur de charge](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

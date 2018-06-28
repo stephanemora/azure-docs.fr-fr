@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157073"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317393"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Manifeste de l’application Azure Active Directory
 Les applications qui s’intègrent à Azure AD doivent être enregistrées avec un locataire Azure AD. Cette application peut être configurée à l’aide du manifeste d’application (sous le panneau d’Azure AD) dans le [portail Azure](https://portal.azure.com).

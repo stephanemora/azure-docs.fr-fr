@@ -1,6 +1,6 @@
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 
@@ -10,7 +10,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même**page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même** page.
 
    ![créer une base de données vide](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
@@ -47,7 +47,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -94,7 +94,7 @@ Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de
 
 Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le portail Azure. Utilisez le nom de serveur complet pour vous connecter à votre serveur avec SQL Server Management Studio.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**.
 

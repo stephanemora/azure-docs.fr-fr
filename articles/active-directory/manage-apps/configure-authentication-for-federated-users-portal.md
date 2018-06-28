@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 86b7d8aa9d1c0d770f7b145377f49c5dc2c694a2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f2ab0a4458c83aa9e5c9cee4875e41c24f615018
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302218"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301197"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -185,7 +185,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 La stratégie suivante accélère automatiquement les utilisateurs vers un écran de connexion AD FS quand il existe plusieurs domaines fédérés dans votre client. Si vous avez plusieurs domaines fédérés qui authentifient les utilisateurs pour les applications, vous devez spécifier le domaine pour l’accélération automatique.
 
 ``` powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, "PreferredDomain":"federated.example.edu"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Pour créer une stratégie pour activer l’authentification du nom d’utilisateur/mot de passe pour les utilisateurs fédérés directement avec Azure Active Directory pour des applications spécifiques, exécutez la commande suivante :

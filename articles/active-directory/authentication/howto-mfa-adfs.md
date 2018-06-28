@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 3f1d6b00652270d143f7df48b0f690c5f33433e9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ce70641d9ccb3c86d1360a0aaf21a4817e2b3c5d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866061"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317859"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 Si votre organisation est fédérée avec Azure Active Directory AD, utilisez l’authentification multifacteur Azure ou les services de fédération d’Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur Azure ou les services de fédération d’Active Directory.
@@ -80,7 +80,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuration d'adresses IP de confiance Azure Multi-Factor Authentication avec des utilisateurs fédérés
 Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP approuvées.
 
-1. Connectez-vous au [Portail Azure](https://portal.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
 3. À partir du panneau **Accès conditionnel - Emplacements nommés**, sélectionnez **Configurer des adresses IP approuvées MFA**
 

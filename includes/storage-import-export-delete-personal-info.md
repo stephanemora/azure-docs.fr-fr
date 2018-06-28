@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 3d85208096b1300904e1cc1f59c45dd4dd5713a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684419"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313878"
 ---
 ## <a name="deleting-personal-information"></a>Suppression d’informations personnelles
 
@@ -40,7 +40,7 @@ Les informations de contact personnel peuvent être supprimées des manières su
 - Les données enregistrées avec le travail sont supprimées avec le travail. Les utilisateurs peuvent supprimer manuellement des travaux et les travaux terminés sont automatiquement supprimés après 90 jours. Vous pouvez supprimer manuellement les travaux via l’API REST ou le Portail Azure. Pour supprimer le travail dans le Portail Azure, accédez à votre travail d’importation/exportation, puis cliquez sur *Supprimer* dans la barre de commandes. Pour plus d’informations sur la suppression d’un travail d’importation/exportation via l’API REST, consultez [Supprimer un travail d’importation/exportation](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - Les informations de contact enregistrées dans les paramètres du portail peuvent être supprimées en supprimant les paramètres du portail. Vous pouvez supprimer les paramètres du portail en procédant comme suit :
-  - Connectez-vous au [portail Azure](https://portal.azure.com).
+  - Connectez-vous au [Portail Azure](https://portal.azure.com).
   - Cliquez sur l’icône *Paramètres* ![Icône des paramètres Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png).
   - Cliquez sur *Exporter tous les paramètres* (pour enregistrer vos paramètres actuels dans un fichier `.json`).
   - Cliquez sur *Supprimer tous les paramètres et les tableaux de bord privés* pour supprimer tous les paramètres y compris les informations de contact enregistrées.

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 688f8da809a40f333aeb7b4ef959deb69ff94121
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 02ce774f30cd03b7520f482196629bf4b7ec9ae5
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808377"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318566"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
  
@@ -73,7 +73,7 @@ Un environnement App Service peut être soit accessible sur Internet avec une ad
 
 Les [groupes de sécurité réseau][NSGs] limitent les communications réseau entrantes vers le sous-réseau sur lequel réside l’environnement App Service. Vous pouvez utiliser des groupes de sécurité réseau pour exécuter des applications derrière des appareils et services en amont tels que des pare-feu d’applications web et des fournisseurs SaaS réseau.
 
-Les applications doivent souvent accéder à des ressources d'entreprise telles que des bases de données internes et des services web. Si vous déployez l’environnement App Service sur un réseau virtuel qui a une connexion VPN au réseau local, les applications de l’environnement App Service peuvent accéder aux ressources locales. Cela est vrai, que le réseau privé virtuel soit un VPN [de site à site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) ou un VPN [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Les applications doivent souvent accéder à des ressources d'entreprise telles que des bases de données internes et des services web. Si vous déployez l’environnement App Service sur un réseau virtuel qui a une connexion VPN au réseau local, les applications de l’environnement App Service peuvent accéder aux ressources locales. Cela est vrai, que le réseau privé virtuel soit un VPN [de site à site](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) ou un VPN [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 Pour plus d’informations sur le fonctionnement des environnements App Service avec des réseaux virtuels et des réseaux locaux, consultez [Considérations sur les réseaux d’environnement App Service][ASENetwork].
 

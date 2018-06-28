@@ -11,7 +11,7 @@ Pour créer un espace de noms :
 7. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
    
     ![Créer un espace de noms][create-namespace]
-8. Cliquez sur **Create**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+8. Cliquez sur **Créer**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 ### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
 Créer un espace de noms génère automatiquement une règle de signature d’accès partagé (SAS) initiale comprenant une paire de clés primaire et secondaire qui vous offre un contrôle complet sur tous les aspects de l’espace de noms. Voir [Authentification et autorisation Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) pour plus d’information sur la façon de créer des règles supplémentaires avec des droits plus restreints pour les expéditeurs et les destinataires réguliers. Pour copier la règle initiale, effectuez les étapes suivantes : 
