@@ -11,10 +11,10 @@ ms.date: 09/05/2016
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: a32aaa5d91426199c29765d2d9645e8a4ddb03b4
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34709153"
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C : activer la fonctionnalité « Maintenir la connexion (KMSI) »  
@@ -28,7 +28,6 @@ Nous déconseillons aux utilisateurs d’activer cette option sur les ordinateur
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Un locataire Azure AD B2C configuré pour se connecter/s’inscrire à un compte local, comme décrit dans [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 

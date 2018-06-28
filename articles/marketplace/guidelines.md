@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825879"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307483"
 ---
 # <a name="guidelines"></a>Instructions  
 
@@ -35,7 +35,7 @@ Si plusieurs personnes nécessite l’accès au même ID Microsoft que celui uti
 
 >[!IMPORTANT]
 >Pour autoriser plusieurs utilisateurs à accéder à votre compte Centre de développement Microsoft, Microsoft vous recommande d’utiliser Azure Active Directory (Azure AD) pour affecter des rôles aux utilisateurs individuels. Chaque utilisateur peut accéder au compte en se connectant avec des informations d’identification Azure AD individuelles. Créez votre ID Microsoft à l’aide d’une adresse e-mail dans un domaine enregistré auprès de votre société. Microsoft recommande que l’adresse e-mail ne soit pas assignée à une personne. Par exemple `windowsapps@fabrikam.com`.  
->*   Pour plus d’informations, consultez la section [Problème : ID Microsoft dans un domaine fédéré Azure AD](#issue:-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Pour plus d’informations, consultez la section [Problème : ID Microsoft dans un domaine fédéré Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limitez l’accès à l’ID Microsoft au plus petit nombre possible de développeurs. 
 *   Configurez une liste de distribution électronique d’entreprise incluant tous les utilisateurs qui doivent accéder à votre compte Centre de développement. Ajoutez l’adresse e-mail de la liste de distribution à vos informations de sécurité. La liste de distribution permet à tous les employés sur la liste de recevoir les codes de sécurité si nécessaire, et gérer les informations de sécurité de votre ID Microsoft. Si la création d’une liste de distribution n’est pas possible, alors le détenteur du compte de messagerie doit être disponible pour accéder aux codes de sécurité et les partager quand cela est nécessaire.  
@@ -73,6 +73,6 @@ Microsoft vous recommande une solution de contournement. Procédez comme suit po
 1.  La règle de transfert envoie l’ensemble des e-mails et des communications reçus dans le compte e-mail Outlook à l’adresse e-mail dans un domaine enregistré auprès de votre entreprise. Votre adresse e-mail `outlook.com` doit être utilisée pour l’authentification dans le Centre de développement et le Portail Cloud Partner.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-*   Consultez la page [Guide de l’éditeur Place de Marché Azure et AppSource](./marketplace-publishers-guide.md).  
+*   Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](./marketplace-publishers-guide.md).  
  
 ---  
