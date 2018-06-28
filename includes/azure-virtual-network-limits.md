@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297964"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066065"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -28,9 +28,9 @@ ms.locfileid: "36297964"
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |1 000 |
 | Tables d'itinéraires définis par l'utilisateur |100 |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
-| Adresses IP publiques (dynamiques) |5. |contacter le support |
+| Adresses IP publiques (dynamiques) |5 |contacter le support |
 | Adresses IP publiques réservées |20 |contacter le support |
-| Adresse IP virtuelle publique par déploiement |5. |contacter le support |
+| Adresse IP virtuelle publique par déploiement |5 |contacter le support |
 | Adresse IP virtuelle privée (ILB) par déploiement |1 |1 |
 | Listes de contrôle d'accès (ACL) par point de terminaison |50 |50 |
 
@@ -44,7 +44,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Homologations VNet par réseau virtuel |10 |50 |
 | Serveurs DNS par réseau virtuel |9 |25 |
 | Adresses IP privées par réseau virtuel |16 384** |16 384 |
-| Adresses IP privées par interface réseau |256 |1 024 |
+| Adresses IP privées par interface réseau |256 |256 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
 | Interfaces réseau (NIC) |24 000** |24 000 |
 | Groupes de sécurité réseau (NSG) |100 |5 000 |
