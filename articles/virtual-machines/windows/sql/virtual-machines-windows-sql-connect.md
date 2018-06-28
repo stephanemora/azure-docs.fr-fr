@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400237"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301384"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Se connecter à une machine virtuelle SQL Server sur Azure
 
@@ -139,7 +139,7 @@ Le tableau suivant répertorie la configuration requise pour se connecter à SQL
 | [Créer une connexion SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Si vous utilisez l’authentification SQL, vous avez besoin d’une connexion SQL avec un nom d’utilisateur et un mot de passe qui dispose également d’autorisations sur votre base de données cible. |
 | [Activer le protocole TCP/IP](#manualTCP) | SQL Server doit autoriser les connexions sur TCP. |
 | [Activer la règle de pare-feu pour le port SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Le pare-feu sur la machine virtuelle doit autoriser le trafic entrant sur le port SQL Server (1433 par défaut). |
-| [Créer une règle de groupe de sécurité pour TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Vous devez autoriser la machine virtuelle à recevoir le trafic sur le port SQL Server (1433 par défaut) si vous souhaitez vous connecter par Internet. Ceci n’est pas nécessaire pour les connexions locales et réseau virtuel uniquement. Il s’agit de la seule étape requise dans le portail Azure. |
+| [Créer une règle de groupe de sécurité pour TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | Vous devez autoriser la machine virtuelle à recevoir le trafic sur le port SQL Server (1433 par défaut) si vous souhaitez vous connecter par Internet. Ceci n’est pas nécessaire pour les connexions locales et réseau virtuel uniquement. Il s’agit de la seule étape requise dans le portail Azure. |
 
 > [!TIP]
 > Les étapes décrites dans le tableau ci-dessus sont effectuées pour vous lorsque vous configurez la connectivité dans le portail. N’utilisez ces étapes que pour vérifier votre configuration ou pour configurer manuellement la connectivité pour SQL Server.

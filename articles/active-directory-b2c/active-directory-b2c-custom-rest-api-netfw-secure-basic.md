@@ -11,10 +11,10 @@ ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: 18aeeef1aa2ef322f78e7e10118464d542926e59
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34709792"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
@@ -28,7 +28,6 @@ Dans cet article, vous ajoutez l’authentification HTTP de base à votre servic
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Effectuez les étapes de l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Étape 1 : Ajouter la prise en charge de l’authentification

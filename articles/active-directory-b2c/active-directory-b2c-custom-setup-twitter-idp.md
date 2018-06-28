@@ -11,10 +11,10 @@ ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: 6b09bb295d889255dada0cebbb9ded2379d95d23
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34710234"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées
@@ -23,7 +23,6 @@ ms.locfileid: "34710234"
 Cet article indique comment activer la connexion pour les utilisateurs d’un compte Twitter à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Étape 1 : Créer une application de compte Twitter

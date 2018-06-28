@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34709289"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées
@@ -24,7 +24,6 @@ ms.locfileid: "34709289"
 Une fois que vous avez effectué les étapes de cet article, votre stratégie personnalisée prend en charge l’inscription ou la connexion de « comptes locaux » via une adresse e-mail et un mot de passe. Vous préparez également votre environnement à l’ajout de fournisseurs d’identité (par exemple Facebook ou Azure AD). Nous vous encourageons à effectuer ces étapes avant de découvrir d’autres utilisations de l’infrastructure d’expérience d’identité Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de continuer, vérifiez que vous disposez d’un locataire Azure AD B2C, qui est pour l’ensemble de vos utilisateurs, applications, stratégies, etc. Si vous n’en avez pas déjà un, vous devez en [créer un locataire Azure AD B2C](active-directory-b2c-get-started.md). Nous encourageons fortement tous les développeurs à suivre les procédures pas à pas relatives aux stratégies intégrées d’Azure AD B2C et à configurer leurs applications avec des stratégies intégrées avant de continuer. Vos applications fonctionneront avec les deux types de stratégies après une modification mineure du nom de la stratégie pour appeler la stratégie personnalisée.
 

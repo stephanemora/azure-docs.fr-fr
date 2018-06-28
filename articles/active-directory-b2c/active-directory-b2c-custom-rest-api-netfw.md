@@ -11,10 +11,10 @@ ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: e17647016da0e877bd8f21357a4bd38121820f22
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34709357"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
@@ -54,7 +54,6 @@ Vue d’ensemble :
 * Ajouter le numéro de fidélité à un jeton web JSON (JWT)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET

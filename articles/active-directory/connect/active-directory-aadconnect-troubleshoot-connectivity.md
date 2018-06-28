@@ -47,7 +47,7 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | mscrl.microsoft.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.verisign.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.entrust.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats pour MFA. |
-| \**.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
+| \*.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilisé pour MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
