@@ -3,22 +3,24 @@ title: Problème d’enregistrement des informations d’identification d’admi
 description: Comment résoudre les problèmes courants rencontrés lors de la configuration l’approvisionnement des utilisateurs pour une application déjà répertoriée dans la galerie d’applications Azure AD
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: asmalser
-ms.openlocfilehash: 8b23ea72a898dc5725c1c82ee2a5cbc06730b5aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: 1146df364a08128b5cd191ed1120198ae31b763e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292988"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337087"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory | Microsoft Docs 
 
@@ -38,7 +40,7 @@ Les jetons secrets, les URI, les adresses e-mail de notification, les noms d’u
 
 Pour contourner ce problème, vous avez deux possibilités :
 
-1. **Utiliser deux instances d’application, l’un pour l’authentification unique et l’autre pour l’approvisionnement d’utilisateurs** : par exemple, avec l’application de galerie [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md), vous pouvez ajouter LinkedIn Elevate à partir de la galerie et la configurer pour l’authentification unique. Pour l’approvisionnement, ajoutez une autre instance de LinkedIn Elevate à partir de la galerie d’applications Azure AD et nommez-la « LinkedIn Elevate (approvisionnement) ». Pour cette seconde instance, configurez [l’approvisionnement](active-directory-saas-linkedinelevate-provisioning-tutorial.md), mais pas l’authentification unique. Lorsque vous utilisez cette solution de contournement, les mêmes utilisateurs et groupes doivent être [affectés](manage-apps/assign-user-or-group-access-portal.md) aux deux applications. 
+1. **Utiliser deux instances d’application, l’un pour l’authentification unique et l’autre pour l’approvisionnement d’utilisateurs** : par exemple, avec l’application de galerie [LinkedIn Elevate](saas-apps/linkedinelevate-tutorial.md), vous pouvez ajouter LinkedIn Elevate à partir de la galerie et la configurer pour l’authentification unique. Pour l’approvisionnement, ajoutez une autre instance de LinkedIn Elevate à partir de la galerie d’applications Azure AD et nommez-la « LinkedIn Elevate (approvisionnement) ». Pour cette seconde instance, configurez [l’approvisionnement](saas-apps/linkedinelevate-provisioning-tutorial.md), mais pas l’authentification unique. Lorsque vous utilisez cette solution de contournement, les mêmes utilisateurs et groupes doivent être [affectés](manage-apps/assign-user-or-group-access-portal.md) aux deux applications. 
 
 2. **Réduire la quantité de données de configuration stockées** : toutes les données saisies dans la section [informations d’identification d’administrateur](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) de l’onglet Approvisionnement sont stockées au même endroit que le certificat SAML. S’il n’est pas possible de réduire la longueur de toutes ces données, certains champs de configuration facultatifs tels que **E-mail de notification** peuvent être supprimés.
 
