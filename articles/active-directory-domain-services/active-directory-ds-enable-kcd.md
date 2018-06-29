@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213836"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331027"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurer la délégation Kerberos contrainte (KCD) sur un domaine managé
 De nombreuses applications doivent accéder à des ressources dans le contexte de l’utilisateur. Active Directory prend en charge un mécanisme, appelé délégation Kerberos, qui rend possible ce cas d’utilisation. En outre, vous pouvez limiter la délégation afin que seules des ressources spécifiques soient accessibles dans le contexte de l’utilisateur. Les domaines gérés des services de domaine Azure AD diffèrent des domaines Active Directory traditionnels dans la mesure où ils sont verrouillés de façon mieux sécurisée.
 
 Cet article vous montre comment configurer la délégation Kerberos contrainte sur un domaine managé Azure AD Domain Services.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Délégation Kerberos contrainte (KCD)
 La délégation Kerberos contrainte permet à un compte d’emprunter l’identité d’un autre principal de sécurité (par exemple, un utilisateur) pour accéder aux ressources. Imaginez une application web qui accède à une API web principale dans le contexte d’un utilisateur. Dans cet exemple, l’application web (en cours d’exécution dans le contexte d’un compte de service ou d’un compte d’ordinateur) emprunte l’identité de l’utilisateur pour accéder à la ressource (API web principale). La délégation Kerberos n’est pas sécurisée, car elle ne limite pas les ressources auxquelles le compte d’emprunt peut accéder dans le contexte de l’utilisateur.

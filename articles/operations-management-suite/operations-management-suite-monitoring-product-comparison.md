@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040294"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753317"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparaison des produits de surveillance Microsoft
 Cet article confronte les solutions System Center Operations Manager (SCOM) et Log Analytics de la suite OMS (Operations Management Suite) en comparant leur architecture, la logique utilisée pour surveiller les ressources et la manière dont elles analysent les données collectées.  L’objectif est de vous présenter leurs principales différences ainsi que leurs points forts respectifs.  
 
 ## <a name="basic-architecture"></a>Architecture de base
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Tous les composants SCOM sont installés dans votre centre de données.  [Les agents sont installés](http://technet.microsoft.com/library/hh551142.aspx) sur des ordinateurs Windows et Linux gérés par SCOM.  Les agents se connectent aux [serveurs d’administration](https://technet.microsoft.com/library/hh301922.aspx) qui communiquent avec l’entrepôt de données et la base de données SCOM.  Les agents utilisent l’authentification de domaine pour se connecter aux serveurs d’administration.  Les agents qui se trouvent en dehors d’un domaine approuvé peuvent utiliser une authentification par certificat ou se connecter à un [serveur de passerelle](https://technet.microsoft.com/library/hh212823.aspx).
+Tous les composants SCOM sont installés dans votre centre de données.  [Les agents sont installés](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) sur des ordinateurs Windows et Linux gérés par SCOM.  Les agents se connectent aux [serveurs d’administration](https://technet.microsoft.com/library/hh301922.aspx) qui communiquent avec l’entrepôt de données et la base de données SCOM.  Les agents utilisent l’authentification de domaine pour se connecter aux serveurs d’administration.  Les agents qui se trouvent en dehors d’un domaine approuvé peuvent utiliser une authentification par certificat ou se connecter à un [serveur de passerelle](https://technet.microsoft.com/library/hh212823.aspx).
 
 La solution SCOM nécessite deux bases de données SQL, une pour les données opérationnelles et un autre entrepôt de données pour la création de rapports et l’analyse de données.  Un [serveur de rapports](https://technet.microsoft.com/library/hh298611.aspx) exécute les services SQL Reporting Services pour consigner les données à partir de l’entrepôt de données. 
 
@@ -83,7 +83,7 @@ Log Analytics collecte les événements et les compteurs de performances des sys
 
 La solution SCOM inclut de nombreux flux de travail détaillés qui définissent généralement des critères spécifiques pour la collecte des données et les actions associées à effectuer. La solution Log Analytics inclut quant à elle des critères plus généraux pour la collecte des données.  Les solutions et les requêtes de journal offrent des critères plus ciblés pour l’analyse des données et les actions à effectuer dans le cloud sur les données collectées.
 
-#### <a name="solutions"></a>Solutions
+#### <a name="solutions"></a>solutions
 Les solutions offrent une logique supplémentaire pour la collecte et l’analyse des données.  Vous pouvez sélectionner les solutions à ajouter à votre abonnement OMS à partir de la galerie de solutions.
 
 ![Galerie de solutions](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
@@ -139,7 +139,7 @@ Les vues sont idéales pour analyser l’état actuel de l’environnement, y co
 #### <a name="dashboards"></a>Tableaux de bord
 Dans la console Opérateur, les tableaux de bord utilisent quasiment les mêmes données que les vues. Cependant, ils sont davantage personnalisables et peuvent fournir une meilleure visualisation des données.  Vous disposez d’un ensemble de tableaux de bord standard que vous pouvez facilement personnaliser selon vos besoins.  Vous pouvez également utiliser un widget PowerShell qui peut afficher les données obtenues à l’aide d’une requête PowerShell.
 
-![Tableau de bord](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
+![tableau de bord](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
 
 Les développeurs ont la possibilité d’ajouter des composants personnalisés aux tableaux de bord fournis dans leurs packs d’administration.  Ces composants peuvent être spécifiques à une application, comme le tableau de bord intégré au pack d’administration SQL représenté ci-dessous.  Ce tableau de bord peut également servir de modèle pour les versions personnalisées.
 

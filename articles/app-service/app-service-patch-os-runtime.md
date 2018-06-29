@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151006"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030051"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Versions déconseillées
+### <a name="deprecated-versions"></a>Versions déconseillées  
 
 Lorsqu’une version plus ancienne est déconseillée, la date de suppression est annoncée, ce qui vous permet de planifier en conséquence la mise à niveau de votre version du runtime. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Comment afficher l’état de mise à jour du système d’exploitation et du runtime sur mes instances ?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Comment afficher l’état de mise à jour du système d’exploitation et du runtime sur mes instances ?  
 
 Bien que les informations critiques sur le système d’exploitation ne soient pas accessibles (voir [Fonctionnalités de système d’exploitation sur Azure App Service](web-sites-available-operating-system-functionality.md)), la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) vous permet d’interroger votre instance App Service pour connaître la version du système d’exploitation et les versions du runtime. 
 
 Le tableau suivant indique comment afficher les versions de Windows et du runtime du langage qui exécutent vos applications :
 
-| Information | Comment y accéder |
+| Information | Comment y accéder | 
 |-|-|
 | Version de Windows | Voir `https://<appname>.scm.azurewebsites.net/Env.cshtml` (sous Informations système) |
 | Version de .NET | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Version .NET Core | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `dotnet --version` |
 | Version PHP | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `php --version` |
 | Version Node.js par défaut | Dans le [Cloud Shell](../cloud-shell/overview.md), exécutez la commande suivante : <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Version Python | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `python --version` |
+| Version Python | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > L’accès à l’emplacement de registre `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, où sont stockées les informations sur les [correctifs KB]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)), est verrouillé.
 >
 >
 
 ## <a name="more-resources"></a>Autres ressources
 
-[Centre de confidentialité - Sécurité](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Centre de confidentialité - Sécurité](https://www.microsoft.com/en-us/trustcenter/security)  
 [ASP.NET Core 64 bits sur Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

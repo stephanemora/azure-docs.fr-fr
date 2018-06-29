@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618655"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055443"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -26,9 +26,6 @@ L’activité de recherche peut être utilisée pour récupérer un jeu de donn�
 - Déterminez de manière dynamique quels objets (fichiers, tables, etc.) fonctionnent sur une activité ultérieure, au lieu de coder en dur le nom d’objet
 
 L’activité de recherche peut lire et renvoyer le contenu d’un fichier de configuration, une table de configuration ou le résultat de l’exécution d’une requête ou d’une procédure stockée.  La sortie de l’activité de recherche peut être utilisée dans une activité de transformation ou de copie ultérieure s’il s’agit d’une valeur singleton, ou dans une activité ForEach s’il s’agit d’un tableau d’attributs.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: 193a403a64cea31a2e4cea21a5838be71af8dd53
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737348"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029779"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -36,7 +36,7 @@ Cet article suppose que vous avez déjà accompli les étapes suivantes :
 Vous pouvez migrer des partages de fichiers existants tels que ceux stockés localement vers votre nouveau partage de fichiers Azure. Cette section montre comment déplacer des données dans un partage de fichiers Azure à l’aide de plusieurs méthodes populaires détaillées dans le [guide de planification](storage-files-planning.md#data-transfer-method).
 
 ### <a name="azure-file-sync-preview"></a>Synchronisation de fichiers Azure (préversion)
-Azure File Sync (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+Azure File Sync (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Vous pouvez utiliser Azure File Sync pour migrer des données dans un partage de fichiers Azure, même si le mécanisme de synchronisation n’est pas souhaité pour une utilisation à long terme. Pour plus d’informations sur l’utilisation d’Azure File Sync pour transférer des données vers un partage de fichiers Azure, consultez [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) et [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md).
 
@@ -83,7 +83,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
     
     Pour plus d’informations, voir [Préparer le fichier CSV du jeu de lecteurs](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6. Utilisez l’outil [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) pour copier vos données sur un ou plusieurs disques durs.
+6. Utilisez l’outil [WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=55280) pour copier vos données sur un ou plusieurs disques durs.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

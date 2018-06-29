@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293993"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333910"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
 
@@ -80,7 +80,7 @@ Une fois que les points de terminaison de service de réseau virtuel Azure sont 
 
 Si votre compte Azure Cosmos DB est utilisé par d’autres services Azure tels que Recherche Azure, ou s’il est accessible à partir de Stream Analytics ou de Power BI, vous pouvez autoriser l’accès en cochant **Autoriser l’accès aux services Azure**.
 
-Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du portail, vous devez activer l’option **Autoriser l’accès au portail Azure**. Pour en savoir plus sur ces options, consultez les sections [Connexions à partir du Portail Azure](firewall-support.md#connections-from-the-azure-portal) et [Connexions à partir d’autres services Azure PaaS](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services). Après avoir sélectionné l’accès, sélectionnez **Enregistrer** pour enregistrer les paramètres.
+Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du portail, vous devez activer l’option **Autoriser l’accès au portail Azure**. Pour en savoir plus sur ces options, consultez les sections [Connexions à partir du Portail Azure](firewall-support.md#connections-from-the-azure-portal) et [Connexions à partir d’autres services Azure PaaS](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services). Après avoir sélectionné l’accès, sélectionnez **Enregistrer** pour enregistrer les paramètres.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Supprimer un réseau virtuel ou un sous-réseau 
 
@@ -125,15 +125,16 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
 4. Préparez-vous à l’activation de la liste ACL sur le compte Cosmos DB en vérifiant que le réseau virtuel et le sous-réseau ont le point de terminaison service activé pour Azure Cosmos DB.
 
    ```powershell
-   $subnet = Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName  | Get-AzureRmVirtualNetworkSubnetConfig -Name $sname
-   $vnProp = Get-AzureRmVirtualNetwork `-Name $vnName  -ResourceGroupName $rgName
+   $vnProp = Get-AzureRmVirtualNetwork `
+     -Name $vnName  -ResourceGroupName $rgName
    ```
 
 5. Obtenez les propriétés du compte Azure Cosmos DB en exécutant l’applet de commande suivante :  
 
    ```powershell
+   $apiVersion = "2015-04-08"
+   $acctName = "<Azure Cosmos DB account name>"
+
    $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -144,15 +145,24 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $subnetName  
+   $subnetID = $vnProp.Id+"/subnets/" + $sname  
    $virtualNetworkRules = @(@{"id"=$subnetID})
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
@@ -166,7 +176,7 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
    $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
-   Set-AzureRmResource ``
+   Set-AzureRmResource `
      -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `

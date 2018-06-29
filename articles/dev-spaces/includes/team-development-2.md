@@ -10,23 +10,23 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 78dca327a470394d19e6befc6578abf2d499850c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247583"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936395"
 ---
 ### <a name="run-the-service"></a>Exécuter le service
 
-1. Appuyez sur F5 (ou tapez `azds up` dans la fenêtre du terminal) pour exécuter le service. Le service s’exécute automatiquement dans le nouvel espace sélectionné `scott`. 
-1. Vous pouvez vérifier que votre service s’exécute dans son propre espace en réexécutant `azds space list`. Tout d’abord, vous remarquez qu’une instance de `mywebapi` est en cours d’exécution dans l’espace `scott` (la version exécutée dans l’espace `default` reste active mais n’apparaît pas). Ensuite, l’URL du point d’accès de `webfrontend` commence par le texte « scott.s. ». Elle est unique dans l’espace `scott`. Cette URL spéciale signifie que les demandes envoyées à l’« URL scott » tenteront d’abord d’accéder aux services de l’espace `scott` ; en cas d’échec, elles reviendront aux services de l’espace `default`.
+1. Appuyez sur F5 (ou tapez `azds up` dans la fenêtre du terminal) pour exécuter le service. Le service s’exécute automatiquement dans le nouvel espace sélectionné `default/scott`. 
+1. Vous pouvez vérifier que votre service s’exécute dans son propre espace en réexécutant `azds list`. Tout d’abord, vous remarquez qu’une instance de `mywebapi` est en cours d’exécution dans l’espace `default/scott` (la version exécutée dans l’espace `default` reste active mais n’apparaît pas). Ensuite, l’URL du point d’accès de `webfrontend` commence par le texte « scott.s. ». Elle est unique dans l’espace `default/scott`. Cette URL spéciale signifie que les demandes envoyées à l’« URL scott » tenteront d’abord d’accéder aux services de l’espace `default/scott` ; en cas d’échec, elles reviendront aux services de l’espace `default`.
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------
-mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name         Space          Chart              Ports   Updated     Access Points
+-----------  --------       -----------------  ------  ----------  -------------
+mywebapi     default/scott  mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
+webfrontend  default        webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 ![](../media/common/space-routing.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299791"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030948"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Scénario d’application logique : créer un déclencheur à l’aide d’Azure Functions et d’Azure Service Bus
 
@@ -39,7 +39,7 @@ Dans cet exemple, une fonction est en cours d’exécution pour chaque applicati
 ## <a name="build-the-function"></a>Création de la fonction
 Vous devez ensuite créer une fonction qui agit comme déclencheur et qui écoute la file d’attente.
 
-1. Dans le [portail Azure Functions](https://functions.azure.com/signin), sélectionnez **Nouvelle fonction** puis choisissez le modèle **ServiceBusQueueTrigger - C#**.
+1. Dans le [portail Azure Functions](https://functions.azure.com/), sélectionnez **Nouvelle fonction** puis choisissez le modèle **ServiceBusQueueTrigger - C#**.
    
     ![portail Azure Functions][2]
 2. Configurez la connexion à la file d’attente Service Bus qui utilise l’écouteur `OnMessageReceive()` du SDK Azure Service Bus.

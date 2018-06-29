@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019413"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031802"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Mesures de correction 
 | Produit/Service | Article |
@@ -80,7 +80,7 @@ ms.locfileid: "28019413"
 | **Informations de référence**              | N/A  |
 | **Étapes** | Les navigateurs peuvent stocker des informations à des fins de mise en cache et d’historique. Ces fichiers mis en cache sont stockés dans un dossier, comme le dossier Fichiers Internet temporaires d’Internet Explorer. Lorsque ces pages sont de nouveau consultées, le navigateur les affiche à partir du cache. Si l’utilisateur peut voir des informations sensibles (par exemple, adresse, numéro de carte de crédit, numéro de sécurité sociale ou nom d’utilisateur), ces informations sont peut-être stockées dans le cache du navigateur et elles peuvent par conséquent être récupérées lors de l’examen du cache du navigateur ou en appuyant simplement sur le bouton Précédent du navigateur. Définissez la valeur d’en-tête de réponse cache-control sur « no-store » pour toutes les pages. |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```XML
 <configuration>
   <system.webServer>
@@ -95,7 +95,7 @@ ms.locfileid: "28019413"
 </configuration>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Il est possible d’utiliser un filtre. L’exemple suivant illustre ce cas de figure : 
 ```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -144,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Informations de référence**              | [MSDN: autocomplete attribute (MSDN : attribut autocomplete)](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML (Utilisation de la saisie semi-automatique dans HTML)](http://msdn.microsoft.com/library/ms533032.aspx), [Vulnérabilité liée au nettoyage HTML](http://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?! (Encore la saisie semi-automatique ?)](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Étapes** | L’attribut autocomplete spécifie si la saisie semi-automatique doit être activée ou non sur un formulaire. Lorsque la saisie semi-automatique est activée, le navigateur complète automatiquement les valeurs en fonction des valeurs que l’utilisateur a déjà entrées. Par exemple, lorsqu’un nouveau nom et un nouveau mot de passe sont entrés dans un formulaire et que le formulaire est envoyé, le navigateur vous demande si le mot de passe doit être enregistré. Par la suite, lorsque le formulaire est affiché, le nom et le mot de passe sont automatiquement renseignés ou ils sont complétés au moment de la saisie du nom. Une personne malveillante disposant d’un accès local peut obtenir le mot de passe en texte clair à partir du cache du navigateur. La saisie semi-automatique est activée par défaut et elle doit être explicitement désactivée. |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
@@ -229,7 +229,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Informations de référence**              | N/A  |
 | **Étapes** | <p>Dans certaines implémentations, des artefacts sensibles concernant l’authentification de l’API Web sont stockés en local dans le navigateur. C’est notamment le cas des artefacts d’authentification Azure AD comme adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key, etc.</p><p>Tous ces artefacts sont disponibles même après la déconnexion ou la fermeture du navigateur. Si un pirate obtient l’accès à ces artefacts, il peut le réutiliser pour accéder aux ressources protégées (API). Assurez-vous que tous les artefacts sensibles concernant l’API Web ne sont pas stockés dans le navigateur. Si le stockage côté client est inévitable (par exemple, les applications à page unique qui tirent parti des flux implicites OpenIdConnect/OAuth doivent stocker les jetons d’accès au niveau local), utilisez des options de stockage sans persistance. Par exemple, préférez SessionStorage à LocalStorage.</p>| 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 L’extrait de code JavaScript ci-dessous provient d’une bibliothèque d’authentification personnalisée qui stocke les artefacts d’authentification en local. Ce type d’implémentation doit être évité. 
 ```javascript
 ns.AuthHelper.Authenticate = function () {
@@ -352,7 +352,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Informations de référence**              | [Gérer des paramètres et des fonctionnalités sur vos appareils avec des stratégies Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [Keychain Valet (Trousseau valet)](https://components.xamarin.com/view/square.valet) |
 | **Étapes** | <p>Si l’application écrit des informations sensibles, comme les informations personnelles de l’utilisateur (adresse e-mail, numéro de téléphone, prénom, nom, préférences, etc.) sur le système de fichiers mobile, ces dernières doivent être chiffrées avant leur écriture sur le système de fichiers local. Si l’application est une application d’entreprise, envisagez la publication de l’application à l’aide de Windows Intune.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Intune peut être configuré conformément aux stratégies de sécurité suivantes pour sauvegarder les données sensibles : 
 ```csharp
 Require encryption on mobile device    
@@ -360,7 +360,7 @@ Require encryption on storage cards
 Allow screen capture
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Si l’application n’est pas une application d’entreprise, utilisez le keystore fourni par la plateforme et les trousseaux pour stocker les clés de chiffrement, grâce auxquels l’opération de chiffrement peut être effectuée sur le système de fichiers. L’extrait de code suivant explique comment accéder à une clé du trousseau à l’aide de Xamarin : 
 ```csharp
         protected static string EncryptionKey
@@ -410,10 +410,10 @@ Si l’application n’est pas une application d’entreprise, utilisez le keyst
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | .NET Framework 3 |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Informations de référence**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Étapes** | L’utilisation d’un UsernameToken avec mot de passe en texte brut sur un canal non chiffré expose le mot de passe aux personnes malveillantes qui sont alors en mesure d’intercepter les messages SOAP. Les fournisseurs de services qui utilisent UsernameToken peuvent accepter l’envoi de mots de passe en texte brut. L’envoi de mots de passe en texte brut sur un canal non chiffré peut exposer les informations d’identification à des personnes malveillantes susceptibles d’intercepter le message SOAP. | 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 La configuration du fournisseur de services WCF suivante utilise un UsernameToken : 
 ```
 <security mode="Message"> 
@@ -429,10 +429,10 @@ Définissez la valeur clientCredentialType sur Certificat ou Windows.
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, .NET Framework 3 |
 | **Attributs**              | Mode de sécurité - Transport, Mode de sécurité - Messages |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html), [Fundamentals of WCF Security CoDe Magazine (Notions de base de sécurité WCF dans CoDe Magazine)](http://www.codemag.com/article/0611051) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Fundamentals of WCF Security CoDe Magazine (Notions de base de sécurité WCF dans CoDe Magazine)](http://www.codemag.com/article/0611051) |
 | **Étapes** | Aucune sécurité liée au transport ou aux messages n’a été définie. Les applications qui transmettent des messages sans sécurité liée au transport ou aux messages ne peuvent pas garantir l’intégrité ou la confidentialité des messages. Lorsqu’une liaison de sécurité WCF est définie sur Aucune, la sécurité liée au transport et aux messages est désactivée. |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 La configuration suivante définit le mode de sécurité sur Aucun. 
 ```
 <system.serviceModel> 
@@ -445,7 +445,7 @@ La configuration suivante définit le mode de sécurité sur Aucun.
 </system.serviceModel> 
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Mode de sécurité - L’ensemble des liaisons de service offre cinq modes de sécurité : 
 * Aucune. Sécurité désactivée. 
 * Transport. Utilise la sécurité liée au transport pour la protection des messages et l’authentification mutuelle. 

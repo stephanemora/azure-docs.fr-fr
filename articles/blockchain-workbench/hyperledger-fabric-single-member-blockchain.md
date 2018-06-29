@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659382"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960353"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Réseau à membre unique Hyperledger Fabric
 
 Vous pouvez utiliser le modèle de solution Consortium de Fabric Hyperledger pour déployer et configurer un réseau à membre unique (à plusieurs nœuds) Hyperledger Fabric.
 
-À la fin de cet article, vous pourrez :
+À la fin de cet article, vous serez capable :
 
 - Obtenir une connaissance pratique de la technologie blockchain, d’Hyperledger Fabric et d’architectures de réseau de consortium plus complexes
 - Découvrir comment déployer et configurer un réseau de consortium Hyperledger Fabric à membre unique à partir du portail Azure
@@ -65,7 +65,7 @@ Le déploiement de modèle vous guidera dans la configuration du réseau à plus
 
 Sous le panneau **Bases**, spécifiez les valeurs des paramètres standard pour n’importe quel déploiement, comme l’abonnement, le groupe de ressources et les propriétés de base de la machine virtuelle.
 
-![Bases](./media/hyperledger-fabric-single-member-blockchain/basics.png)
+![Concepts de base](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
 Nom du paramètre| Description| Valeurs autorisées|Valeur par défaut
 ---|---|---|---
@@ -89,9 +89,9 @@ Ensuite, sous **Taille et performances du réseau**, spécifiez des valeurs pour
 Nom du paramètre| Description| Valeurs autorisées|Valeur par défaut
 ---|---|---|---
 **Nombre de nœuds d’appartenance**|Nombre de nœuds exécutant le service d’appartenance. Pour plus d’informations sur le service d’appartenance, consultez la section relative à la sécurité et aux services d’appartenance dans la [documentation](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf) Hyperledger.<br /><br />Cette valeur est actuellement limitée à 1 nœud, mais nous prévoyons de prendre en charge l’augmentation de la taille des instances par le biais du clustering dans la prochaine révision.|1| 1
-**Nombre de nœuds des auteurs des commandes** |Nombre de nœuds qui commandent (organisent) les transactions dans un bloc. --> Cette instruction est très longue et peu claire. Pour plus d’informations sur le service de commande, consultez la [documentation](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html) Hyperledger.<br /><br />Cette valeur est actuellement limitée à 1 nœud. |1 |1
+**Nombre de nœuds des auteurs des commandes** |Nombre de nœuds qui commandent (organisent) les transactions dans un bloc. --> Cette instruction est très longue et peu claire. Pour plus d’informations sur le service de commande, consultez la [documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) Hyperledger.<br /><br />Cette valeur est actuellement limitée à 1 nœud. |1 |1
 **Nombre de nœuds homologues**| Nœuds appartenant à des membres de consortium qui exécutent des transactions et conservent l’état et une copie du registre.<br /><br />Pour plus d’informations sur le service de commande, consultez la [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) Hyperledger.|3| 3 - 9
-**Performances de stockage**|Type de stockage prenant en charge chacun des nœuds déployés. Pour en savoir plus sur le stockage, consultez [Introduction au stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) et [Stockage Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard ou Premium|Standard
+**Performances de stockage**|Type de stockage prenant en charge chacun des nœuds déployés. Pour en savoir plus sur le stockage, consultez [Introduction au stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) et [Stockage Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard ou Premium|standard
 **Taille de la machine virtuelle** |Taille de machine virtuelle utilisée pour tous les nœuds dans le réseau|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F série,<br />Standard DS,<br />et Standard FS|Standard D1_v2
 
 ### <a name="fabric-specific-settings"></a>Paramètres spécifiques à Fabric

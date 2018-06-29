@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: En savoir plus sur Language Understanding
+    - name: "Qu’est-ce que le service Language Understanding\_?"
       href: Home.md
     - name: Langues prises en charge
       href: luis-supported-languages.md
@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: Entité hiérarchique
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entité de liste
-          href: luis-quickstart-intent-and-list-entity.md
         - name: Entité d’expression régulière
           href: luis-quickstart-intents-regex-entity.md
+        - name: Entité de liste
+          href: luis-quickstart-intent-and-list-entity.md
         - name: Entité KeyPhrase
           href: luis-quickstart-intent-and-key-phrase.md
         - name: analyse de sentiments
@@ -238,7 +238,33 @@
     - name: Limites
       href: luis-boundaries.md
     - name: Référence d’entité prédéfinie
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: Entités par culture
+          href: luis-reference-prebuilt-entities.md
+        - name: Entité Age
+          href: luis-reference-prebuilt-age.md
+        - name: Entité Currency
+          href: luis-reference-prebuilt-currency.md
+        - name: Entité DatetimeV2
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: Entité Dimension
+          href: luis-reference-prebuilt-dimension.md
+        - name: Entité Deprecated
+          href: luis-reference-prebuilt-deprecated.md
+        - name: Entité Email
+          href: luis-reference-prebuilt-email.md
+        - name: Entité Number
+          href: luis-reference-prebuilt-number.md
+        - name: Entité Ordinal
+          href: luis-reference-prebuilt-ordinal.md
+        - name: Entité Percentage
+          href: luis-reference-prebuilt-percentage.md
+        - name: Entité Phonenumber
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: Entité Temperature
+          href: luis-reference-prebuilt-temperature.md
+        - name: Entité URL
+          href: luis-reference-prebuilt-url.md
     - name: Référence de domaine prédéfini
       href: luis-reference-prebuilt-domains.md
     - name: Référence de l’application prédéfinie Cortana

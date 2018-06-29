@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406028"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018379"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -38,7 +38,7 @@ Les actions de script peuvent être appliquées selon les méthodes suivantes :
 | Utilisez cette méthode pour appliquer un script... | Pendant la création du cluster... | Sur un cluster en cours d'exécution... |
 | --- |:---:|:---:|
 | Portail Azure |✓ |✓ |
-| Azure PowerShell |✓ |✓ |
+| Azure PowerShell |✓ |✓ |
 | Azure CLI 1.0 |&nbsp; |✓ |
 | Kit de développement logiciel (SDK) .NET de HDInsight |✓ |✓ |
 | Modèle Azure Resource Manager |✓ |&nbsp; |
@@ -327,7 +327,7 @@ Voici les étapes à suivre avant de déployer un script :
 Vous pouvez utiliser des actions de script pour personnaliser des clusters HDInsight à l’aide des méthodes suivantes :
 
 * Portail Azure
-* Azure PowerShell
+* Azure PowerShell
 * Modèles Microsoft Azure Resource Manager
 * Le kit de développement logiciel (SDK) HDInsight .NET.
 
@@ -377,5 +377,5 @@ Remplacez `INFILE` par le fichier contenant la marque d’ordre d’octet. `OUTF
 ## <a name="seeAlso"></a>Étapes suivantes
 
 * Découvrez comment [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md)
-* Utilisez la [Référence du Kit de développement logiciel (SDK) .NET HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) pour en savoir plus sur la création d’applications .NET qui gèrent HDInsight
+* Utilisez la [Référence du Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) pour en savoir plus sur la création d’applications .NET qui gèrent HDInsight
 * Utilisez l’ [API REST HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) pour savoir comment utiliser REST pour effectuer des actions de gestion sur des clusters HDInsight.

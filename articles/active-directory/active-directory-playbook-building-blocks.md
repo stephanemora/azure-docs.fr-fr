@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293107"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754290"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -100,10 +100,10 @@ Temps approximatif d’accomplissement : 15 minutes
 | Étape | Ressources |
 | --- | --- |
 | Accédez au portail de gestion Azure AD | [Portail de gestion Azure AD - Marque de société](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Chargez les ressources correspondant à la page de connexion (bannière, petit logo, étiquettes, etc.). Éventuellement, si vous avez AD FS, alignez les mêmes ressources sur les pages de connexion AD FS | [Ajout de votre société à vos pages de connexion et du panneau d’accès : Éléments personnalisables](customize-branding.md) |
+| Chargez les ressources correspondant à la page de connexion (bannière, petit logo, étiquettes, etc.). Éventuellement, si vous avez AD FS, alignez les mêmes ressources sur les pages de connexion AD FS | [Ajout de votre société à vos pages de connexion et du panneau d’accès : Éléments personnalisables](fundamentals/customize-branding.md) |
 | Patientez quelques minutes pour que les modifications entrent en vigueur |  |
 | Connectez-vous avec les informations d’identification d’utilisateur de la preuve de concept sur https://myapps.microsoft.com |  |
-| Vérifiez l’apparence dans le navigateur | [Ajout de votre société à vos pages de connexion et du panneau d’accès](customize-branding.md) |
+| Vérifiez l’apparence dans le navigateur | [Ajout de votre société à vos pages de connexion et du panneau d’accès](fundamentals/customize-branding.md) |
 | Si vous le souhaitez, vérifiez l’apparence sur d’autres appareils |  |
 
 ### <a name="considerations"></a>Considérations
@@ -118,7 +118,7 @@ Temps approximatif d’accomplissement : 10 minutes
 
 | Conditions préalables | Ressources |
 | --- | --- |
-| Tous les utilisateurs POC font partie d’un groupe de sécurité (cloud ou local) | [Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Tous les utilisateurs POC font partie d’un groupe de sécurité (cloud ou local) | [Créer un groupe et ajouter des membres dans Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>Étapes
 
@@ -140,16 +140,16 @@ Temps approximatif d’accomplissement : 60 minutes
 | Conditions préalables | Ressources |
 | --- | --- |
 | Environnement de test de l’application SaaS disponible. Dans ce guide, nous prenons pour exemple ServiceNow.<br/>Nous vous recommandons vivement d’utiliser une instance de test afin de limiter les problèmes de navigation concernant les mappages et la qualité des données existantes. | Accédez à https://developer.servicenow.com/app.do#!/home pour démarrer le processus d’obtention d’une instance de test |
-| Accès administrateur à la console de gestion ServiceNow | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
+| Accès administrateur à la console de gestion ServiceNow | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Jeu d’utilisateurs cible auquel affecter l’application. Un groupe de sécurité contenant les utilisateurs POC est recommandé. <br/>S’il est impossible de créer le groupe, affectez directement les utilisateurs à l’application pour la POC | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Étapes
 
 | Étape | Ressources |
 | --- | --- |
-| Partagez le didacticiel avec tous les acteurs de la documentation Microsoft  | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Organisez une réunion de travail et suivez les étapes du didacticiel avec chaque acteur. | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Affectez l’application au groupe identifié dans les conditions préalables. Si la POC dispose d’un accès conditionnel dans l’étendue, vous pouvez y revenir ultérieurement et ajouter une authentification MFA ou autre. <br/>Cela lancera le processus d’approvisionnement (s’il a été configuré) |  [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Partagez le didacticiel avec tous les acteurs de la documentation Microsoft  | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Organisez une réunion de travail et suivez les étapes du didacticiel avec chaque acteur. | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Affectez l’application au groupe identifié dans les conditions préalables. Si la POC dispose d’un accès conditionnel dans l’étendue, vous pouvez y revenir ultérieurement et ajouter une authentification MFA ou autre. <br/>Cela lancera le processus d’approvisionnement (s’il a été configuré) |  [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Utilisez le portail de gestion Azure AD pour ajouter l’application ServiceNow à partir de la galerie| [Portail de gestion Azure AD : Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Nouveautés relatives à la gestion des applications d’entreprise dans Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Dans le panneau « Authentification unique » de l’application ServiceNow, activez « Authentification basée sur SAML » |  |
 | Complétez les champs URL de connexion et Identificateur avec votre URL ServiceNow<br/>Cochez la case Activer le nouveau certificat<br/>et enregistrez les paramètres |  |
@@ -163,7 +163,7 @@ Temps approximatif d’accomplissement : 60 minutes
 
 ### <a name="considerations"></a>Considérations
 
-1. Le [didacticiel](active-directory-saas-servicenow-tutorial.md) ci-dessus fait référence à l’ancienne expérience de gestion Azure AD. Mais la POC repose sur l’expérience [Démarrage rapide](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
+1. Le [didacticiel](saas-apps/servicenow-tutorial.md) ci-dessus fait référence à l’ancienne expérience de gestion Azure AD. Mais la POC repose sur l’expérience [Démarrage rapide](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
 2. Si l’application cible n’est pas présente dans la galerie, vous pouvez utiliser Apportez votre propre application. Pour en savoir plus : [Découvrez les nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Ajout d’applications personnalisées à partir d’un seul emplacement](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>Configuration de l’authentification unique par mot de passe SaaS
@@ -242,7 +242,7 @@ Temps approximatif d’accomplissement : 20 minutes
 
 | Conditions préalables | Ressources |
 | --- | --- |
-| Abonnement Microsoft Azure AD de base ou Premium, et annuaire Azure AD pour lequel vous êtes administrateur général | [Éditions d’Azure Active Directory](active-directory-whatis.md) |
+| Abonnement Microsoft Azure AD de base ou Premium, et annuaire Azure AD pour lequel vous êtes administrateur général | [Éditions d’Azure Active Directory](fundamentals/active-directory-whatis.md) |
 | Application web hébergée localement et que vous souhaitez configurer pour un accès à distance |  |
 | Serveur exécutant Windows Server 2012 R2 ou Windows 8.1 ou version ultérieure et sur lequel vous pouvez installer le connecteur de proxy d’application | [Présentation des connecteurs de proxy d’application Azure AD](manage-apps/application-proxy-connectors.md) |
 | Si un pare-feu existe, assurez-vous qu’il autorise les requêtes HTTPS (TCP) du connecteur au proxy d’application | [Activer le proxy d’application dans le portail Azure : Conditions préalables pour le proxy d’application](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ Temps approximatif d’accomplissement : 10 minutes
 | Conditions préalables | Ressources |
 | --- | --- |
 | L’application SaaS (authentification unique fédérée ou authentification unique par mot de passe) a déjà été configurée | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) |
-| Le groupe de cloud auquel l’accès à l’application est affecté en priorité est identifié | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Les informations d’identification du propriétaire du groupe sont disponibles | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md) |
+| Le groupe de cloud auquel l’accès à l’application est affecté en priorité est identifié | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
+| Les informations d’identification du propriétaire du groupe sont disponibles | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](fundamentals/active-directory-manage-groups.md) |
 | Les informations d’identification du professionnel de l’information qui accède aux applications ont été identifiées | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ Temps approximatif d’accomplissement : 10 minutes
 
 | Étape | Ressources |
 | --- | --- |
-| Identifiez le groupe autorisé à accéder à l’application et configurez le propriétaire de ce groupe| [Manage the settings for a group in Azure Active Directory (Gérer les paramètres des groupes dans Azure Active Directory)](active-directory-groups-settings-azure-portal.md) |
-| Connectez-vous en tant que propriétaire du groupe et consultez l’appartenance au groupe dans l’onglet Groupes du volet d’accès | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| Identifiez le groupe autorisé à accéder à l’application et configurez le propriétaire de ce groupe| [Manage the settings for a group in Azure Active Directory (Gérer les paramètres des groupes dans Azure Active Directory)](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| Connectez-vous en tant que propriétaire du groupe et consultez l’appartenance au groupe dans l’onglet Groupes du volet d’accès | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Ajoutez le professionnel de l’information que vous souhaitez tester |  |
 | Connectez-vous en tant que professionnel de l’information et confirmez la disponibilité de la mosaïque | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ Si l’approvisionnement est activé pour l’application, vous devrez peut-êtr
 | Conditions préalables | Ressources |
 | --- | --- |
 | L’application SaaS (authentification unique fédérée ou authentification unique par mot de passe) a déjà été configurée | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) |
-| Le groupe de cloud auquel l’accès à l’application est affecté en priorité est identifié | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Le groupe de cloud auquel l’accès à l’application est affecté en priorité est identifié | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Les informations d’identification du professionnel de l’information qui accède aux applications ont été identifiées | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ Si l’approvisionnement est activé pour l’application, vous devrez peut-êtr
 
 | Étape | Ressources |
 | --- | --- |
-| Supprimez l’utilisateur du groupe auquel l’application est affectée | [Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory](active-directory-groups-members-azure-portal.md) |
+| Supprimez l’utilisateur du groupe auquel l’application est affectée | [Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory](fundamentals/active-directory-groups-members-azure-portal.md) |
 | Attendez quelques minutes que l’approvisionnement soit annulé | [Approvisionnement automatique des utilisateurs pour les applications SaaS dans Azure AD : Comment fonctionne l’approvisionnement automatique ?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | Dans une session distincte du navigateur, connectez-vous en tant que professionnel de l’information au portail MyApps et vérifiez l’absence de cette mosaïque | http://myapps.microsoft.com |
 

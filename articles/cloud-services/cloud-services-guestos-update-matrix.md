@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: 73771aaff59c3db46907ffd9f74c03f0ac0830cb
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: dd6a9b3e8777c6efa4d6db07d4d65c86463f6cfe
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736777"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063610"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -182,7 +182,7 @@ La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azu
 
 | Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
 | --- | --- |
-| 5. |Versions 2.9.5.1 et ultérieures |
+| 5 |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |
 | 3 |Versions 1.8 et ultérieures |
 | 2 |Versions 1.3 et ultérieures |
@@ -242,7 +242,7 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: http://www.microsoft.com/security/msrc/default.aspx
+[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

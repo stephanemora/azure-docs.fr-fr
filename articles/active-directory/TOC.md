@@ -388,11 +388,10 @@
 ### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
 #### [Affecter un rôle d’administrateur à un utilisateur](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparer les autorisations des invités et des membres](fundamentals/users-default-permissions.md)
-### [Sécurisation des rôles d’administrateur](admin-roles-best-practices.md)  
+### [Renforcer la sécurité du rôle administrateur](admin-roles-best-practices.md)  
 #### [Créer les comptes d’administrateur d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
-### [Sécuriser des rôles privilégiés](admin-roles-best-practices.md)
 
 ## Révisions d’accès
 ### [Vue d’ensemble des révisions d’accès](active-directory-azure-ad-controls-access-reviews-overview.md)
