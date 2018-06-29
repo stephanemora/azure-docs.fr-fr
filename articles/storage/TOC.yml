@@ -8,6 +8,8 @@
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Objets blob
   href: ./blobs/storage-blobs-introduction.md
+- name: Data Lake Storage Gen2
+  href: ./data-lake-storage/introduction.md
 - name: Fichiers
   href: ./files/storage-files-introduction.md
 - name: Files d’attente

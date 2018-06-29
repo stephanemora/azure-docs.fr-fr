@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routage des messages](tutorial-routing.md)
 ## [Configurer vos appareils](tutorial-device-twins.md)
+## [Gérer les mises à jour de microprogramme](tutorial-firmware-update.md)
 ## [Connectivité des appareils de test](tutorial-connectivity.md)
 ## Envoi de messages cloud vers appareil
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -111,6 +112,8 @@
 #### [Envoyer des messages à un serveur MQTT à l’aide d’API Eclipse Paho](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Surveiller le capteur magnétique et envoyer des notifications par courrier électronique avec Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
+## [Meilleures pratiques en matière de configuration d’appareil](iot-hub-configuration-best-practices.md)
+
 # Procédures
 ## Planification
 ### [Comparer IoT Hub et Event Hubs](iot-hub-compare-event-hubs.md)
@@ -169,6 +172,9 @@
 ### Prise en main des jumeaux de modules
 #### [Portail](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Utiliser des méthodes directes
 #### [Node.JS](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [Mise à niveau d’un IoT Hub](iot-hub-upgrade.md)
 ## [Mesures d’utilisation](iot-hub-metrics.md)
 ## [Configurer le filtrage d’adresse IP](iot-hub-ip-filtering.md)
-## [Configurer des périphériques à grande échelle](iot-hub-auto-device-config.md)
+## Configurer des appareils à grande échelle
+### [Utiliser le portail Azure](iot-hub-auto-device-config.md)
+### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-auto-device-config-cli.md)
 
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=iot-hub)

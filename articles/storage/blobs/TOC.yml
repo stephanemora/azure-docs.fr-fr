@@ -190,6 +190,8 @@
           href: storage-https-custom-domain-cdn.md
         - name: Fonctionnalité de stockage immuable de stockage Blob Azure (préversion)
           href: storage-blob-immutable-storage.md
+        - name: Activer le protocole TLS sécurisé pour le client Stockage Azure
+          href: ../common/storage-security-tls.md
     - name: Surveiller et résoudre des problèmes
       items:
         - name: Didacticiel sur la résolution des problèmes

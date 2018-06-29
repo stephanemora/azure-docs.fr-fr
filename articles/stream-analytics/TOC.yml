@@ -10,6 +10,8 @@
       href: stream-analytics-quick-create-portal.md
     - name: Créer un travail - PowerShell
       href: stream-analytics-quick-create-powershell.md
+    - name: Créer un travail - Visual Studio
+      href: stream-analytics-quick-create-vs.md
 - name: Didacticiels
   items:
     - name: 1 - Créer/gérer un travail

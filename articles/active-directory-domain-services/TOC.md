@@ -38,6 +38,7 @@
 #### [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé à l’aide du portail Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Créer une UO sur un domaine géré](active-directory-ds-admin-guide-create-ou.md)
+### [Créer un compte de service administré de groupe sur un domaine managé](active-directory-ds-create-gmsa.md)
 ### [Administrer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Sélectionner un réseau virtuel](active-directory-ds-networking.md)
 ## Déployer des applications
