@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852708"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061333"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
 > [!div class="op_single_selector"]
@@ -40,7 +40,6 @@ La mise à jour corrective automatisée utilise l’ [extension de l’agent Iaa
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](../sql/virtual-machines-windows-sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -87,7 +86,7 @@ En s’appuyant sur cet exemple, le tableau suivant décrit les effets concrets 
 | --- | --- |
 | **DayOfWeek** |Les correctifs sont installés tous les jeudis. |
 | **MaintenanceWindowStartingHour** |Les mises à jour démarrent à 11 h 00. |
-| **MaintenanceWindowsDuration** |Les correctifs doivent être installés dans les 120 minutes. Selon l’heure de début, leur installation doit être terminée à 13 h 00 au plus tard. |
+| **MaintenanceWindowDuration** |Les correctifs doivent être installés dans les 120 minutes. Selon l’heure de début, leur installation doit être terminée à 13 h 00 au plus tard. |
 | **PatchCategory** |La seule définition possible pour ce paramètre est « Important ». |
 
 L’installation et la configuration de l’agent IaaS de SQL Server peuvent prendre plusieurs minutes.
