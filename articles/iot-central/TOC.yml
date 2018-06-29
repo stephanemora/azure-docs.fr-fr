@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Didacticiels
   items:
-    - name: Générateur
-      items:
-        - name: 1- Définir un nouveau type d’appareil
-          href: tutorial-define-device-type.md
-        - name: 2- Configurer des règles
-          href: tutorial-configure-rules.md
-        - name: 3- Personnaliser la vue de l’opérateur
-          href: tutorial-customize-operator.md
-    - name: Operator
-      items:
-        - name: 4- Surveiller vos appareils
-          href: tutorial-monitor-devices.md
-        - name: 5- Ajouter un appareil
-          href: tutorial-add-device.md
+    - name: 1- Définir un nouveau type d’appareil
+      href: tutorial-define-device-type.md
+    - name: 2- Configurer des règles
+      href: tutorial-configure-rules.md
+    - name: 3- Personnaliser la vue de l’opérateur
+      href: tutorial-customize-operator.md
+    - name: 4- Surveiller vos appareils
+      href: tutorial-monitor-devices.md
+    - name: 5- Ajouter un appareil
+      href: tutorial-add-device.md
 - name: Concepts
   items:
     - name: Architecture
