@@ -67,6 +67,8 @@
   items:
     - name: Langues prises en charge
       href: supported-languages.md
+    - name: Régions
+      href: regions.md
     - name: API REST
       href: rest-apis.md
     - name: API du Kit de développement logiciel (SDK) de reconnaissance vocale
