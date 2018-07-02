@@ -1,11 +1,11 @@
 - name: Documentation de vision par ordinateur
   href: index.yml
 - name: Vue d'ensemble
+  expanded: true
   items:
     - name: Qu’est-ce que le service Vision par ordinateur ?
       href: Home.md
-- name: Démarrages rapides
-  expanded: true
+- name: Démarrages rapides de l’API
   items:
     - name: Résumé
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Extraire le texte imprimé
           href: QuickStarts/ruby-print-text.md
+- name: Démarrages rapides du kit de développement logiciel (SDK)
+  items:
+    - name: 'C#'
+      items:
+        - name: Analyser une image
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Générer une miniature
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extraire le texte manuscrit
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Procédures
   items:
     - name: Premières applications Vision par ordinateur

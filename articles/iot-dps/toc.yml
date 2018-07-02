@@ -113,6 +113,9 @@
           href: how-to-manage-dps-with-cli.md
         - name: Contrôler l’accès aux API du service de provisionnement
           href: how-to-control-access.md
+    - name: Provisionner un appareil IoT Edge
+      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      maintainContext: true
     - name: Utiliser des mécanismes d’attestation avec un Kit de développement logiciel (SDK)
       href: use-hsm-with-sdk.md
     - name: Utilisez les outils du Kit de développement logiciel pour le développement

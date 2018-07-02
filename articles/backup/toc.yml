@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Installation ou mise à niveau
           items:
-            - name: Préparer les charges de travail du serveur de sauvegarde Azure dans le portail Azure
+            - name: Installer un serveur de sauvegarde Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Ajouter du stockage à un serveur de sauvegarde Azure
+            - name: Ajouter du stockage
               href: backup-mabs-add-storage.md
-            - name: "Mettre à jour le serveur de sauvegarde Azure vers la version\_2"
+            - name: Mise à niveau vers la version 2
               href: backup-mabs-upgrade-to-v2.md
-            - name: Installation sans assistance du serveur de sauvegarde Azure
+            - name: Installation sans assistance
               href: backup-mabs-unattended-install.md
         - name: Protection des charges de travail
           items:

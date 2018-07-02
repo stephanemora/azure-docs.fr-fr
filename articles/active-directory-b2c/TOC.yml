@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Utilisation de la régulation de la durée de vie
           href: basic-age-gating.md
+        - name: Connexion directe
+          href: direct-signin.md
     - name: Identity Experience Framework (Infrastructure d’expérience d’identité)
       items:
         - name: Stratégies personnalisées

@@ -11,36 +11,68 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/25/2018
+  ms.date: 06/28/2018
   ms.author: kamrani
-  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
-  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.openlocfilehash: f3ccbb033354afc01fa840b3129d305f04942ffd
+  ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/08/2018
-  ms.locfileid: "35357454"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37095568"
 abstract:
   description: Le service Language Understanding (LUIS) permet à votre application de comprendre ce qu’une personne souhaite avec ses propres mots. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
 sections:
 - title: Démarrages en 5 minutes
   items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="luis-get-started-create-app.md">Créer une application pour un domaine prédéfini</a>
-    - html: <a href="luis-quickstart-intents-only.md">Créer une application pour un domaine personnalisé</a>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_php.svg
+    - image:
+        src: media/index/logo_ruby.svg
+    rows:
+    - title: API de point de terminaison
+      values:
+      - href: luis-get-started-cs-get-intent
+      - href: luis-get-started-java-get-intent
+      - href: luis-get-started-js-get-intent
+      - href: luis-get-started-node-get-intent
+      - href: luis-get-started-python-get-intent
+      - href: luis-get-started-php-get-intent
+      - href: luis-get-started-ruby-get-intent
+    - title: Création d’API
+      values:
+      - href: luis-get-started-cs-add-utterance
+      - href: luis-get-started-java-add-utterance
+      - href: luis-get-started-javascript-add-utterance
+      - href: luis-get-started-node-add-utterance
+      - href: luis-get-started-python-add-utterance
+      - href: luis-get-started-php-add-utterance
+      - href: luis-get-started-ruby-add-utterance
 - title: Didacticiels pas à pas
   items:
   - type: list
     style: ordered
     items:
-    - html: <a href="luis-quickstart-primary-and-secondary-data">Extraire des données de message depuis un énoncé à l’aide de l’entité simple</a>
-    - html: <a href="luis-quickstart-intents-regex-entity">Extraire les numéros de l’article de la base de connaissances depuis un énoncé à l’aide de l’entité d’expression régulière</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">Extraire les informations de la commande de boissons depuis un énoncé à l’aide de l’entité de liste</a>
-    - html: <a href="luis-tutorial-pattern">Améliorer la précision des prédictions d’intention et d’entité avec des modèles</a>
-    - html: <a href="luis-tutorial-interchangeable-phrase-list">Améliorer l’importance des mots avec une liste d’expressions</a>
-    - html: <a href="luis-get-started-cs-get-intent">Envoyer un énoncé au service LUIS et recevoir la réponse de prédiction du point de terminaison - C#</a>
-    - html: <a href="luis-get-started-cs-add-utterance">Ajouter un exemple d’énoncé à une intention et former l’application LUIS - C#</a>
+    - html: <a href="luis-quickstart-intents-only">Générer une application pour le domaine des ressources humaines</a>
+    - html: <a href="luis-tutorial-prebuilt-intents-entities">Ajouter des intentions et des entités prédéfinies</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Ajouter une entité d’expression régulière</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Ajouter une entité de liste</a>
+    - html: <a href="luis-quickstart-intent-and-hier-entity">Ajouter une entité hiérarchique</a>
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Ajouter une entité simple et une liste d’expressions</a>
+    - html: <a href="luis-quickstart-intent-and-key-phrase">Ajouter une entité keyPhrase</a>
+    - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Ajouter l’analyse des sentiments</a>
 - title: vidéos
   items:
   - type: list
