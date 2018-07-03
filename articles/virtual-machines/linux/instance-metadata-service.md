@@ -299,7 +299,7 @@ subscriptionId | Abonnement Azure pour la machine virtuelle | 2017-08-01
 tags | [Étiquettes](../../azure-resource-manager/resource-group-using-tags.md) de votre machine virtuelle  | 2017-08-01
 nom_groupe_ressources | [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) de votre machine virtuelle | 2017-08-01
 placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
-vmScaleSetName | [Nom de jeu de mise à l’échelle de machine virtuelle] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de votre jeu de mise à l’échelle de machine virtuelle | 2017-12-01
+vmScaleSetName | [Nom de jeu de mise à l’échelle de machine virtuelle] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de votre jeu de mise à l’échelle de machine virtuelle | 2017-12-01
 zone | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle | 2017-12-01 
 ipv4/privateIpAddress | Adresse IPv4 locale de la machine virtuelle | 2017-04-02
 ipv4/publicIpAddress | Adresse IPv4 publique de la machine virtuelle | 2017-04-02

@@ -39,7 +39,7 @@ Pour suivre les étapes décrites dans cet article, vous devez :
 
 + Avoir une instance APIM. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 
-+ Comprendre le concept de [capacité d’une instance du service Gestion des API Azure] (capacity.md de la gestion des api).
++ Comprendre le concept de [capacité d’une instance du service Gestion des API Azure] (api-management-capacity.md).
 
 ## <a name="upgrade-and-scale"></a>Mise à niveau et mise à l’échelle  
 
