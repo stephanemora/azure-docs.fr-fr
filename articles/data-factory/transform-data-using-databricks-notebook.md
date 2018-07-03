@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 438aeda39c6ba9246f75f96214bb0ffa1d4d31e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311044"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047806"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Exécuter une instance Databricks Notebook avec l’activité Databricks Notebook dans Azure Data Factory
 
@@ -41,7 +41,6 @@ Pour une présentation de onze minutes et la démonstration de cette fonctionnal
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
   - **Espace de travail Azure Databricks**. [Créez un espace de travail Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou utilisez-en un existant. Créez une instance Python Notebook dans votre espace de travail Azure Databricks. Exécutez ensuite l’instance Notebook et transmettez-lui les paramètres via Azure Data Factory.
 
@@ -69,7 +68,7 @@ Pour une présentation de onze minutes et la démonstration de cette fonctionnal
 
     Certaines étapes de ce guide de démarrage rapide supposent que vous utilisez le nom **ADFTutorialResourceGroup** pour le groupe de ressources. Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  Pour **Version**, sélectionnez **V2 (préversion)**.
+1.  Pour **Version**, sélectionnez **V2**.
 
 2.  Pour **Emplacement**, sélectionnez l’emplacement de la fabrique de données.
 
@@ -141,7 +140,7 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
 
     ![Faire glisser l’instance Notebook vers l’aire de conception](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
 
-4.  Dans les propriété de l’activité **Databricks** **Notebook**, au bas de la fenêtre, procédez comme suit :
+4.  Dans les propriétés de l’activité **Databricks** **Notebook**, au bas de la fenêtre, procédez comme suit :
 
     a. Basculez vers l’onglet **Paramètres** .
 

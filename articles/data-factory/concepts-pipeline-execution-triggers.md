@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293477"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048636"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-scheduling-and-execution.md)
-> * [Version 2 - Préversion](concepts-pipeline-execution-triggers.md)
+> * [Version 1](v1/data-factory-scheduling-and-execution.md)
+> * [Version actuelle](concepts-pipeline-execution-triggers.md)
 
-Une _exécution du pipeline_ dans Azure Data Factory version 2 définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions du pipeline différentes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique. 
+Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions du pipeline différentes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique. 
 
 Les exécutions de pipeline sont généralement instanciées en transmettant des arguments aux paramètres que vous définissez dans les pipelines. Vous pouvez exécuter un pipeline manuellement ou via un _déclencheur_. Cet article décrit de manière détaillée ces deux méthodes d’exécution d’un pipeline.
-
-> [!NOTE]
-> Cet article s’applique à Azure Data Factory version 2, actuellement en préversion. Si vous utilisez Azure Data Factory version 1, qui est en disponibilité générale (GA), consultez [Planification et exécution avec Azure Data Factory version 1](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>Exécution manuelle (à la demande)
 L’exécution manuelle d’un pipeline est également appelée exécution _à la demande_.
@@ -136,7 +133,7 @@ Pour obtenir un exemple complet, consultez [Démarrage rapide : création d’un
 > Vous pouvez utiliser le SDK .NET pour appeler des pipelines Data Factory à partir d’Azure Functions, de vos services web, etc.
 
 <h2 id="triggers">Exécution de déclencheur</h2>
-Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, Data Factory prend en charge deux types de déclencheurs :
+Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, Data Factory prend en charge trois types de déclencheurs :
 
 - Déclencheur de planification : un déclencheur qui appelle un pipeline selon un planning horaire.
 

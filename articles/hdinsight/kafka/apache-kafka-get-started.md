@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d0917894250c8cf907d721749be506d2c247111a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 17f7bc4d9325dd8040036e218c43e418f3c51b68
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626315"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021206"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guide de démarrage rapide : Créer un cluster Kafka sur HDInsight
 
@@ -76,7 +76,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
     | Paramètre | Valeur |
     | --- | --- |
     | Type du cluster | Kafka |
-    | Version | Kafka 0.10.0 (HDI 3.6) |
+    | Version | Kafka 1.0.0 (HDI 3.6) |
 
     Utilisez le bouton **Sélectionner** pour enregistrer les paramètres de type de cluster et revenir à __Informations de base__.
 

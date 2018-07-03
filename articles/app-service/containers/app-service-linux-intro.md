@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: dab9e7b4ee62624ba32b7b6b41d0dee5ac01af09
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598315"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031682"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Présentation d’Azure App Service sur Linux
 
@@ -76,7 +76,7 @@ Le portail Azure affiche uniquement les fonctionnalités compatibles avec Web Ap
 
 Certaines fonctionnalités, telles que l’intégration de réseau virtuel, l’authentification Azure Active Directory/tierce, ou les extensions de site Kudu, ne sont pas encore disponibles. Dès qu’elles le seront, nous mettrons à jour notre documentation et nous annoncerons les modifications sur notre blog.
 
-App Service sur Linux n’est pris en charge que par les plans App Service [De base et Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) et ne dispose pas d’un niveau [Gratuit ou Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). Il n’est pas possible de créer des applications Web App pour conteneurs dans un plan App Service qui héberge déjà des applications web autres que Linux. Il existe également une limitation concernant le mélange d’applications Windows et Linux dans le même groupe de ressources.
+App Service sur Linux n’est pris en charge que par les plans App Service [De base, Standard et Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) et ne dispose pas d’un niveau [Gratuit ou Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). [Linux sur ASE (niveau isolé)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/) est en préversion et n’est pas pris en charge actuellement pour les charges de travail en production. Il n’est pas possible de créer des applications Web App for Containers dans un plan App Service qui héberge déjà des applications web autres que Linux. Il existe une limitation actuelle qui impose de ne pas mélanger des applications Windows et Linux dans le même groupe de ressources.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

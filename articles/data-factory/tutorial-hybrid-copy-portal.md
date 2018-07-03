@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27e7d6f22678bf33ffd81fb34472fe4add3f9a15
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171561"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045459"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce didacticiel, vous allez utiliser l’interface utilisateur d’Azure Data Factory pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale vers un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud.
 
 > [!NOTE]
-> Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 de Data Factory, qui est généralement disponible, consultez la [Documentation de Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
 > Cet article ne fournit pas de présentation détaillée de Data Factory. Pour plus d’informations, consultez [Présentation d’Azure Data Factory](introduction.md). 
 
 Dans ce didacticiel, vous effectuerez les étapes suivantes :
@@ -40,7 +38,6 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Surveiller l’exécution du pipeline.
 
 ## <a name="prerequisites"></a>Prérequis
-
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -129,21 +126,21 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
    
    ![Création d’une fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
-      
+   
      ![Page Nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
- 
-   Le nom de la fabrique de données doit être un *nom global unique*. Si le message d’erreur suivant s’affiche pour le champ du nom, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory). Consultez l’article [Azure Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les règles Data Factory.
-  
+
+Le nom de la fabrique de données doit être un *nom global unique*. Si le message d’erreur suivant s’affiche pour le champ du nom, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory). Consultez l’article [Azure Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les règles Data Factory.
+
    ![Nouveau nom de fabrique de données](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 5. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
-     
+   
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante.
 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.
-         
+        
     Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
-6. Sous **Version**, sélectionnez **V2 (préversion)**.
+6. Sous **Version**, sélectionnez **V2**.
 7. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par Data Factory peuvent se trouver dans d’autres régions.
 8. Sélectionnez **Épingler au tableau de bord**. 
 9. Sélectionnez **Créer**.
@@ -161,42 +158,55 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**. Un pipeline est automatiquement créé pour vous. Le pipeline apparaît dans l’arborescence et son éditeur s’ouvre. 
 
    ![Page Prise en main](./media/tutorial-hybrid-copy-portal/get-started-page.png)
+
 2. Sous l’onglet **Général** au bas de la fenêtre **Propriétés**, entrez **SQLServerToBlobPipeline** dans le champ **Nom**.
 
    ![Nom du pipeline](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
+
 3. Dans la boîte à outils **Activités**, développez **DataFlow**. Faites glisser et déposez l’activité **Copier** sur l’aire de conception du pipeline. Définissez le nom de l’activité sur **CopySqlServerToAzureBlobActivity**.
 
    ![Nom de l’activité](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
+
 4. Dans la fenêtre **Propriétés**, accédez à l’onglet **Source**, puis sélectionnez **+ Nouveau**.
 
    ![Onglet Source](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+
 5. Dans la fenêtre **Nouveau jeu de données**, recherchez **SQL Server**. Sélectionnez **SQL Server**, puis **Terminer**. Vous voyez un nouvel onglet intitulé **SqlServerTable1**. Vous voyez également le jeu de données **SqlServerTable1** dans l’arborescence sur la gauche. 
 
    ![Sélection de SQL Server](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
+
 6. Sous l’onglet **Général** au bas de la fenêtre **Propriétés**, entrez **SqlServerDataset** dans le champ **Nom**.
-    
+
    ![Nom du jeu de données source](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+
 7. Accédez à l’onglet **Connexion**, puis sélectionnez **+ Nouveau**. Vous créez une connexion à un magasin de données source (base de données SQL Server) dans cette étape. 
 
    ![Connexion à la source du jeu de données](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-8. Dans la fenêtre **Nouveau service lié**, sélectionnez **Nouveau runtime d’intégration**. Dans cette section, vous allez créer un runtime d’intégration auto-hébergé et l’associer à un ordinateur local avec la base de données SQL Server. Le runtime d’intégration auto-hébergé est le composant qui copie les données de la base de données SQL Server sur votre machine dans le stockage Blob. 
+
+8. Dans la fenêtre **Nouveau service lié**, ajoutez **Nom** en tant que **SqlServerLinkedService**. Sélectionnez **Nouveau** sous **Se connecter via le runtime d’intégration**. Dans cette section, vous allez créer un runtime d’intégration auto-hébergé et l’associer à un ordinateur local avec la base de données SQL Server. Le runtime d’intégration auto-hébergé est le composant qui copie les données de la base de données SQL Server sur votre machine dans le stockage Blob. 
 
    ![Nouveau runtime d’intégration](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
+
 9. Dans la fenêtre **Integration Runtime Setup** (Configuration du runtime d’intégration), sélectionnez **Réseau privé**, puis sélectionnez **Suivant**. 
 
    ![Sélection du réseau privé](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+
 10. Saisissez le nom du runtime d’intégration et sélectionnez **Suivant**.
-    
+
     ![Nom du runtime d’intégration](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+
 11. Sélectionnez **Click here to launch the express setup for this computer** (Cliquez ici pour lancer l’installation rapide pour cet ordinateur) sous **Option 1 : installation rapide**. 
 
     ![Lien d’installation rapide](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+
 12. Dans la fenêtre **Installation rapide d'Integration Runtime (auto-hébergé)**, sélectionnez **Fermer**. 
 
     ![Installation rapide d'Integration Runtime (auto-hébergé)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-13. Dans la fenêtre **Integration Runtime Setup** (Installation du runtime d’intégration) du navigateur web, sélectionnez **Terminer**. 
 
-    ![Installation du runtime d’intégration](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+13. Dans la fenêtre **Nouveau service lié**, vérifiez que le **Runtime d’intégration** créé ci-dessus est sélectionné sous **Se connecter via le runtime d’intégration**. 
+
+    ![](./media/tutorial-hybrid-copy-portal/select-integration-runtime.png)
+
 14. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     a. Dans le champ **Nom**, entrez **SqlServerLinkedService**.
@@ -213,9 +223,10 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
     g. Sélectionnez **Tester la connexion**. Effectuez cette étape pour confirmer que Data Factory peut se connecter à votre base de données SQL Server à l’aide du runtime d’intégration auto-hébergé que vous avez créé.
 
-    h. Sélectionnez **Enregistrer** pour enregistrer le service lié.
+    h. Sélectionnez **Terminer** pour enregistrer le service lié.
 
-       ![Paramètres du nouveau service lié](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+       
+
 15. Vous devez être revenu à la fenêtre avec le jeu de données source ouvert. Sous l’onglet **Connexion** de la fenêtre **Propriétés**, procédez comme suit : 
 
     a. Vérifiez que vous voyez **SqlServerLinkedService** dans le champ **Service lié**.
@@ -223,21 +234,27 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
     b. Sélectionnez **[dbo].[emp]** dans le champ **Table**.
 
     ![Jeu de données source - Informations de connexion](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+
 16. Accédez à l’onglet avec **SQLServerToBlobPipeline** ou sélectionnez **SQLServerToBlobPipeline** dans l’arborescence. 
 
     ![Onglet Pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+
 17. Accédez à l’onglet **Récepteur** au bas de la fenêtre **Propriétés**, puis sélectionnez **+ Nouveau**. 
 
     ![Onglet Récepteur](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+
 18. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Stockage Blob Azure**. Sélectionnez ensuite **Terminer**. Vous voyez un nouvel onglet ouvert pour le jeu de données. Vous voyez également le jeu de données dans l’arborescence. 
 
     ![Sélection du stockage Blob](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+
 19. Saisissez **AzureBlobDataset** dans le champ **Nom**.
 
     ![Nom du jeu de données récepteur](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+
 20. Accédez à l’onglet **Connexion** au bas de la fenêtre **Propriétés**. À côté de **Service lié**, sélectionnez **+ Nouveau**. 
 
     ![Bouton de nouveau service lié](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+
 21. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     a. Dans le champ **Nom**, entrez **AzureStorageLinkedService**.
@@ -249,28 +266,39 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
     d. Sélectionnez **Enregistrer**.
 
     ![Paramètres du service lié Stockage](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-22.  Vous devez être revenu à la fenêtre avec le jeu de données récepteur ouvert. Sous l’onglet **Connexion**, procédez comme suit : 
 
-        a. Vérifiez que **AzureStorageLinkedService** est sélectionné dans le champ **Service lié**.
+22. Vous devez être revenu à la fenêtre avec le jeu de données récepteur ouvert. Sous l’onglet **Connexion**, procédez comme suit : 
 
-        b. Pour la partie **dossier** du **chemin d’accès du fichier**, saisissez **adftutorial/fromonprem**. Si le dossier de sortie n’existe pas dans le conteneur adftutorial, Data Factory crée automatiquement le dossier de sortie.
+       a. Vérifiez que **AzureStorageLinkedService** est sélectionné dans le champ **Service lié**.
 
-        c. Pour la partie **nom du fichier** du **chemin d’accès du fichier**, saisissez `@CONCAT(pipeline().RunId, '.txt')`.
+       b. Pour la partie **dossier**/ **Répertoire** du **chemin d’accès du fichier**, saisissez **adftutorial/fromonprem**. Si le dossier de sortie n’existe pas dans le conteneur adftutorial, Data Factory crée automatiquement le dossier de sortie.
 
-     ![Connexion au jeu de données récepteur](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+       c. Pour la partie **nom de fichier** du **chemin d’accès du fichier**, sélectionnez **Ajouter du contenu dynamique**.   
+
+    ![valeur de nom de fichier dynamique](./media/tutorial-hybrid-copy-portal/file-name.png)
+
+       d. Ajoutez `@CONCAT(pipeline().RunId, '.txt')`, puis cliquez sur **Terminer**. Cela a pour effet de renommer le fichier avec PipelineRunID.txt. 
+
+    ![expression dynamique pour la résolution du nom de fichier](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
+
+    ![Connexion au jeu de données récepteur](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+
 23. Accédez à l’onglet avec le pipeline ouvert ou sélectionnez le pipeline dans l’arborescence. Vérifiez que **AzureBlobDataset** est sélectionné dans le champ **Jeu de données récepteur**. 
 
     ![Jeu de données récepteur sélectionné](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+
 24. Pour valider les paramètres du pipeline, cliquez sur **Valider** dans la barre d’outils du pipeline. Pour fermer le **rapport de validation de pipeline**, sélectionnez **Fermer**. 
 
     ![Valider le pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+
 25. Pour publier les entités que vous avez créées dans Data Factory, sélectionnez **Publish All** (Tout publier).
 
     ![Bouton Publier](./media/tutorial-hybrid-copy-portal/publish-button.png)
+
 26. Patientez jusqu’à ce que la fenêtre contextuelle **Réussite de la publication** s’affiche. Pour vérifier l’état de la publication, sélectionnez le lien **Afficher les notifications** situé sur la gauche. Pour fermer la fenêtre de notification, sélectionnez **Fermer**. 
 
     ![Publication réussie](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
-    
+
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
 Sélectionnez **Déclencher** dans la barre d’outils du pipeline, puis **Déclencher maintenant**.
@@ -287,15 +315,9 @@ Sélectionnez **Déclencher** dans la barre d’outils du pipeline, puis **Décl
     ![Surveiller des exécutions d’activités](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>Vérifier la sortie
-Le pipeline crée automatiquement le dossier de sortie nommé *fromonprem* dans le conteneur d’objets blob `adftutorial`. Vérifiez que le fichier *dbo.emp.txt* se trouve dans le dossier de sortie. 
+Le pipeline crée automatiquement le dossier de sortie nommé *fromonprem* dans le conteneur d’objets blob `adftutorial`. Vérifiez que le fichier *[pipeline().RunId].txt* se trouve dans le dossier de sortie. 
 
-1. Dans le portail Azure, dans la fenêtre du conteneur **adftutorial**, cliquez sur **Actualiser** pour afficher le dossier de sortie.
-
-    ![Dossier de sortie créé](media/tutorial-hybrid-copy-portal/fromonprem-folder.png)
-2. Sélectionnez `fromonprem` dans la liste des dossiers. 
-3. Vérifiez que le fichier nommé `dbo.emp.txt` s’affiche.
-
-    ![Fichier de sortie](media/tutorial-hybrid-copy-portal/fromonprem-file.png)
+![confirmer le nom du fichier de sortie](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

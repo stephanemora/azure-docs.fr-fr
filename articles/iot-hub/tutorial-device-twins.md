@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651395"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033668"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à synchroniser les informations d’état entre vos appareils et votre hub IoT en effectuant les tâches suivantes :
-
-> [!div class="checklist"]
-> * Créer un hub IoT et ajouter un appareil de test dans le registre des identités.
-> * Utiliser les propriétés souhaitées pour envoyer des informations d’état à votre appareil simulé.
-> * Utiliser les propriétés rapportées pour recevoir des informations d’état de votre appareil simulé.
-
-Passez au didacticiel suivant pour découvrir comment utiliser les jumeaux d’appareil pour implémenter un processus de mise à jour du microprogramme.
+Dans ce tutoriel vous avez appris à synchroniser les informations d’état entre vos appareils et votre hub IoT. Passez au didacticiel suivant pour découvrir comment utiliser les jumeaux d’appareil pour implémenter un processus de mise à jour du microprogramme.
 
 > [!div class="nextstepaction"]
-[Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT](tutorial-connectivity.md)
+[Implémenter un processus de mise à jour de microprogramme d’appareil](tutorial-firmware-update.md)

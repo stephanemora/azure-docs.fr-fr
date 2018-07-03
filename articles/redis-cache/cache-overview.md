@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195870"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062757"
 ---
 # <a name="what-is-azure-redis-cache"></a>Présentation du Cache Redis Azure
 
@@ -77,6 +77,7 @@ La page [Tarification Cache Redis](https://azure.microsoft.com/pricing/details/c
 
 * [Démarrage rapide ASP.NET](cache-web-app-howto.md) Créez une application web ASP.NET simple qui utilise un cache Redis Cache Azure.
 * [Démarrage rapide .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Créez une application .NET simple qui utilise un cache Redis Cache Azure.
+* [Démarrage rapide .NET Core](cache-dotnet-core-quickstart.md) Créez une application .NET Core simple qui utilise un cache Redis Cache Azure.
 * [Démarrage rapide Node.js](cache-nodejs-get-started.md) Créez une application Node.js simple qui utilise un cache Redis Cache Azure.
 * [Démarrage rapide Java](cache-java-get-started.md) Créez une application Java simple qui utilise un cache Redis Cache Azure.
 * [Démarrage rapide Python](cache-python-get-started.md) Créez une application Python simple qui utilise un cache Redis Cache Azure.

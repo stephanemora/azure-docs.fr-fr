@@ -14,20 +14,20 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6747dc6ef482fecba7e9fb4fae5748de377051eb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179597"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049795"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-introduction.md)
-> * [Version 2 - Préversion](../introduction.md)
+> * [Version 1](data-factory-introduction.md)
+> * [Version 2 (version actuelle)](../introduction.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif à la [présentation de Data Factory V2](../introduction.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez l’article [Présentation de Data Factory V2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
@@ -135,7 +135,7 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de données dans Azure Data Factory : 
 
 - Portail Azure
-- Visual Studio
+- Visual Studio
 - PowerShell
 - API .NET
 - de l’API REST

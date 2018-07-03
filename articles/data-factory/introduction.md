@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237003"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047273"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-introduction.md)
-> * [Version 2 - Préversion](introduction.md)
+> * [Version 1](v1/data-factory-introduction.md)
+> * [Version actuelle](introduction.md)
 
 Dans le monde des Big Data, les données brutes et désorganisées sont souvent enregistrées dans des systèmes de stockage relationnels, non-relationnels et autres systèmes. Toutefois, lorsqu’elles sont isolées, les données brutes n’ont pas le contexte ou la signification appropriés pour fournir des informations significatives aux analystes, aux scientifiques des données ou aux décideurs en entreprise. 
 
@@ -40,9 +40,6 @@ Azure Data Factory est la plateforme qui résout les scénarios de données de c
 En outre, vous pouvez publier des données de sortie vers des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. Enfin, via Azure Data Factory, les données brutes peuvent être organisées en magasins de données et lacs de données pertinents en vue d’améliorer les prises de décisions.
 
 ![Vue de niveau supérieur de Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez [Introduction à Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 Les pipelines (flux de travail orientés données) dans Azure Data Factory effectuent généralement les quatre étapes suivantes :
@@ -92,7 +89,7 @@ Data Factory fait appel aux services liés pour deux raisons :
 - Pour représenter une **ressource de calcul** qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsightHive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements Compute pris en charge, consultez l’article sur la [transformation des données](transform-data.md).
 
 ### <a name="triggers"></a>Déclencheurs
-Les déclencheurs correspondent à l’unité de traitement qui détermine le moment auquel une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements. Pour l’aperçu, Data Factory prend en charge le déclencheur par planificateur de temps horloge. 
+Les déclencheurs correspondent à l’unité de traitement qui détermine le moment auquel une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements.
 
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
 Une exécution du pipeline est une instance de l’exécution du pipeline. Les exécutions de pipeline sont généralement instanciées par la transmission des arguments aux paramètres définis dans les pipelines. Les arguments peuvent être transmis manuellement ou être inclus dans la définition du déclencheur.
@@ -124,8 +121,8 @@ Même si Data Factory est disponible uniquement dans les régions Est des États
 
 Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe de l’ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory dans l’Est des États-Unis en ou l’Est des États-Unis 2 et l’utiliser pour planifier des tâches sur vos environnements de calcul en Europe de l’ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
 
-## <a name="compare-with-version-2"></a>Comparer avec la version 2
-Pour obtenir la liste des différences entre les versions 1 et 2 du service Data Factory, consultez [Comparer avec la version 1](compare-versions.md). 
+## <a name="compare-with-version-1"></a>Comparer avec la version 1
+Pour obtenir la liste des différences entre la version 1 et la version actuelle du service Data Factory, consultez [Comparer avec la version 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Prise en main de la création d’un pipeline Data Factory à l’aide d’un des outils/kits de développement logiciel suivants : 

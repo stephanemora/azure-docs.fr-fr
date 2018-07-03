@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bd1b0f21162978496750886d32e7166c3a90922d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868294"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031679"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -103,8 +103,8 @@ Maintenant que vous avez téléchargé le serveur, vous pouvez l’installer et 
 
 1. Double-cliquez sur le fichier exécutable.
 2. Sur l'écran Sélectionner le dossier d’installation, assurez-vous que le dossier est correct, puis cliquez sur **Suivant**.
-3. Une fois l'installation terminée, cliquez sur **Terminer**.  L'Assistant de configuration démarre.
-4. Sur l’écran d’accueil de l’Assistant Configuration, cochez l’option **Ignorer l’Assistant Configuration de l’authentification**, puis cliquez sur **Suivant**.  La fermeture de l’Assistant intervient et le serveur démarre.
+3. Une fois l'installation terminée, cliquez sur **Terminer**. L'Assistant de configuration démarre.
+4. Sur l’écran d’accueil de l’Assistant Configuration, cochez l’option **Ignorer l’Assistant Configuration de l’authentification**, puis cliquez sur **Suivant**. La fermeture de l’Assistant intervient et le serveur démarre.
 
    ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -116,7 +116,7 @@ Pour faciliter le lancement, autorisez le serveur MFA à communiquer avec vos ut
 
 L’e-mail que vous envoyez doit être déterminé par la façon dont vous configurez vos utilisateurs pour la vérification en deux étapes. Par exemple, si vous pouvez importer les numéros de téléphone à partir du répertoire de l’entreprise, l’e-mail doit inclure les numéros de téléphone par défaut afin que les utilisateurs sachent à quoi s’attendre. Si vous ne pouvez pas importer les numéros de téléphone ou si les utilisateurs doivent recourir à l’application mobile, envoyez-leur un e-mail leur demandant d’effectuer l’inscription de leur compte. en fournissant un lien hypertexte permettant d’accéder au portail utilisateur Azure Multi-Factor Authentication.
 
-Le contenu de l’e-mail varie en fonction de la méthode de vérification définie pour l'utilisateur (appel téléphonique, SMS ou application mobile).  Par exemple, si l'utilisateur doit saisir un code confidentiel pour s'authentifier, l’e-mail lui indique le code confidentiel initial qui a été défini.  Les utilisateurs doivent modifier leur code PIN lors de leur première vérification.
+Le contenu de l’e-mail varie en fonction de la méthode de vérification définie pour l'utilisateur (appel téléphonique, SMS ou application mobile). Par exemple, si l'utilisateur doit saisir un code confidentiel pour s'authentifier, l’e-mail lui indique le code confidentiel initial qui a été défini. Les utilisateurs doivent modifier leur code PIN lors de leur première vérification.
 
 ### <a name="configure-email-and-email-templates"></a>Configuration du courrier électronique et des modèles de courrier électronique
 
@@ -130,14 +130,14 @@ L'onglet Contenu des e-mails présente tous les modèles d’e-mail disponibles.
 
 ## <a name="import-users-from-active-directory"></a>Importation des utilisateurs à partir d'Active Directory
 
-Maintenant que le serveur est installé, vous devez ajouter des utilisateurs. Vous pouvez les créer manuellement, importer des utilisateurs à partir d’Active Directory ou configurer la synchronisation automatique avec Active Directory.
+Maintenant que le serveur est installé, vous pouvez ajouter des utilisateurs. Vous pouvez les créer manuellement, importer des utilisateurs à partir d’Active Directory ou configurer la synchronisation automatique avec Active Directory.
 
 ### <a name="manual-import-from-active-directory"></a>Importation manuelle à partir d’Active Directory
 
 1. Sur la gauche du serveur Azure MFA, sélectionnez **Utilisateurs**.
 2. En bas de la page, sélectionnez **Importer à partir d’Active Directory**.
-3. Vous pouvez désormais rechercher des utilisateurs individuels ou bien le répertoire Active des unités d'organisation, composé lui-même d’utilisateurs.  Dans ce cas, nous spécifions l'unité d'organisation des utilisateurs.
-4. Mettez en surbrillance tous les utilisateurs mentionnés sur la droite, puis cliquez sur **Importer**.  Vous devriez recevoir un message vous indiquant que l’opération a été réalisée avec succès.  Fermez la fenêtre d'importation.
+3. Vous pouvez désormais rechercher des utilisateurs individuels ou bien le répertoire Active des unités d'organisation, composé lui-même d’utilisateurs. Dans ce cas, nous spécifions l'unité d'organisation des utilisateurs.
+4. Mettez en surbrillance tous les utilisateurs mentionnés sur la droite, puis cliquez sur **Importer**. Vous devriez recevoir un message vous indiquant que l’opération a été réalisée avec succès. Fermez la fenêtre d'importation.
 
    ![Importation des utilisateurs du serveur MFA](./media/howto-mfaserver-deploy/import2.png)
 
@@ -181,6 +181,10 @@ Si une restauration est nécessaire, procédez comme suit :
 5. Démarrez le service **MultiFactorAuth**.
 
 Le nouveau serveur est maintenant en place, avec les données d’utilisateur et de configuration d’origine que vous aviez sauvegardées.
+
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestion des protocoles TLS/SSL et des suites de chiffrement
+
+Une fois que vous avez installé la version 8.x ou ultérieure du serveur MFA ou que vous avez effectué une mise à niveau vers cette dernière, il est recommandé que les suites de chiffrement plus anciennes et plus faible soient désactivées ou supprimées, à moins qu’elles ne soient requises par votre organisation. Vous trouverez plus d’informations sur la manière d’effectuer cette tâche dans l’article [Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

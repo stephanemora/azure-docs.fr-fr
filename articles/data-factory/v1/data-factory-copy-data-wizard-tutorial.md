@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178087"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054482"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "30178087"
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, disponible en préversion, consultez [Documentation du didacticiel de l’activité de copie dans la version 2](../quickstart-create-data-factory-dot-net.md). 
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-dot-net.md). 
 
 
 Ce didacticiel vous montre comment utiliser **l’Assistant de copie** pour copier des données à partir d’un stockage Blob Azure dans une base de données SQL Azure. 
@@ -43,7 +43,6 @@ Ce didacticiel vous montre comment utiliser **l’Assistant de copie** pour copi
 Ce didacticiel vous montre comment créer une fabrique de données Azure, lancer l’Assistant Copie et suivre une série d’étapes pour fournir des informations sur votre scénario d’ingestion/déplacement de données. Une fois les étapes de l’Assistant terminées, celui-ci crée automatiquement un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure à une base de données SQL Azure. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Assurez-vous que vous respectez la configuration requise décrite dans l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) avant de suivre ce didacticiel.
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
@@ -76,7 +75,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Lancer l’Assistant Copie
-1. Dans le panneau Fabrique de données, cliquez sur **Copier les données [VERSION PRÉLIMINAIRE]** pour lancer **l’Assistant de copie**. 
+1. Dans le panneau Fabrique de données, cliquez sur **Copier les données** pour lancer **l’Assistant de copie**. 
    
    > [!NOTE]
    > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) dans les paramètres du navigateur (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis essayez de relancer l’Assistant.
