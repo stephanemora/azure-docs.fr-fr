@@ -5,6 +5,8 @@
     - name: "Qu’est-ce que le service de reconnaissance vocale\_?"
       href: overview.md
       expanded: true
+    - name: Scénarios de reconnaissance vocale
+      href: speech-scenarios.md
 - name: Démarrages rapides
   items:
     - name: Essayez le service de reconnaissance vocale gratuitement
@@ -17,18 +19,6 @@
       href: quickstart-cpp-linux.md
     - name: Prise en main du Kit de développement logiciel (SDK) de dispositifs vocaux
       href: speech-devices-sdk-qsg.md
-- name: Personnalisation
-  items:
-    - name: Modèles vocaux personnalisés
-      href: how-to-customize-speech-models.md
-    - name: Personnaliser les polices de la voix
-      href: how-to-customize-voice-font.md
-    - name: Préparer les transcriptions
-      href: prepare-transcription.md
-    - name: Utiliser des flux audio personnalisés
-      href: how-to-use-audio-input-streams.md
-    - name: Personnaliser le mot déclencheur de l’appareil (SDK d’appareil)
-      href: speech-devices-sdk-create-kws.md
 - name: Procédures
   items:
     - name: Reconnaissance vocale
@@ -37,10 +27,26 @@
       href: how-to-text-to-speech.md
     - name: Traduction vocale
       href: how-to-translate-speech.md
+    - name: Transcription du traitement
+      href: batch-transcription.md
     - name: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
       href: get-speech-devices-sdk.md
-    - name: Transcription par lot (centres d’appels)
-      href: batch-transcription.md
+- name: Personnalisation
+  items:
+    - name: Personnaliser les modèles acoustiques
+      href: how-to-customize-acoustic-models.md
+    - name: Personnaliser les modèles de langage
+      href: how-to-customize-language-model.md
+    - name: Personnaliser la prononciation
+      href: how-to-customize-pronunciation.md
+    - name: Personnaliser les polices de la voix (voix du chatbot)
+      href: how-to-customize-voice-font.md
+    - name: Préparer les transcriptions
+      href: prepare-transcription.md
+    - name: Utiliser des flux audio personnalisés
+      href: how-to-use-audio-input-streams.md
+    - name: Personnaliser le mot déclencheur de l’appareil (SDK d’appareil)
+      href: speech-devices-sdk-create-kws.md
 - name: Exemples
   items:
     - name: Télécharger des exemples

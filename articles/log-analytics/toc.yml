@@ -169,94 +169,104 @@
           href: log-analytics-agent-linux-support.md
     - name: Utiliser des solutions
       items:
-        - name: Présentation des solutions
-          href: log-analytics-add-solutions.md
+        - name: Installer des solutions
+          href: ../monitoring/monitoring-solutions.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Inventaire de solutions
+          href: ../monitoring/monitoring-solutions-inventory.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Solutions cibles
           href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Journaux d’activité Azure
+        - name: Guides sur les solutions
           items:
-            - name: Analytics
-              href: log-analytics-activity.md
-            - name: Collection entre des abonnements
-              href: log-analytics-activity-logs-subscriptions.md
-        - name: AD Assessment
-          href: log-analytics-ad-assessment.md
-        - name: AD Replication Status
-          href: log-analytics-ad-replication-status.md
-        - name: Agent Health
-          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Gestion des alertes
-          href: log-analytics-solution-alert-management.md
-        - name: Application Insights Connector
-          href: log-analytics-app-insights-connector.md
-        - name: Azure SQL Analytics
-          href: log-analytics-azure-sql.md
-        - name: Azure Web Apps Analytics
-          href: log-analytics-azure-web-apps-analytics.md
-        - name: Capacité et performances
-          href: log-analytics-capacity.md
-        - name: Suivi des modifications
-          href: log-analytics-change-tracking.md
-        - name: Containers
-          href: log-analytics-containers.md
-        - name: DNS Analytics
-          href: log-analytics-dns.md
-        - name: Connecteur de gestion des services informatiques
-          href: log-analytics-itsmc-overview.md
-          items:
-            - name: Connexions de gestion des services informatiques
-              href: log-analytics-itsmc-connections.md
-        - name: Key Vault
-          href: log-analytics-azure-key-vault.md
-        - name: "Messages Logic\_Apps\_B2B"
-          items:
-            - name: "Solution Messages Logic\_Apps\_B2B"
-              href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: "Schéma de suivi personnalisé Logic\_Apps\_B2B"
-              href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Analyse de mise en réseau
-          href: log-analytics-azure-networking-analytics.md
-        - name: Network Performance Monitor
-          items:
-            - name: Vue d’ensemble de la solution
-              href: log-analytics-network-performance-monitor.md
-            - name: Analyseur de performances
-              href: log-analytics-network-performance-monitor-performance-monitor.md
-            - name: Point de terminaison de service
-              href: log-analytics-network-performance-monitor-service-endpoint.md
-            - name: ExpressRoute
-              href: log-analytics-network-performance-monitor-expressroute.md
-            - name: Tarifs
-              href: log-analytics-network-performance-monitor-pricing-faq.md
-        - name: "Office\_365"
-          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Contrôle d’intégrité de SCOM
-          href: log-analytics-scom-assessment.md
-        - name: Audit de la sécurité
-          href: ../security-center/security-center-intro.md
-        - name: Service Fabric avec Azure PowerShell
-          href: log-analytics-service-fabric.md
-          items:
-            - name: Service Fabric avec Azure Resource Manager
-              href: log-analytics-service-fabric-azure-resource-manager.md
-        - name: Service Map
-          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Contrôle d’intégrité de SQL
-          href: log-analytics-sql-assessment.md
-        - name: Surface Hub
-          href: log-analytics-surface-hubs.md
-        - name: Update Management
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: VMware
-          href: log-analytics-vmware.md
-        - name: Windows Analytics
-          items:
-            - name: Update Compliance
-              href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
-            - name: Upgrade Readiness
-              href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
-        - name: Wire Data
-          href: log-analytics-wire-data.md
+            - name: Journaux d’activité Azure
+              items:
+                - name: Analytics
+                  href: log-analytics-activity.md
+                - name: Collection entre des abonnements
+                  href: log-analytics-activity-logs-subscriptions.md
+            - name: AD Assessment
+              href: log-analytics-ad-assessment.md
+            - name: AD Replication Status
+              href: log-analytics-ad-replication-status.md
+            - name: Agent Health
+              href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Gestion des alertes
+              href: log-analytics-solution-alert-management.md
+            - name: Application Insights Connector
+              href: log-analytics-app-insights-connector.md
+            - name: Azure SQL Analytics
+              href: log-analytics-azure-sql.md
+            - name: Azure Web Apps Analytics
+              href: log-analytics-azure-web-apps-analytics.md
+            - name: Capacité et performances
+              href: log-analytics-capacity.md
+            - name: Suivi des modifications
+              href: log-analytics-change-tracking.md
+            - name: Containers
+              href: log-analytics-containers.md
+            - name: DNS Analytics
+              href: log-analytics-dns.md
+            - name: Connecteur de gestion des services informatiques
+              href: log-analytics-itsmc-overview.md
+              items:
+                - name: Connexions de gestion des services informatiques
+                  href: log-analytics-itsmc-connections.md
+            - name: Key Vault
+              href: log-analytics-azure-key-vault.md
+            - name: "Messages Logic\_Apps\_B2B"
+              items:
+                - name: "Solution Messages Logic\_Apps\_B2B"
+                  href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: "Schéma de suivi personnalisé Logic\_Apps\_B2B"
+                  href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Analyse de mise en réseau
+              href: log-analytics-azure-networking-analytics.md
+            - name: Network Performance Monitor
+              items:
+                - name: Vue d’ensemble de la solution
+                  href: log-analytics-network-performance-monitor.md
+                - name: Analyseur de performances
+                  href: log-analytics-network-performance-monitor-performance-monitor.md
+                - name: Point de terminaison de service
+                  href: log-analytics-network-performance-monitor-service-endpoint.md
+                - name: ExpressRoute
+                  href: log-analytics-network-performance-monitor-expressroute.md
+                - name: Tarifs
+                  href: log-analytics-network-performance-monitor-pricing-faq.md
+            - name: "Office\_365"
+              href: ../monitoring/monitoring-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Contrôle d’intégrité de SCOM
+              href: log-analytics-scom-assessment.md
+            - name: Audit de la sécurité
+              href: ../security-center/security-center-intro.md
+            - name: Service Fabric avec Azure PowerShell
+              href: log-analytics-service-fabric.md
+              items:
+                - name: Service Fabric avec Azure Resource Manager
+                  href: log-analytics-service-fabric-azure-resource-manager.md
+            - name: Service Map
+              items:
+                - name: Utilisation
+                  href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Configuration
+                  href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Intégration avec Operations Manager
+                  href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Contrôle d’intégrité de SQL
+              href: log-analytics-sql-assessment.md
+            - name: Surface Hub
+              href: log-analytics-surface-hubs.md
+            - name: Update Management
+              href: ../automation/automation-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: VMware
+              href: log-analytics-vmware.md
+            - name: Windows Analytics
+              items:
+                - name: Update Compliance
+                  href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
+                - name: Upgrade Readiness
+                  href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
+            - name: Wire Data
+              href: log-analytics-wire-data.md
     - name: Développement
       items:
         - name: "Applets de commande\_PowerShell"

@@ -186,12 +186,6 @@
 ### [Prise en main](manage-apps/plan-an-application-integration.md)
 ### [Didacticiels d’intégration d’applications SaaS](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Créer des rapports d’instantanés](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Configurer le reporting continu](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Utiliser un analyseur de journal personnalisé](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [Approvisionnement/déprovisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md) 
 #### [Didacticiels d’intégration d’applications](saas-apps/tutorial-list.md) 
 #### [Automatiser l’approvisionnement vers des applications prenant en charge le protocole SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) 
@@ -386,6 +380,7 @@
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Déléguer l’accès aux ressources
+### [Afficher les membres d’un rôle d’administrateur](directory-manage-roles-portal.md)
 ### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
 #### [Affecter un rôle d’administrateur à un utilisateur](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparer les autorisations des invités et des membres](fundamentals/users-default-permissions.md)
