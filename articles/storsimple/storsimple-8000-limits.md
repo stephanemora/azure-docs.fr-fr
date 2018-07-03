@@ -56,7 +56,7 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
 
-& #42; & #42; Les données de performances avant la version Update 3 peuvent être inférieures.
+&#42;&#42; Les données de performances avant la version Update 3 peuvent être inférieures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Relisez les [Conditions requises pour le système StorSimple](storsimple-8000-system-requirements.md).
