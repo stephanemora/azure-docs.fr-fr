@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 00e4da5fa1867aeddebe0e452f78ea24a3d0a821
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808517"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016605"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin
 
@@ -45,11 +45,11 @@ Vous devez également installer la [console Gremlin](http://tinkerpop.apache.org
 
 ## <a id="ConnectAppService"></a>Connexion à votre App Service
 1. Avant de démarrer la console Gremlin, créez ou modifiez le fichier config remote-secure.yaml dans le répertoire `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Renseignez vos configurations *hôte*, *port*, *nom d’utilisateur*, *mot de passe*, *connectionPool* et *sérialiseur* :
+2. Renseignez vos configurations *host*, *port*, *username*, *password*, *connectionPool* et *serializer* telles que définies dans le tableau suivant :
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    hôtes|[*account-name*.gremlin.cosmosdb.azure.com] ou [*account-name*.graphs.azure.com] pour les comptes créés avant le 20 décembre 2017|Voir la capture d’écran suivante. Il s’agit de la valeur URI Gremlin sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée.<br><br>Cette valeur peut également être récupérée à partir de l’onglet Clés, à l’aide de la valeur URI, en supprimant https://, en changeant documents par graphs ou gremlin.cosmosdb et en supprimant la fin : 443/.
+    hôtes|[*account-name*.gremlin.cosmosdb.azure.com] ou [*account-name*.graphs.azure.com] pour les comptes créés avant le 20 décembre 2017|Voir la capture d’écran suivante. Il s’agit de la valeur URI Gremlin sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée.
     port|443|Définissez la valeur sur 443.
     username|*Votre nom d’utilisateur*|Ressource sous la forme `/dbs/<db>/colls/<coll>`, où `<db>` est le nom de votre base de données et `<coll>` le nom de votre collection.
     password|*Votre clé primaire*| Reportez-vous à la deuxième capture d’écran ci-dessous. Il s’agit de votre clé primaire, que vous pouvez récupérer à partir de la page Clés du portail Azure, dans la zone Clé primaire. Utilisez le bouton Copier sur le côté gauche de la zone pour copier la valeur.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dc67de00abb2eac2eeb6e2b6bf3798e3aa210152
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949886"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958674"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : créer et déployer une application avec un service frontal API Web Java et un service principal avec état
 Ce didacticiel est la première partie d’une série d’étapes. Lorsque vous avez terminé, vous disposez d’une application Voting avec un service frontal Java qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Cette série de didacticiels nécessite une machine de développeur Mac OSX ou Linux. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source pour obtenir l’application terminée](https://github.com/Azure-Samples/service-fabric-java-quickstart) et passer directement au [Guide de l’exemple d’application de vote](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
@@ -44,7 +44,6 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Configurez votre environnement de développement pour [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md). Suivez les instructions pour installer le plug-in Eclipse, Gradle, le Kit de développement logiciel (SDK) Service Fabric et l’interface CLI Service Fabric (sfctl).
@@ -597,7 +596,7 @@ La structure du service frontal sans état et du service principal est maintenan
     }
     
     dependencies {
-        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0')
     }
     
     jar {
@@ -899,7 +898,7 @@ Dans cette section, les scripts Gradle du projet sont configurés.
 
 4. Dans l’Explorateur de package, cliquez avec le bouton droit sur le projet **Voting** et sélectionnez **Service Fabric -> Publish Application...** (Publier une application...)$$$. 
 5. Dans la fenêtre **Publish Application** (Publier une application), sélectionnez **Local.json** dans la liste déroulante, puis cliquez sur **Publier**.
-6. À partir de votre navigateur web, accédez à **http://localhost: 8080** pour afficher l’application en cours d’exécution sur le cluster Service Fabric local. 
+6. À partir de votre navigateur web, accédez à **http://localhost:8080** pour afficher votre application en cours d’exécution sur le cluster Service Fabric local. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cette partie du didacticiel, vous avez appris à :

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a5e6b24bbf7cc21d40cea8e4331de98a5cc05a6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834416"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752144"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
 
@@ -41,8 +41,8 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 ## <a name="open-the-log-search-portal"></a>Ouvrir le portail Recherche dans les journaux 
 Commencez par ouvrir le portail Recherche dans les journaux.   
 
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
-2. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis la vignette **Recherche dans les journaux**.<br><br> ![Bouton Recherche dans les journaux](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
+1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez **Moniteur**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Moniteur**.
+2. Dans le menu de navigation Moniteur, sélectionnez **Log Analytics**, puis sélectionnez un espace de travail.
 
 ## <a name="create-a-simple-search"></a>Créer une recherche simple
 Le moyen le plus rapide de récupérer des données à utiliser consiste à faire appel à une requête simple qui retourne tous les enregistrements d’une table.  Si vous avez des clients Windows ou Linux connectés à votre espace de travail, vous aurez des données dans la table Event (Windows) ou Syslog (Linux).
@@ -124,7 +124,7 @@ Perf
 Retourner plusieurs millions d’enregistrements pour tous les objets de performances et compteurs n’est cependant pas très utile.  Vous pouvez appliquer les mêmes méthodes que ci-dessus pour filtrer les données, ou simplement taper la requête suivante directement dans la zone de recherche dans les journaux.  Cela retourne uniquement les enregistrements d’utilisation des processeurs pour les ordinateurs Windows et Linux.
 
 ```
-Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
+Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time"
 ```
 
 ![Utilisation des processeurs](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
@@ -132,7 +132,9 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 Cela limite les données à un compteur spécifique, mais sous une forme qui n’est encore pas particulièrement utile.  Vous pouvez afficher les données dans un graphique en courbes, mais vous devez d’abord les regrouper par Computer et TimeGenerated.  Pour regrouper sur plusieurs champs, vous devez modifier la requête directement, comme suit.  Cette requête utilise la fonction [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) sur la propriété **CounterValue** pour calculer la valeur moyenne durant chaque heure.
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
+Perf  
+| where ObjectName == "Processor"  | where CounterName == "% Processor Time"
+| summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
 ![Graphique de données de performances](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
@@ -140,7 +142,10 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 Maintenant que les données sont regroupées convenablement, vous pouvez les afficher dans un graphique en ajoutant l’opérateur [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
+Perf  
+| where ObjectName == "Processor" | where CounterName == "% Processor Time" 
+| summarize avg(CounterValue) by Computer, TimeGenerated 
+| render timechart
 ```
 
 ![Graphique en courbes](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)

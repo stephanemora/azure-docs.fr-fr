@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fcedba0a5b8a9684216f181a6d16f86044edb961
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10b2e77a89e2b8d7481559396d102177cf70161c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651369"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307361"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : configurer l’administrateur du serveur et les rôles d’utilisateur
 
@@ -67,7 +67,7 @@ Pour les tâches restantes, vous utilisez SSMS pour vous connecter à votre serv
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Ajouter un compte d’utilisateur au rôle d’administrateur du serveur
 
-Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe à partir d’Azure AD pour le rôle d’administrateur de serveur.
+Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe à partir d’Azure AD pour le rôle d’administrateur de serveur. Si vous ajoutez un groupe de sécurité, il doit avoir la propriété `MailEnabled` définie sur `True`.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur votre nom de serveur, puis cliquez sur **Propriétés**. 
 2. Dans la fenêtre **Propriétés de Analysis Server**, cliquez sur **Sécurité** > **Ajouter**.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642391"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959543"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Démarrage rapide : Déployer une application de services fiables Service Fabric de Java sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
@@ -120,13 +120,13 @@ Utilisez la méthode qui vous convient le mieux pour importer les certificats su
 
 L’empreinte numérique du certificat doit être ajoutée à votre application, car elle utilise les modèles de programmation Service Fabric. 
 
-1. Vous aurez besoin de l’empreinte numérique du certificat dans le fichier ```Voting/VotingApplication/ApplicationManiest.xml``` lors de l’exécution sur un cluster sécurisé. Exécutez la commande suivante pour extraire l’empreinte numérique du certificat.
+1. Vous aurez besoin de l’empreinte numérique du certificat dans le fichier `Voting/VotingApplication/ApplicationManifest.xml` lors de l’exécution sur un cluster sécurisé. Exécutez la commande suivante pour extraire l’empreinte numérique du certificat.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. Dans le ```Voting/VotingApplication/ApplicationManiest.xml```, ajoutez l’extrait de code suivant sous la balise **ApplicationManifest**. Le **X509FindValue** doit être l’empreinte numérique de l’étape précédente (aucun point-virgule). 
+2. Dans le fichier `Voting/VotingApplication/ApplicationManifest.xml`, ajoutez l’extrait suivant sous la balise **ApplicationManifest**. Le **X509FindValue** doit être l’empreinte numérique de l’étape précédente (aucun point-virgule). 
 
     ```xml
     <Certificates>

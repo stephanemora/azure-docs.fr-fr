@@ -1,6 +1,6 @@
 ---
 title: Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure | Microsoft Docs
-description: Découvrez comment gérer l’accès pour les utilisateurs, groupes et applications, à l’aide du Contrôle d’accès en fonction du rôle (RBAC) et du portail Azure. Cela inclut l’énumération des accès, l’octroi de l’accès et la suppression de l’accès.
+description: Découvrez comment gérer l’accès pour les utilisateurs, groupes et applications, à l’aide du Contrôle d’accès en fonction du rôle (RBAC) et du portail Azure. Cela comprend comment dresser la liste d’accès, accorder l’accès et supprimer l’accès.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8f2c77a366c96455016894c042868d080551bc6a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0aec1f50225bea25d5f68289c22ccc7b69703f7a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295862"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317944"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure
 
@@ -92,7 +92,7 @@ Lorsque vous gérez des accès, vous souhaitez savoir quelles sont les personnes
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle.
+Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
 
 ### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Créer une attribution de rôle à une étendue d’abonnement
 

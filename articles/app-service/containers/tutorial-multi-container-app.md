@@ -1,7 +1,7 @@
 ---
-title: Création d’une application à plusieurs conteneurs (version préliminaire) à l’aide d’Azure Web App pour conteneurs
+title: Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 description: Découvrez comment utiliser plusieurs conteneurs sur Azure avec des fichiers de configuration Docker Compose et Kubernetes, avec une application WordPress et MySQL.
-keywords: azure app service, application web, linux, docker, composer, plusieurs conteneurs, conteneur, kubernetes
+keywords: azure app service, application web, linux, docker, compose, multiconteneur, conteneur, kubernetes
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -15,22 +15,22 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651379"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751912"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Didacticiel : Création d’une application à plusieurs conteneurs (version préliminaire) à l’aide d’Azure Web App pour conteneurs
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Didacticiel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce didacticiel, vous allez apprendre à créer une application à plusieurs conteneurs à l’aide de WordPress et de MySQL.
+[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce didacticiel, vous allez apprendre à créer une application multiconteneur à l’aide de WordPress et de MySQL.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Convertir une configuration Docker Compose pour travailler avec Web App pour conteneurs
 > * Convertir une configuration Kubernetes pour travailler avec Web App pour conteneurs
-> * Déployer une application à plusieurs conteneurs vers Azure
+> * Déployer une application multiconteneur sur Azure
 > * Ajouter des paramètres d’application
 > * Utiliser le stockage persistant pour vos conteneurs
 > * Se connecter à la base de données Azure pour MySQL
@@ -145,7 +145,7 @@ Copiez et collez la configuration YAML locale suivante dans un fichier nommé `c
 
 ## <a name="create-a-docker-compose-app"></a>Création d’une application Docker Compose
 
-Dans votre terminal d’invite de commande local, créez une[application web](app-service-linux-intro.md) à plusieurs conteneurs dans le `myAppServicePlan`plan App Service avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans votre terminal d’invite de commandes local, créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -172,9 +172,9 @@ Une fois l’application web créée, Azure CLI affiche une sortie similaire �
 
 Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.net`). Le chargement de l’application peut prendre plusieurs minutes. Si vous recevez une erreur, attendez quelques minutes supplémentaires, puis actualisez le navigateur. Si vous rencontrez des difficultés et souhaitez résoudre les problèmes, consultez les [journaux du conteneur](#find-docker-container-logs).
 
-![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
+![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
 
-**Félicitations**, vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs. Ensuite, vous devez configurer votre application pour utiliser Azure Database pour MySQL. N’installez pas WordPress pour le moment.
+**Félicitations**, vous avez créé une application multiconteneur dans Web App pour conteneurs. Ensuite, vous devez configurer votre application pour utiliser Azure Database pour MySQL. N’installez pas WordPress pour le moment.
 
 ## <a name="connect-to-production-database"></a>Connexion à la base de données de production
 
@@ -311,7 +311,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Mise à jour avec la nouvelle configuration
 
-Dans votre terminal d’invite de commande local, reconfigurez votre [application web](app-service-linux-intro.md) à plusieurs conteneurs avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par le nom de l’application web créée précédemment.
+Dans votre terminal d’invite de commandes local, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par le nom de l’application web créée précédemment.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -332,11 +332,11 @@ Une fois l’application web reconfigurée, Azure CLI affiche des informations s
 
 Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.net`). L’application utilise maintenant Azure Database pour MySQL.
 
-![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
+![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
 
 ## <a name="add-persistent-storage"></a>Ajout de stockage persistant
 
-Votre conteneur à plusieurs applications s’exécute maintenant dans Web App pour conteneurs. Toutefois, si vous installez WordPress maintenant et redémarrez votre application plus tard, vous verrez que l’installation de WordPress a disparu. Cela se produit parce que votre configuration Docker Compose pointe actuellement vers un emplacement de stockage à l’intérieur de votre conteneur. Les fichiers installés dans le conteneur ne sont pas conservés après le redémarrage de l’application. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
+Votre application multiconteneur s’exécute maintenant dans Web App pour conteneurs. Toutefois, si vous installez WordPress maintenant et redémarrez votre application plus tard, vous verrez que l’installation de WordPress a disparu. Cela se produit parce que votre configuration Docker Compose pointe actuellement vers un emplacement de stockage à l’intérieur de votre conteneur. Les fichiers installés dans le conteneur ne sont pas conservés après le redémarrage de l’application. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
@@ -387,7 +387,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Mise à jour avec la nouvelle configuration
 
-Dans votre terminal d’invite de commande local, reconfigurez votre [application web](app-service-linux-intro.md) à plusieurs conteneurs avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans votre terminal d’invite de commandes local, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -458,7 +458,7 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 
 ### <a name="update-app-with-new-configuration"></a>Mise à jour avec la nouvelle configuration
 
-Dans votre terminal d’invite de commande local, reconfigurez votre [application web](app-service-linux-intro.md) à plusieurs conteneurs avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans votre terminal d’invite de commandes local, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,7 +511,7 @@ WordPress se connecte au serveur Redis. **L’état** de la connexion apparaît 
 
 Dans cette section, vous allez apprendre à utiliser une configuration Kubernetes pour déployer plusieurs conteneurs. Assurez-vous de suivre la procédure précédente pour créer un [groupe de ressources](#create-a-resource-group) et un [plan App Service](#create-an-azure-app-service-plan). Étant donné que cette procédure est quasiment similaire à celle de la section sur la composition, le fichier de configuration a été combiné pour vous.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Options Kubernetes prises en charge pour l’application à plusieurs conteneurs
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Options Kubernetes prises en charge pour une application multiconteneur
 
 * args
 * command
@@ -627,7 +627,7 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 
 ### <a name="add-persistent-storage"></a>Ajout de stockage persistant
 
-Votre conteneur à plusieurs applications s’exécute maintenant dans Web App pour conteneurs. Les données seront effacées lors du redémarrage, car les fichiers n’ont pas été rendus persistants. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
+Votre application multiconteneur s’exécute maintenant dans Web App pour conteneurs. Les données seront effacées lors du redémarrage, car les fichiers n’ont pas été rendus persistants. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
@@ -649,9 +649,9 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Création d’une application à plusieurs conteneurs (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Créer une application multiconteneur (Kubernetes)
 
-Dans votre terminal d’invite de commande local, créez une[application web](app-service-linux-intro.md) à plusieurs conteneurs dans le `myResourceGroup`groupe de ressources et le `myAppServicePlan`plan App Service avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans votre terminal d’invite de commandes local, créez une [application web](app-service-linux-intro.md) multiconteneur dans le groupe de ressources `myResourceGroup` et le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
@@ -679,9 +679,9 @@ Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.ne
 
 L’application exécute maintenant plusieurs conteneurs dans Web App pour conteneurs.
 
-![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
+![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
 
-**Félicitations**, vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs.
+**Félicitations**, vous avez créé une application multiconteneur dans Web App pour conteneurs.
 
 Pour utiliser Redis, suivez la procédure dans [Connexion de WordPress à Redis](#connect-wordpress-to-redis).
 
@@ -711,7 +711,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Convertir une configuration Docker Compose pour travailler avec Web App pour conteneurs
 > * Convertir une configuration Kubernetes pour travailler avec Web App pour conteneurs
-> * Déployer une application à plusieurs conteneurs vers Azure
+> * Déployer une application multiconteneur sur Azure
 > * Ajouter des paramètres d’application
 > * Utiliser le stockage persistant pour vos conteneurs
 > * Se connecter à la base de données Azure pour MySQL

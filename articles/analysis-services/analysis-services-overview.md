@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234554"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937935"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -31,7 +31,7 @@ Dans le portail Azure, vous pouvez [créer un serveur](analysis-services-create-
 
 **Vidéo**: consultez [Automating deployent](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Automatisation du déploiement) pour en savoir plus sur la façon dont vous pouvez utiliser Azure Automation pour accélérer la création du serveur.
 
-Azure Analysis Services s’intègre à de nombreux services Azure qui vous permettent de créer des solutions d’analyse élaborées. Son intégration à [Azure Active Directory](../active-directory/active-directory-whatis.md) assure un accès sécurisé en fonction du rôle à vos données critiques. L’intégration aux pipelines [Azure Data Factory](../data-factory/introduction.md) est possible grâce à l’inclusion d’une activité qui charge des données dans le modèle. [Azure Automation](../automation/automation-intro.md) et [Azure Functions](../azure-functions/functions-overview.md) sont utilisables pour une orchestration légère de modèles à l’aide d’un code personnalisé. 
+Azure Analysis Services s’intègre à de nombreux services Azure qui vous permettent de créer des solutions d’analyse élaborées. Son intégration à [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) assure un accès sécurisé en fonction du rôle à vos données critiques. L’intégration aux pipelines [Azure Data Factory](../data-factory/introduction.md) est possible grâce à l’inclusion d’une activité qui charge des données dans le modèle. [Azure Automation](../automation/automation-intro.md) et [Azure Functions](../azure-functions/functions-overview.md) sont utilisables pour une orchestration légère de modèles à l’aide d’un code personnalisé. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>Le niveau approprié, quand vous en avez besoin
 
@@ -72,39 +72,41 @@ Ce niveau est destiné aux applications de production stratégiques qui nécessi
 
 ## <a name="availability-by-region"></a>Disponibilité par région
 
-Azure Analysis Services est pris en charge dans les régions du monde entier. Garantissez-vous une [haute disponibilité](analysis-services-bcdr.md) en déployant vos modèles sur des serveurs redondants dans plusieurs régions. Les niveaux pris en charge et les réplicas de requête dépendent de la région que vous choisissez. 
+Azure Analysis Services est pris en charge dans les régions du monde entier. Les plans pris en charge et la disponibilité des réplicas de requête dépendent de la région que vous choisissez. La disponibilité des plans et des réplicas de requête peut varier en fonction des besoins et des ressources disponibles pour chaque région. 
 
 ### <a name="americas"></a>Amérique
 
-|Région  | Niveaux pris en charge | Réplicas de requête |
+|Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
 |Sud du Brésil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centre du Canada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Est des États-Unis     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Est des États-Unis 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Est des États-Unis 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Centre-Nord des États-Unis     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centre des États-Unis     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Centre des États-Unis     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |États-Unis - partie centrale méridionale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centre-Ouest des États-Unis   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|États-Unis de l’Ouest     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|Ouest des États-Unis 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|Centre-Ouest des États-Unis   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|États-Unis de l’Ouest     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|Ouest des États-Unis 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Europe
 
-|Région  | Niveaux pris en charge | Réplicas de requête |
+|Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
-|Europe du Nord     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Europe du Nord     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Sud du Royaume-Uni   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europe de l'Ouest     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|Europe de l'Ouest     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Asie-Pacifique 
 
-|Région  | Niveaux pris en charge | Réplicas de requête |
+|Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
 |Sud-est de l’Australie     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Est du Japon  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asie du Sud-Est     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Asie du Sud-Est     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |Inde occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* Les plans S8 et S9 dans le niveau Standard prennent en charge un réplica de requête.
 
 ## <a name="scale-to-your-needs"></a>Évolutif selon vos besoins
 
@@ -116,7 +118,7 @@ Augmentez la puissance, réduisez la puissance ou suspendez votre serveur. Utili
 
 Grâce à l’évolutivité, les requêtes des clients sont distribuées entre plusieurs *réplicas de requête* dans un pool de requêtes. Les réplicas de requête contiennent des copies synchronisées de vos modèles tabulaires. Grâce à la répartition de la charge de travail de requête, les temps de réponse lors de charges de travail de requête élevées peuvent être réduits. Les opérations de traitement du modèle peuvent être séparées du pool de requêtes, garantissant ainsi que les requêtes des clients ne soient pas affectées par les opérations de traitement. 
 
-Vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, votre serveur compris). Le nombre de réplicas de requête que vous pouvez avoir dans votre pool dépend de la région que vous avez choisie. Les réplicas de requête ne peuvent pas être propagés en dehors de la région de votre serveur. Les réplicas de requête sont facturés au même prix que votre serveur.
+Vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, votre serveur compris). Le nombre de réplicas de requête que vous pouvez avoir dans votre pool dépend du plan et de la région que vous avez choisis. Les réplicas de requête ne peuvent pas être propagés en dehors de la région de votre serveur. Les réplicas de requête sont facturés au même prix que votre serveur.
 
 Comme pour la modification des niveaux, vous pouvez faire évoluer les réplicas de requête selon vos besoins. Configurez l’évolution dans le portail ou à l’aide des API REST. Pour en savoir plus, consultez [Évolution d’Azure Analysis Services](analysis-services-scale-out.md).
 
@@ -148,7 +150,7 @@ Le pare-feu Azure Analysis Services bloque toutes les connexions clients autres 
 
 ### <a name="authentication"></a>Authentification
 
-L’authentification utilisateur est gérée par [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Lors de la connexion, les utilisateurs utilisent une identité de compte d’organisation avec accès en fonction du rôle à la base de données. Les identités utilisateur doivent être des membres de l’Azure Active Directory par défaut pour l’abonnement dans lequel se trouve le serveur. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
+L’authentification utilisateur est gérée par [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Lors de la connexion, les utilisateurs utilisent une identité de compte d’organisation avec accès en fonction du rôle à la base de données. Les identités utilisateur doivent être des membres de l’Azure Active Directory par défaut pour l’abonnement dans lequel se trouve le serveur. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Sécurité des données
 

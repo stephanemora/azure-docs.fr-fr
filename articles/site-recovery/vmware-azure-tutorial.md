@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dab7fac1f28f70a58865ca3a09ad46884d4ac8d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 895665eef722e81030d9699c1a6c75455493bae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266928"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317842"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -64,13 +64,13 @@ En tant que première étape de déploiement, configurez votre environnement sou
 - Le serveur de processus fait office de passerelle de réplication. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. De plus, le serveur de processus installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la détection automatique sur les machines virtuelles VMware locales.
 - Le serveur cible maître gère les données de réplication pendant la restauration automatique à partir d’Azure.
 
-Pour configurer le serveur de configuration comme une machine virtuelle VMware hautement disponible, téléchargez un modèle OVF (Open Virtualization Format) préparé et importez-le dans VMware pour créer la machine virtuelle. Après avoir configuré le serveur de configuration, inscrivez-le dans le coffre. Après l’inscription, Site Recovery détecte les machines virtuelles VMware locales.
+Pour configurer le serveur de configuration comme machine virtuelle VMware hautement disponible, téléchargez un modèle OVA (Open Virtualization Application) préparé et importez-le dans VMware pour créer la machine virtuelle. Après avoir configuré le serveur de configuration, inscrivez-le dans le coffre. Après l’inscription, Site Recovery détecte les machines virtuelles VMware locales.
 
 > [!TIP]
-> Ce didacticiel utilise un modèle OVF pour créer le serveur de configuration de machine virtuelle VMware. Si vous n’y parvenez pas, vous pouvez [configurer manuellement le serveur de configuration](physical-manage-configuration-server.md). 
+> Ce tutoriel utilise un modèle OVA pour créer la machine virtuelle VMware du serveur de configuration. Si vous n’y parvenez pas, vous pouvez [configurer manuellement le serveur de configuration](physical-manage-configuration-server.md).
 
 > [!TIP]
-> Dans ce didacticiel, Site Recovery télécharge et installe MySQL dans le serveur de configuration. Si vous ne voulez pas que Site Recovery le fasse, vous pouvez le faire manuellement. [Plus d’informations](vmware-azure-deploy-configuration-server.md#prepare-for-mysql-installation)
+> Dans ce didacticiel, Site Recovery télécharge et installe MySQL dans le serveur de configuration. Si vous ne voulez pas que Site Recovery le fasse, vous pouvez le faire manuellement. [Plus d’informations](vmware-azure-deploy-configuration-server.md#configure-settings)
 
 
 ### <a name="download-the-vm-template"></a>Télécharger le modèle de machine virtuelle
@@ -78,10 +78,13 @@ Pour configurer le serveur de configuration comme une machine virtuelle VMware h
 1. Dans le coffre, allez dans **Préparer l’infrastructure** > **Source**.
 2. Dans **Préparer la source**, sélectionnez **+Serveur de configuration**.
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration pour VMware** s’affiche dans **Type de serveur**.
-4. Téléchargez le modèle OVF pour le serveur de configuration. Avec le modèle, nous fournissons une licence d’évaluation, à validité de 100 jours. Au-delà, vous devrez vous procurer une licence.
+4. Téléchargez le modèle OVF pour le serveur de configuration.
 
-  > [!TIP]
-  Vous pouvez télécharger la dernière version du modèle de serveur de configuration directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
+ > [!TIP]
+ >Vous pouvez télécharger la dernière version du modèle de serveur de configuration directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
+
+>[!NOTE]
+La licence fournie avec le modèle OVF est une licence d’évaluation valide pendant 180 jours. Les clients doivent activer les fenêtres avec une licence provisionnée.
 
 ## <a name="import-the-template-in-vmware"></a>Importer le modèle dans VMware
 
@@ -133,8 +136,8 @@ Le cas échéant, ajoutez une carte d’interface réseau supplémentaire au ser
 8. Dans **Configurer les informations d’identification de la machine virtuelle**, entrez le nom d’utilisateur et le mot de passe qui seront utilisés pour installer automatiquement le service Mobilité sur les machines virtuelles, une fois la réplication activée.
     - Pour les machines Windows, le compte doit disposer des privilèges d’administrateur local sur les machines que vous souhaitez répliquer.
     - Pour Linux, fournissez les détails du compte racine.
-1. Sélectionnez **Finaliser la configuration** pour terminer l’inscription. 
-2. Une fois l’inscription terminée, dans le portail Azure, vérifiez que le serveur de configuration et le serveur VMware sont répertoriés sur la page **Source** dans le coffre. Sélectionnez ensuite **OK** pour configurer les paramètres cibles.
+9. Sélectionnez **Finaliser la configuration** pour terminer l’inscription.
+10. Une fois l’inscription terminée, dans le portail Azure, vérifiez que le serveur de configuration et le serveur VMware sont répertoriés sur la page **Source** dans le coffre. Sélectionnez ensuite **OK** pour configurer les paramètres cibles.
 
 
 Site Recovery se connecte aux serveurs VMware en utilisant les paramètres spécifiés et découvre les machines virtuelles.
@@ -147,7 +150,7 @@ Site Recovery se connecte aux serveurs VMware en utilisant les paramètres spéc
 Sélectionnez et vérifiez les ressources cibles.
 
 1. Sélectionnez **Préparer l’infrastructure** > **Cible**. Sélectionnez l’abonnement Azure à utiliser. Nous utilisons un modèle Resource Manager.
-1. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. Vous devez en disposer lors de la configuration des composants Azure dans le [premier didacticiel](tutorial-prepare-azure.md) de cette série.
+2. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. Vous devez en disposer lors de la configuration des composants Azure dans le [premier didacticiel](tutorial-prepare-azure.md) de cette série.
 
    ![Onglet cible](./media/vmware-azure-tutorial/storage-network.png)
 
@@ -168,8 +171,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-
-Activez la réplication comme suit :
+Pour activer la réplication, vous pouvez effectuer les étapes suivantes :
 
 1. Sélectionnez **Répliquer l’application** > **Source**.
 2. Dans **Source**, sélectionnez **Local**, puis le serveur de configuration dans **Emplacement source**.
@@ -178,13 +180,12 @@ Activez la réplication comme suit :
 5. Sélectionnez le serveur de processus (installé par défaut sur la machine virtuelle du serveur de configuration). Sélectionnez ensuite **OK**.
 6. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles basculées. Nous utilisons le modèle de déploiement Resource Manager. 
 7. Sélectionnez le compte de stockage Azure que vous voulez utiliser pour répliquer les données, ainsi que le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
-1. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer les paramètres réseau à l’ensemble des machines virtuelles pour lesquelles vous activez la réplication. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine.
-2. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, sélectionnez chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Sélectionnez ensuite **OK**.
-3. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte que le serveur de processus doit utiliser pour installer automatiquement le service Mobilité sur la machine.
-4. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée.
-5. Sélectionnez **Activer la réplication**. Site Recovery installe automatiquement le service Mobilité quand la réplication est activée pour une machine virtuelle.
-6. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
-
+8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer les paramètres réseau à l’ensemble des machines virtuelles pour lesquelles vous activez la réplication. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine.
+9. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, sélectionnez chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Sélectionnez ensuite **OK**.
+10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte que le serveur de processus doit utiliser pour installer automatiquement le service Mobilité sur la machine.
+11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée.
+12. Sélectionnez **Activer la réplication**. Site Recovery installe automatiquement le service Mobilité quand la réplication est activée pour une machine virtuelle.
+13. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 - Il peut être nécessaire d’attendre 15 minutes ou plus avant que les modifications prennent effet et qu’elles apparaissent dans le portail.
 - Pour surveiller les machines virtuelles que vous ajoutez, consultez l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans le sélectionner) et sélectionnez **Actualiser**.
 

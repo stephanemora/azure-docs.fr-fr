@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 06/22/2018
 ms.author: hux
-ms.openlocfilehash: d6279a308bc4539184cca37c1343afe8725eca7f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248297"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335769"
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
@@ -76,32 +76,27 @@ Les comptes de stockage d’objets blob prennent en charge les mêmes fonctionna
 
 > [!NOTE]
 > Les comptes de stockage d’objets blob prennent en charge uniquement les objets blob de blocs et d’ajout, mais pas les objets blob de pages.
+>
+> Microsoft recommande d’utiliser des comptes de stockage à usage général v2 plutôt que des comptes de stockage d’objets blob pour la plupart des scénarios.
 
 ## <a name="recommendations"></a>Recommandations
 
 Pour plus d’informations sur les comptes de stockage, consultez [À propos des comptes de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage GPv2 afin de tirer parti du modèle de tarification différencié du stockage hiérarchisé. Toutefois, les comptes GPv1 peuvent être recommandés dans certains scénarios, tels que :
+Pour les applications qui nécessitent les dernières fonctionnalités d’objets blob de bloc ou d’ajout, nous recommandons d’utiliser des comptes de stockage GPv2 afin de tirer parti du modèle tarifaire différencié du stockage hiérarchisé. Toutefois, les comptes GPv1 peuvent être recommandés dans certains scénarios, tels que :
 
 * Vous devez toujours utiliser le modèle de déploiement classique. Les comptes GPv2 et de stockage d’objets blob sont uniquement disponibles via le modèle de déploiement Azure Resource Manager.
-
 * Vous utilisez des volumes élevés de transactions ou de bande passante de géo-réplication, qui coûtent plus cher avec des comptes GPv2 et de stockage d’objets blob qu’avec un compte GPv1 et vous n’avez pas suffisamment de stockage pour tirer bénéfice des réduction des coûts du stockage par Go.
-
 * Vous utilisez une version de l’ [API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 Tous les comptes de stockage utilisent un modèle de tarification pour le stockage d’objets blob basé sur le niveau de chaque objet blob. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage :
 
 * **Coûts de stockage**: les coûts de stockage de données varient selon la quantité de données stockées et le niveau de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
-
 * **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
-
 * **Coûts de transaction** : des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
-
 * **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, y compris GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
-
 * **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
-
 * **Modification du niveau de stockage** : passer d’un niveau de stockage de compte froid à un niveau de stockage chaud implique des frais correspondant à la lecture de toutes les données existantes du compte de stockage. Toutefois, la modification du niveau de stockage de compte chaud vers un niveau de stockage froid induit des frais équivalents à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
 
 > [!NOTE]
@@ -205,7 +200,6 @@ Dans les deux cas, la première priorité est d’abord estimer les frais de sto
 Pour estimer le coût de stockage et d’accès aux données stockées dans un compte de stockage GPv2, vous devez évaluer votre modèle d’utilisation existant ou faire une estimation du modèle d’utilisation souhaité. En général, vous souhaitez connaître :
 
 * Votre consommation de stockage : quel est le volume de données stockées et quelle est son évolution mensuelle ?
-
 * Votre modèle d’accès au stockage : quel est le volume de données du compte faisant l’objet d’accès en lecture et en écriture (y compris les nouvelles données) ? Le nombre et le type de transactions utilisées pour accéder aux données.
 
 ## <a name="monitoring-existing-storage-accounts"></a>Analyse des comptes de stockage existants
@@ -223,7 +217,7 @@ Lorsque cette option est activée, les données de capacité sont enregistrées 
 Pour analyser les modèles d’accès aux données pour le service de stockage d’objets blob, vous devez activer les métriques de transaction par heure à partir de l’API. Lorsque cette option est activée, les transactions par API sont agrégées toutes les heures et enregistrées comme une entrée de table écrite dans la table *$MetricsHourPrimaryTransactionsBlob* dans le même compte de stockage. La table *$MetricsHourSecondaryTransactionsBlob* enregistre les transactions vers le point de terminaison secondaire lorsqu’il s’agit de comptes de stockage RA-GRS.
 
 > [!NOTE]
-> Ce processus d’estimation n’est pas applicable si vous avez un compte de stockage à usage général dans lequel vous avez stocké des objets blob de pages et des disques de machines virtuelles ou bien des files d’attente, des fichiers ou des tables, en même temps que des données d’objets blob de blocs et d’ajout. Les données de capacité ne distinguent pas les objets blob de blocs des autres types et le processus ne fournit pas de données de capacité pour les autres types de données. Si vous utilisez ces types, une méthodologie alternative consiste à examiner les quantités sur votre plus récente facture.
+> Ce processus d’estimation n’est pas applicable si vous avez un compte de stockage à usage général où sont stockés des objets blob de pages et des disques de machines virtuelles ou bien des files d’attente, des fichiers ou des tables, en même temps que des données d’objets blob de blocs et d’ajout. Les données de capacité ne distinguent pas les objets blob de blocs des autres types et le processus ne fournit pas de données de capacité pour les autres types de données. Si vous utilisez ces types, une méthodologie alternative consiste à examiner les quantités sur votre plus récente facture.
 
 Pour avoir une bonne estimation de votre consommation de données et de votre modèle d’accès, nous vous recommandons de sélectionner pour les métriques une période de rétention représentative de votre utilisation régulière et d’extrapoler. Une option consiste à conserver les données de métriques pendant sept jours et à collecter les données chaque semaine pour les analyser à la fin du mois. Une autre option consiste à conserver les données de métriques pendant les 30 derniers jours et à collecter et analyser les données à la fin de la période de 30 jours.
 
@@ -256,10 +250,9 @@ Pour estimer les frais de transaction pour les comptes de stockage GPv1, vous de
 
 La quantité de données lues et écrites dans un compte de stockage n’est pas fournie par Storage Analytics mais peut être estimée en consultant la table de métriques de transaction. La somme des entrées *'TotalIngress'* d’une API dans la table de métriques de transaction indique la quantité totale de données entrantes en octets pour cette API. De même, la somme des entrées *'TotalEgress'* indique la quantité totale des données sortantes en octets.
 
-Pour estimer les coûts d’accès aux données pour les comptes de stockage d’objets blob, vous devez classer les transactions en deux groupes.
+Pour estimer les coûts d’accès aux données pour les comptes de stockage d’objets blob, vous devez classer les transactions en deux groupes :
 
 * La quantité de données récupérées à partir du compte de stockage peut être estimée en additionnant les entrées *'TotalEgress'* pour les opérations *'GetBlob'* et *'CopyBlob'*.
-
 * La quantité de données écrites dans le compte de stockage peut être estimée en additionnant les entrées *'TotalIngress'* pour les opérations *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* et *'AppendBlock'*.
 
 Le coût de transfert de données de géoréplication des comptes de stockage d’objets blob peut également être calculé en estimant la quantité de données écrites lors de l’utilisation d’un compte de stockage GRS ou RA-GRS.

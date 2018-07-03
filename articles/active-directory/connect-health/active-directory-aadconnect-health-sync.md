@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229946"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961636"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health pour la synchronisation](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Azure AD Connect Health pour la synchronisation](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Alertes d’Azure AD Connect Health pour la synchronisation
 La section relative aux alertes d’Azure AD Connect Health fournit une liste des alertes actives. Chaque alerte inclut les informations associées, la procédure de résolution et des liens vers la documentation afférente. Si vous sélectionnez une alerte active ou résolue, vous verrez apparaître un nouveau panneau comportant des informations supplémentaires, ainsi qu’une procédure de résolution de l’alerte et des liens vers de la documentation supplémentaire. Vous pouvez également afficher des données d’historique sur les alertes résolues par le passé.
@@ -86,7 +86,7 @@ Le rapport classe les erreurs de synchronisation existantes dans les catégories
 | Échec de validation de données |Erreurs dues à des données non valides, par exemple des caractères non pris en charge dans des attributs critiques comme UserPrincipalName, erreurs de format qui empêchent la validation des données avant leur écriture dans Azure AD. |
 | Modification du domaine fédéré | Erreurs lorsque les comptes utilisent un autre domaine fédéré. |
 | Attribut de grande taille |Erreurs quand un ou plusieurs attributs dépassent la taille, la longueur ou le nombre autorisés. |
-| Autres |Toutes les autres erreurs qui ne figurent pas dans les catégories ci-dessus. En fonction des informations reçues, cette catégorie sera divisées en plusieurs sous-catégories. |
+| Autres |Toutes les autres erreurs qui ne figurent pas dans les catégories ci-dessus. En fonction des informations reçues, cette catégorie sera divisée en plusieurs sous-catégories. |
 
 ![Rapport de résumé des erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/errorreport01.png)
 ![Catégories de rapports d’erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
@@ -98,15 +98,18 @@ L’exploration de chaque catégorie fournit la liste des objets qui rencontrent
 ### <a name="error-details"></a>Détails de l’erreur
 Les données suivantes sont disponibles dans la vue détaillée de chaque erreur
 
+* Attribut en conflit mis en surbrillance
 * Identificateurs pour *l’objet AD* impliqué
 * Identificateurs pour *l’objet Azure AD* impliqué (le cas échéant)
 * Description de l’erreur et solution pour y remédier
-* Articles connexes
 
-![Détails du rapport d’erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Détails du rapport d’erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Télécharger le rapport d’erreurs au format CSV
 Sélectionnez le bouton Exporter pour télécharger un fichier CSV contenant tous les détails sur l’ensemble des erreurs.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation 
+Dans le cas spécifique d’une erreur de synchronisation d’attribut en double impliquant la mise à jour d’une ancre source utilisateur, vous pouvez les résoudre directement à partir du portail. En savoir plus sur la façon de [Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 ## <a name="related-links"></a>Liens connexes
 * [Résolution des erreurs lors de la synchronisation](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

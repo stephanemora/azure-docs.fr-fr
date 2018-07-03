@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/03/2018
+ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 30221074dd2a25fdd0771e3fae607d4c0135266c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8c8e5dd04e74f0d2fa51f33089c5fc7b5f7726db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637209"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017383"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Collecter des données sur les machines virtuelles Azure
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos machines virtuelles Azure et des autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide vous montre comment configurer et collecter des données à partir de vos machines virtuelles Azure Linux ou Windows en quelques étapes simples.  
@@ -31,7 +31,10 @@ En suivant ce guide, vous êtes censé disposer d’une machine virtuelle Azure.
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br> ![Portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+
+    ![Portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
   * Attribuez un nom au nouvel **Espace de travail OMS**, en l’occurrence *DefaultLAWorkspace*. 
@@ -40,7 +43,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
   * Sélectionnez l’**Emplacement** dans lequel vos machines virtuelles sont déployées.  Pour en savoir plus, découvrez dans quelles [régions Log Analytics est disponible](https://azure.microsoft.com/regions/services/).
   * Si vous créez un espace de travail dans un nouvel abonnement créé après le 2 avril 2018, il utilisera automatiquement le plan tarifaire *Par Go* et l’option pour sélectionner un niveau de tarification ne sera pas disponible.  Si vous créez un espace de travail pour un abonnement existant créé avant le 2 avril ou pour un abonnement lié à une inscription EA existante, sélectionnez le niveau tarifaire de votre choix.  Pour plus d’informations sur les différents niveaux proposés, consultez le [détail des tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
 3. Après avoir entré les informations requises dans le volet **Espace de travail OMS**, cliquez sur **OK**.  
 
@@ -63,13 +66,21 @@ Pour les machines virtuelles Windows et Linux déjà déployées dans Azure, vou
 Log Analytics est capable de collecter les événements des journaux des événements Windows ou du journal Syslog Linux, ainsi que des compteurs de performance dans l’optique de procéder à une analyse à long terme et à générer des rapports pour agir dès lors qu’une condition particulière est détectée.  Pour configurer la collecte des événements du journal système Windows ou du journal Syslog Linux et de plusieurs compteurs de performances courants, commencez par suivre ces étapes.  
 
 ### <a name="data-collection-from-windows-vm"></a>Collecte de données à partir d’une machine virtuelle Windows
-1. Sélectionnez **Paramètres avancés**.<br> ![Paramètres avancés de Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br> 
+1. Sélectionnez **Paramètres avancés**.
+
+    ![Paramètres avancés de Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+
 3. Sélectionnez **Données**, puis **Journaux des événements Windows**.  
 4. Vous pouvez ajouter un journal d’événements en tapant le nom de ce journal.  Tapez **Système**, puis cliquez sur le signe plus **+**.  
 5. Dans le tableau, vérifiez les niveaux de gravité **Erreur** et **Avertissement**.   
 6. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
 7. Sélectionnez **Données de performances Windows** pour activer la collecte des compteurs de performances sur un ordinateur Windows. 
-8. Quand vous procédez à la configuration initiale des compteurs de performances Windows pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.<br> ![Compteurs de performances Windows par défaut sélectionnés](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).<br> Cliquez sur **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.  
+8. Quand vous procédez à la configuration initiale des compteurs de performances Windows pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.
+
+    ![Compteurs de performances Windows par défaut sélectionnés](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).
+
+    Cliquez sur **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.
+  
 9. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
 
 ### <a name="data-collection-from-linux-vm"></a>Collecte de données à partir d’une machine virtuelle Linux
@@ -79,19 +90,31 @@ Log Analytics est capable de collecter les événements des journaux des événe
 3. Dans le tableau, décochez les niveaux de gravité **Info**, **Avis** et **Débogage**. 
 4. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
 5. Sélectionnez **Données de performances Linux** pour activer la collecte des compteurs de performances sur un ordinateur Linux. 
-6. Quand vous procédez à la configuration initiale des compteurs de performances Linux pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.<br> ![Compteurs de performances Windows par défaut sélectionnés](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br> Cliquez sur **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.  
+6. Quand vous procédez à la configuration initiale des compteurs de performances Linux pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.
+
+    ![Compteurs de performances Windows par défaut sélectionnés](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).
+
+    Cliquez sur **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.  
+
 7. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
 
 ## <a name="view-data-collected"></a>Afficher les données collectées
 Maintenant que vous avez activé la collecte de données, exécutons un exemple élémentaire de recherche dans les journaux pour examiner certaines données des machines virtuelles cibles.  
 
 1. Dans le portail Azure, accédez à Log Analytics et sélectionnez l’espace de travail créé précédemment.
-2. Cliquez sur la vignette **Recherche dans les journaux**. Ensuite, dans le volet Recherche dans les journaux, dans le champ de requête, tapez `Perf`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête.<br> ![Exemple de requête de recherche dans les journaux Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+2. Cliquez sur la vignette **Recherche dans les journaux**. Ensuite, dans le volet Recherche dans les journaux, dans le champ de requête, tapez `Perf`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête.
 
-Par exemple, la requête présentée dans l’image suivante a retourné 78 000 enregistrements de performances.  Vos résultats seront bien moins abondants.<br> ![Résultat de la recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Exemple de requête de recherche dans les journaux Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+
+Par exemple, la requête présentée dans l’image suivante a retourné 735 enregistrements de performances.  Vos résultats seront bien moins abondants. 
+
+![Résultat de la recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Quand vous n’en avez plus besoin, supprimez l’espace de travail Log Analytics. Pour ce faire, sélectionnez l’espace de travail Log Analytics que vous avez créé précédemment puis, dans la page de ressource, cliquez sur **Supprimer**.<br> ![Supprimer la ressource Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+Quand vous n’en avez plus besoin, supprimez l’espace de travail Log Analytics. Pour ce faire, sélectionnez l’espace de travail Log Analytics que vous avez créé précédemment puis, dans la page de ressource, cliquez sur **Supprimer**.
+
+
+![Supprimer la ressource Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous collectez des données opérationnelles et de performances à partir de vos machines virtuelles Windows ou Linux, vous pouvez commencer à explorer et à analyser facilement les données que vous collectez *gratuitement* et agir en conséquence.  

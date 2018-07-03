@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603774"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752331"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -24,7 +24,6 @@ Pour démarrer avec le stockage Azure, vous devez d’abord créer un compte de 
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -166,7 +165,7 @@ Pour créer un compte de stockage à usage général v2 dans le portail Azure, p
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Tous les services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
 2. Entrez un nom pour votre compte de stockage.
 3. Définissez le champ **Type de compte** sur **StorageV2 (usage général v2)**.
-4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (préversion ZRS)**, **Stockage géo-redondant (GRS)** ou **Stockage géo-redondant avec accès en lecture (RA-GRS)**.
+4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (ZRS en préversion)**, **Stockage géoredondant (GRS)** ou **Stockage géoredondant avec accès en lecture (RA-GRS)**.
 5. Laissez ces champs définis sur leurs valeurs par défaut : **Modèle de déploiement**, **Performances** et **Transfert sécurisé requis**.
 6. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 7. Dans la section **Groupe de ressources**, sélectionnez **Use existing** (Utiliser l’existant), puis choisissez le groupe de ressources que vous avez créé dans la section précédente.
@@ -187,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (préversion ZRS), Stockage géo-redondant (GRS) ou Stockage géo-redondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
+Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (ZRS en préversion), Stockage géoredondant (GRS) ou Stockage géoredondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
 
 |Option de réplication  |Paramètre SkuName  |
 |---------|---------|
@@ -220,13 +219,7 @@ Pour créer un compte de stockage à usage général v2 avec l’option Stockage
 
 ---
 
-> [!NOTE]
-> L’option [Stockage redondant dans une zone](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) est actuellement en préversion et disponible uniquement dans les zones suivantes :
->    - Est des États-Unis 2
->    - Centre des États-Unis
->    - France-Centre (cette zone est actuellement en préversion. Consultez [Préversion de Microsoft Azure avec des zones de disponibilité Azure désormais ouvertes en France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) pour demander l’accès.)
-    
-Pour plus d’informations sur les différentes options de réplication disponibles, consultez l’article [Storage replication options](storage-redundancy.md) (Options de réplication de stockage).
+Pour plus d’informations sur les options de réplication disponibles, consultez [Options de réplication de stockage](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
