@@ -1,11 +1,11 @@
 - name: Documentation sur l'API Visage
   href: index.yml
 - name: Vue d'ensemble
+  expanded: true
   items:
     - name: "Qu’est-ce que l’API Visage\_?"
       href: Overview.md
 - name: Démarrages rapides
-  expanded: true
   items:
     - name: 'C#'
       href: QuickStarts/CSharp.md
@@ -53,16 +53,18 @@
   items:
     - name: API Visage
       href: APIReference.md
+    - name: Glossaire
+      href: Glossary.md
     - name: Kits de développement logiciel (SDK)
       items:
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-Face-Python'
-        - name: Windows
-          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
         - name: Android
           href: 'https://github.com/Microsoft/Cognitive-Face-Android'
         - name: iOS
@@ -81,7 +83,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Glossaire
-      href: Glossary.md
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Notes de publication
       href: ReleaseNotes.md

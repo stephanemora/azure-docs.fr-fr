@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: Obtenir les longueurs de phrase du texte
           href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+        - name: Traduire le texte
+          href: quickstart-go-translate.md
+        - name: Convertir un script de texte
+          href: quickstart-go-transliterate.md
+        - name: Identifier la langue du texte
+          href: quickstart-go-detect.md
+        - name: Obtenir des traductions alternatives
+          href: quickstart-go-dictionary.md
+        - name: Obtenir les langues prises en charge
+          href: quickstart-go-languages.md
+        - name: Obtenir les longueurs de phrase du texte
+          href: quickstart-go-sentences.md
     - name: Java
       items:
         - name: Traduire le texte

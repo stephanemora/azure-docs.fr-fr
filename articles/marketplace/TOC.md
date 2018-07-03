@@ -4,10 +4,10 @@
 ### Vue d’ensemble et avantages  
 ### Vitrines  
 #### [Comparaison entre AppSource et la Place de marché Microsoft Azure](./comparing-appsource-azure-marketplace.md)  
-#### [Développer votre activité avec AppSource](./grow-your-business-with-appsource.md)  
+#### [Développer votre activité avec AppSource](./grow-your-business-with-appsource.md) 
+#### [Solutions recommandées](./preferred-solutions.md)
 ##### [Créer votre page d’accueil](./build-your-landing-page.md)  
 ##### [Activer le partage des prospects](./enable-lead-sharing.md)  
-##### [Solutions recommandées](./preferred-solutions.md)
 ##### [Avantages de marketplace concernant la commercialisation](./gtm-benefits.md)  
 ##### [Faire connaître votre entreprise avec Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  

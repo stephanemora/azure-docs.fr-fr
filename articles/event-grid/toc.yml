@@ -89,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: Ressources de modèle
+      items:
+        - name: Abonnements à des événements
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Rubriques
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: Kits de développement logiciel (SDK)
       href: sdk-overview.md
     - name: Schéma d’abonnement
