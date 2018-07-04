@@ -11,10 +11,10 @@ ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
 ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 07/03/2018
 ms.locfileid: "34800638"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendre les groupes de machines virtuelles identiques disponibles dans Azure Stack
@@ -32,7 +32,6 @@ Les groupes de machines virtuelles identiques sur Azure Stack suivent le même p
 Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compatibles avec la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique en utilisant les modèles Resource Manager, l’interface de ligne de commande ou PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - **Syndication de la Place de marché**  
     Inscrivez Azure Stack avec Azure pour un déploiement à l’échelle mondiale afin d’activer la syndication de la Place de marché. Suivez les instructions fournies dans [Inscrire Azure Stack avec Azure](azure-stack-registration.md).

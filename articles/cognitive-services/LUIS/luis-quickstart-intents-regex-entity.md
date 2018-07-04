@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: c31e7d130d02ab6b0fad7577026e557692c2b60e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285948"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316540"
 ---
 # <a name="tutorial-use-regular-expression-entity"></a>Didacticiel : utiliser une entité d’expression régulière
 Dans ce didacticiel, vous créez une application qui montre comment extraire des données mises en forme de façon homogène à partir d’un énoncé à l’aide de l’entité **Expression régulière**.
@@ -28,10 +28,10 @@ Dans ce didacticiel, vous créez une application qui montre comment extraire des
 > * Effectuer l’apprentissage et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
-Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin de créer votre application LUIS.
+Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du didacticiel sur le [domaine personnalisé](luis-tutorial-prebuilt-intents-entities.md) des entités prédéfinies, [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS][LUIS], à partir du référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du didacticiel sur le [domaine personnalisé](luis-tutorial-prebuilt-intents-entities.md) des entités prédéfinies, [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS](luis-reference-regions.md#luis-website), à partir du référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `regex`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -244,6 +244,3 @@ Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce fa
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’entité KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

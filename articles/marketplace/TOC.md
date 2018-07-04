@@ -5,7 +5,6 @@
 ### Vitrines  
 #### [Comparaison entre AppSource et la Place de marché Microsoft Azure](./comparing-appsource-azure-marketplace.md)  
 #### [Développer votre activité avec AppSource](./grow-your-business-with-appsource.md) 
-#### [Solutions recommandées](./preferred-solutions.md)
 ##### [Créer votre page d’accueil](./build-your-landing-page.md)  
 ##### [Activer le partage des prospects](./enable-lead-sharing.md)  
 ##### [Avantages de marketplace concernant la commercialisation](./gtm-benefits.md)  
@@ -19,17 +18,17 @@
 ### Comment publier dans les vitrines sur marketplace  
 #### [Déterminer le type de référencement pour votre solution](./determine-your-listing-type.md)  
 #### [Devenez éditeur dans les vitrines sur marketplace](./become-publisher.md)  
-#### [Exigences par type de liste](./listing-type-requirements.md)  
+#### [Exigences par type de liste](./listing-type-requirements.md) 
+#### [Solutions recommandées](./preferred-solutions.md) 
 
 ### Publication de check-lists  
 #### [Publication de check-lists pour AppSource](./publishing-checklist-appsource.md)  
 #### [Publication de check-lists pour la Place de marché Microsoft Azure](./publishing-checklist-azure-marketplace.md)  
 
 ### Support  
-#### [Prise en charge de AppSource](./support-appsource.md)  
-#### [Prise en charge de la Place de marché Microsoft Azure](./support-azure-marketplace.md)  
+#### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)  
 
-### Guides  
+### Guides de publication  
 #### [Service de conseil de la Place de marché Microsoft Azure](consulting-services.md)  
 #### [Guide de publication technique de l’application SaaS Place de marché Microsoft Azure](marketplace-saas-applications-technical-publishing-guide.md) 
 

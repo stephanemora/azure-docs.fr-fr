@@ -1,12 +1,9 @@
 # Vue d'ensemble
-## [Sécuriser l’accès privilégié](active-directory-securing-privileged-access.md)
 ## [Qu’est-ce qu’Azure AD B2C ?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Sécuriser l’accès privilégié](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Rôles d’annuaire dans PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM pour les ressources Azure](azure-pim-resource-rbac.md)
 ## [Flux de travail d’approbation PIM](azure-ad-pim-approval-workflow.md)
-## [Rôles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-
-
 
 # Prise en main
 ## [Exigences en matière d’abonnement](subscription-requirements.md)
@@ -46,16 +43,8 @@
 ### [Démarrage d’une révision d’accès](pim-resource-roles-complete-access-review.md)
 
 # FAQ
-## PIM pour des rôles d’annuaire
 ## PIM pour des rôles de ressources
 ### [Types d’attributions](pim-resource-roles-eligible-visibility.md)
 
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)
-
-# Rubriques connexes
-## [Azure Active Directory](/azure/active-directory/)
-## [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md)
-# Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

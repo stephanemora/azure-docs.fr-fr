@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: "Qu’est-ce que le service Décision personnalisée\_?"
+    - name: Présentation du service Décision personnalisée
       href: custom-decision-service-overview.md
     - name: Flux de travail du service Décision personnalisée
       href: custom-decision-service-workflow.md
@@ -31,6 +31,8 @@
       href: custom-decision-service-log-downloader-reference.md
 - name: Ressources
   items:
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Tarification (gratuit)
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-decision-service/'
     - name: UserVoice

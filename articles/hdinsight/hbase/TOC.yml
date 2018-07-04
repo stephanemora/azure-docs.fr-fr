@@ -338,6 +338,10 @@
     - name: Notes de publication
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notes de publication archivées
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenir de l'aide sur le forum

@@ -2,15 +2,17 @@
 
 # Vue d'ensemble
 ## [Présentation de Resource Manager](resource-group-overview.md)
-## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Déploiements Gestionnaire des ressources et classiques](resource-manager-deployment-model.md)
-## [Gouvernance de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Organiser les ressources avec des groupes d’administration](management-groups-overview.md)
 
 # Prise en main
 ## [Création et déploiement du modèle](resource-manager-create-first-template.md)
 ## [Extension de VS Code pour les modèles](resource-manager-vscode-extension.md)
 ## [Visual Studio avec Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# Concepts
+## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
+## [Groupes d’administration](management-groups-overview.md)
+## [Gouvernance de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # Procédures
 ## Créer des modèles

@@ -215,6 +215,16 @@
           href: ./blueprints/pci-dss-requirement-11-testing.md
         - name: "Exigence\_12\_: stratégie"
           href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: UK NHS
+      items:
+        - name: Analyse de données
+          href: ./blueprints/uknhs-analytics-overview.md
+        - name: Entrepôt de données
+          href: ./blueprints/uknhs-datawarehouse-overview.md
+        - name: Application web IaaS
+          href: ./blueprints/uknhs-iaaswa-overview.md
+        - name: Application web PaaS
+          href: ./blueprints/uknhs-paaswa-overview.md
     - name: ROYAUME-UNI-OFFICIEL
       href: ./blueprints/uk-official-three-tier-applications-overview.md
       items:

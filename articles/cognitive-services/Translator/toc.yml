@@ -157,15 +157,17 @@
           href: return-n-best-translations.md
 - name: Ressources
   items:
-    - name: Forum Aux Questions
-      href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-    - name: Base de connaissances
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
     - name: Exemples de code sur GitHub
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: Forum Aux Questions
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: Base de connaissances
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'

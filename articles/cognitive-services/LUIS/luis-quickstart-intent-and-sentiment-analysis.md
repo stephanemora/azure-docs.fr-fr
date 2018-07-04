@@ -7,104 +7,98 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: d000637312619fc493e2f7bad8e8edf0d8d0d94b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265332"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958427"
 ---
 # <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Didacticiel : Créer une application qui retourne un sentiment avec une prédiction d’intention
 Dans ce didacticiel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Comprendre les entités hiérarchiques et les enfants issus du contexte 
-> * Créer une application LUIS pour un domaine de voyage avec l’intention Bookflight
-> * Ajouter l’intention _None_ et ajouter des exemples d’énoncés
-> * Ajouter une entité hiérarchique avec des enfants d’origine et de destination
-> * Former et publier l’application
-> * Interroger un point de terminaison d’application pour voir la réponse JSON LUIS, y compris les enfants hiérarchiques 
+> * Comprendre l’analyse des sentiments
+> * Utiliser l’application LUIS pour le domaine des ressources humaines (RH) 
+> * Ajouter l’analyse des sentiments
+> * Effectuer l’apprentissage de l’application et la publier
+> * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS 
 
 Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin de créer votre application LUIS.
+
+## <a name="before-you-begin"></a>Avant de commencer
+Si vous ne disposez pas de l’application Ressources humaines du didacticiel [entités keyPhrase](luis-quickstart-intent-and-key-phrase.md), [importez](create-new-app.md#import-new-app) le JSON dans une application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+
+Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `sentiment`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 L’analyse des sentiments permet de déterminer si l’énoncé d’un utilisateur est positif, négatif ou neutre. 
 
 Les énoncés suivants présentent des exemples de sentiments :
 
-|Sentiment et score|Énoncé|
-|:--|--|
-|positive - 0,89 |La soupe et la salade étaient bonnes.|
-|négatif - 0,07 |Je n’ai pas aimé l’entrée du dîner.|
+|Sentiments|Score|Énoncé|
+|:--|:--|:--|
+|positif|0,91 |John W. Smith a bien réussi sa présentation à Paris.|
+|positif|0,84 |jill-jones@mycompany.com a fait un travail fabuleux sur l’argumentaire de ventes Parker.|
 
-L’analyse des sentiments est le paramètre d’application qui s’applique à chaque énoncé. Vous ne devez pas rechercher les mots indiquant le sentiment dans l’énoncé et les étiqueter. LUIS le fera pour vous.
+L’analyse des sentiments est un paramètre d’application qui s’applique à chaque énoncé. Il est inutile de rechercher les mots indiquant un sentiment dans l’énoncé et de les étiqueter, car l’analyse des sentiments s’applique à l’énoncé entier. 
 
-## <a name="create-a-new-app"></a>Créer une application
-1. Connectez-vous au site web [LUIS][LUIS]. Veillez à vous connecter à la [région][LUIS-regions] où vous avez besoin de points de terminaison LUIS publiés.
+## <a name="add-employeefeedback-intent"></a>Ajouter l’intention RetoursEmployés 
+Ajouter une nouvelle intention de recueillir des commentaires employés de la part des membres de la société. 
 
-2. Sur le site web [LUIS][LUIS], sélectionnez **Créer une application**. 
+1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "Capture d’écran de la page Liste des applications")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
+    [![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-3. Dans la boîte de dialogue **Créer une application**, nommez l’application `Restaurant Reservations With Sentiment` et sélectionnez **Terminé**. 
+2. Sélectionnez **Create new intent** (Créer une intention).
 
-    ![Image de la boîte de dialogue Créer une application](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
+    [![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
-    Lorsque le processus de création d’application est terminé, LUIS affiche la liste des intentions contenant l’intension Aucun.
+3. Entrez le nom de la nouvelle intention `EmployeeFeedback`.
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png "Capture d’écran de la page Liste des intentions")](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png#lightbox)
+    ![Créez une nouvelle boîte de dialogue d’intention nommée RetoursEmployés](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-## <a name="add-a-prebuilt-domain"></a>Ajouter un domaine prédéfini
-Ajoutez un domaine prédéfini pour pouvoir ajouter rapidement des intentions, des entités et des intentions étiquetées.
+4. Ajoutez plusieurs expressions qui indiquent qu’un employé fait bien les choses ou qu’un domaine a besoin d’améliorations :
 
-1. Sélectionnez **Prebuilt Domains** (Domaines prédéfinis) dans le menu de gauche.
+    N’oubliez pas que dans cette application de ressources humaines, les employés sont définis dans l’entité de liste, `Employee`, par leur nom, leur e-mail, leur numéro d’extension de téléphone, leur numéro de téléphone mobile et leur numéro de sécurité sociale (USA). 
 
-    [ ![Capture d’écran du bouton de domaine prédéfini](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
+    |Énoncés|
+    |--|
+    |425-555-1212 a fait un bon travail pour accueillir un collaborateur suite à son congé maternité|
+    |234-56-7891 a su réconforter un collègue en période de deuil.|
+    |jill-jones@mycompany.com ne disposait pas de toutes les factures requises pour les tâches administratives.|
+    |john.w.smith@mycompany.com a rendu les formulaires requis un mois trop tard avec aucune signature|
+    |x23456 n’a pas pu se rendre à une réunion marketing hors site importante.|
+    |x12345 a manqué la réunion des revues de juin.|
+    |Jill Jones a parfaitement rôdé son argumentaire de vente à Harvard|
+    |John W. Smith a bien réussi sa présentation à Stanford|
 
-2. Sélectionnez **Ajouter un domaine** pour le domaine prédéfini **RestaurantReservation**. Attendez que le domaine soit ajouté.
-
-    [ ![Capture d’écran de la liste de domaines prédéfinis](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
-
-3. Sélectionnez **Intentions** dans le volet de navigation gauche. Ce domaine prédéfini contient une intention.
-
-    [ ![Capture d’écran de la liste de domaines prédéfinis avec les intentions mises en surbrillance dans le volet de navigation gauche](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png#lightbox)
-
-4.  Sélectionnez l’intention **RestaurantReservation.Reserve**. 
-
-    [ ![Capture d’écran de la liste des intentions avec RestaurantReservation.Reserve mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png#lightbox)
-
-5. Basculez l’**affichage des entités** pour voir les nombreux énoncés fournis avec les entités spécifiques au domaine étiquetées.
-
-    [ ![Capture d’écran de l’intention RestaurantReservation.Reserve avec l’affichage des entités basculé sur l’affichage du jeton mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-expanded.png#lightbox)
+    [ ![Capture d’écran de l’application LUIS avec exemples d’énoncés dans l’intention de RetourEmployés](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Effectuer l’apprentissage de l’application LUIS
-LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant que son apprentissage n’a pas été effectué. 
+LUIS ne connaît pas la nouvelle intention et ses énoncés exemples avant d’être entraîné. 
 
 1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
 
-    ![Capture d’écran du bouton Effectuer l’apprentissage mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+    ![Capture d’écran du bouton Effectuer l’apprentissage mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
-    ![Capture d’écran de la barre de notification de réussite de l’apprentissage ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+    ![Capture d’écran de la barre de notification de réussite de l’apprentissage ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurer l’application pour inclure l’analyse des sentiments
-L’analyse des sentiments est activée sur la page **Publier**. 
+Configurez l’analyse des sentiments sur la page **Publier**. 
 
 1. Dans le volet de navigation supérieur droit, sélectionnez **Publier**.
 
-    ![Capture d’écran de la page d’intention avec le bouton Publier développé ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+    ![Capture d’écran de la page d’intention avec le bouton Publier développé ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Sélectionnez **Enable Sentiment Analysis** (Activer l’analyse des sentiments).
+2. Sélectionnez **Enable Sentiment Analysis** (Activer l’analyse des sentiments). Sélectionnez l’emplacement Production et le bouton **Publier**.
 
-    ![Capture d’écran de la page Publier avec Enable Sentiment Analysis (Activer l’analyse des sentiments) mis en surbrillance ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
-
-3. Sélectionnez l’emplacement Production et le bouton **Publier**.
-
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "Capture d’écran de la page Publier avec le bouton Publier vers l’emplacement Production mis en surbrillance")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Capture d’écran de la page Publier avec le bouton Publier vers l’emplacement Production mis en surbrillance")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
@@ -112,34 +106,102 @@ L’analyse des sentiments est activée sur la page **Publier**.
 
 1. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
 
-    ![Capture d’écran de la page Publier avec l’URL du point de terminaison mise en surbrillance](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
+    ![Capture d’écran de la page Publier avec l’URL du point de terminaison mise en surbrillance](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Reserve table for  10 on upper level away from kitchen`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `RestaurantReservation.Reserve` avec l’analyse des sentiments extraite.
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Jill Jones work with the media team on the public portal was amazing`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `EmployeeFeedback` avec l’analyse des sentiments extraite.
 
 ```
 {
-  "query": "Reserve table for 10 on upper level away from kitchen",
+  "query": "Jill Jones work with the media team on the public portal was amazing",
   "topScoringIntent": {
-    "intent": "RestaurantReservation.Reserve",
-    "score": 0.9926384
+    "intent": "EmployeeFeedback",
+    "score": 0.4983256
   },
   "intents": [
     {
-      "intent": "RestaurantReservation.Reserve",
-      "score": 0.9926384
+      "intent": "EmployeeFeedback",
+      "score": 0.4983256
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.06617523
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.04631853
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0103248553
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.007531875
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00344597152
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00337914471
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0026357458
     },
     {
       "intent": "None",
-      "score": 0.00961109251
+      "score": 0.00214573368
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00157622492
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 7.379545E-05
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 0,
+      "endIndex": 9,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "media team",
+      "type": "builtin.keyPhrase",
+      "startIndex": 25,
+      "endIndex": 34
+    },
+    {
+      "entity": "public portal",
+      "type": "builtin.keyPhrase",
+      "startIndex": 43,
+      "endIndex": 55
+    },
+    {
+      "entity": "jill jones",
+      "type": "builtin.keyPhrase",
+      "startIndex": 0,
+      "endIndex": 9
+    }
+  ],
   "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
+    "label": "positive",
+    "score": 0.8694164
   }
 }
 ```
+
+sentimentAnalysis est positif avec un score de 0,86. 
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Quel est l’accomplissement de cette application LUIS ?
 Cette application, avec l’analyse des sentiments activée, a identifié une intention de type requête en langage naturel et retourné les données extraites contenant le sentiment global sous forme de score. 
