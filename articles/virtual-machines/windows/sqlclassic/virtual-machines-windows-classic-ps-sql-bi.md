@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e9d43d46f1979e985a5da96fda608eec55ad7830
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425610"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031054"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server dans les machines virtuelles Azure
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Il existe deux manières de mettre sous licence SQL Server dans Microsoft Azure 
 1. Via les avantages License Mobility inclus dans la Software Assurance. Pour plus d’informations, consultez [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/).
 2. Payez un tarif horaire pour Azure Virtual Machines avec SQL Server installé. Consultez la section « SQL Server » dans [Tarification de Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
 
-Pour plus d’informations sur les licences et les tarifs actuellement pratiqués, consultez [FAQ concernant les licences Virtual Machines](https://azure.microsoft.com/pricing/licensing-faq/%20/).
+Pour plus d’informations sur les licences et les tarifs actuellement pratiqués, consultez [FAQ concernant les licences Virtual Machines](https://azure.microsoft.com/pricing/licensing-faq/).
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Images de SQL Server disponibles dans la galerie de machines virtuelles Azure
 La galerie de machines virtuelles Microsoft Azure inclut plusieurs images qui contiennent Microsoft SQL Server. Le logiciel installé sur les images de machine virtuelle varie selon la version du système d’exploitation et la version de SQL Server. La liste des images disponibles dans la galerie de machines virtuelles Azure change souvent.
@@ -351,5 +351,5 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 > [Soumettre des commentaires et des informations de contact via Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>Contenu de la communauté
-* [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [Gestion de base de données SQL Azure avec PowerShell](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
 

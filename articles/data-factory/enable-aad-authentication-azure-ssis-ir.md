@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 5fce1a3b8370ce49a522f41749795362e1bf1f9b
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757275"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749716"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour le runtime d’intégration Azure-SSIS
 
@@ -53,7 +53,7 @@ Vous pouvez utiliser un groupe Azure AD existant ou en créer un à l’aide d�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Ajoutez le MSI Data Factory au groupe. Vous pouvez suivre [Identité de service Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’identité de service (par exemple 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc).
+3.  Ajoutez le MSI Data Factory au groupe. Vous pouvez suivre [Identité de service Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’IDENTITÉ DE SERVICE principal (par exemple 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mais n’utilisez pas l’ID d’APPLICATION d’IDENTITÉ DE SERVICE à cette fin).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619250"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049327"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-copy-activity-performance.md)
-> * [Version 2 - Préversion](copy-activity-performance.md)
+> * [Version 1](v1/data-factory-copy-activity-performance.md)
+> * [Version actuelle](copy-activity-performance.md)
 
 
 L’activité de copie Azure Data Factory offre une solution de chargement de données de premier ordre, sécurisée, fiable et hautes performances. Elle vous permet de copier des dizaines de téraoctets de données tous les jours entre une grande variété de banques de données cloud et locales. Les performances de chargement des données très rapides constituent la clé pour vous permettre de vous concentrer sur le problème « big data » principal : créer des solutions d’analyse avancées et obtenir des informations approfondies à l’aide de toutes ces données.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Performances de l’activité de copie dans Data Factory version 1](v1/data-factory-copy-activity-performance.md).
 
 Azure fournit un ensemble de solutions d’entrepôt de données et de stockage de données de niveau entreprise, et l’activité de copie offre une expérience de chargement des données hautement optimisée qui est facile à configurer et à mettre en œuvre. Avec une seule activité de copie, vous pouvez obtenir ce qui suit :
 
@@ -40,7 +37,7 @@ Azure fournit un ensemble de solutions d’entrepôt de données et de stockage 
 Cet article aborde les points suivants :
 
 * [chiffres de référence des performances](#performance-reference) pour les magasins de données source et récepteur pris en charge afin de vous aider à planifier votre projet.
-* fonctionnalités qui peuvent améliorer le débit de la copie dans différents scénarios, notamment les [unités de déplacement de données cloud](#cloud-data-movement-units), la [copie parallèle](#parallel-copy) et la [copie intermédiaire](#staged-copy) ;
+* fonctionnalités qui peuvent améliorer le débit de la copie dans différents scénarios, notamment les [unités d’intégration de données cloud](#data-integration-units), la [copie parallèle](#parallel-copy) et la [copie intermédiaire](#staged-copy) ;
 * [conseils de réglage des performances](#performance-tuning-steps) pour optimiser les performances et les facteurs clés qui peuvent affecter les performances de la copie.
 
 > [!NOTE]
@@ -49,12 +46,12 @@ Cet article aborde les points suivants :
 
 ## <a name="performance-reference"></a>Performances de référence
 
-À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie **en Mbits/s** pour les paires de source et de récepteur données **durant une seule exécution de l’activité de copie** à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement de données cloud](#cloud-data-movement-units) ou [d’évolutivité du runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime) (plusieurs nœuds) peuvent améliorer les performances de copie.
+À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie **en Mbits/s** pour les paires de source et de récepteur données **durant une seule exécution de l’activité de copie** à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres des [unités d’intégration de données](#data-integration-units) ou de [scalabilité du runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime) (plusieurs nœuds) peuvent améliorer les performances de la copie.
 
 ![Matrice des performances](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->Dans Azure Data Factory version 2, lorsque l’activité de copie est exécutée dans une infrastructure Azure Integration Runtime, le minimum d’unités de déplacement de données cloud autorisé est de deux. Si ce minimum n’est pas spécifié, consultez les unités de déplacement de données par défaut utilisées dans les [unités de déplacement de données cloud](#cloud-data-movement-units).
+> [!IMPORTANT]
+> Quand une activité de copie est exécutée sur un runtime d’intégration Azure, le nombre minimal d’unités d’intégration de données (auparavant appelées Unités de déplacement de données) autorisé est de deux. S’il n’est pas spécifié, consultez les unités d’intégration de données par défaut utilisées dans les [unités d’intégration de données](#data-integration-units).
 
 Points à noter :
 
@@ -79,25 +76,25 @@ Points à noter :
 
 
 > [!TIP]
-> Vous pouvez obtenir un débit plus élevé en utilisant davantage d’unités de déplacement de données (DMU) que le nombre maximum autorisé par défaut, à savoir 32, pour l’exécution d’une activité de copie de cloud à cloud. Par exemple, avec 100 unités DMU, vous pouvez copier des données depuis Azure Blob vers Azure Data Lake Store à **1,0 Go/s**. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
+> Vous pouvez obtenir un débit plus élevé en utilisant plus d’unités d’intégration de données que le nombre maximal autorisé par défaut, qui est de 32 pour l’exécution d’une activité de copie de cloud à cloud. Par exemple, avec 100 unités d’intégration de données, vous pouvez copier des données depuis Azure Stockage Blob dans Azure Data Lake Store avec un débit de **1,0 Go/s**. Pour plus d’informations sur cette fonctionnalité et sur le scénario pris en charge, consultez la section [Unités d’intégration de données](#data-integration-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus d’unités d’intégration de données.
 
-## <a name="cloud-data-movement-units"></a>Unités de déplacement de données cloud
+## <a name="data-integration-units"></a>Unités d’intégration de données
 
-Une **unité de déplacement de données cloud** est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Une **unité de déplacement de données cloud s’applique uniquement au [runtime d’intégration Azure](concepts-integration-runtime.md#azure-integration-runtime)**, mais pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Une **unité d’intégration de données** (auparavant appelée « unité de déplacement de données cloud ») est une mesure qui représente la puissance (une combinaison d’allocation de ressources d’UC, de mémoire et de réseau) d’une unité dans Data Factory. Une **unité d’intégration de données s’applique seulement à [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, et non pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Le minimum d’unités de déplacement de données cloud pour exécuter l’activité de copie est de deux.** Si aucun minimum n’est spécifié, le tableau suivant répertorie les unités de déplacement de données par défaut utilisées dans différents scénarios de copie :
+**Le nombre minimal d’unités d’intégration de données pour exécuter l’activité de copie est de deux.** S’il n’est pas spécifié, le tableau suivant répertorie les unités d’intégration de données par défaut utilisées dans différents scénarios de copie :
 
-| Scénario de copie | Unités de déplacement de données cloud par défaut déterminées par le service |
+| Scénario de copie | Unités d’intégration de données par défaut déterminées par service |
 |:--- |:--- |
 | Copie de données entre des magasins basés sur des fichiers | Entre 4 et 32, selon le nombre et la taille des fichiers. |
 | Tous les autres scénarios de copie | 4 |
 
-Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** vont **jusqu’à 256**. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
+Pour remplacer cette valeur par défaut, spécifiez comme suit une valeur pour la propriété **dataIntegrationUnits**. Les **valeurs autorisées** pour la propriété **dataIntegrationUnits** vont **jusqu’à 256**. Le **nombre réel d’unités d’intégration de données** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
 
-Vous pouvez voir les unités de déplacement de données cloud réellement utilisées pour chaque exécution de la copie dans la sortie de l’activité de copie lors de l’analyse de l’exécution d’une activité. Pour plus d’informations, consultez la rubrique sur le [monitoring de l’activité de copie](copy-activity-overview.md#monitoring).
+Vous pouvez voir les unités d’intégration de données réellement utilisées pour chaque exécution de la copie dans la sortie de l’activité de copie lors de la surveillance de l’exécution d’une activité. Pour plus d’informations, consultez la rubrique sur le [monitoring de l’activité de copie](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud, d’un SFTP cloud vers d’autres magasins de données cloud**.
+> Si vous avez besoin de plus d’unités d’intégration de données pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud, d’un SFTP cloud vers d’autres magasins de données cloud**.
 >
 
 **Exemple :**
@@ -116,15 +113,15 @@ Vous pouvez voir les unités de déplacement de données cloud réellement utili
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### <a name="cloud-data-movement-units-billing-impact"></a>Impact sur la facturation des unités de déplacement de données cloud
+### <a name="data-integration-units-billing-impact"></a>Impact des unités d’intégration de données sur la facturation
 
-Il est **important** de garder à l’esprit que vous êtes facturé selon la durée totale de l’opération de copie. La durée totale pendant laquelle le déplacement de données vous est facturé correspond à la somme de la durée de toutes les unités de déplacement de données cloud. Si un travail de copie prenait auparavant une heure avec deux unités cloud et qu’il prend maintenant 15 minutes avec huit unités cloud, le montant total de la facture reste identique.
+Il est **important** de garder à l’esprit que vous êtes facturé selon la durée totale de l’opération de copie. La durée totale de déplacement de données qui vous est facturée correspond à la somme de la durée de toutes les unités d’intégration de données. Si un travail de copie prenait auparavant une heure avec deux unités cloud et qu’il prend maintenant 15 minutes avec huit unités cloud, le montant total de la facture reste identique.
 
 ## <a name="parallel-copy"></a>Copie en parallèle
 
@@ -134,7 +131,7 @@ Pour chaque exécution d’activité de copie, Data Factory détermine le nombre
 
 | Scénario de copie | Nombre de copie en parallèle par défaut déterminé par le service |
 | --- | --- |
-| Copie de données entre des magasins basés sur des fichiers |Dépend de la taille des fichiers et du nombre d’unités de déplacement de données cloud utilisées pour copier des données entre les deux magasins de données cloud, ou de la configuration physique de l’ordinateur de runtime d’intégration auto-hébergé. |
+| Copie de données entre des magasins basés sur des fichiers |Dépend de la taille des fichiers et du nombre d’unités d’intégration de données utilisées pour copier des données entre les deux banques de données cloud, ou de la configuration physique de l’ordinateur du runtime d’intégration auto-hébergé. |
 | Copie de données de n’importe quel magasin de données source vers le stockage Table Azure |4 |
 | Tous les autres scénarios de copie |1 |
 
@@ -168,7 +165,7 @@ Points à noter :
 * Lorsque vous copiez des données entre des banques basées sur fichier, la valeur **parallelCopies** détermine le parallélisme au niveau du fichier. La segmentation dans un seul fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la meilleure taille de segment appropriée pour un type de magasin de données source donné pour charger des données de manière parallèle et orthogonale à la valeur parallelCopies. Le nombre réel de copies en parallèle que le service de déplacement de données utilise pour l’opération de copie au moment de l’exécution ne peut pas être supérieur au nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile**, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier.
 * Lorsque vous spécifiez une valeur pour la propriété **parallelCopies**, pensez à l’augmentation de la charge sur vos magasins de données source et récepteur, et sur le runtime d’intégration auto-hébergé si l’activité de copie repose sur ce dernier, par exemple, pour la copie hybride. Cela se produit en particulier lorsque plusieurs activités ou exécutions simultanées des mêmes activités ont lieu en même temps dans la même banque de données. Si vous remarquez que le magasin de données ou le runtime d’intégration auto-hébergé est submergé par la charge, diminuez la valeur **parallelCopies** pour alléger la charge.
 * Lorsque vous copiez des données à partir de banques qui ne sont pas basées sur fichier vers des banques basées sur fichier, le service de déplacement de données ignore la propriété **parallelCopies** . Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
-* **parallelCopies** se produit de manière orthogonale à **cloudDataMovementUnits**. La première valeur est calculée à partir de toutes les unités de déplacement de données cloud.
+* **parallelCopies** est orthogonal par rapport à **dataIntegrationUnits**. La première valeur est calculée à partir de toutes les unités d’intégration de données.
 
 ## <a name="staged-copy"></a>copie intermédiaire
 
@@ -246,7 +243,7 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 
    * Fonctionnalités de performances :
      * [Copie en parallèle](#parallel-copy)
-     * [Unités de déplacement de données cloud](#cloud-data-movement-units)
+     * [Unités d’intégration de données](#data-integration-units)
      * [Copie intermédiaire](#staged-copy)
      * [Évolutivité du runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Runtime d’intégration auto-hébergé](#considerations-for-self-hosted-integration-runtime)

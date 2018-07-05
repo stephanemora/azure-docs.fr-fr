@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616003"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044974"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-create-datasets.md)
-> * [Version 2 - Préversion](concepts-datasets-linked-services.md)
+> * [Version 1](v1/data-factory-create-datasets.md)
+> * [Version actuelle](concepts-datasets-linked-services.md)
 
-Cet article décrit les jeux de données, comment ils sont définis au format JSON et comment ils sont utilisés dans les pipelines Azure Data Factory V2. 
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Jeux de données dans Data Factory V1](v1/data-factory-create-datasets.md).
+Cet article décrit les jeux de données, comment ils sont définis au format JSON et comment ils sont utilisés dans les pipelines d’Azure Data Factory. 
 
 Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md) pour obtenir une vue d’ensemble. 
 
@@ -220,13 +217,13 @@ Les recommandations suivantes vous permettent de comprendre quand inclure les in
 ## <a name="create-datasets"></a>Créez les jeux de données
 Vous pouvez créer des jeux de données en utilisant l’un des outils ou kits de développement logiciel suivants : [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modèle Azure Resource Manager et portail Azure
 
-## <a name="v1-vs-v2-datasets"></a>Comparaison des jeux de données V1 et V2
+## <a name="current-version-vs-version-1-datasets"></a>Jeux de données de la version actuelle et de la version 1
 
-Voici quelques différences entre les jeux de données Data Factory V1 et V2 : 
+Voici quelques différences entre les jeux de données Data Factory et Data Factory version 1 : 
 
-- La propriété externe n’est pas prise en charge dans V2. Elle est remplacée par un [déclencheur](concepts-pipeline-execution-triggers.md).
-- Les propriétés de stratégie et de disponibilité ne sont pas prises en charge dans V2. L’heure de début d’un pipeline dépend des [déclencheurs](concepts-pipeline-execution-triggers.md).
-- Les jeux de données étendus (définis dans un pipeline) ne sont pas pris en charge dans V2. 
+- La propriété externe n’est pas prise en charge dans la version actuelle. Elle est remplacée par un [déclencheur](concepts-pipeline-execution-triggers.md).
+- Les propriétés de stratégie et de disponibilité ne sont pas prises en charge dans la version actuelle. L’heure de début d’un pipeline dépend des [déclencheurs](concepts-pipeline-execution-triggers.md).
+- Les jeux de données limités (définis dans un pipeline) ne sont pas pris en charge dans la version actuelle. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les didacticiels suivants pour obtenir des instructions pas à pas sur la création de pipelines et de jeux de données à l’aide de l’un de ces outils ou Kits de développement logiciel (SDK). 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 81986fdd9cbfbeb41c794e2364bf7bfea1069742
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211252"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061043"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 
@@ -48,7 +48,7 @@ Exécutez les étapes de configuration suivantes pour activer le protocole LDAP 
 4. Par défaut, l’accès LDAP sécurisé à votre domaine managé est désactivé. Basculez **LDAP sécurisé** sur **Activer**.
 
     ![Activer LDAP sécurisé](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Par défaut, l’accès LDAP sécurisé à votre domaine managé via Internet est désactivé. Si vous le souhaitez, basculez **Autorisez l’accès LDAP sécurisé sur Internet** sur **Activer**. 
+5. Par défaut, l’accès LDAP sécurisé à votre domaine managé via Internet est désactivé. Si vous le souhaitez, basculez **Autorisez l’accès LDAP sécurisé sur Internet** sur **Activer**.
 
     > [!WARNING]
     > Quand vous activez l’accès LDAP sécurisé sur Internet, votre domaine est vulnérable aux attaques par force brute via Internet. Par conséquent, nous vous conseillons de définir un groupe de sécurité réseau pour bloquer l’accès aux plages d’adresses IP source requises. Consultez les instructions pour [Verrouiller l’accès LDAPS à votre domaine géré via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -111,6 +111,23 @@ Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous 
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Créer une liaison avec le domaine managé via LDAP à l’aide de LDP.exe
+Vous pouvez utiliser l’outil LDP.exe qui est inclus dans le package d’outils d’administration de serveur distant pour lier et effectuer des recherches via LDAP.
+
+Tout d’abord, ouvrez LDP, puis connectez-vous au domaine managé. Cliquez sur **Connexion**, puis cliquez sur **Se connecter…** dans le menu. Spécifiez le nom de domaine DNS du domaine managé. Spécifiez le port à utiliser pour les connexions. Pour les connexions LDAP, utilisez le port 389. Pour les connexions LDAPS, utilisez le port 636. Cliquez sur le bouton **OK** pour vous connecter au domaine managé.
+
+Ensuite, créez une liaison avec le domaine managé. Cliquez sur **Connexion**, puis cliquez sur **Lier…** dans le menu. Fournissez les informations d’identification d’un compte d’utilisateur appartenant au groupe Administrateurs AAD DC.
+
+Sélectionnez **Afficher**, puis sélectionnez **Arborescence** dans le menu. Laissez vide le champ Nom unique de base, puis cliquez sur OK. Accédez au conteneur dans lequel effectuer des recherches, cliquez dessus avec le bouton droit, puis sélectionnez Rechercher.
+
+> [!TIP]
+> - Les utilisateurs et les groupes synchronisés à partir d’Azure AD sont stockés dans le conteneur **Utilisateurs AAD**. Le chemin de recherche de ce conteneur ressemble à ceci : ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Les comptes des ordinateurs joints à un domaine managé sont stockés dans le conteneur **Ordinateurs AAD DC** Le chemin de recherche de ce conteneur ressemble à ceci : ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+Pour plus d’informations : [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx) (Concepts de base sur les requêtes LDAP)
+
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Si vous ne parvenez pas à vous connecter au domaine managé à l’aide du protocole LDAP sécurisé, essayez les étapes de dépannage suivantes :
@@ -129,6 +146,7 @@ Si vous ne parvenez toujours pas à vous connecter au domaine managé à l’aid
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
+* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
 * [Gérer la stratégie de groupe sur un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Groupes de sécurité réseau](../virtual-network/security-overview.md)
-* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md)

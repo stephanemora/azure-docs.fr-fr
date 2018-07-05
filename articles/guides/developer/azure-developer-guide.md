@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771090"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754296"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -205,7 +205,7 @@ L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des a
 
 Même si cela est peu probable, il est possible qu’un centre de données soit mis intégralement hors connexion en raison d’une catastrophe naturelle ou d’une panne Internet. Pour garantir une disponibilité optimale, il est recommandé d’héberger les applications métier critiques dans plusieurs centres de données. L’utilisation de plusieurs régions peut également réduire la latence pour les utilisateurs internationaux et fournir une flexibilité supplémentaire lors des mises à jour d’applications.
 
-Certains services, tels que Machines virtuelles et App Services, utilisent [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) pour obtenir une prise en charge multirégion avec basculement d’une région à une autre, ce qui permet de prendre en charge les applications d’entreprise à haute disponibilité. Pour en voir un exemple, consultez [Architecture de référence Azure : application web à haute disponibilité](../../guidance/guidance-web-apps-multi-region.md).
+Certains services, tels que Machines virtuelles et App Services, utilisent [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) pour obtenir une prise en charge multirégion avec basculement d’une région à une autre, ce qui permet de prendre en charge les applications d’entreprise à haute disponibilité. Pour en voir un exemple, consultez [Architecture de référence Azure : exécuter une application web dans plusieurs régions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Quand l’utiliser** : lorsque vous avez des applications d’entreprise à haute disponibilité qui bénéficient du basculement et de la réplication.
 
@@ -263,9 +263,9 @@ En tant que développeurs, nous aimons plonger directement dans le code et essay
 
 Pour pouvoir créer ou utiliser un abonnement Azure, vous devez disposer d’un compte Azure. Un compte Azure est simplement une identité dans Azure AD ou dans un annuaire, telle qu’une organisation professionnelle ou un établissement scolaire, qui est approuvée par Azure AD. Si vous n’appartenez pas à une organisation comme celle-ci, vous pouvez toujours créer un abonnement à l’aide de votre compte Microsoft, qui est approuvé par Azure AD. Pour en savoir plus sur l’intégration de Windows Server Active Directory sur site avec Azure AD, consultez [Intégration de vos identités locales avec Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
 
-Chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même annuaire, mais un abonnement n’approuve qu’un seul annuaire. Pour en savoir plus, consultez [Association des abonnements Azure avec Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même annuaire, mais un abonnement n’approuve qu’un seul annuaire. Pour en savoir plus, consultez [Association des abonnements Azure avec Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Outre des identités de compte Azure individuelles, également appelées *utilisateurs*, vous pouvez définir des *groupes* dans Azure AD. La création de groupes d’utilisateurs est un bon moyen de gérer l’accès aux ressources dans un abonnement à l’aide du contrôle d’accès en fonction du rôle (RBAC). Pour découvrir comment créer des groupes, consultez [Créer un groupe dans la préversion d’Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md). Vous pouvez également créer et gérer des groupes en [utilisant PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Outre des identités de compte Azure individuelles, également appelées *utilisateurs*, vous pouvez définir des *groupes* dans Azure AD. La création de groupes d’utilisateurs est un bon moyen de gérer l’accès aux ressources dans un abonnement à l’aide du contrôle d’accès en fonction du rôle (RBAC). Pour découvrir comment créer des groupes, consultez [Créer un groupe dans la préversion d’Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Vous pouvez également créer et gérer des groupes en [utilisant PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Gérer vos abonnements
 

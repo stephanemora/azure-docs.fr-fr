@@ -7,20 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647338"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308677"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Surveiller le stockage OLTP In-Memory
-Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium et Critique pour l’entreprise est doté d’une taille de stockage OLTP en mémoire maximale, qui est décrite dans [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md) et [Limites de ressources basées sur des vCore](sql-database-vcore-resource-limits.md). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer en générant l’erreur 41823 pour les bases de données autonomes et l’erreur 41840 pour les pools élastiques. À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
+Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium et critique pour l'entreprise dispose d’une taille de stockage OLTP en mémoire maximale. Consultez [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md) (limites de ressource DTU - base de données unique), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md) (limites de ressource DTU - pools élastiques), [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) (limites de ressource vCore - bases de données uniques) et [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (limites de ressource vCore - pools élastiques).
+
+Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer en générant l’erreur 41823 pour les bases de données autonomes et l’erreur 41840 pour les pools élastiques. À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Déterminer si la taille des données est adaptée à la capacité de stockage en mémoire OLTP
-Déterminez les limites maximales de stockage des différents niveaux de service. Consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md) et [Limites de ressources basées sur des vCores](sql-database-vcore-resource-limits.md).
+Déterminez les limites maximales de stockage des différents niveaux de service. Consultez [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md) (limites de ressource DTU - base de données unique), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md) (limites de ressource DTU - pools élastiques), [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) (limites de ressource vCore - bases de données uniques) et [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (limites de ressource vCore - pools élastiques).
 
 L’estimation de la mémoire requise pour une table à mémoire optimisée s’effectue de la même façon pour SQL Server que dans Base de données SQL Azure. Prenez quelques minutes pour consulter cet article sur [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 22de973ae00c93f82b274c0b833149b9fe494a7f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a62a6b334fd58ce360d932cdc4a8f04f36e3232d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209848"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Didacticiel : Intégration d’Azure Active Directory à ServiceChannel
 
@@ -126,7 +126,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     ![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 
-    > Cliquez [ici](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) pour savoir comment configurer un **rôle** dans Azure AD.
+    > Consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md) pour savoir comment configurer les **rôles** dans Azure AD.
 
 5. Dans **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** et définissez les attributs.
 

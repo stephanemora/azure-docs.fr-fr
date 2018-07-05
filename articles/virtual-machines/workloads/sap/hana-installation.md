@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763445"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064337"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
 
@@ -44,7 +44,7 @@ Effectuez une nouvelle vérification, en particulier si vous vous préparez à i
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Premières étapes à suivre après la réception des unités de grandes instances HANA
 
-Après avoir reçu l’unité de grandes instances HANA, puis établi l’accès et la connectivité aux instances, la **première étape** consiste à enregistrer le système d’exploitation de l’instance auprès de votre fournisseur de système d’exploitation. Cela inclut l’inscription de votre système d’exploitation SUSE Linux dans une instance de SUSE SMT que vous devez avoir déployée sur une machine virtuelle dans Azure. L’unité de grande instance HANA peut se connecter à cette instance SMT (voir plus loin dans cette documentation). Ou bien l’enregistrement de votre système d’exploitation Red Hat dans le Gestionnaire d’abonnements Red Hat auquel vous devez vous connecter. Consultez également la section Remarques de ce [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette étape est également nécessaire si vous souhaitez pouvoir appliquer des correctifs au système d’exploitation. Tâche qui incombe au client. Pour SUSE, la documentation permettant d’installer et de configurer SMT se trouve [ici](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+Après avoir reçu l’unité de grandes instances HANA, puis établi l’accès et la connectivité aux instances, la **première étape** consiste à enregistrer le système d’exploitation de l’instance auprès de votre fournisseur de système d’exploitation. Cela inclut l’inscription de votre système d’exploitation SUSE Linux dans une instance de SUSE SMT que vous devez avoir déployée sur une machine virtuelle dans Azure. L’unité de grande instance HANA peut se connecter à cette instance SMT (voir plus loin dans cette documentation). Ou bien l’enregistrement de votre système d’exploitation Red Hat doit se faire avec le Gestionnaire d’abonnements Red Hat auquel vous devez vous connecter. Consultez également la section Remarques de ce [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette étape est également nécessaire si vous souhaitez pouvoir appliquer des correctifs au système d’exploitation. Tâche qui incombe au client. Pour SUSE, la documentation permettant d’installer et de configurer SMT se trouve [ici](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 La **deuxième étape** consiste à rechercher les nouveaux correctifs applicables à la version spécifique du système d’exploitation. Vérifiez que le niveau de correctif logiciel des grandes instances HANA est à jour. En fonction de la date de publication des correctifs/versions du système d’exploitation et des modifications de l’image que Microsoft peut déployer, il peut arriver que les correctifs les plus récents ne soient pas inclus. Par conséquent, cette étape est obligatoire après réception d’une unité de grande instance HANA afin de vérifier si des correctifs indispensables pour la sécurité, le fonctionnement, la disponibilité et les performances ont été publiés entretemps par le fournisseur Linux concerné, et s’ils doivent être appliqués.
 
@@ -80,18 +80,7 @@ Nous partons du principe que vous avez suivi les recommandations données dans l
 
 Certains détails concernant la mise en réseau d’unités individuelles valent la peine d’être soulignés. Chaque unité de grandes instances HANA est fournie avec deux ou trois adresses IP affectées à deux ou trois de ses ports de carte réseau. Trois adresses IP sont utilisées dans les configurations de montée en charge HANA et dans le scénario de réplication système HANA. Une des adresses IP affectées à la carte réseau de l’unité se situe hors du pool d’adresses IP du serveur décrit à la page [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-Pour les unités avec deux adresses IP affectées, voici à quoi devrait ressembler la distribution :
-
-- L’adresse IP affectée à eth0.xx doit se trouver hors de la plage du pool d’adresses IP du serveur envoyé à Microsoft. Cette adresse IP doit être utilisée pour maintenir le fichier /etc/hosts du système d’exploitation à jour.
-- L’adresse IP affectée à eth1.xx doit être utilisée pour la communication avec le stockage NFS. Par conséquent, ces adresses **N’ONT PAS BESOIN** d’être mises à jour dans le fichier etc/hosts pour autoriser un trafic interinstance au sein du locataire.
-
-Une configuration à deux adresses IP ne convient pas aux déploiements de réplication système HANA ou aux montées en charge HANA. Si seules deux adresses IP sont affectées et si vous souhaitez déployer une telle configuration, contactez SAP HANA sur Azure Service Management pour obtenir une troisième adresse IP dans un troisième VLAN. Pour les unités de grande instance HANA avec trois adresses IP affectées à trois ports de carte réseau, les règles d’utilisation suivantes s’appliquent :
-
-- L’adresse IP affectée à eth0.xx doit se trouver hors de la plage du pool d’adresses IP du serveur envoyé à Microsoft. Par conséquent, cette adresse IP ne doit pas être utilisée pour maintenir le fichier /etc/hosts du système d’exploitation à jour.
-- L’adresse IP affectée à eth1.xx doit être utilisée pour la communication avec le stockage NFS. Ce type d’adresse ne doit donc pas être mis à jour dans le fichier etc/hosts.
-- L’adresse IP du port eth2.xx doit être mise à jour dans le fichier etc/hosts pour la communication entre les différentes instances exclusivement. Ces adresses doivent également être mises à jour dans les configurations HANA de montée en charge : ce sont les adresses IP que HANA utilise pour la communication entre les nœuds.
-
-
+Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour connaître les détails Ethernet de votre architecture.
 
 ## <a name="storage"></a>Stockage
 
@@ -111,7 +100,7 @@ Où SID est l’ID système de l’instance HANA
 
 Et tenant est une énumération interne des opérations lors du déploiement d’un client.
 
-Comme vous pouvez le voir, HANA partagé et usr/sap partagent le même volume. La nomenclature des points de montage n’inclut ni l’ID système des instances HANA, ni le nombre de montages. Dans les déploiements avec montée en puissance parallèle, il n’existe qu’un seul montage, par exemple mnt00001. Dans un déploiement avec montée en puissance parallèle vous devriez voir un nombre de montages équivalent au nombre de nœuds worker et principaux. Pour l’environnement avec montée en puissance parallèle, les données, les journaux et les volumes de sauvegarde de fichier journal sont partagés et associés à chaque nœud dans la configuration de la montée en puissance parallèle. Pour les configurations exécutant plusieurs instances SAP, un autre jeu de volumes est créé et attaché à l’unité de grande instance HANA.
+Comme vous pouvez le voir, HANA partagé et usr/sap partagent le même volume. La nomenclature des points de montage n’inclut ni l’ID système des instances HANA, ni le nombre de montages. Dans les déploiements avec montée en puissance parallèle, il n’existe qu’un seul montage, par exemple mnt00001. Dans un déploiement avec montée en puissance parallèle vous devriez voir un nombre de montages équivalent au nombre de nœuds worker et principaux. Pour l’environnement avec montée en puissance parallèle, les données, les journaux et les volumes de sauvegarde de fichier journal sont partagés et associés à chaque nœud dans la configuration de la montée en puissance parallèle. Pour les configurations exécutant plusieurs instances SAP, un autre jeu de volumes est créé et attaché à l’unité de grande instance HANA. Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour connaître les détails de la disposition du stockage de votre scénario.
 
 À la lecture de ce document, et en regardant une unité de plus près, vous pouvez vous rendre compte de la générosité du volume disque des unités de grande instance HANA attribué à HANA/data, et remarquer la présence d’un volume HANA/log/backup. Si HANA/data est aussi volumineux, c’est parce que les captures instantanées du stockage que nous vous proposons l’exigent. Cela signifie que, plus vous prenez d’instantanés de stockage, plus les instantanés occupent d’espace dans les volumes de stockage qui vous sont assignés. Le volume HANA/log/backup n’est pas conçu pour être le volume sur lequel placer des sauvegardes de base de données. Il est dimensionné pour être utilisé en tant que volume de sauvegarde pour les sauvegardes des journaux de transactions HANA. Dans les futures versions de l’instantané de stockage libre service, nous ciblerons ce volume spécifique pour obtenir des instantanés plus fréquents. Et avec ces réplications plus fréquentes sur le site de récupération d’urgence, vous pouvez opter pour la fonctionnalité de récupération d’urgence fournie par l’infrastructure de grande instance HANA. Pour plus de détails, voir [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -150,6 +139,7 @@ Vous pouvez également configurer les paramètres après l’installation de la 
 
 L’utilisation du framework hdbparam est déconseillée avec SAP HANA 2.0. Il faut donc définir les paramètres à l’aide de commandes SQL. Pour plus d’informations, consultez la [Note de support SAP #2399079 : Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079) (Suppression de hbdparam dans HANA 2).
 
+Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour connaître la disposition du stockage de votre architecture.
 
 ## <a name="operating-system"></a>Système d’exploitation
 

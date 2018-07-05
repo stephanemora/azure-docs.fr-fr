@@ -1,6 +1,6 @@
 ---
-title: Utilisation de la bibliothèque .NET BulkExecutor pour effectuer des opérations en bloc dans Azure Cosmos DB | Microsoft Docs
-description: Utilisez la bibliothèque .NET BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour en bloc des documents vers des collections Azure Cosmos DB.
+title: Utilisation de la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB | Microsoft Docs
+description: Utilisez la bibliothèque de l’exécuteur en bloc .NET d’Azure Cosmos DB pour importer et mettre à jour en bloc des documents vers des collections Azure Cosmos DB.
 keywords: Exécuteur en bloc .NET
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611158"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300769"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilisation de la bibliothèque .NET BulkExecutor pour effectuer des opérations en bloc dans Azure Cosmos DB
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilisation de la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
-Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque .NET BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents vers des collections Azure Cosmos DB. Pour en savoir plus sur la bibliothèque BulkExecutor et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Ce tutoriel fait appel à un exemple d’application .NET qui importe en bloc des documents générés de manière aléatoire dans une collection Azure Cosmos DB. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques.
+Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de l’exécuteur en bloc .NET d’Azure Cosmos DB pour importer et mettre à jour des documents vers des collections Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Ce tutoriel fait appel à un exemple d’application .NET qui importe en bloc des documents générés de manière aléatoire dans une collection Azure Cosmos DB. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -166,7 +166,7 @@ Vous pouvez mettre à jour des documents existants à l’aide de l’API BulkUp
     
 ## <a name="performance-tips"></a>Conseils sur les performances 
 
-Pour bénéficier de meilleures performances lors de l’utilisation de la bibliothèque BulkExecutor, considérez les points suivants :
+Pour bénéficier de meilleures performances lors de l’utilisation de la bibliothèque de l’exécuteur en bloc, considérez les points suivants :
 
 * Pour de meilleures performances, exécutez votre application à partir d’une machine virtuelle Azure qui se trouve dans la région d’écriture du compte Cosmos DB.  
 
@@ -196,4 +196,4 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les packages Nuget et les notes de publication de la bibliothèque BulkExecutor .NET, consultez les [détails sur le SDK BulkExecutor](sql-api-sdk-bulk-executor-dot-net.md). 
+* Pour en savoir plus sur les packages Nuget et les notes de publication de la bibliothèque de l’exécuteur en vrac .NET, consultez les [détails sur le SDK BulkExecutor](sql-api-sdk-bulk-executor-dot-net.md). 

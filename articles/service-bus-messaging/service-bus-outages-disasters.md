@@ -6,18 +6,18 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802304"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301714"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
-Les applications stratégiques doivent fonctionner en permanence, même en cas de pannes non planifiées ou de sinistres. Cette rubrique décrit les techniques que vous pouvez utiliser pour protéger les applications Service Bus contre une panne ou un sinistre potentiel.
+Les applications stratégiques doivent fonctionner en permanence, même en cas de pannes non planifiées ou de sinistres. Cette rubrique décrit les techniques que vous pouvez utiliser pour protéger les applications Service Bus contre une panne de service ou un sinistre potentiel.
 
 Une panne est définie comme l'indisponibilité temporaire d'Azure Service Bus. La panne peut affecter certains composants de Service Bus, comme une banque de messagerie ou même le centre de données entier. Une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne n'entraîne pas la perte de messages ou autres données. L'indisponibilité d'une banque de messagerie spécifique constitue un exemple de défaillance d'un composant. Une panne d'alimentation ou un commutateur réseau défaillant constituent des exemples de panne au niveau du centre de données. Une panne peut durer de quelques minutes à plusieurs jours.
 
@@ -78,6 +78,17 @@ L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Geo-
 
 Service Bus prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. Pour plus d’informations, consultez [Géorécupération d’urgence Azure Service Bus](service-bus-geo-dr.md). La fonctionnalité de récupération d’urgence, disponible pour la [référence SKU Premium](service-bus-premium-messaging.md) uniquement, implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire.
 
+## <a name="availability-zones-preview"></a>Zones de disponibilité (aperçu)
+
+La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
+
+> [!NOTE]
+> La préversion des Zones de disponibilité est prise en charge uniquement dans les régions **USA Centre**, **USA Est 2** et **France Centre**.
+
+Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Service Bus ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
+
+![1][]
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur la récupération d'urgence, consultez les articles suivants :
 
@@ -93,3 +104,5 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

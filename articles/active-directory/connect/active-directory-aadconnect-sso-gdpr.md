@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149525"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592406"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Confidentialité des utilisateurs et authentification unique fluide Azure AD
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149525"
 ## <a name="overview"></a>Vue d'ensemble
 
 
-L’authentification unique fluide Azure AD crée le type de journal suivant, qui peut contenir des informations EUII :
+L’authentification unique transparente Azure AD crée le type de journal suivant, pouvant contenir des Données personnelles : 
 
 - Fichiers journaux des traces Azure AD Connect
 
-La conformité de la confidentialité des utilisateurs pour l’authentification unique fluide est accessible de deux manières :
+Améliore la confidentialité de l'utilisateur pour l’authentification unique transparente de deux façons :
 
 1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations
 2.  En garantissant qu’aucune donnée n’est conservée plus de 48 heures

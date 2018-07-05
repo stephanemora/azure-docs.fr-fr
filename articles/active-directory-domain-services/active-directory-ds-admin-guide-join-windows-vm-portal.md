@@ -13,20 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/21/2018
 ms.author: maheshu
-ms.openlocfilehash: 408d86d2d79e827da654ad71f66972fe76fc2431
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2929f85b738171f7fb7f5b66af90e4e2ab54f5d0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212493"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317168"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Windows Server à un domaine géré
 Cet article explique comment déployer une machine virtuelle Windows Server à l’aide du portail Azure. Il indique également comment joindre une machine à un domaine managé Azure Active Directory Domain Services.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Étape 1 : créer une machine virtuelle Windows Server
-Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD DS, procédez comme suit :
+Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duquel vous avez activé Azure AD DS, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](http://portal.azure.com).
 2. En haut du volet gauche, sélectionnez **Nouveau**.
@@ -76,21 +78,21 @@ Pour vous connecter à la machine virtuelle, procédez comme suit :
     ![Se connecter à une machine virtuelle Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé. Si vous y êtes invité, sélectionnez **Connexion**.
-3. À l’invite d’ouverture de session, entrez vos **informations d’identification d’administrateur local**que vous avez spécifiées lors de la création de la machine virtuelle (par exemple, *localhost\mahesh*).
-4. Si vous recevez un avertissement de certificat lors du processus de connexion, poursuivez la connexion en sélectionnant **Oui** ou **Continuer**.
+3. Entrez vos **informations d’identification d’administrateur local** que vous avez spécifiées lors de la création de la machine virtuelle (par exemple, *localhost\mahesh*).
+4. Si un avertissement lié au certificat s’affiche pendant le processus de connexion, sélectionnez **Oui** ou **Continuer** pour vous connecter.
 
 À ce stade, vous devez être connecté à la nouvelle machine virtuelle Windows avec les informations d’identification de l’administrateur local. L’étape suivante consiste à joindre la machine virtuelle au domaine.
 
 
 ## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Étape 3 : joindre la machine virtuelle Windows Server au domaine Azure AD DS managé
-Pour joindre la machine virtuelle Windows Server au domaine Azure AD DS managé, procédez comme suit :
+Pour joindre la machine virtuelle Windows Server au domaine managé par Azure AD DS, procédez comme suit :
 
 1. Connectez-vous à la machine virtuelle Windows Server, comme indiqué à l’étape 2. Dans l’écran **Démarrer**, ouvrez **Gestionnaire de serveur**.
 2. Dans le volet gauche de la fenêtre **Gestionnaire de serveur**, cliquez sur l’option **Serveur local**.
 
     ![Fenêtre Gestionnaire de serveur sur la machine virtuelle](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. Sous **Propriétés**, sélectionnez **Groupe de travail**. 
+3. Sous **Propriétés**, sélectionnez **Groupe de travail**.
 4. Dans la fenêtre **Propriétés système**, sélectionnez **Modifier** pour joindre le domaine.
 
     ![Fenêtre Propriétés système](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
@@ -99,7 +101,7 @@ Pour joindre la machine virtuelle Windows Server au domaine Azure AD DS managé,
 
     ![Spécifier le domaine à joindre](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-6. Vous devez entrer vos informations d’identification pour joindre le domaine. Veillez à spécifier les informations d’identification d’un *utilisateur appartenant au groupe d’administrateurs Azure AD DC*. Seuls les membres de ce groupe disposent de privilèges suffisants pour pouvoir joindre des ordinateurs au domaine géré.
+6. Vous devez entrer vos informations d’identification pour joindre le domaine. Utilisez les informations d’identification d’un *utilisateur appartenant au groupe d’administrateurs Azure AD DC*. Seuls les membres de ce groupe disposent de privilèges suffisants pour pouvoir joindre des ordinateurs au domaine géré.
 
     ![Fenêtre Sécurité Windows pour spécifier les informations d’identification](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
@@ -115,7 +117,7 @@ Pour joindre la machine virtuelle Windows Server au domaine Azure AD DS managé,
      > La valeur SAMAccountName peut être générée automatiquement si le préfixe UPN d’un utilisateur est anormalement long (par exemple, *joehasareallylongname*). Si, au sein de votre locataire Azure AD, plusieurs utilisateurs présentent le même préfixe UPN (par exemple, *bob*), le format SAMAccountName peut être généré automatiquement par le service. Dans ce cas, le format UPN peut être utilisé pour assurer une connexion fiable au domaine.
      >
 
-8. Une fois que vous avez réussi à joindre le domaine, le message suivant vous accueille dans le domaine.
+8. Une fois que vous avez réussi à joindre un domaine, le message de bienvenue suivant vous accueille.
 
     ![Bienvenue dans le domaine](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
@@ -123,30 +125,30 @@ Pour joindre la machine virtuelle Windows Server au domaine Azure AD DS managé,
 
 ## <a name="troubleshoot-joining-a-domain"></a>Résoudre les problèmes lors de la jonction d’un domaine
 ### <a name="connectivity-issues"></a>Problèmes de connectivité
-Si la machine virtuelle ne peut pas trouver le domaine, essayez une ou plusieurs actions suivantes :
+Si la machine virtuelle ne peut pas trouver le domaine, essayez d’effectuer les étapes suivantes pour résoudre le problème :
 
-* Vérifiez que la machine virtuelle est connectée au réseau virtuel au sein duquel vous avez activé Azure AD DS. Si tel n’est pas le cas, la machine virtuelle ne peut pas se connecter au domaine, et la jonction est donc impossible.
+* Vérifiez que la machine virtuelle est connectée au réseau virtuel au sein duquel Azure AD DS est activé. Dans le cas contraire, la machine virtuelle ne peut pas se connecter ni joindre le domaine.
 
-* Vérifiez que la machine virtuelle est reliée à un réseau virtuel lui-même connecté à celui dans lequel vous avez activé Azure AD DS.
+* Vérifiez que la machine virtuelle réside sur un réseau virtuel lui-même connecté au réseau virtuel dans lequel Azure AD DS est activé.
 
-* Effectuez un test Ping du domaine en utilisant le nom du domaine managé (par exemple, *ping contoso100.com*). Si vous n’y parvenez pas, envoyez une commande Ping aux adresses IP du domaine affichées sur la page sur laquelle vous avez activé Azure AD DS (par exemple, *ping 10.0.0.4*). Si le test de l’adresse IP aboutit et non celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vérifiez que les adresses IP du domaine sont configurées en tant que serveurs DNS du réseau virtuel.
+* Effectuez un test ping du nom de domaine DNS en utilisant le domaine managé (par exemple, *ping contoso100.com*). Si vous n’y parvenez pas, envoyez une commande Ping aux adresses IP du domaine affichées sur la page sur laquelle vous avez activé Azure AD DS (par exemple, *ping 10.0.0.4*). Si le test ping de l’adresse IP aboutit contrairement à celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vérifiez que les adresses IP du domaine sont configurées en tant que serveurs DNS du réseau virtuel.
 
 * Essayez de vider le cache de résolution DNS sur la machine virtuelle (*ipconfig /flushdns*).
 
 Si une fenêtre s’affiche, vous demandant de saisir vos informations d’identification pour joindre le domaine, c’est que vous n’avez pas de problèmes de connectivité.
 
 ### <a name="credentials-related-issues"></a>Problèmes liés aux informations d’identification
-Si vous rencontrez des problèmes concernant les informations d’identification et que vous ne parvenez pas à joindre le domaine, essayez une ou plusieurs actions suivantes :
+Si vous rencontrez des problèmes concernant les informations d’identification et que vous ne parvenez pas à joindre le domaine, essayez les étapes suivantes :
 
-* Essayez d’utiliser le format UPN pour spécifier les informations d’identification. S’il existe plusieurs utilisateurs présentant le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est trop long, la valeur SAMAccountName de votre compte peut être générée automatiquement. Par conséquent, le format SAMAccountName de votre compte peut différer de ce à quoi vous vous attendiez ou de ce que vous utilisez dans votre domaine local.
+* Essayez d’utiliser le format UPN pour spécifier les informations d’identification. S’il existe de nombreux utilisateurs présentant le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est trop long, la valeur SAMAccountName de votre compte peut être générée automatiquement. Dans ces cas-là, le format SAMAccountName de votre compte peut différer de ce à quoi vous vous attendiez ou de ce que vous utilisez dans votre domaine local.
 
 * Essayez d’utiliser les informations d’identification d’un compte d’utilisateur qui appartient au groupe *AAD DC Administrators*.
 
-* Veillez à [activer la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md), conformément aux étapes décrites dans le guide de démarrage.
+* Vérifiez que vous avez [activé la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md) avec votre domaine managé.
 
-* Veillez à utiliser l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, *bob@domainservicespreview.onmicrosoft.com*) pour vous connecter.
+* Assurez-vous que vous avez utilisé l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, *bob@domainservicespreview.onmicrosoft.com*) pour vous connecter.
 
-* Vérifiez que vous avez bien attendu la fin de la synchronisation des mots de passe, comme indiqué dans le guide de démarrage.
+* Attendez la fin de la synchronisation de mot de passe, comme indiqué dans le guide de démarrage.
 
 ## <a name="related-content"></a>Contenu connexe
 * [Guide de démarrage Azure AD DS](active-directory-ds-getting-started.md)

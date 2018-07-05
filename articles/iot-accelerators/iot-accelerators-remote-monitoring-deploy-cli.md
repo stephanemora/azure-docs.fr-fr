@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628121"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017507"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
@@ -68,7 +68,7 @@ La création d’une solution de base entraîne le provisionnement des services 
 | Count | Ressource                       | type         | Utilisation |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Machine virtuelle Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hébergement des microservices |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 : niveau de base | Gestion des appareils et communication |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | Niveau Standard S1 | Gestion des appareils et communication |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alarmes et les messages |  
 | 1     | [Compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | standard        | Stockage des points de contrôle streaming et de machine virtuelle |
 | 1     | [Application Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hébergement de l’application web frontend |
@@ -82,9 +82,9 @@ La création d’une solution standard entraîne le provisionnement des services
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Machines virtuelles Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 maître et 3 agents pour l’hébergement des microservices avec redondance |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | Orchestrateur [Kubernetes](https://kubernetes.io) |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S1 : niveau de base | Gestion des appareils, commande et contrôle |
+| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | Niveau Standard S2 | Gestion des appareils, commande et contrôle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alarmes et les messages |
-| 5.     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
+| 5     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application Gateway via SSL |
 
 > Les tarifs de ces services sont disponibles [ici](https://azure.microsoft.com/pricing). Les quantités utilisées et la facturation détaillée de votre abonnement sont disponibles dans le [portail Azure](https://portal.azure.com/).

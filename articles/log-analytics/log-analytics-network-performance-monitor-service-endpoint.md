@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215097"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030707"
 ---
-# <a name="service-endpoint-monitor"></a>Moniteur de points de terminaison de service
+# <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
-Vous pouvez utiliser la fonctionnalité de gestionnaire de point de terminaison de service [Network Performance Monitor](log-analytics-network-performance-monitor.md) pour surveiller la connectivité réseau à n’importe quel point de terminaison qui a un port TCP ouvert. Ces points de terminaison incluent des sites web, des applications SaaS, des applications PaaS et des bases de données SQL. 
+Vous pouvez utiliser la fonctionnalité Moniteur de connectivité de service dans [Network Performance Monitor](log-analytics-network-performance-monitor.md) pour surveiller la connectivité réseau à n’importe quel point de terminaison qui a un port TCP ouvert. Ces points de terminaison incluent des sites web, des applications SaaS, des applications PaaS et des bases de données SQL. 
 
-Vous pouvez effectuer les fonctions suivantes avec le moniteur de points de terminaison de service : 
+Vous pouvez effectuer les fonctions suivantes avec Moniteur de connectivité de service : 
 
 - Surveiller la connectivité réseau à vos applications et aux services réseau à partir de plusieurs succursales ou sites. Les applications et services réseau incluent Office 365, Dynamics CRM, les applications métier internes et les bases de données SQL.
 - Utiliser des tests intégrés pour surveiller la connectivité réseau vers les points de terminaison Office 365 et Dynamics 365. 
@@ -34,7 +34,7 @@ Vous pouvez effectuer les fonctions suivantes avec le moniteur de points de term
 - Identifier les zones réactives sur le réseau qui peuvent être à l’origine des performances médiocres des applications en affichant la latence de chaque tronçon sur une carte topologique.
 
 
-![Moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuration 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Créer des tests de moniteur de points de terminaison de service 
+### <a name="create-service-connectivity-monitor-tests"></a>Créer des tests Moniteur de connectivité de service 
 
 Commencez par créer des tests pour surveiller la connectivité réseau vers les points de terminaison de service.
 
-1. Sélectionnez l’onglet **Moniteur de points de terminaison de service**.
+1. Sélectionnez l’onglet **Moniteur de connectivité de service**.
 2. Sélectionnez **Ajouter un test**, puis entrez le nom et la description du test. 
 3. Sélectionnez le type de test :<br>
 
@@ -84,7 +84,7 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 
 ## <a name="walkthrough"></a>Procédure pas à pas 
 
-Accédez à la vue du tableau de bord de Network Performance Monitor. La page **Moniteur de points de terminaison de service** fournit un résumé de l’intégrité des différents tests que vous avez créés. 
+Accédez à la vue du tableau de bord de Network Performance Monitor. La page **Moniteur de connectivité de service** fournit un résumé de l’intégrité des différents tests que vous avez créés. 
 
 ![Page Moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

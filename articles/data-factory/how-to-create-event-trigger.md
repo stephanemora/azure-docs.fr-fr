@@ -10,26 +10,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 457983021034d83e0eed05bd91eae1ac30c046da
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296876"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062119"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
 Cet article décrit les déclencheurs basés sur un événement que vous pouvez créer dans vos pipelines Data Factory.
 
-L’architecture basée sur les événements (EDA) est un modèle d’intégration de données courant qui implique la production, la détection, la consommation et la réaction à des événements. Les scénarios d’intégration de données nécessitent souvent des clients Data Factory pour déclencher des pipelines basés sur des événements.
+L’architecture basée sur les événements (EDA) est un modèle d’intégration de données courant qui implique la production, la détection, la consommation et la réaction à des événements. Les scénarios d’intégration de données nécessitent souvent des clients Data Factory pour déclencher des pipelines basés sur des événements. Data Factory est désormais intégré à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), qui vous permet de déclencher des pipelines sur un événement.
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
 
 ### <a name="create-a-new-event-trigger"></a>Créer un déclencheur d’événement
 
 Un événement type est l’arrivée d’un fichier, ou la suppression d’un fichier, dans votre compte de stockage Azure. Vous pouvez créer un déclencheur qui répond à cet événement dans votre pipeline Data Factory.
+
+> [!NOTE]
+> Cette intégration prend en charge uniquement des comptes de stockage de version 2 (Usage général).
 
 ![Créer un déclencheur d’événement](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
@@ -61,11 +64,20 @@ Le tableau suivant fournit une vue d’ensemble des éléments de schéma associ
 Cette section fournit des exemples de paramètres de déclencheur basé sur un événement.
 
 -   **Blob path begins with**('/containername/') : reçoit des événements pour tout objet blob dans le conteneur.
--   **Blob path begins with**('/containername/foldername') : reçoit des événements pour tout objet blob dans le conteneur « containername » et le dossier « foldername ».
--   **Blob path begins with**('/containername/foldername/file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans le dossier « foldername » sous le conteneur « containername ».
--   **Blob path ends with**('file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans n’importe quel chemin d’accès.
--   **Blob path ends with**('/containername/file.txt') : reçoit des événements pour un objet blob nommé « file.txt » sous le conteneur « containername ».
--   **Blob path ends with**('/foldername/file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans le dossier « foldername » sous n’importe quel conteneur.
+-   **Blob path begins with**('/containername/blobs/foldername') : reçoit des événements pour tout objet blob dans le conteneur containername et le dossier foldername.
+-   **Blob path begins with**('/containername/blobs/foldername/file.txt') : reçoit des événements pour un objet blob nommé file.txt dans le dossier foldername sous le conteneur containername.
+-   **Blob path ends with**('file.txt') : reçoit des événements pour un objet blob nommé file.txt dans n’importe quel chemin.
+-   **Blob path ends with**('/containername/blobs/file.txt') : reçoit des événements pour un objet blob nommé file.txt sous le conteneur containername.
+-   **Blob path ends with**('/foldername/file.txt') : reçoit des événements pour un objet blob nommé file.txt dans le dossier foldername sous n’importe quel conteneur.
+
+> [!NOTE]
+> Vous devez inclure le segment `/blobs/` du chemin chaque fois que vous spécifiez conteneur et dossier, conteneur et fichier, ou conteneur, dossier et fichier.
+
+## <a name="using-blob-events-trigger-properties"></a>Utilisation de propriétés de déclencheur d’événements blob
+
+Lors de l’activation d’un déclencheur d’événements blob, deux variables sont mises à disposition de votre pipeline : *folderPath* et *fileName*. Pour accéder à ces variables, utilisez les expressions `@triggerBody().fileName` ou `@triggerBody().folderPath`.
+
+Par exemple, considérez un déclencheur configuré pour se déclencher quand un objet blob est créé avec `.csv` comme valeur de `blobPathEndsWith`. Quand un fichier .csv est déposé dans le compte de stockage, *folderPath* et *fileName* décrivent l’emplacement du fichier .csv. Par exemple, *folderPath* a la valeur `/containername/foldername/nestedfoldername` et *fileName* a la valeur `filename.csv`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).

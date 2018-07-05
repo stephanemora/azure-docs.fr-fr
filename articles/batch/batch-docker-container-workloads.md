@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801113"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060515"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -229,7 +229,13 @@ Utilisez la propriété `ContainerSettings` des classes de tâches pour configur
 
 Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
 
-Lorsque vous configurez les paramètres de conteneur, tous les répertoires récursifs sous le `AZ_BATCH_NODE_ROOT_DIR` (la racine des répertoires Azure Batch sur le nœud) et toutes les variables d’environnement des tâches sont mappes dans le conteneur, et la ligne de commande des tâches est exécutée dans le conteneur.
+La ligne de commande pour une tâche de conteneur Azure Batch s’exécute dans un répertoire de travail du conteneur qui est très similaire à l’environnement configuré par Batch pour une tâche (non-conteneur) normale :
+
+* Tous les répertoires sous `AZ_BATCH_NODE_ROOT_DIR` (la racine des répertoires Azure Batch sur le nœud) sont mappés de façon récursive dans le conteneur.
+* Toutes les variables d’environnement de la tâche sont mappées dans le conteneur.
+* Le répertoire de travail de l’application est défini de la même façon que pour une tâche normale : vous pouvez donc utiliser des fonctionnalités comme les packages d’application et les fichiers de ressources.
+
+Comme Batch change le répertoire de travail par défaut dans votre conteneur, la tâche s’exécute à un emplacement du point d’entrée habituel du conteneur (par exemple `c:\` par défaut sur un conteneur Windows, ou `/` sur Linux). Vérifiez que la ligne de commande ou le point d’entrée du conteneur de votre tâche spécifie un chemin absolu, si ce n’est pas déjà le cas.
 
 L’extrait de code Python suivant montre une ligne de commande de base exécutée dans un conteneur Ubuntu extrait du Hub Docker. Les options d’exécution du conteneur sont des arguments supplémentaires pour la commande `docker create` exécutée par la tâche. Ici, l’option `--rm` supprime le conteneur une fois que la tâche est terminée.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ L’exemple C# suivant montre les paramètres de conteneur de base d’une tâch
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

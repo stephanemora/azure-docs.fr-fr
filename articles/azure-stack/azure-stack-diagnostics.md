@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801651"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064170"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -46,9 +46,38 @@ Voici quelques exemples de types de journaux collectés :
 *   **Journaux ETW**
 
 Ces fichiers sont collectés et enregistrés dans un partage par le Collecteur de traces. Vous pouvez ensuite utiliser l’applet de commande PowerShell **Get-AzureStackLog** pour les collecter en cas de nécessité.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack 
+Pour exécuter l’outil de collection de journaux sur un système intégré, vous devez avoir accès au point de terminaison privilégié (PEP). Voici un exemple de script que vous pouvez exécuter à l’aide du point de terminaison privilégié pour collecter des journaux sur un système intégré :
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Les paramètres **OutputSharePath** et **OutputShareCredential** sont utilisés pour charger des journaux dans un dossier partagé externe.
+- Comme indiqué dans l’exemple précédent, vous pouvez utiliser les paramètres **FromDate** et **ToDate** pour collecter des journaux pour une période donnée. Cela peut être pratique pour les scénarios, tels que la collection de journaux après l’application d’un package de mise à jour sur un système intégré.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)
-1. Connectez-vous en tant que **AzureStack\CloudAdmin** sur l’hôte.
+1. Connectez-vous en tant qu’**AzureStack\CloudAdmin** sur l’hôte.
 2. Ouvrez une fenêtre PowerShell en tant qu’administrateur.
 3. Exécutez l’applet de commande PowerShell **Get-AzureStackLog**.
 
@@ -77,65 +106,6 @@ Ces fichiers sont collectés et enregistrés dans un partage par le Collecteur d
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack version 1804 et ultérieure
-
-Pour exécuter l’outil de collection de journaux sur un système intégré, vous devez avoir accès au point de terminaison privilégié (PEP). Voici un exemple de script que vous pouvez exécuter à l’aide du point de terminaison privilégié pour collecter des journaux sur un système intégré :
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Les paramètres **OutputSharePath** et **OutputShareCredential** sont utilisés pour charger des journaux dans un dossier partagé externe.
-- Comme indiqué dans l’exemple précédent, vous pouvez utiliser les paramètres **FromDate** et **ToDate** pour collecter des journaux pour une période donnée. Cela peut être pratique pour les scénarios, tels que la collection de journaux après l’application d’un package de mise à jour sur un système intégré.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack version 1803 et antérieure
-
-Pour exécuter l’outil de collection de journaux sur un système intégré, vous devez avoir accès au point de terminaison privilégié (PEP). Voici un exemple de script que vous pouvez exécuter à l’aide du point de terminaison privilégié pour collecter des journaux sur un système intégré :
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Quand vous collectez les journaux à partir du point de terminaison privilégié, spécifiez le paramètre **OutputPath** afin qu’il corresponde à un emplacement sur la machine HLH (Hardware Lifecycle Host). Vérifiez également que l’emplacement est chiffré.
-- Les paramètres **OutputSharePath** et **OutputShareCredential** sont facultatifs et sont utilisés quand vous chargez des journaux vers un dossier partagé externe. Utilisez ces paramètres *en plus* de **OutputPath**. Si le paramètre **OutputPath** n’est pas spécifié, l’outil de collecte des journaux utilise le lecteur système de la machine virtuelle PEP pour le stockage. Cela peut entraîner l’échec du script, car l’espace disque est limité.
-- Comme indiqué dans l’exemple précédent, vous pouvez utiliser les paramètres **FromDate** et **ToDate** pour collecter des journaux pour une période donnée. Cela peut être pratique pour les scénarios, tels que la collection de journaux après l’application d’un package de mise à jour sur un système intégré.
-
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considérations relatives aux paramètres du kit ASDK et des systèmes intégrés
 

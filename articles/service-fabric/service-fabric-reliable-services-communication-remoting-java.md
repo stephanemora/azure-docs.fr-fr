@@ -1,6 +1,6 @@
 ---
-title: Communication à distance des services dans Azure Service Fabric | Microsoft Docs
-description: La communication à distance dans Service Fabric permet aux clients et aux services de communiquer avec les services en utilisant un appel de procédure distante.
+title: Communication à distance des services à l’aide de Java dans Azure Service Fabric | Microsoft Docs
+description: La communication à distance dans Service Fabric permet aux clients et aux services de communiquer avec les services Java en utilisant un appel de procédure distante.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3215ee4adf907524626b4919b637ce23b9e0e782
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212974"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750178"
 ---
-# <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
+# <a name="service-remoting-in-java-with-reliable-services"></a>Communication à distance des services dans Java avec Reliable Services
 > [!div class="op_single_selector"]
 > * [C# sur Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java sur Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
 
-L’infrastructure Reliable Services fournit un mécanisme de communication à distance pour définir rapidement et facilement un appel de procédure distante pour des services.
+Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, Windows Communication Foundation (WCF) ou autres, l’infrastructure Reliable Services fournit un mécanisme de communication à distance pour configurer rapidement et facilement des appels de procédure distante pour les services.  Cet article explique comment configurer les appels de procédure distante pour les services écrits avec Java.
 
 ## <a name="set-up-remoting-on-a-service"></a>Configuration de la communication à distance sur un service
 La configuration de communication à distance pour un service s'effectue en deux étapes simples :
@@ -88,7 +88,7 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 L'infrastructure de communication à distance propage les exceptions levées au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l’aide de `ServiceProxyBase` peut directement traiter les exceptions levées par le service.
 
 ## <a name="service-proxy-lifetime"></a>Durée de vie du proxy du service
-Comme la création de proxy de service est une opération légère, l’utilisateur peut en créer autant de fois que nécessaire. Le proxy de service peut être réutilisé tant que l’utilisateur en a besoin. L’utilisateur peut réutiliser le même proxy en cas d’exception. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’appel de l’API, un contrôle interne vérifie si le client de communication utilisé est valide. En fonction de ce résultat, nous recréons le client de communication. Par conséquent, l’utilisateur n’a pas besoin de recréer le proxy de service en cas d’exception.
+Comme la création de proxy de service est une opération légère, vous pouvez en créer autant de fois que nécessaire. Les instances de proxy de service peuvent être réutilisées tant qu’elles sont nécessaires. Si un appel de procédure distante lève une exception, vous pouvez toujours réutiliser la même instance de proxy. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’invocation d’appels distants, des vérifications en interne sont effectuées pour déterminer si le client de communication est valide. Selon les résultats de ces vérifications, le client de communication est recréé, si nécessaire. Par conséquent, si une exception se produit, il est inutile de recréer `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durée de vie de la fabrique ServiceProxyFactory
 [FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) est une fabrique qui crée un proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API `ServiceProxyBase.create` pour la création du proxy, l’infrastructure crée ensuite un `FabricServiceProxyFactory`.
@@ -102,7 +102,7 @@ Toutes les exceptions distantes levées par l’API du service sont renvoyées a
 Le proxy de service gère toutes les exceptions de basculement pour la partition de service pour laquelle il a été créé. Il résout à nouveau les points de terminaison s’il existe des exceptions de basculement (non temporaires) et retente l’appel avec le point de terminaison correct. Le nombre de tentatives pour l’exception de basculement est illimité.
 En cas d’exceptions temporaires, il retente uniquement l’appel.
 
-Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) L’utilisateur peut configurer ces valeurs en passant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
+Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Vous pouvez configurer ces valeurs en passant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

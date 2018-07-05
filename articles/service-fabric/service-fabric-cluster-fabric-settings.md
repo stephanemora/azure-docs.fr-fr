@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642646"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062277"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>Description des différentes stratégies de mise à niveau
+
+- **Dynamique** – Les modifications apportées à une configuration dynamique ne provoquent pas de redémarrage de processus, qu’il s’agisse des processus de Service Fabric ou de vos processus hôte de service. 
+- **Statique** – Les modifications apportées à une configuration statique provoquent le redémarrage du nœud Service Fabric afin de consommer la modification. Les services sur les nœuds sont redémarrés.
+- **Non autorisé** – Ces paramètres ne peuvent pas être modifiés. La modification de ces paramètres implique de détruire le cluster pour en créer un nouveau. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
 
@@ -65,7 +71,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |GatewayX509CertificateStoreName |Chaîne (valeur par défaut : "My") |Dynamique| Nom du magasin de certificats X.509 qui contient le certificat de la passerelle d’application HTTP. |
 |HttpRequestConnectTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(5)|Dynamique|Spécifiez la durée en secondes.  Indique le délai d’expiration de la connexion des requêtes HTTP envoyées depuis la passerelle d’application HTTP.  |
 |IgnoreCrlOfflineError|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Indique s’il faut ou non ignorer l’erreur en mode hors connexion de la liste CRL pour la vérification du certificat de l’application/service. |
-|IsEnabled |Valeur booléenne (valeur par défaut : false) |statique| Active/désactive le paramètre HttpApplicationGateway. Le paramètre HttpApplicationGateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
+|IsEnabled |Valeur booléenne (valeur par défaut : false) |statique| Active/désactive le paramètre HttpApplicationGateway. Le paramètre Httpgateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
 |NumberOfParallelOperations | Valeur Uint (par défaut : 5000) |statique|Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
 |RemoveServiceResponseHeaders|chaîne, valeur par défaut : L"Date; Server"|statique|Liste séparée par des points-virgules/virgules d’en-têtes de réponse qui sera supprimée de la réponse du service avant son transfert vers le client. Si cette valeur est une chaîne vide, transmettre tels quels tous les en-têtes retournés par le service. Par exemple, ne pas remplacer la date et le serveur |
 |ResolveServiceBackoffInterval |Durée en secondes (valeur par défaut : 5) |Dynamique|Spécifiez la durée en secondes.  Indique l’interface d’interruption par défaut avant de retenter une opération du service de résolution ayant échoué. |
@@ -503,7 +509,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |SwapPrimaryThrottlingAssociatedMetric | Chaîne (valeur par défaut : "")|statique| Nom de la mesure associée à cette limitation. |
 |SwapPrimaryThrottlingEnabled | Valeur booléenne (valeur par défaut : false)|Dynamique| Détermine si la limitation de basculement vers le réplica principal est activée. |
 |SwapPrimaryThrottlingGlobalMaxValue | Entier (valeur par défaut : 0) |Dynamique| Nombre maximum de réplicas principaux basculés autorisés globalement. |
-|TraceCRMReasons |Valeur booléenne (valeur par défaut : true) |Dynamique|Spécifie si les raisons des mouvements effectués par CRM doivent être envoyées au canal des événements opérationnels. |
+|TraceCRMReasons |Valeur booléenne (valeur par défaut : true) |Dynamique|Spécifie si les raisons des mouvements effectués par CRM doivent être envoyés au canal des événements opérationnels. |
 |UpgradeDomainConstraintPriority | Entier (valeur par défaut : 1)| Dynamique|Détermine la priorité de la contrainte de domaine de mise à niveau : 0 : dure ; 1 : souple ; valeur négative : à ignorer. |
 |UseMoveCostReports | Valeur booléenne (valeur par défaut : false) | Dynamique|Demande à LB d’ignorer l’élément de coût de la fonction de score, ce qui génère un nombre potentiellement important de déplacements et, donc, un placement mieux équilibré. |
 |UseSeparateSecondaryLoad | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre déterminant s’il convient d’utiliser une charge secondaire différente. |
@@ -651,7 +657,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |GetUpgradeOrchestrationServiceState|chaîne, valeur par défaut : L"Admin"| Dynamique|Déclenche GetUpgradeOrchestrationServiceState sur une partition |
 |GetUpgradesPendingApproval |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche GetUpgradesPendingApproval sur une partition. |
 |GetUpgradeStatus |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
-|InternalList |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images (interne). |
+|InternalList |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
 |InvokeContainerApi|valeur wstring (valeur par défaut : L"Admin")|Dynamique|Invoke container API |
 |InvokeInfrastructureCommand |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
 |InvokeInfrastructureQuery |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour interroger les tâches d’infrastructure. |
@@ -743,7 +749,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ContainerNetworkName|chaîne, valeur par défaut : L""| statique |Le nom du réseau à utiliser lors de la configuration d’un réseau de conteneur.|
 |ContainerNetworkSetup|valeur booléenne, valeur par défaut : FALSE| statique |Spécifie si un réseau de conteneur doit être configuré.|
 |FabricDataRoot |Chaîne | Non autorisée |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
-|FabricLogRoot |Chaîne | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux et des traces de SF. |
+|FabricDataRoot |Chaîne | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux et des traces de SF. |
 |NodesToBeRemoved|Chaîne (valeur par défaut : "")| Dynamique |Les nœuds qui doivent être supprimés dans le cadre de la mise à niveau de la configuration. (Uniquement pour les déploiements autonomes)|
 |ServiceRunAsAccountName |Chaîne | Non autorisée |Nom du compte sous lequel exécuter le service hôte Fabric. |
 |SkipFirewallConfiguration |Valeur booléenne (valeur par défaut : false) | Non autorisée |Indique si les paramètres de pare-feu doivent être définis par le système ou non. Cela s’applique uniquement si vous utilisez le pare-feu Windows. Si vous utilisez des pare-feu tiers, vous devez alors ouvrir les ports que le système et les applications doivent utiliser |

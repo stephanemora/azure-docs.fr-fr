@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618920"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054348"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 Cet article fournit des informations sur le déclencheur de planification et les étapes pour créer, démarrer et surveiller un déclencheur de planification. Pour les autres types de déclencheurs, consultez [Exécution du pipeline et déclencheurs](concepts-pipeline-execution-triggers.md).
 
 Lorsque vous créez un déclencheur de planification, vous spécifiez une planification (date de début, périodicité, date de fin, etc.) pour le déclencheur, et l’associez à un pipeline. Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines.
-
-> [!NOTE]
-> Cet article s’applique à Azure Data Factory version 2, actuellement en préversion. Si vous utilisez Azure Data Factory version 1, qui est généralement disponible, consultez [Bien démarrer avec Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Les sections suivantes indiquent les étapes pour créer un déclencheur de planification de différentes façons. 
 
@@ -249,7 +246,7 @@ Pour surveiller les exécutions du déclencheur et du pipeline dans le portail A
 Vous pouvez utiliser un modèle Azure Resource Manager pour créer un déclencheur. Pour obtenir des instructions pas à pas, consultez [Créer une fabrique de données Azure à l’aide d’un modèle Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmettre l’heure de début du déclencheur à un pipeline
-Azure Data Factory version 1 prend en charge la lecture et l’écriture de données partitionnées à l’aide des variables système **SliceStart**, **SliceEnd**, **WindowStart** et **WindowEnd**. Dans Azure Data Factory version 2, vous pouvez obtenir ce comportement à l’aide d’un paramètre de pipeline. L’heure de début et l’heure planifiée du déclencheur sont définies comme étant la valeur du paramètre de pipeline. Dans l’exemple suivant, l’heure planifiée du déclencheur est transmise comme valeur au paramètre **scheduledRunTime** de pipeline :
+Azure Data Factory version 1 prend en charge la lecture et l’écriture de données partitionnées à l’aide des variables système **SliceStart**, **SliceEnd**, **WindowStart** et **WindowEnd**. Dans la version actuelle d’Azure Data Factory, vous pouvez obtenir ce comportement à l’aide d’un paramètre de pipeline. L’heure de début et l’heure planifiée du déclencheur sont définies comme étant la valeur du paramètre de pipeline. Dans l’exemple suivant, l’heure planifiée du déclencheur est transmise comme valeur au paramètre **scheduledRunTime** de pipeline :
 
 ```json
 "parameters": {

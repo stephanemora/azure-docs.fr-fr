@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641881"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061556"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -27,6 +27,10 @@ Pour un déploiement de production, la planification de la capacité est une ét
 * Nombre de types de nœuds avec lesquels votre cluster doit démarrer
 * Propriétés de chaque type de nœud (taille, principal ou non, accessibilité sur Internet, nombre de machines virtuelles, etc.)
 * Caractéristiques de fiabilité et de durabilité du cluster
+
+> [!NOTE]
+> Vous devez au minimum passer en revue toutes les valeurs de la stratégie de mise à niveau **Non autorisé** lors de la planification. Cela permet de s’assurer de la bonne définition des valeurs et de réduire le risque de perdre votre cluster plus tard en raison de paramètres de configuration système non modifiables. 
+> 
 
 Nous allons présenter brièvement chacun de ces éléments.
 
@@ -46,6 +50,8 @@ Le **type de nœud** peut être considéré comme l’équivalent des rôles dan
 Chaque type de nœud est un groupe identique distinct et peut faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Pour plus d’informations sur les relations entre des types de nœuds et des groupes machines virtuelles identiques, sur la façon d’ouvrir une session RDP sur l’une des instances, sur la façon d’ouvrir de nouveaux ports, etc., consultez [Types de nœuds de cluster Service Fabric](service-fabric-cluster-nodetypes.md).
 
 Un cluster Service Fabric peut se composer de plusieurs types de nœuds. Dans ce cas, le cluster se compose d’un type de nœud principal et d’un ou de plusieurs types de nœuds non principaux.
+
+Un type de nœud unique ne peut tout simplement pas dépasser 100 nœuds par groupe de machines virtuelles identiques. Vous devrez peut-être ajouter des groupes de machines virtuelles identiques pour atteindre l’évolutivité ciblée, sachant que la mise à l’échelle automatique ne peut pas ajouter, comme par magie, des groupes de machines virtuelles identiques. L’ajout de groupe de machines virtuelles identiques sur place, dans un cluster activé, est une tâche difficile qui conduit fréquemment les utilisateurs à provisionner de nouveaux clusters avec les types de nœuds appropriés qui ont été provisionnés lors de la création. 
 
 ### <a name="primary-node-type"></a>Type de nœud principal
 
@@ -70,8 +76,8 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 
 | Niveau de durabilité  | Nombre minimal de machines virtuelles exigées | Références SKU de machines virtuelles prises en charge                                                                  | Mises à jour apportées à vos groupes de machines virtuelles identiques (VMSS)                               | Mises à jour et maintenance lancées par Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5.                              | Références (SKU) de nœuds complets dédiées à un seul client (par exemple, L32s, GS5, G5, DS15_v2, D15_v2) | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Peuvent être suspendues pendant 2 heures par domaine de mise à niveau (UD) pour accorder du temps supplémentaire pour la récupération de réplicas à partir d’échecs précédents |
-| Silver           | 5.                              | Machines virtuelles avec un seul cœur ou plus                                                        | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
+| Gold             | 5                              | Références (SKU) de nœuds complets dédiées à un seul client (par exemple, L32s, GS5, G5, DS15_v2, D15_v2) | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Peuvent être suspendues pendant 2 heures par domaine de mise à niveau (UD) pour accorder du temps supplémentaire pour la récupération de réplicas à partir d’échecs précédents |
+| Silver           | 5                              | Machines virtuelles avec un seul cœur ou plus                                                        | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 | Bronze           | 1                              | Tous                                                                                | Ne sont pas différées par le cluster Service Fabric           | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 
 > [!WARNING]

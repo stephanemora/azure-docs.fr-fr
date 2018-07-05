@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590852"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961687"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -246,31 +246,8 @@ Dans cette règle, vous vérifiez simplement l’indicateur temporaire **idflag*
 > L’ordre de ces règles est important.
 
 ### <a name="sso-with-a-subdomain-upn"></a>Authentification unique avec un UPN de sous-domaine
-Vous pouvez ajouter plusieurs domaines à fédérer à l’aide d’Azure AD Connect, comme indiqué dans [Ajout d’un domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain). Vous devez modifier la revendication de nom d’utilisateur principal (UPN) pour faire correspondre l’ID de l’émetteur au domaine racine et non au sous-domaine, car le domaine racine fédéré englobe également l’enfant.
 
-Par défaut, la règle de revendication pour l’ID de l’émetteur est définie telle quelle :
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Revendication de l’ID d’émetteur par défaut](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-La règle par défaut prend simplement le suffixe UPN et l’utilise dans la revendication de l’ID de l’émetteur. Par exemple, John est un utilisateur de sub.contoso.com et contoso.com est fédéré à Azure AD. John entre john@sub.contoso.com en tant que nom d’utilisateur lors de la connexion à Azure AD. La règle de revendication de l’ID de l’émetteur par défaut dans AD FS le traite alors de la manière suivante :
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valeur de la revendication :** http://sub.contoso.com/adfs/services/trust/
-
-Pour n’avoir que le domaine racine dans la valeur de revendication de l’émetteur, modifiez la règle de revendication de la manière suivante :
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Vous pouvez ajouter plusieurs domaines à fédérer à l’aide d’Azure AD Connect, comme indiqué dans [Ajout d’un domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect version 1.1.553.0 et ultérieures crée automatiquement la règle de revendication issuerID appropriée. Si vous ne pouvez pas utiliser Azure AD Connect version 1.1.553.0 ou ultérieures, il est recommandé d’utiliser l’outil [Règles de revendication Azure AD RPT](https://aka.ms/aadrptclaimrules) afin de générer et de définir les règles de revendication appropriées pour l’approbation de partie de confiance Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [options de connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).

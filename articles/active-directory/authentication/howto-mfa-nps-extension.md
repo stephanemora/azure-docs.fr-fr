@@ -1,5 +1,5 @@
 ---
-title: Utiliser les serveurs NPS existants pour exploiter les fonctionnalités d’Azure MFA | Microsoft Docs
+title: Utiliser les serveurs NPS existants pour exploiter les fonctionnalités d’Azure MFA
 description: Ajouter des fonctionnalités de vérification en deux étapes basées sur le cloud à votre infrastructure d’authentification existante
 services: multi-factor-authentication
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868328"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031139"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -44,7 +44,6 @@ Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 L’extension NPS est conçue pour fonctionner avec votre infrastructure existante. Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
 
 ### <a name="licenses"></a>Licences
@@ -59,8 +58,8 @@ Windows Server 2008 R2 SP1 ou version ultérieure.
 
 Ces bibliothèques sont installées automatiquement avec l’extension.
 
--   [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
@@ -71,6 +70,13 @@ Tous les utilisateurs de l’extension NPS doivent être synchronisés avec Azur
 Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoire et des informations d’identification de l’administrateur pour votre client Azure AD. Vous trouverez votre ID de répertoire dans le [portail Azure](https://portal.azure.com). Connectez-vous en tant qu’administrateur, sélectionnez l’icône **Azure Active Directory** sur la gauche, puis cliquez sur **Propriétés**. Copiez le GUID dans la zone **ID répertoire** et enregistrez. Vous utilisez ce GUID comme ID client lors de l’installation de l’extension NPS.
 
 ![Identification de votre ID de répertoire dans les propriétés Azure Active Directory](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>Configuration requise pour le réseau
+
+Le serveur NPS (Network Policy Server) doit pouvoir communiquer avec les URL suivantes sur les ports 80 et 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -116,7 +122,7 @@ Vous pouvez [désactiver les méthodes d’authentification non prises en charge
 
 ### <a name="register-users-for-mfa"></a>Inscrire des utilisateurs pour l’authentification MFA
 
-Avant de déployer et d’utiliser l’extension NPS, les utilisateurs qui effectueront la vérification en deux étapes doivent être inscrits pour l’authentification MFA. De manière plus immédiate, pour tester l’extension lorsque vous la déployez, il vous faut au moins un compte de test entièrement inscrit pour Multi-Factor Authentication.
+Avant de déployer et d’utiliser l’extension NPS, les utilisateurs devant effectuer la vérification en deux étapes doivent être inscrits pour l’authentification MFA. De manière plus immédiate, pour tester l’extension lorsque vous la déployez, il vous faut au moins un compte de test entièrement inscrit pour Multi-Factor Authentication.
 
 Pour créer un compte de test, suivez la procédure suivante :
 1. Connectez-vous à [https://aka.ms/mfasetup](https://aka.ms/mfasetup) avec un compte de test. 
@@ -132,19 +138,19 @@ Vos utilisateurs doivent également suivre ces étapes pour s’inscrire avant d
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Télécharger et installer l’extension NPS pour Azure MFA
 
-1.  [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
-2.  Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
-3.  Exécutez le fichier *setup.exe* et suivez les instructions d’installation. Si vous rencontrez des erreurs, vérifiez que les deux bibliothèques de la section Configuration requise ont été installées avec succès.
+1. [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
+2. Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
+3. Exécutez le fichier *setup.exe* et suivez les instructions d’installation. Si vous rencontrez des erreurs, vérifiez que les deux bibliothèques de la section Configuration requise ont été installées avec succès.
 
 ### <a name="run-the-powershell-script"></a>Exécution du script PowerShell
 
-Le programme d’installation crée un script PowerShell à cet emplacement : `C:\Program Files\Microsoft\AzureMfa\Config` (C:\ étant le lecteur d’installation). Ce script PowerShell effectue les opérations suivantes :
+Le programme d’installation crée un script PowerShell à cet emplacement : `C:\Program Files\Microsoft\AzureMfa\Config` (C:\ étant le lecteur d’installation). Ce script PowerShell effectue les opérations suivantes à chaque exécution :
 
--   Vous pouvez créer un certificat auto-signé.
--   Associer la clé publique du certificat au principal du service sur Azure AD.
--   Stocker le certificat dans le magasin de certificats de l’ordinateur local.
--   Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
--   Redémarrer le serveur NPS.
+- Vous pouvez créer un certificat auto-signé.
+- Associer la clé publique du certificat au principal du service sur Azure AD.
+- Stocker le certificat dans le magasin de certificats de l’ordinateur local.
+- Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
+- Redémarrer le serveur NPS.
 
 À moins que vous ne souhaitiez utiliser vos propres certificats (au lieu des certificats auto-signés générés par le script PowerShell), exécutez le script PowerShell pour terminer l’installation. Si vous installez l’extension sur plusieurs serveurs, chacun d’eux doit avoir son propre certificat.
 
@@ -163,8 +169,8 @@ Le programme d’installation crée un script PowerShell à cet emplacement : `
 
 Répétez ces étapes sur les serveurs NPS supplémentaires que vous souhaitez configurer pour l’équilibrage de charge.
 
->[!NOTE]
->Si vous utilisez vos propres certificats au lieu de générer des certificats avec le script PowerShell, vous devez veiller à ce qu’ils respectent la convention de nommage du serveur NPS. Le nom de l’objet doit être **CN=\<ID_locataire\>,OU= Extension NPS Microsoft**. 
+> [!NOTE]
+> Si vous utilisez vos propres certificats au lieu de générer des certificats avec le script PowerShell, vous devez veiller à ce qu’ils respectent la convention de nommage du serveur NPS. Le nom de l’objet doit être **CN=\<ID_locataire\>,OU= Extension NPS Microsoft**. 
 
 ## <a name="configure-your-nps-extension"></a>Configurer votre extension NPS
 
@@ -173,7 +179,7 @@ Cette section comprend des considérations relatives à la conception ainsi que 
 ### <a name="configuration-limitations"></a>Limites de configuration
 
 - L’extension NPS pour Azure MFA n’inclut pas les outils permettant de migrer les utilisateurs et les paramètres du serveur MFA vers le cloud. De ce fait, nous vous conseillons d’utiliser l’extension pour les nouveaux déploiements, plutôt que pour les déploiements existants. Si vous utilisez l’extension sur un déploiement existant, vos utilisateurs doivent suivre de nouveau la procédure de vérification pour remplir leurs détails MFA dans le cloud.  
-- L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension peut être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ Active Directory personnalisé, par exemple). Consultez [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](howto-mfaserver-nps-vpn.md) pour plus d’informations.
+- L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension peut être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ Active Directory personnalisé, par exemple). Pour plus d’informations, consultez l’article [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](howto-mfa-nps-extension-advanced.md).
 - Tous les protocoles de chiffrement ne prennent pas en charge toutes les méthodes de vérification.
    - **PAP** prend en charge l’appel téléphonique, le message texte à sens unique, la notification de l’application mobile et le code de vérification de l’application mobile
    - **CHAPv2** et **EAP** prennent en charge l’appel téléphonique et la notification d’application mobile
@@ -233,12 +239,15 @@ Cette erreur peut être due à plusieurs raisons. Suivez ces étapes pour résou
 
 Vérifiez qu’AD Connect est en cours d’exécution et que l’utilisateur se trouve dans Windows Active Directory et Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Pourquoi existe-t-il des erreurs de connexion HTTP dans les journaux pour tous mes échecs d’authentification ?
 
 Vérifiez que https://adnotifications.windowsazure.com est accessible depuis le serveur exécutant l’extension NPS.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestion des protocoles TLS/SSL et des suites de chiffrement
+
+Il est recommandé de désactiver ou de supprimer les suites de chiffrement plus anciennes et plus faibles, sauf si votre organisation en a besoin. Vous trouverez plus d’informations sur la manière d’effectuer cette tâche dans l’article [Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

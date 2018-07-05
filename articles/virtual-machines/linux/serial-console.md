@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425331"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36962387"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
@@ -30,9 +30,9 @@ La console série de machine virtuelle Azure permet aux machines virtuelles Linu
 > Les préversions sont à votre disposition, à condition que vous acceptiez les conditions d’utilisation. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Actuellement, ce service est disponible en **préversion publique** et l’accès à la console série pour les machines virtuelles est disponible pour toutes les régions Azure. À ce stade, la console série n’est pas disponible pour Azure Government, Azure Allemagne et Azure Chine.
 
 
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 
+* Vous devez utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge. 
 * L’option [Diagnostics de démarrage](boot-diagnostics.md) doit être activée dans la machine virtuelle. 
 * Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
 * Pour découvrir les paramètres spécifiques à la distribution Linux, consultez la section [Accessing the serial console for Linux](#accessing-serial-console-for-linux) (Accès à la console série pour Linux).
@@ -91,7 +91,7 @@ Interaction avec le chargeur de démarrage | Accès à GRUB/BCD via la console s
 ## <a name="accessing-serial-console-for-linux"></a>Accès à la console série pour Linux
 Pour permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Un simple clic sur le portail de la section de la console série vous octroie l’accès à la console. 
 
-### <a name="access-for-redhat"></a>Accès Red Hat 
+### <a name="access-for-red-hat"></a>Accès pour Red Hat 
 Les images Red Hat disponibles sur Azure disposent de l’accès à la console activé par défaut. Dans Red Hat, le mode d’utilisateur unique nécessite l’activation d’un utilisateur racine, qui est désactivé par défaut. Si vous avez besoin d’activer le mode d’utilisateur unique, appliquez les instructions suivantes :
 
 1. Connectez-vous au système Red Hat via SSH

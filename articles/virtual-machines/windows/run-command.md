@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284962"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332712"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -23,7 +23,7 @@ La commande Run utilise l’agent de machine virtuelle pour exécuter des script
 
 Il existe plusieurs options pour accéder à vos machines virtuelles. La commande Run peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Elle peut être utilisée via le portail Azure, l’[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), l’[interface de ligne de commande Azure (CLI)](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Cette fonctionnalité est utile dans tous les scénarios dans lesquels vous exécutez un script au sein d’une machine virtuelle, et elle constitue une des seules méthodes capables de corriger une machine virtuelle dépourvue d’un port RDP ou SSH ouvert en raison d’une mauvaise configuration du réseau et des utilisateurs.
+Cette fonctionnalité est utile dans tous les scénarios dans lesquels vous exécutez un script au sein d’une machine virtuelle, et elle constitue une des seules méthodes capables de corriger une machine virtuelle dépourvue d’un port RDP ou SSH ouvert en raison d’une configuration incorrecte du réseau ou de l’administrateur.
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -33,9 +33,10 @@ Les restrictions suivantes s'appliquent lors de l'utilisation de la commande Run
 * La durée minimale d’exécution d’un script est d’environ 20 secondes
 * Les scripts s’exécutent en tant que système sous Windows
 * Vous ne pouvez exécuter qu’un script à la fois
-* Les scripts qui demandent des informations (mode interactif) ne sont pas pris en charge.
 * Vous ne pouvez pas annuler un script en cours d’exécution
 * La durée maximale d’exécution d’un script est de 90 minutes (le script expiré après ce délai)
+
+**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
 
 ## <a name="run-a-command"></a>Exécuter une commande
 

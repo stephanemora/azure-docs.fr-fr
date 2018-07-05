@@ -1,5 +1,5 @@
 ---
-title: Sauvegarder une batterie de serveurs SharePoint de Azure Stack dans Azure
+title: Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint sur Azure Stack. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248944"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751895"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint de Azure Stack dans Azure
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 Les batteries de serveurs SharePoint sur Azure Stack peuvent être sauvegardées sur Microsoft Azure à l’aide du serveur de sauvegarde Azure et ce, de la même façon que d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. Le serveur de sauvegarde Azure vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de délai de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour bénéficier d’une conservation à long terme économique.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versions SharePoint prises en charge et scénarios de protection associés
-Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
+Sauvegarde Azure pour MABS prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Protection et récupération |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ Pour chaque tranche de 10 millions d’éléments dans la batterie de serveurs,
 Le serveur de sauvegarde Azure exécute un compte LocalSystem. Pour sauvegarder les bases de données SQL Server, ce serveur nécessite les privilèges d’administrateur système sur ce compte pour le serveur qui exécute SQL Server. Définissez NT AUTHORITY\SYSTEM sur *sysadmin* sur le serveur qui exécute SQL Server avant de le sauvegarder.
 
 Si la batterie de serveurs SharePoint contient des bases de données SQL Server configurées avec des alias SQL Server, installez les composants clients SQL Server sur le serveur web frontal que le serveur de sauvegarde Azure doit protéger.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-Bien que les performances dépendent de nombreux facteurs, comme la taille de la batterie de serveurs SharePoint, tenez compte du fait qu’un seul serveur de sauvegarde peut protéger une batterie de serveurs SharePoint de 25 To.
 
 ### <a name="whats-not-supported"></a>Ce qui n'est pas pris en charge
 * Un serveur de sauvegarde Azure qui protège une batterie de serveurs SharePoint ne protège pas les index de recherche ni les bases de données de service d’application. Vous devrez configurer la protection de ces bases de données séparément.

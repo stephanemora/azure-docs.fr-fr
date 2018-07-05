@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010492"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322638"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Permettre à des applications d’accéder à des ressources Azure Stack en créant des principaux de service
 
@@ -94,54 +95,7 @@ Si vous avez déployé Azure Stack en utilisant AD FS en tant que magasin d’id
 * Assigner un principal de service à un rôle.
 * Vous connecter en utilisant l’identité du principal de service.
 
-### <a name="before-you-begin"></a>Avant de commencer
-
-[Téléchargez les outils Azure Stack requis sur votre ordinateur local.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Importer le module Identity PowerShell
-
-Accédez au dossier de téléchargement des outils Azure Stack et importez le module PowerShell Identity à l’aide de la commande suivante :
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Lorsque vous importez le module Identity, il se peut que le message d’erreur suivant s’affiche : « AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system » (AzureStack.Connect.psm1 n’est pas signé numériquement. Le script ne s’exécutera pas sur le système).
-
-Pour résoudre ce problème, vous devez configurer la stratégie d’exécution pour permettre l’exécution du script. Pour définir la stratégie d’exécution, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges :
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Créer le principal du service
-
-Vous pouvez créer un principal de service avec la commande suivante, en veillant à mettre à jour le paramètre **DisplayName** :
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Attribuer un rôle
-
-Une fois le principal de service créé, vous devez [l’assigner à un rôle](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>Se connecter à l’aide de PowerShell
-
-Vous pouvez vous connecter à Azure Stack en exécutant la commande suivante, en veillant à mettre à jour le paramètre **EnvironmentName** avec le nom de votre application :
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Pour plus d’informations sur la façon de créer le principal du service, consultez [Créer un principal du service pour AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Assigner le principal de service à un rôle
 

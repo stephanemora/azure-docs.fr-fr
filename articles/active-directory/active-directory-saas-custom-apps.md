@@ -15,20 +15,20 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aeb67a73a69684b89609c6b04160357b244f62b7
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293192"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754122"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurer l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory
 
-Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](active-directory-whatis.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
+Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
 
 La galerie d'applications Azure Active Directory contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory, conformément à la description dans [cet article](manage-apps/what-is-single-sign-on.md). Une fois que vous (spécialiste informatique ou intégrateur système de votre organisation) avez trouvé l’application que vous voulez connecter, vous pouvez commencer par suivre les instructions détaillées présentées dans le portail Azure pour activer l’authentification unique.
 
-Les clients disposant d’une licence [Azure Active Directory Premium](active-directory-whatis.md) obtiennent également ces fonctionnalités supplémentaires :
+Les clients disposant d’une licence [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) obtiennent également ces fonctionnalités supplémentaires :
 
 * Intégration libre-service de toute application prenant en charge les fournisseurs d’identité SAML 2.0 (Initiée par le fournisseur de services ou par le fournisseur d’identité fédérée)
 * Intégration libre-service de toute application Web dont la page de connexion est basée sur le HTML et utilise une [authentification unique par mot de passe](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
@@ -148,18 +148,7 @@ L’affectation d’un utilisateur permettra à Azure AD d’émettre un jeton p
 
 ### <a name="test-the-saml-application"></a>Tester l’application SAML
 
-Pour pouvoir tester l’application SAML, vous devez configurer l’application avec Azure AD et y affecter des utilisateurs ou des groupes.
-
-  ![Test](./media/active-directory-saas-custom-apps/testing.png)
-
-Sur la page d’authentification unique, cliquez sur **Tester les paramètres SAML** sous la section Domaine et URL. Un volet de contenu s’ouvre ; il présente les instructions à suivre pour tester l’application.
-
-1. Connectez-vous à l’application. Si elle est configurée pour l’authentification unique par le fournisseur de services, vous accéderez automatiquement à l’URL d’authentification unique pour vous connecter. Si l’application est configurée pour l’authentification unique par le fournisseur d’identité, votre session est ouverte.
-2.  Si une erreur s’affiche sur la page de connexion de votre entreprise, copiez-la et revenez au volet de contenu de l’authentification unique pour les tests d’Azure AD. Collez l’erreur dans la zone, puis cliquez sur **Connaître les étapes de résolution**. Si l’erreur se trouve sur la page de l’application, vous devrez contacter le fournisseur de l’application et partager votre configuration dans Azure AD pour valider les valeurs. 
-3.  Azure AD indique les étapes à suivre pour résoudre le problème en fonction de l’erreur.
-
-Pour plus d’informations, voir [Guide pratique pour déboguer l’authentification unique SAML pour les applications dans Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps).
-
+Pour pouvoir tester l’application SAML, vous devez configurer l’application avec Azure AD et y affecter des utilisateurs ou des groupes. Pour tester l’application SAML, consultez [Guide pratique pour déboguer l’authentification unique SAML pour les applications dans Azure Active Directory](develop/active-directory-saml-debugging.md).
 
 ## <a name="password-single-sign-on"></a>Authentification unique avec mot de passe
 

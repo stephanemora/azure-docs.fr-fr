@@ -1,65 +1,24 @@
 ---
 title: Service Azure SQL Database - vCore | Microsoft Docs
-description: Découvrez les niveaux de service des bases de données uniques du pool qui permettent de fournir divers niveaux de performance et diverses tailles de stockage.
+description: Le modèle d’achat vCore (préversion) vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648351"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309577"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Nouveau modèle d’achat basé sur des vCores d’Azure SQL Database (préversion)
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S pour vCore
 
-[Azure SQL Database](sql-database-technical-overview.md) propose deux modèles d’achat pour les ressources de calcul, de stockage et d’E/S : un modèle d’achat DTU et un modèle d’achat vCore (en préversion). Le tableau et le graphique suivants comparent ces deux modèles d’achat.
-
-> [!IMPORTANT]
-> Pour le modèle d’achat basé sur les DTU, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md).
-
-
-|**Modèle d’achat**|**Description**|**Idéal pour**|
-|---|---|---|
-|Modèle DTU|Ce modèle est basé sur une mesure regroupant des ressources de calcul, de stockage et d’E/S. Les niveaux de performance en termes d’unités de transaction de base de données (DTU) pour des bases de données uniques et d’unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-what-is-a-dtu.md).|Idéal pour les clients qui souhaitent des options de ressources préconfigurées et simples.| 
-|Modèle vCore|Ce modèle vous permet de mettre à l’échelle les ressources de calcul et les ressources de stockage indépendamment : jusqu’à 80 vCore, 4 To de stockage de données et 200 000 IOPS. Il permet également d’utiliser Azure Hybrid Benefit pour SQL Server afin de réduire les coûts.|Idéal pour les clients qui donnent la priorité à la flexibilité, au contrôle et à la transparence.|
-||||  
-
-![Modèle de prix](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>Modèle d’achat vCore (préversion)
-
-Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel. Le modèle d’achat vCore (en préversion) apporte flexibilité, contrôle et transparence pour la consommation des ressources. En outre, il permet de traduire facilement les exigences des charges de travail locales pour le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Dans le modèle d’achat vCore (préversion), les clients peuvent choisir entre les niveaux de service Usage général et Critique pour l’entreprise (en préversion) pour les [bases de données uniques](sql-database-single-database-resources.md) et pour les [pools élastiques](sql-database-elastic-pool.md). 
-
-Chaque niveau de service a son propre niveau de performance, la conception de sa haute disponibilité, son isolation des défaillances, ses types de stockage et sa plage d’E/S. Le client doit configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Lorsque vous utilisez le modèle vCore, les bases de données uniques et les pools élastiques permettent de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-Dans le modèle d’achat vCore (préversion), les clients paient pour :
-- Le calcul (niveau de service + nombre de vCore + génération du matériel)*
-- Le type et la quantité de stockage des journaux et des données 
-- Le nombre d’E/S**
-- Le stockage de sauvegarde (RA-GRS)** 
-
-\* Dans la préversion publique initiale, les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz.
-
-\*\* Dans la préversion, les sauvegardes et les E/S sont gratuites pendant 7 jours.
-
-> [!IMPORTANT]
-> Le calcul, les E/S, ainsi que le stockage des données et des journaux, sont facturés au niveau de chaque base de données ou au niveau du pool élastique. Le stockage des sauvegardes est facturé au niveau de chaque base de données. Pour plus d’informations sur les frais liés à Managed Instance, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Limitations de région : 
->
-> Le modèle d’achat basé sur vCore (préversion) n’est pas encore disponible dans le sud-est de l’Australie. L’aperçu n’est pas disponible dans les régions suivantes : Europe de l’ouest, France-Centre, sud du Royaume-Uni et ouest du Royaume-Uni.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S
-
-Le passage au modèle d’achat vCore (préversion) vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Si votre base de données ou pool élastique consomme plus de 300 DTU, le passage au modèle vCore peut vous permettre de réaliser des économies. Vous pouvez passer au modèle vCore à l’aide de l’API de votre choix ou du portail Azure, sans aucun temps d’arrêt. Le passage au modèle vCore n’est toutefois pas obligatoire. Si le modèle d’achat DTU répond à vos besoins métier et à vos besoins en performance, vous devez continuer de l’utiliser. Si vous décidez de passer du modèle DTU au modèle vCore, vous devez sélectionner le niveau de performance en suivant la règle de base suivante : chaque groupe de 100 DTU du niveau Standard nécessite au moins 1 vCore dans le niveau Usage général, et chaque groupe de 125 DTU du niveau Premium nécessite au moins 1 vCore Critique pour l'entreprise.
+Chaque niveau de service a son propre niveau de performance, la conception de sa haute disponibilité, son isolation des défaillances, ses types de stockage et sa plage d’E/S. Le client doit configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Avec le modèle vCore, les bases de données uniques et les pools élastiques permettent de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Le tableau suivant montre les différences entre ces deux niveaux :
 
@@ -79,8 +38,6 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 
 > [!IMPORTANT]
 > Si vous avez besoin d’une capacité de calcul inférieure à 1 vCore, utilisez le modèle d’achat DTU.
-
-Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels). Pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obtenir des réponses aux questions fréquemment posées. 
 
@@ -118,7 +75,7 @@ Dans le modèle d’achat vCore (préversion), vous pouvez échanger vos licence
 
 La migration du modèle DTU vers le modèle vCore (et inversement) est similaire à la mise à niveau (ou à la rétrogradation) des relations de géoréplication entre les bases de données Standard et Premium. Cela ne nécessite pas l’arrêt de la géoréplication, toutefois, l’utilisateur doit respecter les règles de séquencement. Lors d’une mise à niveau, vous devez mettre à niveau la base de données secondaire, avant de mettre à niveau la base de données primaire. Lors d’une rétrogradation, inversez l’ordre : rétrogradez d’abord la base de données primaire, puis la base de données secondaire. 
 
-Lorsque vous utilisez la géoréplication entre deux pools élastiques, il est fortement recommandé de désigner un pool comme le pool principal et l’autre comme le pool secondaire. Dans ce cas, utilisez les mêmes recommandations pour la migration des pools élastiques.  Toutefois, il est techniquement possible qu’un pool élastique contienne à la fois la base de données primaire et la base de données secondaire. Dans ce cas, pour effectuer correctement la migration, vous devez désigner le pool ayant l’utilisation la plus élevée comme étant le pool principal, et suivre les règles de séquencement.  
+Lorsque vous utilisez la géoréplication entre deux pools élastiques, il est recommandé de désigner un pool comme le pool principal et l’autre comme le pool secondaire. Dans ce cas, utilisez les mêmes recommandations pour la migration des pools élastiques.  Toutefois, il est techniquement possible qu’un pool élastique contienne à la fois la base de données primaire et la base de données secondaire. Dans ce cas, pour effectuer correctement la migration, vous devez désigner le pool ayant l’utilisation la plus élevée comme étant le pool principal, et suivre les règles de séquencement.  
 
 Le tableau suivant fournit des conseils pour certains scénarios de migration : 
 
@@ -142,7 +99,7 @@ La migration des groupes de basculement comprenant plusieurs bases de données n
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>Création d’une base de données secondaire de géoréplication
 
-Pour créer une base de données secondaire de géoréplication, vous devez utiliser le même niveau de service que la base de données primaire. Pour les bases de données avec un taux élevé de génération de journaux, il est fortement recommandé de créer la base de données secondaire avec le même niveau de performance que la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire, il est fortement conseillé que le paramètre `maxVCore` du pool corresponde au niveau de performance de la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire située dans un autre pool élastique, il est fortement conseillé d’attribuer la même valeur au paramètre `maxVCore` des deux pools.
+Pour créer une base de données secondaire de géoréplication, vous devez utiliser le même niveau de service que la base de données primaire. Pour les bases de données avec un taux élevé de génération de journaux, il est recommandé de créer la base de données secondaire avec le même niveau de performance que la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire, il est conseillé que le paramètre `maxVCore` du pool corresponde au niveau de performance de la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire située dans un autre pool élastique, il est conseillé d’attribuer la même valeur au paramètre `maxVCore` des deux pools.
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilisation de la copie de base de données pour convertir une base de données DTU en base de données vCore
 
@@ -150,6 +107,5 @@ Vous pouvez copier n’importe quelle base de données avec niveau de performanc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles, consultez [Limites des ressources DTU SQL Database](sql-database-dtu-resource-limits.md) et [Limites des ressources vCore SQL Database](sql-database-vcore-resource-limits.md).
-- Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obtenir des réponses aux questions fréquemment posées.
-- En savoir plus sur [l’abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md)
+- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
+- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCoreCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

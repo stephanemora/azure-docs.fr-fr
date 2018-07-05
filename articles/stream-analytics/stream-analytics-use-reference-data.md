@@ -5,72 +5,46 @@ services: stream-analytics
 author: jseb225
 ms.author: jeanb
 manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 6dd96ee96201b05e4b272214983e955fcc5b9125
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25c25a58b4c6eab5419f645e8e916e034e7803dd
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192041"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016888"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
-Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](../data-factory/copy-activity-overview.md). Les données de référence sont modélisées en tant que séquence d'objets Blob (définie dans la configuration d'entrée) dans l'ordre croissant de la date/l'heure spécifiée dans le nom de l'objet blob. Elles prennent en charge **uniquement** l’ajout à la fin de la séquence à l’aide d’une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](../data-factory/copy-activity-overview.md). Les données de référence sont modélisées en tant que séquence d'objets Blob (définie dans la configuration d'entrée) dans l'ordre croissant de la date/l'heure spécifiée dans le nom de l'objet blob. Elles prennent en charge **uniquement** l’ajout à la fin de la séquence à l’aide d’une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
 
-Stream Analytics a une **limite de 100 Mo par objet blob**, mais les travaux peuvent traiter plusieurs objets blob de référence à l’aide de la propriété **path pattern**.
+Stream Analytics prend en charge les données de référence avec une **taille maximale de 300 Mo**. La limite de taille maximale de 300 Mo pour les données de référence est réalisable uniquement avec des requêtes simples. À mesure que la complexité des requêtes augmente pour inclure un traitement avec état comme les agrégations fenêtrées, les jointures temporelles et les fonctions analytiques temporelles, il est probable que la taille maximale prise en charge pour les données de référence diminue. Si Azure Stream Analytics ne peut pas charger les données de référence et effectuer des opérations complexes, le travail manque de mémoire et échoue. Dans ce cas, la métrique d’utilisation SU % atteindra 100 %.    
+
+|**Nombre d’unités de streaming**  |**Taille maximale approximative prise en charge (en Mo)**  |
+|---------|---------|
+|1   |50   |
+|3   |150   |
+|6 et au-delà   |300   |
+
+Augmenter le nombre d’unités de streaming d’un travail au-delà de 6 n’augmente pas la taille maximale prise en charge des données de référence.
 
 La prise en charge de la compression n’est pas disponible pour les données de référence. 
 
 ## <a name="configuring-reference-data"></a>Configuration des données de référence
 Pour configurer vos données de référence, vous devez d'abord créer une entrée de type **Données de référence**. Le tableau ci-dessous explique chaque propriété que vous devez fournir lors de la création de l’entrée des données de référence avec sa description :
 
-
-<table>
-<tbody>
-<tr>
-<td>Nom de la propriété</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>Alias d’entrée</td>
-<td>Nom convivial qui servira dans la requête de tâche pour faire référence à cette entrée.</td>
-</tr>
-<tr>
-<td>Compte de stockage</td>
-<td>Nom du compte de stockage dans lequel se trouvent vos blobs. S’il se trouve dans le même abonnement que votre travail Stream Analytics, vous pouvez le sélectionner dans la liste déroulante.</td>
-</tr>
-<tr>
-<td>Clé du compte de stockage</td>
-<td>Clé secrète associée au compte de stockage. Elle est remplie automatiquement si le compte de stockage se trouve dans le même abonnement que votre travail Stream Analytics.</td>
-</tr>
-<tr>
-<td>Conteneur de stockage</td>
-<td>Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob.</td>
-</tr>
-<tr>
-<td>Modèle de chemin d'accès</td>
-<td>Chemin d’accès utilisé pour localiser vos blobs dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 2 variables suivantes :<BR>{date}, {time}<BR>Exemple 1 : products/{date}/{time}/product-list.csv<BR>Exemple 2 : products/{date}/product-list.csv
-</tr>
-<tr>
-<td>Format de la date [facultatif]</td>
-<td>Si vous avez utilisé {date} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format de date selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : AAAA/MM/JJ, MM/JJ/AAAA, etc.</td>
-</tr>
-<tr>
-<td>Format de l’heure [facultatif]</td>
-<td>Si vous avez utilisé {time} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format d’heure selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : HH, HH/mm ou HH-mm</td>
-</tr>
-<tr>
-<td>Format de sérialisation de l’événement</td>
-<td>Pour s’assurer que vos requêtes fonctionnent comme prévu, Stream Analytics a besoin de connaître le format de sérialisation que vous utilisez pour les flux de données d’entrée. Pour les données de référence, les formats pris en charge sont CSV et JSON.</td>
-</tr>
-<tr>
-<td>Encodage</td>
-<td>UTF-8 est le seul format d’encodage actuellement pris en charge</td>
-</tr>
-</tbody>
-</table>
+|**Nom de la propriété**  |**Description**  |
+|---------|---------|
+|Alias d’entrée   | Nom convivial qui servira dans la requête de tâche pour faire référence à cette entrée.   |
+|Compte de stockage   | Nom du compte de stockage dans lequel se trouvent vos blobs. S’il se trouve dans le même abonnement que votre travail Stream Analytics, vous pouvez le sélectionner dans la liste déroulante.   |
+|Clé du compte de stockage   | Clé secrète associée au compte de stockage. Elle est remplie automatiquement si le compte de stockage se trouve dans le même abonnement que votre travail Stream Analytics.   |
+|Conteneur de stockage   | Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob.   |
+|Modèle de chemin d'accès   | Chemin d’accès utilisé pour localiser vos blobs dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 2 variables suivantes :<BR>{date}, {time}<BR>Exemple 1 : products/{date}/{time}/product-list.csv<BR>Exemple 2 : products/{date}/product-list.csv   |
+|Format de la date [facultatif]   | Si vous avez utilisé {date} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format de date selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : AAAA/MM/JJ, MM/JJ/AAAA, etc.   |
+|Format de l’heure [facultatif]   | Si vous avez utilisé {time} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format d’heure selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : HH, HH/mm ou HH-mm.  |
+|Format de sérialisation de l’événement   | Pour s’assurer que vos requêtes fonctionnent comme prévu, Stream Analytics a besoin de connaître le format de sérialisation que vous utilisez pour les flux de données d’entrée. Pour les données de référence, les formats pris en charge sont CSV et JSON.  |
+|Encodage   | UTF-8 est le seul format de codage actuellement pris en charge.  |
 
 ## <a name="generating-reference-data-on-a-schedule"></a>Génération de données de référence sur une planification
 Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« JJ-MM-AAAA »** et un format d’heure **« HH-mm »** demande à Stream Analytics de récupérer le blob `sample/2015-04-16/17-30/products.csv` mis à jour à 17:30 le 16 avril 2015 (UTC).
@@ -95,7 +69,7 @@ Si vos données de référence sont un jeu de données variant lentement, la pri
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
+> [Guide de démarrage rapide : Créer un travail Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

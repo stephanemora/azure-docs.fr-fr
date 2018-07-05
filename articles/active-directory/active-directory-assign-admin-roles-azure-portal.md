@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260411"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939817"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Attribution de rôles d’administrateur dans Azure Active Directory
 
@@ -29,12 +29,18 @@ ms.locfileid: "35260411"
 L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
-Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur d’Azure Active Directory](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Rôles disponibles
 Les rôles d’administrateur disponibles sont les suivants :
 
+* **Administrateur d’application** : Les utilisateurs dotés de ce rôle peuvent créer et gérer tous les aspects des applications d’entreprise, ainsi que des inscriptions d’applications et des paramètres de proxy d’application. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour Microsoft Graph et Azure AD Graph. Les membres de ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
+
+* **Développeur d'applications**: Les utilisateurs dotés de ce rôle peuvent créer des inscriptions d'applications lorsque le paramètre « Les utilisateurs peuvent inscrire des applications » est défini sur Non. Ce rôle permet également aux membres de donner leur consentement pour eux-mêmes lorsque le paramètre « Les utilisateurs peuvent autoriser les applications à accéder aux données de l'entreprise en leur nom » est défini sur Non. Les membres de ce rôle sont ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
+
 * **Administrateur de facturation**: effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
+
+* **Administrateur d'application cloud** : Les utilisateurs de ce rôle ont les mêmes autorisations que l’administrateur d’application, à l’exclusion de la capacité à gérer le proxy d’application. Ce rôle permet de créer et de gérer tous les aspects des applications d’entreprise et des inscriptions d’applications. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour Microsoft Graph et Azure AD Graph. Les membres de ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
 * **Administrateur de conformité** : les utilisateurs ayant ce rôle disposent des autorisations de gestion dans le Centre de sécurité et conformité Office 365 et dans le Centre d’administration Exchange. Pour plus d’informations, consultez l’article [À propos des rôles d’administrateur Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -107,11 +113,29 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 ## <a name="administrator-permissions"></a>Autorisations des administrateurs
 
+### <a name="application-administrator"></a>Administrateur d’application
+
+| Peut | Ne peut pas |
+| --- | --- |
+| Lire toutes les informations de l’annuaire<br>Créer des inscriptions d’applications<br>Mettre à jour les propriétés d’inscription d’applications<br>Acheter des applications d’entreprise<br>Gérer des autorisations d’inscription d’applications<br>Supprimer des inscriptions d’applications<br>Gérer les paramètres d’authentification unique des applications d’entreprise<br>Gérer les paramètres de provisionnement des applications d’entreprise<br>Gérer les paramètres libre-service des applications d’entreprise<br>Gérer les paramètres d’autorisation des applications d’entreprise<br>Gérer l’accès aux applications<br>Gérer les paramètres de provisionnement<br>Supprimer les applications d’entreprise<br>Accepter au nom de tous les utilisateurs l’intégralité des demandes d’autorisations déléguées<br>Accepter au nom de tous les utilisateurs l’intégralité des demandes d’autorisations d’application, sauf pour Azure AD Graph et Microsoft Graph<br>Gérer les paramètres de proxy d’application<br>Accéder aux paramètre des services<br>Surveiller l’intégrité des services<br>Gérer les tickets de support<br>Lire les appartenances de groupe masquées | Créer, modifier et supprimer des groupes<br>Gérer les licences utilisateur<br>Utiliser la synchronisation de répertoires<br>Afficher les rapports sur les connexions et les journaux d’audit | 
+
+### <a name="application-developer"></a>Développeur d’applications
+
+| Peut | Ne peut pas |
+| --- | --- |
+| Lire toutes les informations de l’annuaire<br>Créer des inscriptions d’applications<br>Accepter en son propre nom | Afficher les journaux des connexions et des audits<br>Lire les appartenances de groupe masquées |
+
 ### <a name="billing-administrator"></a>Administrateur de facturation
 
 | Peut | Ne peut pas |
 | --- | --- |
-|<p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p> |<p>Réinitialiser les mots de passe utilisateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher les journaux d’audit</p>|
+|<p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p> |<p>Réinitialiser les mots de passe utilisateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher les journaux d’audit</p> |
+
+### <a name="cloud-application-administrator"></a>Administrateur d'applications cloud
+
+| Peut | Ne peut pas |
+| --- | --- |
+| Lire toutes les informations de l’annuaire<br>Créer des inscriptions d’applications<br>Mettre à jour les propriétés d’inscription d’applications<br>Acheter des applications d’entreprise<br>Gérer des autorisations d’inscription d’applications<br>Supprimer des inscriptions d’applications<br>Gérer les paramètres d’authentification unique des applications d’entreprise<br>Gérer les paramètres de provisionnement des applications d’entreprise<br>Gérer les paramètres libre-service des applications d’entreprise<br>Gérer les paramètres d’autorisation des applications d’entreprise<br>Gérer l’accès aux applications<br>Gérer les paramètres de provisionnement<br>Supprimer les applications d’entreprise<br>Accepter au nom de tous les utilisateurs l’intégralité des demandes d’autorisations déléguées<br>Accepter au nom de tous les utilisateurs l’intégralité des demandes d’autorisations d’application, sauf pour Azure AD Graph et Microsoft Graph<br>Accéder aux paramètre des services<br>Surveiller l’intégrité des services<br>Gérer les tickets de support<br>Lire les appartenances de groupe masquées | Gérer les paramètres de proxy d’application<br>Créer, modifier et supprimer des groupes<br>Gérer les licences utilisateur<br>Utiliser la synchronisation de répertoires<br>Afficher les rapports sur les connexions et les journaux d’audit |
 
 ### <a name="conditional-access-administrator"></a>Administrateur de l’accès conditionnel
 
@@ -169,17 +193,19 @@ Afficher les rapports de connexion d’Azure AD et les journaux d’audit<br>Aff
 
    ![Ouvrez le Centre d’administration Azure Active Directory](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Sélectionnez **Utilisateurs et groupes&gt; Tous les utilisateurs**
+2. Sélectionnez **Utilisateurs** > **Tous les utilisateurs**.
 
-3. Recherchez l’utilisateur que vous souhaitez désigner comme Administrateur général et ouvrez le panneau de cet utilisateur.
+3. Ouvrez la page de l’utilisateur que vous souhaitez désigner comme Administrateur général.
 
-4. Dans le panneau de l’utilisateur, sélectionnez **Rôle Directory**.
- 
-5. Dans le panneau du rôle Directory, sélectionnez le rôle **Administrateur général** et enregistrez.
+4. Dans la barre de commandes, sélectionnez **Rôle d'annuaire**.
+
+5. Sélectionnez **Ajouter un rôle**.
+
+6. Dans le panneau du rôle d'annuaire, sélectionnez le rôle **Administrateur général**, puis cliquez sur **Sélectionner** pour enregistrer.
 
 ## <a name="deprecated-roles"></a>Rôles déconseillés
 
-Les rôles suivants ne doivent pas être utilisés. Ils sont déconseillés et seront prochainement supprimés d’Azure AD.
+Les rôles suivants ne doivent pas être utilisés. Ils sont désormais dépréciés et seront prochainement supprimés d’Azure AD.
 
 * Administrateur de licences ad hoc
 * Créateur d’utilisateur vérifié par e-mail
@@ -190,9 +216,9 @@ Les rôles suivants ne doivent pas être utilisés. Ils sont déconseillés et s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
+* Pour plus d’informations sur le changement d’administrateur pour un abonnement Azure, consultez [Ajout ou modification des administrateurs d’abonnements Azure](../billing-add-change-azure-subscription-administrator.md).
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Pour plus d’informations sur l’association entre Azure Active Directory et votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* Pour plus d’informations sur la façon dont le service Azure Active Directory est lié à votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Gestion des utilisateurs](active-directory-create-users.md)
 * [Gestion des mots de passe](active-directory-manage-passwords.md)
-* [Gestion des groupes](active-directory-manage-groups.md)
+* [Gestion des groupes](fundamentals/active-directory-manage-groups.md)

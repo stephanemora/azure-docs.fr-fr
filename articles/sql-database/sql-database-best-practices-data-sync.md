@@ -1,25 +1,25 @@
 ---
-title: Bonnes recommandées pour Azure SQL Data Sync (préversion) | Microsoft Docs
-description: Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync (préversion).
+title: Bonnes pratiques pour Azure SQL Data Sync | Microsoft Docs
+description: Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646005"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025192"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Bonnes pratiques pour SQL Data Sync (préversion) 
+# <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 
-Cet article décrit les bonnes pratiques pour Azure SQL Data Sync (préversion).
+Cet article décrit les bonnes pratiques relatives à Azure SQL Data Sync.
 
-Pour obtenir une vue d’ensemble de SQL Data Sync (préversion), consultez [Synchroniser des données entre plusieurs bases de données sur site et cloud avec Azure SQL Data Sync (préversion)](sql-database-sync-data.md).
+Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Sécurité et fiabilité
 
@@ -50,10 +50,10 @@ Azure SQL Database ne prend en charge qu'un seul ensemble d'informations d'ident
 
 #### <a name="sql-database-instance-size"></a>Taille de l’instance de SQL Database
 
-Quand vous créez une instance de SQL Database, définissez la taille maximale afin qu’elle soit toujours supérieure à la base de données que vous déployez. Si vous n’affectez pas à la taille maximale une valeur supérieure à la base de données déployée, la synchronisation échoue. Bien que SQL Data Sync (préversion) n'offre pas de croissance automatique, vous pouvez exécuter la commande `ALTER DATABASE` pour augmenter la taille de la base de données après sa création. Veillez à rester dans les limites de taille d’instance SQL Database.
+Quand vous créez une instance de SQL Database, définissez la taille maximale afin qu’elle soit toujours supérieure à la base de données que vous déployez. Si vous n’affectez pas à la taille maximale une valeur supérieure à la base de données déployée, la synchronisation échoue. Bien que SQL Data Sync n’offre pas de croissance automatique, vous pouvez exécuter la commande `ALTER DATABASE` pour augmenter la taille de la base de données après sa création. Veillez à rester dans les limites de taille d’instance SQL Database.
 
 > [!IMPORTANT]
-> SQL Data Sync (préversion) stocke des métadonnées supplémentaires avec chaque base de données. Veillez à prendre en compte ces métadonnées quand vous calculez l’espace nécessaire. La quantité de surcharge ajoutée est régie par la largeur des tables (par exemple, des tables étroites nécessitent davantage de surcharge) et la quantité de trafic.
+> SQL Data Sync stocke des métadonnées supplémentaires avec chaque base de données. Veillez à prendre en compte ces métadonnées quand vous calculez l’espace nécessaire. La quantité de surcharge ajoutée est régie par la largeur des tables (par exemple, des tables étroites nécessitent davantage de surcharge) et la quantité de trafic.
 
 ### <a name="table-considerations-and-constraints"></a> Considérations et contraintes relatives aux tables
 
@@ -63,19 +63,19 @@ Vous n'avez pas besoin d'inclure toutes les tables figurant dans une base de don
 
 #### <a name="primary-keys"></a>Clés primaires
 
-Chaque table dans un groupe de synchronisation doit avoir une clé primaire. Le service SQL Data Sync (préversion) ne peut pas synchroniser une table qui n'a pas de clé primaire.
+Chaque table dans un groupe de synchronisation doit avoir une clé primaire. Le service SQL Data Sync ne peut pas synchroniser une table qui n’a pas de clé primaire.
 
-Avant d'utiliser SQL Data Sync (préversion) en production, testez les performances de synchronisation initiales et actuelles.
+Avant d’utiliser SQL Data Sync en production, testez les performances de synchronisation initiales et actuelles.
 
 ### <a name="provisioning-destination-databases"></a> Provisionnement des bases de données de destination
 
-SQL Data Sync (préversion) fournit un provisionnement automatique de base des bases de données.
+SQL Data Sync fournit un provisionnement automatique de base des bases de données.
 
-Cette section présente les limitations du provisionnement dans SQL Data Sync (préversion).
+Cette section présente les limitations du provisionnement dans SQL Data Sync.
 
 #### <a name="autoprovisioning-limitations"></a>Limitations du provisionnement automatique
 
-Voici les limitations du provisionnement automatique offert par SQL Data Sync (préversion) :
+Voici les limitations du provisionnement automatique offert par SQL Data Sync :
 
 -   Sélectionnez uniquement les colonnes créées dans la table de destination.  
     Les colonnes qui ne font pas partie du groupe de synchronisation ne sont pas provisionnées dans les tables de destination.
@@ -88,7 +88,7 @@ Voici les limitations du provisionnement automatique offert par SQL Data Sync (p
 
 #### <a name="recommendations"></a>Recommandations
 
--   Utilisez la fonctionnalité de provisionnement automatique de SQL Data Sync (préversion) uniquement lorsque vous testez le service.  
+-   Utilisez la fonctionnalité de provisionnement automatique de SQL Data Sync uniquement quand vous testez le service.  
 -   Pour la production, provisionnez le schéma de base de données.
 
 ### <a name="locate-hub"></a> Emplacement de la base de données Hub
@@ -114,7 +114,7 @@ Cette section aborde la synchronisation initiale d'un groupe de synchronisation.
 
 #### <a name="how-initial-sync-works"></a>Fonctionnement de la synchronisation initiale
 
-Quand vous créez un groupe de synchronisation, commencez avec des données d’une seule base de données. Si vous avez des données dans plusieurs bases de données, SQL Data Sync (préversion) traite chaque ligne comme un conflit à résoudre. Cette résolution de conflit entraîne une lente synchronisation initiale. Si vous avez des données dans plusieurs bases de données, la synchronisation initiale peut prendre plusieurs jours voire plusieurs mois, en fonction de la taille de la base de données.
+Quand vous créez un groupe de synchronisation, commencez avec des données d’une seule base de données. Si vous avez des données dans plusieurs bases de données, SQL Data Sync traite chaque ligne comme un conflit à résoudre. Cette résolution de conflit entraîne une lente synchronisation initiale. Si vous avez des données dans plusieurs bases de données, la synchronisation initiale peut prendre plusieurs jours voire plusieurs mois, en fonction de la taille de la base de données.
 
 Si les bases de données se trouvent dans des centres de données différents, chaque ligne doit se déplacer entre ces différents centres de données. Cela augmente le coût d'une synchronisation initiale.
 
@@ -209,16 +209,16 @@ Supprimez d'abord une base de données d’un groupe de synchronisation. Ensuite
 Si vous tentez de supprimer une base de données et de modifier un groupe de synchronisation sans avoir déployé au préalable l’une des modifications, l’une ou l’autre opération échoue. L’interface du portail peut basculer dans un état incohérent. Dans ce cas, actualisez la page pour restaurer l’état correct.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur SQL Data Sync (préversion), consultez :
+Pour plus d’informations sur SQL Data Sync, consultez :
 
--   [Synchroniser des données entre plusieurs bases de données sur site et cloud avec Azure SQL Data Sync (préversion)](sql-database-sync-data.md)
--   [Configurer Azure SQL Data Sync (préversion)](sql-database-get-started-sql-data-sync.md)
--   [Surveiller Azure SQL Data Sync (préversion) avec Log Analytics](sql-database-sync-monitor-oms.md)
--   [Résoudre les problèmes liés à Azure SQL Data Sync (préversion)](sql-database-troubleshoot-data-sync.md)  
--   Exemples PowerShell complets sur la configuration de SQL Data Sync (préversion) :  
+-   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)  
+-   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :  
     -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Télécharger la documentation de l’API REST de SQL Data Sync (préversion)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Pour plus d’informations sur SQL Database, consultez :
 

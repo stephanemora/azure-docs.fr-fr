@@ -10,25 +10,23 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052764"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-azure-documentdb-connector.md)
-> * [Version 2 - Préversion](connector-azure-cosmos-db.md)
+> * [Version 1](v1/data-factory-azure-documentdb-connector.md)
+> * [Version actuelle](connector-azure-cosmos-db.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de/vers Azure Cosmos DB (API SQL). Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Azure Cosmos DB dans V1](v1/data-factory-azure-documentdb-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -111,8 +109,8 @@ Pour copier des données depuis/vers Azure Cosmos DB, définissez la propriété
 
 Pour les banques de données sans schéma telles qu’Azure Cosmos DB, l’activité de copie déduit le schéma de l’une des manières suivantes. Par conséquent, sauf si vous souhaitez [importer/exporter des documents JSON en l'état](#importexport-json-documents), la meilleure pratique consiste à spécifier la structure des données dans la section **structure**.
 
-1. Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory respecte cette structure en tant que schéma. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
-2. Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération de copie.
+*. Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory respecte cette structure en tant que schéma. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
+*. Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération de copie.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -210,8 +208,8 @@ Pour copier des données dans Azure Cosmos DB, définissez le type de récepteur
 
 Pour obtenir une copie de ce type, indépendante du schéma :
 
-- Dans les jeux de données Cosmos DB, ne spécifiez pas la section « structure ». Et, dans la source ou le récepteur Cosmos DB de l’activité de copie, ne spécifiez pas de propriété « nestingSeparator ».
-- Lors de l’importation à partir de/exportation à destination de fichiers JSON, dans le jeu de données du magasin de fichiers correspondant, spécifiez le type de format comme « JsonFormat » et la configuration « filePattern » correctement ( pour plus de détails, voir [format JSON](supported-file-formats-and-compression-codecs.md#json-format)), ne spécifiez pas la section « structure », et ignorez les paramètres de format rest.
+* Lors de l’utilisation de l’outil de copie de données, cochez l’option **« Exporter en l’état dans des fichiers JSON ou une collection Cosmos DB »**.
+* Lors de l’utilisation de la création d’activité, ne spécifiez pas la section « structure » (autrement appelée « schema ») dans le ou les jeux de données Cosmos DB, ni la propriété « nestingSeparator » dans la source / le récepteur Cosmos DB de l’activité de copie. Lors de l’importation à partir de ou de l’exportation vers des fichiers JSON, dans le jeu de données du magasin de fichiers correspondant, spécifiez le type de format « JsonFormat » et configurez « filePattern » correctement (pour plus d’informations, consultez [Format JSON](supported-file-formats-and-compression-codecs.md#json-format)), ne spécifiez pas la section « structure » (autrement appelée « schema »), et ignorez les paramètres de format rest.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

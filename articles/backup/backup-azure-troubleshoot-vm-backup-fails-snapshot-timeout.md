@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606356"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754131"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -84,15 +84,15 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 ### <a name="the-vm-has-no-internet-access"></a>La machine virtuelle n’a pas accès à Internet
 Selon la spécification du déploiement, la machine virtuelle n’a pas accès à Internet. Il se peut également que des restrictions empêchent l’accès à l’infrastructure Azure.
 
-Pour fonctionner correctement, l’extension Sauvegarde a besoin d’une connectivité aux adresses IP publiques Azure. Elle envoie des commandes à un point de terminaison Stockage Azure (URL HTTP) pour gérer les instantanés de la machine virtuelle. Si elle n’a pas accès à l’Internet public, la sauvegarde échoue.
+Pour fonctionner correctement, l’extension Sauvegarde a besoin d’une connectivité aux adresses IP publiques Azure. Elle envoie des commandes à un point de terminaison Stockage Azure (URL HTTPs) pour gérer les instantanés de la machine virtuelle. Si elle n’a pas accès à l’Internet public, la sauvegarde échoue.
 
 Il est possible de déployer un serveur proxy pour router le trafic de la machine virtuelle.
-##### <a name="create-a-path-for-http-traffic"></a>Créer un chemin d’accès pour le trafic HTTP
+##### <a name="create-a-path-for-https-traffic"></a>Créer un chemin d’accès pour le trafic HTTPs
 
-1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic.
-2. Pour autoriser l’accès à Internet à partir du serveur proxy HTTP, ajoutez des règles au groupe de sécurité réseau (le cas échéant).
+1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTPs pour acheminer le trafic.
+2. Pour autoriser l’accès à Internet à partir du serveur proxy HTTPs, ajoutez des règles au groupe de sécurité réseau (le cas échéant).
 
-Pour savoir comment configurer un proxy HTTP pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Pour savoir comment configurer un proxy HTTPs pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 La machine virtuelle sauvegardée ou le serveur proxy à travers lequel le trafic est routé nécessite un accès à des adresses IP publiques Azure
 

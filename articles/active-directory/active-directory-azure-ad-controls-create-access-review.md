@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234071"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020404"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Créer une révision d’accès des membres du groupe ou un accès aux applications avec Azure AD
 
@@ -26,7 +26,7 @@ Les attributions d’accès deviennent « obsolètes » lorsque les utilisateu
 
 ## <a name="create-an-access-review"></a>Créer une révision d’accès
 
-1. En tant qu’administrateur général, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) et sélectionnez **Programmes**.
+1. En tant qu’administrateur général ou administrateur des comptes d’utilisateur, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), puis sélectionnez **Programmes**.
 
 2. Sélectionnez le programme qui contient le contrôle de révision d’accès que vous souhaitez créer. Le **programme par défaut »** est toujours présent, mais vous pouvez aussi créer un autre programme. Par exemple, vous pouvez choisir de disposer d’un programme pour chaque initiative de conformité ou objectif de l’entreprise.
 
@@ -38,7 +38,7 @@ Les attributions d’accès deviennent « obsolètes » lorsque les utilisateu
 
 6. Pour rendre une révision d’accès récurrente, configurez une fréquence hebdomadaire, mensuelle, trimestrielle ou annuelle, puis utilisez le curseur ou la zone de texte pour définir le nombre de jours que chaque révision de la série récurrente doit être ouverte pour permettre aux réviseurs d’y ajouter des commentaires. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, afin d’éviter le chevauchement des révisions. 
 
-7.  Les séries de révisions d’accès récurrentes peuvent se terminer de trois manières : elles peuvent s’exécuter de façon continue pour démarrer les révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. L’administrateur général peut arrêter la série après sa création en modifiant la date définie dans les paramètres.
+7.  Les séries de révisions d’accès récurrentes peuvent se terminer de trois manières : elles peuvent s’exécuter de façon continue pour démarrer les révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur des comptes d’utilisateur, un autre administrateur général ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans les paramètres.
 
 8. Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur les utilisateurs qui ont été assignés à une application. Vous pouvez affiner davantage la révision d’accès pour passer en revue uniquement les utilisateurs invités qui sont membres (ou assignés à l’application) au lieu d’examiner tous les utilisateurs qui sont membres ou qui ont accès à l’application.
 

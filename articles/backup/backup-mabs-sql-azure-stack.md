@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248940"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751795"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Sauvegarder SQL Server sur Azure Stack
+# <a name="back-up-sql-server-on-stack"></a>Sauvegarder SQL Server sur Stack
 Utilisez cet article pour configurer Microsoft Azure Backup Server (MABS) afin de protéger des bases de données SQL Server sur Azure Stack.
 
 La gestion de sauvegarde et de récupération de base de données SQL Server dans Azure implique trois étapes :
 
-1. Créez une stratégie de sauvegarde pour protéger les bases de données SQL Server dans Azure.
-2. Créez des copies de sauvegarde à la demande vers Azure.
-3. Récupérer la base de données à partir d’Azure.
+1. Créer une stratégie de sauvegarde pour protéger les bases de données SQL Server
+2. Créer des copies de sauvegarde à la demande
+3. Récupérer la base de données à partir de disques et d’Azure
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -63,12 +63,6 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
    >
 
 7. Sur l’écran **Vérifier l’allocation de disque**, vérifiez l’espace de stockage global disponible et l’espace disque potentiel. Cliquez sur **Suivant**.
-
-    ![Allocation de disque](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Par défaut, le serveur de sauvegarde Azure crée un volume par source de données (base de données SQL Server) utilisée pour la copie de sauvegarde initiale. Suivant cette approche, le Gestionnaire de disque logique (LDM) limite la protection de la sauvegarde Azure à 300 sources de données (bases de données SQL Server). Pour contourner cette limitation, sélectionnez **Colocaliser les données dans le pool de stockage DPM**. Avec la colocalisation, le serveur de sauvegarde Azure utilise un volume unique pour plusieurs sources de données et peut ainsi protéger jusqu'à 2 000 bases de données SQL Server.
-
-    Si vous sélectionnez **Augmenter automatiquement les volumes**, le serveur de sauvegarde Azure gère l’augmentation du volume de sauvegarde à mesure que les données de production augmentent. Si vous ne sélectionnez pas cette option, le serveur de sauvegarde Azure limite le stockage de sauvegarde utilisé pour les sources de données dans le groupe de protection.
 
 8. Dans le champ **Choisir la méthode de création d’un réplica**, choisissez comment créer votre premier point de récupération. Vous pouvez transférer manuellement la sauvegarde initiale (hors réseau) pour éviter l’encombrement de la bande passante ou sur le réseau. Si vous choisissez d’attendre avant de transférer la première sauvegarde, vous pouvez spécifier l’heure du transfert initial. Cliquez sur **Suivant**.
 
@@ -111,12 +105,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
     * La sauvegarde le samedi à 12 h 00 est conservée pendant 104 semaines
     * La sauvegarde le dernier samedi à 12 h 00 est conservée pendant 60 mois
     * La sauvegarde le dernier samedi de mars à 12 h 00 est conservée pendant 10 ans
-13. Cliquez sur **Suivant** et sélectionnez l'option appropriée pour le transfert de la copie de sauvegarde initiale vers Azure. Vous pouvez choisir **Automatiquement sur le réseau** ou **Sauvegarde hors connexion**.
-
-    * **Automatiquement sur le réseau** transfère les données de sauvegarde vers Azure en respectant la planification de sauvegarde sélectionnée.
-    * La **sauvegarde en mode hors connexion** est décrite dans la section [Flux de travail de sauvegarde en mode hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
-
-    Choisissez le mécanisme de transfert adapté à l'envoi de la copie de sauvegarde initiale vers Azure, puis cliquez sur **Suivant**.
+13. Cliquez sur **Suivant** et sélectionnez l'option appropriée pour le transfert de la copie de sauvegarde initiale vers Azure. Vous pouvez choisir **Automatiquement sur le réseau**.
 
 14. Après avoir passé en revue les détails de la stratégie dans l’écran **Résumé**, cliquez sur **Créer un groupe** pour terminer le flux de travail. Vous pouvez cliquer sur **Fermer** et surveiller la progression du travail d'analyse de l'espace de travail.
 
@@ -147,11 +136,11 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 2. Cliquez avec le bouton droit sur le nom de base de données et cliquez sur **Récupérer**.
 
     ![Récupérer depuis Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM affiche les détails du point de récupération. Cliquez sur **Suivant**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Suivant**.
+3. MABS affiche les détails du point de récupération. Cliquez sur **Suivant**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Suivant**.
 
     ![Récupérer à l’emplacement d’origine](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    Dans cet exemple, DPM récupère la base de données vers une autre instance SQL Server ou dans un dossier de réseau autonome.
+    Dans cet exemple, MABS récupère la base de données vers une autre instance SQL Server ou dans un dossier de réseau autonome.
 
 4. Dans l'écran **Spécifier des options de récupération** , vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Suivant**.
 

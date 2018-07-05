@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 1f4afbe1849210c55c392d014449224f2fe97b04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659394"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062204"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Intégrer Cloud Foundry avec Azure
 
@@ -81,7 +81,7 @@ Alors que des VM de séries F et D étaient généralement recommandées pour l�
 #### <a name="managed-standard-disk"></a>Disque managé Standard : 
 Les disques Premium sont recommandés pour la fiabilité de leurs performances en production.  Avec [Disque managé](https://azure.microsoft.com/services/managed-disks/), le stockage standard peut également offrir une fiabilité similaire mais avec des performances différentes. Pour les charges de travail qui ne sont pas sensibles aux performances, comme les environnements de développement/test ou non critiques, les disques standard managés offrent une alternative à moindre coût.  
 ### <a name="cost-saving-in-general"></a>Généralités sur la réduction des coûts 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Réduction significative des coûts de VM grâce aux instances réservées : 
+#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Réduction significative des coûts des machines virtuelles grâce aux instances réservées : 
 Aujourd’hui, toutes les machines virtuelles CF sont facturées sur la base de la tarification « à la demande » même si les environnements restent généralement connectés indéfiniment. Vous pouvez désormais réserver la capacité de VM sur une durée de 1 ou 3 ans et bénéficier de réductions de 45 à 65 %. Les remises sont appliquées dans le système de facturation, sans modification de votre environnement. Pour en savoir plus, consultez la rubrique [Fonctionnement des instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Disque Premium géré avec tailles inférieures : 
 Les disques managés prennent en charge des tailles de disque plus petites, par exemple P4 (32 Go) et P6 (64 Go) pour les disques premium et standard. Si vous avez de petites charges de travail, vous pouvez faire des économies de coûts lors de la migration de disques premium standard vers des disques premium gérés.

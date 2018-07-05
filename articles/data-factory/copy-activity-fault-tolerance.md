@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619097"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055365"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 : disponibilité générale](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Version 2 - Préversion](copy-activity-fault-tolerance.md)
+> * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Version actuelle](copy-activity-fault-tolerance.md)
 
 Avec l’activité de copie dans Azure Data Factory, vous avez deux moyens de traiter les lignes incompatibles lors de la copie de données entre les magasins de données source et récepteur :
 
 - Vous pouvez abandonner et laisser en échec l’activité de copie en cas de détection de données incompatibles (comportement par défaut).
 - Vous pouvez continuer à copier toutes les données en ajoutant une tolérance de panne et en ignorant les lignes de données incompatibles. Vous avez également la possibilité de journaliser les lignes incompatibles dans le stockage Blob Azure ou Azure Data Lake Store. afin de pouvoir examiner la cause de l’échec dans le journal, corriger les données sur la source de données, puis effectuer une nouvelle tentative de copie.
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Tolérance de panne de l’activité de copie dans V1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-scenarios"></a>Scénarios pris en charge
 L’activité de copie offre la possibilité de détecter, d’ignorer et de journaliser les incompatibilités de données suivantes :
 
 - **Incompatibilité entre le type de données sources et le type natif récepteur** 

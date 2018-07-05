@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295623"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034877"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory
-Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS tierce, le portail Azure contrôle ses valeurs d’attributs sous forme d’une configuration appelée « mappage d’attributs ».
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
+Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous avez activé l’attribution d’utilisateurs pour une application SaaS tierce, le portail Azure contrôle ses valeurs d’attributs sous forme de mappages d’attributs.
 
 Il existe un ensemble préconfiguré d’attributs et de mappages d’attributs entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets en plus des utilisateurs, tels que des groupes. <br> 
- Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre entreprise. Cela signifie que vous pouvez modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux.
+ Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre organisation. Cela signifie que vous pouvez modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux.
  
 ## <a name="editing-user-attribute-mappings"></a>Modification des mappages d’attributs utilisateur
 
@@ -35,19 +35,19 @@ Dans le portail Azure AD, vous pouvez accéder à cette fonctionnalité en cliq
 
 ![Salesforce][5] 
 
-Cliquer sur une configuration **Mappages** permet d’ouvrir l’écran **Mappage d’attributs**. Des applications SaaS nécessitent certains mappages d’attributs pour fonctionner correctement. Pour les attributs requis, la fonctionnalité **Supprimer** n’est pas disponible.
+En cliquant sur la configuration **Mappages**, vous ouvrez l’écran **Mappage d’attributs** associé. Il existe des applications SaaS qui nécessitent certains mappages d’attributs pour fonctionner correctement. Pour les attributs requis, la fonctionnalité **Supprimer** n’est pas disponible.
 
 
 ![Salesforce][6]  
 
 Dans l’exemple ci-dessus, vous pouvez voir que l’attribut **Nom d’utilisateur** d’un objet géré dans Salesforce est renseigné avec la valeur **userPrincipalName** de l’objet Azure Active Directory lié.
 
-Vous pouvez personnaliser des **mappages d’attributs** existants en cliquant sur un mappage. Cette opération ouvre l’écran **Modifier l’attribut**.
+Vous pouvez personnaliser les **mappages d’attributs** existants en cliquant dessus. Cette opération ouvre l’écran **Modifier l’attribut**.
 
 ![Salesforce][7]  
 
 
-### <a name="understanding-attribute-mapping-types"></a>Présentation des types de mappage d’attributs
+### <a name="understanding-attribute-mapping-types"></a>Présentation des types de mappages d’attributs
 Avec les mappages d’attributs, vous contrôlez la façon dont les attributs sont renseignés dans une application SaaS tierce. Quatre différents types de mappages sont pris en charge :
 
 * **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans Azure AD.
@@ -56,13 +56,13 @@ Avec les mappages d’attributs, vous contrôlez la façon dont les attributs so
   Pour plus d’informations, consultez l’article [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il est renseigné avec la valeur par défaut que vous spécifiez.
 
-Outre ces quatre types de mappage d’attributs de base, les mappages d’attributs personnalisés prennent en charge le concept d’affectation de valeur **par défaut** facultative. L’affectation de valeur par défaut garantit qu’un attribut cible est renseigné avec une valeur s’il n’existe aucune valeur ni dans Azure AD, ni sur l’objet cible. La configuration la plus courante consiste à laisser ce champ vide.
+Outre ces quatre types de base, les mappages d’attributs personnalisés prennent en charge le concept d’affectation de valeur **par défaut** facultative. L’affectation de valeur par défaut garantit qu’un attribut cible est renseigné avec une valeur s’il n’existe aucune valeur ni dans Azure AD, ni sur l’objet cible. La configuration la plus courante consiste à laisser ce champ vide.
 
 
 ### <a name="understanding-attribute-mapping-properties"></a>Présentation des propriétés de mappage d’attributs
 
-La section précédente vous a présenté la propriété de type de mappage attributs.
-Outre cette propriété, les mappages d’attributs prennent en charge les attributs suivants :
+La section précédente vous a présenté la propriété de type de mappage d’attributs.
+Outre cette propriété, les mappages d’attributs prennent en charge les attributs suivants :
 
 - **Attribut source** : attribut utilisateur du système source (exemple, Azure : Active Directory).
 - **Attribut cible** : attribut utilisateur dans le système cible (exemple : ServiceNow).
@@ -79,7 +79,7 @@ Un certain nombre d’applications, telles que ServiceNow, Box et Google Apps, p
 
 ![ServiceNow][8]  
 
-L’approvisionnement du groupe peut éventuellement être activé ou désactivé en sélectionnant le mappage de groupe sous **Mappages**et en définissant le paramètre **Activé** sur l’option souhaitée dans l’écran **Mappage d’attributs**.
+Le provisionnement du groupe peut éventuellement être activé ou désactivé en sélectionnant le mappage de groupe sous **Mappages** et en définissant le paramètre **Activé** sur l’option souhaitée dans l’écran **Mappage d’attributs**.
 
 Les attributs approvisionnés en tant que partie d’objets de groupe peuvent être personnalisés de la même manière que les objets utilisateur décrits précédemment. 
 
@@ -91,15 +91,14 @@ Les attributs approvisionnés en tant que partie d’objets de groupe peuvent ê
 
 Les attributs utilisateur pris en charge pour une application donnée sont préconfigurés. La plupart des API de gestion des utilisateurs d’applications ne prennent pas en charge la découverte de schéma. Pour cette raison, le service d’approvisionnement d’Azure AD n’est pas en mesure de générer dynamiquement la liste des attributs pris en charge via des appels à l’application. 
 
-Toutefois, certaines applications prennent en charge des attributs personnalisés. Pour que le service d’approvisionnement Azure AD puisse lire et écrire dans les attributs personnalisés, leurs définitions doivent être entrées dans le portail Azure en cochant **Afficher les options avancées** en bas de l’écran  **Mappage d’attributs**.
+Toutefois, certaines applications prennent en charge des attributs personnalisés. Pour que le service de provisionnement Azure AD puisse lire et écrire dans les attributs personnalisés, leurs définitions doivent être entrées dans le portail Azure à l’aide de la case à cocher **Afficher les options avancées** située au bas de l’écran **Mappage d’attributs**.
 
 Les applications et les systèmes qui prennent en charge la personnalisation de la liste d’attributs sont les suivantes :
 
 * Salesforce
 * ServiceNow
 * Workday
-* Azure Active Directory
-* On-Premises Active Directory (dans le cadre du connecteur d’attribution d’utilisateurs Workday)
+* Azure Active Directory (les [attributs par défaut de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) et les extensions d’annuaire personnalisées sont pris en charge)
 * Les applications qui prennent en charge [SCIM 2.0](https://tools.ietf.org/html/rfc7643), où les attributs définis dans le [schéma principal](https://tools.ietf.org/html/rfc7643) doivent être ajoutés
 
 >[!NOTE]
@@ -140,9 +139,9 @@ Cette option entraînera une nouvelle synchronisation forcée de tous les utilis
 
 * Microsoft Azure AD fournit une implémentation efficace d’un processus de synchronisation. Dans un environnement initialisé, seuls les objets nécessitant des mises à jour sont traités pendant un cycle de synchronisation. 
 
-* La mise à jour des mappages d’attributs a un impact sur les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. 
+* La mise à jour des mappages d’attributs impacte les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. 
 
-* Il est recommandé de limiter au minimum le nombre de modifications consécutives de vos mappages d’attributs.
+* Il est recommandé d’apporter le moins de modifications consécutives possible à vos mappages d’attributs.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -151,7 +150,7 @@ Cette option entraînera une nouvelle synchronisation forcée de tous les utilis
 * [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+* [Liste des didacticiels sur l’intégration des applications SaaS](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

@@ -1,46 +1,29 @@
 ---
-title: Service Azure SQL Database - DTU | Microsoft Docs
+title: Niveaux de service Azure SQL Database - DTU | Microsoft Docs
 description: Découvrez les niveaux de service des bases de données uniques du pool qui permettent de fournir divers niveaux de performance et diverses tailles de stockage.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 075e04db27006719ec7d6e08eb2696436d1010f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648647"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750422"
 ---
-# <a name="dtu-based-purchasing-model-for-azure-sql-database"></a>Modèle d’achat DTU pour Azure SQL Database 
+# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Choisir un niveau de service, un niveau de performance et des ressources de stockage basés sur des unités DTU 
 
-
-[Azure SQL Database](sql-database-technical-overview.md) propose deux modèles d’achat pour les ressources de calcul, de stockage et d’E/S : un modèle d’achat DTU et un modèle d’achat vCore (en préversion). Le tableau et le graphique suivants comparent ces deux modèles d’achat.
-
-> [!IMPORTANT]
-> Pour le modèle d’achat vCore (préversion), consultez [Modèle d’achat vCore](sql-database-service-tiers-vcore.md)
-
-
-|**Modèle d’achat**|**Description**|**Idéal pour**|
-|---|---|---|
-|Modèle DTU|Ce modèle est basé sur une mesure regroupant des ressources de calcul, de stockage et d’E/S. Les niveaux de performance en termes d’unités de transaction de base de données (DTU) pour des bases de données uniques et d’unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-what-is-a-dtu.md).|Idéal pour les clients qui souhaitent des options de ressources préconfigurées et simples.| 
-|Modèle vCore|Ce modèle vous permet de faire évoluer indépendamment les ressources de calcul et de stockage. Il permet également d’utiliser Azure Hybrid Benefit pour SQL Server afin de réduire les coûts.|Idéal pour les clients qui donnent la priorité à la flexibilité, au contrôle et à la transparence.|
-||||  
-
-![Modèle de prix](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
-
-L’unité DTU (Database Throughput Unit) correspond à une mesure mixte d’UC, de mémoire, de lectures et d’écritures. Le modèle d’achat DTU offre un ensemble préconfiguré de ressources de calcul et de stockage inclus pour obtenir différents niveaux de performance d’application. Les clients qui préfèrent la simplicité d’un ensemble préconfiguré et de versements mensuels peuvent trouver le modèle DTU plus adapté à leurs besoins. Dans le modèle d’achat DTU, les clients peuvent choisir parmi les niveaux de service **De base**, **Standard** et **Premium** pour [chaque base de données](sql-database-single-database-resources.md) et pour les [pools élastiques](sql-database-elastic-pool.md). Chaque niveau de service a son propre niveau de performance, ainsi qu’une quantité fixe de stockage inclus, une période de rétention fixe pour les sauvegardes et un prix fixe. Tous les niveaux de service permettent de changer de niveau de performance sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et du niveau de performance.
+Chaque niveau de service a son propre niveau de performance, ainsi qu’une quantité fixe de stockage inclus, une période de rétention fixe pour les sauvegardes et un prix fixe. Tous les niveaux de service permettent de changer de niveau de performance sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et du niveau de performance.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, qui est actuellement en préversion publique, ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
 
-## <a name="choosing-a-service-tier-in-the-dtu-based-purchasing-model"></a>Choix d’un niveau de service dans le modèle d’achat DTU
+## <a name="choosing-a-dtu-based-service-tier"></a>Choisir un niveau de service basé sur des unités DTU
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 ||De base|standard|Premium|
@@ -55,41 +38,31 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |OLTP en mémoire|N/A|N/A|Prise en charge|
 |||||
 
-## <a name="performance-level-and-storage-size-limits-in-the-dtu-based-purchasing-model"></a>Niveau de performance et limites de taille de stockage dans le modèle d’achat DTU
+## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
-Les niveaux de performance en termes d’unités de transaction de base de données (DTU) pour des bases de données uniques et d’unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-what-is-a-dtu.md).
-
-### <a name="single-databases"></a>Bases de données uniques
+Les niveaux de performance en termes d’unités de transaction de base de données (DTU) pour des bases de données uniques et d’unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 
 ||De base|standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Taille de stockage maximale* | 2 Go | 1 To | 4 To  | 
-| DTU maximales | 5. | 3000 | 4000 | |
+| Taille de stockage maximale | 2 Go | 1 To | 4 To  | 
+| DTU maximales | 5 | 3000 | 4000 | |
 ||||||
 
-Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources DTU SQL Database pour les bases de données uniques](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels).
-
-### <a name="elastic-pools"></a>Pools élastiques
+## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU de pool élastique, stockage et limites de base de données mise en pool
 
 | | **De base** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Taille de stockage maximale par base de données*  | 2 Go | 1 To | 1 To | 
-| Taille de stockage maximale par pool* | 156 Go | 4 To | 4 To | 
-| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 | 
+| Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To | 
+| Taille de stockage maximale par pool | 156 Go | 4 To | 4 To | 
+| Nombre maximal d’eDTU par base de données | 5 | 3000 | 4000 | 
 | eDTU maximales par pool | 1 600 | 3000 | 4000 | 
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
-> - Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
-> - Plus de 1 To de stockage au niveau Premium est disponible dans toutes les régions à l’exception des suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne - Nord-Est, Chine Nord, US Gov Est. Une disponibilité plus étendue est prévue. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-> 
-Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les pools élastiques, consultez [Limites des ressources DTU SQL Database pour les pools élastiques](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-
-
+> Plus de 1 To de stockage au niveau Premium est actuellement disponible dans toutes les régions à l’exception des suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne - Nord-Est, Chine Nord, US Gov Est. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles, consultez [Limites des ressources DTU SQL Database](sql-database-dtu-resource-limits.md) et [Limites des ressources vCore SQL Database](sql-database-vcore-resource-limits.md).
-- Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obtenir des réponses aux questions fréquemment posées.
-- En savoir plus sur [l’abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md)
+- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources DTU SQL Database pour les bases de données uniques](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
+- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les pools élastiques, consultez [Limites des ressources DTU SQL Database pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

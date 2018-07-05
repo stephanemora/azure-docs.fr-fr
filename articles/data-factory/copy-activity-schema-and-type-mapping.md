@@ -11,21 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 338df0e258f66b6639e59a4fe31b6cfb6c283dd3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618621"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045525"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 Cet article décrit la manière dont l’activité de copie d’Azure Data Factory effectue un mappage de schéma et de type de données, des données de la source au données du récepteur lors de la copie.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez la [documentation de Data Factory version 1](v1/data-factory-introduction.md).
-
 
 ## <a name="column-mapping"></a>Mappage de colonnes
 
@@ -128,11 +124,18 @@ Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes d
         "translator":
         {
             "type": "TabularTranslator",
-            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            "columnMappings": 
+            {
+                "UserId": "MyUserId",
+                "Group": "MyGroup",
+                "Name": "MyName"
+            }
         }
     }
 }
 ```
+
+Si vous utilisiez la syntaxe de `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` pour spécifier le mappage de colonnes, il est toujours pris en charge tel quel.
 
 **Flux du mappage de colonnes :**
 

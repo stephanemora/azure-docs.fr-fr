@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232021"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028946"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ? 
 
@@ -77,7 +77,7 @@ L’authentification multifacteur contribue à empêcher tout accès à vos ress
 
 ### <a name="compliant-device"></a>Conformité de l’appareil
 
-Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux [appareils gérés](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil géré. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils [enregistrés](device-management-introduction.md) sur votre Azure Active Directory et marqués comme conformes par votre solution de gestion des données de référence.
+Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux ressources configurées qu’aux [appareils gérés](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Vous pouvez par exemple exiger un appareil conforme, ce qui implique de définir ce qu’est un appareil géré. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives effectuées à l’aide d’appareils [inscrits](device-management-introduction.md) dans Azure Active Directory, et marqués comme conformes par Intune (pour n’importe quel système d’exploitation) ou par votre système MDM tiers pour appareils Windows 10. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge.
 
 Pour plus d’informations, consultez [Configurer des stratégies d’accès conditionnel au niveau de l’appareil Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 

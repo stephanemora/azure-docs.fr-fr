@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293158"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034906"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -37,7 +37,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de la société : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -96,6 +96,18 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
 - - -
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**Fonction :**<br> NormalizeDiacritics(source)
+
+**Description :**<br> Nécessite un argument de chaîne. Retourne la chaîne, où les caractères diacritiques ont été remplacés par leurs équivalents non diacritiques. Généralement utilisé pour convertir les prénoms et les noms contenant des caractères diacritiques (accents) en valeurs autorisées pouvant être utilisées dans différents identificateurs d’utilisateurs, tels que les noms d’utilisateurs principaux, les noms de compte SAM et les adresses e-mail.
+
+**Paramètres :**<br> 
+
+| NOM | Requis / Répétition | type | Notes |
+| --- | --- | --- | --- |
+| **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom |
+
+- - -
 ### <a name="not"></a>not
 **Fonction :**<br> Not(source)
 
@@ -129,7 +141,6 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
   * Si **source** a une valeur, la fonction utilise **regexPattern** et **regexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
 
 **Paramètres :**<br> 
-
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
@@ -144,7 +155,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Fonction :**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Description :**<br> Retourne un appRoleAssignment unique parmi la liste de tous les appRoleAssignments affectés à un utilisateur pour une application donnée. Cette fonction est nécessaire pour convertir l’objet appRoleAssignments en une chaîne de nom de rôle unique. Notez que la bonne pratique consiste à s’assurer qu’un seul appRoleAssignment est attribué à un seul utilisateur à la fois, et si plusieurs rôles sont attribués, la chaîne de rôle retournée ne doit pas être prévisible.
+**Description :**<br> Nécessite un argument de chaîne. Retourne la chaîne, où les caractères diacritiques ont été remplacés par leurs équivalents non diacritiques.
 
 **Paramètres :**<br> 
 
@@ -215,16 +226,16 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 * **ENTRÉE** (surname) : « Doe »
 * **SORTIE** : « JohDoe »
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Supprimer les signes diacritiques d’une chaîne et les convertir en minuscules
-Vous devez supprimer les caractères spéciaux d’une chaîne et convertir les caractères en majuscules en minuscules.
+### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
+Vous devez remplacer les caractères accentués par leurs équivalents non accentués.
 
 **Expression :** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **Exemple d’entrée/sortie :** <br>
 
 * **ENTRÉE** (givenName) : « Zoë »
-* **SORTIE** :  « zoe »
+* **SORTIE** : « Zoe »
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>
@@ -259,5 +270,5 @@ Si le code d’état ne correspond à aucune des options prédéfinies, utilisez
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+* [Liste des didacticiels sur l’intégration des applications SaaS](saas-apps/tutorial-list.md)
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: e402fd3ac95cac4816b9442f7c08aeaf7c108886
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d8ab1531c4e1fa33fbdba12a4ecbeb8908dd6a94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34654349"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tailles de machines virtuelles de calcul haute performance
 
@@ -62,6 +63,7 @@ ms.lasthandoff: 04/06/2018
 - [Mémoire optimisée](../virtual-machines-windows-sizes-memory.md)
 - [Optimisé pour le stockage](../virtual-machines-windows-sizes-storage.md)
 - [Optimisé pour le GPU](sizes-gpu.md)
+- [Générations précédentes](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
-title: Copie d’une machine virtuelle Linux à l’aide d’Azure CLI 2.0 | Microsoft Docs
-description: Apprenez à créer une copie de votre machine virtuelle Azure Linux à l’aide d’Azure CLI 2.0 et de Managed Disks.
+title: Copie d’une machine virtuelle Linux à l’aide d’Azure CLI | Microsoft Docs
+description: Apprenez à créer une copie de votre machine virtuelle Azure Linux à l’aide d’Azure CLI et de Managed Disks.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,22 +14,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 66f2789d717816f5be3fd8b298819825f8cd87f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d250f1289c3757d5ea862a1c195dde6f8efb0eb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905008"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938262"
 ---
-# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Créer une copie de machine virtuelle Linux à l’aide d’Azure CLI 2.0 et de disques gérés
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Créer une copie de machine virtuelle Linux à l’aide d’Azure CLI et de Managed Disks
 
 
-Cet article vous explique comment créer une copie de votre machine virtuelle Azure exécutant Linux avec Azure CLI 2.0 et le modèle de déploiement Azure Resource Manager. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Cet article vous explique comment créer une copie de votre machine virtuelle Azure exécutant Linux avec Azure CLI 2.0 et le modèle de déploiement Azure Resource Manager. 
 
 Vous pouvez également [charger et créer une machine virtuelle à partir d’un disque dur virtuel](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 
 -   Installer [Azure CLI 2.0](/cli/azure/install-az-cli2)

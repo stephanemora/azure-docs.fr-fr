@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624282"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047562"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez le [Guide pratique pour créer et configurer le runtime d’intégration autohébergé dans Data Factory version 2](../create-self-hosted-integration-runtime.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Guide pratique pour créer et configurer le runtime d’intégration auto-hébergé dans Data Factory](../create-self-hosted-integration-runtime.md).
 
 Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md). Pour connaître la procédure de déplacement de données d’une base de données SQL Server locale vers un stockage Blob Microsoft Azure avec la passerelle, consultez l’article [Déplacer des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 

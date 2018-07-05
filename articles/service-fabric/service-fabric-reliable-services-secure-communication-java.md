@@ -1,6 +1,6 @@
 ---
-title: Sécuriser des communications pour les services dans Azure Service Fabric | Microsoft Docs
-description: Vue d’ensemble de la sécurisation des communications pour Reliable Services en cours d’exécution dans un cluster Azure Service Fabric.
+title: Sécuriser les communications à distance des services avec Java dans Azure Service Fabric | Microsoft Docs
+description: Découvrez comment sécuriser les communications à distance pour des services fiables Java s’exécutant dans un cluster Azure Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 624d9d358145fb8b41013d686821cb157693d3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207993"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020811"
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Sécurisation des communications pour les services dans Azure Service Fabric
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Sécuriser les communications à distance des services dans un service Java
 > [!div class="op_single_selector"]
 > * [C# sur Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java sur Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Sécurisation d’un service lors de l’utilisation de la communication à distance des services
-Nous allons utiliser un [exemple](service-fabric-reliable-services-communication-remoting-java.md) existant qui explique comment configurer la communication à distance pour Reliable Services. Pour sécuriser un service lors de l’utilisation de la communication à distance des services, procédez comme suit :
+La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis afin d’améliorer la sécurité. Cet article explique comment améliorer la sécurité quand vous utilisez la communication à distance dans un service Java. Il s’appuie sur un [exemple](service-fabric-reliable-services-communication-remoting-java.md) existant qui décrit comment configurer la communication à distance pour les services fiables écrits en Java. 
+
+Pour sécuriser un service lors de l’utilisation de la communication à distance avec des services Java, effectuez les opérations suivantes :
 
 1. Créez une interface, `HelloWorldStateless`, qui définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Votre service utilisera `FabricTransportServiceRemotingListener`, qui est déclaré dans le package `microsoft.serviceFabric.services.remoting.fabricTransport.runtime`. Il s'agit d'une implémentation `CommunicationListener` qui fournit des fonctionnalités de communication à distance.
 
@@ -54,11 +55,13 @@ Nous allons utiliser un [exemple](service-fabric-reliable-services-communication
     ```
 2. Ajoutez des paramètres de l’écouteur et des informations d’identification de sécurité.
 
-    Assurez-vous le certificat que vous souhaitez utiliser pour sécuriser les communications de votre service est installé sur tous les nœuds du cluster. Vous pouvez fournir les paramètres de l’écouteur et les informations d’identification de sécurité de deux manières :
+    Vérifiez que le certificat que vous souhaitez utiliser pour sécuriser les communications de votre service est installé sur tous les nœuds du cluster. Pour les services exécutés sous Linux, le certificat doit être disponible comme un fichier au format PEM ; un fichier `.pem` qui contient le certificat et une clé privée ou un fichier `.crt` qui contient le certificat et un fichier `.key` qui contient la clé privée. Pour en savoir plus, consultez [Emplacement et format des certificats X.509 sur les nœuds Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    Vous pouvez fournir les paramètres de l’écouteur et les informations d’identification de sécurité de deux manières :
 
    1. À l'aide d’un [package de configuration](service-fabric-application-and-service-manifests.md):
 
-       Ajoutez une section `TransportSettings` dans le fichier settings.xml.
+       Ajoutez une section `TransportSettings` nommée dans le fichier settings.xml.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->

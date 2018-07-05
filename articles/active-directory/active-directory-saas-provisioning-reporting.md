@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293175"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031727"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur
 
@@ -30,9 +30,9 @@ Cet article décrit comment vérifier l’état de l’approvisionnement des tra
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Les connecteurs d’approvisionnement sont principalement définis et configurés via le [portail de gestion Azure](https://portal.azure.com), en suivant la [documentation fournie](active-directory-saas-tutorial-list.md) pour l’application où un approvisionnement de compte d’utilisateur est souhaité. Une fois configurés et opérationnels, les travaux d’approvisionnement pour une application peuvent faire l’objet de rapports créés à l’aide de l’une des deux méthodes suivantes :
+Les connecteurs de provisionnement peuvent être configurés via le [portail Azure](https://portal.azure.com), en suivant la [documentation fournie](saas-apps/tutorial-list.md) pour l’application prise en charge. Une fois configurés et opérationnels, les travaux de provisionnement peuvent faire l’objet de rapports créés à l’aide de l’une des deux méthodes suivantes :
 
-* **Portail de gestion Azure** : cet article décrit principalement la récupération d’informations de rapport à partir du [portail de gestion Azure](https://portal.azure.com), qui fournit un rapport de synthèse ainsi que des journaux d’audit détaillés sur l’approvisionnement pour une application donnée.
+* **Portail de gestion Azure** : Cet article aborde principalement la récupération des informations d’un rapport à partir du [portail Azure](https://portal.azure.com), qui fournit un rapport de synthèse, ainsi que des journaux d’audit détaillés sur le provisionnement d’une application donnée.
 
 * **API d’audit**  : Azure Active Directory fournit également une API d’audit qui permet la récupération par programmation des journaux d’audit détaillés sur l’approvisionnement. Pour une documentation spécifique sur l’utilisation de cette API, voir [Référence d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-reference.md). Bien que cet article ne traite pas spécifiquement de l’utilisation de l’API, il détaille les types d’événements d’approvisionnement qui sont enregistrés dans le journal d’audit.
 
@@ -54,28 +54,28 @@ Pour obtenir des informations de rapport d’approvisionnement pour une applicat
 À ce stade, vous pouvez accéder tant au rapport de synthèse sur l’approvisionnement qu’aux journaux d’audit de l’approvisionnement, tous deux décrits ci-dessous.
 
 
-### <a name="provisioning-summary-report"></a>Rapport de synthèse sur l’approvisionnement
+## <a name="provisioning-summary-report"></a>Rapport de synthèse sur l’approvisionnement
 
-Le rapport de synthèse sur l’approvisionnement est visible sous l’onglet **Approvisionnement** pour une application données. Il figure dans la section Détails de la synchronisation sous **Paramètres**, et fournit les informations suivantes :
+Le rapport de synthèse sur l’approvisionnement est visible sous l’onglet **Approvisionnement** pour une application données. Il figure dans la section **Détails de la synchronisation** sous **Paramètres**, et fournit les informations suivantes :
 
-* Le nombre total d’utilisateurs et de groupes qui ont été synchronisés et figurent actuellement dans l’étendue pour l’approvisionnement entre le système source et le système cible.
+* Le nombre total d’utilisateurs et de groupes qui ont été synchronisés et qui doivent être provisionnés entre le système source et le système cible
 
-* La dernière exécution de la synchronisation. Les synchronisations se produisent généralement toutes les 20 à 40 minutes après l’achèvement d’une synchronisation complète.
+* La dernière exécution de la synchronisation. Les synchronisations se produisent généralement toutes les 20 à 40 minutes après la [synchronisation initiale](active-directory-saas-app-provisioning.md#what-happens-during-provisioning).
 
-* Indique si une synchronisation initiale complète a été effectuée.
+* Indique si une [synchronisation initiale](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) a été effectuée.
 
-* Indique si le processus d’approvisionnement a été mis en quarantaine, et la raison de la mise en quarantaine (par exemple, un échec de communication avec le système cible en raison d’informations d’identification d’administration non valides).
+* Indique si le processus de provisionnement a été mis en quarantaine, et la raison de la mise en quarantaine (par exemple, un échec de communication avec le système cible en raison d’informations d’identification d’administrateur non valides).
 
 Le rapport de synthèse sur l’approvisionnement doit être le premier emplacement que les administrateurs consultent pour vérifier l’intégrité opérationnelle du travail d’approvisionnement.
 
  ![Rapport de synthèse](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Journaux d’audit de l’approvisionnement
+## <a name="provisioning-audit-logs"></a>Journaux d’audit de l’approvisionnement
 Toutes les activités effectuées par le service d’approvisionnement sont enregistrées dans les journaux d’audit d’Azure AD, qui peuvent être consultés sous l’onglet **Journaux d’audit**, dans la catégorie **Approvisionnement de comptes**. Les types d’événements d’activité journalisés sont les suivants :
 
 * **Événements d’importation** : un événement d’importation est enregistré chaque fois que le service d’approvisionnement Azure AD récupère des informations concernant un utilisateur ou un groupe à partir d’un système source ou d’un système cible. Lors de la synchronisation, les utilisateurs sont d’abord extraits du système source, les résultats étant enregistrés en tant qu’événements d’importation. Les ID correspondants des utilisateurs extraits font ensuite l’objet d’une requête sur le système cible pour vérifier s’ils existent, les résultats étant également enregistrés en tant qu’événements d’importation. Ces événements enregistrent tous les attributs utilisateur mappés ainsi que leurs valeurs observées par le service d’approvisionnement Azure AD au moment de l’événement. 
 
-* **Événements de règle de synchronisation**: ces événements rapportent sur les résultats des règles de mappage d’attribut et de tous les filtres d’étendue configurés, après que les données utilisateur ont été importées et évaluées à partir des systèmes source et cible. Par exemple, si un utilisateur dans un système source est censé figurer dans l’étendue pour l’approvisionnement, et ne pas exister dans le système cible, cet événement enregistre le fait que l’utilisateur sera approvisionné dans le système cible. 
+* **Événements de règle de synchronisation** : ces événements rapportent les résultats des règles de mappage d’attribut et de tous les filtres d’étendue configurés, après que les données utilisateur ont été importées et évaluées à partir des systèmes source et cible. Par exemple, si un utilisateur dans un système source est censé figurer dans l’étendue pour l’approvisionnement, et ne pas exister dans le système cible, cet événement enregistre le fait que l’utilisateur sera approvisionné dans le système cible. 
 
 * **Événements d’exportation** : un événement d’exportation est enregistré chaque fois que service d’approvisionnement Azure AD écrit un objet groupe ou compte d’utilisateur dans un système cible. Ces événements enregistrent l’ensemble des attributs et de leurs valeurs qui ont été écrits par le service d’approvisionnement Azure AD au moment de l’événement. Si une erreur s’est produite lors de l’écriture de l’objet groupe ou compte d’utilisateur dans le système cible, elle s’affiche ici.
 
@@ -87,9 +87,9 @@ Lors de l’examen d’événements d’approvisionnement pour un utilisateur, l
 
 2. Événement d’importation : le système cible est interrogé afin de vérifier l’existence de l’utilisateur extrait.
 
-3. Événement de règle de synchronisation : les données utilisateur des systèmes source et cible sont évaluées par rapport aux règles de mappage d’attribut et aux filtres d’étendue configurés afin de déterminer l’action éventuelle à effectuer.
+3. Événement de règle de synchronisation : les données utilisateur des systèmes source et cible sont évaluées par rapport aux règles de mappage d’attribut et aux filtres d’étendue configurés afin de déterminer l’action éventuelle à effectuer.
 
-4. Événement d’exportation : si l’événement de règle de synchronisation a dicté qu’une action doit être exécutée (par exemple, Ajouter, Mettre à jour, Supprimer), les résultats de l’action sont enregistrés dans l’événement d’exportation.
+4. Événement d’exportation : si l’événement de règle de synchronisation a dicté qu’une action doit être exécutée (Ajouter, Mettre à jour, Supprimer), les résultats de l’action sont enregistrés dans l’événement d’exportation.
 
 ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -104,7 +104,7 @@ Le cas d’usage le plus courant des journaux d’audit de l’approvisionnement
 
 3. Dans le menu **Plage de dates**, sélectionnez la plage de dates dans laquelle vous voulez rechercher.
 
-4. Dans la barre **Recherche**, entrez l’ID de l’utilisateur que vous souhaitez rechercher. Le format de la valeur d’ID doit correspondre à ce que vous avez sélectionné en tant qu’ID correspondant principale dans la configuration du mappage d’attribut (par exemple, userPrincipalName ou numéro d’ID d’employé). La valeur d’ID requise est visible dans la colonne Cible(s).
+4. Dans la barre **Recherche**, entrez l’ID de l’utilisateur que vous souhaitez rechercher. Le format de la valeur d’ID doit correspondre à ce que vous avez sélectionné en tant qu’ID correspondant principal dans la configuration du mappage d’attribut (userPrincipalName ou numéro d’ID d’employé). La valeur d’ID requise est visible dans la colonne Cible(s).
 
 5. Appuyez sur Entrée pour rechercher. Les événements d’approvisionnement les plus récents sont retournés en premier.
 
@@ -112,6 +112,9 @@ Le cas d’usage le plus courant des journaux d’audit de l’approvisionnement
 
 7. Cliquez sur les différents événements pour afficher des détails étendus, dont toutes les propriétés utilisateur qui ont été extraites, évaluées ou écrites dans le cadre de l’événement.
 
+Pour une démonstration de l’utilisation des journaux d’audit, regardez la vidéo ci-dessous. Les journaux d’audit y sont présentés au bout de 5 min 30 s :
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Conseils pour consulter les journaux d’audit de l’approvisionnement
 

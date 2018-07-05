@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180034"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018712"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -212,14 +212,14 @@ Chaque recommandation inclut une justification de son importance. Utilisez cette
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Utilisation des recommandations des domaines Health Check
 
-Avant de pouvoir utiliser une solution de contrôle d’intégrité dans Log Analytics, vous devez avoir installé cette solution. Pour plus d’informations sur l’installation des solutions, consultez la rubrique [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l’aide de la mosaïque System Center Operations Manager Health Check de la page Vue d’ensemble dans le portail OMS.
+Avant de pouvoir utiliser une solution de contrôle d’intégrité dans Log Analytics, vous devez avoir installé cette solution. Pour en savoir plus sur les solutions d’installation, consultez [Installer une solution de gestion](log-analytics-add-solutions.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l’aide de la mosaïque System Center Operations Manager Health Check de la page **Vue d’ensemble** pour votre espace de travail dans le portail Azure.
 
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
 1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
 2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
-3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Portail OMS**.  
+3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur l’élément de menu **Résumé de l’espace de travail**.  
 4. Dans la page **Vue d’ensemble**, cliquez sur la mosaïque **System Center Operations Manager Health Check**.
 5. Dans la page **System Center Operations Manager Health Check**, passez en revue les informations de résumé dans l’un des panneaux relatifs à un domaine, puis cliquez sur l’un d’entre eux pour afficher les recommandations afférentes.
 6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![domaine](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Pour identifier les recommandations que vous voulez ignorer
-1. Dans le portail Azure, dans la page des espaces de travail Log Analytics, cliquez sur la vignette **Rechercher dans les journaux** pour votre espace de travail sélectionné.
+1. Dans le portail Azure, dans la page des espaces de travail Log Analytics, cliquez sur l’élément de menu **Rechercher dans les journaux** pour votre espace de travail sélectionné.
 2. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
 
     ```
@@ -304,6 +304,6 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 *Est-il possible d'ignorer une recommandation ?* Oui, consultez [Ignorer les recommandations](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

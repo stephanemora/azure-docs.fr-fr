@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32768029"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021623"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics
 Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte utilisant des règles configurables basées sur un seuil dans Azure Stream Analytics.
@@ -45,7 +45,7 @@ Cet exemple de données de référence montre comment une règle de seuil peut �
 - L’exemple de règle sert à représenter une alerte réglable lorsque le processeur dépasse (moyenne supérieure ou égale à) la valeur de pourcentage `90`. Le champ `value` est configurable selon les besoins.
 - Notez que la règle comporte un champ **opérateur**, qui est ensuite interprété dynamiquement dans la syntaxe de la requête avec `AVGGREATEROREQUAL`. 
 - La règle filtre les données selon une certaine clé de dimension `2` avec la valeur `C1`. Les autres champs affichent une chaîne vide, indiquant que le flux d’entrée ne sera pas filtré selon ces champs d’événements. Vous pouvez configurer d’autres règles de processeur afin de filtrer d’autres champs correspondants, selon vos besoins.
-- Toutes les colonnes ne seront incluses dans l’événement d’alerte de sortie. Dans ce cas, la clé numéro `includedDim` `2` est définie sur `TRUE` pour indiquer que le champ numéro 2 des données d’événement dans le flux de données sera inclus dans les événements de sortie correspondants. Les autres champs ne sont pas inclus dans la sortie d’alerte, mais la liste des champs peut être ajustée.
+- Toutes les colonnes ne seront incluses dans l’événement d’alerte de sortie. Dans ce cas, la clé `includedDim` numéro `2` est définie sur `TRUE` pour indiquer que le champ numéro 2 des données d’événement dans le flux de données sera inclus dans les événements de sortie correspondants. Les autres champs ne sont pas inclus dans la sortie d’alerte, mais la liste des champs peut être ajustée.
 
 
 ```json

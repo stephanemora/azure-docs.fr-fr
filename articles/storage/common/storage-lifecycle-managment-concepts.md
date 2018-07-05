@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248467"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752790"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
@@ -265,7 +265,7 @@ D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas s
 
 ### <a name="expire-data-based-on-age"></a>Faire expirer les données selon l’âge
 
-Certaines données sont conçues pour expirer plusieurs jours ou mois après leur création afin de réduire les coûts ou de se conformer aux réglementations gouvernementales. Une stratégie de gestion du cycle de vie peut être configurée de telle sorte à supprimer les dates expirées selon l’ancienneté des données. L’exemple suivant présente une stratégie qui supprime tous les objets blob de bloc (sans aucun préfixe spécifié) antérieurs à 365 jours.
+Certaines données sont conçues pour expirer plusieurs jours ou mois après leur création afin de réduire les coûts ou de se conformer aux réglementations gouvernementales. Une stratégie de gestion du cycle de vie peut être configurée de telle sorte à faire expirer les données d’épuisement selon l’ancienneté des données. L’exemple suivant présente une stratégie qui supprime tous les objets blob de bloc (sans aucun préfixe spécifié) antérieurs à 365 jours.
 
 ```json
 {

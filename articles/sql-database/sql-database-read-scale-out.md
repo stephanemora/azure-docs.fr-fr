@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/27/2018
 ms.author: sashan
-ms.openlocfilehash: 8de70c01f4c04d6df85c2f5acfe9efe18ff59c0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649684"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060006"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (version préliminaire)
 
@@ -22,7 +22,7 @@ La **lecture du Scale-out** offre la possibilité d’équilibrer les charges de
 
 ## <a name="overview-of-read-scale-out"></a>Vue d’ensemble de la lecture du Scale-out
 
-Chaque base de données du niveau Premium ([modèle d’achat DTU](sql-database-service-tiers-dtu.md)) ou du niveau Critique pour l’entreprise ([modèle d’achat vCore](sql-database-service-tiers-vcore.md) (préversion)) est automatiquement configurée avec plusieurs réplicas AlwaysON pour prendre en charge le contrat SLA de disponibilité. Ces réplicas sont configurés avec le même niveau de performances que le réplica en lecture-écriture utilisé par les connexions normales de base de données. La fonctionnalité **Lecture du Scale-out** vous permet d’équilibrer les charges de travail en lecture seule de la base de données SQL à l’aide de la capacité des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. La fonctionnalité est conçue pour les applications incluant des charges de travail en lecture seule séparées logiquement, comme des analyses, et peut par conséquent obtenir des avantages en termes de performance en utilisant cette capacité sans frais supplémentaires.
+Chaque base de données du niveau Premium ([modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md)) ou du niveau Critique pour l’entreprise ([modèle d’achat basé sur vCore en préversion](sql-database-service-tiers-vcore.md)) est automatiquement provisionnée avec plusieurs réplicas AlwaysOn pour prendre en charge le contrat SLA de disponibilité. Ces réplicas sont configurés avec le même niveau de performances que le réplica en lecture-écriture utilisé par les connexions normales de base de données. La fonctionnalité **d’échelle horizontale en lecture** vous permet d’équilibrer les charges de travail en lecture seule SQL Database à l’aide de la capacité de l’un des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. La fonctionnalité est conçue pour les applications incluant des charges de travail en lecture seule séparées logiquement, comme des analyses, et peut par conséquent obtenir des avantages en termes de performance en utilisant cette capacité sans frais supplémentaires.
 
 Pour utiliser la fonctionnalité de lecture du Scale-out avec une base de données particulière, vous devez l’activer explicitement lors de la création de la base de données, ou ultérieurement en modifiant sa configuration à l’aide de PowerShell en appelant les applets de commande [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [ New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou via l’API REST de Azure Resource Manager à l’aide de la méthode [Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate). 
 
@@ -61,9 +61,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 Vous pouvez vérifier si vous êtes connecté à un réplica en lecture seule en exécutant la requête suivante. Elle retourne READ_ONLY en cas de connexion à un réplica en lecture seule.
 
+
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+> [!NOTE]
+> À tout moment, seul l’un des réplicas AlwaysoN est accessible par les sessions en lecture seule.
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Activer et désactiver la lecture du Scale-out à l’aide d’Azure PowerShell
 
@@ -106,6 +109,14 @@ Body:
 ```
 
 Pour plus d’informations, consultez [Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Utilisation de l’échelle horizontale en lecture avec des bases de données géorépliquées
+
+Si vous utilisez l’échelle horizontale en lecture pour équilibrer des charges de travail en lecture seule sur une base de données géorépliquée (par exemple, comme membre d’un groupe de basculement), vérifiez que l’échelle horizontale en lecture est activée sur la base de données primaire et les bases de données secondaires géorépliquées. De cette façon, le même effet d’équilibrage de charge est appliqué quand votre application se connecte à la nouvelle base de données primaire après le basculement. Si vous vous connectez à la base de données secondaire géorépliquée et que l’échelle horizontale en lecture est activée, vos sessions avec `ApplicationIntent=ReadOnly` sont routées vers l’un réplicas de la même façon que les connexions sont routées sur la base de données primaire.  Les sessions sans `ApplicationIntent=ReadOnly` sont routées vers le réplica principal de la base de données secondaire géorépliquée, qui est également en lecture seule. Le point de terminaison de la base de données secondaire géorépliquée étant différent de celui de la base de données primaire, il était par le passé inutile de définir `ApplicationIntent=ReadOnly` pour accéder à la base de données secondaire. À des fins de compatibilité descendante, la vue de gestion dynamique `sys.geo_replication_links` affiche `secondary_allow_connections=2` (toute connexion cliente est autorisée).
+
+> [!NOTE]
+> Durant la préversion, nous n’utilisons aucun tourniquet (round robin) et n’effectuons aucun routage à charge équilibrée entre les réplicas locaux de la base de données secondaire. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

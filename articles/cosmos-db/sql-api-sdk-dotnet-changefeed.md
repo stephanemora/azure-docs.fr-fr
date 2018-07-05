@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798862"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937415"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "34798862"
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Prise en main**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
+|**Bien démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication
@@ -74,6 +74,17 @@ ms.locfileid: "34798862"
 * Compatible avec les versions 1.14.1 et inférieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
 
 ### <a name="pre-release-builds"></a>Builds en préversion
+
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+* Les problèmes suivants ont été résolus :
+  * En cas de fractionnement de la partition, un double traitement des documents modifiés avant le fractionnement peut se produire.
+  * L’API GetEstimatedRemainingWork a retourné 0 quand aucun bail n’était présent dans la collection de baux.
+
+* Les exceptions suivantes sont rendues publiques. Les extensions qui implémentent IPartitionProcessor peuvent lever ces exceptions.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Évolutions mineures de l’API :

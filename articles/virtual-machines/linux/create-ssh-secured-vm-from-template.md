@@ -1,6 +1,6 @@
 ---
 title: Créer une machine virtuelle Linux dans Azure à partir d’un modèle | Documents Microsoft
-description: Comment utiliser Azure CLI 2.0 pour créer une machine virtuelle Linux à partir d’un modèle Resource Manager
+description: Comment utiliser l’interface de ligne de commande Azure pour créer une machine virtuelle Linux à partir d’un modèle Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fc2b4dde9796336112d6c8a68d16d0b3006b3fee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716405"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936412"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Comment créer une machine virtuelle Linux avec des modèles Azure Resource Manager
-Cet article montre comment déployer rapidement une machine virtuelle Linux avec des modèles Azure Resource Manager et Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
+Cet article vous montre comment déployer rapidement une machine virtuelle Linux avec des modèles Azure Resource Manager et l’interface de ligne de commande Azure. 
 
 
 ## <a name="templates-overview"></a>Vue d’ensemble des modèles

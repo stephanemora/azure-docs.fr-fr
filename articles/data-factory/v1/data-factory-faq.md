@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621344"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046752"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Forum aux questions : Data Factory version 2](../frequently-asked-questions.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Forum aux questions - Data Factory](../frequently-asked-questions.md).
 
 ## <a name="general-questions"></a>Questions générales
 ### <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
@@ -41,7 +41,7 @@ Consultez la [page de tarification de Data Factory][adf-pricing-details] pour pl
 * Pour obtenir un didacticiel expliquant comment **copier/déplacer des données** au moyen de l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Pour obtenir un didacticiel sur la façon de **transformer des données** au moyen de l’activité Hive de HDInsight. Consultez [Traiter des données en exécutant un script Hive sur un cluster Hadoop](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Dans quelles régions Data Factory est-il disponible ?
+### <a name="what-is-the-data-factorys-region-availability"></a>Dans quelle région sera disponible Data Factory ?
 Data Factory est disponible dans les régions **Ouest des États-Unis** et **Europe du Nord**. Les services de calcul et de stockage utilisés par les fabriques de données peuvent être proposés dans d'autres régions. Consultez [Régions prises en charge](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>quelles sont les limites du nombre de fabriques de données/pipelines/activités/jeux de données ?

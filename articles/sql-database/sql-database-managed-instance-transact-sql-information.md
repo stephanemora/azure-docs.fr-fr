@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337297"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server 
 
@@ -207,6 +208,10 @@ Les instructions DBCC non documentées activées dans SQL Server ne sont pas pri
 - `DBCC TRACEOFF` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### <a name="distributed-transactions"></a>Transactions distribuées
+
+Actuellement, ni MSDTC, ni les [Transactions élastiques](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) ne sont pris en charge dans Managed Instance.
+
 ### <a name="extended-events"></a>Événements étendus 
 
 Certaines cibles spécifiques de Windows pour les événements XEvent ne sont pas prises en charge :
@@ -375,12 +380,10 @@ Pour plus d’informations sur la création et modification des tables, consulte
  
 Les variables, fonctions et vues suivantes retournent des résultats différents :  
 - `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie Managed Instance de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` retourne le nom d’instance court, par exemple, « myserver ». Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance, tel qu’il existe pour SQL Server ne s’applique pas à Managed Instance. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` retourne le nom DNS « connectable »complet, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -retourne le nom DNS « connectable »complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` Retourne le nom DNS « connectable » complet, tel que `my-managed-instance.wcus17662feb9ce98.database.windows.net`. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` -retourne le nom DNS « connectable »complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` retourne la valeur NULL, car il n’a pas de sens dans l’environnement Managed Instance. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` retourne la valeur NULL, car le concept de service, tel qu’il existe pour SQL Server ne s’applique pas à Managed Instance. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` est pris en charge. Retourne NULL si le compte de connexion AAD n’est pas dans sys.syslogins. Consultez [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` n’est pas pris en charge. Retourne des données incorrectes (problème temporaire connu). Consultez [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` et autres fonctions de date et d’heure intégrées retourne toujours l’heure dans le fuseau horaire UTC. Consultez [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -419,4 +422,4 @@ Il ne peut y avoir qu’un seul profil de messagerie de base de données et il d
 
 - Pour plus d’informations sur Managed Instance, consultez [What is a Managed Instance?](sql-database-managed-instance.md) (Présentation de l’option Managed Instance)
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
-- Pour suivre un tutoriel qui vous montre comment créer une instance gérée, consultez [Création d’une instance gérée](sql-database-managed-instance-create-tutorial-portal.md).
+- Pour suivre un didacticiel vous expliquant comment créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).

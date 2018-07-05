@@ -1,35 +1,42 @@
 ---
-title: Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob Azure | Microsoft Docs
-description: Utilisez le portail Azure pour mapper votre propre nom canonique (CNAME) au point de terminaison de stockage Blob dans un compte de stockage Azure.
+title: Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure | Microsoft Docs
+description: Utilisez le portail Azure pour mapper votre propre nom canonique (CNAME) au point de terminaison web ou au Blob dans un compte de stockage Azure.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29559925"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017918"
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob
+# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure
 
-Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut de stockage Blob est `<storage-account-name>.blob.core.windows.net`. Si vous mappez un domaine personnalisé et un sous-domaine comme **www.contoso.com** au point de terminaison d’objet blob de votre compte de stockage, vos utilisateurs peuvent alors accéder aux données de l’objet blob de votre compte de stockage à l’aide de ce domaine.
+Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut de stockage Blob est `<storage-account-name>.blob.core.windows.net`. Vous pouvez également utiliser le point de terminaison web généré dans le cadre de la [fonctionnalité de sites web statiques (préversion)](storage-blob-static-website.md). Si vous mappez un domaine personnalisé et un sous-domaine comme **www.contoso.com** au point de terminaison web ou à l’objet blob de votre compte de stockage, vos utilisateurs peuvent alors accéder aux données de l’objet blob de votre compte de stockage à l’aide de ce domaine.
 
 > [!IMPORTANT]
 > Stockage Azure ne prend pas encore en charge HTTPS nativement avec des domaines personnalisés. Vous pouvez [utiliser Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Les comptes de stockage prennent actuellement en charge un seul nom de domaine personnalisé par compte. Cela signifie que vous ne pouvez pas mapper un nom de domaine personnalisé aux points de terminaison de service web et d’objet blob.
+
 Le tableau suivant contient des exemples d’URL pour les données de l’objet blob situées dans un compte de stockage nommé **mystorageaccount**. Le domaine personnalisé enregistré pour le compte de stockage est **www.contoso.com**:
 
 | Type de ressource | URL par défaut | URL du domaine personnalisé |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Compte de stockage | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Conteneur racine | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/$web ou http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web ou http://www.contoso.com/ ou http://www.contoso.com/$web/[indexdoc] ou http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> Tous les exemples pour le point de terminaison du service Blob ci-dessous s’appliquent également au point de terminaison du service web.
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Mappage de domaine direct ou intermédiaire
 
@@ -155,6 +162,7 @@ Utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershe
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Mapper un domaine personnalisé à un point de terminaison Azure CDN (Content Delivery Network)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)
+* [Hébergement de sites web statiques dans le stockage Blob Azure (préversion)](storage-blob-static-website.md)

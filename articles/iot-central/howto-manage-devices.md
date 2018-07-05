@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807473"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937616"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -49,7 +49,7 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 1. Choisissez **Réel** ou **Simulé**. Un appareil réel correspond à un appareil physique que vous connectez à votre application Azure IoT Central. Un appareil simulé a des exemples de données générés par Azure IoT Central. Cet exemple utilise un appareil réel. Choisissez **Réel** pour accéder à la page **Détails de l’appareil** pour votre nouvel appareil.
 
 
-## <a name="bulk-import-devices"></a>Importation d’appareils en masse
+## <a name="import-devices"></a>Importer des appareils
 
 Pour connecter un grand nombre d’appareils à votre application, Azure IoT Central offre une importation en masse des appareils via un fichier CSV. 
 
@@ -65,9 +65,12 @@ Pour l’inscription en masse d’appareils :
 
 1. Dans le volet gauche, choisissez le modèle d’appareil pour lequel vous souhaitez créer des appareils en masse.
 
-1. Choisissez **Nouveau** et sélectionnez **Importation en masse**.
+ >   [!NOTE] 
+    Si vous n’avez pas encore de modèle d’appareil, vous pouvez ensuite importer les appareils sous **Appareils non associés** et les enregistrer sans modèle. Une fois les appareils importés, vous pouvez ensuite les associer à un modèle.
 
-    [![Importation en masse](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Cliquez sur **Importer**.
+
+    [![Action d’importation](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Sélectionnez le fichier CSV contenant la liste des ID d’appareil à importer.
 
@@ -75,9 +78,25 @@ Pour l’inscription en masse d’appareils :
 
 1. Une fois l’importation terminée, un message de réussite s’affiche sur la grille de l’appareil.
 
-    [![Importation en masse réussie](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Importation réussie](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 Si l’importation d’appareils échoue, un message d’erreur s’affichera sur la grille de l’appareil. Un fichier journal capturant toutes les erreurs est généré et peut être téléchargé en cliquant sur le message d’erreur.
+
+
+**Association d’appareils à un modèle**
+
+Si vous enregistrez des appareils en démarrant l’importation sous **Appareils non associés**, les appareils sont créés sans association à un modèle d’appareil. Les appareils doivent être associés à un modèle pour explorer les données et les autres informations concernant l’appareil. Procédez comme suit pour associer les appareils à un modèle :
+1. Choisissez **Explorer** dans le menu de navigation gauche.
+1. Dans le volet gauche, choisissez **Appareils non associés**.
+    [![Appareils non associées](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Sélectionnez les appareils que vous souhaitez associer à un modèle.
+1. Cliquez sur l’option **Associer**.
+    [![Associer des appareils](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Choisissez le modèle à partir de la liste des modèles disponibles, puis cliquez sur le bouton **	Associer**.
+1. Les appareils sélectionnés seront déplacés dans le modèle d’appareil correspondant.
+
+ >   [!NOTE] 
+    Une fois qu’un appareil a été associé à un modèle, il ne peut pas être dissocié ou associé à un autre modèle.
 
 ## <a name="export-devices"></a>Exporter des appareils
 

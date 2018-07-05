@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: f11098f4af2e85df16e00ce6dac6e7c4b5b34e2b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fa3e5fff8080acb9e824ffe27f6c149054804830
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063644"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.TextBox
 Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
@@ -31,8 +31,8 @@ Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
-  "label": "Some text box",
-  "defaultValue": "my value",
+  "label": "Example text box 1",
+  "defaultValue": "my text value",
   "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
@@ -44,15 +44,15 @@ Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
 ```
 
 ## <a name="remarks"></a>Remarques
-- Si `constraints.required` est défini sur **true**, la zone de texte doit contenir une valeur permettant de réussir la validation. La valeur par défaut est **false**.
+- Si `constraints.required` est défini sur **true**, la zone de texte doit contenir une valeur pour permettre la réussite de la validation. La valeur par défaut est **false**.
 - `constraints.regex` est un modèle d’expression régulière JavaScript. S’il est spécifié, la valeur de la zone de texte doit correspondre au modèle pour permettre la réussite de la validation. La valeur par défaut est **null**.
 - `constraints.validationMessage` est une chaîne à afficher en cas d’échec de la validation de la valeur de la zone de texte. Si elle n’est pas spécifiée, les messages de validation intégrés de la zone de texte sont utilisés. La valeur par défaut est **null**.
-- Il est possible de spécifier une valeur pour `constraints.regex` lorsque `constraints.required` est défini sur **false**. Dans ce scénario, aucune valeur n’est requise pour valider la zone de texte. Si elle est spécifiée, celle-ci doit correspondre au modèle d’expression régulière.
+- Il est possible de spécifier une valeur pour `constraints.regex` lorsque `constraints.required` est défini sur **false**. Dans ce scénario, aucune valeur n’est requise dans la zone de texte pour que la validation réussisse. Si elle est spécifiée, celle-ci doit correspondre au modèle d’expression régulière.
 
 ## <a name="sample-output"></a>Exemple de sortie
 
 ```json
-"my value"
+"my text value"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

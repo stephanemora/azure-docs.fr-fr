@@ -1,15 +1,15 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683047"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063695"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prépayer les machines virtuelles avec Azure Reserved VM Instances
 
-Prépayez les machines virtuelles et réalisez des économies avec Azure Reserved Virtual Machine Instances. Pour plus d’informations, consultez [Offre des instances de machines virtuelles réservées Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Prépayez les machines virtuelles et réalisez des économies avec Azure Reserved Virtual Machine Instances. Pour plus d’informations, consultez [Offre Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 Vous pouvez acheter une instance réservée Azure sur le [portail Azure](https://portal.azure.com). Pour acheter une instance réservée :
 -   Vous devez avoir un rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
@@ -24,7 +24,7 @@ Vous devez utiliser une des méthodes décrites ci-dessous pour identifier la ta
 2. Vous pouvez également obtenir des informations précises sur la taille d’une machine virtuelle à l’aide de PowerShell, d’Azure Resource Manager ou des détails de la machine virtuelle dans le portail Azure.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Acheter une instance de machine virtuelle réservée
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez **Ajouter** pour acheter une nouvelle instance réservée.
 4. Renseignez les champs obligatoires. Les instances de machines virtuelles en cours d’exécution qui correspondent aux attributs que vous sélectionnez se qualifient pour bénéficier de la remise sur les instances réservées. Le nombre réel de vos instances de machines virtuelles qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
@@ -50,13 +50,13 @@ Vous devez utiliser une des méthodes décrites ci-dessous pour identifier la ta
 ## <a name="next-steps"></a>Étapes suivantes 
 La remise sur l’instance réservée est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de l’instance réservée. Vous pouvez mettre à jour l’étendue de l’instance réservée par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API. 
 
-Pour savoir comment gérer une instance réservée, consultez [Gérer des instances réservées Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Pour savoir comment gérer une instance réservée, consultez [Gérer des instances réservées dans Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Pour plus d’informations sur les instances réservées Azure, consultez les articles suivants :
+Pour plus d’informations sur les instances réservées Azure, consultez les articles suivants :
 
-- [Réaliser des économies sur les machines virtuelles avec les instances réservées](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Gérer des instances réservées Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Présentation d’Azure Reserved VM Instances](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gérer des instances réservées dans Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Comprendre comment la remise de l’offre d’instance réservée est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les instances réservées](../articles/billing/billing-reserved-instance-windows-software-costs.md)

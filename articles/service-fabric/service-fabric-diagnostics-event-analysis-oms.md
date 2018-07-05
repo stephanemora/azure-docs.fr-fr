@@ -14,16 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839586"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302180"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Analyse et visualisation d’événements avec Log Analytics
-
-Log Analytics, également connue sous le nom d’OMS (Operations Management Suite) est une collection de services de gestion liés à la surveillance et au diagnostic d’applications et de services hébergés dans le cloud. Cet article explique comment exécuter des requêtes dans Log Analytics pour obtenir des informations détaillées et résoudre les problèmes qui surviennent dans votre cluster. Les questions courantes suivantes sont traitées :
+Log Analytics collecte et analyse les données de télémétrie des applications et services hébergés dans le Cloud et fournit des outils d’analyse pour vous aider à maximiser leur disponibilité et performance. Cet article explique comment exécuter des requêtes dans Log Analytics pour obtenir des informations détaillées et résoudre les problèmes qui surviennent dans votre cluster. Les questions courantes suivantes sont traitées :
 
 * Comment résoudre les problèmes d’intégrité ?
 * Comment savoir quand un nœud tombe en panne ?
@@ -43,9 +42,9 @@ Après réception des données par Log Analytics, Azure dispose de plusieurs *so
 
 2. Dans le résumé, des vignettes représentant un graphique s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** (première image ci-dessous) pour accéder à la solution Service Fabric Analytics (deuxième image ci-dessous).
 
-    ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+    ![Solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+    ![Solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 L’image ci-dessus est la page d’accueil de la solution Service Fabric Analytics. Il s’agit d’une capture instantanée de ce qui se passe dans votre cluster. Si vous avez activé des diagnostics lors de la création du cluster, vous pouvez voir les événements pour le 
 
@@ -60,11 +59,11 @@ L’image ci-dessus est la page d’accueil de la solution Service Fabric Analyt
 
 1. Sur la page Service Fabric Analytics, cliquez sur le graphique de **Service Fabric Events**.
 
-    ![Canal opérationnel de la solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+    ![Canal opérationnel de la solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
 2. Cliquez sur **Liste** pour afficher les événements dans une liste. Vous verrez alors tous les événements système qui ont été collectés. Pour référence, il s’agit de la table WADServiceFabricSystemEventsTable dans le compte de stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
     
-    ![Canal opérationnel de requêtes OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
+    ![Canal opérationnel de requêtes](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 Vous pouvez également cliquer sur la loupe à gauche et utiliser le langage de requête Kusto pour trouver ce que vous cherchez. Par exemple, pour rechercher toutes les actions effectuées sur des nœuds du cluster, vous pouvez utiliser la requête suivante. Les ID d’événement ci-dessous se trouvent dans la [référence des événements du canal opérationnel](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -79,11 +78,11 @@ Vous pouvez effectuer des requêtes sur beaucoup plus de champs, tels que les n�
 
 1. Sur la page Service Fabric Analytics, cliquez sur le graphique de **Reliable Services**.
 
-    ![Reliable Services pour la solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
+    ![Modèle Reliable Services de la solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
 2. Cliquez sur **Liste** pour afficher les événements dans une liste. Ici, vous pouvez voir les événements des services fiables. Vous pouvez voir différents événements qui surviennent lorsque le service runasync est démarré et terminé, ce qui est généralement le cas lors de déploiements et de mises à niveau. 
 
-    ![Reliable Services pour les requêtes OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
+    ![Reliable Services pour les requêtes](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Les événements d’acteurs fiables peuvent être affichés de manière similaire. Pour configurer des événements plus détaillés pour des acteurs fiables, vous devez modifier le `scheduledTransferKeywordFilter` dans le fichier config pour l’extension de diagnostic (voir ci-dessous). Vous trouverez plus d’informations à ce sujet dans la [référence des événements des acteurs fiables](service-fabric-reliable-actors-diagnostics.md#keywords).
 
@@ -101,12 +100,12 @@ Les événements d’acteurs fiables peuvent être affichés de manière similai
 
 Le langage de requête Kusto est puissant. Une autre requête précieuse que vous pouvez exécuter consiste à savoir quels nœuds génèrent la plupart des événements. La requête dans la capture d’écran ci-dessous montre des événements opérationnels Service Fabric agrégés avec le service et le nœud spécifiques.
 
-![Événements de requête OMS par nœud](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
+![Événements de requête par nœud](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour activer la surveillance de l’infrastructure, par exemple, les compteurs de performances, rendez-vous sur [Ajout de l’agent OMS](service-fabric-diagnostics-oms-agent.md). L’agent collecte des compteurs de performances et les ajoute à votre espace de travail existant.
-* Pour les clusters locaux, OMS propose une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données à OMS. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs à OMS sans accès Internet à l’aide de la passerelle OMS](../log-analytics/log-analytics-oms-gateway.md)
-* Configurez OMS pour paramétrer [l’alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
+* Pour activer la surveillance de l’infrastructure, par exemple, les compteurs de performances, rendez-vous sur [Ajout de l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md). L’agent collecte des compteurs de performances et les ajoute à votre espace de travail existant.
+* Pour les clusters locaux, Log Analytics propose une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données à Log Analytics. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs à Log Analytics sans accès Internet à l’aide de la passerelle OMS](../log-analytics/log-analytics-oms-gateway.md)
+* Configurez [l’alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
 * Pour obtenir une présentation plus détaillée de Log Analytics et de ce qu’il propose, lisez [Qu’est-ce que Log Analytics ?](../operations-management-suite/operations-management-suite-overview.md)

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 87045d5dbbc1221a770e44bd9e9cf2451a9ac522
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021283"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Rechercher des actualités avec la recherche Bing et Azure Logic Apps 
 
@@ -45,7 +45,7 @@ Dans Azure Logic Apps, chaque application logique doit démarrer avec un [décle
 
 2. Dans la zone de recherche, entrez « recherche Bing » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
-   Cet exemple utilise ce déclencheur : **Bing Search - On new news article** (Recherche Bing - Un nouvel article d’actualité)
+   Cet exemple utilise ce déclencheur : **Bing Search - On new news article** (Recherche Bing - Nouvel article d’actualité)
 
    ![Rechercher le déclencheur de recherche Bing](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -102,7 +102,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
    | Propriété | Obligatoire | Valeur | Description | 
    |----------|----------|-------|-------------| 
-   | Requête de recherche | OUI | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs de la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
+   | Requête de recherche | OUI | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
    | Marché | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. | 
    | Recherche sécurisée | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. | 
    | Count | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. | 

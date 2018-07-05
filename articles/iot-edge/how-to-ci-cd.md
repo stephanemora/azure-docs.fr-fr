@@ -4,28 +4,28 @@ description: Vue d’ensemble de l’intégration continue et du déploiement co
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631018"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047453"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Intégration continue et déploiement continu dans Azure IoT Edge - préversion
-Ce didacticiel montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu de Visual Studio Team Services (VSTS) et Microsoft Team Foundation Server (TFS) pour compiler, tester et déployer des applications rapidement et efficacement sur un appareil Azure IoT Edge. 
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
-> [!div class="checklist"]
-> * Créer et archiver un exemple de solution IoT Edge contenant des tests unitaires
-> * Installer l’extension Azure IoT Edge pour votre compte VSTS
-> * Configurer l’intégration continue (CI) pour compiler la solution et exécuter les tests unitaires
-> * Configurer le déploiement continu (CD) pour déployer la solution et afficher les réponses
+Cet article montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu de Visual Studio Team Services (VSTS) et Microsoft Team Foundation Server (TFS) pour compiler, tester et déployer des applications rapidement et efficacement sur un appareil Azure IoT Edge. 
 
-Comptez 30 minutes pour effectuer ce didacticiel.
+Dans cet article, vous allez apprendre à :
+* Créer et archiver un exemple de solution IoT Edge contenant des tests unitaires
+* Installer l’extension Azure IoT Edge pour votre compte VSTS
+* Configurer l’intégration continue (CI) pour compiler la solution et exécuter les tests unitaires
+* Configurer le déploiement continu (CD) pour déployer la solution et afficher les réponses
+
+Comptez 30 minutes pour effectuer les étapes décrites dans cet article.
 
 ![CI et CD](./media/how-to-ci-cd/cd.png)
 
@@ -82,13 +82,7 @@ Dans cette section, vous allez créer un exemple de solution IoT Edge contenant 
 
             static void Main(string[] args)
             {
-                // The Edge runtime gives us the connection string we need -- it is injected as an environment variable
-                string connectionString = Environment.GetEnvironmentVariable("EdgeHubConnectionString");
-
-                // Cert verification is not yet fully functional when using Windows OS for the container
-                bool bypassCertVerification = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-                if (!bypassCertVerification) InstallCert();
-                Init(connectionString, bypassCertVerification).Wait();
+                Init().Wait();
 
                 // Wait until the app unloads or is cancelled
                 var cts = new CancellationTokenSource();
@@ -108,94 +102,55 @@ Dans cette section, vous allez créer un exemple de solution IoT Edge contenant 
             }
 
             /// <summary>
-            /// Add certificate in local cert store for use by client for secure connection to IoT Edge runtime
-            /// </summary>
-            static void InstallCert()
-            {
-                string certPath = Environment.GetEnvironmentVariable("EdgeModuleCACertificateFile");
-                if (string.IsNullOrWhiteSpace(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing path to certificate file.");
-                }
-                else if (!File.Exists(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing certificate file.");
-                }
-                X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
-                store.Open(OpenFlags.ReadWrite);
-                store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
-                Console.WriteLine("Added Cert: " + certPath);
-                store.Close();
-            }
-            /// <summary>
-            /// Initializes the DeviceClient and sets up the callback to receive
+            /// Initializes the ModuleClient and sets up the callback to receive
             /// messages containing temperature information
             /// </summary>
-            static async Task Init(string connectionString, bool bypassCertVerification = false)
+            static async Task Init()
             {
-                Console.WriteLine("Connection String {0}", connectionString);
-
                 MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
-                // During dev you might want to bypass the cert verification. It is highly recommended to verify certs systematically in production
-                if (bypassCertVerification)
-                {
-                    mqttSetting.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-                }
                 ITransportSettings[] settings = { mqttSetting };
 
                 // Open a connection to the Edge runtime
-                DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(connectionString, settings);
+                ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
                 await ioTHubModuleClient.OpenAsync();
                 Console.WriteLine("IoT Hub module client initialized.");
 
                 // Register callback to be called when a message is received by the module
-                // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
-
-                // Read TemperatureThreshold from Module Twin Desired Properties
-                var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-                var moduleTwinCollection = moduleTwin.Properties.Desired;
-                try {
-                    temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-                } catch(ArgumentOutOfRangeException) {
-                    Console.WriteLine("Proerty TemperatureThreshold not exist");
-                }
-
-                // Attach callback for Twin desired properties updates
-                await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
-
-                // Register callback to be called when a message is received by the module
-                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessage, ioTHubModuleClient);
             }
 
-            static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+            /// <summary>
+            /// This method is called whenever the module is sent a message from the EdgeHub. 
+            /// It just pipe the messages without any change.
+            /// It prints all the incoming messages.
+            /// </summary>
+            static async Task<MessageResponse> FilterMessage(Message message, object userContext)
             {
-                try
+                int counterValue = Interlocked.Increment(ref counter);
+
+                var moduleClient = userContext as ModuleClient;
+                if (moduleClient == null)
                 {
-                    Console.WriteLine("Desired property change:");
-                    Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-
-                    if (desiredProperties["TemperatureThreshold"] != null)
-                        temperatureThreshold = desiredProperties["TemperatureThreshold"];
-
+                    throw new InvalidOperationException("UserContext doesn't contain " + "expected values");
                 }
-                catch (AggregateException ex)
+
+                byte[] messageBytes = message.GetBytes();
+                string messageString = Encoding.UTF8.GetString(messageBytes);
+                Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
+
+                var filteredMessage = filter(message);
+
+                if (filteredMessage != null && !string.IsNullOrEmpty(messageString))
                 {
-                    foreach (Exception exception in ex.InnerExceptions)
+                    var pipeMessage = new Message(messageBytes);
+                    foreach (var prop in message.Properties)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("Error when receiving desired property: {0}", exception);
+                        pipeMessage.Properties.Add(prop.Key, prop.Value);
                     }
+                    await moduleClient.SendEventAsync("output1", pipeMessage);
+                    Console.WriteLine("Received message sent");
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
-                }
-                return Task.CompletedTask;
+                return MessageResponse.Completed;
             }
 
             public static Message filter(Message message)
@@ -223,42 +178,6 @@ Dans cette section, vous allez créer un exemple de solution IoT Edge contenant 
                     return filteredMessage;
                 }
                 return null;
-            }
-
-            static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-            {
-                try
-                {
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-
-                    var filteredMessage = filter(message);
-                    if (filteredMessage != null)
-                    {
-                        await deviceClient.SendEventAsync("output1", filteredMessage);
-                    }
-
-                    // Indicate that the message treatment is completed
-                    return MessageResponse.Completed;
-                }
-                catch (AggregateException ex)
-                {
-                    foreach (Exception exception in ex.InnerExceptions)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Error in sample: {0}", exception);
-                    }
-                    // Indicate that the message treatment is not completed
-                    var deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", ex.Message);
-                    // Indicate that the message treatment is not completed
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
             }
         }
     }
@@ -404,7 +323,7 @@ Dans cette section, vous allez créer une définition de build configurée pour 
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. Dans la première tâche Azure IoT Edge, définissez le **nom d’affichage** sur **Module Build and Push**, puis, dans la liste déroulante **Action**, sélectionnez **Build and Push modules** (Générer et envoyer (push) les modules). Dans la zone de texte **Module.json File** (Fichier Module.json), ajoutez le chemin d’accès ci-dessous. Ensuite, choisissez **Type de registre de conteneurs**, puis configurez et sélectionnez le même registre que dans votre code. Cette tâche générera et enverra (push) tous vos modules dans la solution, et effectuera la publication dans le registre de conteneurs que vous avez spécifié. 
+1. Dans la première tâche Azure IoT Edge, définissez le **nom d’affichage** sur **Module Build and Push**, puis, dans la liste déroulante **Action**, sélectionnez **Build and Push modules** (Générer et envoyer (push) les modules). Dans la zone de texte **Module.json File** (Fichier Module.json), ajoutez le chemin d’accès ci-dessous. Ensuite, choisissez **Type de registre de conteneurs**, puis configurez et sélectionnez le même registre que dans votre code. Cette tâche générera et enverra (push) tous vos modules dans la solution, et effectuera la publication dans le registre de conteneurs que vous avez spécifié. Si vos modules sont destinés à être envoyés (push) à différents registres, vous pouvez avoir plusieurs tâches **Génération et envoi (push) des modules**.
 
     ```
     **/module.json
@@ -449,16 +368,5 @@ Par conséquent, le déploiement sur des appareils IoT Edge implique trois envir
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu de VSTS ou TFS. 
-
 * Pour plus d’informations sur le déploiement IoT Edge, consultez [Comprendre les déploiements IoT Edge pour les appareils uniques ou à l’échelle](module-deployment-monitoring.md).
-* Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-monitor.md).
-
-
-
-
-
-
-
-
-
+* Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller les modules IoT Edge à grande échelle](how-to-deploy-monitor.md).

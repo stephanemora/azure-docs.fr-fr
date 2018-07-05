@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248892"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753351"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -42,18 +42,9 @@ Le serveur de sauvegarde Azure protège les charges de travail de machine virtue
 | SQL Server 2016 | Base de données |
 | SQL Server 2014 | Base de données |
 | SQL Server 2012 SP1 | Base de données |
+| SharePoint 2016 | Batterie de serveurs, base de données, serveur frontal, serveur web |
 | SharePoint 2013 | Batterie de serveurs, base de données, serveur frontal, serveur web |
 | SharePoint 2010 | Batterie de serveurs, base de données, serveur frontal, serveur web |
-
-
-### <a name="host-vs-guest-backup"></a>Sauvegarde des hôtes et des invités
-
-Un serveur de sauvegarde Azure effectue des sauvegardes d’ordinateurs virtuels au niveau des hôtes ou des invités. Au niveau de l’hôte, l’agent de sauvegarde Azure est installé sur l’ordinateur virtuel ou le cluster. Il protège l’ensemble de la machine virtuelle et les fichiers de données en cours d’exécution sur l’hôte. Au niveau de l’invité, l’agent de sauvegarde Azure est installé sur chaque ordinateur virtuel. Il protège la charge de travail présente sur ces ordinateurs.
-
-Ces deux méthodes présentent des avantages et des inconvénients :
-
-   * Les sauvegardes au niveau de l’hôte fonctionnent, quel que soit le système d’exploitation en cours d’exécution sur les ordinateurs invités. Il est inutile d’installer l’agent de sauvegarde Azure sur chaque ordinateur virtuel. Si vous déployez des sauvegardes au niveau de l’hôte, vous récupérez un ordinateur virtuel dans son ensemble, ou encore des fichiers et dossiers (récupération au niveau de l’élément).
-   * La sauvegarde au niveau de l’invité se révèle utile pour protéger des charges de travail spécifiques en cours d’exécution sur un ordinateur virtuel. Au niveau de l’hôte, vous pouvez récupérer une machine virtuelle dans son ensemble ou des fichiers spécifiques. Toutefois, cette récupération n’englobe pas les données dans le contexte d’une application spécifique. Par exemple, pour récupérer des fichiers SharePoint spécifiques à partir d’un ordinateur virtuel protégé, vous devez protéger la machine virtuelle au niveau de l’invité. Pour protéger les données stockées sur des disques de transfert direct, vous devez utiliser la sauvegarde au niveau de l’invité. Le transfert direct permet à l’ordinateur virtuel de directement accéder au périphérique de stockage. Il ne stocke pas les données de volume virtuel dans un fichier de disque dur virtuel.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Conditions préalables pour l’environnement du serveur de sauvegarde Azure
 
@@ -84,13 +75,10 @@ Stocker des données de sauvegarde dans Azure réduit l’infrastructure de sauv
 
 Pour stocker des données de sauvegarde dans Azure, créez ou utilisez un coffre Recovery Services. Lors de la préparation de la sauvegarde de la charge de travail d’un serveur de sauvegarde Azure, vous [configurez le coffre Recovery Services](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Une fois la configuration effectuée, chaque fois qu’une opération de sauvegarde a lieu, un point de récupération est créé dans le coffre. Chaque coffre Recovery Services conserve jusqu’à 9 999 points de récupération. En fonction du nombre de points de récupération créés et de la durée de leur conservation, vous pouvez conserver des données de sauvegarde pendant de nombreuses années. Par exemple, vous créez des points de récupération mensuellement et les conserver pendant cinq ans.
  
-### <a name="using-sql-server"></a>Utilisation de SQL Server
-Si vous souhaitez utiliser un serveur SQL Server distant pour la base de données d’un serveur de sauvegarde Azure, sélectionnez uniquement une machine virtuelle Azure Stack exécutant SQL Server.
-
 ### <a name="scaling-deployment"></a>Déploiement avec mise à l’échelle
 Si vous souhaitez mettre à l’échelle votre déploiement, vous disposez des options suivantes :
   - Monter en puissance : augmenter la taille de la machine virtuelle du serveur de sauvegarde Azure en passant de la série A à la série D, et augmenter le stockage local [conformément aux instructions relatives à la machine virtuelle Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Décharger des données : envoyer des données plus anciennes au serveur de sauvegarde Azure en ne conservant que les données les plus récentes sur le stockage attaché au serveur de sauvegarde Azure.
+  - Décharger des données : envoyer des données plus anciennes vers Azure en ne conservant que les données les plus récentes sur le stockage attaché au serveur de sauvegarde Azure.
   - Monter en charge : ajouter des serveurs de sauvegarde Azure pour protéger les charges de travail.
 
 ### <a name="net-framework"></a>.NET Framework
@@ -140,7 +128,7 @@ Il existe deux façons de télécharger le programme d’installation du serveur
 
 3. Dans la boîte de dialogue **Tous les services**, tapez *Recovery Services*. Au fur et à mesure des caractères saisis, la liste des ressources est filtrée. Cliquez sur l’option **Coffres Recovery Services** dès qu’elle apparaît.
 
-    ![Dans la boîte de dialogue Tous les services, tapez Recovery Services](./media/backup-mabs-install-azure-stack/all-services.png)
+    ![Dans la boîte de dialogue Tous les services, taper Recovery Services](./media/backup-mabs-install-azure-stack/all-services.png)
 
     La liste des coffres Recovery Services de l’abonnement s’affiche.
 
@@ -216,7 +204,7 @@ Au cours de l’étape précédente, vous avez cliqué sur **Terminer** pour qui
 
 ![L’Assistant Installation de Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes de code. Vous trouverez des références à Data Protection Manager et DPM dans le programme d’installation du serveur de sauvegarde Azure. Bien que le serveur de sauvegarde Azure et Data Protection Manager soient des produits différents, ils sont étroitement liés. Dans la documentation du serveur de sauvegarde Azure, toutes les références à Data Protection Manager et DPM s’appliquent également au serveur de sauvegarde Azure.
+Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes de code. Vous trouverez des références à Data Protection Manager et DPM dans le programme d’installation du serveur de sauvegarde Azure. Bien que le serveur de sauvegarde Azure et Data Protection Manager soient des produits différents, ils sont étroitement liés.
 
 1. Cliquez sur **Serveur Sauvegarde Microsoft Azure** pour lancer l’Assistant Installation.
 
@@ -322,7 +310,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 
 ## <a name="add-backup-storage"></a>Ajouter de l’espace de stockage pour la sauvegarde
 
-La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez la section [Configurer des pools de stockage et un disque de stockage](https://technet.microsoft.com/library/hh758075.aspx).
+La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez [Ajouter un stockage de sauvegarde moderne](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Vous devez ajouter un stockage de sauvegarde même si vous prévoyez d’envoyer des données à Azure. Dans l’architecture du serveur de sauvegarde Azure, le coffre Recovery Services conserve la *deuxième* copie des données, tandis que le stockage local conserve la première copie de sauvegarde (obligatoire).
@@ -353,8 +341,8 @@ Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès �
 - www.msftncsi.com
 - \*.Microsoft.com
 - \*.WindowsAzure.com
-- \**.microsoftonline.com
-- \**.windows.net
+- \*.microsoftonline.com
+- \*.windows.net
 
 Une fois la connexion à Azure restaurée sur le serveur de sauvegarde Azure, l’état de l’abonnement Azure détermine les opérations qu’il est possible d’effectuer. Une fois que le serveur est **connecté**, utilisez le tableau présenté dans la section [Connectivité réseau](backup-mabs-install-azure-stack.md#network-connectivity) pour voir les opérations disponibles.
 
@@ -372,10 +360,10 @@ Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](b
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’article [Préparation de votre environnement pour DPM](https://technet.microsoft.com/library/hh758176.aspx) contient des informations sur les configurations de serveur de sauvegarde Azure prises en charge.
+L’article [Préparation de votre environnement pour DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contient des informations sur les configurations de serveur de sauvegarde Azure prises en charge.
 
 Vous pouvez utiliser les articles suivants pour mieux appréhender la notion de protection des charges de travail à l’aide du serveur de sauvegarde Microsoft Azure.
 
-- [Sauvegarde SQL Server](backup-azure-backup-sql.md)
-- [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
+- [Sauvegarde SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Sauvegarde de serveur SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)

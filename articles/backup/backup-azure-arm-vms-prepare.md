@@ -7,14 +7,14 @@ manager: carmonm
 keywords: sauvegardes ; sauvegarde ;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606634"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960166"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
@@ -34,11 +34,14 @@ Avant de protéger ou sauvegarder une machine virtuelle déployée à l’aide d
 Si ces conditions existent déjà dans votre environnement, passez à [l’article traitant de la sauvegarde de vos machines virtuelles](backup-azure-arm-vms.md). Si vous avez besoin de définir ou de vérifier l’une de ces conditions préalables, cet article vous guide le long des étapes nécessaires.
 
 ## <a name="supported-operating-systems-for-backup"></a>Systèmes d’exploitation pris en charge pour la sauvegarde
- * **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), à l’exception de CoreOS Linux. 
- 
+
+ * **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), à l’exception de CoreOS Linux. Pour obtenir la liste des systèmes d’exploitation Linux qui prennent en charge la restauration de fichiers, consultez [Récupérer des fichiers à partir de sauvegardes de machines virtuelles](backup-azure-restore-files-from-vm.md#for-linux-os).
+
     > [!NOTE] 
     > D’autres distributions « Bring-Your-Own-Linux » peuvent fonctionner, tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge. Les distributions ne sont toutefois pas prises en charge.
- * **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+    >
+ * **Windows Server**, **client Windows** : les versions antérieures à Windows Server 2008 R2 ou Windows 7 ne sont pas prises en charge.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limites lors de la sauvegarde et la restauration d’une machine virtuelle
 Avant de préparer votre environnement, assurez-vous de noter les limitations suivantes :

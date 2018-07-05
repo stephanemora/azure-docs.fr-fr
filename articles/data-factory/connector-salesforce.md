@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 99429b8090eca6d8633abfb1309f02168f1d06fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c139b68421061362f40856af55ad0338118ab49a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618308"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051880"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – Disponibilité générale](v1/data-factory-salesforce-connector.md)
-> * [Version 2 - Préversion](connector-salesforce.md)
+> * [Version 1](v1/data-factory-salesforce-connector.md)
+> * [Version actuelle](connector-salesforce.md)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de Salesforce et vers Salesforce. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 d’Azure Data Factory, qui est en disponibilité générale, consultez [Connecteur Salesforce dans la version 1](v1/data-factory-salesforce-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

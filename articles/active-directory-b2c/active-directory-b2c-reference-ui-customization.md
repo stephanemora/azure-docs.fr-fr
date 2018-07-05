@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711142"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754130"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C
 
 L’expérience utilisateur est primordiale dans une application orientée client.  Développez votre base clients en créant des expériences utilisateur avec l’apparence de votre marque. Azure Active Directory B2C (Azure AD B2C) vous permet de personnaliser les pages d’inscription, de connexion, de modification du profil et de réinitialisation du mot de passe avec le contrôle pixel-perfect.
 
 > [!NOTE]
-> La fonctionnalité de personnalisation de l’interface utilisateur de page décrite dans cet article ne s’applique pas à la stratégie d’authentification uniquement, à sa page de réinitialisation du mot de passe qui l’accompagne ni aux e-mails de vérification.  Ces fonctionnalités utilisent la [fonctionnalité de marque de société](../active-directory/customize-branding.md) à la place.
+> La fonctionnalité de personnalisation de l’interface utilisateur de page décrite dans cet article ne s’applique pas à la stratégie d’authentification uniquement, à sa page de réinitialisation du mot de passe qui l’accompagne ni aux e-mails de vérification.  Ces fonctionnalités utilisent la [fonctionnalité de marque de société](../active-directory/fundamentals/customize-branding.md) à la place.
 >
-> De même, si un utilisateur lance une stratégie de modification de profil *avant* de se connecter, il est redirigé vers une page qui peut être personnalisée avec la [fonctionnalité de personnalisation d’entreprise](../active-directory/customize-branding.md).
+> De même, si un utilisateur lance une stratégie de modification de profil *avant* de se connecter, il est redirigé vers une page qui peut être personnalisée avec la [fonctionnalité de personnalisation d’entreprise](../active-directory/fundamentals/customize-branding.md).
 
 Cet article aborde les thèmes suivants :
 

@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215390"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Didacticiel : Intégration d’Azure Active Directory à Pagerduty
 
@@ -60,14 +59,14 @@ Pour configurer l’intégration de PagerDuty à Azure AD, vous devez ajouter Pa
 
 **Pour ajouter PagerDuty à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
-    
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
@@ -102,8 +101,8 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+
     ![Boîte de dialogue Authentification unique](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. Dans la section **Domaine et URL PagerDuty**, effectuez les étapes suivantes :
@@ -114,12 +113,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique PagerDuty](https://www.pagerduty.com/support/). 
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique PagerDuty](https://www.pagerduty.com/support/).
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -127,34 +126,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Configuration de PagerDuty**, cliquez sur **Configurer PagerDuty** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configuration de PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![Configuration de PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Pagerduty en tant qu’administrateur.
 
 8. Dans le menu situé en haut, cliquez sur **Account Settings**.
-   
+
     ![Paramètres de compte](./media/pagerduty-tutorial/ic778535.png "Paramètres de compte")
 
 9. Cliquez sur **Single Sign-on**.
-   
+
     ![Authentification unique](./media/pagerduty-tutorial/ic778536.png "Authentification unique")
 
 10. Dans la page **Enable Single Sign-on (SSO)**, effectuez les étapes suivantes :
-   
+
     ![Activer l’authentification unique](./media/pagerduty-tutorial/ic778537.png "activer l’authentification unique")
-   
+
     a. Ouvrez dans le Bloc-notes votre certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate**.
   
     b. Dans la zone de texte **Login URL**, collez l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
   
     c. Dans la zone de texte **Logout URL**, collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
- 
-    d. Sélectionnez **Turn on Single Sign-on**.
- 
-    e. Cliquez sur **Enregistrer les modifications**.
 
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Sélectionnez **Allow username/password login** (Autoriser la connexion par nom d’utilisateur/mot de passe).
+
+    e. Cochez la case **Require EXACT authentication context comparison** (Requérir la comparaison EXACTE des contextes d’authentification).
+
+    f. Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -262,8 +260,6 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

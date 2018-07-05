@@ -8,14 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632446"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030765"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Configurer et surveiller des appareils IoT à grande échelle : préversion
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Configurer et surveiller des appareils IoT à grande échelle à l’aide du portail Azure
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils pendant tout leur cycle de vie. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et permettre à IoT Hub de mettre à jour les appareils chaque fois qu’ils se trouvent dans l’étendue.  Cette opération est effectuée à l’aide d’une configuration d’appareil automatique, qui vous permet également de récapituler les données d’achèvement et de conformité, de gérer la fusion et les conflits et de déployer les configurations de façon progressive.
 
@@ -28,9 +30,6 @@ Les configurations d’appareil automatiques reposent sur la mise à jour d’un
 * Le **contenu cible** définit les propriétés souhaitées à ajouter ou à mettre à jour dans les jumeaux d’appareil ciblés. Le contenu inclut un chemin de la section des propriétés souhaitées à changer.
 
 * Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les métriques personnalisées sont spécifiées en tant que requêtes sur les propriétés signalées du jumeau d’appareil.  Les métriques système sont des métriques par défaut qui mesurent l’état de la mise à jour des jumeaux, telles que le nombre de jumeaux d’appareil qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour. 
-
-> [!Note]
-> Tant qu’elle est en préversion, cette fonctionnalité n’est pas disponible pour les Hubs IoT dans les régions Est des États-Unis, Ouest des États-Unis, Europe du Nord et Europe de l’Ouest.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implémenter des jumeaux d’appareil pour configurer des appareils
 
@@ -52,7 +51,7 @@ Avant de pouvoir créer une configuration, vous devez spécifier les appareils c
 ## <a name="create-a-configuration"></a>Créer une configuration
 
 1. Accédez à votre IoT Hub dans le [portail Azure][lnk-portal]. 
-1. Sélectionnez **Configuration de l’appareil IoT (préversion)**.
+1. Sélectionnez **Configuration de l’appareil IoT**.
 1. Sélectionnez **Ajouter une configuration**.
 
 La création d’une configuration nécessite cinq étapes. Les sections suivantes les décrivent en détail. 
@@ -96,7 +95,7 @@ Utilisez la propriété tags à partir de vos jumeaux d’appareil pour cibler d
 Étant donné que plusieurs configurations peuvent cibler le même appareil, vous devez donner à chaque configuration un numéro de priorité. En cas de conflit, la configuration avec la priorité la plus élevée prévaut. 
 
 1. Entrez un entier positif pour la **Priorité** de la configuration. La valeur numérique la plus élevée est considérée comme la priorité la plus élevée. Si deux configurations ont le même numéro de priorité, celle qui a été créée le plus récemment prévaut. 
-1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par cette configuration. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. 
+1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par cette configuration. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. Vous pouvez spécifier `*` pour cibler tous les appareils.
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
 ### <a name="step-5-review-configuration"></a>Étape 5 : Passer en revue la configuration
@@ -108,8 +107,8 @@ Passez en revue les informations de votre configuration, puis sélectionnez **En
 Pour afficher les détails d’une configuration et surveiller les appareils qui l’exécutent, effectuez les étapes suivantes :
 
 1. Accédez à votre IoT Hub dans le [portail Azure][lnk-portal]. 
-1. Sélectionnez **Configuration de l’appareil IoT (préversion)**.
-1. Inspectez la liste des configurations. Pour chaque configuration, vous pouvez voir les détails suivants :
+1. Sélectionnez **Configuration de l’appareil IoT**.
+2. Inspectez la liste des configurations. Pour chaque configuration, vous pouvez voir les détails suivants :
    * **ID** : nom de la configuration.
    * **Condition cible** : requête utilisée pour définir les appareils ciblés.
    * **Priorité** : numéro de priorité de la configuration.
@@ -136,25 +135,25 @@ Si vous mettez à jour la condition cible, les mises à jour suivantes se produi
 Pour modifier une configuration, effectuez les étapes suivantes : 
 
 1. Accédez à votre IoT Hub dans le [portail Azure][lnk-portal]. 
-1. Sélectionnez **Configuration de l’appareil IoT (préversion)**. 
-1. Sélectionnez la configuration que vous souhaitez modifier. 
-1. Mettez à jour les champs suivants : 
+1. Sélectionnez **Configuration de l’appareil IoT**. 
+2. Sélectionnez la configuration que vous souhaitez modifier. 
+3. Mettez à jour les champs suivants : 
    * Condition cible 
    * Étiquettes 
    * Priorité 
    * Mesures
-1. Sélectionnez **Enregistrer**.
-1. Suivez les étapes fournies dans [Surveiller une configuration][anchor-monitor] pour observer le déploiement des modifications. 
+4. Sélectionnez **Enregistrer**.
+5. Suivez les étapes fournies dans [Surveiller une configuration][anchor-monitor] pour observer le déploiement des modifications. 
 
 ## <a name="delete-a-configuration"></a>Supprimer une configuration
 
 Quand vous supprimez une configuration, tous les jumeaux d’appareil prennent leur configuration suivante dans l’ordre de priorité. Si des jumeaux d’appareil ne remplissent la condition cible d’aucune autre configuration, aucun autre paramètre n’est appliqué. 
 
 1. Accédez à votre IoT Hub dans le [portail Azure][lnk-portal]. 
-1. Sélectionnez **Configuration de l’appareil IoT (préversion)**. 
-1. Utilisez la case à cocher pour sélectionner la configuration à supprimer. 
-1. Sélectionnez **Supprimer**.
-1. Une invite vous demande de confirmer.
+1. Sélectionnez **Configuration de l’appareil IoT**. 
+2. Utilisez la case à cocher pour sélectionner la configuration à supprimer. 
+3. Sélectionnez **Supprimer**.
+4. Une invite vous demande de confirmer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à configurer et à surveiller des appareils IoT à grande échelle. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :

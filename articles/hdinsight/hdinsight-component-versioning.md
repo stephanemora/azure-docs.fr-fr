@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3d98ed2be7a040ad889d1d504f303569c265360b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271589"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061417"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Hadoop disponibles avec HDInsight ?
 
@@ -29,7 +29,7 @@ Découvrez les composants et versions de l’écosystème Apache Hadoop inclus d
 Chaque version de HDInsight est une distribution cloud d’une version de la solution Hortonworks Data Platform (HDP).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Composants Hadoop disponibles avec différentes versions de HDInsight
-Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d’une version crée une version spécifique de la distribution de la plateforme HDP ainsi qu’un ensemble de composants, qui sont contenus dans cette distribution. Depuis le 17 février 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.5 ; elle est basée sur la plateforme HDP 2.5.
+Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d’une version crée une version spécifique de la distribution de la plateforme HDP ainsi qu’un ensemble de composants, qui sont contenus dans cette distribution. Depuis le 4 avril 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.6 ; elle est basée sur la plateforme HDP 2.6.
 
 Les versions de composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant : 
 
@@ -53,12 +53,13 @@ Les versions de composants associées aux versions de cluster HDInsight sont ré
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows uniquement) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows uniquement) |-|-|
 | Apache Livy |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache Slider | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Comment vérifier les informations de version du composant Hadoop actuel
 
@@ -234,7 +235,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 
 * Toutes les régions prises en charge à l’exception du sud du Brésil et de l’ouest du Japon :
 
-  | Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | R Server |
+  | Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head : taille de machine virtuelle par défaut |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | Head : tailles de machine virtuelle recommandées |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -246,7 +247,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
   | Edge : taille de machine virtuelle recommandée | | | | | |Windows : D12 v2, D13 v2, D14 v2; Linux : D4 v2, D12 v2, D13 v2, D14 v2 |
 * Sud du Brésil et ouest du Japon uniquement (aucune taille pour V2) :
 
-  | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | R Server |
+  | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head : taille de machine virtuelle par défaut |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Head : tailles de machine virtuelle recommandées |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f5c2f8901db5fbeacbd9cc79a03c6dad63842ac9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267911"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061675"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -49,24 +49,148 @@ Si l’une de vos applications utilise des API de journal d’activité Azure AD
 
 **Pour mettre à jour les autorisations de votre application**
 
-1.  Connectez-vous au portail Azure.
-
-2.  Dans la barre de navigation à gauche, sélectionnez **Azure Active Directory**, puis sélectionnez **Inscriptions des applications**.
-
-3.  Sélectionnez votre application qui utilise l’API de journal d’activité Azure AD, sélectionnez **Paramètres**, puis, dans le panneau **Paramètres**, sélectionnez **Autorisations requises**.
-
-4.  Dans le panneau **Autorisations requises**, sélectionnez l’API **Windows Azure Active Directory**.
-
-5.  Dans la zone **Autorisations déléguées** du panneau **Activer l’accès**, cochez la case à côté **Lire les données d'annuaire**, puis sélectionnez **Enregistrer**.
-
-    Vous êtes alors redirigé vers le panneau **Autorisations requises**.
-
-    ![Option Lire les données d'annuaire sous Autorisations déléguées](./media/whats-new/app-registration-delegate-read-directory.png)
-
-6.  Sélectionnez **Accorder des autorisations**, puis **Oui**.
+1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory**, puis **Inscriptions des applications**.
+2. Sélectionnez l’application qui utilise l’API Journal d’activité Azure AD, sélectionnez **Paramètres**, **Autorisations requises**, puis l’API **Microsoft Azure Active Directory**.
+3. Dans la zone **Autorisations déléguées** du panneau **Activer l’accès**, cochez la case à côté **Lire les données d'annuaire**, puis sélectionnez **Enregistrer**.
+4. Sélectionnez **Accorder des autorisations**, puis **Oui**.
     
     >[!Note]
     >Vous devez être un administrateur général pour accorder des autorisations à l’application.
+
+Pour plus d’informations, consultez la section [Accorder des autorisations](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) des prérequis pour accéder à l’article concernant API de création de rapports Azure AD.
+
+---
+
+### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configurer les paramètres TLS de connexion aux services Azure AD pour la conformité PCI DSS
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** nouvelle fonctionnalité  
+**Fonctionnalité de produit :** plateforme
+
+Le protocole TLS (Transport Layer Security) garantit la confidentialité et l’intégrité des données entre deux applications qui communiquent. Il s’agit du protocole de sécurité le plus largement utilisé aujourd’hui.
+
+Le [Conseil des normes de sécurité PCI](https://www.pcisecuritystandards.org/) a déterminé que les premières versions des protocoles TLS et SSL (Secure Sockets Layer) doivent être désactivées en faveur de nouveaux protocoles d’application plus sécurisés, dont l’utilisation est obligatoire depuis le **30 juin 2018**. Cela signifie que si vous vous connectez à des services Azure AD et que vous avez besoin de la conformité PCI DSS, vous devez désactiver TLS 1.0. Plusieurs versions de TLS sont disponibles, toutefois, TLS 1.2 est la version la plus récente disponible pour Azure Active Directory. Nous vous recommandons de passer directement à TLS 1.2, à la fois pour les combinaisons client/serveur et navigateur/serveur.
+
+Les navigateurs obsolètes risquent de ne pas prendre en charge les versions les plus récentes de TLS, telles que TLS 1.2. Pour savoir quelles versions de TLS sont prises en charge par votre navigateur, accédez au site [Qualys SSL Labs](https://www.ssllabs.com/), puis cliquez sur **Test your browser** (Testez votre navigateur). Nous vous recommandons de mettre à jour votre navigateur web vers la dernière version disponible et d’activer uniquement le protocole TLS 1.2.
+
+**Pour activer le protocole TLS 1.2 (pour chaque navigateur)**
+
+- **Microsoft Edge et Internet Explorer (les deux sont configurés à l’aide d’Internet Explorer)**
+
+    1. Ouvrez Internet Explorer, sélectionnez **Outils** > **Options Internet** > **Avancé**.
+    2. Dans la zone **Sécurité**, sélectionnez **Utiliser TLS 1.2**, puis sélectionnez **OK**.
+    3. Fermez toutes les fenêtres du navigateur, puis redémarrez Internet Explorer. 
+
+- **Google Chrome**
+
+    1. Ouvrez Google Chrome, tapez *chrome://settings/* dans la barre d’adresse, puis appuyez sur **Entrée**.
+    2. Développez les options de la section **Avancé**, accédez à la zone **Système**, puis sélectionnez **Ouvrir les paramètres proxy**.
+    3. Dans la boîte de dialogue **Propriétés Internet**, sélectionnez l’onglet **Avancé**, accédez à la zone **Sécurité**, sélectionnez **Utiliser TLS 1.2**, puis sélectionnez **OK**.
+    4. Fermez toutes les fenêtres du navigateur, puis redémarrez Google Chrome.
+
+- **Mozilla Firefox**
+
+    1. Ouvrez Firefox, tapez *about:config* dans la barre d’adresses, puis appuyez sur **Entrée**.
+    2. Lancez une recherche sur *TLS*, puis sélectionnez l’entrée **security.tls.version.max**.
+    3. Définissez la valeur sur **3** pour forcer le navigateur à utiliser la version TLS 1.2, puis sélectionnez **OK**.
+
+        >[!NOTE]
+        >Firefox version 60.0 prend en charge TLS 1.3, vous pouvez donc également définir la valeur de security.tls.version.max sur **4**.
+
+    4. Fermez toutes les fenêtres du navigateur, puis redémarrez Mozilla Firefox.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App - Juin 2018
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité du produit :** intégration tierce
+ 
+En juin 2018, nous avons ajouté à notre galerie d’applications les 15 applications suivantes qui prennent en charge la fédération :
+
+[Skytap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skytap-tutorial), [Settling music](https://docs.microsoft.com/azure/active-directory/active-directory-saas-settlingmusic-tutorial), [SAML 1.1 Token enabled LOB App](https://docs.microsoft.com/azure/active-directory/active-directory-saas-saml-tutorial), [Supermood](https://docs.microsoft.com/azure/active-directory/active-directory-saas-supermood-tutorial), [Autotask](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Endpoint Backup](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Skyhigh Networks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skyhighnetworks-tutorial), Smartway2, [TonicDM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tonicdm-tutorial), [Moconavi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-moconavi-tutorial), [Zoho One](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zohoone-tutorial), [SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/active-directory-saas-sharepoint-on-premises-tutorial), [ForeSee CX Suite](https://docs.microsoft.com/azure/active-directory/active-directory-saas-foreseecxsuite-tutorial), [Vidyard](https://docs.microsoft.com/azure/active-directory/active-directory-saas-vidyard-tutorial), [ChronicX](https://docs.microsoft.com/azure/active-directory/active-directory-saas-chronicx-tutorial)
+
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
+
+---
+
+### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Protection des mots de passe Azure AD disponible en préversion publique
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** protection des identités  
+**Fonctionnalité de produit :** authentification utilisateur
+
+Utilisez la protection des mots de passe Azure AD pour éliminer les mots de passe faciles à deviner de votre environnement. L’élimination de ces mots de passe permet de réduire le risque de compromission due à une attaque par pulvérisation de mots de passe.
+
+Voici, plus précisément, ce que permet la protection des mots de passe Azure AD :
+
+- Protège les comptes de votre organisation, à la fois dans Azure AD et dans Windows Server Active Directory (AD) 
+- Empêche vos utilisateurs d’utiliser les 500 mots de passe les plus couramment utilisés, ainsi que plus d’un million de variations de ces mots de passe
+- Permet de gérer la protection des mots de passe Azure AD à partir d’un même emplacement du portail Azure AD, à la fois pour Azure AD et pour les instances locales de Windows Server Active Directory.
+
+Pour plus d’informations sur la protection des mots de passe Azure AD, consultez [Éliminer les mots de passe incorrects de votre organisation](https://aka.ms/aadpasswordprotectiondocs).
+
+---
+
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nouveau modèle de stratégie d’accès conditionnel « tous les invités » créé lors de la création des conditions d’utilisation
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** conditions d’utilisation  
+**Fonctionnalité de produit :** gouvernance
+
+Lors de la création de vos conditions d’utilisation, un nouveau modèle de stratégie d’accès conditionnel est créé pour « tous les invités » et « toutes les applications ». Ce nouveau modèle de stratégie applique les conditions d’utilisation qui viennent d’être créées, ce qui simplifie les processus de création et de mise en œuvre pour les invités.
+
+Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou).
+
+---
+
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nouveau modèle de stratégie d’accès conditionnel «personnalisé » créé lors de la création des conditions d’utilisation
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** conditions d’utilisation  
+**Fonctionnalité de produit :** gouvernance
+
+Lors de la création de vos conditions d’utilisation, un nouveau modèle de stratégie d’accès conditionnel «personnalisé » est également créé. Ce nouveau modèle de stratégie vous permet de créer les conditions d’utilisation, puis de passer immédiatement au panneau de création de la stratégie d’accès conditionnel, sans devoir accéder manuellement dans le portail.
+
+Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou).
+
+---
+
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nouvelles instructions plus complètes sur le déploiement d’Azure Multi-Factor Authentication
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** autres  
+**Fonctionnalité du produit :** sécurité et protection de l’identité
+ 
+Nous avons publié de nouvelles instructions étape par étape sur le déploiement d’Azure Multi-Factor Authentication (MFA) dans une organisation.
+
+Pour consulter le guide de déploiement MFA, accédez au dépôt GitHub [Identity Deployment Guides](https://aka.ms/DeploymentPlans) (Guides de déploiement des identités). Pour envoyer vos commentaires sur les guides de déploiement, utilisez le [formulaire de commentaires Plan de déploiement](https:aka.ms/deploymentplanfeedback). Si vous avez des questions sur les guides de déploiement, contactez-nous ici : [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+
+---
+
+### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Rôles délégués de gestion des applications Azure AD en préversion publique
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** applications d’entreprise **Fonctionnalité du produit :** contrôle d’accès
+
+Les administrateurs peuvent désormais déléguer des tâches de gestion des applications sans avoir à affecter le rôle Administrateur général. Les nouveaux rôles et nouvelles fonctionnalités sont les suivants :
+
+- **Nouveaux rôles d’administrateur Azure AD standard :**
+
+    - **Administrateur d’application.** Permet de gérer tous les aspects des applications, y compris l’inscription, les paramètres d’authentification unique, les affectations et les licences d’applications, les paramètres de proxy d’application et le consentement (sauf pour les ressources Azure AD).
+
+    - **Administrateur d’applications cloud.** Accorde tous les privilèges de l’administrateur d’applications, sauf pour le proxy d’application, car il ne fournit pas d’accès local.
+
+    - **Développeur d’applications.** Permet d’inscrire des applications, même si l’option **Les utilisateurs peuvent inscrire des applications** est désactivée.
+
+- **Propriété (configurée pour chaque inscription d’application et chaque application d’entreprise, comme pour la propriété de groupe) :**
+ 
+    - **Propriétaire d’inscription d’application.** Permet de gérer tous les aspects de l’inscription d’une application avec propriétaire, y compris le manifeste d’application et l’ajout de propriétaires supplémentaires.
+
+    - **Propriétaire d’application d’entreprise.** Permet de gérer de nombreux aspects relatifs aux applications d’entreprise avec propriétaire, y compris les paramètres d’authentification unique, les affectations d’applications et le consentement (sauf pour les ressources Azure AD).
+
+Pour plus d’informations sur la préversion publique, consultez le blog [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) . Pour plus d’informations sur les rôles et les autorisations, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ---
 
@@ -82,14 +206,13 @@ Les offres de SaaS, comme Azure Active Directory (Azure AD) sont conçues pour o
 
 Même si nous modifions la prise en charge, nous savons qu’il existe toujours des situations où vous devrez peut-être utiliser un ensemble dédié de circuits pour le trafic d’authentification. Pour cette raison, Azure AD continue à prendre en charge les restrictions de plage d’adresses IP par abonné avec ExpressRoute et les services qui utilisent déjà l’appairage Microsoft avec la communauté « Autres services en ligne Office 365 ». Si vos services sont concernés, mais que vous avez besoin d’ExpressRoute, vous devez procéder comme suit :
 
-- **Si vous utilisez l’appairage public Azure.** Vous devez passer à l’appairage Microsoft et vous inscrire à la communauté **Autres services en ligne Office 365 (12076:5100)**. Pour plus d’informations sur le passage de l’appairage public Azure à l’appairage Microsoft, consultez l’article [Déplacer un appairage public vers l’appairage Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering) l’article.
+- **Si vous utilisez l’appairage public Azure.** Passez à l’appairage Microsoft et inscrivez-vous à la communauté **Autres services en ligne Office 365 (12076:5100)**. Pour plus d’informations sur le passage de l’appairage public Azure à l’appairage Microsoft, consultez l’article [Déplacer un appairage public vers l’appairage Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering) l’article.
 
-- **Si vous utilisez l’appairage Microsoft.** Vous devez vous connecter à la communauté **Autres services en ligne Office 365 (12076:5100)**. Pour plus d’informations sur la configuration de routage requise, consultez la section [Prise en charge des communautés BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) de l’article Configuration requise pour le routage ExpressRoute.
+- **Si vous utilisez l’appairage Microsoft.** Inscrivez-vous à la communauté **Autres services en ligne Office 365 (12076:5100)**. Pour plus d’informations sur la configuration de routage requise, consultez la section [Prise en charge des communautés BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) de l’article Configuration requise pour le routage ExpressRoute.
 
 Si vous devez continuer à utiliser des circuits dédiés, discutez avec l’équipe des comptes Microsoft au sujet de la façon d’obtenir l’autorisation d’utiliser la communauté **Autres services en ligne Office 365 (12076:5100)**. Le comité de révision géré par MS Office vérifiera si vous avez vraiment besoin de ces circuits et s’assurera que vous comprenez bien les implications techniques découlant de leur conservation. Les abonnements non autorisés qui essaient de créer des filtres de routage pour Office 365 reçoivent un message d’erreur. 
  
 ---
-
 
 ### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>API Microsoft Graph pour les scénarios d’administration des conditions d’utilisation
 
@@ -97,12 +220,9 @@ Si vous devez continuer à utiliser des circuits dédiés, discutez avec l’éq
 **Catégorie de service :** conditions d’utilisation  
 **Fonctionnalité de produit :** expérience de développement
  
-
- Nous avons ajouté l’API Microsoft Graph pour vous permettre de gérer les conditions d’utilisation d’Azure AD. Libre à vous ainsi de créer, mettre à jour et supprimer l’objet des conditions d’utilisation.
+Nous avons ajouté l’API Microsoft Graph pour vous permettre de gérer les conditions d’utilisation d’Azure AD. Libre à vous ainsi de créer, mettre à jour et supprimer l’objet des conditions d’utilisation.
 
 ---
- 
-
 
 ### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Ajouter un point de terminaison mutualisé Azure AD en tant que fournisseur d’identité dans Azure AD B2C
 
@@ -110,13 +230,9 @@ Si vous devez continuer à utiliser des circuits dédiés, discutez avec l’éq
 **Catégorie de service :** B2C, Gestion des identités consommateurs  
 **Fonctionnalité de produit :** B2B/B2C
  
-
 En vous aidant de stratégies personnalisées, vous pouvez maintenant ajouter le point de terminaison commun Azure AD en tant que fournisseur d’identité dans Azure AD B2C. Cela vous permet d’avoir un seul point d’entrée pour tous les utilisateurs Azure AD se connectant à vos applications. Pour plus d’informations, consultez [Azure Active Directory B2C : autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom).
 
- 
-
 ---
-
 
 ### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Utiliser des URL internes pour accéder aux applications où que vous vous trouviez avec l’extension de connexion Mes applications et le proxy d’application Azure AD
 
@@ -124,13 +240,9 @@ En vous aidant de stratégies personnalisées, vous pouvez maintenant ajouter le
 **Catégorie de service :** Mes applications  
 **Fonctionnalité de produit :** SSO
  
-
 Les utilisateurs peuvent maintenant accéder aux applications via des URL internes, y compris lorsqu’ils se trouvent en dehors du réseau de l’entreprise. Il leur suffit pour cela d’utiliser l’extension de connexion sécurisée Mes applications pour Azure AD. Cela fonctionne avec toutes les d’application que vous avez publiées à l’aide du proxy d’application Azure AD, dans tous les navigateurs sur lesquels est installée une extension Panneau d’accès. Dès qu’un utilisateur se connecte à l’extension, la fonctionnalité de redirection d’URL est automatiquement activée. Vous pouvez télécharger cette extension pour [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) et [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
- 
 
 ---
- 
-
 
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Afficher les authentifications héritées via les journaux d’activité de connexions
 
@@ -138,61 +250,47 @@ Les utilisateurs peuvent maintenant accéder aux applications via des URL intern
 **Catégorie de service :** création de rapports  
 **Fonctionnalité de produit :** surveillance et création de rapports
  
-
-Avec l’introduction d’un champ appelé **Application cliente** dans les journaux d’activité de connexions, les clients peuvent maintenant voir les utilisateurs qui utilisent des authentifications héritées. Les clients peuvent accéder à ces informations à l’aide de l’API Microsoft Graph Connexions ou via les journaux d’activité de connexions dans le portail Azure AD et ainsi utiliser la commande **Application cliente** pour filtrer les authentifications héritées. Pour plus de détails, consultez la documentation.
- 
+Avec le nouveau champ **Application cliente** des journaux d’activité de connexions, les clients peuvent désormais voir les utilisateurs qui utilisent des authentifications héritées. Les clients peuvent accéder à ces informations à l’aide de l’API Microsoft Graph Connexions ou via les journaux d’activité de connexions dans le portail Azure AD et ainsi utiliser la commande **Application cliente** pour filtrer les authentifications héritées. Pour plus de détails, consultez la documentation.
 
 ---
  
-
 ### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory : données en Europe pour les clients européens
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** autres  
 **Fonctionnalité du produit :** GoLocal
- 
 
 Les clients européens veulent que leurs données restent en Europe. Ils ne veulent pas qu’elles soient répliquées en dehors des centres de données européens afin de respecter les lois européennes en vigueur et celles régissant leur vie privée. Cet [article](https://go.microsoft.com/fwlink/?linkid=872328) fournit des détails spécifiques sur les informations d’identité stockées en Europe ainsi que des informations complémentaires sur les données stockées en dehors des centres de données européens. 
 
- 
-
 ---
  
-
 ### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>Nouvelles intégrations d’applications SaaS pour l’attribution d’utilisateurs : mai 2018
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** approvisionnement d’application  
-**Fonctionnalité de produit :** intégration de tierce partie
+**Fonctionnalité du produit :** intégration tierce
  
-
 Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans des applications SaaS comme Dropbox, Salesforce, ServiceNow, etc. En mai 2018, nous avons ajouté une prise en charge de l’attribution des utilisateurs pour les applications suivantes dans la galerie d’applications Azure AD :
 
-- [BlueJeans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
+- [BlueJeans](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
 
-- [Cornerstone OnDemand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+- [Cornerstone OnDemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
 
-- [Zendesk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
+- [Zendesk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
 
 Pour obtenir la liste de toutes les applications qui prennent en charge l’attribution d’utilisateurs dans la galerie Azure AD, consultez [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
 
- 
-
 ---
  
-
 ### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>La fonction de révisions d’accès Azure AD des groupes et applications fournit maintenant des révisions récurrentes.
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** révisions d’accès  
 **Fonctionnalité de produit :** gouvernance
  
-
-Désormais, la fonctionnalité de révision d’accès des groupes et applications fait partie de l’offre Azure AD Premium P2.  Les administrateurs peuvent configurer les révisions d’accès des appartenances à un groupe et des attributions d’applications de façon à ce qu’elles se répètent automatiquement à intervalles réguliers, par exemple tous les mois ou tous les trimestres.
- 
+La fonctionnalité de révision des accès de groupes et d’applications fait désormais partie de l’offre Azure AD Premium P2.  Les administrateurs peuvent configurer les révisions d’accès des appartenances à un groupe et des attributions d’applications de façon à ce qu’elles se répètent automatiquement à intervalles réguliers, par exemple tous les mois ou tous les trimestres.
 
 ---
- 
 
 ### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>Des journaux d’activité Azure AD (connexions et audit) sont à présent disponibles via Microsoft Graph.
 
@@ -200,85 +298,51 @@ Désormais, la fonctionnalité de révision d’accès des groupes et applicatio
 **Catégorie de service :** création de rapports  
 **Fonctionnalité de produit :** surveillance et création de rapports
  
-
-Des journaux d’activité Azure AD (connexions et audit) sont à présent disponibles via Microsoft Graph. Nous avons exposé 2 points de terminaison via Microsoft Graph pour accéder à ces journaux. Veuillez consulter nos [documents](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) pour accéder aux API Azure AD Reporting au moyen d’un programme et vous lancer. 
- 
+Des journaux d’activité Azure AD (connexions et audit) sont à présent disponibles via Microsoft Graph. Nous avons exposé deux points de terminaison via Microsoft Graph pour accéder à ces journaux. Pour démarrer, consultez nos [documents](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) concernant l’accès par programmation aux API de création de rapports Azure AD. 
 
 ---
  
-
-
-
 ### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>Améliorations apportées à l’expérience d’échange B2B et à celle permettant de quitter une organisation
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** B2B  
 **Fonctionnalité de produit :** B2B/B2C
- 
 
-**Échange juste-à-temps :** à partir du moment où vous partagez une ressource avec un utilisateur invité au moyen d’une API B2B, vous n’avez pas besoin de lui envoyer d’invitation par e-mail. Dans la plupart des cas, l’utilisateur invité peut simplement accéder à la ressource. Il lui suffit de se laisser guider dans cette procédure et de finaliser l’échange. Qu’importe qu’il reçoive ou non l’e-mail. Vous n’avez plus besoin de demander à vos utilisateurs invités s’ils ont bien cliqué sur le lien d’échange que vous leur avez envoyé. Aussi, à partir du moment où SPO utilise le gestionnaire d’invitation, les pièces jointes dans le cloud peuvent avoir la même URL réglementaire pour tous les utilisateurs (internes et externes), quel que soit l’état de l’échange.
+**Échange juste-à-temps :** à partir du moment où vous partagez une ressource avec un utilisateur invité au moyen d’une API B2B, vous n’avez pas besoin de lui envoyer d’invitation par e-mail. Dans la plupart des cas, l’utilisateur invité peut accéder à la ressource. Il lui suffit de se laisser guider dans cette procédure d’échange. Qu’importe qu’il reçoive ou non l’e-mail. Vous n’avez plus besoin de demander à vos utilisateurs invités s’ils ont bien cliqué sur le lien d’échange que vous leur avez envoyé. Aussi, à partir du moment où SPO utilise le gestionnaire d’invitation, les pièces jointes dans le cloud peuvent avoir la même URL réglementaire pour tous les utilisateurs (internes et externes), quel que soit l’état de l’échange.
 
-**Expérience d’échange moderne :** fini les pages d’accueil d’échange avec fractionnement de l’écran. Les utilisateurs peuvent bénéficier d’une expérience moderne et accepter la déclaration de confidentialité de l’organisation à l’origine de l’invitation, un peu comme ils le font déjà pour les applications tierces.
-
+**Expérience d’échange moderne :** fini les pages d’accueil d’échange avec fractionnement de l’écran. Les utilisateurs peuvent bénéficier d’une expérience moderne et accepter la déclaration de confidentialité de l’organisation à l’origine de l’invitation, comme ils le font déjà pour les applications tierces.
 
 **Les utilisateurs invités peuvent quitter l’organisation :** lorsque la relation entre les utilisateurs et l’organisation est terminée, ils peuvent quitter celle-ci d’eux-mêmes. Il n’ont plus besoin d’appeler l’administrateur de l’organisation qui les a invités pour demander leur suppression et n’ont pas non plus besoin d’ouvrir un ticket de support.
- 
 
 ---
- 
 
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App : mai 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App - Mai 2018
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** intégration de tierce partie
+**Fonctionnalité du produit :** intégration tierce
  
-
-En mai 2018, nous avons ajouté les 18 applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
-
- 
+En mai 2018, nous avons ajouté à notre galerie d’applications les 18 applications suivantes qui prennent en charge la fédération :
 
 [AwardSpring](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial), [Infogix Data3Sixty Govern](), [Yodeck](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial), [Jamf Pro](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial), [KnowledgeOwl](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial), [Envi MMIS](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial), [LaunchDarkly](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial), [Adobe Captivate Prime](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial), [Montage Online](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial), [まなびポケット](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial), OpenReel, [Arc Publishing - SSO](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial), [PlanGrid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial), [iWellnessNow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial), [Proxyclick](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial), [Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial), [Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial) et [Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial)
 
- 
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial).
 
-Pour accéder à la documentation de ces applications, cliquez [ici](https://aka.ms/appstutorial).
-
-Pour que votre application apparaisse dans la galerie Azure AD App, consultez [Affichage de votre application dans la galerie des applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
-
- 
+Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ---
  
-
-### <a name="deployment-plans---guidance-to-get-you-started-with-azure-active-directory"></a>Plans de déploiement : guide pour bien démarrer avec Azure Active Directory
+### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Nouveaux guides de déploiement étape par étape pour Azure Active Directory
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** autres  
 **Fonctionnalité de produit :** annuaire
  
+Nouveau guide étape par étape concernant le déploiement d’Azure Active Directory (Azure AD), notamment la réinitialisation de mot de passe libre-service, l’authentification unique (SSO), l’accès conditionnel, les proxys d’application, l’attribution d’utilisateurs, ainsi que les services de fédération Active Directory (AD FS) pour l’authentification directe et pour la synchronisation du hachage de mot de passe.
 
-Recherchez des instructions de déploiement pas à pas (SSPR, SSO, CA, proxy d’application, attributions d’utilisateurs, ADFS vers PTA ou ADFS vers PHS). Nous mettons des plans de déploiement à votre disposition si vous avez besoin d’aide.
-
-Accédez à [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans). Vous y trouverez des guides complets pour commencer à tirer profit de ces fonctionnalités.
-
-
-
-- [Comment puis-je obtenir ces plans de déploiement](http://Aka.ms/DeploymentPlans) ? 
-
-- Vous pouvez nous faire part de vos commentaires à [cette adresse](http://aka.ms/DeploymentPlanFeedback).
-
-- Des questions ? Contactez [IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com).
-
-
-
-     
-
- 
+Pour consulter les guides de déploiement, accédez au dépôt GitHub [Identity Deployment Guides](https://aka.ms/DeploymentPlans) (Guides de déploiement des identités). Pour envoyer vos commentaires sur les guides de déploiement, utilisez le [formulaire de commentaires Plan de déploiement](https:aka.ms/deploymentplanfeedback). Si vous avez des questions sur les guides de déploiement, contactez-nous ici : [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
- 
 
 ### <a name="enterprise-applications-search---load-more-apps"></a>Recherche d’applications d’entreprise : charger d’autres applications
 
@@ -286,69 +350,29 @@ Accédez à [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans). Vous y trou
 **Catégorie de service :** Applications d’entreprise  
 **Fonctionnalité de produit :** SSO
  
-
-Vous ne parvenez pas à localiser vos applications ou les principaux de service ? Nous vous permettons désormais de charger d’autres applications dans la liste de vos applications d’entreprise. Par défaut, nous affichons 20 applications. Vous pouvez maintenant cliquer pour en charger d’autres et en afficher davantage. 
- 
+Vous ne parvenez pas à localiser vos applications ou les principaux de service ? Nous vous permettons désormais de charger d’autres applications dans la liste de vos applications d’entreprise. Par défaut, nous affichons 20 applications. Vous pouvez désormais cliquer sur **Load more** (Charger plus d’applications) pour afficher d’autres applications. 
 
 ---
  
-
-
-### <a name="public-preview-of-new-and-improved-sign-ins-user-experience-in-azure-portal"></a>Préversion publique de la nouvelle expérience et de l’expérience améliorée de connexion dans le portail Azure
-
-**Type :** fonctionnalité modifiée  
-**Catégorie de service :** création de rapports  
-**Fonctionnalité de produit :** surveillance et création de rapports
- 
-
-Nous sommes heureux de vous présenter la nouvelle expérience et l’expérience améliorée de connexion depuis le portail Azure AD. Grâce à la nouvelle expérience utilisateur de connexion, les clients peuvent maintenant :
-
-- Améliorer la latence (de 2 heures à 5 minutes). Pour plus d’informations, lisez nos documents sur la [latence](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-latencies-azure-portal).
-
-- Ajouter des filtres de manière dynamique à l’aide du bouton « Colonnes ». Ajouter des colonnes au rapport de connexion dans l’expérience utilisateur et les utiliser automatiquement en tant que filtres.
-
-- Trier par Date, nom d’utilisateur et application.
-
-- Insérer les authentifications héritées et les filtrer à l’aide de la colonne « Application cliente ».
-
-- Insérer un script PowerShell téléchargeable personnalisé en fonction des conditions de filtre choisies dans l’interface utilisateur. Avec ce script PowerShell, vous pouvez obtenir autant de lignes de données que vous le souhaitez (d’après vos critères de filtrage) et demander une sortie au format .csv.
-
-Pour en savoir plus sur cette fonctionnalité, consultez [Rapports d’activité de connexions dans le portail Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins).
- 
-
----
- 
-
-
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>La version d’AADConnect du mois de mai contient une préversion publique de l’intégration avec PingFederate, d’importantes mises à jour de sécurité, de nombreux correctifs de bogues et de nouveaux outils de résolution des problèmes. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>La version d’AADConnect du mois de mai contient une préversion publique de l’intégration à PingFederate, d’importantes mises à jour de sécurité, de nombreux correctifs de bogues et de nouveaux outils de résolution des problèmes. 
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** AD Connect  
 **Fonctionnalité de produit :** gestion du cycle de vie des identités
  
-
-La version d’AADConnect du mois de mai contient une préversion publique de l’intégration avec PingFederate, d’importantes mises à jour de sécurité, de nombreux correctifs de bogues et de nouveaux outils de résolution des problèmes. Vous trouverez les notes de publication [ici](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
-
- 
+La version d’AADConnect du mois de mai contient une préversion publique de l’intégration à PingFederate, d’importantes mises à jour de sécurité, de nombreux correctifs de bogues et de nouveaux outils de résolution des problèmes. Vous trouverez les notes de publication [ici](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
- 
-
 
 ### <a name="azure-ad-access-reviews-auto-apply"></a>Révisions d’accès Azure AD : application automatique
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** révisions d’accès  
 **Fonctionnalité de produit :** gouvernance
- 
 
 La fonctionnalité de révision d’accès des groupes et applications fait maintenant partie de l’offre Azure AD Premium P2. Un administrateur peut demander à appliquer automatiquement les modifications du réviseur à ce groupe ou à cette application dès que la révision d’accès est terminée. L’administrateur peut également spécifier ce qu’il advient de l’accès continu de l’utilisateur si les réviseurs n’ont pas répondu, ou encore s’ils ont supprimé l’accès, conservé l’accès ou suivi les suggestions du système. 
 
- 
-
 ---
- 
-
 
 ### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>Les jetons d’ID ne peuvent plus être retournés à l’aide de la requête response_mode pour les nouvelles applications. 
 
@@ -356,50 +380,38 @@ La fonctionnalité de révision d’accès des groupes et applications fait main
 **Catégorie de service :** authentifications (connexions)  
 **Fonctionnalité de produit :** authentification utilisateur
  
+Les applications créées le 25 avril 2018 et après ne pourront plus demander un **id_token** à l’aide de la **requête** response_mode.  Cette opération met en ligne Azure AD avec les spécifications OIDC et vous aide à limiter la surface d’attaque des applications.  Rien n’empêche les applications créées avant le 25 avril 2018 d’utiliser la **requête** response_mode avec un paramètre response_type **id_token**.  Si vous demandez un id_token depuis AAD, vous recevez un message d’erreur du type : **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token** (AADSTS70007 : « query » n’est pas une valeur « response_mode » prise en charge au moment de demander un jeton).
 
-Les applications créées depuis le 25 avril 2018 ne pourront plus demander un **id_token** à l’aide de la **requête** response_mode.  Cette opération met en ligne Azure AD avec les spécifications OIDC et vous aide à limiter la surface d’attaque des applications.  Rien n’empêche les applications créées avant le 25 avril 2018 d’utiliser la **requête** response_mode avec un paramètre response_type **id_token**.  Si vous demandez un id_token depuis AAD, vous recevez un message d’erreur du type : **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token** (AADSTS70007 : « query » n’est pas une valeur « response_mode » prise en charge au moment de demander un jeton).
-
-Les requêtes response_mode **fragment** et **form_post** continuent de fonctionner. Au moment de créer de nouveaux objets d’application (par exemple, pour l’utilisation du proxy d’application), vérifiez que l’une de ces requêtes response_mode est bien utilisée avant de créer un nouvelle application.  
+Les requêtes response_mode **fragment** et **form_post** continuent de fonctionner. Au moment de créer des objets d’application (par exemple, pour l’utilisation du proxy d’application), vérifiez que l’une de ces requêtes response_mode est utilisée avant de créer l’application.  
  
-
 ---
  
-
-
-
-## <a name="april-2018"></a>Avril 2018
- 
-
+## <a name="april-2018"></a>Avril 2018 
 
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Les jetons d’accès Azure AD B2C sont en disponibilité générale
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** B2C, Gestion des identités consommateurs  
-**Fonctionnalité de produit :** B2B/B2C
- 
+**Fonctionnalité de produit :** B2B/B2C 
 
-Vous pouvez maintenant accéder à l’API web sécurisée par Azure AD B2C à l’aide de jetons d’accès. La fonctionnalité passe de la préversion publique à la disponibilité générale. L’interface utilisateur pour configurer les applications Azure AD B2C et les API web a été améliorée et d’autres améliorations mineures ont été apportées.
+Vous pouvez maintenant accéder aux API web sécurisées par Azure AD B2C à l’aide de jetons d’accès. La fonctionnalité passe de la préversion publique à la disponibilité générale. L’interface utilisateur permettant de configurer les applications Azure AD B2C et les API web a été améliorée, et d’autres améliorations mineures ont également été apportées.
  
 Pour plus d’informations, consultez [Azure AD B2C : demande de jetons d’accès](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-access-tokens).
 
-
 ---
- 
 
 ### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>Test de la configuration de l’authentification unique pour les applications SAML
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
 **Fonctionnalité de produit :** SSO
- 
 
-Lors de la configuration d’applications d’authentification unique SAML, vous êtes en mesure de tester l’intégration dans la page de configuration. Si vous rencontrez une erreur pendant la connexion, vous pouvez fournir l’erreur dans l’expérience de test et Azure AD vous fournit des étapes permettant de résoudre le problème spécifique.
+Lors de la configuration d’applications SSO SAML, vous pouvez tester l’intégration dans la page de configuration. Si vous rencontrez une erreur pendant la connexion, vous pouvez indiquer cette erreur dans l’expérience de test et recevoir d’Azure AD les étapes permettant de résoudre le problème.
 
 Pour plus d'informations, consultez les pages suivantes :
 
 - [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 - [Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
-
 
 ---
  
@@ -409,12 +421,9 @@ Pour plus d'informations, consultez les pages suivantes :
 **Catégorie de service :** conditions d’utilisation  
 **Fonctionnalité de produit :** conformité
  
-
 Les administrateurs peuvent à présent sélectionner des conditions d’utilisation données et afficher tous les utilisateurs qui ont accepté les conditions d’utilisation, ainsi que la date et l’heure de leur consentement.
 
-
 Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
- 
 
 ---
  
@@ -423,7 +432,6 @@ Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisatio
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** autres  
 **Fonctionnalité de produit :** surveillance et création de rapports
- 
 
 Connect Health prend maintenant en charge la capacité de détecter des adresses IP qui dépassent un seuil d’échecs de connexion U/P (utilisateur/mot de passe) sur une base horaire ou quotidienne. Voici les fonctionnalités fournies par cette fonctionnalité :
 
@@ -431,30 +439,23 @@ Connect Health prend maintenant en charge la capacité de détecter des adresses
 - Alertes par e-mail indiquant quand une adresse IP spécifique a dépassé le seuil d’échecs de connexion U/P sur une base horaire/quotidienne.
 - Option de téléchargement pour effectuer une analyse détaillée des données
 
-
 Pour plus d’informations, consultez [Rapports sur les adresses IP à risque](https://aka.ms/aadchriskyip).
-
- 
 
 ---
  
-
 ### <a name="easy-app-config-with-metadata-file-or-url"></a>Configuration d’applications facilitée avec l’URL ou le fichier de métadonnées
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
 **Fonctionnalité de produit :** SSO
- 
 
 Dans la page Applications d’entreprise, les administrateurs peuvent charger un fichier de métadonnées SAML pour l’authentification unique SAML pour les applications AAD, que celles-ci soient incluses ou non dans la galerie.
 
 En outre, vous pouvez utiliser l’URL des métadonnées de fédération d’application Azure AD pour configurer l’authentification unique avec l’application ciblée.
 
 Pour plus d’informations, consultez la page [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
- 
 
 ---
- 
 
 ### <a name="azure-ad-terms-of-use-now-generally-available"></a>Fonctionnalité Conditions d’utilisation Azure AD maintenant à la disposition générale
 
@@ -463,14 +464,11 @@ Pour plus d’informations, consultez la page [Configuration de l’authentifica
 **Fonctionnalité de produit :** conformité
  
 
-La fonctionnalité Conditions d’utilisation Azure AD est passée de la préversion publique à la disposition générale.
+La fonctionnalité Conditions d’utilisation Azure AD est passée de la préversion publique à la disponibilité générale.
 
 Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
- 
-
 ---
- 
 
 ### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
 
@@ -487,32 +485,21 @@ Cette fonctionnalité B2B Collaboration est disponible pour tous les clients Azu
 
 Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
 
- 
-
 ---
  
-
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** intégration de tierce partie
- 
+**Fonctionnalité du produit :** intégration tierce
 
-En avril 2018, nous avons ajouté les 13 nouvelles applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
-
-
+En avril 2018, nous avons ajouté à notre galerie d’applications les 13 applications suivantes qui prennent en charge la fédération :
 
 Criterion HCM, [FiscalNote](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [Secret Server (On-Premises)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [Dynamic Signal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mindwireless-tutorial), [OrgChart Now](https://docs.microsoft.com/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ziflow-tutorial), [AppNeta Performance Monitor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx Labs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [Cisco Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ciscocloud-tutorial), Shelf, [SafetyNet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-safetynet-tutorial)
 
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial).
 
-
- La liste des tutoriels disponibles figure ici : [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
-
-Pour en savoir plus, consultez [Afficher votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
-
-
- 
+Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ---
  
@@ -521,12 +508,10 @@ Pour en savoir plus, consultez [Afficher votre application dans la galerie d’a
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** B2B  
 **Fonctionnalité de produit :** B2B/B2C
- 
 
 Si votre organisation utilise des fonctionnalités d’Azure Active Directory (Azure AD) B2B Collaboration pour inviter des utilisateurs d’organisations partenaires à votre instance Azure AD, vous pouvez à présent fournir à ces utilisateurs B2B un accès aux applications locales. Ces applications locales peuvent utiliser l’authentification basée sur SAML ou l’authentification Windows intégrée (IWA) avec la délégation contrainte Kerberos (KCD).
 
-Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises)
- 
+Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises).
 
 ---
  
@@ -534,11 +519,9 @@ Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure 
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** autres  
-**Fonctionnalité de produit :** intégration de tierce partie
- 
+**Fonctionnalité du produit :** intégration tierce
 
 Si une application qui est répertoriée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant**, vous accédez au tutoriel sur l’intégration associé à cette application. 
-
 
 ---
 
@@ -546,20 +529,17 @@ Si une application qui est répertoriée dans la [Place de marché Azure](https:
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** approvisionnement d’application  
-**Fonctionnalité de produit :** intégration de tierce partie
+**Fonctionnalité du produit :** intégration tierce
  
+Auparavant, les clients qui utilisaient les connecteurs d’attribution d’utilisateurs Azure Active Directory pour les applications SaaS (Salesforce, ServiceNow et Box par exemple) pouvaient rencontrer une baisse de performances si leurs locataires Azure AD contenaient plus de 100 000 utilisateurs et groupes combinés, et s’ils utilisaient les attributions de groupes et d’utilisateurs pour déterminer les utilisateurs à attribuer.
 
-Auparavant, les clients qui utilisaient les connecteurs d’attribution d’utilisateurs Azure Active Directory pour les applications SaaS (Salesforce, ServiceNow et Box par exemple) pouvaient rencontrer une baisse de performances si leurs locataires Azure AD contenaient plus de 100 000 utilisateurs et groupes combinés et s’ils utilisaient les attributions de groupes et d’utilisateurs pour déterminer les utilisateurs à attribuer.
-
-Le 2 avril, de très importantes améliorations des performances ont été déployées sur le service d’attribution Azure AD. Celles-ci réduisent considérablement le temps nécessaire pour effectuer les synchronisations initiales entre Azure Active Directory et les applications SaaS cibles.
-
+Le 2 avril 2018, de très importantes améliorations des performances ont été déployées sur le service d’attribution Azure AD. Celles-ci réduisent considérablement le temps nécessaire pour effectuer les synchronisations initiales entre Azure Active Directory et les applications SaaS cibles.
 
 Par conséquent, de nombreux clients pour lesquels les synchronisations initiales aux applications nécessitaient plusieurs jours ou ne se terminaient jamais effectuent maintenant cette opération en quelques minutes ou heures.
 
 Pour plus d’informations, consultez [Que se passe-t-il pendant l’approvisionnement ?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning#what-happens-during-provisioning).
 
 ---
- 
 
 ### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>Réinitialisation de mot de passe en libre-service à partir de l’écran de verrouillage Windows 10 pour les ordinateurs joints à une version hybride d’Azure AD
 
@@ -567,19 +547,14 @@ Pour plus d’informations, consultez [Que se passe-t-il pendant l’approvision
 **Catégorie de service :** réinitialisation de mot de passe en libre-service  
 **Fonctionnalité de produit :** authentification utilisateur
  
-
 Nous avons mis à jour la fonctionnalité Windows 10 SSPR pour prendre en charge les ordinateurs qui sont joints à des environnements Azure AD hybrides. Cette fonctionnalité disponible dans Windows 10 RS4 permet aux utilisateurs de réinitialiser leur mot de passe à partir de l’écran de verrouillage d’un ordinateur Windows 10. Les utilisateurs qui sont activés et inscrits pour la réinitialisation de mot de passe en libre-service peuvent utiliser cette fonctionnalité.
 
 Pour plus d’informations, consultez [Réinitialisation de mot de passe Azure AD depuis l’écran de connexion](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows).
  
-
 ---
-
-
 
 ## <a name="march-2018"></a>Mars 2018
  
-
 ### <a name="certificate-expire-notification"></a>Notification d’expiration de certificat
 
 **Type :** corrigé  
@@ -594,11 +569,9 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 - [Rapports d’activité d’audit dans le portail Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
-
  
 ---
  
-
 ### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Fournisseurs d’identité Twitter et GitHub dans Azure AD B2C
 
 **Type :** nouvelle fonctionnalité  
@@ -607,11 +580,9 @@ Pour plus d'informations, consultez les pages suivantes :
  
 Vous pouvez maintenant ajouter Twitter ou GitHub en tant que fournisseur d’identité dans Azure AD B2C. Twitter passe de la version préliminaire publique à la disponibilité générale. GitHub sort en version préliminaire publique.
 
-
 Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure AD B2B Collaboration ?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
  
 ---
-
 
 ### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Restreindre l’accès du navigateur à l’aide d’Intune Managed Browser avec accès conditionnel par application Azure AD pour iOS et Android
 
@@ -619,7 +590,6 @@ Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure AD B2B Col
 **Catégorie de service :** accès conditionnel  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
  
-
 **Désormais en préversion publique**
 
 **Authentification unique sur Intune Managed Browser :** vos employés peuvent utiliser l’authentification unique sur des clients natifs (tels que Microsoft Outlook) et Intune Managed Browser pour toutes les applications Azure AD connectés.
@@ -634,19 +604,15 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Gérer des stratégies Managed Browser](https://aka.ms/managedbrowser)  
 
-
-
 ---
  
-
 ### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Cmdlets de proxy d’application dans le module de disponibilité générale Powershell
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** contrôle d’accès
  
-Les cmdlets de proxy d’application sont désormais pris en charge dans le module de disponibilité générale Powershell. Notez que cela vous oblige à garder vos modules Powershell à jour : si vos dernières mises à jour remontent à plus d’un an, certains cmdlets peuvent cesser de fonctionner. 
-
+Les cmdlets de proxy d’application sont désormais pris en charge dans le module de disponibilité générale Powershell. Cela vous oblige à garder vos modules Powershell à jour : si vos dernières mises à jour remontent à plus d’un an, certaines applets de commande peuvent cesser de fonctionner. 
 
 Pour plus d'informations, consultez la page [Azure AD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
  
@@ -661,12 +627,10 @@ Pour plus d'informations, consultez la page [Azure AD](https://docs.microsoft.co
 Les utilisateurs utilisant des clients Office 365 natifs (version 16.0.8730.xxxx et versions ultérieures) profitent d’une expérience de connexion silencieuse avec l’authentification unique transparente. Cette prise en charge est rendue possible par l’ajout un protocole non interactif (WS-Trust) à Azure AD.
 
 Pour plus d’informations, consultez la page [Fonctionnement des connexions sur un client natif avec l’authentification unique transparente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
-
  
 ---
- 
 
-### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenanted-endpoints"></a>Les utilisateurs profitent d’une expérience de connexion silencieuse avec l’authentification unique transparente si une application envoie des demandes de connexion aux points de terminaison avec des locataires d’Azure AD
+### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenant-endpoints"></a>Expérience de connexion silencieuse avec l’authentification unique fluide lorsqu’une application envoie des demandes de connexion aux points de terminaison des locataires d’Azure AD
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** authentifications (connexions)  
@@ -678,7 +642,6 @@ Pour plus d’informations, consultez la page [Authentification unique transpare
 
 ---
  
-
 ### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Besoin d’ajouter seulement une URL Azure AD au lieu de deux aux paramètres de zone intranet des utilisateurs pour déployer l’authentification unique transparente
 
 **Type :** nouvelle fonctionnalité  
@@ -691,24 +654,22 @@ Pour plus d’informations, consultez la page [Authentification unique transpare
  
 ---
  
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées dans la galerie Azure AD App
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** intégration de tierce partie
- 
-En mars 2018, nous avons ajouté les 15 nouvelles applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
+**Fonctionnalité du produit :** intégration tierce
+
+En mars 2018, nous avons ajouté à notre galerie d’applications les 15 applications suivantes qui prennent en charge la fédération :
 
 [Boxcryptor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-boxcryptor-tutorial), [CylancePROTECT](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cylanceprotect-tutorial), Wrike, [SignalFx](https://docs.microsoft.com/azure/active-directory/active-directory-saas-signalfx-tutorial), Assistant by FirstAgenda, [YardiOne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-yardione-tutorial), Vtiger CRM, inwink, [Amplitude](https://docs.microsoft.com/azure/active-directory/active-directory-saas-amplitude-tutorial), [Spacio](https://docs.microsoft.com/azure/active-directory/active-directory-saas-spacio-tutorial), [ContractWorks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-contractworks-tutorial), [Bersin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bersin-tutorial), [Mercell](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mercell-tutorial), [Trisotech Digital Enterprise Server](https://docs.microsoft.com/azure/active-directory/active-directory-saas-trisotechdigitalenterpriseserver-tutorial), [Qumu Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-qumucloud-tutorial).
  
-Vous trouverez la documentation de toutes ces applications ici : [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial).
 
+Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
 
- 
 ---
  
-
 ### <a name="pim-for-azure-resources-is-generally-available"></a>La fonction PIM pour les ressources Azure est en disponibilité générale
 
 **Type :** nouvelle fonctionnalité  
@@ -721,7 +682,6 @@ Pour plus d’informations, consultez [PIM pour les ressources Azure (préversio
  
 ---
  
-
 ### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Ajout de revendications facultatives à vos jetons d’applications (version préliminaire publique)
 
 **Type :** nouvelle fonctionnalité  
@@ -734,7 +694,6 @@ Pour plus d’informations, consultez la page [Revendications facultatives dans 
  
 ---
  
-
 ### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD prend en charge PKCE pour des flux OAuth plus sécurisés
 
 **Type :** nouvelle fonctionnalité  
@@ -744,24 +703,20 @@ Pour plus d’informations, consultez la page [Revendications facultatives dans 
 Les documents Azure AD ont été mis à jour et indiquent désormais la prise en charge de PKCE, qui permet de sécuriser davantage la communication pendant le flux d’octroi de code d’autorisation OAuth 2.0.  Les méthodes S256 et plaintext code_challenge sont prises en charge sur les points de terminaison v1.0 et v2.0. 
 
 Pour plus d’informations, consultez [Demander un code d’autorisation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
-
  
 ---
  
-
 ### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Prise en charge de l’approvisionnement de toutes les valeurs d’attribut utilisateur disponibles dans l’API Workday Get_Workers
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** approvisionnement d’application  
-**Fonctionnalité de produit :** intégration de tierce partie
+**Fonctionnalité du produit :** intégration tierce
  
 La version préliminaire publique de l’approvisionnement entrant de Workday vers Active Directory et Azure AD prend désormais en charge la possibilité d’extraire et d’approvisionner toutes les valeurs d’attribut disponibles dans l’API Workday Get_Workers. Cela permet la prise en charge de centaines d’attributs standard et personnalisés supplémentaires, en plus de ceux fournis avec la version initiale du connecteur d’approvisionnement entrant Workday.
 
 Pour plus d’informations, consultez : [Personnaliser la liste des attributs d’utilisateurs Workday](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
 
 ---
-
-
 
 ### <a name="changing-group-membership-from-dynamic-to-static-and-vice-versa"></a>Changement de l’appartenance dynamique à un groupe en appartenance statique et vice versa
 
@@ -770,15 +725,11 @@ Pour plus d’informations, consultez : [Personnaliser la liste des attributs d�
 **Fonctionnalité de produit :** collaboration
  
 Il est possible de modifier la façon dont l’appartenance est gérée dans un groupe. Cela est utile lorsque vous souhaitez conserver le même nom et le même ID de groupe dans le système, afin que toutes les références au groupe existantes soient toujours valides ; la création d’un groupe nécessiterait la mise à jour de ces références.
-Nous avons mis à jour le centre d’administration d’Azure AD pour y ajouter la prise en charge de cette fonctionnalité. Maintenant, les clients peuvent convertir l’appartenance dynamique à des groupes existants en appartenance affectée et vice versa. Les cmdlets PowerShell existants sont également toujours disponibles.
+Nous avons mis à jour le Centre d’administration Azure AD pour la prise en charge de cette fonctionnalité. Maintenant, les clients peuvent convertir l’appartenance dynamique à des groupes existants en appartenance affectée et vice versa. Les cmdlets PowerShell existants sont également toujours disponibles.
 
 Pour plus d’informations, consultez [Changement de l’appartenance dynamique en appartenance statique et vice versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
 
- 
-
- 
 ---
- 
 
 ### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Comportement de déconnexion amélioré avec l’authentification unique transparente
 
@@ -789,11 +740,9 @@ Pour plus d’informations, consultez [Changement de l’appartenance dynamique 
 Auparavant, même si les utilisateurs se déconnectaient explicitement d’une application sécurisée par Azure AD, ils étaient automatiquement reconnectés avec l’authentification unique transparente s’ils tentaient à nouveau d’accéder à une application Azure AD au sein de leur réseau d’entreprise à partir d’un appareil joint à un domaine. Avec cette modification, la déconnexion est prise en charge.  Cela permet aux utilisateurs de conserver ou modifier le compte Azure AD auquel se connecter, au lieu d’être connecté automatiquement à l’aide de l’authentification unique transparente.
 
 Pour plus d’informations, consultez [Authentification unique transparente Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)
-
  
 ---
  
-
 ### <a name="application-proxy-connector-version-154020-released"></a>Connecteur de proxy d’application version 1.5.402.0
 
 **Type :** fonctionnalité modifiée  
@@ -802,43 +751,32 @@ Pour plus d’informations, consultez [Authentification unique transparente Azur
  
 Cette version de connecteur est progressivement déployée tout au long du mois de novembre. Cette nouvelle version de connecteur inclut les modifications suivantes :
 
-- Le connecteur définit désormais des cookies au niveau du domaine et non plus du sous-domaine. Cela garantit une meilleure expérience d’authentification unique et évite les invites d’authentification redondantes.
+- Le connecteur définit désormais des cookies au niveau du domaine et non plus au niveau du sous-domaine. Cela garantit une meilleure expérience d’authentification unique et évite les invites d’authentification redondantes.
 - Prise en charge des demandes de codage mémorisé en bloc
 - Surveillance améliorée de l’intégrité du connecteur 
 - Correction de plusieurs bogues et stabilité améliorée
 
 Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
-
  
 ---
- 
-
- 
-
-
 
 ## <a name="february-2018"></a>Février 2018
  
-
 ### <a name="improved-navigation-for-managing-users-and-groups"></a>Navigation améliorée pour la gestion des utilisateurs et groupes
 
 **Type :** modification planifiée  
 **Catégorie de service :** gestion d’annuaires  
 **Fonctionnalité de produit :** annuaire
- 
 
-L’expérience de navigation pour la gestion des utilisateurs et groupes a été simplifiée. Vous pouvez maintenant passer directement de la vue d’ensemble de l’annuaire à la liste de tous les utilisateurs, et accéder plus facilement à la liste des utilisateurs supprimés. Vous pouvez également accéder directement de la vue d’ensemble de l’annuaire à la liste de tous les groupes, et accéder plus facilement aux paramètres de gestion de groupe. Également depuis la vue d’ensemble de l’annuaire, vous pouvez rechercher un utilisateur, un groupe, une application d’entreprise ou une inscription d’application.
- 
+L’expérience de navigation pour la gestion des utilisateurs et groupes a été simplifiée. Vous pouvez maintenant passer directement de la vue d’ensemble de l’annuaire à la liste de tous les utilisateurs, et accéder plus facilement à la liste des utilisateurs supprimés. Vous pouvez également accéder directement de la vue d’ensemble de l’annuaire à la liste de tous les groupes, et accéder plus facilement aux paramètres de gestion de groupe. Également depuis la vue d’ensemble de l’annuaire, vous pouvez rechercher un utilisateur, un groupe, une application d’entreprise ou une inscription d’application. 
 
 ---
-
 
 ### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Disponibilité des rapports d’audit et des rapports sur les connexions dans Microsoft Azure gérée par 21Vianet (Azure China 21Vianet)
 
 **Type :** nouvelle fonctionnalité  
-**Catégorie de service :** clouds souverains  
+**Catégorie de service :** Azure Stack  
 **Fonctionnalité de produit :** surveillance et création de rapports
- 
 
 Les rapports du journal d’activité Azure AD sont maintenant disponibles dans Microsoft Azure géré par des instances 21Vianet (Azure China 21Vianet). Les journaux suivants sont inclus :
 
@@ -846,7 +784,7 @@ Les rapports du journal d’activité Azure AD sont maintenant disponibles dans 
 
 - **Journaux d’audit de mot de passe libre-service** : comprennent tous les journaux d’audit SSPR.
 
-- **Journaux d’audit de gestion des annuaires** : incluent tous les journaux d’audit liés à la gestion des annuaires comme la gestion des utilisateurs, la gestion des applications, etc.
+- **Journaux d’audit de gestion des annuaires** : incluent tous les journaux d’audit liés à la gestion des annuaires, comme la gestion des utilisateurs, la gestion des applications, etc.
 
 Ces journaux vous permettent d’obtenir des insights sur le fonctionnement de votre environnement. Les données fournies vous permettent de :
 
@@ -855,25 +793,20 @@ Ces journaux vous permettent d’obtenir des insights sur le fonctionnement de v
 - Résoudre les problèmes empêchant les utilisateurs d’effectuer leur travail.
 
 Pour plus d’informations sur l’utilisation de ces rapports, consultez [Création de rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
- 
 
 ---
-
 
 ### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Utilisation du rôle « Lecteur de rapport » (rôle non-administrateur) pour afficher les rapports d’activité Azure AD
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** création de rapports  
 **Fonctionnalité de produit :** surveillance et création de rapports
- 
 
-Suite aux commentaires clients sur la possibilité d’activer des rôles non-administrateur permettant d’accéder aux journaux d’activité Azure AD, nous avons rendu possible pour les utilisateurs dotés du rôle « Lecteur de rapport » l’accès aux journaux d’activité d’audit et des connexions au sein du portail Azure ainsi que l’utilisation de nos API Graph. 
+Suite aux commentaires clients sur la possibilité d’autoriser les rôles non administrateurs à accéder aux journaux d’activité Azure AD, nous permettons désormais aux utilisateurs dotés du rôle « Lecteur de rapport » d’accéder aux journaux d’activité des audits et des connexions sur le portail Azure, ainsi que d’utiliser nos API Graph. 
 
 Pour plus d’informations sur l’utilisation de ces rapports, consultez [Création de rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
 
 ---
- 
-
 
 ### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Revendication EmployeeID disponible en tant qu’attribut utilisateur et identificateur d’utilisateur
 
@@ -881,14 +814,11 @@ Pour plus d’informations sur l’utilisation de ces rapports, consultez [Créa
 **Catégorie de service :** Applications d’entreprise  
 **Fonctionnalité de produit :** SSO
  
-
 Vous pouvez configurer **EmployeeID** en tant qu’identificateur d’utilisateur et attribut utilisateur pour les utilisateurs membres et les invités B2B dans les applications d’authentification SAML à partir de l’interface utilisateur de l’application d’entreprise.
 
 Pour plus d’informations, consultez [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
- 
 
 ---
-
 
 ### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Gestion simplifiée des applications à l’aide de caractères génériques dans Proxy d’application Azure AD
 
@@ -896,21 +826,17 @@ Pour plus d’informations, consultez [Personnalisation des revendications émis
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** authentification utilisateur
  
-
 Pour simplifier le déploiement d’application et réduire votre charge administrative, nous prenons désormais en charge la possibilité de publier des applications à l’aide de caractères génériques. Pour publier une application générique, vous pouvez suivre le flux de publication d’application standard, mais utiliser un caractère générique dans les URL internes et externes.
 
 Pour plus d’informations, consultez [Applications génériques dans le proxy d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard).
 
- 
-
 ---
- 
+
 ### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Nouvelles applets de commande pour prendre en charge la configuration du proxy d’application
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** plateforme
- 
 
 La dernière version du module AzureAD PowerShell Preview contient de nouvelles applets de commande qui permettent aux clients de configurer des applications de proxy d’application à l’aide de PowerShell.
 
@@ -934,18 +860,13 @@ Ces nouvelles applets de commande sont :
 - Set-AzureADApplicationProxyConnector
 - Set-AzureADApplicationProxyConnectorGroup
 
-
- 
-
 ---
  
-
 ### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Nouvelles applets de commande pour prendre en charge la configuration des groupes
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** plateforme
- 
 
 La dernière version du module AzureAD PowerShell contient des applets de commande qui permettent de gérer les groupes dans Azure AD. Ces applets de commande étaient auparavant disponibles dans le module AzureADPreview et sont maintenant ajoutées au module AzureAD.
 
@@ -962,7 +883,6 @@ Les applets de commande Group désormais mises à la disposition générale sont
 - Remove-AzureADMSLifecyclePolicyGroup
 - Reset-AzureADMSLifeCycleGroup   
 - Get-AzureADMSLifecyclePolicyGroup
- 
 
 ---
  
@@ -972,27 +892,28 @@ Les applets de commande Group désormais mises à la disposition générale sont
 **Catégorie de service :** AD Sync  
 **Fonctionnalité de produit :** plateforme
  
-
 Azure AD Connect est l’outil préféré pour synchroniser des données entre Azure AD et des sources de données locales, notamment Windows Server Active Directory et LDAP.
 
-**Important**
- 
-Cette version introduit des modifications de schéma et de règles de synchronisation. Le service de synchronisation Azure AD Connect déclenche des étapes d’importation et de synchronisation complètes après une mise à niveau. Pour plus d’informations sur la façon de modifier ce comportement, consultez [Comment différer la synchronisation complète après la mise à niveau](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+>[!Important]
+>Cette version introduit des modifications de schéma et de règles de synchronisation. Le service de synchronisation Azure AD Connect déclenche des étapes d’importation et de synchronisation complètes après une mise à niveau. Pour plus d’informations sur la façon de modifier ce comportement, consultez [Comment différer la synchronisation complète après la mise à niveau](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
 
 Cette version comprend les mises à jour et modifications suivantes :
 
 **Problèmes résolus**
 
 - Résolution du problème de fenêtre de synchronisation sur les tâches en arrière-plan pour la page Filtrage de partitions lors du passage à la page suivante
+
 - Correction d’un bogue qui entraînait une violation d’accès lors de l’action personnalisée ConfigDB.
+
 - Correction d’un bogue de récupération suite à un délai de connexion SQL.
+
 - Correction d’un bogue qui entraînait l’échec d’une vérification des prérequis pour les certificats avec caractères génériques SAN.
+
 - Correction d’un bogue qui entraînait un incident d’exécution de miiserver.exe lors d’une exportation du connecteur AAD.
-- Correction d’un bogue concernant la journalisation d’une tentative d’utilisation d’un mot de passe incorrect sur le contrôleur de domaine lors de l’exécution de l’Assistant AAD Connect pour modifier la configuration.
+
+- Correction d’un bogue concernant la journalisation d’une tentative d’utilisation d’un mot de passe incorrect sur le contrôleur de domaine qui entraînait la modification de la configuration par l’Assistant AAD Connect.
 
 **Améliorations et nouvelles fonctionnalités**
-
-
  
 - Télémétrie applicative : l’administrateur peut activer/désactiver cette catégorie de données.
 
@@ -1008,7 +929,7 @@ Cette version comprend les mises à jour et modifications suivantes :
 
 - Modification du programme d’installation afin de ne pas exiger des privilèges d’administrateur système pour une nouvelle installation d’AADConnect.
 
-- Nouvel utilitaire destiné à résoudre les problèmes de synchronisation pour un objet spécifique. Actuellement, cet utilitaire procède aux vérifications suivantes :
+- Nouvel utilitaire destiné à résoudre les problèmes de synchronisation pour un objet spécifique. Cet utilitaire vérifie les éléments suivants :
 
     - détection d’une incompatibilité de nom d’utilisateur principal (UPN) entre l’objet utilisateur synchronisé et le compte d’utilisateur dans le locataire Azure AD ;
   
@@ -1017,23 +938,20 @@ Cette version comprend les mises à jour et modifications suivantes :
     - vérification si l’objet a été exclu de la synchronisation en raison d’un filtrage d’unité d’organisation.
 
 - Nouvel utilitaire destiné à synchroniser le hachage de mot de passe actuel stocké dans le service Active Directory local pour un compte d’utilisateur spécifique. Cet utilitaire ne nécessite aucune modification de mot de passe. 
- 
 
 ---
  
-
 ### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Ajout d’applications prenant en charge les stratégies Intune App Protection à des fins d’utilisation avec l’accès conditionnel en fonction de l’application Azure AD
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** accès conditionnel  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
- 
 
 Nous avons ajouté d’autres applications qui prennent en charge l’accès conditionnel en fonction de l’application. Maintenant, vous pouvez accéder à Office 365 et à d’autres applications cloud liées à Azure AD à l’aide de ces applications clientes approuvées.
 
-Les applications suivantes sont ajoutées depuis la fin du mois de février : 
+Les applications suivantes seront ajoutées d’ici la fin du mois de février :
 
-- Microsoft PowerBI
+- Microsoft Power BI
 
 - Microsoft Launcher
 
@@ -1044,50 +962,41 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Spécification d’application cliente approuvée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
- 
-
 ---
- 
 
 ### <a name="terms-of-use-update-to-mobile-experience"></a>Mise à jour des conditions d’utilisation pour l’expérience mobile 
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** conditions d’utilisation  
 **Fonctionnalité de produit :** conformité
- 
 
 Lorsque les conditions d’utilisation s’affichent, vous pouvez maintenant cliquer sur **Des problèmes d’affichage ? Cliquez ici**. Ce lien ouvre les conditions d’utilisation en mode natif sur votre appareil. Quelle que soit la taille de police dans le document ou la taille d’écran de l’appareil, vous pouvez effectuer un zoom avant et lire le document selon vos besoins. 
- 
 
 ---
  
 ## <a name="january-2018"></a>Janvier 2018
  
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées dans la galerie Azure AD App 
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App 
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** intégration de tierce partie
- 
+**Fonctionnalité du produit :** intégration tierce
 
-En janvier 2018, les nouvelles applications suivantes prenant en charge de la fédération ont été ajoutées dans la galerie d’applications :
+En janvier 2018, les applications suivantes prenant en charge la fédération ont été ajoutées à la galerie d’applications :
 
-[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust Privacy Management Software](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk Federated Directory](https://go.microsoft.com/fwlink/?linkid=864699) et [Fidelity NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust Privacy Management Software](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk Federated Directory et [Fidelity NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
 
-Pour une vue d’ensemble complète de tous les didacticiels disponibles, consultez [Intégration des application SaaS avec Azure Active Directory](https://aka.ms/appstutorial).
- 
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial).
+
+Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
 
 ---
  
-
-
 ### <a name="sign-in-with-additional-risk-detected"></a>Connexion avec un risque supplémentaire détecté
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** protection des identités  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
- 
 
 L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. Avec l’édition Azure AD Premium P2, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes.
 
@@ -1095,7 +1004,6 @@ Avec l’édition Azure AD Premium P1, les détections qui ne sont pas couvertes
 
 Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
-
 ---
 
 ### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Masquer des applications Office 365 dans les panneaux d’accès de l’utilisateur
@@ -1103,27 +1011,22 @@ Pour plus d’informations, consultez [Événements à risque dans Azure Active 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Mes applications  
 **Fonctionnalité de produit :** SSO
- 
 
-Désormais, vous pouvez mieux gérer comment les applications Office 365 apparaissent dans les panneaux d’accès de vos utilisateurs, grâce à un nouveau paramètre utilisateur. Cette option permet de réduire le nombre d’applications dans les panneaux d’accès d’un utilisateur si vous préférez n’afficher que les applications Office dans le portail Office. Ce paramètre se trouve dans **Paramètres utilisateur** et correspond à **Les utilisateurs peuvent voir uniquement les applications Office 365 dans le portail Office 365**.
- 
+Désormais, vous pouvez mieux gérer comment les applications Office 365 apparaissent dans les panneaux d’accès de vos utilisateurs, grâce à un nouveau paramètre utilisateur. Cette option permet de réduire le nombre d’applications dans les panneaux d’accès d’un utilisateur, si vous préférez n’afficher que les applications Office dans le portail Office. Ce paramètre se trouve dans **Paramètres utilisateur** et s’intitule **Les utilisateurs peuvent voir uniquement les applications Office 365 dans le portail Office 365**.
 
 Pour plus d’informations, consultez [Masquer une application de l’expérience utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
-
-
 ### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Se connecter de manière transparente à des applications autorisant l’authentification unique par mot de passe directement depuis l’URL de l’application 
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Mes applications  
 **Fonctionnalité de produit :** SSO
- 
 
-L’extension de navigateur Mes applications est désormais disponible via un outil pratique qui vous propose une authentification unique à Mes applications sous la forme d’un raccourci dans votre navigateur. Après l’installation, l’utilisateur voit une icône de gaufre dans son navigateur, qui lui assure un accès rapide aux applications. Les utilisateurs peuvent désormais profiter des fonctionnalités suivantes :
+L’extension de navigateur Mes applications est désormais disponible via un outil pratique qui vous propose une authentification unique à Mes applications sous la forme d’un raccourci dans votre navigateur. Après l’installation, l’utilisateur voit une icône en forme de gaufre dans son navigateur, qui lui assure un accès rapide aux applications. Les utilisateurs peuvent désormais profiter des fonctionnalités suivantes :
 
-- Possibilité de se connecter directement aux application à authentification unique par mot de passe dans la page de connexion de l’application
+- Possibilité de se connecter directement aux applications à authentification unique par mot de passe dans la page de connexion de l’application
 - Lancer une application à l’aide de la fonctionnalité de recherche rapide
 - Raccourcis vers les applications récemment utilisées à partir de l’extension
 - L’extension est disponible pour Edge, Chrome et Firefox.
@@ -1132,14 +1035,13 @@ Pour plus d’informations, consultez [Extension de connexion sécurisée à Mes
 
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>L’expérience d’administration d’Azure AD dans le portail Azure Classic a été retirée
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Mise hors service de l’expérience d’administration Azure AD dans le portail Azure Classic
 
 **Type :** déprécié   
 **Catégorie de service :** Azure AD  
 **Fonctionnalité de produit :** annuaire
- 
 
-À compter du 8 janvier 2018, l’expérience d’administration d’Azure AD dans le portail Azure Classic a été retirée. Un retrait qui a coïncidé avec celui du portail Azure Classic. À l’avenir, vous devrez utiliser le [centre d’administration d’Azure AD](https://aad.portal.azure.com) pour toute l’administration d’Azure AD dans le portail.
+À compter du 8 janvier 2018, l’expérience d’administration d’Azure AD dans le portail Azure Classic a été retirée. Un retrait qui a coïncidé avec celui du portail Azure Classic. À l’avenir, vous devrez utiliser le [Centre d’administration d’Azure AD](https://aad.portal.azure.com) pour toute l’administration d’Azure AD dans le portail.
  
 ---
 
@@ -1149,7 +1051,6 @@ Pour plus d’informations, consultez [Extension de connexion sécurisée à Mes
 **Catégorie de service :** Azure AD  
 **Fonctionnalité de produit :** annuaire
  
-
 À compter du 8 janvier 2018, le portail web PhoneFactor a été retiré. Ce portail permettait d’administrer le serveur MFA, mais ces fonctions ont été transférées au portail Azure à l’adresse portal.azure.com. 
 
 La configuration de MFA se trouve dans : **Azure Active Directory \> Serveur MFA**
@@ -1158,7 +1059,6 @@ La configuration de MFA se trouve dans : **Azure Active Directory \> Serveur MFA
  
 ### <a name="deprecate-azure-ad-reports"></a>Déprécier les rapports Azure AD
 
-
 **Type :** déprécié  
 **Catégorie de service :** création de rapports  
 **Fonctionnalité de produit :** gestion du cycle de vie des identités  
@@ -1166,10 +1066,9 @@ La configuration de MFA se trouve dans : **Azure Active Directory \> Serveur MFA
 
 Avec la disponibilité générale de la nouvelle console d’administration d’Azure Active Directory et les nouvelles API désormais disponibles pour les rapports d’activité et de sécurité, les API de rapport sous le point de terminaison « /rapports » ont été retirées le 31 décembre 2017.
 
-
 **Qu’est-ce qui est disponible ?**
 
-Dans le cadre de la transition vers la nouvelle console d’administration, nous avons créé 2 API pour récupérer les journaux d’activité d’Azure AD. Le nouvel ensemble d’API fournit une fonctionnalité plus riche de filtrage et de tri en plus de fournir des activités d’audit et de connexion plus avancées. Les données précédemment disponibles via les rapports de sécurité sont désormais accessibles via l’API d’événements à risque Identity Protection dans Microsoft Graph.
+Dans le cadre de la transition vers la nouvelle console d’administration, nous avons créé 2 API pour récupérer les journaux d’activité d’Azure AD. Le nouvel ensemble d’API fournit une fonctionnalité enrichie de filtrage et de tri en plus de fournir des activités d’audit et de connexion plus avancées. Les données précédemment disponibles via les rapports de sécurité sont désormais accessibles via l’API d’événements à risque Identity Protection dans Microsoft Graph.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -1177,12 +1076,9 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
-
 ---
 
-
 ## <a name="december-2017"></a>Décembre 2017
- 
 
 ### <a name="terms-of-use-in-the-access-panel"></a>Conditions d’utilisation dans le Panneau d’accès
 
@@ -1206,7 +1102,6 @@ Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisatio
  
 ---
  
-
 ### <a name="new-azure-ad-sign-in-experience"></a>Nouvelle expérience de connexion Azure AD
 
 **Type :** nouvelle fonctionnalité  
@@ -1219,7 +1114,6 @@ Pour plus d’informations, consultez [The new Azure AD Signin Experience is now
  
 ---
  
-
 ### <a name="fewer-sign-in-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-sign-in"></a>Fewer login prompts: The new “Keep me signed in” experience for Azure AD is in preview (Moins d’invites de connexion : la nouvelle expérience « Maintenir la connexion » pour Azure AD est en préversion)
 
 **Type :** nouvelle fonctionnalité  
@@ -1233,7 +1127,6 @@ Si vous répondez **Oui** à cette invite, le service vous donne un jeton d’ac
 Pour plus d’informations, consultez [Fewer login prompts: The new “Keep me signed in” experience for Azure AD is in preview (Moins d’invites de connexion : la nouvelle expérience « Maintenir la connexion » pour Azure AD est en préversion)](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/). 
 
 ---
- 
 
 ### <a name="add-configuration-to-require-the-terms-of-use-to-be-expanded-prior-to-accepting"></a>Ajouter la configuration pour exiger le développement des conditions d’utilisation avant leur acceptation
 
@@ -1248,7 +1141,6 @@ Sélectionnez **Activé** ou **Désactivé** selon que vous souhaitiez obliger o
 Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
- 
 
 ### <a name="scoped-activation-for-eligible-role-assignments"></a>Activation délimitée des attributions de rôles éligibles
 
@@ -1262,22 +1154,21 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Iden
  
 ---
  
-
 ### <a name="new-federated-apps-in-the-azure-ad-app-gallery"></a>Nouvelles applications fédérées dans la galerie Applications Azure AD
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** applications d’entreprise  
-**Fonctionnalité de produit :** intégration de tierce partie
- 
-En décembre 2017, les nouvelles applications suivantes prenant en charge la fédération ont été ajoutées dans la galerie d’applications :
+**Fonctionnalité du produit :** intégration tierce
+
+En décembre 2017, nous avons ajouté à notre galerie d’applications les applications suivantes qui prennent en charge la fédération :
 
 [Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe Experience Manager, [EFI Digital StoreFront](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD integration](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO for Bamboo by resolution GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO for Bitbucket by resolution GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD Integration.
 
-Pour une vue d’ensemble complète de tous les didacticiels disponibles, consultez [Intégration des application SaaS avec Azure Active Directory](https://aka.ms/appstutorial).
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial).
 
+Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
  
 ---
- 
 
 ### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Flux de travail d’approbation pour les rôles d’annuaire Azure AD
 
@@ -1291,20 +1182,17 @@ Avec les flux de travail d’approbation, les administrateurs de rôles privilé
 
 ---
  
-
 ### <a name="pass-through-authentication-skype-for-business-support"></a>Authentification directe : prise en charge de Skype Entreprise
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** authentifications (connexions)  
 **Fonctionnalité de produit :** authentification utilisateur
 
-
 L’authentification directe autorise désormais les connexions des utilisateurs aux applications clientes Skype Entreprise qui prennent en charge l’authentification moderne, notamment les topologies connectée et hybride. 
 
 Pour plus d’informations, consultez [Topologies de Skype Entreprise prises en charge avec l’authentification moderne](https://technet.microsoft.com/library/mt803262.aspx).
  
 ---
- 
 
 ### <a name="updates-to-azure-ad-privileged-identity-management-for-azure-rbac-preview"></a>Mises à jour d’Azure Active AD Privileged Identity Management pour Azure RBAC (préversion)
 
@@ -1317,37 +1205,28 @@ Avec l’actualisation de la préversion publique d’Azure AD Privileged Identi
 * Utiliser JEA (Just Enough Administration).
 * Exiger une approbation pour activer les rôles de ressource.
 * Planifier l’activation future d’un rôle qui nécessite l’approbation des rôles Azure AD et RBAC Azure.
-
  
 Pour plus d’informations, consultez [PIM pour les ressources Azure (préversion)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
- 
 ---
  
 ## <a name="november-2017"></a>Novembre 2017
  
 ### <a name="access-control-service-retirement"></a>Mise hors service d’Access Control Service
 
-
-
 **Type :** modification planifiée  
 **Catégorie de service :** Access Control Service  
 **Fonctionnalité de produit :** Access Control Service 
 
-
- Microsoft Azure Active Directory Access Control (également appelé Access Control Service) sera mis hors service fin 2018. D’autres informations, notamment un planning détaillé et des instructions générales de migration, seront fournies dans les prochaines semaines. Sur cette page, vous pouvez laisser des commentaires ainsi que des questions sur Access Control Service. Un membre de l’équipe y répondra.
+Microsoft Azure Active Directory Access Control (également appelé Access Control Service) sera mis hors service fin 2018. D’autres informations, notamment un planning détaillé et des instructions générales de migration, seront fournies dans les prochaines semaines. Sur cette page, vous pouvez laisser des commentaires ainsi que des questions sur Access Control Service. Un membre de l’équipe y répondra.
 
 ---
 
 ### <a name="restrict-browser-access-to-the-intune-managed-browser"></a>Restreindre l’accès du navigateur à Intune Managed Browser 
 
-
 **Type :** modification planifiée  
 **Catégorie de service :** accès conditionnel  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
-
-
-
 
 Vous pourrez restreindre l’accès du navigateur à Office 365 et à d’autres applications cloud connectées à Azure AD en utilisant Intune Managed Browser comme application approuvée. 
 
@@ -1362,62 +1241,43 @@ Aujourd’hui, l’utilisation de cette condition bloque l’accès. Quand la pr
 Vous trouverez des détails supplémentaires sur cette fonctionnalité et d’autres dans les notes de publication et les blogs à venir. 
 
 Pour plus d’informations, consultez [Accès conditionnel dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
-
  
 ---
 
 ### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nouvelles applications clientes approuvées pour l’accès conditionnel basé sur les applications Azure AD
 
- 
 **Type :** modification planifiée  
 **Catégorie de service :** accès conditionnel  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
 
+Les applications suivantes se trouvent sur la liste des [applications clientes approuvées](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) :
 
-
-
-Les applications suivantes vont être ajoutées à la liste des [applications clientes approuvées](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) :
-
-- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://microsoft.com/en-us/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
-
 
 Pour plus d'informations, consultez les pages suivantes :
 
 - [Spécification d’application cliente approuvée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
-
 ---
 
 ### <a name="terms-of-use-support-for-multiple-languages"></a>Prise en charge des conditions d’utilisation en plusieurs langues
-
-
 
 **Type :** nouvelle fonctionnalité    
 **Catégorie de service :** conditions d’utilisation  
 **Fonctionnalité de produit :** conformité
 
-
-
-
-
 Les administrateurs peuvent maintenant créer des conditions d’utilisation qui contiennent plusieurs documents PDF. Vous pouvez baliser ces documents PDF avec une langue correspondante. Le fichier PDF qui s’affiche correspond à la langue que l’utilisateur a spécifiée dans ses préférences. S’il n’existe aucune correspondance, la langue par défaut est affichée.
-
 
 ---
  
 
 ### <a name="real-time-password-writeback-client-status"></a>État en temps réel du client de réécriture du mot de passe
 
-
-
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** réinitialisation du mot de passe libre service  
 **Fonctionnalité de produit :** authentification utilisateur
-
-
- 
 
 Vous pouvez maintenant consulter l’état de votre client de réécriture du mot de passe local. Cette option est disponible dans la section **Intégration locale** de la page [Réinitialisation du mot de passe](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset). 
 
@@ -1426,25 +1286,15 @@ En cas de problème avec la connexion à votre client de réécriture local, un 
 - Des informations sur la raison pour laquelle vous ne pouvez pas vous connecter à votre client de réécriture local.
 - Un lien vers la documentation qui vous aidera à résoudre le problème 
 
-
 Pour plus d’informations, consultez [Intégration locale](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
- 
 ---
 
-
 ### <a name="azure-ad-app-based-conditional-access"></a>Accès conditionnel basé sur les applications Azure AD 
-
-
-
  
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Azure AD  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
-
-
-
-
 
 Vous pouvez désormais restreindre l’accès à Office 365 et à d’autres applications cloud connectées à Azure AD, aux [applications clientes approuvées](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) qui prennent en charge les stratégies de protection des applications Intune par l’[accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Des stratégies de protection des applications Intune sont utilisées pour configurer et protéger les données d’entreprise sur ces applications clientes.
 
@@ -1465,23 +1315,15 @@ Les conditions et contrôles suivants sont désormais disponibles pour une utili
 
 - Demander une application cliente approuvée
 
-
 Pour plus d’informations, consultez [Accès conditionnel basé sur les applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
-
  
 ---
 
 ### <a name="manage-azure-ad-devices-in-the-azure-portal"></a>Gérer les appareils Azure AD dans le portail Azure
 
-
-
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** inscription et gestion d’appareils  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
-
- 
-
-
 
 À partir de maintenant, tous vos appareils connectés à Azure AD et les activités liées à ces appareils sont regroupés dans un même emplacement. Il existe une nouvelle expérience d’administration pour gérer toutes les identités d’appareils et les paramètres dans le portail Azure. Dans cette version, vous pouvez :
 
@@ -1492,19 +1334,13 @@ Pour plus d’informations, consultez [Accès conditionnel basé sur les applica
 
 Pour plus d’informations, consultez [Gestion des appareils avec le portail Azure](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
-
-
- 
 ---
 
 ### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Prise en charge de macOS comme plateforme d’appareils pour l’accès conditionnel Azure AD 
 
-
-
 **Type :** nouvelle fonctionnalité    
 **Catégorie de service :** accès conditionnel  
 **Fonctionnalité de produit :** sécurité et protection de l’identité 
- 
 
 Vous pouvez maintenant inclure (ou exclure) macOS comme condition de plateforme d’appareils dans votre stratégie d’accès conditionnel Azure AD. Avec l’ajout de macOS aux plateformes d’appareils prises en charge, vous pouvez :
 
@@ -1516,20 +1352,14 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Créer une stratégie de conformité d’appareil pour les appareils macOS avec Intune](https://aka.ms/macoscompliancepolicy)
 - [Accès conditionnel dans Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
-
-
  
 ---
 
 ### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Extension Network Policy Server pour Microsoft Azure Multi-Factor Authentication 
 
-
 **Type :** nouvelle fonctionnalité    
 **Catégorie de service :** Multi-Factor Authentication  
 **Fonctionnalité de produit :** authentification utilisateur
-
-
-
 
 L’extension NPS (Network Policy Server) pour Microsoft Azure Multi-Factor Authentication ajoute des fonctionnalités d’authentification multifacteur à votre infrastructure d’authentification en utilisant vos serveurs. Avec cette extension NPS, vous pouvez ajouter des vérifications par appel téléphonique, SMS ou application téléphonique à votre flux d’authentification. Et ce, sans avoir à installer, configurer et gérer de nouveaux serveurs. 
 
@@ -1543,11 +1373,9 @@ Pour plus d’informations, consultez [Intégrer votre infrastructure NPS exista
 
 ### <a name="restore-or-permanently-remove-deleted-users"></a>Restaurer ou supprimer définitivement les utilisateurs supprimés
 
-
 **Type :** nouvelle fonctionnalité    
 **Catégorie de service :** gestion des utilisateurs  
 **Fonctionnalité de produit :** annuaire 
-
 
 
 Dans le centre d’administration Azure AD, vous pouvez désormais :

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/21/2018
+ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756634"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018337"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -25,7 +25,7 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Mémoire par vCore | 2 Go | 5 GO | 10 Go |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 
@@ -37,7 +37,7 @@ Pour choisir un niveau tarifaire, utilisez le tableau suivant comme point de dé
 | Usage général | La plupart des charges de travail professionnelles qui nécessitent une capacité de calcul et de mémoire équilibrée avec un débit d’E/S extensible. Il s’agit, par exemple, de serveurs destinés à l’hébergement d’applications web et mobiles, ainsi que d’autres applications d’entreprise.|
 | Mémoire optimisée | Charges de travail de base de données haute performance qui nécessitent des performances en mémoire suffisantes pour un traitement plus rapide des transactions et une simultanéité plus élevée. Il s’agit, par exemple, de serveurs destinés au traitement de données en temps réel et à des applications transactionnelles ou analytiques haute performance.|
 
-Après avoir créé un serveur, le nombre de vCores peut être augmenté ou diminué (au sein du même niveau de tarification) en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
+Après avoir créé un serveur, le nombre de vCores, la génération du matériel et le niveau tarifaire peuvent être augmentés ou diminués (excepté à vers et à partir de la version De base) en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Vous ne pouvez pas modifier le type de stockage de sauvegarde après la création d’un serveur. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
 
 
 ## <a name="compute-generations-and-vcores"></a>Générations de calcul et vCores
@@ -49,7 +49,7 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Centre des États-Unis | X |  |
 | Est des États-Unis | X | X |
 | Est des États-Unis 2 | X | X |
-| Centre-Nord des États-Unis | X |  |
+| Centre-Nord des États-Unis | X | X |
 | États-Unis - partie centrale méridionale | X | X |
 | États-Unis de l’Ouest | X | X |
 | Ouest des États-Unis 2 |  | X |
@@ -58,9 +58,10 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Sud du Brésil | X | X |
 | Europe du Nord | X | X |
 | Europe de l'Ouest |  | X |
+| France-Centre |  | X |
 | Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
-| Est de l'Asie | X |  |
+| Est de l'Asie | X | X |
 | Asie du Sud-Est | X | X |
 | Est de l’Australie |  | X |
 | Sud-est de l’Australie |  | X |
@@ -69,6 +70,7 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Inde du Sud |  | X |
 | Est du Japon | X | X |
 | Ouest du Japon | X | X |
+| Centre de la Corée |  | X |
 | Corée du Sud |  | X |
 
 ## <a name="storage"></a>Stockage
@@ -78,15 +80,15 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
-| E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde |
+| E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
 
 Vous pouvez ajouter une capacité de stockage supplémentaire pendant et après la création du serveur. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
 Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
 
-### <a name="reaching-the-store-limit"></a>Atteindre la limite du magasin
+### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
 Le serveur est marqué en lecture seule lorsque la quantité de stockage disponible est inférieure à 5 Go ou 5 % du stockage provisionné, selon la valeur qui est inférieure. Par exemple, si vous avez provisionné 100 Go de stockage, et que l’utilisation réelle dépasse 95 Go, le serveur est marqué en lecture seule. Ou, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 250 Mo.  
 
@@ -100,9 +102,9 @@ Le service effectue automatiquement des sauvegardes de votre serveur. La périod
 
 ## <a name="scale-resources"></a>Mettre les ressources à l’échelle
 
-Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Le nombre de vCores peut être augmenté ou diminué au sein du même niveau de tarification. La période de rétention de sauvegarde peut être augmentée ou diminuée et va de 7 à 35 jours. La taille de stockage ne peut être qu’augmentée.  La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
+Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la génération du matériel, le niveau tarifaire (excepté à partir de la version De base), la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le type de stockage de sauvegarde après la création d’un serveur. Le nombre de vCores peut être augmenté ou diminué. La période de rétention de sauvegarde peut être augmentée ou diminuée et va de 7 à 35 jours. La taille de stockage ne peut être qu’augmentée. La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
-Lorsque vous modifiez le nombre de vCores, une copie du serveur d’origine est créée avec la nouvelle allocation du calcul. Une fois que le nouveau serveur est opérationnel, les connexions sont basculées vers le nouveau serveur. Pendant le moment durant lequel le système bascule vers le nouveau serveur, aucune nouvelle connexion ne peut être établie, et toutes les transactions non validées sont restaurées. Cette fenêtre varie, mais dans la plupart des cas elle dure moins d’une minute.
+Lorsque vous modifiez le nombre de vCores, la génération du matériel ou le niveau tarifaire, une copie du serveur d’origine est créée avec la nouvelle allocation du calcul. Une fois que le nouveau serveur est opérationnel, les connexions sont basculées vers le nouveau serveur. Pendant le moment durant lequel le système bascule vers le nouveau serveur, aucune nouvelle connexion ne peut être établie, et toutes les transactions non validées sont restaurées. Cette fenêtre varie, mais dans la plupart des cas elle dure moins d’une minute.
 
 La mise à l’échelle du stockage et la modification de la période de rétention de sauvegarde sont des opérations en ligne. Aucune interruption de service n’a lieu et votre application n’est pas affectée. Comme les E/S par seconde augmentent avec la taille du stockage approvisionné, vous pouvez augmenter le nombre de E/S par seconde disponibles pour votre serveur en mettant à l’échelle l’espace de stockage.
 

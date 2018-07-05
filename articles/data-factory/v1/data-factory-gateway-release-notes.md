@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620559"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048612"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez le [Guide pratique pour créer et configurer le runtime d’intégration autohébergé](../create-self-hosted-integration-runtime.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Runtime d’intégration auto-hébergé dans V2](../create-self-hosted-integration-runtime.md).
 
 Un des défis de l’intégration de données modernes consiste à déplacer des données vers et depuis un site local et le cloud. Azure Data Factory effectue cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
 
@@ -127,12 +127,12 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
     *  Commandes réorganisées et simplifiées.
 
-    *  Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de prévisualisation de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) .
+    *  Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) .
 *  Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server locale dans Azure Machine Learning.
 
 *  Amélioration des performances
 
-    * Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de prévisualisation de copie sans code.
+    * Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de copie sans code.
 
 ## <a name="11259531"></a>1.12.5953.1
 

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621181"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048915"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md) (runtime d’intégration auto-hébergé dans la version 2). 
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Guide pratique pour créer et configurer le runtime d’intégration autohébergé dans Data Factory](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > La passerelle de gestion des données a été renommée runtime d’intégration autohébergé.  
@@ -46,7 +46,7 @@ La passerelle de gestion des données offre les fonctionnalités suivantes :
 * Gestion sécurisée de l’accès aux sources de données locales.
   * Aucune modification du pare-feu d’entreprise n’est requise. La passerelle établit uniquement des connexions HTTP sortantes pour l’accès à Internet.
   * Chiffrement des informations d’identification pour vos magasins de données locaux à l’aide de votre certificat.
-* Déplacer les données efficacement : les données sont transférées en parallèle et sont résilientes face aux problèmes intermittents du réseau, grâce à la logique de nouvelle tentative automatique.
+* Déplacer les données efficacement : les données sont transférées en parallèle et résistent aux problèmes intermittents du réseau, grâce à la logique de nouvelle tentative automatique.
 
 ### <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
 Lorsque vous utilisez une activité de copie pour copier des données entre des machines locales et cloud, l’activité utilise une passerelle pour transférer les données à partir de la source de données locale vers le cloud et vice versa.
@@ -231,13 +231,13 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
 > N’oubliez pas de mettre à jour diahost.exe.config **et** diawp.exe.config.  
 
 
-Outre ces points, vous devez également vous assurer que Microsoft Azure figure dans la liste verte de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Outre ces points, vous devez également vérifier que Microsoft Azure figure dans la liste verte de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle ne peut pas se connecter à Data Factory pour s’authentifier. Reportez-vous à la section précédente pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
 1. Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
-2. Quand vous ouvrez le Gestionnaire de Configuration, vous voyez l’état « Déconnecté » ou « En cours de connexion ». Quand vous affichez les journaux des événements Windows, dans Observateur d’événements > Journaux des applications et des services > Passerelle de gestion des données, vous voyez des messages d’erreur comme le suivant : `Unable to connect to the remote server`
+2. Quand vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Quand vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que le suivant s’affichent : `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Ouvrir le port 8050 pour le chiffrement des informations d’identification
@@ -288,12 +288,12 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Pour une passerelle multinœud à haute disponibilité et scalable (préversion)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
 
-    Pour une passerelle avec une fonctionnalité de haute disponibilité (version préliminaire), un paramètre AuthKey supplémentaire est requis.
+    Pour une passerelle avec une fonctionnalité de haute disponibilité, un paramètre AuthKey supplémentaire est nécessaire.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
@@ -369,7 +369,7 @@ Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette vale
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Réseau (entrée/sortie) | Utilisation du réseau d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Tâches simultanées (en cours d’exécution/limite) | Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, où le processeur/la mémoire /le réseau sont sous-utilisés, alors que les activités expirent. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée).  
-Rôle | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
+Rôle | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
 
 Dans cette page figurent des paramètres plus significatifs en présence de deux nœuds ou plus (scénario d’augmentation du nombre des instances) dans la passerelle. Consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations sur la configuration d’une passerelle à plusieurs nœud.
 
@@ -490,12 +490,12 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 3. Utilisez l’applet de commande **New-AzureRmDataFactoryGateway** pour créer une passerelle logique, comme suit :
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Exemple de commande et de sortie**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
     Name              : MyGateway
     Description       : gateway for walkthrough

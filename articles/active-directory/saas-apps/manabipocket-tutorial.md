@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212369"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutoriel : Intégration d’Azure Active Directory à Manabi Pocket
 
@@ -101,35 +100,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. Dans la section **Domaine et URL Manabi Pocket**, suivez les étapes ci-dessous pour configurer l’application en mode initié par le **fournisseur d’identité** :
+3. Dans la section **Domaine et URL Manabi Pocket**, suivez les étapes ci-dessous :
 
     ![Informations d’authentification unique dans Domaine et URL Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://ed-cl.com/`
+
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Manabi Pocket](mailto:info-ed-cl@ntt.com).
+    > La valeur de l'identificateur n'est pas réelle. Mettez-la à jour avec l’identificateur réel. Pour obtenir cette valeur, contactez l’[équipe de support technique Manabi Pocket](mailto:info-ed-cl@ntt.com).
 
-4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://ed-cl.com/`
-
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Cliquez sur le bouton **Enregistrer** .
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Pour configurer l’authentification unique côté **Manabi Pocket**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique Manabi Pocket](mailto:info-ed-cl@ntt.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+6. Pour configurer l’authentification unique côté **Manabi Pocket**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique Manabi Pocket](mailto:info-ed-cl@ntt.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -196,7 +189,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
+
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
@@ -222,4 +215,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

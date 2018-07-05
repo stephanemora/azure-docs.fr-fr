@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 35eedb170e1c79f4d282f71608b456a271c4d59b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795943"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018216"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Vérifications exécutées|
+|---|
+|<ul><li>Le serveur est-il en cours d’exécution ?</li><li>Le serveur manque-t-il de mémoire ?</li><li>Le serveur démarre-t-il ?</li><li>Le serveur récupère-t-il ?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Vérifications exécutées|
@@ -57,13 +62,13 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Vérifications exécutées|
 |---|
-|<ul><li>Les utilisateurs peuvent-ils envoyer des travaux à Data Lake Analytics dans la région ?</li><li>Est-ce que les travaux s’exécutent et se terminent correctement dans la région ?</li><li>Les utilisateurs peuvent-ils répertorier des éléments de catalogue dans la région ?</li>|
+|<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors de l’envoi ou du listage de leurs travaux Data Lake Analytics ?</li><li>Les travaux Data Lake Analytics sont-ils incapables de terminer en raison d’erreurs système ?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Vérifications exécutées|
 |---|
-|<ul><li>Les utilisateurs peuvent-ils télécharger des données vers Data Lake Store dans la région ?</li><li>Les utilisateurs peuvent-ils télécharger des données à partir de Data Lake Store dans la région ?</li></ul>|
+|<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors du chargement de données vers le Data Lake Store ?</li><li>Les utilisateurs ont-ils rencontré des problèmes lors du téléchargement de données à partir du Data Lake Store ?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -75,6 +80,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Y a-t-il eu des demandes de base de données ou de collection non servies en raison d’une indisponibilité du service Azure Cosmos DB ?</li><li>Y a-t-il eu des demandes de document non servies en raison d’une indisponibilité du service Azure Cosmos DB ?</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|Vérifications exécutées|
+|---|
+|<ul><li>Les demandes de coffre de clés échouent-elles en raison de problèmes de plateforme Azure KeyVault ?</li><li>Les demandes de coffre de clés sont-elles limitées en raison de trop de requêtes effectuées par le client ?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Vérifications exécutées|
@@ -105,6 +115,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li> Y a-t-il eu des connexions à la base de données ?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Vérifications exécutées|
+|---|
+|<ul><li>Les demandes de lecture des données à partir du compte de stockage échouent-elles en raison de problèmes de la plateforme de Stockage Azure ?</li><li>Les demandes d’écriture des données sur le compte de stockage échouent-elles en raison de problèmes de la plateforme de Stockage Azure ?</li><li>Le cluster de stockage où réside le compte de stockage est-il indisponible ?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Vérifications exécutées|

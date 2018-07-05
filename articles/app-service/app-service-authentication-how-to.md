@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763140"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337177"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -26,8 +26,8 @@ Cet article vous explique comment personnaliser [les paramètres d’authentific
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
-* [Didacticiel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Didacticiel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
+* [Didacticiel : authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Didacticiel : authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Comment configurer votre application pour utiliser une connexion Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Comment configurer votre application pour utiliser une connexion Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -89,7 +89,7 @@ Lorsque le jeton d’accès de votre fournisseur a expiré, vous devez réauthen
 
 - **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
 - **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
-- **Twitter** : les jetons d’accès n’expirent pas (voir [Twitter OAuth FAQ](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq) (FAQ sur l’authentification OAuth Twitter)).
+- **Twitter** : les jetons d’accès n’expirent pas (voir [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq) (FAQ sur l’authentification OAuth Twitter)).
 - **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), sélectionnez l’étendue `wl.offline_access`.
 - **Azure Active Directory** : dans [https://resources.azure.com](https://resources.azure.com), procédez comme suit :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
@@ -103,7 +103,7 @@ Lorsque le jeton d’accès de votre fournisseur a expiré, vous devez réauthen
 
     1. Cliquez sur **Put**. 
 
-Une fois que votre fournisseur est configuré, vous pouvez vérifier si le magasin de jetons contient des jetons d’actualisation en appelant `/.auth/me`. 
+Une fois que votre fournisseur est configuré, vous pouvez [rechercher le jeton d’actualisation et l’heure d’expiration pour le jeton d’accès](#retrieve-tokens-in-app-code) dans le magasin de jetons. 
 
 Pour actualiser votre jeton d’accès à tout moment, il vous suffit d’appeler `/.auth/refresh` dans n’importe quel langage. L’extrait de code suivant utilise jQuery pour actualiser vos jetons d’accès à partir d’un client JavaScript.
 

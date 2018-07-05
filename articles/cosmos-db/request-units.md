@@ -2,19 +2,19 @@
 title: Unités de requête et estimation du débit - Azure Cosmos DB | Microsoft Docs
 description: Découvrez les besoins en unités de requête dans Azure Cosmos DB, et comment les spécifier et les estimer.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823721"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053325"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Azure Cosmos DB offre des performances élevées et prévisibles en réservant d
 
 Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit. Vous réservez une quantité d’unités de requête garantie accessible par seconde à votre application. Chaque opération dans Azure Cosmos DB (y compris l’écriture d’un document, l’exécution d’une requête, la mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde. Autrement dit, chaque opération entraîne des frais de requête, exprimés en unités de requête. Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. 
 
-Pour démarrer, regardez la vidéo suivante, où le gestionnaire de programmes Azure Cosmos DB, Andrew Liu, traite des unités de requête : <br /><br />
+Pour démarrer, regardez la vidéo suivante, où le responsable du programme Azure Cosmos DB, Andrew Liu, traite des unités de requête (les exemples d’unités de requête de la vidéo contiennent une faute de frappe mineure. Quand des données de 1 Ko avec 100 000 enregistrements sont utilisées, le stockage total est de 100 Mo et non pas de 100 Go) : <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -111,7 +111,7 @@ Pour utiliser l’outil :
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Utiliser l’en-tête de réponse de frais de requête Azure Cosmos DB
-Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour une requête donnée. Vous pouvez également à cet en-tête via les kits SDK Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET, **RequestCharge** est une propriété de l’objet **ResourceResponse**. Pour les requêtes, l’Explorateur de données Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
+Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour une requête donnée. Vous pouvez également à cet en-tête via les kits SDK Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET, **RequestCharge** est une propriété de l’objet **ResourceResponse**. Pour les requêtes, l’Explorateur de données Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées. Pour découvrir comment obtenir et définir un débit avec différentes API multimodèles, consultez l’article [Définir et obtenir le débit dans Azure Cosmos DB](set-throughput.md).
 
 Une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application. Ensuite, vous évaluez le nombre d’opérations que vous prévoyez d’effectuer chaque seconde. Veillez également à mesurer et à inclure les requêtes courantes et l’utilisation des scripts Azure Cosmos DB.
 

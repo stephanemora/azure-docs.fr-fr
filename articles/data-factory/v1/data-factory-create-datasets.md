@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620477"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046984"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-create-datasets.md)
-> * [Version 2 - Préversion](../concepts-datasets-linked-services.md)
+> * [Version 1](data-factory-create-datasets.md)
+> * [Version 2 (version actuelle)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 de Data Factory, disponible en préversion, consultez [Jeux de données dans V2](../concepts-datasets-linked-services.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Jeux de données dans V2](../concepts-datasets-linked-services.md).
 
 Cet article décrit les jeux de données, comment ils sont définis au format JSON et comment ils sont utilisés dans les pipelines d’Azure Data Factory. Il fournit des détails sur chaque section (par exemple, structure, disponibilité et stratégie) dans la définition JSON du jeu de données. Cet article fournit également des exemples d’utilisation des propriétés **offset**, **anchorDateTime** et **style** dans une définition JSON de jeu de données.
 

@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404958"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046677"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop dans HDInsight
 
@@ -63,9 +63,9 @@ Les nœuds de travail effectuent l’analyse de données proprement dite lorsqu�
 
 Un nœud ne participe pas activement à l’analyse de données au sein du cluster. Il est utilisé par les développeurs ou chercheurs de données qui travaillent avec Hadoop. Le nœud de périmètre se trouve dans le même réseau virtuel Azure que les autres nœuds du cluster et peut accéder directement à tous les autres nœuds. Le nœud Edge peut être utilisé sans qu’il faille recourir à des ressources de services Hadoop ou de tâches d’analyse critiques.
 
-Pour l’instant, R Server sur HDInsight est le seul type de cluster à fournir un nœud de périmètre par défaut. Dans le cas de R Server sur HDInsight, le nœud de périmètre est utilisé pour tester le code R localement sur le nœud avant de le soumettre au cluster à des fins de traitement distribué.
+Pour l’heure, ML Services sur HDInsight est le seul type de cluster à proposer un nœud de périphérie par défaut. Dans le cas de ML Services sur HDInsight, le nœud de périphérie est utilisé pour tester le code R localement sur le nœud avant de l’envoyer au cluster à des fins de traitement distribué.
 
-Pour plus d’informations sur l’utilisation d’un nœud de périmètre avec des types de clusters autres que R Server, consultez le document [Utiliser des nœuds de périmètre dans HDInsight](hdinsight-apps-use-edge-node.md).
+Pour plus d’informations sur l’utilisation d’un nœud de périphérie avec d’autres types de cluster, consultez le document [Utiliser des nœuds de périphérie dans HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="accessing-the-nodes"></a>Accès aux nœuds
 

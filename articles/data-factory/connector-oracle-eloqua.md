@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Oracle Eloqua à l’aide d’Azure Data Factory (version bêta) | Microsoft Docs
+title: Copier des données d’Oracle Eloqua à l’aide d’Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Oracle Eloqua vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fa26e71651f0b13da97653e998974c6fd39fe3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 821e345933ba52ed2c71251bab3ba159e5412568
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617193"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048371"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Copier des données de Oracle Eloqua à l’aide d’Azure Data Factory (version bêta)
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Copier des données d’Oracle Eloqua à l’aide d’Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Oracle Eloqua. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, voir [Activité de copie dans V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Ce connecteur est actuellement en version bêta. Essayez-le et envoyez-nous vos commentaires. Ne l’utilisez pas dans des environnements de production.
+> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -49,8 +46,8 @@ Les propriétés prises en charge pour le service lié Oracle Eloqua sont les su
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Eloqua** | OUI |
-| endpoint | Le point de terminaison du serveur Eloqua. (autrement dit, eloqua.example.com)  | OUI |
-| username | Le nom du site et le nom d’utilisateur de votre compte Eloqua sous la forme : nom du site/nom d’utilisateur. (autrement dit, Eloqua/Alice)  | OUI |
+| endpoint | Le point de terminaison du serveur Eloqua. Eloqua prend en charge plusieurs centres de données. Pour déterminer votre point de terminaison, connectez-vous à https://login.eloqua.com avec vos informations d’identification, puis copiez la partie **URL de base** à partir de l’URL redirigée avec le modèle `xxx.xxx.eloqua.com`. | OUI |
+| username | Nom du site et nom d’utilisateur de votre compte Eloqua au format : `SiteName\Username`, par exemple `Eloqua\Alice`.  | OUI |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
@@ -64,8 +61,8 @@ Les propriétés prises en charge pour le service lié Oracle Eloqua sont les su
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"

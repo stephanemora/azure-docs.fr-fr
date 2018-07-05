@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 840d3737efe4314359ba3a3bf0f5c4f888f92567
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958722"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329567"
 ---
 Les tailles de machine virtuelle à stockage optimisé offrent un débit et des E/S de disque élevés, et sont idéales pour les bases de données Big Data, SQL et NoSQL. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -31,7 +31,7 @@ ACU : 180-240
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40 000 / 1 000     | 8 / 20,000 | 
  
 
-Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md). 
+Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md). Les machines virtuelles de la série Ls sont ciblées sur les charges de travail ayant une utilisation élevée du stockage local, et utilisent généralement uniquement des disques attachés pour le chargement initial et la journalisation. Comme la mise en cache n’a aucun effet dans ce cas, la série Ls ne prend pas en charge la mise en cache de l’hôte pour les disques attachés, et les disques doivent être attachés en mode de non mise en cache. 
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
 

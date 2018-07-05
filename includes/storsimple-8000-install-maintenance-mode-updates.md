@@ -6,7 +6,7 @@ Quand vous appliquez des mises à jour en mode maintenance à l’appareil StorS
 > * Avant de passer en mode maintenance, vérifiez que les deux contrôleurs d’appareil sont sains dans le portail Azure. Si le contrôleur n’est pas sain, [contactez le Support Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) pour connaître les étapes suivantes.
 > * En mode maintenance, vous devez d’abord mettre à jour un premier contrôleur, puis l’autre contrôleur.
 
-1. Utilisez PuTTY pour vous connecter à la console série. Suivez les instructions détaillées de la section [Utilisation de PuTTY pour se connecter à la console série de l’appareil](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). À l'invite de commandes, appuyez sur **Entrée**. Sélectionnez Option 1 pour vous connecter à l’appareil avec un accès complet.
+1. Utilisez PuTTY pour vous connecter à la console série. Suivez les instructions détaillées de la section [Utilisation de PuTTY pour se connecter à la console série de l’appareil](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). À l'invite de commandes, appuyez sur **Entrée**. Sélectionnez Option 1, **Se connecter avec accès total**.
 
 2. Pour mettre le contrôleur en mode maintenance, tapez :
     
@@ -14,13 +14,13 @@ Quand vous appliquez des mises à jour en mode maintenance à l’appareil StorS
 
     Les deux contrôleurs redémarrent en mode maintenance.
 
-3. Installez vos mises à jour en mode maintenance. Entrez :
+3. Installez vos mises à jour en mode maintenance. Tapez :
 
     `Start-HcsUpdate`
 
     Vous êtes invité à confirmer l’opération. Une fois que vous avez confirmé les mises à jour, elles sont installées sur le contrôleur auquel vous êtes connecté. Après l’installation des mises à jour, le contrôleur redémarre.
 
-4. Surveillez l’état des mises à jour. Connectez-vous au contrôleur homologue pendant que le contrôleur actuel se met à jour et n’est pas en mesure de traiter d’autres commandes. Entrez :
+4. Surveillez l’état des mises à jour. Connectez-vous au contrôleur homologue pendant que le contrôleur actuel se met à jour et n’est pas en mesure de traiter d’autres commandes. Tapez :
 
     `Get-HcsUpdateStatus`
 

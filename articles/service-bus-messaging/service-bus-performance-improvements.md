@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802542"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301799"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
 Cet article décrit comment utiliser Azure Service Bus pour optimiser les performances lors de l’échange de messages répartis. La première partie de cet article décrit les différents mécanismes proposés afin d’améliorer les performances. La deuxième partie fournit des conseils sur l’utilisation de Service Bus des services visant à offrir des performances optimales dans un scénario donné.
 
-Dans cette rubrique, le terme « client » fait référence à une entité qui accède à Service Bus. Un client peut jouer le rôle d’un expéditeur ou d’un destinataire. Le terme « expéditeur » est utilisé pour un client de file d’attente ou de rubrique Service Bus qui envoie des messages à une file d’attente ou un abonnement à une rubrique Service Bus. Le terme « destinataire » fait référence à un client de file d’attente ou d’abonnement de Bus de Service qui reçoit des messages de la part d’une file d’attente ou d’un abonnement Service Bus.
+Dans cet article, le terme « client » fait référence à une entité qui accède à Service Bus. Un client peut jouer le rôle d’un expéditeur ou d’un destinataire. Le terme « expéditeur » est utilisé pour un client de file d’attente ou de rubrique Service Bus qui envoie des messages à une file d’attente ou un abonnement à une rubrique Service Bus. Le terme « destinataire » fait référence à un client de file d’attente ou d’abonnement de Bus de Service qui reçoit des messages de la part d’une file d’attente ou d’un abonnement Service Bus.
 
 Les sections suivantes présentent plusieurs concepts Service Bus utiles pour améliorer les performances.
 
@@ -37,7 +32,7 @@ Service Bus permet aux clients d’envoyer et de recevoir des messages par le bi
 2. Service Bus Messaging Protocol (SBMP)
 3. HTTP
 
-AMQP et SBMP sont plus efficaces, car ils maintiennent la connexion au Service Bus tant que la fabrique de messagerie existe. Il permet également le traitement par lot et la lecture anticipée. Sauf mention explicite, tout le contenu de cette rubrique suppose l’utilisation du protocole AMQP ou SBMP.
+AMQP et SBMP sont plus efficaces, car ils maintiennent la connexion au Service Bus tant que la fabrique de messagerie existe. Il permet également le traitement par lot et la lecture anticipée. Sauf mention explicite, tout le contenu de cet article suppose l’utilisation du protocole AMQP ou SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Réutilisation de structures et de clients
 
@@ -45,13 +40,13 @@ Des objets client Service Bus, tels que [QueueClient][QueueClient] ou [MessageSe
 
 ## <a name="concurrent-operations"></a>Opérations simultanées
 
-L’exécution d’une opération (envoi, réception, suppression, etc.) prend un certain temps. Ce temps comprend le traitement de l’opération par le service Service Bus en plus de la latence de la demande et de la réponse. Pour augmenter le nombre d’opérations par période, les opérations doivent s’exécuter simultanément. Vous pouvez obtenir cette simultanéité de plusieurs façons différentes :
+L’exécution d’une opération (envoi, réception, suppression, etc.) prend un certain temps. Ce temps comprend le traitement de l’opération par le service Service Bus en plus de la latence de la demande et de la réponse. Pour augmenter le nombre d’opérations par période, les opérations doivent s’exécuter simultanément. 
 
-* **Opérations asynchrones** : le client planifie les opérations en effectuant des opérations asynchrones. La requête suivante démarre avant la fin de la demande précédente. Voici un exemple d’opération d’envoi asynchrone présenté sous forme d’extrait de code :
+Le client planifie les opérations parallèles en effectuant des opérations asynchrones. La requête suivante démarre avant la fin de la demande précédente. Voici un exemple d’opération d’envoi asynchrone présenté sous forme d’extrait de code :
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ L’exécution d’une opération (envoi, réception, suppression, etc.) prend u
   Console.WriteLine("All messages sent");
   ```
   
-  Voici un exemple d’opération de réception asynchrone présenté sous forme de code :
+  Voici un exemple d’opération de réception asynchrone présenté sous forme de code. Consultez le programme complet [ici](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues) :
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Plusieurs structures** : tous les clients (expéditeurs et destinataires) qui sont créés par la même structure partagent une connexion TCP. Le débit maximal de messages est limité par le nombre d’opérations pouvant emprunter cette connexion TCP. Le débit qui peut être obtenu avec une seule structure varie sensiblement en fonction des durées de parcours aller-retour TCP et de la taille des messages. Pour obtenir des débits plus importants, utilisez plusieurs structures de messagerie.
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>Mode de réception
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-Le traitement par lot n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus. Le protocole HTTP ne prend pas en charge le traitement par lot.
+Le traitement par lot n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus utilisant la bibliothèque [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Le protocole HTTP ne prend pas en charge le traitement par lot.
 
 ## <a name="batching-store-access"></a>Accès au dispositif de stockage de traitement par lot
 
@@ -135,7 +119,7 @@ La [lecture anticipée](service-bus-prefetch.md) permet au client de la file d�
 
 Lorsqu’un message est lu par anticipation, le service le verrouille. Ainsi, le message lu par anticipation ne peut pas être reçu par un autre destinataire. Si le destinataire ne peut pas terminer le message avant expiration du verrouillage, le message devient disponible pour les autres destinataires. La copie lue par anticipation du message reste dans le cache. Le destinataire qui consomme la copie mise en cache expirée reçoit une exception lorsqu’il essaie de terminer le message. Par défaut, le verrouillage du message expire au bout de 60 secondes. Cette valeur peut être étendue à 5 minutes. Pour empêcher la consommation des messages arrivés à expiration, la taille du cache doit toujours être inférieure au nombre de messages qui peuvent être utilisés par un client au sein de l’intervalle de délai d’expiration de verrouillage.
 
-Lorsque vous utilisez l’expiration de verrouillage par défaut (60 secondes), il est judicieux d’attribuer à [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] une valeur correspondant à 20 fois la vitesse de traitement de l’ensemble des destinataires présents dans la structure. Par exemple, une structure crée 10 destinataires, et chaque destinataire peut traiter jusqu’à 10 messages par seconde. Le nombre de lectures anticipées ne doit pas dépasser 20 X 3 X 10 = 600. Par défaut, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] est définie sur 0, ce qui signifie qu’aucun message supplémentaire n’est lu à partir du service.
+Lorsque vous utilisez l’expiration de verrouillage par défaut (60 secondes), il est judicieux d’attribuer à [PrefetchCount][SubscriptionClient.PrefetchCount] une valeur correspondant à 20 fois la vitesse de traitement de l’ensemble des destinataires présents dans la structure. Par exemple, une structure crée 10 destinataires, et chaque destinataire peut traiter jusqu’à 10 messages par seconde. Le nombre de lectures anticipées ne doit pas dépasser 20 X 3 X 10 = 600. Par défaut, [PrefetchCount][QueueClient.PrefetchCount] est définie sur 0, ce qui signifie qu’aucun message supplémentaire n’est récupéré à partir du service.
 
 La lecture anticipée de messages augmente le débit global d’un abonnement ou une file d’attente, car elle permet de réduire le nombre total d’opérations de messagerie, ou les allers-retours. La lecture anticipée du premier message, cependant, prend plus de temps (en raison de la taille du message accrue). La réception de message avec lecture anticipée sera plus rapide, car ces messages ont déjà été téléchargés par le client.
 
@@ -158,12 +142,12 @@ Si un message contenant des informations sensibles ne devant pas être égarées
 > [!NOTE]
 > Les entités rapides ne prennent pas en charge les transactions.
 
-## <a name="use-of-partitioned-queues-or-topics"></a>Utilisation de files d’attente partitionnées ou de rubriques
+## <a name="partitioned-queues-or-topics"></a>Files d’attente ou rubriques partitionnées
 
 En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une [file d’attente ou une rubrique partitionnée](service-bus-partitioning.md), elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][EnablePartitioning] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
 
 > [!NOTE]
-> Les entités partitionnées ne sont plus prises en charge dans la [référence SKU Premium](service-bus-premium-messaging.md). 
+> Les entités partitionnées ne sont pas prises en charge dans le niveau [SKU Premium](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>Utilisation de plusieurs files d’attente
+## <a name="multiple-queues"></a>Files d’attente multiples
 
 S’il est impossible d’utiliser une file d’attente ou une rubrique partitionnée, la charge prévue ne peut pas être gérée par une seule file d’attente ou rubrique partitionnée. Vous devez utiliser plusieurs entités de messagerie. Lorsque vous utilisez plusieurs entités, créez un client dédié pour chacune d’elles au lieu d’utiliser le même client pour toutes les entités.
 

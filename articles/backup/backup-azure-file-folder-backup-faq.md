@@ -7,14 +7,14 @@ manager: shreeshd
 keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 6/25/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605529"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016485"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de l’agent de sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -58,7 +58,7 @@ Absolument. Azure Backup fournit une sauvegarde au niveau de la machine virtuell
 Oui. Installez l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegardez les fichiers et dossiers sur un stockage temporaire. Les opérations de sauvegarde échouent une fois les données du stockage temporaire effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Quelle est la taille minimale requise du dossier du cache ? <br/>
-La taille du dossier du cache détermine la quantité de données que vous sauvegardez. Le dossier cache doit représenter 5 % de l’espace requis pour le stockage de données.
+La taille du dossier du cache détermine la quantité de données que vous sauvegardez. Le volume de votre dossier de cache doit représenter au moins 5 à 10 % de l’espace disponible, compte tenu de la taille totale des données de sauvegarde. Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou [déplacez le dossier de cache vers un volume ayant suffisamment d’espace libre](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Comment inscrire mon serveur dans un autre centre de données ?<br/>
 Les données de sauvegarde sont envoyées au centre de données du coffre dans lequel il est inscrit. Le moyen le plus simple pour changer de centre de données consiste à désinstaller/réinstaller l’agent et à demander un nouveau coffre appartenant au centre de données choisi.

@@ -10,24 +10,21 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 6c5e32f0ed39ce2e8c1e412dcfc6c04fb0f8bd7a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715256"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019486"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Introduction aux fonctions de sécurité Hadoop sur la base de clusters HDInsight joints à un domaine
 
 Jusqu’à présent, Azure HDInsight ne prenait en charge qu’un seul administrateur local d’utilisateurs. Cela fonctionnait à merveille pour les petites équipes d’application ou les services. Avec le gain en popularité des charges de travail Hadoop dans le secteur de l’entreprise, les besoins en fonctionnalités de niveau entreprise, comme l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle sont devenus de plus en plus importants. À l’aide de clusters HDInsight joints à un domaine, vous pouvez créer un cluster HDInsight joint à un domaine Active Directory et configurer une liste des employés de l’entreprise qui peuvent s’authentifier via Azure Active Directory pour se connecter au cluster HDInsight. Toute personne en dehors de l’entreprise ne peut pas se connecter ni accéder au cluster HDInsight. L’administrateur d’entreprise peut configurer le contrôle d’accès en fonction du rôle pour la sécurité Hive à l’aide [d’Apache Ranger](http://hortonworks.com/apache/ranger/), limitant ainsi l’accès aux données de manière appropriée. Enfin, l’administrateur peut auditer l’accès aux données par les employés et les modifications apportées aux stratégies de contrôle d’accès, d’où un degré élevé de gouvernance des ressources de l’entreprise.
 
 > [!NOTE]
-> Les nouvelles fonctionnalités décrites dans cet article sont disponibles en préversion uniquement sur les types de cluster suivants : Hadoop, Spark et Interactive Query.
-
-> [!IMPORTANT]
-> Oozie n’est pas activé sur HDInsight joint à un domaine.
+> Les nouvelles fonctionnalités décrites dans cet article sont disponibles en préversion uniquement sur les types de cluster suivants : Hadoop, Spark et Interactive Query. Oozie est maintenant activé sur les clusters joints à un domaine. Pour accéder à l’interface utilisateur web d’Oozie, les utilisateurs doivent activer le [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="benefits"></a>Avantages
 La sécurité d’entreprise est constituée de quatre piliers majeurs : sécurité du périmètre, authentification, autorisation et chiffrement.

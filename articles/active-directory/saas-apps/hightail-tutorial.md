@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223414"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Didacticiel : Intégration d’Azure Active Directory à Hightail
 
@@ -105,31 +104,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. Dans la section **Domaine et URL Hightail**, procédez comme suit :
+3. Dans la section **Domaines et URL Hightail**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     Dans la zone de texte **URL de réponse**, tapez l’URL : `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    Dans la zone de texte **URL de réponse**, tapez l’URL : `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-    > [!NOTE] 
-    > La valeur ci-dessus n’est pas une valeur réelle. Vous mettrez à jour la valeur avec l’URL de réponse réelle. La procédure est expliquée plus loin dans le didacticiel.
- 
-4. Dans la section **Domaine et URL Hightail**, si vous souhaitez configurer l’application en **Mode initié par SP**, procédez comme suit :
-    
+    > [!NOTE]
+    > La valeur de l’URL de réponse n’est pas réelle. Vous mettrez à jour la valeur de l’URL de réponse avec la valeur réelle. La procédure est expliquée plus loin dans le didacticiel.
+
+4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. Cliquez sur **Afficher les paramètres d’URL avancés**.
-
-    b. Dans la zone de texte **URL d’authentification**, saisissez l’URL : `https://www.hightail.com/loginSSO`
+    Dans la zone de texte **URL d’authentification**, saisissez l’URL : `https://www.hightail.com/loginSSO`
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. L’application Hightail attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attribut** de l’application. La capture d’écran suivante montre un exemple : 
+5. L’application Hightail attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet « **Attribut** » de l’application. La capture d’écran suivante montre un exemple : 
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -153,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
     d. Laissez le champ **Espace de noms** vide.
-    
+
     e. Cliquez sur **OK**.
 
 7. Cliquez sur le bouton **Enregistrer** .
@@ -162,41 +159,32 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans la section **Configuration de Hightail** , cliquez sur **Configurer Hightail** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Avant de configurer l’authentification unique sur l’application Hightail, ajoutez votre domaine de messagerie à la liste approuvée de l’équipe Hightail afin que tous les utilisateurs de ce domaine puissent utiliser la fonctionnalité d’authentification unique.
 
+9. Dans une autre fenêtre de navigateur, ouvrez le portail d’administration **Hightail**.
 
-9. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire Hightail en tant qu’administrateur.
-   
-    a. Dans le menu situé en haut, cliquez sur l’onglet **Compte** et sélectionnez **Configure SAML** (Configurer SAML).
- 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. Cliquez sur l’**icône Utilisateur** en haut à droite de la page. 
 
-    b. Cochez la case **Enable SAML Authentication**(Activer l’authentification SAML).
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure1.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. Cliquez sur l’onglet **Afficher la Console d’administration**.
 
-    c. Ouvrez dans le Bloc-notes votre certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat de signature de jeton SAML**.
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure2.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. Dans le menu du haut, cliquez sur l’onglet **SAML** et procédez comme suit :
 
-    d. Dans la zone de texte **Autorité SAML (fournisseur d’identité)**, collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée sur le portail Azure.
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure3.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. Dans la zone de texte **URL de connexion**, collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    e. Si vous souhaitez configurer l’application en **mode lancé par le fournisseur d’identité**, sélectionnez **Identity Provider (IdP) initiated log in** (Connexion lancée par le fournisseur d’identité). En **mode lancé par le fournisseur de service**, sélectionnez **Service Provider (SP) initiated log in** (Connexion lancée par le fournisseur de service).
+    b. Ouvrez dans le Bloc-notes votre certificat codé en base 64, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_006.png)
+    c. Cliquez sur **COPY** pour copier l’URL de consommateur SAML pour votre instance et collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Hightail** du portail Azure.
 
-    f. Copiez l’URL de consommateur SAML pour votre instance et collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Hightail** du portail Azure.
-    
-    g. Cliquez sur **Enregistrer**.
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Cliquez sur **Enregistrer les configurations**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -256,7 +244,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Affecter des utilisateurs][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
@@ -267,7 +255,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
+
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
@@ -279,8 +267,6 @@ Quand vous cliquez sur la vignette Hightail dans le volet d’accès, vous devez
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

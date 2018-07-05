@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658313"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062239"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Haute disponibilité et récupération d’urgence des grandes instances SAP HANA sur Azure 
 
@@ -44,10 +44,12 @@ Le tableau suivant indique les combinaisons et méthodes de haute disponibilité
 | Scénario pris en charge dans les grandes instances HANA | Option de haute disponibilité | Option de récupération d’urgence | Commentaires |
 | --- | --- | --- | --- |
 | Nœud unique | Non disponible | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente. | |
-| Basculement automatique avec hôte : N+m<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds (n+m).<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
+| Basculement automatique avec hôte : Scale-out (avec ou sans unité de secours)<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds.<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
 | Réplication de système HANA | Possible avec configuration de réplica principal ou secondaire.<br /> Le réplica secondaire prend le rôle principal en cas de basculement.<br /> Réplication de système HANA et basculement du contrôle du système d’exploitation. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage.<br /> La récupération d’urgence à l’aide de la réplication de système HANA n’est pas possible sans composants tiers. | Des jeux distincts de volumes de disque sont attachés à chaque nœud.<br /> Seuls les volumes de disque de réplica secondaire sur le site de production sont répliqués à l’emplacement de la récupération d’urgence.<br /> Un jeu de volumes est requis sur le site de récupération d’urgence. | 
 
 L’expression « configuration de récupération d’urgence dédiée » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence n’est pas utilisée pour exécuter d’autres charges de travail ou systèmes de non-production. L’unité est passive et est déployée uniquement si un basculement d’urgence est exécuté. Cependant, cette configuration n’est le choix préféré de nombreux clients.
+
+Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour connaître la disposition de stockage et les détails Ethernet de votre architecture.
 
 > [!NOTE]
 > [Les déploiements SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (plusieurs Instances HANA sur une unité) comme des scénarios de superpositions fonctionnent avec les méthodes de haute disponibilité et de récupération d’urgence répertoriées dans le tableau. L’utilisation de la réplication de système HANA avec un cluster de basculement automatique basé sur Pacemaker est une exception. Ce cas prend uniquement en charge une seule instance HANA par unité. Pour les déploiements [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000), seules les méthodes de haute disponibilité et de récupération d’urgence sans stockage fonctionnent si plusieurs locataires sont déployés. Si un seule locataire est déployé, toutes les méthodes indiquées sont valides.  
@@ -60,7 +62,7 @@ Vous trouverez plus d’informations sur la haute disponibilité de SAP HANA dan
 - [SAP HANA High Availability Whitepaper (Livre blanc sur la haute disponibilité de SAP HANA)](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Administration Guide (Guide d’administration de SAP HANA)](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP Academy Video on SAP HANA System Replication (Vidéo SAP Academy sur la réplication du système SAP HANA)](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP Support Note #1999880 – FAQ on SAP HANA System Replication (Note de support SAP n°1999880 – FAQ sur la réplication du système SAP HANA)](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP Support Note #1999880 – FAQ on SAP HANA System Replication (Note de support SAP n°1999880 – FAQ sur la réplication du système SAP HANA)](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP Support Note #2165547 – SAP HANA Back up and Restore within SAP HANA System Replication Environment (Note de support SAP n°2165547 – Sauvegarde et restauration SAP HANA dans l’environnement de réplication du système SAP HANA)](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime (Note de support SAP n°1984882 – Utilisation de la réplication du système SAP HANA pour l’échange de matériel avec un temps d’arrêt minime ou nul)](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 
@@ -477,7 +479,7 @@ Les paramètres sont les suivants :
 
 - Le premier paramètre définit le type de la sauvegarde de captures instantanées. Les valeurs autorisées sont **hana**, **logs** et **boot**. 
 - Le paramètre **<HANA Large Instance Type>** est nécessaire pour les sauvegardes de volume de démarrage uniquement. Il existe deux valeurs valides avec « TypeI » ou « TypeII » en fonction de l’unité de grande instance HANA. Pour identifier le type de votre unité, consultez [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Le paramètre **<snapshot_prefix>** est le nom de la capture instantanée ou de la sauvegarde du type de capture instantanée. Il a deux fonctions. Tout d’abord, il lui attribue un nom pour vous aider à identifier ces captures instantanées. Ensuite, le script Azure *azure\_hana\_backup.pl* détermine le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette. Si vous planifiez deux sauvegardes de captures instantanées de stockage de même type (par exemple, **hana**), avec deux étiquettes différentes, et que vous décidez de conserver 30 captures instantanées pour chacune d’elles, vous obtenez 60 captures instantanées de stockage pour les volumes concernés. Seuls les caractères alphanumériques (« A-Z, a-z, 0-9 »), le trait de soulignement (« _ ») et le tiret («- ») sont autorisés. 
+- Le paramètre **<snapshot_prefix>** est le nom de la capture instantanée ou de la sauvegarde du type de capture instantanée. Il a deux fonctions. Tout d’abord, il lui attribue un nom pour vous aider à identifier ces captures instantanées. Ensuite, le script Azure *azure\_hana\_backup.pl* détermine le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette. Si vous planifiez deux sauvegardes de captures instantanées de stockage de même type (par exemple, **hana**), avec deux étiquettes différentes, et que vous décidez de conserver 30 captures instantanées pour chacune d’elles, vous obtienez 60 captures instantanées de stockage pour les volumes concernés. Seuls les caractères alphanumériques (« A-Z, a-z, 0-9 »), le trait de soulignement (« _ ») et le tiret («- ») sont autorisés. 
 - Le paramètre **< snapshot_frequency >** est réservé pour de futurs développements l’évolution et n’a aucun impact. Réglez-le sur « 3 min » lors de l’exécution des sauvegardes de type **log** et sur « 15 min » lors de l’exécution d’autres types de sauvegarde.
 - Le paramètre **<number of snapshots retained>** définit la rétention des captures instantanées de manière indirecte en définissant le nombre de captures instantanées avec le même préfixe de capture instantanée (étiquette). Ce paramètre est important pour l’exécution planifiée à l’aide de cron. Si le nombre de captures instantanées avec le même paramètre snapshot_prefix dépasse le nombre indiqué par ce dernier, la capture instantanée la plus ancienne est supprimée avant l’exécution d’une nouvelle capture instantanée de stockage.
 

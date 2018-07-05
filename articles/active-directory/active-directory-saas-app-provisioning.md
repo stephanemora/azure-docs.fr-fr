@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293294"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025236"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?
@@ -50,7 +50,6 @@ Voici les principales raisons pour utiliser cette fonctionnalité :
 * Importation facile de nombreux utilisateurs dans un système ou une application SaaS spécifique
 * Disposer d’un ensemble unique de stratégies pour déterminer qui est approvisionné et qui peut se connecter à une application
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>Comment fonctionne l’approvisionnement automatique ?
     
 Le **service d’approvisionnement Azure AD** approvisionne des utilisateurs pour les applications SaaS et les autres systèmes en se connectant aux points de terminaison d’API de gestion des utilisateurs fournis par chaque fournisseur d’application. Ces points de terminaison d’API de gestion des utilisateurs permettent à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs par programmation. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. 
@@ -69,15 +68,17 @@ Le **service d’approvisionnement Azure AD** approvisionne des utilisateurs po
 
 Azure AD offre une prise en charge préintégrée d’un large éventail d’applications SaaS et de systèmes de gestion des ressources humaines populaires, ainsi qu’une prise en charge générique des applications qui implémentent des parties spécifiques du standard SCIM 2.0.
 
-Pour obtenir la liste de toutes les applications pour lesquelles Azure AD prend en charge un connecteur d’approvisionnement préintégré, consultez la [liste des didacticiels d’applications pour l’approvisionnement des utilisateurs](active-directory-saas-tutorial-list.md).
+### <a name="pre-integrated-applications"></a>Applications pré-intégrées
+Pour obtenir la liste de toutes les applications pour lesquelles Azure AD prend en charge un connecteur d’approvisionnement préintégré, consultez la [liste des didacticiels d’applications pour l’approvisionnement des utilisateurs](saas-apps/tutorial-list.md).
 
-Pour plus d’informations sur la façon d’ajouter la prise en charge de l’approvisionnement des utilisateurs Azure AD à une application, consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](manage-apps/use-scim-to-provision-users-and-groups.md).
-
-Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, écrivez un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
+Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, écrivez un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
 > [!NOTE]
 > Pour qu’une application puisse prendre en charge l’approvisionnement automatique des utilisateurs, elle doit d’abord fournir les API de gestion des utilisateurs requises pour permettre aux programmes externes d’automatiser la création, la gestion et la suppression des utilisateurs. Par conséquent, toutes les applications SaaS ne sont pas compatibles avec cette fonctionnalité. Pour les applications qui prennent en charge les API de gestion des utilisateurs, l’équipe d’ingénierie Azure AD peut développer un connecteur d’approvisionnement. Ce travail s’effectue en fonction des besoins des clients actuels et à venir. 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>Connexion d’applications prenant en charge SCIM 2.0
+Pour plus d’informations génériques sur la connexion d’applications qui implémentent des API de gestion SCIM 2.0, consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](manage-apps/use-scim-to-provision-users-and-groups.md).
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Comment configurer l’approvisionnement automatique pour une application ?
 
@@ -85,7 +86,7 @@ Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise e
 
 La configuration du service d’approvisionnement Azure AD pour une application sélectionnée commence dans le **[portail Azure](https://portal.azure.com)**. Dans la section **Azure Active Directory > Applications d’entreprise**, sélectionnez **Ajouter**, **All** (Toutes), puis sélectionnez l’une des options suivantes selon votre scénario :
 
-* Toutes les applications de la section **Applications recommandées** prennent en charge l’approvisionnement automatique. Consultez la [[liste des didacticiels d’applications pour l’approvisionnement des utilisateurs]](active-directory-saas-tutorial-list.md) pour en obtenir davantage.
+* Toutes les applications de la section **Applications recommandées** prennent en charge l’approvisionnement automatique. Consultez la [[liste des didacticiels d’applications pour l’approvisionnement des utilisateurs]](saas-apps/tutorial-list.md) pour en obtenir davantage.
 
 * Utilisez l’option Application ne figurant pas dans la galerie pour les intégrations SCIM personnalisées
 
@@ -152,7 +153,7 @@ Après la synchronisation initiale, toutes les synchronisations suivantes effect
 >[!NOTE]
 > Vous pouvez éventuellement désactiver les opérations de création, mise à jour et suppression à l’aide des cases à cocher **Actions d’objet cible** dans la section [Mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md). La logique pour désactiver un utilisateur pendant une mise à jour est également contrôlée via un mappage d’attributs à partir d’un champ tel que « accountEnabled ».
 
-Le service d’approvisionnement continuera à exécuter indéfiniment des synchronisations incrémentielles dos à dos, à des intervalles définis dans le [didacticiel spécifique à chaque application](active-directory-saas-tutorial-list.md), jusqu’à ce que l’un des événements suivants se produise :
+Le service d’approvisionnement continuera à exécuter indéfiniment des synchronisations incrémentielles dos à dos, à des intervalles définis dans le [didacticiel spécifique à chaque application](saas-apps/tutorial-list.md), jusqu’à ce que l’un des événements suivants se produise :
 
 * Le service est arrêté manuellement à l’aide du portail Azure, ou à l’aide de la commande API Graph appropriée 
 * Une nouvelle synchronisation initiale est déclenchée à l’aide de l’option **Clear state and restart** (Effacer l’état et redémarrer) dans le portail Azure, ou à l’aide de la commande API Graph appropriée. Cela permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
@@ -216,33 +217,31 @@ Résumé des facteurs qui influencent le temps nécessaire pour terminer une **s
 * Limites de taux de requêtes et limitation implémentées par le système cible. Certains systèmes cible implémentent des limites de taux de requêtes et une limitation qui peuvent affecter les performances lors d’opérations de synchronisation de grande envergure. Dans ces conditions, une application qui reçoit trop rapidement un trop grand nombre de requêtes risque d’afficher un taux de réponse plus faible ou d’interrompre la connexion. Pour améliorer les performances, le connecteur doit ajuster ce taux en évitant d’envoyer les requêtes d’application plus rapidement que ce que l’application est capable de traiter. Les connecteurs d’approvisionnement intégrés à Microsoft permettent d’effectuer cet ajustement. 
 
 * Le nombre et la taille des groupes affectés. La synchronisation des groupes affectés prend plus de temps que la synchronisation des utilisateurs. Le nombre et la taille des groupes affectés ont un impact sur les performances. Si une application comporte des [mappages activés pour la synchronisation des objets de groupe](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), les propriétés de groupe, telles que les noms de groupe et les appartenances, sont synchronisées en plus des utilisateurs. Ces synchronisations supplémentaires prendront plus temps que la seule synchronisation des objets utilisateur.
- 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Comment puis-je suivre la progression de la tâche d’approvisionnement actuelle ?**
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
 
-Consultez le [guide de création de rapports d’approvisionnement](active-directory-saas-provisioning-reporting.md).
+Toutes les opérations effectuées par le service d’attribution d’utilisateurs sont enregistrées dans les journaux d’audit Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
 
-**Comment savoir si les utilisateurs ne sont pas approvisionnés correctement ?**
+Pour plus d’informations sur la lecture des journaux d’audit dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](active-directory-saas-provisioning-reporting.md).
 
-Tous les échecs sont enregistrés dans les journaux d’audit Azure AD. Pour plus d’informations, consultez le [guide de création de rapports d’approvisionnement](active-directory-saas-provisioning-reporting.md).
 
-**Comment puis-je créer une application qui fonctionne avec le service d’approvisionnement ?**
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Comment résoudre les problèmes liés à l’attribution d’utilisateurs ?
 
-Consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+Pour obtenir des instructions basées sur un scénario concernant la manière de résoudre des problèmes d’approvisionnement automatique d’utilisateurs, voir [Problèmes lors de la configuration et de l’approvisionnement des utilisateurs pour une application](active-directory-application-provisioning-content-map.md).
 
-**Comment puis-je envoyer des commentaires à l’équipe d’ingénierie ?**
 
-Contactez-nous via le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quelles sont les bonnes pratiques à appliquer pour l’attribution automatique d’utilisateurs ?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+Si vous souhaitez obtenir un exemple de plan de déploiement pas à pas pour l’attribution d’utilisateurs dans une application, consultez le [guide de déploiement des identités pour l’attribution d’utilisateurs](https://aka.ms/userprovisioningdeploymentplan)/
 
 
 ## <a name="related-articles"></a>Articles connexes
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+* [Liste des didacticiels sur l’intégration des applications SaaS](saas-apps/tutorial-list.md)
 * [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 * [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
-* [Plan de déploiement pas à pas pour l’approvisionnement d’utilisateurs sortants d’une application](https://aka.ms/userprovisioningdeploymentplan)
-

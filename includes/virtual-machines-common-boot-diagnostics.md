@@ -42,7 +42,7 @@ Ces deux fonctionnalités sont prises en charge par les machines virtuelles Azur
     >
     > 
 
-3. Si vous procédez au déploiement à partir d’un modèle Azure Resource Manager, accédez à votre ressource de machine virtuelle et ajoutez la section de profil des diagnostics. Pensez à utiliser l’en-tête de version d’API « 2015-06-15 ».
+3. Si vous déployez à partir d’un modèle Azure Resource Manager, accédez à votre ressource de machine virtuelle et ajoutez la section de profil des diagnostics. Pensez à utiliser l’en-tête de version d’API « 2015-06-15 ».
 
     ```json
     {

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 176af41197810059a17daf5ab09d29e0169e9640
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 69e9d66458409bbc744416a58ceb508349418a76
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225005"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019551"
 ---
 # <a name="steps-to-configure-an-openidoauth-application-from-azure-ad-app-gallery"></a>Étapes pour configurer une application OpenID/OAuth à partir de la galerie Azure AD App
 
@@ -42,7 +42,7 @@ ms.locfileid: "36225005"
     ![Ajout de l’application](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > Dans le cas des applications Open ID Connect et OAuth, le bouton Ajouter est désactivé par défaut. L’administrateur du locataire (tenant) doit cliquer sur le bouton **S’inscrire** et donner son consentement à l’application. Cette application sera ainsi ajoutée dans le locataire du client, sans qu’il soit nécessaire de l’ajouter explicitement ni d’effectuer les configurations.
+    > Dans le cas des applications Open ID Connect et OAuth, le bouton Ajouter est désactivé par défaut. L’administrateur du locataire (tenant) doit cliquer sur le bouton **S’inscrire** et donner son consentement à l’application. Cette application est ainsi ajoutée au locataire du client, sans qu’il soit nécessaire de l’ajouter explicitement ou de la configurer.
 
     ![Bouton Ajouter](./media/openidoauth-tutorial/addbutton.png)
 

@@ -11,14 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 06/27/2018
 ms.author: maxluk
-ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb7b538737e54b2c3d8a32e2ba65f7e0762a302c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409320"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047154"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
@@ -37,7 +37,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 3. Vous devez avoir des clés publiques et privées pour l’authentification SSH.
 <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Installez [R Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) sur votre ordinateur. R Server fournit les fonctions [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) et `RxSpark`.
+4. Installez [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) sur votre ordinateur. ML Server propose les fonctions [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) et `RxSpark`.
 
 5. Installez [PuTTY](http://www.putty.org/) pour fournir un contexte de calcul afin d’exécuter les fonctions `RevoScaleR` de votre client local sur votre cluster HDInsight.
 
@@ -53,7 +53,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 ## <a name="execute-local-r-methods"></a>Exécuter des méthodes R locales
 
-1. Créez votre [cluster HDInsight R Server](r-server-get-started.md).
+1. Créez votre [cluster HDInsight ML Services](r-server-get-started.md).
 2. Installez [l’extension RTVS](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Téléchargez [l’exemple de fichier zip](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Ouvrez `examples/Examples.sln` pour lancer la solution dans Visual Studio.
@@ -66,11 +66,11 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
     ![Paramètres de science des données](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
 
-## <a name="submit-jobs-to-an-hdinsight-r-cluster"></a>Envoyer des travaux vers un cluster R HDInsight
+## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Envoyer des travaux à un cluster HDInsight ML Services
 
-À l’aide d’une instance Microsoft R Server/Microsoft R Client d’un ordinateur Windows équipé de PuTTY, vous pouvez créer un contexte de calcul qui exécute des fonctions `RevoScaleR` distribuées de votre client local sur votre cluster HDInsight. Utilisez `RxSpark` pour créer le contexte de calcul, en spécifiant votre nom d’utilisateur, le nœud de périphérie du cluster Hadoop, les commutateurs SSH, et ainsi de suite.
+En utilisant une instance Microsoft ML Server/Microsoft R Client à partir d’un ordinateur Windows équipé de PuTTY, vous pouvez créer un contexte de calcul qui exécute des fonctions `RevoScaleR` distribuées de votre client local sur votre cluster HDInsight. Utilisez `RxSpark` pour créer le contexte de calcul, en spécifiant votre nom d’utilisateur, le nœud de périphérie du cluster Hadoop, les commutateurs SSH, et ainsi de suite.
 
-1. Pour rechercher le nom d’hôte de votre nœud de périphérie, ouvrez votre volet de cluster R HDInsight dans Azure, puis sélectionnez **Secure Shell (SSH)** dans le menu supérieur du volet Vue d’ensemble.
+1. Pour rechercher le nom d’hôte de votre nœud de périphérie, ouvrez le volet de votre cluster HDInsight ML Services sur Azure, puis sélectionnez **Secure Shell (SSH)** dans le menu supérieur du volet Vue d’ensemble.
 
     ![SSH (Secure Shell)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
@@ -122,7 +122,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 5. Vérifiez que le `rxHadoopCopy` a bien copié le fichier `people.json` du dossier d’exemple de données vers le nouveau dossier `/user/RevoShare/newUser` :
 
-    1. Dans le volet de votre cluster R HDInsight dans Azure, sélectionnez **Comptes de stockage** dans le menu de gauche.
+    1. Dans le volet de votre cluster HDInsight ML Services dans Azure, sélectionnez **Comptes de stockage** dans le menu de gauche.
 
         ![Comptes de stockage](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
@@ -144,6 +144,6 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](r-server-compute-contexts.md)
+* [Options de contexte de calcul pour ML Services sur HDInsight](r-server-compute-contexts.md)
 * [Combinaison de ScaleR et SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) fournit un exemple de prédictions de retards de vols.
 <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->

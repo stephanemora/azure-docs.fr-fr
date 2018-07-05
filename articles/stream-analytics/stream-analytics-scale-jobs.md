@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652540"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
@@ -76,72 +77,6 @@ Pour certains cas d’usage d’éditeurs de logiciels indépendants, où il est
 > Ce modèle de requête comporte souvent un grand nombre de sous-requêtes et aboutit à une topologie très volumineuse et complexe. Le contrôleur du travail peut ne pas être en mesure de gérer une topologie si volumineuse. En règle générale, restez en dessous de 40 locataires pour un travail avec 1 unité de streaming, et 60 locataires pour des travaux avec 3 et 6 unités de streaming. Quand vous dépassez la capacité du contrôleur, le travail ne démarre pas correctement.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Exemple de débit Stream Analytics à l’échelle
-Pour vous aider à comprendre comment les travaux Stream Analytics sont mis à l’échelle, nous avons effectué une expérience basée sur l’entrée d’un appareil Raspberry Pi. Cette expérience nous permet d’observer l’effet de plusieurs unités SU et partitions sur le débit.
-
-Dans ce scénario, l’appareil envoie des données de capteur (clients) à un concentrateur Event Hub. Stream Analytics traite les données et envoie une alerte ou des statistiques en tant que sortie à un autre concentrateur Event Hub. 
-
-Le client envoie des données de capteur au format JSON. La sortie des données est également au format JSON. Voici à quoi ressemblent les données :
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-La requête suivante permet d’envoyer une alerte quand lorsqu’une lumière est éteinte :
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>Mesurer le débit
-
-Dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe. (Nous avons mesuré le débit pendant 10 minutes.) Pour obtenir le meilleur débit de traitement pour les données d’entrée, l’entrée de flux de données et la requête ont été partitionnées. Nous avons inclus **COUNT()** dans la requête pour mesurer le nombre d’événements d’entrée traités. Pour vous assurer que le travail n’attende pas simplement les événements d’entrée, chaque partition du concentrateur Event Hub d’entrée a été préchargée avec environ 300 Mo de données d’entrée.
-
-Le tableau suivant montre les résultats que nous avons observés lorsque nous avons augmenté le nombre d’unités SU et le nombre de partitions correspondant dans les concentrateurs d’événements.  
-
-<table border="1">
-<tr><th>Partitions d'entrée</th><th>Partitions de sortie</th><th>Unités de diffusion en continu</th><th>Débit soutenu
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4,06 Mo/s</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8,06 Mo/s</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38,32 Mo/s</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172,67 Mo/s</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454,27 Mo/s</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609,69 Mo/s</td>
-</tr>
-</table>
-
-Et le graphique suivant présente une visualisation de la relation entre les unités SU et le débit.
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

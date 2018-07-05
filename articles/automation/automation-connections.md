@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257677"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019303"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ressources de connexion dans Azure Automation
 
@@ -80,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-Vous pouvez utiliser le script pour créer la ressource de connexion, car quand vous créez votre compte Automation, celui-ci inclut automatiquement plusieurs modules globaux par défaut, ainsi que le type de connexion **AzurServicePrincipal** pour créer la ressource de connexion **AzureRunAsConnection**.  Il est important de garder cela à l’esprit, car si vous essayez de créer une ressource de connexion pour vous connecter à un service ou à une application avec une autre méthode d’authentification, l’opération échoue, car le type de connexion n’est pas encore défini dans votre compte Automation.  Pour plus d’informations sur la façon de créer votre propre type de connexion pour votre module personnalisé à partir de la [galerie PowerShell](https://www.powershellgallery.com), consultez [Modules d’intégration](automation-integration-modules.md).
+Vous pouvez utiliser le script pour créer la ressource de connexion, car quand vous créez votre compte Automation, celui-ci inclut automatiquement plusieurs modules globaux par défaut, ainsi que le type de connexion **AzureServicePrincipal** pour créer la ressource de connexion **AzureRunAsConnection**.  Il est important de garder cela à l’esprit, car si vous essayez de créer une ressource de connexion pour vous connecter à un service ou à une application avec une autre méthode d’authentification, l’opération échoue, car le type de connexion n’est pas encore défini dans votre compte Automation.  Pour plus d’informations sur la façon de créer votre propre type de connexion pour votre module personnalisé à partir de la [galerie PowerShell](https://www.powershellgallery.com), consultez [Modules d’intégration](automation-integration-modules.md).
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Utilisation d’une connexion dans un Runbook ou une configuration DSC
 

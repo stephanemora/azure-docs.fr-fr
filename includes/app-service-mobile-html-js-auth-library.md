@@ -2,11 +2,11 @@
 Pour que Mobile Apps gère le processus d’authentification dans votre application, vous devez inscrire votre application auprès de votre fournisseur d’identité. Ensuite, dans Azure App Service, vous devez configurer l’ID d’application et le secret fournis par votre fournisseur.
 Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification à votre application](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-Une fois que vous avez inscrit votre fournisseur d'identité, appelez la méthode `.login()` avec le nom de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant :
+Une fois que vous avez inscrit votre fournisseur d'identité, appelez la méthode `.login()` avec le nom de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant :
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);
