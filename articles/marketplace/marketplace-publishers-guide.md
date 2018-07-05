@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823382"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309229"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide de l’éditeur Place de marché Azure et AppSource  
 
@@ -35,15 +35,15 @@ Ce guide permet aux éditeurs nouveaux et existants (vous) d’en savoir plus su
 
 Vous obtenez une meilleure compréhension des sujets suivants.
 *   Quels sont les avantages du référencement dans les vitrines de la Place de marché  
-*   Comment utiliser les vitrines  
-*   Quelle vitrine est la mieux adaptée à vos offres et services  
+*   Comment utiliser les vitrines ?  
+*   Quelle vitrine est la mieux adaptée à vos offres et services ?  
 *   Quels types d’applications et d’offres pouvez-vous publier  
-*   Quels sont les besoins techniques et métier de chacune des options de publication  
-*   Comment créer une check-list des ressources de prépublication  
-*   Comment devenir éditeur  
-*   Comment créer et publier des offres  
-*   Comment optimiser un référencement et utiliser des ressources de mise sur le marché pour un meilleur impact  
-*   Où obtenir de l’aide et un support  
+*   Quelles sont les exigences techniques et métier de chacune des options de publication ?  
+*   Comment créer une liste de contrôle des ressources de prépublication ?  
+*   Comment devenir éditeur ?  
+*   Comment créer et publier des offres ?  
+*   Comment optimiser un référencement et utiliser des ressources de mise sur le marché pour un meilleur impact ?  
+*   Où obtenir de l’aide et un support ?  
 
 Pour les questions et les commentaires sur la Place de marché ou le guide de publication, envoyez un e-mail à [cloudmarketplace@microsoft.com](mailto:cloudmarketplace@microsoft.com).  
 
@@ -112,13 +112,13 @@ Chaque vitrine fournit des options spécialisées, destinées à optimiser vos e
 | Public cible | Décideurs métier<table> <tr> <th>Spécialistes </th> </tr> <tr> <td>Comptabilité</td> </tr> <tr> <td>Approvisionnement</td> </tr> <tr> <td>Fabrication</td> </tr> </table> | IT pros et développeurs<table> <tr> <th>Spécialistes </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Administrateurs de base de données</td> </tr> <tr> <td>Responsables des opérations de sécurité</td> </tr> </table> |  
 | Conçu avec ou pour étendre | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
 | Types de solutions et de services | Applications métier cloud terminées<br />Compléments Office 365 | Solutions d’infrastructure<br />Services professionnels |  
-| Type d’offre | Services de conseil<br />Me contacter<br />Essai gratuit<br />Obtenir maintenant<br />Test drive | Applications Azure : Applications gérées<br />Applications Azure : Modèles de solution<br />Services de conseil<br />Me contacter<br />Essai<br />de machine virtuelle |  
+| Type d’offre | Services de conseil<br />Me contacter<br />Essai gratuit<br />Obtenir maintenant<br />Test drive | Applications Azure : Applications gérées<br />Applications Azure : Modèles de solution<br />Services de conseil<br />Me contacter<br />Version d’évaluation<br />de machine virtuelle |  
 | L’expérience dans l’application fournit aux utilisateurs l’accès<br />aux applications et aux services dans le contexte de<br />leur application | Dynamics 365<br />Office 365<br />Applications clientes Office<br />Power BI | Portail Azure<br />Interface de ligne de commande Azure Resource Manager |  
 
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Comment publier dans les vitrines sur marketplace  
-Les sections suivantes vous aident à parcourir les options de publication dans AppSource et la Place de marché Azure.  
+Les pages suivantes vous aident à parcourir les options de publication dans AppSource et la Place de marché Azure.  
 
 Devenez éditeur dans les vitrines sur la Place de marché en trois étapes simples.  
 1.  Visitez la page [Déterminer le type de référencement pour votre solution](./determine-your-listing-type.md).  
@@ -127,7 +127,7 @@ Devenez éditeur dans les vitrines sur la Place de marché en trois étapes simp
 
 ---   
 
-## <a name="publishing-checklists"></a>Check-lists de publication  
+## <a name="publishing-checklists"></a>Publication de check-lists  
 *   Visitez la page [Check-list de publication pour AppSource](publishing-checklist-appsource.md).  
 *   Visitez la page [Check-list de publication pour la Place de marché Azure sur le portail Cloud Partner](./publishing-checklist-azure-marketplace.md).  
 *   Visitez la page [Activer la version d’essai à l’aide d’Azure AD](./enable-trial-using-azure-ad.md).  
@@ -135,7 +135,6 @@ Devenez éditeur dans les vitrines sur la Place de marché en trois étapes simp
 ---  
 
 ## <a name="support"></a>Support  
-
 *   Visitez la page [Support pour AppSource](./support-appsource.md).  
 *   Visitez la page [Support pour la Place de marché Azure](./support-azure-marketplace.md).  
 
@@ -147,6 +146,7 @@ Devenez éditeur dans les vitrines sur la Place de marché en trois étapes simp
 
 ## <a name="guidelines"></a>Instructions  
 *   Visitez la page [Instructions](./guidelines.md).  
+    *   Consultez la section [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account).  
 *   Visitez la page [S’inscrire dans le Centre de développement](./register-dev-center.md).  
 *   Visitez la page [Ajouter des informations fiscales et bancaires](./add-bank-tax-info.md).  
 *   Visitez la page [Activer la version d’essai à l’aide d’Azure AD](./enable-trial-using-azure-ad.md).  

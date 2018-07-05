@@ -5,36 +5,32 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 05/06/2018
 ms.author: raynew
-ms.openlocfilehash: 4d944bec9d1cf73263d9deb54d0d9b3f6fc5532f
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285031"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318117"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
 Vous devez déployer un serveur de configuration local quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure. Le serveur de configuration coordonne la communication entre les machines locales VMware et Azure. Il gère également la réplication des données. Cet article vous guide tout au long des étapes nécessaires pour déployer le serveur de configuration lorsque vous répliquez des machines virtuelles WMware sur Azure. [Suivez cet article](physical-azure-set-up-source.md) si vous avez besoin de configurer un serveur de configuration pour la réplication du serveur physique.
 
+>[!TIP]
+Cliquez [ici](vmware-azure-architecture.md) pour en savoir plus sur le rôle du serveur de configuration dans l’architecture d’Azure Site Recovery.
+
+## <a name="deployment-of-configuration-server-through-ova-template"></a>Déploiement du serveur de configuration avec le modèle OVA
+
+Le serveur de configuration doit être configuré comme une machine virtuelle VMware hautement disponible avec certaines exigences matérielles et dimensionnelles minimales. Pour un déploiement simple et pratique, Site Recovery fournit un modèle OVA (Open Virtualization Application) téléchargeable pour configurer le serveur de configuration conformément à toutes les exigences listées ci-dessous.
+
 ## <a name="prerequisites"></a>Prérequis
 
-Nous vous conseillons de déployer le serveur de configuration en tant que machine virtuelle VMware hautement disponible. La configuration requise du serveur de configuration est indiquée dans le tableau suivant.
+Les conditions matérielles minimales pour un serveur de configuration sont synthétisées dans le tableau suivant.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
-
-### <a name="prepare-for-mysql-installation"></a>Préparer l’installation de MySQL
-
-MySQL doit être installé sur le serveur de configuration. Pour ce faire, vous pouvez utiliser l’une des méthodes suivantes :
-
-- Laissez Site Recovery le télécharger et l’installer lorsque l’Assistant de gestion du serveur de configuration est en cours d’exécution. Aucune action spécifique n’est requise.
-- Téléchargez manuellement MySQL et placez-le dans le dossier C:\Temp\ASRSetup. Puis, exécutez l’installation. Site Recovery reconnaît qu’il est installé lors de l’exécution de l’Assistant.
-- Téléchargez manuellement MySQL et placez-le dans le dossier C:\Temp\ASRSetup. Lors de l’exécution de l’Assistant, il recherche le fichier d’installation et l’installe à partir de cet emplacement. 
-
 
 ## <a name="capacity-planning"></a>planification de la capacité
 
@@ -46,26 +42,22 @@ Les conditions minimales de taille pour le serveur de configuration varient selo
 | 12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz) |18 Go |600 Go |500 Go à 1 To |Répliquez entre 100 et 150 machines. |
 | 16 processeurs virtuels (2 sockets * 8 cœurs à 2,5 GHz) |32 Go |1 To |1 To à 2 To |Répliquez entre 150 et 200 machines. |
 
-
-Si vous répliquez des machines virtuelles VMware, lisez les [considérations de planification de capacité](/site-recovery-plan-capacity-vmware.md) pour en savoir plus. Exécutez [l’outil du planificateur de déploiement](site-recovery-deployment-planner.md) pour la réplication de VMware.
-
-
+Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérations relatives à la planification de la capacité](/site-recovery-plan-capacity-vmware.md). Exécutez [l’outil du planificateur de déploiement](site-recovery-deployment-planner.md) pour la réplication de VMware.
 
 ## <a name="download-the-template"></a>Téléchargez le modèle
-
-Site Recovery fournit un modèle téléchargeable pour configurer le serveur de configuration comme une machine virtuelle VMware hautement disponible. 
 
 1. Dans le coffre, allez dans **Préparer l’infrastructure** > **Source**.
 2. Dans **Préparer la source**, sélectionnez **+Serveur de configuration**.
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration pour VMware** s’affiche dans **Type de serveur**.
-4. Téléchargez le modèle de format OVF (Open Virtualization) pour le serveur de configuration.
+4. Téléchargez le modèle OVA (Open Virtualization Application) pour le serveur de configuration.
 
   > [!TIP]
-  Vous pouvez télécharger la dernière version du modèle de serveur de configuration directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
+>Vous pouvez également télécharger directement la dernière version du modèle de serveur de configuration dans le [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
 
+>[!NOTE]
+La licence fournie avec le modèle OVA est une licence d’évaluation valide pendant 180 jours. Passée cette période, le client devra activer les fenêtres avec une licence payante.
 
 ## <a name="import-the-template-in-vmware"></a>Importer le modèle dans VMware
-
 
 1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMWare vSphere.
 2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’Assistant Déploiement du modèle OVF.
@@ -76,13 +68,12 @@ Site Recovery fournit un modèle téléchargeable pour configurer le serveur de 
 4. Dans **Examiner les détails**, sélectionnez **Suivant**.
 5. Dans **Sélectionner le nom et le dossier** et **Sélectionner la configuration**, acceptez les paramètres par défaut.
 6. Dans **Sélectionner un stockage**, et pour des performances optimales, sélectionnez **Remise à zéro rapide d’un approvisionnement important** dans **Sélectionner le format de disque virtuel**.
-4. Dans le reste des pages de l’assistant, acceptez les paramètres par défaut.
-5. Dans **Prêt à finaliser** :
+7. Dans le reste des pages de l’assistant, acceptez les paramètres par défaut.
+8. Dans **Prêt à finaliser** :
 
     * Pour configurer la machine virtuelle avec les paramètres par défaut, sélectionnez **Mettre sous tension après le déploiement** > **Terminer**.
 
     * Pour ajouter une interface réseau supplémentaire, désactivez **Mettre sous tension après le déploiement**, puis sélectionnez **Terminer**. Par défaut, le modèle de serveur de configuration est déployé avec une seule carte d’interface réseau, mais vous pouvez en ajouter d’autres après le déploiement.
-
 
 ## <a name="add-an-additional-adapter"></a>Ajouter une carte supplémentaire
 
@@ -91,38 +82,50 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 1. Dans l’inventaire du client vSphere, faites un clic droit sur la machine virtuelle, puis sélectionnez **Modifier les paramètres**.
 2. Dans **Matériel**, sélectionnez **Ajouter** > **Adaptateur Ethernet**. Sélectionnez ensuite **Suivant**.
 3. Sélectionnez un type d’adaptateur et un réseau. 
-4. Pour connecter la carte réseau virtuelle lorsque la machine virtuelle est allumée, sélectionnez **Connecter à la mise sous tension**. Ensuite, sélectionnez **Suivant** > **Terminer** > **OK**.
- 
+4. Pour connecter la carte réseau virtuelle lorsque la machine virtuelle s’allume, sélectionnez **Connecter à la mise sous tension**. Ensuite, sélectionnez **Suivant** > **Terminer** > **OK**.
 
-## <a name="register-the-configuration-server"></a>Inscrire le serveur de configuration 
+## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Inscrire le serveur de configuration auprès des services Azure Site Recovery
 
 1. À partir de la console du client vSphere de VMware, activez la machine virtuelle.
 2. La machine virtuelle démarre sur une expérience d’installation de Windows Server 2016. Acceptez le contrat de licence et entrez un mot de passe administrateur.
 3. Une fois l’installation terminée, connectez-vous à la machine virtuelle en tant qu’administrateur.
-4. L’outil de configuration d’Azure Site Recovery démarre la première fois que vous vous connectez.
+4. Lors de la première connexion, l’outil de configuration d’Azure Site Recovery démarre en quelques secondes.
 5. Saisissez un nom utilisé pour inscrire le serveur de configuration sur Site Recovery. Sélectionnez ensuite **Suivant**.
 6. L’outil vérifie que la machine virtuelle peut se connecter à Azure. Une fois la connexion établie, sélectionnez **Connecter** pour vous connecter à votre abonnement Azure. Les informations d’identification doivent avoir accès au coffre dans lequel vous souhaitez inscrire le serveur de configuration.
 7. L’outil effectue des tâches de configuration, puis redémarre.
-8. Reconnectez-vous à la machine. L’Assistant Gestion de serveur de configuration démarre automatiquement.
+8. Reconnectez-vous à la machine. L’Assistant Gestion du serveur de configuration démarre **automatiquement** au bout de quelques secondes.
 
 ### <a name="configure-settings"></a>Configurer les paramètres
 
-1. Dans l’assistant de gestion de serveur de configuration, sélectionnez **Configurer la connectivité**. Sélectionnez la carte d’interface réseau pour recevoir le trafic de réplication, puis sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre une fois configuré.
-2. Dans **Sélectionner le coffre Recovery Services**, sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre appropriés.
-3. Dans **Installer le logiciel tiers**, acceptez le contrat de licence. Installez MySQL conformément à la [méthode que vous utilisez pour installer MySQL](#prepare-for-mysql-installation).
-4. Sélectionnez **Installer VMware PowerLCI**. Assurez-vous que toutes les fenêtres du navigateur sont fermées avant de suivre cette étape. Puis sélectionnez **Continuer**.
-5. Dans **Valider la configuration de l’appliance**, les conditions préalables sont vérifiées avant que vous ne poursuiviez.
-6. Dans **Configurer le serveur vCenter Server/vSphere ESXi**, saisissez le nom de domaine complet ou l’adresse IP du serveur vCenter Server, ou l’hôte vSphere, sur lequel sont situées les machines virtuelles que vous souhaitez répliquer. Saisissez le port écouté par le serveur et un nom convivial pour le serveur VMware dans le coffre.
-7. Entrez les informations d’identification à utiliser par le serveur de configuration pour se connecter au serveur VMware. Site Recovery utilise ces informations d’identification pour détecter automatiquement les machines virtuelles VMware disponibles pour la réplication. Sélectionnez **Ajouter**, puis **Continuer**.
-8. Dans **Configurer les informations d’identification de la machine virtuelle**, saisissez le nom d’utilisateur et le mot de passe qui serviront à installer automatiquement le service Azure Site Recovery Mobility sur les machines, une fois la réplication activée. Pour les machines Windows, le compte doit disposer des privilèges d’administrateur local sur les machines que vous souhaitez répliquer. Pour Linux, fournissez les détails du compte racine.
-9. Sélectionnez **Finaliser la configuration** pour terminer l’inscription. 
-10. Une fois l’inscription terminée, dans le portail Azure, vérifiez que le serveur de configuration et le serveur VMware sont répertoriés sur la page **Source** dans le coffre. Sélectionnez ensuite **OK** pour configurer les paramètres cibles.
+1. Dans l’Assistant Gestion de serveur de configuration, sélectionnez **Configurer la connectivité**, puis la carte d’interface réseau utilisé par le serveur de processus pour recevoir le trafic de réplication des machines virtuelles. Ensuite, sélectionnez **Enregistrer**. Vous ne pourrez pas modifier ce paramètre une fois qu’il aura été configuré.
+2. Dans **Sélectionner le coffre Recovery Services**, connectez-vous à Microsoft Azure et sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre souhaités.
+    >[!NOTE]
+    > Une fois inscrit, le coffre Recovery Services n’est plus modifiable.
+3. Dans **Installer des logiciels tiers** :
 
+    |Scénario   |Procédure à suivre  |
+    |---------|---------|
+    |Peut-on télécharger et installer manuellement MySQL ?     |  Oui. Téléchargez l’application MySQL et placez-la dans le dossier **C:\Temp\ASRSetup**, puis installez-la manuellement. Lorsque vous accepterez les conditions et cliquerez sur **Télécharger et installer**, le portail indiquera *Déjà installé*. Vous pourrez passer à l’étape suivante.       |
+    |Est-il possible d’éviter de télécharger MySQL en ligne ?     |   Oui. Placez votre application d’installation MySQL dans le dossier **C:\Temp\ASRSetup**. Acceptez les conditions et cliquez sur **Télécharger et installer** ; le portail utilisera le programme d’installation que vous avez ajouté et installera l’application. Vous pourrez passer à l’étape suivante après l’installation.    |
+    |Comment télécharger et installer MySQL avec Azure Site Recovery ?     |  Acceptez le contrat de licence et cliquez sur **Télécharger et installer**. Vous pourrez passer à l’étape suivante après l’installation.       |
+4. Dans **Valider la configuration de l’appliance**, les conditions préalables sont vérifiées avant que vous ne poursuiviez.
+5. Dans **Configurer le serveur vCenter Server/vSphere ESXi**, entrez le nom de domaine complet ou l’adresse IP du serveur vCenter ou de l’hôte vSphere, sur lequel sont situées les machines virtuelles que vous souhaitez répliquer. Entrez le numéro de port sur lequel le serveur écoute. Entrez un nom convivial à utiliser pour le serveur VMware dans le coffre.
+6. Entrez les informations d’identification à utiliser par le serveur de configuration pour se connecter au serveur VMware. Site Recovery utilise ces informations d’identification pour détecter automatiquement les machines virtuelles VMware disponibles pour la réplication. Sélectionnez **Ajouter**, puis **Continuer**. Les informations d’identification entrées ici sont enregistrées localement.
+7. Dans **Configurer les informations d’identification des machines virtuelles**, entrez le nom d’utilisateur et le mot de passe des machines virtuelles pour installer automatiquement le service Mobilité au cours de la réplication. Dans le cas de machines **Windows**, le compte doit disposer de privilèges d’administrateur local sur les machines à répliquer. Sous **Linux**, fournissez les informations du compte racine.
+8. Sélectionnez **Finaliser la configuration** pour terminer l’inscription.
+9. Une fois l’inscription terminée, ouvrez le Portail Azure, vérifiez que le serveur de configuration et le serveur VMware sont listés dans **Coffre Recovery Services** > **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**.
+
+## <a name="faq"></a>Forum Aux Questions
+
+1. Peut-on utiliser la machine virtuelle si le serveur de configuration est installé à des fins différentes ? **Non**. Le serveur de configuration doit être un serveur à usage unique et il n’est pas possible de l’utiliser comme serveur partagé.
+2. Peut-on remplacer le coffre déjà inscrit dans le serveur de configuration par un nouveau ? **Non**. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
+3. Peut-on utiliser le même serveur de configuration pour protéger à la fois des machines physiques et des machines virtuelles ? **Oui**. Un même serveur de configuration peut être utilisé pour répliquer des machines physiques et virtuelles. Toutefois, la restauration automatique sur une machine physique n’est pas prise en charge.
+4. Où le serveur de configuration sera-t-il utilisé ? Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, référez-vous à notre [architecture Azure Site Recovery](vmware-azure-architecture.md).
+5. Où peut-on trouver la dernière version du serveur de configuration ? Vous pouvez la télécharger directement dans le [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver). Lisez [cet article](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) pour connaître la procédure de mise à niveau du serveur de configuration.
 
 ## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
 
 Pour mettre à niveau le serveur de configuration sur la version la plus récente, lisez les étapes indiquées [ici](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
-
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

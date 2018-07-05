@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c8b0529b0ae45d7bcee5574991551a424c13ba70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713862"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311113"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -44,7 +44,7 @@ ms.locfileid: "34713862"
 **Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ?**
 
 **R :** Les appareils Windows 10 qui sont joints à Azure AD hybride ne s’affichent pas en tant qu’appareils UTILISATEUR.
-Vous devez utiliser PowerShell pour afficher tous les appareils. 
+Vous devez utiliser la vue Tous les appareils dans le portail Azure. Vous pouvez également utiliser la cmdlet PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATEUR :
 
@@ -52,25 +52,24 @@ Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATE
 - Tous les appareils non Windows 10 / Windows Server 2016.
 - Tous les appareils non Windows 
 
----
-
-**Q : Pourquoi ne puis-je pas voir tous les appareils inscrits auprès d’Azure Active Directory dans le portail Azure ?** 
-
-**R :** Vous pouvez maintenant les voir dans le menu Azure AD Directory -> tous les appareils. Vous pouvez aussi utiliser Azure PowerShell pour rechercher tous les appareils. Pour plus d’informations, consultez l’applet de commande [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
-
 --- 
 
 **Q : Comment puis-je connaître l’état de l’inscription d’appareils du client ?**
 
-**R :** Pour les appareils Windows 10 et Windows Server 2016 ou versions ultérieures, exécutez dsregcmd.exe /status.
+**R :** Vous pouvez utiliser le portail Azure, accéder à Tous les appareils et rechercher l’appareil à l’aide de son ID. Vérifiez la valeur dans la colonne de type de jointure.
 
-Pour les versions de système d’exploitation de niveau inférieur, exécutez « %programFiles%\Microsoft Workplace Join\autoworkplace.exe »
+Si vous souhaitez vérifier l’état de l’inscription de l’appareil local à partir d’un appareil inscrit :
+
+- Pour les appareils Windows 10 et Windows Server 2016 ou versions ultérieures, exécutez dsregcmd.exe /status.
+- Pour les versions de système d’exploitation de niveau inférieur, exécutez « %programFiles%\Microsoft Workplace Join\autoworkplace.exe »
 
 ---
 
-**Q : Pourquoi un appareil que j’ai supprimé dans le portail Azure ou à l’aide de Windows PowerShell est-il toujours répertorié comme inscrit ?**
+**Q : J’ai supprimé l’appareil dans le portail Azure ou à l’aide de Windows PowerShell, mais l’état local sur l’appareil indique qu’il est toujours inscrit ?**
 
-**R :** Il s’agit du comportement par défaut. L’appareil n’aura pas accès aux ressources dans le cloud. Si vous souhaitez inscrire à nouveau l’appareil, vous devez effectuer une action manuelle sur celui-ci. 
+**R :** Il s’agit du comportement par défaut. L’appareil n’aura pas accès aux ressources dans le cloud. 
+
+Si vous souhaitez inscrire à nouveau l’appareil, vous devez effectuer une action manuelle sur celui-ci. 
 
 Pour effacer l’état de jointure des appareils Windows 10 et Windows Server 2016 sur site et joints à un domaine AD :
 
@@ -85,6 +84,13 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 1.  Ouvrez une invite de commandes en tant qu’administrateur.
 2.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+---
+** Q : Comment disjoindre un appareil joints à Azure AD localement sur l’appareil ?
+**R :** 
+- Pour les appareils joints à Azure AD hybride, veillez à désactiver l’inscription automatique afin que la tâche planifiée n’inscrive pas à nouveau l’appareil. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Cette commande peut également être exécutée en tant que script entre plusieurs appareils pour disjoindre en bloc.
+
+- Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un, car vous ne pourrez pas vous connecter avec des informations d’identification d’utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez votre compte et cliquez sur **Se déconnecter**. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
 
 ---
 
@@ -119,7 +125,7 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 ---
 
 
-**Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état en tant qu’inscrit sur le client. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
+**Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état Inscrit sur l’appareil. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
 
 **R :** L’état de jointure de l’appareil, reflété par l’ID d’appareil, doit correspondre à celui d’Azure AD et répondre à tous les critères d’évaluation pour l’accès conditionnel. Pour plus d’informations, consultez [Bien démarrer avec le service Azure Active Directory Device Registration](active-directory-device-registration.md).
 
@@ -137,6 +143,8 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 - Les connexions fédérées nécessitent que votre serveur de fédération prenne en charge un point de terminaison WS-Trust actif. 
 
+- Vous avez activé l’authentification directe et l’utilisateur a un mot de passe temporaire qui doit être modifié à l’ouverture de session.
+
 ---
 
 **Q : Pourquoi la boîte de dialogue « Désolé... une erreur s’est produite ! » s’affiche-t-elle lorsque j’essaye de joindre mon ordinateur à Azure AD ?**
@@ -147,7 +155,7 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 **Q : Pourquoi ma tentative d’inscription d’un ordinateur a-t-elle échoué alors que je n’ai reçu aucune information d’erreur ?**
 
-**R :** Une cause possible est que l’utilisateur est connecté à l’appareil à l’aide du compte administrateur intégré. Créez un compte local distinct avant d’utiliser Azure Active Directory Join pour terminer la configuration. 
+**R :** Une cause possible est que l’utilisateur est connecté à l’appareil à l’aide du compte administrateur local intégré. Créez un compte local distinct avant d’utiliser Azure Active Directory Join pour terminer la configuration. 
 
 ---
 

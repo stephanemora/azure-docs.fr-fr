@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631759"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752679"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Secouez, secouez pour récupérer un tweet - Récupérez un message Twitter avec Azure Functions !
 
-Dans ce projet, vous allez apprendre à utiliser le capteur de mouvement pour déclencher un événement à l’aide d’Azure Functions. L’application récupère un tweet aléatoire avec un #hashtag que vous configurez dans votre ébauche de projet Arduino. Le tweet s’affiche sur l’écran DevKit.
+Dans ce projet, vous allez apprendre à utiliser le capteur de mouvement pour déclencher un événement à l’aide d’Azure Functions. L’application récupère un tweet aléatoire avec un #mot-dièse que vous configurez dans votre ébauche de projet Arduino. Le tweet s’affiche sur l’écran DevKit.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
@@ -36,7 +36,7 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 
 ### <a name="start-vs-code"></a>Démarrer VS Code
 
-- Assurez-vous que votre DevKit n’est **pas** connecté à votre ordinateur.
+- Vérifiez que votre kit de développement est connecté à votre ordinateur.
 - Démarrez VS Code.
 - Connectez le kit DevKit à votre ordinateur.
 
@@ -45,7 +45,10 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 
 ### <a name="open-arduino-examples-folder"></a>Ouvrir le dossier des exemples Arduino
 
-Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples pour MXCHIP AZ3166 > AzureIoT** et sélectionnez **ShakeShake**. Une nouvelle fenêtre VS Code s’ouvre avec le dossier de projet qu’elle contient.
+Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples pour MXCHIP AZ3166 > AzureIoT** et sélectionnez **ShakeShake**. Une nouvelle fenêtre VS Code s’ouvre avec le dossier de projet qu’elle contient.  
+
+> [!NOTE]
+> Si vous ne trouvez pas la section MXCHIP AZ3166, vérifiez que votre appareil est correctement connecté et redémarrez Visual Studio Code.  
 
 ![mini-solution-exemples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
@@ -63,7 +66,7 @@ Dans le terminal VS Code, une ligne de commande interactive vous guide dans l’
 > [!NOTE]
 > Si la page se bloque dans l’état de chargement quand vous tentez de vous connecter à Azure, consultez cette [section de la FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
-## <a name="modify-the-hashtag"></a>Modifier le #hashtag
+## <a name="modify-the-hashtag"></a>Modifier le #mot-dièse
 
 Ouvrez `ShakeShake.ino` et recherchez cette ligne de code :
 
@@ -71,7 +74,7 @@ Ouvrez `ShakeShake.ino` et recherchez cette ligne de code :
 static const char* iot_event = "{\"topic\":\"iot\"}";
 ```
 
-Remplacez la chaîne `iot` entre des accolades par votre hashtag préféré. DevKit récupère ultérieurement un tweet aléatoire qui inclut le hashtag que vous spécifiez dans cette étape.
+Remplacez la chaîne `iot` entre des accolades par votre mot-dièse préféré. DevKit récupère ultérieurement un tweet aléatoire qui inclut le mot-dièse que vous spécifiez dans cette étape.
 
 ## <a name="deploy-azure-functions"></a>Déployer Azure Functions
 
@@ -112,7 +115,7 @@ Utilisez `Ctrl+P` (macOS: `Cmd+P`) pour exécuter `task cloud-deploy` et commenc
 
 ## <a name="test-the-project"></a>Tester le projet
 
-Après l’initialisation de l’application, cliquez sur le bouton A, puis relâchez-le et secouez doucement la carte DevKit. Cette action récupère un tweet aléatoire, qui contient le #hashtag que vous avez spécifié précédemment. Après quelques secondes, un tweet s’affiche sur votre écran DevKit :
+Après l’initialisation de l’application, cliquez sur le bouton A, puis relâchez-le et secouez doucement la carte DevKit. Cette action récupère un tweet aléatoire, qui contient le #mot-dièse que vous avez spécifié précédemment. Après quelques secondes, un tweet s’affiche sur votre écran DevKit :
 
 ### <a name="arduino-application-initializing"></a>Initialisation de l’application Arduino en cours...
 ![Arduino-application-initializing](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285754"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334871"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec la commande Run
 
@@ -23,7 +23,7 @@ La commande Run utilise l’agent de machine virtuelle pour exécuter des script
 
 Il existe plusieurs options pour accéder à vos machines virtuelles. La commande Run peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Elle peut être utilisée via le portail Azure, l’[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), l’[interface de ligne de commande Azure (CLI)](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Cette fonctionnalité est utile dans tous les scénarios dans lesquels vous exécutez un script au sein d’une machine virtuelle, et elle constitue une des seules méthodes capables de corriger une machine virtuelle dépourvue d’un port RDP ou SSH ouvert en raison d’une mauvaise configuration du réseau et des utilisateurs.
+Cette fonctionnalité est utile dans tous les scénarios qui impliquent l’exécution d’un script au sein d’une machine virtuelle ; elle constitue un des seuls moyens de dépanner et de corriger une machine virtuelle dont le port RDP ou SSH n’est pas ouvert en raison d’une configuration incorrecte du réseau ou de l’utilisateur administrateur.
 
 ## <a name="restrictions"></a>Restrictions
 

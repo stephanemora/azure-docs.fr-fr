@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 780a7cb3035dbe19c45b5fe9c6dfae54fccafd03
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293646"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330860"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Ajout d’une source d’événement de Event Hub à l’environnement Time Series Insights
 
@@ -26,6 +26,22 @@ Cet article décrit comment utiliser le portail Azure pour ajouter une source d�
 - Créez un concentrateur d’événements. Pour plus d’informations sur Event Hubs, consultez [Créer un espace de noms Event Hubs et un hub d’événements à l’aide du portail Azure](../event-hubs/event-hubs-create.md)
 - Le concentrateur d’événements doit avoir des événements de message actifs envoyés. Pour plus d’informations, consultez [Envoyer des événements vers Azure Event Hubs à l’aide de .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Créez un groupe de consommateurs dédié dans le concentrateur d’événements pour l’environnement Time Series Insight à utiliser. Chaque source d’événement Time Series Insights doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec d’autres consommateurs. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles d’obtenir des erreurs. Notez qu’il existe également une limite de 20 groupes de consommateurs par hub d’événements. Pour plus d’informations, consultez [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Ajouter un groupe de consommateurs à vitre concentrateur d’événements
+Les groupes de consommateurs sont utilisés par les applications pour extraire des données Azure Event Hubs. Fournissez un groupe de consommateurs dédiés, qui sera utilisé par cet environnement Time Series Insights uniquement, pour lire les données de manière fiable à partir de votre concentrateur d’événements.
+
+Pour ajouter un nouveau groupe de consommateurs dans votre concentrateur d’événements, procédez comme suit :
+1. Dans le portail Azure, recherchez et ouvrez votre concentrateur d’événements.
+
+2. Sous le titre **Entités**, sélectionnez **Groupes de consommateurs**.
+
+   ![Concentrateur d’événements - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs. 
+
+4. Sur la page **Groupes de consommateurs**, fournissez un nouveau **nom** unique.  Utilisez le même nom lors de la création d’une source d’événement dans l’environnement Time Series Insights.
+
+5. Sélectionnez **Créer** pour créer le nouveau groupe de consommateurs.
 
 ## <a name="add-a-new-event-source"></a>Ajouter une nouvelle source d’événement
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
@@ -78,29 +94,14 @@ Cet article décrit comment utiliser le portail Azure pour ajouter une source d�
    | Format de sérialisation de l’événement | JSON est la seule sérialisation disponible à l’heure actuelle. Les messages d’événement doivent respecter ce format, sans quoi aucune donnée ne peut être lue. |
    | Nom de la propriété d’horodatage | Pour déterminer cette valeur, vous devez comprendre le format du message des données de message envoyées dans le concentrateur d’événements. Cette valeur est le **nom** de la propriété d’événement spécifique dans les données de message que vous souhaitez utiliser en tant qu’horodatage d’un événement. Cette valeur respecte la casse. Lorsque ce champ est vide, **l’heure de mise en file d’attente de l’événement** dans la source d’événement est utilisée comme horodateur de l’événement. |
 
+10. Ajoutez le nom du groupe de consommateurs TSI dédié que vous avez ajouté à votre hub d’événements.
 
-10. Sélectionnez **Créer** pour ajouter la nouvelle source d’événement.
+11. Sélectionnez **Créer** pour ajouter la nouvelle source d’événement.
    
    ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    Après la création de la source d’événement, Time Series Insights démarre automatiquement la diffusion de données dans votre environnement.
 
-
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Ajouter un groupe de consommateurs à vitre concentrateur d’événements
-Les groupes de consommateurs sont utilisés par les applications pour extraire des données Azure Event Hubs. Fournissez un groupe de consommateurs dédiés, qui sera utilisé par cet environnement Time Series Insights uniquement, pour lire les données de manière fiable à partir de votre concentrateur d’événements.
-
-Pour ajouter un nouveau groupe de consommateurs dans votre concentrateur d’événements, procédez comme suit :
-1. Dans le portail Azure, recherchez et ouvrez votre concentrateur d’événements.
-
-2. Sous le titre **Entités**, sélectionnez **Groupes de consommateurs**.
-
-   ![Concentrateur d’événements - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
-
-3. Sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs. 
-
-4. Sur la page **Groupes de consommateurs**, fournissez un nouveau **nom** unique.  Utilisez le même nom lors de la création d’une source d’événement dans l’environnement Time Series Insights.
-
-5. Sélectionnez **Créer** pour créer le nouveau groupe de consommateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.

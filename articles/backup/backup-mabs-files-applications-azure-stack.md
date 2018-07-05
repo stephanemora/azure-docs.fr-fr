@@ -1,5 +1,5 @@
 ---
-title: Sauvegarder des fichiers et applications Azure Stack
+title: Sauvegarder des fichiers dans des machines virtuelles Azure Stack
 description: Utilisez Sauvegarde Azure pour sauvegarder et restaurer des fichiers et applications Azure Stack dans votre environnement Azure Stack.
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248858"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751702"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>Sauvegarder des fichiers et applications sur Azure Stack
-Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger toute application s’exécutant sur tout serveur Azure Stack dans le même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
+# <a name="back-up-files-on-azure-stack"></a>Sauvegarder des fichiers sur Azure Stack
+Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
 
 > [!NOTE]
 > Bien qu’un serveur de sauvegarde Azure et Microsoft System Center Data Protection Manager (DPM) soient similaires, DPM n’est pas pris en charge pour une utilisation avec Azure Stack.
 >
 
-Cet article ne couvre pas l’installation du serveur de sauvegarde Azure dans l’environnement Azure Stack. Pour installer un serveur de sauvegarde Azure sur Azure Stack, consultez l’article [Préparation de la sauvegarde des charges de travail à l’aide d’un serveur de sauvegarde Azure](backup-mabs-install-azure-stack.md).
+Cet article ne couvre pas l’installation du serveur de sauvegarde Azure dans l’environnement Azure Stack. Pour installer un serveur de sauvegarde Azure sur Azure Stack, voir l’article [Installer un serveur de sauvegarde Azure](backup-mabs-install-azure-stack.md).
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Sauvegarder les données de fichiers de machine virtuelle Azure Stack dans Azure
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Sauvegarder des fichiers et des dossiers dans des machines virtuelles Azure Stack sur Azure
 
-Pour configurer le serveur de sauvegarde Azure afin de protéger les machines virtuelles IaaS, ouvrez la console du serveur de sauvegarde Azure. Vous allez utiliser la console pour configurer les groupes de protection et pour protéger les données sur vos machines virtuelles.
+Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers dans des machines virtuelles Azure Stack, ouvrez la console du serveur de sauvegarde Azure. Vous allez utiliser la console pour configurer les groupes de protection et pour protéger les données sur vos machines virtuelles.
 
 1. Dans la console du serveur de sauvegarde Azure, cliquez sur **Protection**, puis cliquez sur **Nouveau** dans la barre d’outils pour ouvrir l’assistant **Création d’un nouveau groupe de protection**.
 
@@ -49,13 +49,13 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les machines vi
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft vous recommande de placer toutes les machines virtuelles qui partagent une stratégie de protection dans un groupe de protection unique. Pour des informations complètes sur la planification et le déploiement des groupes de protection, consultez l’article System Center DPM, [Déployer des groupes de protection](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft recommande de placer toutes les données qui partageront la même stratégie de protection dans un seul groupe de protection. Pour des informations complètes sur la planification et le déploiement des groupes de protection, consultez l’article System Center DPM, [Déployer des groupes de protection](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. Dans l’écran **Sélectionner la méthode de protection des données**, entrez le nom du groupe de protection. Cochez la case **I want short-term protection using:** (Je souhaite une protection à court terme avec :) et **I want online protection** (Je souhaite une protection en ligne). Cliquez sur **Suivant**.
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Pour sélectionner **I want online protection** (Je souhaite une protection en ligne), vous devez d’abord sélectionner **I want short-term protection using:** (Je souhaite une protection à court terme avec :) disque. Le serveur de sauvegarde Azure ne peut pas protéger sur bande. Le disque est donc le seul choix possible pour la protection à court terme.
+    Pour sélectionner **I want online protection** (Je souhaite une protection en ligne), vous devez d’abord sélectionner **I want short-term protection using:** (Je souhaite une protection à court terme avec :) disque. Le serveur de sauvegarde Azure ne protège pas sur bande. Le disque est donc le seul choix possible pour la protection à court terme.
 
 5. Sur l’écran **Spécifier les objectifs à court terme**, choisissez la durée pendant laquelle conserver les points de récupération enregistrés sur le disque et quand enregistrer les sauvegardes incrémentielles. Cliquez sur **Suivant**.
 
@@ -73,7 +73,7 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les machines vi
 
     La **taille totale des données** correspond à la taille des données que vous souhaitez sauvegarder et l’**espace disque à provisionner** sur le serveur de sauvegarde Azure correspond à l’espace recommandé pour le groupe de protection. Le serveur de sauvegarde Azure choisit le volume de sauvegarde idéal en fonction des paramètres. Toutefois, vous pouvez modifier les choix de volume de sauvegarde dans les détails de l’allocation de disque. Pour les charges de travail, sélectionnez le stockage préféré dans le menu déroulant. Vos modifications changent les valeurs de Stockage Total et Stockage libre dans le volet Stockage sur disque disponible. L’espace sous-approvisionné est la quantité de stockage que le serveur de sauvegarde Azure suggère que vous ajoutiez au volume pour continuer à procéder à des sauvegardes à l’avenir.
 
-7. Sous **Choisir la méthode de création de réplica**, sélectionnez la façon dont vous souhaitez gérer la réplication initiale complète des données. Si vous choisissez de répliquer sur le réseau, Azure vous recommande de choisir une heure creuse. Pour de grandes quantités de données ou des conditions de réseau peu optimales, envisagez de répliquer les données hors connexion à l’aide d’un support amovible.
+7. Sous **Choisir la méthode de création de réplica**, sélectionnez la façon dont vous souhaitez gérer la réplication initiale complète des données. Si vous choisissez de répliquer sur le réseau, Azure vous recommande de choisir une heure creuse. Pour de grandes quantités de données ou des conditions de réseau peu optimales, envisagez de répliquer les données à l’aide d’un support amovible.
 
 8. Sous **Sélectionner les options de vérification de cohérence**, indiquez comment vous voulez automatiser les vérifications de cohérence. Autorisez les vérifications de cohérence à s’exécuter uniquement quand la réplication des données devient incohérente ou selon une planification. Si vous ne voulez pas configurer une vérification de cohérence automatique, effectuez une vérification manuelle à tout moment :
     * Dans la zone **Protection** de la console du serveur de sauvegarde Azure, cliquez avec le bouton droit sur le groupe de protection et sélectionnez **Effectuer une vérification de cohérence**.
@@ -87,8 +87,6 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les machines vi
 11. Sous **Spécifier la stratégie de rétention en ligne**, sélectionnez la façon dont les points de récupération créés à partir des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles sont conservés dans Azure.
 
 12. Sous **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire. 
-
-    Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la [fonctionnalité Azure Import](./backup-azure-backup-import-export.md).
 
 13. Sous **Résumé**, vérifiez vos paramètres. Lorsque vous cliquez sur **Créer un groupe**, la réplication initiale des données se produit. Une fois la réplication des données terminée, dans la page **État**, l’état du groupe de protection est **OK**. Le travail de sauvegarde initiale a lieu conformément aux paramètres du groupe de protection.
 
@@ -116,7 +114,6 @@ Utilisez la console du serveur de sauvegarde Azure pour récupérer des données
     * Pour **Existing version recovery behavior** (Comportement de récupération de la version existante), sélectionnez **Créer une copie**, **Ignorer**, ou **Remplacer**. Remplacer est disponible uniquement pour la récupération vers l’emplacement d’origine.
     * Pour **Restore security** (Sécurité de restauration), choisissez **Apply settings of the destination computer** (Appliquer les paramètres de l’ordinateur de destination) ou **Apply the security settings of the recovery point version** (Appliquer les paramètres de la version du point de récupération).
     * Pour **Network bandwidth usage throttling** (Limitation de l’utilisation de la bande passante réseau), cliquez sur **Modifier** pour activer la limitation de l’utilisation de la bande passante réseau.
-    * Sélectionnez **Enable SAN-based recovery using hardware snapshots** (Activer la récupération SAN au moyen d’instantanés matériels) pour utiliser des instantanés matériels SAN pour accélérer la récupération. Cette option est valide uniquement lorsque vous disposez d’un réseau SAN sur lequel la fonctionnalité d’instantané matériel est activée. Pour créer un point de récupération accessible en écriture, le réseau SAN doit être en mesure de créer et de fractionner un clone. La machine virtuelle et le serveur de sauvegarde Azure protégés doivent être connectés au même réseau SAN.
     * **Notification** Cliquez sur **Send an e-mail when the recovery completes** (Envoyer un e-mail lorsque cette récupération est terminée), puis indiquez les destinataires qui recevront la notification. Séparez les adresses de messagerie par des virgules.
     * Après avoir fait vos choix, cliquez sur **Suivant**.
 
@@ -132,16 +129,13 @@ Si vous utilisez le stockage de sauvegarde moderne (MBS), la récupération par 
 
 2. Dans le menu **Propriétés**, cliquez sur **Versions précédentes** et choisissez la version que vous souhaitez récupérer.
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>Inscrire le serveur de sauvegarde Azure dans un coffre
-Indiquez les étapes expliquant comment :
-
+## <a name="view-azure-backup-server-with-a-vault"></a>Afficher le serveur de sauvegarde Azure avec un coffre
+Pour afficher les entités du serveur de sauvegarde Azure sur le Portail Azure, vous pouvez suivre les étapes ci-dessous :
 1. Ouvrir le coffre Recovery Services.
 2. Cliquer sur Infrastructure de sauvegarde.
 3. Afficher la liste des serveurs de gestion des sauvegardes.
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur l’utilisation d’un serveur de sauvegarde Azure pour protéger d’autres charges de travail, voir les articles suivants :
-- [Sauvegarder un batterie de serveurs SharePoint](backup-azure-backup-sharepoint-mabs.md)
-- [Sauvegarder SQL Server](backup-azure-sql-mabs.md)
+- [Sauvegarder un batterie de serveurs SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Sauvegarder SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

@@ -2,23 +2,18 @@
 title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237343"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301517"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -89,7 +84,7 @@ Si vous avez un scénario dans lequel vous ne pouvez pas modifier les connexions
 
 Les [exemples sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) montrent comment configurer et lancer un basculement. Ces exemples illustrent les concepts suivants :
 
-- Un exemple et des paramètres .Net requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus afin d’installer et d’activer la géorécupération d'urgence.
+- Un exemple .NET et des paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus afin d’installer et d’activer la géo-reprise d'activité après sinistre.
 - Étapes requises pour exécuter l’exemple de code.
 - Comment utiliser un espace de noms existant en tant qu’alias.
 - Exécuter pas à pas pour activer de façon alternative la géorécupération d’urgence via PowerShell ou CLI.
@@ -107,6 +102,17 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités. 
 
+## <a name="availability-zones-preview"></a>Zones de disponibilité (préversion)
+
+La référence SKU de Service Bus Premium prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
+
+> [!NOTE]
+> La préversion des Zones de disponibilité est prise en charge uniquement dans les régions **USA Centre**, **USA Est 2** et **France Centre**.
+
+Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Service Bus ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
+
+![3][]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez les [informations de référence de l’API REST](/rest/api/servicebus/disasterrecoveryconfigs) sur la géorécupération d’urgence.
@@ -123,3 +129,4 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les articles suivan
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062277"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083190"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>Description des différentes stratégies de mise à niveau
-
-- **Dynamique** – Les modifications apportées à une configuration dynamique ne provoquent pas de redémarrage de processus, qu’il s’agisse des processus de Service Fabric ou de vos processus hôte de service. 
-- **Statique** – Les modifications apportées à une configuration statique provoquent le redémarrage du nœud Service Fabric afin de consommer la modification. Les services sur les nœuds sont redémarrés.
-- **Non autorisé** – Ces paramètres ne peuvent pas être modifiés. La modification de ces paramètres implique de détruire le cluster pour en créer un nouveau. 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
 
 > [!NOTE]
 > Tous les paramètres ne sont pas disponibles dans le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Description des différentes stratégies de mise à niveau
+
+- **Dynamique** – Les modifications apportées à une configuration dynamique ne provoquent pas de redémarrage de processus, qu’il s’agisse des processus de Service Fabric ou de vos processus hôte de service. 
+- **Statique** – Les modifications apportées à une configuration statique provoquent le redémarrage du nœud Service Fabric afin de consommer la modification. Les services sur les nœuds sont redémarrés.
+- **Non autorisé** – Ces paramètres ne peuvent pas être modifiés. La modification de ces paramètres implique de détruire le cluster pour en créer un nouveau. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager
 Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.

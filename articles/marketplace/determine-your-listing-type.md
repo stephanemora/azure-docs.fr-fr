@@ -12,35 +12,35 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1c7fd3ac1a4cf62dd8f909acc26615ea5f96f32c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235805"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309096"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>Déterminer le type de référencement pour votre solution  
 Les vitrines prennent en charge différentes options de publication : les types de référencements et les types d’offres. Sélectionnez le type d’offre qui correspond le mieux à votre solution et à votre service. Toutes les options de publication vous permettent de partager des prospects.   
 
 | Vitrine | Type de référencement | Type d’application | Instructions techniques |  
 |:--- |:--- |:--- |:--- |  
-| AppSource | [Liste](#list) | [Service de conseil](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
-| Place de marché Azure | [Liste](#list) | [Service de conseil](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| Place de marché Azure | [Liste](#list) | [Me contacter](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| Place de marché Azure | [Version d’évaluation](#trial) | [Version d’évaluation gratuite / Version d’évaluation SaaS](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| AppSource | [Liste](#list) | [Service de conseil](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| Place de marché Azure | [Liste](#list) | [Service de conseil](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| Place de marché Azure | [Liste](#list) | [Me contacter](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| Place de marché Azure | [Version d’évaluation](#trial) | [Version d’évaluation gratuite / Version d’évaluation SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
 | AppSource |  | Cortana Intelligence | [docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 | AppSource |  |Dynamics 365 for Customer Engagement | [docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 | AppSource |  | Dynamics 365 pour la finance et les opérations | [docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
-| Place de marché Azure | [Version d’évaluation](#trial) | [Démonstration interactive](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| Place de marché Azure | [Version d’évaluation](#trial) | [Test drive](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| Place de marché Azure | [Version d’évaluation](#trial) | [Démonstration interactive](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| Place de marché Azure | [Version d’évaluation](#trial) | [Test drive](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
 | AppSource |  | Office 365 | [docs.microsoft.com/office/dev/store/submit-to-the-office-store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
-| AppSource |  | Power BI | [docs.microsoft.com/power-bi/developer/office-store](https://docs.microsoft.com/power-bi/developer/office-store) | | Place de marché Azure | [Transaction](#transact) | [Applications Azure : application gérée](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| Place de marché Azure | [Transaction](#transact) | [Applications Azure : modèle de solution](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| Place de marché Azure | [Transaction](#transact) | [Conteneur](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| Place de marché Azure | [Transaction](#transact) | [Application SaaS](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| Place de marché Azure | [Transaction](#transact) | [Machine virtuelle](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |   
+| AppSource |  | Power BI | [docs.microsoft.com/power-bi/developer/office-store](https://docs.microsoft.com/power-bi/developer/office-store) | | Place de marché Azure | [Transaction](#transact) | [Applications Azure : application gérée](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| Place de marché Azure | [Transaction](#transact) | [Applications Azure : modèle de solution](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| Place de marché Azure | [Transaction](#transact) | [Conteneur](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| Place de marché Azure | [Transaction](#transact) | [Application SaaS](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| Place de marché Azure | [Transaction](#transact) | [Machine virtuelle](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |   
 
 ## <a name="azure-certified-program"></a>Programme Azure Certified  
 Toutes les machines virtuelles publiées sur la Place de marché Azure sont testées dans le cadre du programme Azure Certified.  
@@ -58,7 +58,7 @@ Le tableau suivant décrit les exigences propres aux applications AppSource qui 
 
 | Type de référencement | Type d’application | Instructions techniques |  
 |:--- |:--- |:--- |  
-| [Liste](#list) | [Service de conseil](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| [Liste](#list) | [Service de conseil](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
 |  | Cortana Intelligence | [docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 |  |Dynamics 365 for Customer Engagement | [docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 |  | Dynamics 365 pour la finance et les opérations | [docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
@@ -68,20 +68,23 @@ Le tableau suivant décrit les exigences propres aux applications AppSource qui 
 ---   
 
 ## <a name="azure-marketplace-publishing-by-product"></a>Publication sur la Place de marché Azure par produit  
+
+![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+
 Le tableau suivant décrit les exigences spécifiques pour les offres de la Place de marché Azure.  
 
-| Type de référencement | Type d’offre |  Instructions techniques |  
+| Type de liste | Type d’offre |  Instructions techniques |  
 |:--- |:--- |:--- |  
-| [Liste](#list) | [Service de conseil](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| [Liste](#list) | [Me contacter](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| [Version d’évaluation](#trial) | [Version d’évaluation gratuite / Version d’évaluation SaaS](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
-| [Version d’évaluation](#trial) | [Démonstration interactive](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| [Version d’évaluation](#trial) | [Test drive](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
-| [Transaction](#transact) | [Applications Azure : application gérée](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| [Transaction](#transact) | [Applications Azure : modèle de solution](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| [Transaction](#transact) | [Conteneur](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| [Transaction](#transact) | [Application SaaS](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| [Transaction](#transact) | [Machine virtuelle](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |  
+| [Liste](#list) | [Service de conseil](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| [Liste](#list) | [Me contacter](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| [Version d’évaluation](#trial) | [Version d’évaluation gratuite / Version d’évaluation SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
+| [Version d’évaluation](#trial) | [Démonstration interactive](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| [Version d’évaluation](#trial) | [Test drive](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
+| [Transaction](#transact) | [Applications Azure : application gérée](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| [Transaction](#transact) | [Applications Azure : modèle de solution](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| [Transaction](#transact) | [Conteneur](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| [Transaction](#transact) | [Application SaaS](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| [Transaction](#transact) | [Machine virtuelle](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |  
 
 ---   
 
@@ -93,10 +96,10 @@ Le type de référencement Liste inclut les types d’offre suivants dans les vi
 
 | Type d’offre | Vitrine | Détails |  
 |:---        |:---        |:---     |  
-| Services de conseil | AppSource | [Exigences : AppSource : Liste : Services de conseil](#requirements:-appsource:-list:-consulting-service) |  
-| Services de conseil | Place de marché Azure | [Exigences : Place de marché Azure : Liste : Services de conseil](#requirements:-azure-marketplace:-list:-consulting-service) |  
+| Services de conseil | AppSource | [Exigences : AppSource : Liste : Services de conseil](#requirements-appsource-list-consulting-service) |  
+| Services de conseil | Place de marché Azure | [Exigences : Place de marché Azure : Liste : Services de conseil](#requirements-azure-marketplace-list-consulting-service) |  
 | Me contacter | AppSource | [](#) |  
-| Me contacter | Place de marché Azure | [Exigences : AppSource : Liste : Me contacter](#requirements:-azure-marketplace:-list:-contact-me) |  
+| Me contacter | Place de marché Azure | [Exigences : AppSource : Liste : Me contacter](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Exigences : AppSource : Liste : Service de conseil  
 Lorsque l’offre se compose principalement de services professionnels (par exemple, des évaluations, des implémentations ou des ateliers), utilisez le type d’offre Services de conseil.  
@@ -104,14 +107,14 @@ Lorsque l’offre se compose principalement de services professionnels (par exem
 | Configuration requise | Détails |  
 |:--- |:--- |  
 | Caractéristiques de l’offre Services | Votre service de conseil doit respecter les critères suivants.<ul> <li>Fournir un engagement pour une durée, une portée et un prix fixes (ou gratuitement).</li> <li>Orienter principalement vers la prévente.</li> <li>Se limiter à un seul client.</li> <li>Être effectué sur site.</li> </ul> |  
-| Exigences du partenaire pour les services de conseil | Vous répondez aux critères dans le domaine correspondant à votre service.<table><tr><th>Domaine fonctionnel</th><th>Critères</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Avoir la compétence Gestion de la relation client dans le Cloud, statut Silver ou Gold.</td></tr><tr><td>Dynamics 365 pour les opérations et la finance, édition Entreprise</td><td>Avoir la compétence Planification des ressources d’entreprise, statut Silver ou Gold, ainsi qu’un chiffre d’affaires résultant de vos opérations dans le cloud supérieur ou égal à 25 000 $ au cours des 12 derniers mois.</td></tr><tr><td>Dynamics 365 pour les opérations et la finance, édition Business</td><td>Agir en tant que fournisseur de services cloud ou partenaire de référence numérique pour un ou plusieurs clients.</td></tr><tr><td>Power BI</td><td>Respecter les critères du partenaire de solution.</td></tr><tr><td>PowerApps</td><td>Avoir une solution de présentation des partenaires.</td></tr></table><ul> <li>Pour plus d’informations sur la gestion de la relation client, visitez la page Gestion de la relation client dans le cloud à l’adresse [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Pour plus d’informations sur la planification des ressources, visitez la page Gestion intégrée à l’adresse [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Pour plus d’informations sur le fournisseur de services cloud, visitez la page Fournisseur de solutions cloud à l’adresse [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Pour plus d’informations sur le partenaire numérique d’enregistrement, visitez la page Partenaire de référence (POR) numérique et association au partenaire à l’adresse [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Pour plus d’informations sur les critères des partenaires de solution, consultez le document Présentation et avantages des partenaires de solution à l’adresse [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Pour plus d’informations sur la présentation du partenaire, visitez la page Découvrez ce que nos partenaires font avec PowerApps à l’adresse [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| Exigences du partenaire pour les services de conseil | Vous répondez aux critères dans le domaine correspondant à votre service.<table><tr><th>Domaine fonctionnel</th><th>Critères</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Avoir la compétence Gestion de la relation client dans le Cloud, statut Silver ou Gold.</td></tr><tr><td>Dynamics 365 pour les opérations et la finance, édition Entreprise</td><td>Avoir la compétence Planification des ressources d’entreprise, statut Silver ou Gold, ainsi qu’un chiffre d’affaires résultant de vos opérations dans le cloud supérieur ou égal à 25 000 $ au cours des 12 derniers mois.</td></tr><tr><td>Dynamics 365 pour les opérations et la finance, édition Business</td><td>Agir en tant que fournisseur de services cloud ou partenaire de référence numérique pour un ou plusieurs clients.</td></tr><tr><td>Power BI</td><td>Respecter les critères du partenaire de solution.</td></tr><tr><td>PowerApps</td><td>Avoir une solution de présentation des partenaires.</td></tr></table><ul> <li>Pour plus d’informations sur la gestion de la relation client, visitez la page Gestion de la relation client dans le cloud à l’adresse [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Pour plus d’informations sur la planification des ressources, visitez la page Gestion intégrée à l’adresse [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Pour plus d’informations sur le fournisseur de services cloud, visitez la page Fournisseur de solutions cloud à l’adresse [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Pour plus d’informations sur le partenaire numérique d’enregistrement, visitez la page Partenaire de référence (POR) numérique et association au partenaire à l’adresse [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Pour plus d’informations sur les critères des partenaires de solution, consultez le document Présentation et avantages des partenaires de solution à l’adresse [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Pour plus d’informations sur la présentation du partenaire, visitez la page Découvrez ce que nos partenaires font avec PowerApps à l’adresse [powerapps.microsoft.com/partner-showcase/](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>Exigences : Place de marché Azure : Liste : Service de conseil  
 
 | Configuration requise | Détails |  
 |:--- |:--- |  
 | Caractéristiques de l’offre Services | Votre service de conseil doit respecter les critères suivants.<ul> <li>Fournir un engagement pour une durée, une portée et un prix fixes (ou gratuitement).</li> <li>Orienter principalement vers la prévente.</li> <li>Se limiter à un seul client.</li> <li>Être effectué sur site.</li> </ul> |  
-| Exigences du partenaire pour les services de conseil | Vous devez avoir le statut Silver ou Gold dans l’une des compétences suivantes dans le domaine correspondant à votre service. <table><tr><th>Domaine fonctionnel</th><th>Compétence</th></tr><td>Infrastructure et plateforme cloud</td><td>Plateforme cloud<br />Centre de données</td><tr><td>Développement d’applications et éditeurs de logiciels indépendants</td><td>Développement d’applications<br />Intégration d’application<br />DevOps</td></tr><tr><td>Gestion et analyse des données</td><td>Analyse des données<br />Plateforme de données</td></tr></table><ul> <li>Pour plus d’informations sur les compétences, visitez la page Partenaires de compétence via Microsoft Partner Network à l’adresse [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Pour plus d’informations sur le référencement, visitez la page Services de conseil de la Place de marché Azure à l’adresse [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
+| Exigences du partenaire pour les services de conseil | Vous devez avoir le statut Silver ou Gold dans l’une des compétences suivantes dans le domaine correspondant à votre service. <table><tr><th>Domaine fonctionnel</th><th>Compétence</th></tr><td>Infrastructure et plateforme cloud</td><td>Plateforme cloud<br />Centre de données</td><tr><td>Développement d’applications et éditeurs de logiciels indépendants</td><td>Développement d’applications<br />Intégration d’application<br />DevOps</td></tr><tr><td>Gestion et analyse des données</td><td>Analytique des données<br />Plateforme de données</td></tr></table><ul> <li>Pour plus d’informations sur les compétences, visitez la page Partenaires de compétence via Microsoft Partner Network à l’adresse [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Pour plus d’informations sur le référencement, visitez la page Services de conseil de la Place de marché Azure à l’adresse [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
 
 #### <a name="requirements-azure-marketplace-list-contact-me"></a>Exigences : Place de marché Azure : Liste : Me contacter  
 Utilisez le type d’offre Me contacter lorsqu’il n’est pas possible d’utiliser le type de référencement Version d’évaluation ou Transaction. L’avantage du type d’offre Me contacter réside dans le fait que vous pouvez recevoir des prospects immédiatement avec une solution de marché. Vos prospects doivent être fidélisés avec les offres de base pour développer rapidement votre activité. L’inconvénient de cette méthode est que, comparée aux autres types d’offres, l’engagement client est limité.  
@@ -130,12 +133,12 @@ Le type de référencement Version d’évaluation inclut les types d’offre su
 
 | Type d’offre | Vitrine | Détails |  
 |:---        |:---        |:---     |  
-| Version d’évaluation gratuite / SaaS | AppSource | [Exigences du type de référencement : Version d’évaluation](#Listing-Type-Requirements:-trial) |  
-| Version d’évaluation gratuite / SaaS | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Version d’évaluation gratuite / SaaS](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| Démonstration interactive | AppSource | [Exigences du type de référencement : Version d’évaluation](#Listing-Type-Requirements:-trial) |  
-| Démonstration interactive | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Démonstration interactive](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| Test drive | AppSource | [Exigences du type de référencement : Version d’évaluation](#Listing-Type-Requirements:-trial) |  
-| Test drive | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Test drive](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| Version d’évaluation gratuite/SaaS | AppSource | [Exigences du type de référencement : Version d’évaluation](#listing-type-requirements-trial) |  
+| Version d’évaluation gratuite/SaaS | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Version d’évaluation gratuite / SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Démonstration interactive | AppSource | [Exigences du type de référencement : Version d’évaluation](#listing-type-requirements-trial) |  
+| Démonstration interactive | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Démonstration interactive](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Test drive | AppSource | [Exigences du type de référencement : Version d’évaluation](#listing-type-requirements-trial) |  
+| Test drive | Place de marché Azure | [Exigences : Place de marché Azure : Version d’évaluation : Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Exigences : Place de marché Azure : Version d’évaluation  
 
@@ -143,7 +146,7 @@ Le type de référencement Version d’évaluation inclut les types d’offre su
 |:--- |:--- |  
 | Période d’essai gratuite et évaluation | Votre client peut utiliser votre application gratuitement pendant une durée limitée.<br /><br />Votre client n’est pas obligé de payer des frais de licence ou d’abonnement pour votre offre. Vos clients ne sont pas obligés de payer le produit ou service interne Microsoft sous-jacent. Toutes les options de la version d’évaluation sont déployées sur votre abonnement Azure. Vous avez le contrôle exclusif de la gestion et de l’optimisation des coûts.<br /><br />Vous pouvez choisir entre les options Version d’évaluation, Démonstration interactive ou Test drive. Quel que soit votre choix, votre version d’évaluation gratuite doit permettre au client de tester gratuitement votre offre pendant une durée définie.<ul> <li>Pour commencer la création d’un test drive, contactez-nous à l’adresse [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com).</li> </ul>Remarque : toutes les offres d’évaluation SaaS sur la Place de marché Azure doivent permettre à votre client de se connecter avec ses informations d’identification professionnelles.<ul> <li>Pour plus d’informations, visitez la section Expérience d’essai AppSource située à l’adresse [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
 | Solution facile à configurer et prête à l’emploi | Votre application doit être facile et rapide à configurer. |  
-| Disponibilité / Temps d’activité | La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total. |  
+| Disponibilité/Temps d’activité | La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total. |  
 | Azure Active Directory | Votre offre doit permettre l’authentification unique fédérée Azure Active Directory (Azure AD) avec activation du consentement. |  
 
 #### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Exigences : Place de marché Azure : Version d’évaluation : Version d’évaluation gratuite / SaaS  
@@ -177,11 +180,11 @@ Le type de référencement Transaction inclut les types d’offre suivants dans 
 
 | Type d’offre | Vitrine | Détails |   
 |:---        |:---        | :--- |  
-| Applications Azure : application gérée | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Applications Azure : Application gérée](#requirements:-azure-marketplace:-transact:-Azure-apps:-Managed-app) |  
-| Applications Azure : modèle de solution | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Applications Azure : Modèle de solution](#requirements:-azure-marketplace:-transact:-Azure-apps:-Solution-template) |  
-| Containers | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Conteneur](#requirements:-azure-marketplace:-transact:-Container) |  
-| Application SaaS  | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Application SaaS](#requirements:-azure-marketplace:-transact:-SaaS-app) |  
-| Machine virtuelle | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Machine virtuelle](#requirements:-azure-marketplace:-transact:-Virtual-Machine) |  
+| Applications Azure : application gérée | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Applications Azure : Application gérée](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Applications Azure : modèle de solution | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Applications Azure : Modèle de solution](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Containers | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Conteneur](#requirements-azure-marketplace-transact-container) |  
+| Application SaaS  | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Application SaaS](#requirements-azure-marketplace-transact-saas-app) |  
+| Machine virtuelle | Place de marché Azure | [Exigences : Place de marché Azure : Transaction : Machine virtuelle](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 #### <a name="requirements-azure-marketplace-transact-azure-apps-managed-app"></a>Exigences : Place de marché Azure : Transaction : Applications Azure : Application gérée  
 Utilisez le type d’offre Application Azure : application gérée lorsque les conditions suivantes sont requises.  
@@ -209,11 +212,10 @@ Microsoft prend actuellement en charge les modèles de licence BYOL (apportez vo
 
 | Prérequis | Détails |  
 |:--- |:--- |  
-|Facturation et mesure  |  Votre conteneur doit prendre en charge soit les modèles de facturation gratuit, soit les modèles BYOL (Bring Your Own License - Apportez votre propre licence).       |  
-|Image créée à partir du fichier Dockerfile   |   Les images de conteneur doivent être basées sur la spécification d’image Docker et doivent être générées à partir d’un fichier Dockerfile. Vous trouverez plus d’informations sur la création d’images Docker [ici].(https://docs.docker.com/engine/reference/builder/#usage)
-|Hébergement dans ACR   |   Les images de conteneur doivent être hébergées dans un Azure Container Registry (ACR). Apprenez en plus sur comment travailler avec ACR [ici].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
-|Balisage d’images   |   Les images de conteneur doivent contenir au moins 1 balise (nombre maximal de balises : 16). Apprenez en plus sur le balisage d’une image [ici].(https://docs.docker.com/engine/reference/commandline/tag/)     | 
-
+| Facturation et mesure | Prise en charge du modèle de facturation gratuit ou BYOL. |  
+| Image créée à partir du fichier Dockerfile | Les images de conteneur doivent être basées sur la spécification d’image Docker et doivent être générées à partir d’un fichier Dockerfile.<ul> <li>Pour plus d'informations sur la création d’images Docker, visitez la section Utilisation à l’adresse [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
+| Hébergement dans ACR | Les images de conteneur doivent être hébergées dans un Azure Container Registry (ACR).<ul> <li>Pour plus d’informations sur l’utilisation d’ACR, visitez la page Démarrage rapide : Créer un registre de conteneurs à l’aide du portail Azure à l’adresse [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Balisage d’images | Les images de conteneur doivent contenir au moins 1 balise (nombre maximal de balises : 16).<ul> <li>Pour plus d'informations sur le balisage d’une image, visitez la page de balise Docker à l’adresse [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>Exigences : Place de marché Azure : Transaction : Application SaaS  
@@ -225,12 +227,10 @@ Microsoft héberge la transaction commerciale. Microsoft facture votre client po
 
 | Prérequis | Détails |  
 |:--- |:--- |  
-|Facturation et mesure   |   Votre offre est facturée selon un tarif mensuel forfaitaire. La tarification basée sur l’utilisation et les capacités d’égalisation basées sur l’utilisation ne sont pas prises en charge pour l’instant.      |  
-|Annulation  |   Votre offre peut être annulée par le client à tout moment.      |  
-|Page d’accueil de transaction   |   Vous hébergez une page d’accueil de transaction conjointe avec Azure, sur laquelle les utilisateurs peuvent créer et gérer leur compte de service SaaS.      |   
-|API d’abonnement    |   Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement.      | 
-
-
+|Facturation et mesure | Votre offre est facturée selon un tarif mensuel forfaitaire. La tarification basée sur l’utilisation et les capacités d’égalisation basées sur l’utilisation ne sont pas prises en charge pour l’instant. |  
+|Annulation | Votre offre peut être annulée par le client à tout moment. |  
+|Page d’accueil de transaction | Vous hébergez une page d’accueil de transaction conjointe avec Azure, sur laquelle les utilisateurs peuvent créer et gérer leur compte de service SaaS. |   
+| API d’abonnement | Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. |  
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Exigences : Place de marché Azure : Transaction : Machine virtuelle  
 Utilisez le type d’offre Machine virtuelle si vous déployez une appliance virtuelle dans l’abonnement associé à votre client. Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise.  

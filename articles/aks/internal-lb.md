@@ -2,23 +2,23 @@
 title: Créer un équilibreur de charge interne Azure Kubernetes Service (AKS)
 description: Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 3/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a1a5d6d455086ee34767e92b277936840717bcd6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7606ce574c7ff94caef3ffa89320d682b22d8502
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933771"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097918"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 
-L’équilibrage de charge interne rend un service Kubernetes accessible aux applications qui s’exécutent dans le même réseau virtuel que le cluster Kubernetes. Ce document définit en détail la création d’un équilibreur de charge interne avec Azure Kubernetes Service (AKS).
+L’équilibrage de charge interne rend un service Kubernetes accessible aux applications qui s’exécutent dans le même réseau virtuel que le cluster Kubernetes. Ce document définit en détail la création d’un équilibreur de charge interne avec Azure Kubernetes Service (AKS). Azure Load Balancer se décline en deux références SKU : De base et Standard. AKS utilise la référence SKU De base.
 
 ## <a name="create-internal-load-balancer"></a>Créer un équilibrage de charge interne
 

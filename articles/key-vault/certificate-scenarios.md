@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333511"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -82,8 +83,9 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
       -   Informations de renouvellement - > par exemple 90 jours avant l’expiration  
 
   - La création de certificat est généralement un processus asynchrone. Elle implique l’interrogation de votre coffre de clés pour connaître l’état de l’opération de création d’un certificat.  
-[Opération d’obtention du certificat](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) - État : terminé, en échec avec informations sur l’erreur ou annulé.  
-            - Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
+[Opération d’obtention du certificat](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   État : terminé, en échec avec informations sur l’erreur ou annulé.  
+      -   Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
 
 ## <a name="import-a-certificate"></a>Importation d’un certificat  
  Vous pouvez également importer un certificat dans Key Vault : PFX ou PEM.  

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796714"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751776"
 ---
 # <a name="understanding-policy-effects"></a>Compréhension des effets de Policy
 
@@ -90,7 +90,7 @@ Exemple 3 : paire **champ/valeur** unique utilisant un [alias](policy-definitio
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpar
 
 ## <a name="layering-policies"></a>Superposition de stratégies
 
-Une ressource peut subir les effets de plusieurs affectations. Celles-ci peuvent se situer dans la même portée (ressource spécifique, groupe de ressources, abonnement ou groupe de gestion) ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. Quoi qu’il en soit, la condition et l’effet de chaque stratégie (assignés directement ou dans le cadre d’une initiative) sont évalués indépendamment. Par exemple, si la stratégie 1 impose une restriction empêchant la création de l’emplacement de l’abonnement A dans « westus » avec effet Deny et que la stratégie 2 limitant les ressources du groupe de ressources B (dans l’abonnement A) à « eastus » avec effet Audit sont tous deux assignés, le résultat obtenu est le suivant :
+Une ressource peut subir les effets de plusieurs affectations. Celles-ci peuvent se situer dans la même portée (ressource spécifique, groupe de ressources, abonnement ou groupe de gestion) ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. Quoi qu’il en soit, la condition et l’effet de chaque stratégie (assignés directement ou dans le cadre d’une initiative) sont évalués indépendamment. Par exemple, si la stratégie 1 comporte une condition limitant à « westus » la création de l’emplacement des ressources de l’abonnement A avec effet Deny et que la stratégie 2 en comporte une autre limitant à « eastus » la création de l’emplacement des ressources du groupe de ressources B (dans l’abonnement A) avec effet Audit, le résultat obtenu est le suivant :
 
 - Toute ressource figurant déjà dans le groupe de ressources B dans « eastus » est marquée comme conforme à la stratégie 2 mais comme non conforme à la stratégie 1.
 - Toute ressource figurant déjà dans le groupe de ressources B et non dans « eastus » est marquée comme non conforme à la stratégie 2 et mais aussi comme non conforme à la stratégie 1 si elle est différente de « westus ».

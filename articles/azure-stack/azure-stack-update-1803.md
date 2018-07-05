@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f7f459404b5a759bef9eb8f37141bbd4c9eae3e5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849621"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318807"
 ---
 # <a name="azure-stack-1803-update"></a>Mise à jour 1803 d’Azure Stack
 
@@ -54,45 +54,40 @@ Le numéro de build de mise à jour d’Azure Stack 1803 est **20180329.1**.
   
   Contrairement aux mises à jour d’Azure Stack, l’installation de cette mise à jour ne modifie pas la version d’Azure Stack. Pour confirmer l’installation de cette mise à jour, affichez la liste des **mises à jour installées**.
 
-### <a name="post-update-steps"></a>Étapes après la mise à jour
-- Après l’installation de la version 1803, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
-  - [Article 4294441 de la Base de connaissances - Échec des opérations sur les ressources de locataire et création de partages inattendus sur le même volume de locataire ou d’infrastructure](https://support.microsoft.com/en-us/help/4294441)
-
-- Après avoir installé cette mise à jour, vérifiez la configuration du pare-feu pour être sûr que les [ports nécessaires](azure-stack-integrate-endpoints.md) sont ouverts. Par exemple, cette mise à jour comprend Azure Monitor, une nouvelle fonctionnalité qui remplace les journaux d’audit par des journaux d’activité. Dans le cadre de cette modification, le port 13012 est désormais utilisé et doit également être ouvert.  
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités 
 Cette mise à jour inclut les améliorations et les correctifs suivants pour Azure Stack.
 
 - **Mettre à jour les clés secrètes d’Azure Stack**  : comptes et certificats. Pour plus d’informations sur la gestion des clés secrètes, consultez [Faire pivoter les clés secrètes dans Azure Stack](azure-stack-rotate-secrets.md). 
 
-- <!-- 1914853 --> **Automatic redirect to HTTPS** when you use HTTP to access the administrator and user portals. This improvement was made based on [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback for Azure Stack. 
+- <!-- 1914853 --> **Redirection automatique vers HTTPS** si le protocole HTTP est utilisé pour accéder au portail d’administration ou au portail utilisateur. Cette amélioration a été effectuée à partir de commentaires [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) pour Azure Stack. 
 
-- <!-- 2202621  --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
+- <!-- 2202621  --> **Accès à la Place de marché** : il est maintenant possible d’ouvrir la Place de marché Azure Stack avec l’option [+ Nouveau](https://ms.portal.azure.com/#create/hub) sur le portail d’administration et le portail utilisateur, de la même façon que sur les portails Azure.
  
-- <!-- 2202621 --> **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- <!-- 2202621 --> **Azure Monitor** : Azure Stack ajoute [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) au portail d’administration et au portail utilisateur. Il comprend de nouveaux explorateurs de mesures et de journaux d’activité. Le port **13012** doit être ouvert dans les configurations de pare-feu pour qu’Azure Monitor soit accessible à partir de réseaux externes. Pour plus d’informations sur les ports requis par Azure Stack, voir [Intégration de centre de données Azure Stack – Publier des points de terminaison](azure-stack-integrate-endpoints.md).
 
    Également dans le cadre de cette modification, sous **Plus de services**, *Journaux d’audits* est désormais remplacé par *Journaux d’activités*. La fonctionnalité est désormais compatible avec le portail Azure. 
 
-- <!-- 1664791 --> **Sparse files** -  When you add a New image to Azure Stack, or add an image through marketplace syndication, the image is converted to a sparse file. Images that were added prior to using Azure Stack version 1803 cannot be converted. Instead, you must use marketplace syndication to resubmit those images to take advantage of this feature. 
+- <!-- 1664791 --> **Fichiers partiellement alloués** : toute image ajoutée à Azure Stack ou par le biais de la syndication Marketplace est convertie en fichier partiellement alloué. Cette conversion n’est pas possible pour celles qui ont été ajoutées avant la version 1803 d’Azure Stack. Il faut alors utiliser la syndication Marketplace pour renvoyer ces images de façon à tirer parti de cette fonctionnalité. 
  
    Les fichiers partiellement alloués sont un format de fichier efficace utilisé pour réduire l’utilisation de l’espace de stockage et améliorer les E/S.  Pour plus d’informations, consultez [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) pour Windows Server. 
 
 ### <a name="fixed-issues"></a>Problèmes résolus
 
-- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> À présent, l’équilibrage de charge interne gère correctement les adresses MAC des machines virtuelles principales, ce qui le conduit à déposer des paquets sur le réseau principal lorsque des instances Linux y sont utilisées. L’équilibrage de charge interne fonctionne bien avec des instances Windows sur le réseau principal. 
 
-- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure. The values for SALifetime (Time) and SALiftetime (Bytes) were not compatible with Azure and have changed in 1803 to match the Azure settings. The value for SALifetime (Seconds) prior to 1803 was 14,400 and now changes to 27,000 in 1803. The value for SALifetime (Bytes) prior to 1803 was 819,200 and changes to 33,553,408 in 1803.
+- <!-- 1805496 --> Les connexions VPN entre Azure Stack étaient interrompues à cause du fait que Azure Stack utilisait des paramètres différents de ceux d’Azure pour la stratégie IKE. Les valeurs de SALifetime (heure) et de SALiftetime (octets) n’étaient pas compatibles avec Azure ; elles ont été modifiées dans la version 1803 pour correspondre aux paramètres Azure. La valeur de SALifetime (secondes) avant la version 1803 était de 14 400 ; elle devient 27 000 dans la version 1803. La valeur de SALifetime (octets) avant la version 1803 était de 819 200 ; elle devient 33 553 408 dans la version 1803.
 
-- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> Les connexions VPN étaient visibles sur le portail ; l’activation du transfert d’adresses IP n’a cependant aucun effet. La fonctionnalité est activée par défaut ; il n’est pas encore possible de modifier ce comportement.  Ce contrôle a été supprimé du portail. 
 
-- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure Stack ne prend pas en charge les passerelles VPN basées sur des stratégies, même si l’option apparaît sur le portail.  Cette option a été supprimée du portail. 
 
-- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1868283 --> Azure Stack empêche maintenant le redimensionnement d’une machine virtuelle créée avec des disques dynamiques. 
 
-- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!-- 1756324 --> Les données d’utilisation des machines virtuelles sont désormais triées toutes les heures. Ce comportement est cohérent avec Azure. 
 
-- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- <!--  2253274 --> Sur le portail d’administration et le portail utilisateur, le chargement du panneau Paramètres des sous-réseaux virtuels échoue. Pour contourner le problème, utilisez PowerShell et la cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) afin de voir et de gérer ces informations.
 
 - Lorsque vous créez une machine virtuelle, le message *Impossible d’afficher les tarifs* ne s’affiche plus lors du choix d’une taille pour la machine virtuelle.
 
@@ -104,20 +99,29 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 
 
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour    
-<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+<!-- 2328416 --> Pendant l’installation de la mise à jour 1803, un temps d’arrêt risque de se produire pour le service BLOB et les services internes qui l’utilisent. Certaines opérations de machine virtuelle sont concernées. Ce temps d’arrêt peut provoquer des échecs d’opérations de locataire (tenant) ou des alertes émises par des services qui ne parviennent pas à accéder aux données. Le problème se résout de lui-même une fois la mise à jour installée. 
+
+
+
+### <a name="post-update-steps"></a>Étapes après la mise à jour
+- Après l’installation de la version 1803, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).
+
+  - [KB 4341390 – Correctif logiciel Azure Stack 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+
+- Après avoir installé cette mise à jour, vérifiez la configuration du pare-feu pour être sûr que les [ports nécessaires](azure-stack-integrate-endpoints.md) sont ouverts. Par exemple, cette mise à jour comprend *Azure Monitor*, qui remplace les journaux d’audit par des journaux d’activité. Dans le cadre de cette modification, le port 13012 est désormais utilisé et doit également être ouvert.  
 
 
 ### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 Les éléments suivants sont des problèmes connus depuis l’installation du build **20180323.2**.
 
 #### <a name="portal"></a>Portail
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
-  Solution de contournement : Pour résoudre ce problème après avoir installé cette mise à jour, utilisez l’étape 3 de la procédure [Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) afin de réinitialiser le propriétaire de l’abonnement Fournisseur par défaut.   
+- <!-- 2332636 - IS -->  Lorsque vous utilisez AD FS pour votre système d’identité Azure Stack et effectuez la mise à jour vers cette version d’Azure Stack, le propriétaire par défaut de l’abonnement Fournisseur par défaut redevient l’utilisateur **CloudAdmin** intégré.  
+  Solution de contournement : pour résoudre ce problème après avoir installé cette mise à jour, utilisez l’étape 3 de la procédure [Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) afin de réinitialiser le propriétaire de l’abonnement Fournisseur par défaut.   
 
 - La possibilité [d’ouvrir une nouvelle demande de support dans la liste déroulante](azure-stack-manage-portals.md#quick-access-to-help-and-support) à partir du portail administrateur n’est pas disponible. À la place, utilisez le lien suivant :     
     - Pour les systèmes Azure Stack intégrés, utilisez https://aka.ms/newsupportrequest.
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+- <!-- 2050709 --> Dans le portail d’administration, il n’est pas possible de modifier les métriques de stockage pour le service Blob, le service de Table ou le service de File d’attente. Lorsque vous accédez au stockage et que vous sélectionnez la vignette du service Blob, de Table ou de File d’attente, un nouveau panneau qui affiche un graphique des métriques pour ce service s’ouvre. Si vous sélectionnez ensuite Modifier en haut de la vignette du graphique des métriques, le panneau Modifier le graphique s’ouvre, mais n’affiche pas les options pour modifier les métriques.
 
 - Il se peut qu’il ne soit pas possible d’afficher les ressources de calcul ou de stockage sur le portail d’administration. Ce problème est dû au fait qu’une erreur s’est produite pendant l’installation de la mise à jour, et que celle-ci a été, à tort, signalée comme réussie. Si ce problème se produit, contactez les services de support technique Microsoft pour obtenir de l’aide.
 
@@ -136,7 +140,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Vous risquez de recevoir des alertes pour le composant du *contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
    - NOM : Rôle d’infrastructure défectueux
@@ -173,7 +177,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 -  Si l’approvisionnement d’une extension sur un déploiement de machine virtuelle prend trop de temps, les utilisateurs doivent laisser expirer le délai d’attente plutôt que d’essayer d’arrêter le processus pour désallouer ou supprimer la machine virtuelle.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 --> Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.  
 
 
 #### <a name="networking"></a>Mise en réseau
@@ -191,7 +195,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 - Azure Stack ne prend pas en charge l’ajout d’interfaces réseau supplémentaires sur une instance de machine virtuelle une fois que la machine virtuelle est déployée. Si la machine virtuelle nécessite plusieurs interfaces réseau, elles doivent être définies au moment du déploiement.
 
-- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+- <!-- 2096388 --> Vous ne pouvez pas utiliser le portail d’administration pour mettre à jour les règles d’un groupe de sécurité réseau. 
 
     Solution de contournement pour App Service : si vous avez besoin d’établir la connexion d’un bureau à distance à des instances de contrôleur, vous modifiez les règles de sécurité dans les groupes de sécurité réseau avec PowerShell.  Voici des exemples montrant comment *autoriser* la configuration, puis la restaurer sur *refuser* :  
     
@@ -262,7 +266,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 - Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Les caractères spéciaux, y compris les espaces et les points, ne sont pas pris en charge dans les noms **Famille** lors de la création d’une référence SKU pour les fournisseurs de ressources SQL et MySQL.
 
 > [!NOTE]  
 > Après la mise à jour vers Azure Stack 1803, vous pouvez continuer à utiliser les fournisseurs de ressources SQL et MySQL que vous avez déployés précédemment.  Nous vous recommandons de mettre à jour SQL et MySQL lorsqu’une nouvelle version est disponible. Comme Azure Stack, appliquez de façon séquentielle les mises à jour aux fournisseurs de ressources SQL et MySQL.  Par exemple, si vous utilisez la version 1711, commencez par appliquer la version 1712, puis la 1802, avant de mettre à jour vers la 1803.      

@@ -3,17 +3,18 @@ title: Recherche cognitive pour l’extraction des données et le traitement en 
 description: Extraction de données, traitement en langage naturel et traitement d’images pour créer du contenu pouvant être recherché dans l’indexation Recherche Azure à l’aide de compétences cognitives.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641109"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304280"
 ---
 # <a name="what-is-cognitive-search"></a>Qu’est-ce que la recherche cognitive ?
 
@@ -25,12 +26,12 @@ L’intégration AI se fait via les *compétences cognitives* qui enrichissent l
 
 Les compétences utilisées lors de l’indexation peuvent être prédéfinies ou personnalisées :
 
-+ Les [compétences prédéfinies](cognitive-search-predefined-skills.md) sont basées sur les mêmes algorithmes AI que ceux utilisés dans les API Cognitive Services : [Reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md), [Extraction de phrases clés](cognitive-search-skill-keyphrases.md) et [OCR](cognitive-search-skill-ocr.md), pour n’en citer que quelques-unes. 
++ Les [compétences prédéfinies](cognitive-search-predefined-skills.md) se basent sur les algorithmes d’IA utilisés dans les API Cognitive Services : [Reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md), [Extraction de phrases clés](cognitive-search-skill-keyphrases.md) et [OCR](cognitive-search-skill-ocr.md), pour n’en citer que quelques-unes. 
 
 + Les [compétences personnalisées](cognitive-search-create-custom-skill-example.md) peuvent être développées par vous pour tout traitement spécialisé dont vous avez besoin. Un module d’entité ou un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine sont des exemples de compétences personnalisées.
 
 > [!NOTE]
-> La recherche cognitive est en préversion publique et l’exécution d’ensembles de compétences est actuellement offerte gratuitement. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
+> La recherche cognitive est en préversion publique et l’exécution de compétences est proposée gratuitement à l’heure actuelle. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
 
 ## <a name="components-of-cognitive-search"></a>Composants de la recherche cognitive
 

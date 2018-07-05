@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.component: na
+ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851137"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128637"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -39,7 +40,7 @@ Dans la liste des espaces de travail au sein du portail Azure, cliquez sur **Ajo
 ![Page Vue d’ensemble](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Où se trouve ma page Vue d’ensemble ?
-L’écran principal dans le portail OMS affiche les vignettes pour toutes les solutions de gestion installées dans votre espace de travail ainsi que les vues personnalisées que vous avez créées. Dans le portail Azure, cet écran est considéré comme la page **Vue d’ensemble**. À partir de votre espace de travail dans le portail Azure, sélectionnez **Vue d’ensemble** dans le menu ou cliquez sur le bouton **Vue d’ensemble** dans la page principale.
+L’écran principal dans le portail OMS affiche les vignettes pour toutes les solutions de gestion installées dans votre espace de travail ainsi que les vues personnalisées que vous avez créées. Cette même vue est disponible sur le Portail Azure. Dans votre espace de travail, sélectionnez **Résumé de l’espace de travail**.
 
 ![Page Vue d’ensemble](media/log-analytics-new-portal/overview.png)
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757006"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311093"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuration réseau dans Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Les nœuds d’un cluster AKS configurés pour la mise en réseau de base utilis
 ## <a name="advanced-networking"></a>Mise en réseau avancée
 
 La mise en réseau **avancée** place vos pods dans un réseau virtuel Azure que vous configurez, en leur octroyant une connectivité automatique aux ressources de réseau virtuel et une intégration avec le riche ensemble de fonctionnalités offert par les réseaux virtuels.
-La mise en réseau avancée est actuellement disponible uniquement lors du déploiement de clusters AKS dans le [portail Azure][portal] ou avec un modèle Resource Manager.
+La mise en réseau avancée est disponible en cas de déploiement de clusters AKS avec le [Portail Azure][portal], Azure CLI ou un modèle Resource Manager.
 
 Les nœuds d’un cluster AKS configurés pour la mise en réseau avancée utilisent le plug-in Kubernetes[Azure Container Networking Interface (CNI)][cni-networking].
 
@@ -47,7 +47,7 @@ La mise en réseau avancée procure les avantages suivants :
 * Les pods peuvent accéder aux ressources sur les réseaux Internet publics. Également une fonction de la mise en réseau de base.
 
 > [!IMPORTANT]
-> Chaque nœud d’un cluster AKS configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**. Chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**.
+> Chacun des nœuds d’un cluster AKS configuré avec le Portail Azure pour la mise en réseau avancée peut héberger un maximum de **30 pods**.  Le seul moyen possible de changer la valeur maximale consiste à modifier la propriété maxPods lors du déploiement d’un cluster avec un modèle Resource Manager. Chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**.
 
 ## <a name="advanced-networking-prerequisites"></a>Conditions préalables de mise en réseau avancée
 
@@ -75,19 +75,47 @@ Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel
 
 Comme indiqué précédemment, chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**. Chaque nœud de cluster configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**.
 
-## <a name="configure-advanced-networking"></a>Configurer la mise en réseau avancée
+## <a name="deployment-parameters"></a>Paramètres de déploiement
 
-Lorsque vous [créez un cluster AKS](kubernetes-walkthrough-portal.md) dans le portail Azure, les paramètres suivants sont configurables pour la mise en réseau avancée :
+Lors de la création d’un cluster AKS, les paramètres suivants sont configurables pour la mise en réseau avancée :
 
 **Réseau virtuel** : le réseau virtuel dans lequel vous souhaitez déployer le cluster Kubernetes. Si vous souhaitez créer un réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis suivez la procédure décrite dans la section *Créer un réseau virtuel*.
 
 **Sous-réseau** : le sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*.
 
-**Plage d’adresses de services Kubernetes** : la plage des adresses IP du service du cluster Kubernetes. Cette plage doit être située en dehors de la plage d’adresses IP du réseau virtuel de votre cluster.
+**Plage d’adresses des services Kubernetes** : la *plage d’adresses des services Kubernetes* correspond à la plage à partir de laquelle les adresses IP sont affectées aux services Kubernetes du cluster (pour plus d’informations sur les services Kubernetes, voir [Services][services] dans la documentation de Kubernetes).
+
+La plage d’adresses IP des services Kubernetes :
+
+* doit être située en dehors de la plage d’adresses IP du réseau virtuel de votre cluster ;
+* ne doit comporter aucun élément en commun avec les autres réseaux virtuels pour lesquelles il existe un lien de peering avec le réseau virtuel du cluster ;
+* ne doit avoir aucun élément en commun avec des adresses IP locales ;
+
+Tout chevauchement entre des plages d’adresses IP est susceptible d’entraîner des comportements imprévisibles. Par exemple, si un pod tente d’accéder à une adresse IP à l’extérieur du cluster, qui se trouve également être une adresse IP de service, des comportements imprévisibles et des défaillances risquent de se produire.
 
 **Adresse IP du service DNS Kubernetes** :l’adresse IP du service DNS du cluster. Cette adresse doit se situer dans la *plage d’adresses du service Kubernetes*.
 
 **Adresse du pont docker** : l’adresse IP et le masque réseau à affecter au pont docker. Cette adresse IP doit être située en dehors de la plage d’adresses IP du réseau virtuel de votre cluster.
+
+## <a name="configure-networking---cli"></a>Configurer la mise en réseau – Interface de ligne de commande
+
+Lors de la création d’un cluster AKS avec Azure CLI, il est également possible de configurer la mise en réseau avancée. Utilisez les commandes suivantes pour créer un nouveau cluster AKS en activant les fonctionnalités de mise en réseau avancée.
+
+Tout d’abord, récupérez l’ID de la ressource du sous-réseau auquel le cluster AKS sera joint :
+
+```console
+$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+
+/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+```
+
+Utilisez la commande [az aks create][az-aks-create] avec l’argument `--network-plugin azure` pour créer un cluster avec mise en réseau avancée. Remplacez la valeur `--vnet-subnet-id` par l’ID du sous-réseau recueilli à l’étape précédente :
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+```
+
+## <a name="configure-networking---portal"></a>Configurer la mise en réseau – Portail
 
 La capture d’écran suivante de votre portail Azure représente un exemple de configuration de ces paramètres durant la création du cluster AKS :
 
@@ -143,7 +171,9 @@ Les clusters Kubernetes créés avec le moteur ACS prennent en charge les plug-i
 [acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md

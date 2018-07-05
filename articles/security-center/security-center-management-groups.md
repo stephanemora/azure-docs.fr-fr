@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 2c95b06ce34b850d1bfaf60e47d6e5fede148a38
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025184"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441491"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
@@ -86,7 +86,7 @@ Les administrateurs de locataires Azure Active Directory n’ont pas d’accès 
 5. Effectuez les tâches que vous devez accomplir via un accès élevé. Lorsque vous avez terminé, repositionnez le commutateur sur **Non**.
 
 ### <a name="assign-rbac-roles-to-users"></a>Attribuer des rôles RBAC aux utilisateurs
-Une fois qu’un administrateur de locataires a un accès élevé, il peut attribuer un rôle RBAC aux utilisateurs appropriés au niveau du groupe d’administration racine. Le rôle recommandé à attribuer est [ **Lecteur**](../role-based-access-control/built-in-roles.md#reader). Ce rôle est nécessaire pour obtenir une visibilité au niveau locataire. Le rôle attribué est automatiquement propagé à tous les groupes d’administration et tous les abonnements sous le groupe d’administration racine. Pour plus d’informations sur les rôles RBAC, consultez [Rôles disponibles](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles).
+Une fois qu’un administrateur de locataires a un accès élevé, il peut attribuer un rôle RBAC aux utilisateurs appropriés au niveau du groupe d’administration racine. Le rôle recommandé à attribuer est [ **Lecteur**](../role-based-access-control/built-in-roles.md#reader). Ce rôle est nécessaire pour obtenir une visibilité au niveau locataire. Le rôle attribué est automatiquement propagé à tous les groupes d’administration et tous les abonnements sous le groupe d’administration racine. Pour plus d’informations sur les rôles RBAC, consultez [Rôles disponibles](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 1. Installez [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Exécutez les commandes suivantes : 

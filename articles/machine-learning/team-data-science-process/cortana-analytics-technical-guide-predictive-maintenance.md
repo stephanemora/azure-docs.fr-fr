@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939814"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099657"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
 
@@ -54,7 +54,7 @@ Les sections suivantes décrivent les parties de la solution.
 ### <a name="synthetic-data-source"></a>Source de données de synthèse
 Pour ce modèle, la source de données utilisée est générée à partir d’une application de bureau que vous téléchargez et exécutez localement après la réussite du déploiement.
 
-Pour rechercher les instructions de téléchargement et d’installation de cette application, sélectionnez le premier nœud, Predictive Maintenance Data Generator, sur le schéma du modèle de solution. Les instructions se trouvent dans la barre Propriétés. Cette application alimente le service [Azure Event Hub](#azure-event-hub) avec des points de données, ou événements, utilisés dans le reste du flux de la solution. Cette source de données est dérivée des données accessibles au public à partir du [référentiel de données de la NASA](https://c3.nasa.gov/dashlink/resources/139/) à l’aide du [jeu de données de simulation de la dégradation du turbomoteur](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Pour rechercher les instructions de téléchargement et d’installation de cette application, sélectionnez le premier nœud, Predictive Maintenance Data Generator, sur le schéma du modèle de solution. Les instructions se trouvent dans la barre Propriétés. Cette application alimente le service [Azure Event Hub](#azure-event-hub) avec des points de données, ou événements, utilisés dans le reste du flux de la solution. Cette source de données est dérivée des données accessibles au public à partir du [référentiel de données de la NASA](https://c3.nasa.gov/dashlink/resources/139/) à l’aide du [jeu de données de simulation de la dégradation du turbomoteur](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 L’application de génération d’événements alimente le service Azure Event Hub uniquement lorsqu’elle est exécutée sur votre ordinateur.  
 
@@ -82,7 +82,7 @@ Utilisez [Power BI](https://powerbi.microsoft.com) pour afficher un tableau de b
 ## <a name="how-to-bring-in-your-own-data"></a>Comment importer vos propres données
 Cette section explique comment importer vos propres données dans Azure et décrit les éléments à modifier compte tenu des données que vous importez dans cette architecture.
 
-Il est peu probable que votre jeu de données corresponde parfaitement au [jeu de données de simulation de la dégradation du turbomoteur](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) utilisé pour ce modèle de solution. Il est important de bien comprendre vos données et besoins pour déterminer la façon de modifier ce modèle pour l’utiliser avec vos propres données. 
+Il est peu probable que votre jeu de données corresponde parfaitement au [jeu de données de simulation de la dégradation du turbomoteur](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) utilisé pour ce modèle de solution. Il est important de bien comprendre vos données et besoins pour déterminer la façon de modifier ce modèle pour l’utiliser avec vos propres données. 
 
 Dans les sections suivantes, nous allons décrire les parties du modèle que vous devez modifier à l’occasion de l’introduction d’un nouveau jeu de données.
 

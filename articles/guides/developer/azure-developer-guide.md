@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754296"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442169"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -265,7 +265,7 @@ Pour pouvoir créer ou utiliser un abonnement Azure, vous devez disposer d’un 
 
 Chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même annuaire, mais un abonnement n’approuve qu’un seul annuaire. Pour en savoir plus, consultez [Association des abonnements Azure avec Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Outre des identités de compte Azure individuelles, également appelées *utilisateurs*, vous pouvez définir des *groupes* dans Azure AD. La création de groupes d’utilisateurs est un bon moyen de gérer l’accès aux ressources dans un abonnement à l’aide du contrôle d’accès en fonction du rôle (RBAC). Pour découvrir comment créer des groupes, consultez [Créer un groupe dans la préversion d’Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Vous pouvez également créer et gérer des groupes en [utilisant PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Outre des identités de compte Azure individuelles, également appelées *utilisateurs*, vous pouvez définir des *groupes* dans Azure AD. La création de groupes d’utilisateurs est un bon moyen de gérer l’accès aux ressources dans un abonnement à l’aide du contrôle d’accès en fonction du rôle (RBAC). Pour découvrir comment créer des groupes, consultez [Créer un groupe dans la préversion d’Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Vous pouvez également créer et gérer des groupes en [utilisant PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Gérer vos abonnements
 

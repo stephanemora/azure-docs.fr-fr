@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: badd2d63ffaf8e88ff672087783f2bce150bc7c3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264988"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333392"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -267,9 +267,9 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 **Rechercher**
 
-- Distribution du trafic par sous-réseau, topologie, principales sources de trafic vers le sous-réseau, principaux réseaux non fiables qui communiquent avec le sous-réseau et principaux protocoles d’application qui communiquent.
+- Distribution du trafic par sous-réseau, topologie, principales sources de trafic vers le sous-réseau, principaux réseaux non autorisés qui communiquent avec le sous-réseau et principaux protocoles d’application qui communiquent.
     - Savoir quel sous-réseau communique avec quel sous-réseau. Si vous remarquez des conversations inattendues, vous pouvez corriger votre configuration.
-    - Si des réseaux non fiables communiquent avec un sous-réseau, vous pouvez résoudre ce problème en configurant des règles de groupe de sécurité réseau pour bloquer les réseaux non fiables.
+    - Si des réseaux non autorisés communiquent avec un sous-réseau, il est possible de résoudre le problème en configurant des règles de Groupe de sécurité réseau pour bloquer les réseaux non autorisés.
 - La topologie des sous-réseaux affiche le ruban supérieur pour sélectionner les paramètres, tels que le sous-réseau actif/inactif, les connexions externes, les flux actifs et les flux malveillants du sous-réseau.
 - La topologie du sous-réseau montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole d’application et les groupes de sécurité réseau, par exemple :
 
@@ -277,10 +277,10 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 **Rechercher**
 
-Distribution du trafic par passerelle d’application et équilibreur de charge, topologie, principales sources de trafic, principaux réseaux non fiables qui communiquent avec la passerelle d’application et l’équilibreur de charge, et principaux protocoles d’application qui communiquent. 
+Distribution du trafic par passerelle d’application et équilibreur de charge, topologie, principales sources de trafic, principaux réseaux non autorisés qui communiquent avec la passerelle d’application et l’équilibreur de charge, et principaux protocoles d’application qui communiquent. 
     
  - Identification du sous-réseau qui communique avec la passerelle d’application ou l’équilibreur de charge. Si vous remarquez des conversations inattendues, vous pouvez corriger la configuration.
- - Si des réseaux non fiables communiquent avec une passerelle d’application ou un équilibreur de charge, vous pouvez résoudre ce problème en configurant des règles de groupe de sécurité réseau pour bloquer les réseaux non fiables. 
+ - Si des réseaux non autorisés communiquent avec une passerelle d’application ou un équilibreur de charge, vous pouvez résoudre le problème en configurant des règles de Groupe de sécurité réseau pour bloquer les réseaux non autorisés. 
 
     ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

@@ -1,110 +1,106 @@
 ---
-title: Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory | Microsoft Docs
-description: 'Découvrez comment déboguer une authentification unique basée sur SAML aux applications dans Azure Active Directory  '
+title: Déboguer l’authentification unique SAML – Azure Active Directory | Microsoft Docs
+description: Déboguez l’authentification unique SAML aux applications dans Azure Active Directory.
 services: active-directory
 author: CelesteDG
 documentationcenter: na
 manager: mtillman
-ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock; smalser
-ms.openlocfilehash: 1a33b5ab9e26ed497e3be2d430f66ef41402733d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock, smalser
+ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157892"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751392"
 ---
-# <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory
+# <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
-Lors du débogage d’une intégration d’application basée sur SAML, il est généralement conseillé d’utiliser un outil tel que [Fiddler](http://www.telerik.com/fiddler) pour afficher la requête SAML et la réponse SAML qui contiennent le jeton SAML émis pour une application. 
+Découvrez comment rechercher et corriger les problèmes [d’authentification unique](../manage-apps/what-is-single-sign-on.md) pour les applications qui prennent en charge [SAML (Security Assertion Markup Language) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) dans Azure Active Directory (Azure AD). 
 
-![Fiddler][1]
+## <a name="before-you-begin"></a>Avant de commencer
+Nous vous recommandons d’installer [l’extension de connexion sécurisée à Mes applications](../active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Cette extension de navigateur facilite la collecte des informations nécessaires sur la demande et la réponse SAML pour résoudre les problèmes liés à l’authentification unique. Au cas où vous ne parviendriez pas à l’installer, cet article explique comment résoudre les problèmes avec et sans l’extension.
 
-Souvent, les problèmes sont liés à une configuration incorrecte sur Azure Active Directory ou côté application. Selon l’endroit où s’affiche l’erreur, vous devez examiner la requête ou la réponse SAML :
+Pour télécharger et installer l’extension de connexion sécurisée à Mes applications, suivez l’un des liens ci-dessous.
 
-- L’erreur s’affiche sur la page de connexion de mon entreprise [Liens vers la section]
-- L’erreur s’affiche sur la page de l’application après la connexion [Liens vers la section]
-
-## <a name="i-see-an-error-in-my-company-sign-in-page"></a>L’erreur s’affiche sur la page de connexion de mon entreprise.
-
-Vous pouvez trouver un mappage un à un entre le code d’erreur et les étapes de résolution dans l’article [Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML).
-
-Si une erreur s’affiche sur la page de connexion de votre entreprise, vous avez besoin du message d’erreur et de la requête SAML pour procéder au débogage.
-
-### <a name="how-can-i-get-the-error--message"></a>Comment puis-je obtenir le message d’erreur ?
-
-Pour obtenir le message d’erreur, observez le coin inférieur droit de la page. Vous pouvez y voir une erreur qui comprend :
-
-- Un ID de corrélation
-- Un timestamp
-- Un message
-
-![Error][2] 
-
- 
-L’ID de corrélation et le timestamp forment un identificateur unique que vous pouvez utiliser pour rechercher les journaux de serveur principal associés à l’échec de connexion. Ces valeurs sont importantes lorsque vous envoyez une demande de support à Microsoft, car elles permettent aux ingénieurs de résoudre plus rapidement votre problème.
-
-Le message est la cause racine du problème de connexion. 
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
-### <a name="how-can-i-review-the-saml-request"></a>Comment puis-je examiner la requête SAML ?
+## <a name="test-saml-based-single-sign-on"></a>Tester l’authentification unique SAML
 
-En général, la requête SAML envoyée par l’application à Azure Active Directory est la dernière réponse HTTP 200 de [https://login.microsoftonline.com](https://login.microsoftonline.com).
- 
-Avec Fiddler, vous pouvez afficher la requête SAML en sélectionnant cette ligne, puis l’onglet **Inspecteurs > WebForms** dans le panneau droit. Faites un clic droit sur la valeur **SAMLRequest** et sélectionnez **Send to TextWizard** (Envoyer à TextWizard). Puis sélectionnez **From Base64** à partir du menu **Transform** pour décoder le jeton et afficher son contenu. 
+Pour tester l’authentification unique SAML entre AAD et une application cible :
 
-Vous pouvez également copier la valeur de SAMLRequest et utiliser un autre décodeur Base64.
+1.  Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur général (ou autre type d’administrateur autorisé à gérer les applications).
+2.  Dans le panneau de gauche, cliquez sur **Azure Active Directory**, puis sur **Applications d’entreprise**. 
+3.  Dans la liste des applications d’entreprise, cliquez sur celle sur laquelle vous souhaitez tester l’authentification unique. Ensuite, dans les options sur la gauche, cliquez sur **Authentification unique**.
+4.  Pour ouvrir l’expérience de test de l’authentification unique SAML, cliquez sur **Tester le paramètre SAML** dans la section **Domaine et URL**. Si le bouton Tester le paramètre SAML est grisé, commencez par remplir et enregistrer les attributs requis.
+5.  Dans le panneau **Tester l’authentification unique**, utilisez vos informations d’identification d’entreprise pour vous connecter à l’application cible. Vous pouvez vous connecter sous l’identité de l’utilisateur actuel ou sous celle d’un autre utilisateur. Dans le deuxième cas, une invite vous demande de vous authentifier.
 
-    <samlp:AuthnRequest
-    xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-    ID="id6c1c178c166d486687be4aaf5e482730"
-    Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
-    Destination=https://login.microsoftonline.com/<Tenant-ID>/saml2
-    AssertionConsumerServiceURL="https://contoso.applicationname.com/acs"
-    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
-    </samlp:AuthnRequest>
-
-Avec la requête SAML décodée, passez en revue les éléments suivants :
-
-1. La valeur **Destination** dans la requête SAML correspond à l’URL du service d’authentification unique SAML obtenue auprès d’Azure Active Directory.
- 
-2. La valeur **Émetteur** dans la requête SAML est identique à la valeur **Identificateur** configurée pour l’application dans Azure Active Directory. Azure AD utilise l’émetteur pour rechercher une application dans votre répertoire.
-
-3. **AssertionConsumerServiceURL** correspond à l’emplacement où l’application doit recevoir le jeton SAML d’Azure Active Directory. Vous pouvez configurer cette valeur dans Azure Active Directory, mais elle n’est pas obligatoire si elle fait partie de la requête SAML.
+    ![Page de test SAML](media/active-directory-saml-debugging/testing.png)
 
 
-## <a name="i-see-an-error-on-the-applications-page-after-signing-in"></a>L’erreur s’affiche sur la page de l’application après la connexion
+Si la connexion est établie, le test a réussi. Dans ce cas, Azure AD émis un jeton de réponse SAML, que l’application a utilisé pour vous connecter.
 
-Dans ce scénario, l’application n’accepte pas la réponse émise par Azure AD. Il est primordial que vous vérifiiez la réponse d’Azure AD qui contient le jeton SAML avec le fournisseur de l’application pour savoir quels sont les éléments manquants ou incorrects. 
-
-### <a name="how-can-i-get-and-review-the-saml-response"></a>Comment puis-je obtenir et examiner la réponse SAML ?
-
-La réponse d’Azure AD qui contient le jeton SAML est généralement celle qui est générée après une redirection HTTP 302 depuis https://login.microsoftonline.com et qui est envoyée à **l’URL de réponse** configurée de l’application. 
-
-Vous pouvez afficher le jeton SAML en sélectionnant cette ligne, puis l’onglet **Inspecteurs > WebForms** dans le volet droit. À partir de là, cliquez sur la valeur **SAMLResponse** et sélectionnez **Send to TextWizard**. Puis, sélectionnez **From Base64** (À partir de Base64) à partir du menu **Transformer** pour décoder le jeton et afficher son contenu. 
-
-Vous pouvez également copier la valeur de **SAMLRequest** et utiliser un autre décodeur Base64.
-
-Consultez l’article [Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML) pour plus d’informations sur les éléments manquants ou incorrects de la réponse SAML.
-
-Pour plus d’informations sur comment examiner la réponse SAML, consultez l’article [Protocole SAML d’authentification unique](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response).
+Si une erreur s’affiche sur la page de connexion d’entreprise ou sur la page de l’application, utilisez l’une des sections suivantes pour la résoudre.
 
 
-## <a name="related-articles"></a>Articles connexes
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
-* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Comment personnaliser les revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md)
+## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Résoudre une erreur de connexion sur votre page de connexion d’entreprise
 
-<!--Image references-->
-[1]: ../media/active-directory-saml-debugging/fiddler.png
-[2]: ../media/active-directory-saml-debugging/error.png
+Il peut arriver qu’une erreur apparaisse sur la page de connexion d’entreprise lors d’une tentative de connexion. 
+
+![Erreur de connexion](media/active-directory-saml-debugging/error.png)
+
+Pour déboguer cette erreur, vous aurez besoin du message d’erreur et de la demande SAML. L’extension de connexion sécurisée à Mes applications rassemble automatiquement ces informations et affiche une aide à la résolution sur Azure AD. 
+
+Pour résoudre l’erreur de connexion si l’extension de connexion sécurisée à Mes applications est installée :
+
+1.  Lorsqu’une erreur se produit, l’extension vous redirige vers le panneau **Tester l’authentification unique** Azure AD. 
+2.  Sur le panneau **Tester l’authentification unique**, cliquez sur **Télécharger la demande SAML**. 
+3.  Lisez l’aide à la résolution qui s’affiche. Elle dépend de l’erreur et des valeurs de la demande SAML.
+
+Pour résoudre l’erreur sans installer l’extension de connexion sécurisée à Mes applications :
+
+1. Copiez le message d’erreur dans le coin inférieur droit de la page. Il comporte :
+    - Un ID de corrélation et un timestamp. Ces valeurs sont importantes lors de la création d’une demande de support auprès de Microsoft, car elles permettent aux ingénieurs d’identifier le problème et de le résoudre avec précision.
+    - Une instruction identifiant la cause du problème.
+2.  Revenez à Azure AD et localisez le panneau **Tester l’authentification unique**.
+3.  Dans la zone de texte au-dessus de **Obtenir une aide à la résolution**, collez le message d’erreur.
+3.  Cliquez sur **Obtenir une aide à la résolution** pour afficher les étapes de résolution du problème. Elles sont susceptibles de demander des informations sur la demande ou la réponse SAML. Si vous n’utilisez pas l’extension de connexion sécurisée à Mes applications, il vous faudra peut-être un outil comme [Fiddler](http://www.telerik.com/fiddler) pour récupérer la demande et la réponse SAML.
+4.  Vérifiez que la destination dans la demande SAML correspond à l’URL du service d’authentification unique SAML obtenue auprès d’Azure Active Directory.
+5.  Vérifiez que l’émetteur dans la demande SAML est identique à l’identificateur configuré pour l’application dans Azure Active Directory. Azure AD utilise l’émetteur pour rechercher une application dans l’annuaire.
+6.  Vérifiez qu’AssertionConsumerServiceURL correspond à l’emplacement où l’application doit recevoir le jeton SAML d’Azure Active Directory. Vous pouvez configurer cette valeur dans Azure Active Directory, mais ce n’est pas obligatoire si elle fait partie de la demande SAML.
+
+
+## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Résoudre une erreur de connexion sur la page d’application
+
+Il peut arriver que la connexion réussisse, puis qu’une erreur s’affiche sur la page de l’application. Cela se produit lorsque Azure AD a envoyé un jeton à l’application, mais que celle-ci n’accepte pas la réponse.   
+
+Pour résoudre l’erreur :
+
+1. Si l’application se trouve dans la galerie Azure AD, vérifiez que vous avez suivi toutes les étapes d’intégration de l’application avec Azure AD. Pour trouver les instructions d’intégration relatives à votre application, voir la [liste des tutoriels d’intégration d’applications SaaS](../saas-apps/tutorial-list.md).
+2. Récupérez la réponse SAML.
+    - Si l’extension de connexion sécurisée à Mes applications est installée, cliquez sur **Télécharger la réponse SAML** dans le panneau **Tester l’authentification unique**.
+    - Si l’extension n’est pas installée, utilisez un outil comme [Fiddler](http://www.telerik.com/fiddler) pour récupérer la réponse SAML. 
+3. Notez ces éléments dans le jeton de la réponse SAML :
+    - Identificateur unique de la valeur NameID et du format
+    - Revendications émises dans le jeton
+    - Certificat utilisé pour signer le jeton. Pour plus d’informations sur la vérification de la réponse SAML, voir [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md).
+4. Pour plus d’informations sur la réponse SAML, voir [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md).
+5. Maintenant que vous avez vérifié la réponse SAML, consultez l’aide à la résolution du problème dans [Erreur sur la page d’une application après connexion](../application-sign-in-problem-application-error.md). 
+6. Si vous ne parvenez toujours pas à vous connecter, vous pouvez demander au fournisseur de l’application ce qui manque dans la réponse SAML.
+
+
+## <a name="next-steps"></a>Étapes suivantes
+Maintenant que l’authentification unique fonctionne sur votre application, vous pouvez [Automatiser l’attribution d’utilisateurs et la suppression de privilèges d'accès pour les applications SaaS](../active-directory-saas-app-provisioning.md) ou [Bien démarrer avec l’accès conditionnel](../active-directory-conditional-access-azure-portal-get-started.md).
+
+

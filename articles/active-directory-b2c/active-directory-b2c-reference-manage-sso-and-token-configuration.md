@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 43e392979c50d340a10575898edb25b119e1410b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 811fb8b2de59c9d324ab4acb8b0f51b4cec80aee
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712230"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441795"
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C : gestion de la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées
 L’utilisation de stratégies personnalisées vous fournit le même contrôle sur vos configurations de jetons, de sessions et d’authentification unique (SSO) que les stratégies prédéfinies.  Pour connaître l’effet de chaque paramètre, consultez la documentation [ici](#active-directory-b2c-token-session-sso).

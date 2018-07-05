@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213139"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334324"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
 
@@ -60,6 +60,8 @@ Cette solution d’attribution d’utilisateurs Workday, actuellement en préver
 * les organisations qui ont besoin de joindre, de déplacer et de laisser les utilisateurs à synchroniser avec une ou plusieurs unités d’organisation, domaines et forêts Active Directory seulement sur la base d’informations de modifications détectées dans le module Workday HCM (voir [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) ;
 
 * les organisations qui utilisent Office 365 pour la messagerie électronique.
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>Planification de votre solution
 
@@ -543,14 +545,13 @@ Les sections suivantes décrivent la configuration d’une connexion entre Workd
 
    * Si le test de connexion réussit, cliquez sur le bouton **Enregistrer** en haut. En cas d’échec, vérifiez que l’URL et les informations d’identification Workday sont valides dans Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Partie 2 : configuration des mappages d’attributs 
 
 Dans cette section, vous allez configurer le flux des données de Workday vers Azure Active Directory pour l’utilisateur « cloud only ».
 
-1.  Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les employés sur Azure AD**.
+1. Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les Workers sur Azure AD**.
 
-2.   Dans le champ **Portée de l’objet source**, vous pouvez sélectionner les ensembles d’utilisateurs dans Workday qui doivent se trouver dans la portée pour l’approvisionnement vers Azure AD, en définissant un ensemble de filtres basés sur l’attribut. La portée par défaut est « tous les utilisateurs dans Workday ». Exemples de filtres :
+2. Dans le champ **Portée de l’objet source**, vous pouvez sélectionner les ensembles d’utilisateurs dans Workday qui doivent se trouver dans la portée pour l’approvisionnement vers Azure AD, en définissant un ensemble de filtres basés sur l’attribut. La portée par défaut est « tous les utilisateurs dans Workday ». Exemples de filtres :
 
    * Exemple : étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000
 
@@ -566,9 +567,9 @@ Dans cette section, vous allez configurer le flux des données de Workday vers A
 
       * Opérateur : n’est pas NULL
 
-3.  Dans le champ **Actions de l’objet cible**, vous pouvez filtrer globalement les actions qui peuvent être exécutées sur Azure AD. Les actions **Créer** et **Mettre à jour** sont les plus courantes.
+3. Dans le champ **Actions de l’objet cible**, vous pouvez filtrer globalement les actions qui peuvent être exécutées sur Azure AD. Les actions **Créer** et **Mettre à jour** sont les plus courantes.
 
-4.  Dans la section **Mappages d’attributs**, vous pouvez définir comment les attributs Workday sont mappés aux attributs Active Directory.
+4. Dans la section **Mappages d’attributs**, vous pouvez définir la manière dont les différents attributs Workday sont mappés aux attributs Active Directory.
 
 5. Cliquez sur un mappage d’attributs existants à mettre à jour ou cliquez sur **Ajouter un nouveau mappage** en bas de l’écran pour ajouter de nouveaux mappages. Un mappage d’attribut individuel prend en charge les propriétés suivantes :
 
@@ -602,7 +603,7 @@ Dans cette section, vous allez configurer le flux des données de Workday vers A
 ### <a name="part-3-start-the-service"></a>Partie 3 : démarrer le service
 Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’approvisionnement.
 
-1.  Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
+1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
 2. Cliquez sur **Enregistrer**.
 
@@ -612,7 +613,6 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 
 5. Une fois cette opération terminée, un rapport de synthèse de l’audit est écrit dans l’onglet **Approvisionnement**, comme indiqué ci-dessous.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configuration de l’écriture différée des adresses de messagerie à Workday
 Suivez ces instructions pour configurer l’écriture différée des adresses e-mail des utilisateurs d’Azure Active Directory vers Workday.
 
@@ -620,21 +620,21 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
 **Pour configurer l’approvisionnement Workday dans Active Directory :**
 
-1.  Accédez à <https://portal.azure.com>
+1. Accédez à <https://portal.azure.com>
 
-2.  Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory**
+2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory**
 
-3.  Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
+3. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
 
-4.  Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
+4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
 
-5.  Recherchez **Écriture différée Workday** et ajoutez cette application à partir de la galerie.
+5. Recherchez **Écriture différée Workday** et ajoutez cette application à partir de la galerie.
 
-6.  Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
+6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
 
-7.  Définissez le **Mode** **Approvisionnement** sur **Automatique**
+7. Définissez le **Mode** **Approvisionnement** sur **Automatique**
 
-8.  Fermez la section **Informations d’identification de l’administrateur**, comme suit :
+8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
    * **Nom d’utilisateur de l’administrateur** : entrez le nom d’utilisateur du compte de système d’intégration Workday, avec le nom du domaine client ajouté. Le résultat doit être le suivant : username@contoso4
 
@@ -646,24 +646,22 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion réussit, cliquez sur le bouton **Enregistrer** en haut. En cas d’échec, vérifiez que l’URL et les informations d’identification Workday sont valides dans Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Partie 2 : configuration des mappages d’attributs 
-
 
 Dans cette section, vous allez configurer le flux des données de l’utilisateur de Workday vers Active Directory.
 
-1.  Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les utilisateurs Azure AD sur Workday**.
+1. Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les utilisateurs Azure AD sur Workday**.
 
-2.  Dans le champ **Portée d’objet source**, vous pouvez éventuellement filtrer les ensembles d’utilisateurs dans Azure Active Directory dont les adresses e-mail sont différées dans Workday. La portée par défaut est « tous les utilisateurs dans Azure AD ». 
+2. Dans le champ **Portée d’objet source**, vous pouvez éventuellement filtrer les ensembles d’utilisateurs dans Azure Active Directory dont les adresses e-mail sont différées dans Workday. La portée par défaut est « tous les utilisateurs dans Azure AD ». 
 
-3.  Dans la section **Mappages d’attributs**, vous pouvez définir comment les attributs Workday sont mappés aux attributs Active Directory. Il existe un mappage pour l’adresse e-mail par défaut. Toutefois, l’ID correspondant doit être mis à jour pour faire correspondre les utilisateurs dans Azure AD et leurs entrées correspondantes dans Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
+3. Dans la section **Mappages d’attributs**, vous pouvez définir comment les attributs Workday sont mappés aux attributs Active Directory. Il existe un mappage pour l’adresse e-mail par défaut. Toutefois, l’ID correspondant doit être mis à jour pour faire correspondre les utilisateurs dans Azure AD et leurs entrées correspondantes dans Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
 
-4.  Pour enregistrer vos mappages, cliquez sur **Enregistrer** en haut de la section Mappage d’attributs.
+4. Pour enregistrer vos mappages, cliquez sur **Enregistrer** en haut de la section Mappage d’attributs.
 
 ### <a name="part-3-start-the-service"></a>Partie 3 : démarrer le service
 Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’approvisionnement.
 
-1.  Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
+1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
 2. Cliquez sur **Enregistrer**.
 
@@ -672,7 +670,6 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 4. Les événements de synchronisation individuels peuvent être affichés dans l’onglet **Journaux d’audit**. **[Consultez le guide de création de rapports d’approvisionnement pour obtenir des instructions détaillées sur la façon de lire les journaux d’audit](../active-directory-saas-provisioning-reporting.md)**
 
 5. Une fois cette opération terminée, un rapport de synthèse de l’audit est écrit dans l’onglet **Approvisionnement**, comme indiqué ci-dessous.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Personnaliser la liste des attributs d’utilisateurs Workday
 Les applications d’attribution Workday pour Active Directory et Azure AD contiennent tous les deux une liste par défaut des attributs d’utilisateurs Workday utilisables. Toutefois, ces listes ne sont pas complètes. Workday prend en charge plusieurs centaines d’attributs d’utilisateurs possibles, qui peuvent être standard ou propres au locataire Workday concerné. 
@@ -799,15 +796,9 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 * Un problème précédent avec les journaux d’audit n’apparaissant pas dans les locataires Azure AD situés dans l’Union européenne a été résolu. Toutefois, une configuration supplémentaire de l’agent est requise pour les locataires Azure AD dans l’Union européenne. Pour plus d’informations, consultez [Partie 3 : configurer l’agent de synchronisation local](#Part 3: Configure the on-premises synchronization agent)
 
-
 ## <a name="managing-personal-data"></a>Gestion des données personnelles
 
 La solution de provisionnement Workday pour Active Directory nécessite l’installation d’un agent de synchronisation sur un serveur joint à un domaine. Cet agent crée des journaux dans le journal des événements Windows, qui peut contenir des informations d’identification personnelle.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  où le ../ correspond à la structure de hiérarchie de votre article
-
-> [!NOTE]
-> Si vous souhaitez afficher ou supprimer des données personnelles, consultez l’article [Demandes des personnes concernées pour Windows concernant le RGPD](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows). Si vous recherchez des informations générales sur le RGPD, consultez la [section RGPD du portail Approbation de services](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

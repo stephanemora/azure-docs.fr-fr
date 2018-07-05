@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/21/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261166"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316566"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -41,7 +41,7 @@ Après avoir généré un jeton SAP, vous pouvez accéder à votre fichier de st
  
 Par exemple : 
  ```
-https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
+https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
 Pour plus d’informations sur la définition des paramètres, consultez [Considérations relatives aux paramètres SAP](#sas-parameter-considerations) et [Paramètres de la signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
@@ -62,7 +62,7 @@ Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est pass�
 
    Par exemple :    
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
 3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
@@ -80,14 +80,14 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
    L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
    
    Source :   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    Destination :   
    ```
-   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![Règle de réécriture d’URL de CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
 2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format : `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
@@ -118,14 +118,14 @@ Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous de
    L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
    
    Source :   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    Destination :   
    ```
-   $1&sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![Règle de réécriture d’URL de CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
 3. Si vous renouvelez la signature SAP, n’oubliez pas de mettre à jour la règle de réécriture d’URL avec le nouveau jeton SAP. 
 
@@ -140,7 +140,10 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 | Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon**, vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](https://msdn.microsoft.com/library/mt757330.aspx). Si vous utilisez **CDN Azure d’Akamai**, vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
 | Protocoles autorisés | Protocole(s) autorisé(s) pour une requête effectuée avec la SAP de compte. Le paramètre HTTPS est recommandé.|
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d'informations sur les SAP, voir les articles suivants :
 - [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
-- [Sécurisation des ressources Azure Content Delivery Network avec l’authentification du jeton](https://docs.microsoft.com/azure/cdn/cdn-token-auth)
+
+Pour plus d’informations sur la configuration de l’authentification par jeton, voir [Sécuriser des ressources Azure Content Delivery Network avec l’authentification par jeton](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650466"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309212"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Optimisation des performances dans Azure SQL Database
 
@@ -25,7 +25,7 @@ Si aucune recommandation n’est applicable et si vous avez toujours des problè
 - Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances. 
 - Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
 
-Ce sont des méthodes manuelles car vous devez déterminer quelles [limites de ressources de modèle basé sur des DTU](sql-database-dtu-resource-limits.md) et [limites de ressources de modèle basé sur des vCores (préversion)](sql-database-vcore-resource-limits.md) répondent à vos besoins. Sinon, vous devez réécrire l’application ou le code de l’application ou de la base de données et déployer les modifications.
+Il s’agit de méthodes manuelles, car vous devez décider de la qualité de ressources en fonction de vos besoins. Sinon, vous devez réécrire l’application ou le code de l’application ou de la base de données et déployer les modifications.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Augmentation du niveau de performance de votre base de données
 
@@ -271,8 +271,8 @@ Certaines applications sont gourmandes en écriture. Il est parfois possible de 
 Certaines applications de base de données contiennent des charges de travail à lecture intensive. Les couches de mise en cache peuvent contribuer à réduire la charge sur la base de données et éventuellement le niveau de performance requis pour la prise en charge d’une base de données à l’aide d’Azure SQL Database. Le [Cache Redis Azure](https://azure.microsoft.com/services/cache/)permet à un client possédant une charge de travail à lecture intensive de lire les données une seule fois (ou peut-être une seule fois par ordinateur de la couche Application, selon la façon dont il est configuré) et de stocker ces données en dehors de la base de données SQL Azure. Cela permet de réduire la charge de la base de données (UC et E/S de lecture). Toutefois, cela a un impact sur la cohérence transactionnelle, puisque les données lues à partir du cache peuvent ne pas être synchronisées avec les données de la base de données. Si un certain niveau d’incohérence est acceptable dans de nombreuses applications, cela ne se vérifie pas pour l’ensemble des charges de travail. Assurez-vous de comprendre pleinement les exigences d’une application avant d’utiliser une stratégie de mise en cache de couche Application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur les niveaux de service basés sur des DTU, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Limites de ressources du modèle basé sur des DTU](sql-database-dtu-resource-limits.md)
-* Pour plus d’informations sur les niveaux de service basés sur des vCores, consultez [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md) et [Limites de ressources basées sur des vCores (préversion)](sql-database-vcore-resource-limits.md)
+* Pour plus d’informations sur les niveaux de service DTU, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md).
+* Pour plus d’informations sur les niveaux de service vCore, consultez [Modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md).
 * Pour de plus amples informations sur les pools élastiques, consultez la page [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
 * Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 

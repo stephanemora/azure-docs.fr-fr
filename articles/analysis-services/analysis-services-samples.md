@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 54913fa7940ac83f5de87ad9f35d6dcee07d29d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6456663a1114ec00f2a071458c54067da53b52a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598427"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443713"
 ---
 # <a name="azure-analysis-services-samples"></a>Exemples Azure Analysis Services
 Utilisez les exemples de ressources suivants pour découvrir et tester Analysis Services pour votre environnement.
@@ -39,5 +39,5 @@ Si vous avez un serveur Analysis Services dans le portail Azure, vous pouvez rap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel Adventure Works](/tutorials/aas-adventure-works-tutorial.md)   
+[Didacticiel Adventure Works](tutorials/aas-adventure-works-tutorial.md)   
 [Passerelle de données locale Azure](analysis-services-gateway.md)  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700190"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318960"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
@@ -40,8 +40,7 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 
 > [!NOTE]
 > Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par région par le biais de votre abonnement et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de processeurs virtuels pour l’exemple. Si vous avez besoin de demander une augmentation des quotas de prise en charge des processeurs virtuels, vous devez déterminer le nombre de processeurs virtuels souhaités et les régions concernées, puis effectuer une demande spécifique de quotas de processeurs virtuels de groupes de ressources Azure pour la quantité et les régions nécessaires. Si vous avez besoin de 30 processeurs virtuels dans la région Europe de l’Ouest pour y exécuter votre application, vous devez donc demander spécifiquement 30 processeurs virtuels dans cette région. Le quota de processeurs virtuels ne sera pas augmenté dans les autres régions. Seule la région Europe de l’Ouest disposera du quota de 30 processeurs virtuels.
-> <!-- -->
-> Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-manager-common-deployment-errors.md)
+> <!-- --> Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-manager-common-deployment-errors.md)
 >
 >
 
@@ -325,7 +324,7 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limites de base de données SQL
-Pour connaître les limites de la base de données SQL, consultez [Limites de ressources de base de données SQL](sql-database/sql-database-resource-limits.md).
+Pour connaître les limites SQL Database, voir [Limites de ressources SQL Database pour les bases de données uniques](sql-database/sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources SQL Database pour les pools élastiques et les bases de données mises en pool](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>Limites SQL Data Warehouse
 Pour connaître les limites SQL Data Warehouse, consultez [Limites des ressources SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

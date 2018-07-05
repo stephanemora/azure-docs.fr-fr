@@ -3,23 +3,24 @@ title: Gérer les programmes et les contrôles pour les révisions d’accès Az
 description: Vous pouvez créer des programmes supplémentaires pour chaque gouvernance, la gestion des risques et l’initiative de conformité dans votre organisation afin de collecter et d’organiser des révisions d’accès Azure Active Directory comme contrôles.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 06e91b4d52a70ea33f4317a6434c2bd49e5c3bd3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.reviewer: mwahl
+ms.openlocfilehash: b1c8f26934b52a423c06c15d610c28298754a8a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020972"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448643"
 ---
 # <a name="manage-programs-and-their-controls"></a>Gérer des programmes et leurs contrôles 
 

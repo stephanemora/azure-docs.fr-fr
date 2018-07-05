@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751668"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083989"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Ressources et modèles d’achat Azure SQL Database 
 
@@ -134,7 +134,7 @@ Les transactions sont sélectionnées de manière aléatoire à partir d’une d
 | --- | --- |
 | Read Lite |35 |
 | Read Medium |20 |
-| Read Heavy |5 |
+| Read Heavy |5. |
 | Update Lite |20 |
 | Update Heavy |3 |
 | Insert Lite |3 |
@@ -164,7 +164,7 @@ Le tableau ci-dessous indique le nombre d’utilisateurs effectivement pris en c
 
 | Niveau de service (niveau de performance) | Utilisateurs | Taille de la base de données |
 | --- | --- | --- |
-| De base |5 |720 Mo |
+| De base |5. |720 Mo |
 | Standard (S0) |10 |1 Go |
 | Standard (S1) |20 |2,1 Go |
 | Standard (S2) |50 |7,1 Go |

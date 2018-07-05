@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062077"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346584"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Démarrage rapide : Configurer des clusters dans HDInsight
 
@@ -36,7 +36,7 @@ Data Lake Storage est utilisé comme couche données dans ce guide de démarrage
 
 La table suivante présente les différentes méthodes que vous pouvez utiliser pour configurer un cluster HDInsight.
 
-| Clusters créés avec | Navigateur web | Ligne de commande | API REST | Kit SDK | 
+| Clusters créés avec | un navigateur Web | Ligne de commande | de l’API REST | Foundation | 
 | --- |:---:|:---:|:---:|:---:|
 | [Portail Azure](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -55,7 +55,7 @@ Suivez les instructions à l’écran pour effectuer une configuration de cluste
 
 * [Nom de groupe ressources](#resource-group-name)
 * [Types de cluster et configuration](#cluster-types) 
-* [Connexion au cluster et nom d’utilisateur SSH](#cluster-login-and-ssh-username)
+* [Connexion au cluster et nom d’utilisateur SSH](#cluster-login-and-ssh-user-name)
 * [Emplacement](#location)
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Bien qu’une installation locale de Hadoop utilise le système de fichiers dist
 
 Pendant la configuration, vous spécifiez Data Lake Storage pour le point de terminaison de stockage par défaut. Le stockage par défaut contient les journaux des applications et du système. Vous pouvez aussi spécifier des comptes Azure Data Lake Storage liés supplémentaires auxquels le cluster peut accéder. Le cluster HDInsight et les comptes de stockage dépendants doivent être situés au même emplacement Azure.
 
-![Paramètres de stockage de cluster : points de terminaison de stockage compatibles HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Paramètres de stockage de cluster : points de terminaison de stockage compatibles HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Veillez à **désactiver l’accès de Data Lake Store**. Ce paramètre fait référence à l’ancienne fonctionnalité *Data Lake Store* et doit être désactivé pour que les fonctionnalités de *Data Lake Storage* fonctionnent correctement.

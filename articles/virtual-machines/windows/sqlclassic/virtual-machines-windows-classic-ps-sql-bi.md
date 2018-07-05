@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: e9d43d46f1979e985a5da96fda608eec55ad7830
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031054"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098744"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server dans les machines virtuelles Azure
 > [!IMPORTANT] 
@@ -63,7 +63,7 @@ La galerie de machines virtuelles Microsoft Azure inclut plusieurs images qui co
 
 Pour plus d’informations sur les éditions et les fonctionnalités prises en charge par SQL Server, consultez les rubriques suivantes :
 
-* [Éditions de SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [Éditions de SQL Server](https://www.microsoft.com/sql-server/sql-server-2017-editions)
 * [Fonctionnalités prises en charge par les éditions de SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Fonctionnalités d’aide à la décision installées sur les images de la galerie de machines virtuelles SQL Server

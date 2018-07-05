@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164456"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316666"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informations de référence sur les jetons Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 émet plusieurs types de jeton de sécurité dans chaque [flux d’authentification](active-directory-v2-flows.md). Ces informations de référence décrivent le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
@@ -95,8 +95,7 @@ Quand vous échangez un jeton d’actualisation contre un nouveau jeton d’acc�
 ## <a name="validating-tokens"></a>Validation des jetons
 Pour le moment, la seule opération de validation que vos applications doivent effectuer est la validation des jetons d’ID. Pour valider un jeton d’ID, votre application doit valider à la fois la signature du jeton d’ID et les revendications qu’il contient.
 
-<!-- TODO: Link -->
-Microsoft fournit des bibliothèques et des exemples de code qui vous montrent comment gérer facilement la validation des jetons. Dans les sections suivantes, nous décrivons le processus sous-jacent. Plusieurs bibliothèques open source tierces sont également disponibles pour la validation de jetons JWT. Il existe au moins une bibliothèque pour la plupart des plateformes et langues.
+<!-- TODO: Link -->Microsoft fournit des bibliothèques et des exemples de code qui vous montrent comment gérer facilement la validation des jetons. Dans les sections suivantes, nous décrivons le processus sous-jacent. Plusieurs bibliothèques open source tierces sont également disponibles pour la validation de jetons JWT. Il existe au moins une bibliothèque pour la plupart des plateformes et langues.
 
 ### <a name="validate-the-signature"></a>valider la signature
 Un jeton JWT contient trois segments séparés par le caractère `.` . Le premier segment est appelé *l’en-tête*, le deuxième le *corps*, et le troisième la *signature*. Le segment de signature peut être utilisé pour valider l’authenticité du jeton d’ID afin qu’il soit approuvé par votre application.
@@ -113,7 +112,7 @@ Les jetons d’ID sont signés à l’aide d’algorithmes de chiffrement asymé
 
 La revendication `alg` indique l’algorithme utilisé pour signer le jeton. La revendication `kid` indique la clé publique utilisée pour signer le jeton.
 
-À tout moment, le point de terminaison v2.0 peut signer un jeton d’ID à l’aide d’un ensemble spécifique de paires de clés publique-privée. Étant donné que le point de terminaison v2.0 alterne régulièrement le jeu de clés possible, votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par le point de terminaison v2.0, spécifiez une fréquence raisonnable : toutes les 24 heures.
+Le point de terminaison v2.0 signe des jetons d’ID et d’accés à l’aide d’un ensemble spécifique de paires de clés publiques-privées. Étant donné que le point de terminaison v2.0 alterne régulièrement le jeu de clés possible, votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par le point de terminaison v2.0, spécifiez une fréquence raisonnable : toutes les 24 heures.
 
 Pour acquérir les données de la clé de signature nécessaires pour valider la signature, utilisez le document de métadonnées OpenID Connect à l’emplacement suivant :
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > Testez l’URL dans un navigateur.
->
->
 
 Ce document de métadonnées est un objet JSON qui contient diverses informations utiles, comme l’emplacement des différents points de terminaison nécessaires pour effectuer l’authentification OpenID Connect. Le document comprend également un *jwks_uri*, qui indique l’emplacement du jeu des clés publiques utilisées pour signer les jetons. Le document JSON situé dans le jwks_uri contient toutes les informations de clés publiques qui sont actuellement utilisées. Votre application peut utiliser la revendication `kid` de l’en-tête du jeton JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton. Elle procède ensuite à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
+
+> [!NOTE]
+> La revendication `x5t` est déconseillée dans le point de terminaison v2.0. Nous vous recommandons d’utiliser la revendication `kid` pour valider votre jeton.
 
 La procédure de validation des signatures n’est pas indiquée dans ce document. De nombreuses bibliothèques open source sont disponibles pour vous aider à ce sujet.
 
