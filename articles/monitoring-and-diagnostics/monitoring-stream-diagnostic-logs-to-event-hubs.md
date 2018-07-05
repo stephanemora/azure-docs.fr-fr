@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936698"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085087"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements
 Les **[journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)** peuvent être diffusés pratiquement en temps réel vers n’importe quelle application, à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’ID de règle d’autorisation Event Hubs dans un paramètre de diagnostic via les cmdlets Azure PowerShell ou Azure CLI 2.0.
@@ -41,7 +41,7 @@ Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu p
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Activer la diffusion en continu des journaux de diagnostic
 
-Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide des [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Dans tous les cas, vous créez un paramètre de diagnostic dans lequel vous spécifiez un espace de noms Event Hubs et les catégories de journal et les indicateurs de performance que vous voulez envoyer dans l’espace de noms. Un hub d’événements est créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter.
+Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide des [API REST Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Dans tous les cas, vous créez un paramètre de diagnostic dans lequel vous spécifiez un espace de noms Event Hubs et les catégories de journal et les indicateurs de performance que vous voulez envoyer dans l’espace de noms. Un hub d’événements est créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter.
 
 > [!WARNING]
 > L’activation et la diffusion en continu de journaux de diagnostic à partir de ressources de calcul (par exemple, les machines virtuelles ou Service Fabric) [nécessitent des étapes de configuration différentes](../event-hubs/event-hubs-streaming-azure-diags-data.md).

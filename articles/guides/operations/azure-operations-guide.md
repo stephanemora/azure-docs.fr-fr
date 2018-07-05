@@ -3,7 +3,7 @@ title: Guide Bien démarrer avec les opérateurs informatiques Azure | Microsoft
 description: Guide Bien démarrer avec les opérateurs informatiques Azure
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361642"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099491"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
@@ -61,7 +61,7 @@ SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s�
 
 Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS : Platform as a Service 
+#### <a name="paas-platform-as-a-service"></a>PaaS : Platform as a Service
 
 Avec PaaS, vous déployez votre application dans un environnement qui est fourni par le prestataire de services cloud. Le fournisseur s’occupe de toute la gestion de l’infrastructure pour vous permettre de vous consacrer au développement d’applications.
 
@@ -381,11 +381,11 @@ Les comptes de stockage Azure peuvent être configurés selon différents niveau
 
 -   Le **stockage géo-redondant avec accès en lecture** correspond à un stockage géo-redondant, avec la possibilité de lire les données dans la région secondaire. Cette capacité le rend approprié pour une reprise d’activité partielle. S’il y a un problème avec la région principale, vous pouvez modifier votre application pour avoir un accès en lecture seule à la région associée.
 
-### <a name="use-cases"></a>Cas d'utilisation 
+### <a name="use-cases"></a>Cas d'utilisation
 
 Chaque type de stockage convient à une utilisation différente.
 
-**Stockage Blob** 
+**Stockage Blob**
 
 Le mot *blob* est l’acronyme de « binary large object », un *objet binaire volumineux*. Les objets blob sont des fichiers non structurés, comme ceux que vous stockez sur votre ordinateur. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob. Le Stockage Blob Azure conserve également les disques de données des machines virtuelles Azure.
 
@@ -445,7 +445,7 @@ De même, vous pouvez utiliser l’interface de ligne de commande Azure pour dé
 
 ### <a name="access-and-security-for-azure-storage"></a>Accès et sécurité pour Stockage Azure
 
-Il est possible d’accéder à Stockage Azure de différentes manières, y compris par le portail Azure, au cours de la création et du fonctionnement de machines virtuelles, et à partir de bibliothèques clientes de stockage. 
+Il est possible d’accéder à Stockage Azure de différentes manières, y compris par le portail Azure, au cours de la création et du fonctionnement de machines virtuelles, et à partir de bibliothèques clientes de stockage.
 
 **Disques de machines virtuelles**
 

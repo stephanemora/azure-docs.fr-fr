@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628281"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097078"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Intégrer des données SIM à la solution de surveillance à distance
 
@@ -33,9 +33,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Cette fonctionnalité supplémentaire de surveillance à distance est actuellement en préversion. Pour synchroniser vos données de connectivité dans la solution de surveillance à distance Azure, effectuez les étapes suivantes :
 
-1. Remplissez un formulaire de demande sur le [site de Telefónica](https://iot.Telefónica.com/contact) et sélectionnez l’option **Azure Remote Monitoring**, en incluant vos données de contact.
+1. Remplissez un formulaire de demande sur le [site de Telefónica](https://iot.telefonica.com/contact) et sélectionnez l’option **Azure Remote Monitoring**, en incluant vos données de contact.
 2. Telefónica active votre compte.
-3. Si vous n’êtes pas encore client de Telefónica et que vous souhaitez profiter de ce service ou d’autres services cloud de connectivité IoT, visitez le [site de Telefónica](https://iot.Telefónica.com/contact) et sélectionnez l’option **Connectivity**.
+3. Si vous n’êtes pas encore client de Telefónica et que vous souhaitez profiter de ce service ou d’autres services cloud de connectivité IoT, visitez le [site de Telefónica](https://iot.telefonica.com/) et sélectionnez l’option **Connectivity**.
 
 ### <a name="telefnica-sim-setup"></a>Configuration de carte SIM Telefónica
 L’association d’ID de jumeau d’appareil SIM Telefónica et Azure est basée sur la propriété « alias » de carte SIM IoT Telefónica. 

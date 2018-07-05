@@ -2,18 +2,18 @@
 title: Webhooks Azure Container Registry
 description: Découvrez comment utiliser des webhooks pour déclencher des événements quand certaines actions sont exécutées dans l’un des dépôts de votre registre.
 services: container-registry
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: nepeters
-ms.openlocfilehash: cf71deda9ec9053a91596c17e18fc797995754e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: iainfou
+ms.openlocfilehash: 538548fa211b2159b190ff1b689033c50ad801fe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164368"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096306"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
@@ -22,7 +22,6 @@ Un registre Azure Container Registry stocke et gère des images conteneurs Docke
 Pour plus d’informations sur les requêtes de webhook, consultez la [référence de schéma du webhook Azure Container Registry](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Azure Container Registry : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
 * Interface CLI Docker : pour configurer votre ordinateur local comme hôte Docker et accéder aux commandes de l’interface CLI Docker, installez le [moteur Docker](https://docs.docker.com/engine/installation/).

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af1d05c171eb5544104b12aebb6c7be937061f6a
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598767"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437176"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Test d’authentification du compte d’identification Azure Automation
 Une fois qu’un compte Automation est correctement créé, vous pouvez effectuer un test simple pour confirmer que vous êtes en mesure de vous authentifier dans Azure Resource Manager ou un déploiement classique Azure à l’aide de votre compte d’identification Automation nouvellement créé ou mis à jour.    
@@ -63,7 +63,7 @@ Utilisez l’exemple de code ci-dessous pour [créer un runbook PowerShell](auto
 Notez que l’applet de commande utilisée pour l’authentification (**Connect-AzureRmAccount**) dans le Runbook utilise le jeu de paramètres *ServicePrincipalCertificate*.  Elle effectue l’authentification à l’aide du certificat du principal du service et non des informations d’identification.  
 
 > [!IMPORTANT]
-> **Add-AzureRmAccount** est désormais un alias de **Connect-AzureRMAccount**. Si vous ne voyez pas **Connect-AzureRMAccount**, vous pouvez utiliser **Add-AzureRmAccount** ou mettre à jour vos modules dans votre compte Automation.
+> **Add-AzureRmAccount** est désormais un alias de **Connect-AzureRMAccount**. Quand vous effectuez une recherche dans vos éléments de bibliothèque, si vous ne voyez pas **Connect-AzureRMAccount**, vous pouvez utiliser **Add-AzureRmAccount** ou mettre à jour vos modules dans votre compte Automation.
 
 Quand vous [exécutez un runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pour valider un compte d’identification, un [travail du runbook](automation-runbook-execution.md) est créé. La page du travail s’affiche alors et l’état du travail est indiqué dans la vignette **Résumé du travail**. L’état initial du travail est *Mis en file d’attente* pour indiquer qu’il attend la disponibilité d’un Runbook Worker dans le cloud. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  À l’issue du travail du Runbook, l’état **Terminé** doit s’afficher.
 

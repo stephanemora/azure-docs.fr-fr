@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762368"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109584"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Connexions de comptes LinkedIn pour les applications et services Microsoft
 Dans cet article, vous pouvez découvrir comment gérer les connexions de comptes LinkedIn pour votre locataire dans le centre d’administration Azure Active Directory (Azure AD). 
@@ -53,7 +53,7 @@ La fonctionnalité de connexions de comptes LinkedIn est activée par défaut po
 4. Sous **LinkedIn account connections (Connexions de comptes LinkedIn)**  :
   * Sélectionnez **Oui** pour activer les connexions de comptes LinkedIn pour tous les utilisateurs dans votre locataire.
   * Sélectionnez **Sélectionnés** pour activer les connexions de comptes LinkedIn uniquement pour les utilisateurs de locataire sélectionnés.
-  * Sélectionnez **Non** pour désactiver les connexions de comptes LinkedIn pour tous les utilisateurs. ![Activation des connexions de comptes LinkedIn](./media/linkedin-integration/LinkedIn-integration.png)
+  * Sélectionnez **Non** pour désactiver les connexions de comptes LinkedIn pour tous les utilisateurs. ![Activation des connexions de comptes LinkedIn](./media/linkedin-integration/linkedin-integration.png)
 5. Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Activer ou désactiver les connexions de comptes LinkedIn pour les applications Office 2016 de votre organisation à l’aide d’une stratégie de groupe
@@ -64,7 +64,7 @@ La fonctionnalité de connexions de comptes LinkedIn est activée par défaut po
 4. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016**  >  **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office**.
 5. Sélectionnez **Activé** ou **Désactivé**.
   * Lorsque la stratégie est **activée**, le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** de la boîte de dialogue des options Office 2016 est activé. Cela signifie également que les utilisateurs de votre organisation peuvent utiliser les fonctionnalités LinkedIn dans leurs applications Office.
-  * Lorsque la stratégie est **désactivée**, le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** de la boîte de dialogue des options Office 2016 est défini sur l’état désactivé, et les utilisateurs finaux ne peuvent pas modifier ce paramètre. Les utilisateurs de votre organisation ne peuvent pas utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016. 
+  * Lorsque la stratégie est **désactivée**, le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** de la boîte de dialogue des options Office 2016 est défini sur l’état désactivé, et les utilisateurs finaux ne peuvent pas modifier ce paramètre. Les utilisateurs de votre organisation ne peuvent pas utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016.
 
 Cette stratégie de groupe affecte uniquement les applications Office 2016 installées sur un ordinateur local. Les utilisateurs peuvent voir les fonctionnalités LinkedIn dans les cartes de profil Office 365 même s’ils désactivent LinkedIn dans leurs applications Office 2016. 
 

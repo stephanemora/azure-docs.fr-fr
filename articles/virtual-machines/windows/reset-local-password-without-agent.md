@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: ad892aee646b1a5f8c96d5bdeca24b7a0d88f38e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6745d5f7c31ca00c7915874b038488f4487959a9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915603"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343193"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Réinitialiser un mot de passe Windows local pour la machine virtuelle Azure hors connexion
 Vous pouvez réinitialiser le mot de passe Windows local d’une machine virtuelle dans Azure à l’aide du [portail Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à condition que l’agent invité Azure soit installé. Cette méthode est le principal moyen de réinitialiser un mot de passe sur une machine virtuelle Azure. Si l’agent invité Azure ne répond pas ou ne parvient pas à s’installer après chargement d’une image personnalisée, vous pouvez réinitialiser manuellement un mot de passe Windows. Cet article explique comment réinitialiser un mot de passe de compte local en attachant le disque virtuel du système d’exploitation source à une autre machine virtuelle. Les étapes décrites dans cet article ne s’appliquent pas aux contrôleurs de domaine Windows. 
@@ -94,7 +94,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
      ```
      
      ![Créer le fichier gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Créez `scripts.ini` dans `\Windows\System32\GroupPolicy\Machine\Scripts`. Vérifiez que les dossiers masqués sont affichés. Si nécessaire, créez les dossiers `Machine` ou `Scripts`.
+5. Créez `scripts.ini` dans `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Vérifiez que les dossiers masqués sont affichés. Si nécessaire, créez les dossiers `Machine` ou `Scripts`.
    
    * Ajoutez les lignes suivantes au fichier `scripts.ini` que vous avez créé :
      
@@ -134,7 +134,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
      ![Copier l’URI de disque](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Créez une machine virtuelle à partir du disque de système d’exploitation de la machine virtuelle source :
    
-   * Utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) pour créer une machine virtuelle à partir d’un disque dur virtuel spécialisé. Cliquez sur le bouton `Deploy to Azure` pour ouvrir le portail Azure avec les informations préremplies.
+   * Utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) pour créer une machine virtuelle à partir d’un disque dur virtuel spécialisé. Cliquez sur le bouton `Deploy to Azure` pour ouvrir le portail Azure avec les informations préremplies.
    * Si vous souhaitez conserver tous les paramètres précédents pour la machine virtuelle, sélectionnez *Modifier le modèle* pour indiquer vos réseau virtuel, sous-réseau, carte réseau ou adresse IP publique existants.
    * Dans la zone de texte `OSDISKVHDURI`, collez l’URI de votre disque dur virtuel source obtenu à l’étape précédente :
      

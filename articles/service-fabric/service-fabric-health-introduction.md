@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207296"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114314"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -117,7 +117,7 @@ Voici un extrait de manifeste de cluster. Pour définir des entrées dans le map
 La [stratégie d’intégrité d’application](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) décrit la procédure d’évaluation des événements et une agrégation des états enfants est effectuée pour les applications et leurs enfants. Elle peut être définie dans le manifeste d’application, **ApplicationManifest.xml**, dans le package d’application. Si aucune stratégie n’est spécifiée, Service Fabric suppose que l’entité est défectueuse si elle (ou un de ses enfants) se trouve à l’état d’intégrité Warning ou Error.
 Les stratégies configurables sont les suivantes :
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Spécifie s’il faut traiter les rapports d’intégrité Warning comme des erreurs pendant l’évaluation de l’intégrité. Valeur par défaut : false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Spécifie s’il faut traiter les rapports d’intégrité Warning comme des erreurs pendant l’évaluation de l’intégrité. Valeur par défaut : false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Spécifie le pourcentage maximum toléré d’applications déployées pouvant être défectueuses avant que l’application ne soit considérée comme étant à l’état Error. On calcule ce pourcentage en divisant le nombre d’applications déployées défectueuses par le nombre de nœuds sur lesquels les applications sont actuellement déployées dans le cluster. Le calcul est arrondi pour tolérer une défaillance sur un petit nombre de nœuds. Pourcentage par défaut : zéro.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Spécifie la stratégie d’intégrité du type de service par défaut, qui remplacera la stratégie d’intégrité par défaut pour tous les types de service dans l’application.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Fournit une liste de stratégies d’intégrité de service par type de service. Ces stratégies remplacent les stratégies d’intégrité de type de service par défaut pour chaque type de service spécifié. Par exemple, si une application est associée à un type de service de passerelle sans état et à un type de service de moteur avec état, vous pouvez configurer différemment les stratégies de contrôle d’intégrité relatives à leur évaluation. La spécification d’une stratégie par type de service permet un contrôle plus précis de l’intégrité du service.

@@ -3,17 +3,17 @@ title: Guide de sécurité Azure Storage | Microsoft Docs
 description: Présente en détail les nombreuses méthodes de sécurisation d’Azure Storage, notamment (liste non exhaustive) RBAC, Storage Service Encryption, le chiffrement côté client, SMB 3.0 et Azure Disk Encryption.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 3c45375a46ee7896509f061828720bcf465aded7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304130"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342468"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -154,7 +154,6 @@ Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans tou
 * [Opérations sur les comptes de stockage](https://msdn.microsoft.com/library/ee460790.aspx)
 
   Cet article dans Informations de référence sur l’API REST du gestionnaire de service de stockage contient des liens vers des articles spécifiques sur la récupération et la régénération des clés de compte de stockage à l’aide de l’API REST. Remarque : Seuls les comptes de stockage classiques sont concernés.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Dites au revoir à la gestion des clés - gérer l’accès aux données Azure Storage avec Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   Cet article montre comment utiliser Active Directory pour contrôler l’accès à vos clés de stockage Azure dans Azure Key Vault. Il montre également comment utiliser un travail Azure Automation pour régénérer les clés toutes les heures.
 

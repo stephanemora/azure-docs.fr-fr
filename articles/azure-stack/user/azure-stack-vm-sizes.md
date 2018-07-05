@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
-ms.openlocfilehash: b84744a52426123f2f3e7dd4c14419fef8b779cc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 52ab831dfaca337cdf803f410d3824b514fd0e8a
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258628"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437152"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
 
@@ -38,7 +38,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 |**A1\Basic_A1**  |1    |1,75 Go  | 40 Go   |300  | 300  |2 / 2x300  |1   |
 |**A2\Basic_A2**  |2    |3,5 Go   | 60 Go   |300  | 300  |4 / 4x300  |1   |
 |**A3\Basic_A3**  |4    |7 Go     | 120 Go  |300  | 300  |8 / 8x300  |1   |
-|**A4\Basic_A4**  |8    |14 Go    | 240 Go  |300  | 300  |6 / 16X300 |1   |
+|**A4\Basic_A4**  |8    |14 Go    | 240 Go  |300  | 300  |16 / 16X300 |1   |
 
 ### <a name="standard-a"></a>Standard A 
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |    

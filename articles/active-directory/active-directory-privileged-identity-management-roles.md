@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 03/04/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 3d1027a2fe53a45b089fbae29a831d9e23df059e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: cbb0e6c4f72e53938ba8ee838a1db9cab5357fc2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233320"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441020"
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Rôle d’administrateur différent dans Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -28,7 +28,7 @@ Vous pouvez affecter aux utilisateurs de votre organisation différents rôles a
 > [!IMPORTANT]
 > Microsoft vous recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure.
 
-Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD à l’aide des applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`, ou par le biais du portail, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD à l’aide des applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`, ou par le biais du portail, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
 
 Azure AD Privileged Identity Management (PIM) gère les stratégies pour l’accès privilégié des utilisateurs dans Azure AD. PIM affecte aux utilisateurs un ou plusieurs rôles dans Azure AD, et vous pouvez affecter définitivement le rôle à une personne, ou la rendre éligible au rôle. Lorsqu’un utilisateur est définitivement affecté à un rôle ou qu’il active une affectation de rôle éligible, il peut alors gérer Azure Active Directory, Office 365 et d’autres applications avec les autorisations attribuées aux rôles.
 
@@ -52,7 +52,7 @@ Privileged Identity Management vous permet d’affecter des utilisateurs à des 
 * **Administrateur SharePoint (préversion)** : dispose d’un accès administratif à SharePoint Online par le biais du Centre d’administration SharePoint Online, et peut effectuer presque n’importe quelle tâche dans SharePoint Online. Ce rôle est actuellement en préversion. Les utilisateurs éligibles peuvent rencontrer des problèmes de latence en utilisant ce rôle dans SharePoint après son activation dans Privileged Identity Management (PIM).
 * **Administrateur Skype Entreprise** : dispose d’un accès administratif à Skype Entreprise par le biais du Centre d’administration Skype Entreprise et peut effectuer presque n’importe quelle tâche dans Skype Entreprise Online.
 
-Consultez les articles suivants pour plus d’informations sur l’[attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles-azure-portal.md) et sur l’[attribution de rôles d’administrateur dans Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Consultez les articles suivants pour plus d’informations sur l’[attribution de rôles d’administrateur dans Azure AD](users-groups-roles/directory-assign-admin-roles.md) et sur l’[attribution de rôles d’administrateur dans Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

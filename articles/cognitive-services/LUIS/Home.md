@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751593"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344829"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 Language Understanding (LUIS) est un service cloud qui applique l’apprentissage automatique personnalisé aux conversations d’utilisateur, aux textes en langage naturel pour prédire le sens général et extraire des informations détaillées et pertinentes. 
@@ -82,7 +82,7 @@ Une fois que LUIS a retourné les entités trouvées dans l’énoncé de l’ut
 
 LUIS propose plusieurs moyens d’identifier et de classer les entités.
 
-* **Entités prédéfinies** LUIS possède de nombreux modèles de domaine prédéfinis, y compris les intentions, les énoncés, et les [entités prédéfinies](pre-builtentities.md). Vous pouvez utiliser les entités prédéfinies sans avoir à utiliser les intentions ni les énoncés du modèle prédéfini. Les entités prédéfinies vous font gagner du temps.
+* **Entités prédéfinies** LUIS possède de nombreux modèles de domaine prédéfinis, y compris les intentions, les énoncés, et les [entités prédéfinies](luis-prebuilt-entities.md). Vous pouvez utiliser les entités prédéfinies sans avoir à utiliser les intentions ni les énoncés du modèle prédéfini. Les entités prédéfinies vous font gagner du temps.
 
 * **Entités personnalisées** LUIS propose plusieurs moyens d’identifier vos propres [entités](luis-concept-entity-types.md) personnalisées, y compris les entités issues de l’apprentissage automatique, les entités spécifiques ou littérales, et une combinaison d’entités littérales et issues de l’apprentissage automatique.
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308558"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447538"
 ---
 # <a name="what-is-baseline-protection---preview"></a>Qu’est ce qu’une protection de base ? - préversion  
 
@@ -51,7 +51,7 @@ Les utilisateurs ayant accès à des comptes privilégiés ont accès sans restr
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-Cette stratégie de base vous offre la possibilité d’exclure des utilisateurs et des groupes. Vous pouvez vouloir exclure un *[compte d’administration de l’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)* pour garantir que votre accès au locataire n’est pas verrouillé.
+Cette stratégie de base vous offre la possibilité d’exclure des utilisateurs et des groupes. Vous pouvez vouloir exclure un *[compte d’administration de l’accès d’urgence](users-groups-roles/directory-emergency-access.md)* pour garantir que votre accès au locataire n’est pas verrouillé.
 
 
 ## <a name="enable-a-baseline-policy"></a>Activer une stratégie de base 
@@ -67,9 +67,9 @@ Lorsque des stratégies de base sont en préversion, par défaut, elles ne sont 
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
+3. Dans la page **Azure Active Directory**, dans la section **Sécurité**, cliquez sur **Accès conditionnel**.
 
-    ![Accès conditionnel](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Accès conditionnel](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. Dans la liste des stratégies, cliquez sur une stratégie commençant par **Stratégie de base :**. 
 
