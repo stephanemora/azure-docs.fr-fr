@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34347497"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449055"
 ---
 # <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
 
@@ -40,7 +40,7 @@ Le volet d’accès est séparé du portail Azure. Il ne nécessite pas de dispo
 
 - Afficher et démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD vous a accordé un accès. 
 
-- Gérer les groupes en libre-service. Les administrateurs peuvent créer et gérer des groupes de sécurité et demander l’appartenance à des groupes de sécurité dans Azure AD. Pour plus d’informations, consultez [Gestion de groupe libre-service pour les utilisateurs dans Azure AD](active-directory-accessmanagement-self-service-group-management.md) et [Gérer vos groupes](active-directory-manage-groups.md).
+- Gérer les groupes en libre-service. Les administrateurs peuvent créer et gérer des groupes de sécurité et demander l’appartenance à des groupes de sécurité dans Azure AD. Pour plus d’informations, consultez [Gestion de groupe libre-service pour les utilisateurs dans Azure AD](users-groups-roles/groups-self-service-management.md) et [Gérer vos groupes](fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -214,7 +214,7 @@ Par exemple, si une application est configurée pour authentifier les utilisateu
 
 - Pour afficher une liste de toutes les rubriques liées à la gestion des applications, consultez l’[index des articles relatifs à la gestion des applications dans Azure Active Directory](active-directory-apps-index.md).
  
-- Pour découvrir comment intégrer une application SaaS à Azure AD, consultez la [liste des didacticiels sur l’intégration d’applications SaaS](active-directory-saas-tutorial-list.md).
+- Pour découvrir comment intégrer une application SaaS à Azure AD, consultez la [liste des didacticiels sur l’intégration d’applications SaaS](saas-apps/tutorial-list.md).
  
 - Pour en savoir plus sur la gestion des applications avec Azure AD, consultez l’[introduction à l’authentification unique et à la gestion de l’accès aux applications avec Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  

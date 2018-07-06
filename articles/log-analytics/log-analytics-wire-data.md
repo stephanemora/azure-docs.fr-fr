@@ -3,7 +3,7 @@ title: Solution de données de communication dans Log Analytics | Microsoft Docs
 description: Les données de communication sont des données de réseau et de performance centralisées issues d’ordinateurs sur lesquels des agents OMS sont installés, notamment Operations Manager et les agents connectés à Windows. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011439"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129004"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solution Wire Data 2.0 (préversion) dans Log Analytics
 
@@ -82,7 +83,6 @@ Si vous êtes un utilisateur de System Center Operations Manager avec un groupe 
 Si vous utilisez l’agent direct, vous devez configurer l’agent OMS proprement dit pour qu’il se connecte à Log Analytics ou à votre passerelle OMS. Vous pouvez télécharger la passerelle OMS sur le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Requiert l’offre de solution [Insight & Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Si vous utilisez la version précédente de la solution Wire Data, vous devez commencer par la supprimer. Cependant, toutes les données capturées par la solution Wire Data d’origine restent disponibles dans Wire Data 2.0 et la Recherche dans les journaux.

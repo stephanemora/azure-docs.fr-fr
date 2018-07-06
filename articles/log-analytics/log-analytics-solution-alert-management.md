@@ -4,22 +4,23 @@ description: La solution de gestion des alertes dans Log Analytics vous permet d
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181195"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131045"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
@@ -28,7 +29,6 @@ ms.locfileid: "30181195"
 La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](log-analytics-alerts.md) ou [importées à partir de Nagios ou Zabbix](log-analytics-linux-agents.md).  La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte**, vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
 
 - Pour les alertes Log Analytics, [créez des règles d’alerte](log-analytics-alerts.md) pour créer des enregistrements d’alerte directement dans le référentiel.
@@ -112,13 +112,13 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 
 | Requête | Description |
 |:---|:---|
-| Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
-| Alerte &#124; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
-| Alerte &#124; où SourceSystem == « OpsManager » et AlertState ! = « Fermé » et TimeRaised > ago(24 h) &#124; résumer Count = count() par SourceDisplayName |Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
+| Alerte & #124 ; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et AlertState ! = « Fermé » et TimeRaised > ago(24 h) & #124 ; résumer Count = count() par SourceDisplayName |Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
 | Alerte &#124 ; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes critiques déclenchées au cours des dernières 24 heures et toujours actives |
 | Alerte &#124 ; où SourceSystem == « OpsManager », TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes déclenchées au cours des dernières 24 heures et désormais fermées |
-| Alerte &#124; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par AlertSeverity |Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
-| Alerte &#124; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par RepeatCount desc |Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par AlertSeverity |Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par RepeatCount desc |Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
 
 
 

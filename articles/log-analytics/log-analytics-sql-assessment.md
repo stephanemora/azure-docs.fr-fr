@@ -3,7 +3,7 @@ title: Optimisation de votre environnement SQL Server avec Azure Log Analytics |
 description: Avec Azure Log Analytics, la solution SQL Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: na
+ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886312"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130605"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimisez votre environnement SQL avec la solution SQL Server Health Check dans Log Analytics
 
@@ -41,7 +41,6 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
 ![image du tableau de bord SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * La solution SQL Health Check nécessite l’installation d’une version prise en charge de .NET Framework 4 sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.  
 * La solution prend en charge SQL Server 2012, 2014 et 2016.

@@ -75,7 +75,7 @@ items:
         href: multi-region-writers.md
       - name: Partitionnement
         href: partition-data.md
-      - name: Throughput
+      - name: Débit
         href: request-units.md
       - name: Cohérence
         href: consistency-levels.md
@@ -118,8 +118,6 @@ items:
                         href: sql-api-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
-                      - name: C++
-                        href: sql-api-cpp-get-started.md
                   - name: Créer une application web
                     items:
                       - name: .NET
@@ -144,10 +142,6 @@ items:
                     href: local-emulator.md
                   - name: Exporter les certificats
                     href: local-emulator-export-ssl-certificates.md
-              - name: "6\_- Intégrer avec Functions"
-                items:
-                  - name: Déclencheur HTTP
-                    href: tutorial-functions-http-trigger.md
           - name: Exemples
             items:
               - name: Azure CLI
@@ -346,26 +340,14 @@ items:
                 href: gremlin-support.md
           - name: Didacticiels
             items:
-              - name: 1 - Créer
-                href: tutorial-develop-graph-dotnet.md
-              - name: 2 - Interroger
+              - name: 1 - Interroger
                 href: tutorial-query-graph.md
-              - name: 3 - Distribuer mondialement
-                href: tutorial-global-distribution-graph.md
           - name: Procédures
             items:
               - name: Partitionnement dans Graph
                 href: graph-partitioning.md
               - name: Gérer l’utilisation de l’Explorateur Stockage
                 href: storage-explorer.md
-              - name: Integrate
-                items:
-                  - name: Se connecter à Spark GraphX
-                    href: spark-connector-graph.md
-          - name: Informations de référence
-            items:
-              - name: .NET
-                href: graph-sdk-dotnet.md
           - name: Ressources
             items:
               - name: Gérer l’utilisation de l’Explorateur Stockage
@@ -446,7 +428,7 @@ items:
     items:
       - name: Clés et cohérence
         href: manage-account.md
-      - name: Throughput
+      - name: Débit
         href: set-throughput.md
       - name: Prise en charge de pare-feu
         href: firewall-support.md

@@ -6,7 +6,6 @@ Ce guide vous explique comment une application iOS native (Swift) peut appeler l
 Lorsque vous aurez effectué les exercices de ce guide, votre application pourra appeler l’API protégée d’une entreprise ou d’une organisation qui dispose d’Azure AD. Votre application peut appeler des API protégées à l’aide de comptes personnels comme outlook.com, live.com et autres, et de comptes professionnels ou scolaires.
 
 ## <a name="prerequisites"></a>Prérequis
-
 - XCode version 8.x est requis pour l’exemple à créer dans ce guide. Vous pouvez télécharger XCode sur le [site web d’iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Vous aurez besoin du gestionnaire de dépendances [Carthage](https://github.com/Carthage/Carthage) pour la gestion des packages.
 

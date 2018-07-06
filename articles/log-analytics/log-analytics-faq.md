@@ -3,7 +3,7 @@ title: Log Analytics - FAQ | Microsoft Docs
 description: Réponses aux questions fréquemment posées sur le service Azure Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221533"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128528"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.

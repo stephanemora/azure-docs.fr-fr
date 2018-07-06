@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71367737a1364925f49c79f5c9562989752d26bc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594548"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449101"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
 
@@ -102,7 +102,7 @@ Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**
   ````
   Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 
-3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
+3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](users-groups-roles/groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
 
 ### <a name="view-the-current-settings"></a>Afficher les paramètres actuels
 
@@ -142,7 +142,7 @@ Vous avez terminé. Vous avez défini votre stratégie de nommage et ajouté vos
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exporter ou importer la liste de mots bloqués personnalisés
 
-Pour plus d’informations, consultez l’article [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md).
+Pour plus d’informations, consultez l’article [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](users-groups-roles/groups-settings-cmdlets.md).
 
 Voici un exemple de script PowerShell permettant d’exporter plusieurs mots bloqués :
 
@@ -200,9 +200,9 @@ Centre d’administration Office 365 | Le centre d’administration Office 365
 ## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
-* [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)
+* [Consulter les groupes existants](fundamentals/active-directory-groups-view-azure-portal.md)
 * [Stratégie d’expiration pour les groupes Office 365](active-directory-groups-lifecycle-azure-portal.md)
-* [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
-* [Gérer les membres d’un groupe](active-directory-groups-members-azure-portal.md)
-* [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
+* [Gérer les paramètres d’un groupe](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Gérer les membres d’un groupe](fundamentals/active-directory-groups-members-azure-portal.md)
+* [Gérer l’appartenance à un groupe](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)

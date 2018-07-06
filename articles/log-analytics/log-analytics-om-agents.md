@@ -3,7 +3,7 @@ title: Connexion d’Operations Manager à Log Analytics | Microsoft Docs
 description: Pour préserver vos investissements existants dans System Center Operations Manager et utiliser des fonctionnalités étendues avec Log Analytics, vous pouvez intégrer Operations Manager à votre espace de travail.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.component: na
+ms.openlocfilehash: 29ab649f8fe06ae598ff138ff98eb2611ec38e1f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763593"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128875"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connexion d’Operations Manager à Log Analytics
 Pour préserver vos investissements existants dans System Center Operations Manager et utiliser des fonctionnalités étendues avec Log Analytics, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics.  Cela vous permet de tirer parti des possibilités qu’offre Log Analytics, tout en continuant à utiliser Operations Manager pour :
@@ -65,7 +66,7 @@ Les informations ci-dessous indiquent les données de configuration de proxy et 
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 et 443||  
 |\*.microsoft.com| 80 et 443||  
-|\**.microsoftonline.com| 80 et 443||  
+|\*.microsoftonline.com| 80 et 443||  
 |\*.mms.microsoft.com| 80 et 443||  
 |login.windows.net| 80 et 443||  
 |portal.loganalytics.io| 80 et 443||

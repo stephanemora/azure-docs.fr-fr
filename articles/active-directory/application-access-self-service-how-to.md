@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 359640384891ebdf66345d3f5664db1cbefbde77
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 89eb80dbb749b2f50ca3f1fc097c205b62b6b4a4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333743"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445294"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configurer l’attribution d’applications en libre-service
 
@@ -90,4 +90,4 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
+[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](users-groups-roles/groups-self-service-management.md)

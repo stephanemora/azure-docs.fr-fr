@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 35abd97072f2156424bb910d68923be18f917792
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cdd554b71cc17019d7818e2b509433df621da84f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331255"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446824"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problème lié à l’accès aux applications en libre-service
 
@@ -98,4 +98,4 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 -   Traces Fiddler
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
+[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](users-groups-roles/groups-self-service-management.md)

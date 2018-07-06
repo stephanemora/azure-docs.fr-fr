@@ -1,24 +1,20 @@
 ---
 title: Charger les fichiers d’un appareil sur Azure IoT Hub avec Python | Microsoft Docs
 description: Guide pratique pour charger les fichiers d’un appareil sur le cloud avec Azure IoT device SDK pour Python. Les fichiers téléchargés sont stockés dans un conteneur d’objets blob de stockage Azure.
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34635013"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 

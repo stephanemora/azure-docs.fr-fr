@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
-ms.openlocfilehash: 1b9c0514e93fa89f8776d830ef242fc4963a6f7b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316468"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133357"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 
@@ -173,8 +173,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -334,6 +334,4 @@ La version du service Batch 2017-01-01.4.0 introduit une modification qui rempl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="batch-forum"></a>Forum Azure Batch
-
-Le [Forum Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
+* Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).

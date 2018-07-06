@@ -3,7 +3,7 @@ title: Connexion de Configuration Manager à Log Analytics | Microsoft Docs
 description: Cet article décrit comment connecter Configuration Manager à Log Analytics et commencer à analyser des données.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
@@ -11,21 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 5ff0687fe99f0853e29e5f0d814a8555c367027c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 6bb59e4b63933500bc8571dca2422eec6c3456ee
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283994"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129755"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connexion de Configuration Manager à Log Analytics
 Vous pouvez connecter votre environnement System Center Configuration Manager Azure Log Analytics pour synchroniser des données de regroupement d’appareils et faire référence à ces regroupements dans Log Analytics et Azure Automation.  
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Log Analytics prend en charge la branche actuelle de System Center Configuration Manager, version 1606 et supérieure.  
 

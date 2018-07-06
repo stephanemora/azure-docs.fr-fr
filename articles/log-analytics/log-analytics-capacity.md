@@ -3,7 +3,7 @@ title: Solution Capacité et performances d’Azure Log Analytics | Microsoft 
 description: Utilisez la solution Capacité et performances dans Log Analytics pour vous aider à comprendre la capacité de vos serveurs Hyper-V.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: e9163b3c29fd304c80eff46426a30c4fa0ce3b15
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170031"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130341"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacité et performances (version préliminaire)
 
@@ -55,7 +56,6 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Des agents Windows ou Operations Manager doivent être installés sur Windows Server 2012 ou des hôtes Hyper-V supérieurs, mais pas sur des machines virtuelles.
 
@@ -128,13 +128,13 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 
 | Requête | Description |
 |:--- |:--- |
-| Toutes les configurations mémoire d’hôte | Perf &#124; où ObjectName == « Capacité et performances » et CounterName == « Mo de mémoire attribuée Mo à l’hôte » &#124; résumer Mo = avg(CounterValue) par InstanceName |
-| Toutes les configurations mémoire de machine virtuelle | Perf &#124; où ObjectName == « Capacité et performance » et CounterName == « Mo de mémoire attribuée à la machine virtuelle » &#124; résumer Mo = avg(CounterValue) par InstanceName |
-| Répartition de toutes les E/S par seconde des disques entre toutes les machines virtuelles | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de disque dur virtuel » ou CounterName == « Écritures/s de disque dur virtuel ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
-| Répartition du débit total des disques entre toutes les machines virtuelles | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lecture Mo/s de disque dur virtuel » ou CounterName == « Écriture Mo/s de disque dur virtuel ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
-| Répartition de toutes les E/S par seconde entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de volume partagé de cluster » ou CounterName == « Écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Toutes les configurations mémoire d’hôte | Perf & #124 ; où ObjectName == « Capacité et performances » et CounterName == « Mo de mémoire attribuée Mo à l’hôte » & #124 ; résumer Mo = avg(CounterValue) par InstanceName |
+| Toutes les configurations mémoire de machine virtuelle | Perf & #124 ; où ObjectName == « Capacité et performance » et CounterName == « Mo de mémoire attribuée à la machine virtuelle » & #124 ; résumer Mo = avg(CounterValue) par InstanceName |
+| Répartition de toutes les E/S par seconde des disques entre toutes les machines virtuelles | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de disque dur virtuel » ou CounterName == « Écritures/s de disque dur virtuel ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Répartition du débit total des disques entre toutes les machines virtuelles | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Lecture Mo/s de disque dur virtuel » ou CounterName == « Écriture Mo/s de disque dur virtuel ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Répartition de toutes les E/S par seconde entre tous les volumes partagés de cluster | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de volume partagé de cluster » ou CounterName == « Écritures/s de volume partagé de cluster ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
 | Répartition du débit total entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de volume partagé de cluster » ou CounterName == « Écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
-| Répartition de la latence totale entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Latence de lectures/s de volume partagé de cluster » ou CounterName == « Latence d’écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Répartition de la latence totale entre tous les volumes partagés de cluster | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Latence de lectures/s de volume partagé de cluster » ou CounterName == « Latence d’écritures/s de volume partagé de cluster ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: efbfcdd1a50069a943fc57da9d402e4cc7c408ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260557"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447147"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Donner accès à la gestion d’Azure AD Privileged Identity Management
 L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de la sécurité et lecteurs Sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié** .

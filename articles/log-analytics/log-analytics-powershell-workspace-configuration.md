@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179087"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129334"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gérer Log Analytics à l’aide de PowerShell
 Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
@@ -44,7 +45,6 @@ Cet article fournit deux exemples de code qui illustrent quelques-unes des fonct
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Ces exemples fonctionnent avec la version 2.3.0 ou ultérieure du module AzureRm.OperationalInsights.
 
 
@@ -203,7 +203,7 @@ Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les di
 | IoT Hubs                |     | OUI |
 | Key Vault               | OUI | |
 | Équilibreurs de charge          | OUI | |
-| Logic Apps              | OUI | OUI |
+| Logic Apps              | OUI | OUI |
 | Network Security Group | OUI | |
 | Cache Redis             |     | OUI |
 | Services de recherche         | OUI | OUI |

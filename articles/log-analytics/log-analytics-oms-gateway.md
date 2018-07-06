@@ -3,7 +3,7 @@ title: Connecter des ordinateurs à l’aide de la passerelle OMS Gateway | Micr
 description: Connectez vos appareils et les ordinateurs contrôlés par Operations Manager à la passerelle OMS pour leur permettre d’envoyer des données aux services Azure Automation et Log Analytics lorsqu’ils n’ont pas accès à Internet.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: na
+ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271647"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129038"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connecter des ordinateurs sans accès Internet à l’aide de la passerelle OMS
 Ce document décrit comment configurer la communication avec Azure Automation et Log Analytics à l’aide de la passerelle OMS lorsqu’elle est directement connectée ou lorsque les ordinateurs analysés Operations Manager n’ont pas accès à Internet.  La passerelle OMS, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer au service OMS en son nom.  
@@ -50,7 +51,6 @@ Le diagramme suivant illustre le flux de données entre un groupe d’administra
 ![diagramme de communication entre Operations Manager et Log Analytics](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Lorsque vous configurez un ordinateur pour qu’il s’exécute sur la passerelle OMS, cet ordinateur doit disposer des éléments suivants :
 

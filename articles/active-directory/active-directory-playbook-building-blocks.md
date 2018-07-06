@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754290"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446773"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -45,7 +45,7 @@ Voici quelques conditions préalables pour toute POC avec Azure AD Premium.
 | Domaines définis et vérifiés | [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Remarque :** certaines charges de travail telles que Power BI peuvent avoir approvisionné un locataire Azure AD en arrière-plan. Pour voir si un domaine donné est associé à un client, accédez à https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si vous obtenez une réponse correcte, cela signifie que le domaine est déjà affecté à un locataire, et une prise de contrôle peut être requise. Dans ce cas, contactez Microsoft pour obtenir des instructions supplémentaires. En savoir plus sur les options de prise de contrôle : [Qu’est-ce qu’une inscription libre-service à Azure ?](active-directory-self-service-signup.md) |
 | Essai Azure AD Premium ou EMS activé | [Azure Active Directory Premium gratuit pendant un mois](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Vous avez affecté des licences Azure AD Premium ou EMS à des utilisateurs POC | [License yourself and your users in Azure Active Directory (Accorder une licence à vos utilisateurs et à vous-même dans Azure Active Directory)](active-directory-licensing-get-started-azure-portal.md) |
-| Informations d’identification de l’administrateur général Azure AD | [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
+| Informations d’identification de l’administrateur général Azure AD | [Attribution de rôles d’administrateur dans Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
 | Facultatif, mais vivement recommandé : environnement de laboratoire parallèle comme solution de secours | [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Synchronisation des répertoires - Synchronisation du code de hachage de mots de passe (PHS) - Nouvelle installation
@@ -428,7 +428,7 @@ Temps approximatif d’accomplissement : 10 minutes
 ### <a name="considerations"></a>Considérations
 
 1. Les étapes de la POC dans ce bloc de construction configurent explicitement l’authentification MFA pour un utilisateur sur toutes les connexions. Il existe d’autres outils, tels que l’accès conditionnel et la protection d’identité, qui sollicitent l’authentification MFA sur plusieurs scénarios ciblés. C’est à prendre en compte lors du passage de la POC en production.
-2. Les étapes de la POC dans ce bloc de construction utilisent explicitement les appels téléphoniques en tant que méthode MFA pour plus de commodité. Lorsque vous passez de la POC à la production, nous vous recommandons d’utiliser des applications telles que [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) en tant que second facteur dans la mesure du possible.
+2. Les étapes de la POC dans ce bloc de construction utilisent explicitement les appels téléphoniques en tant que méthode MFA pour plus de commodité. Lorsque vous passez de la POC à la production, nous vous recommandons d’utiliser des applications telles que [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) en tant que second facteur dans la mesure du possible.
 En savoir plus : [DRAFT NIST Special Publication 800-63B (Publication spéciale NIST 800-63B - version préliminaire)](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Accès conditionnel MFA pour les applications SaaS
@@ -553,7 +553,7 @@ Temps approximatif d’accomplissement : 20 minutes
 | --- | --- |
 | Appareil avec certificat utilisateur alloué (Windows, iOS ou Android) à partir de la PKI d’entreprise | [Déployer des certificats d’utilisateur](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Domaine Azure AD fédéré avec ADFS | [Fédération avec Azure AD Connect](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Vue d’ensemble des services de certificats Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Pour les appareils iOS sur lesquels l’application Microsoft Authenticator est installée | [Prise en main de l’application Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Pour les appareils iOS sur lesquels l’application Microsoft Authenticator est installée | [Prise en main de l’application Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Étapes
 

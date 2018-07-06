@@ -3,7 +3,7 @@ title: Analyser l’utilisation des données dans Log Analytics | Microsoft Docs
 description: Utilisez le tableau de bord répertoriant l’utilisation et les coûts estimés de Log Analytics pour déterminer la quantité de données envoyées à Log Analytics et identifier les éléments à l’origine d’augmentations inattendues.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a9c898cf0f2e0b1387bbc2ac18b5009838d138b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.component: na
+ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317301"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128562"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 Log Analytics inclut des informations sur la quantité de données collectées, les sources qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour examiner et analyser l’utilisation de données. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.

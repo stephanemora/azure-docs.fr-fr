@@ -6,22 +6,22 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84a2c6bd513fffa562b31070bebfbf2ee8e2d55d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4ceef533145bea75247eb26998b998552293ef63
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712332"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449095"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C : dépôt de demandes de support
 Pour déposer des demandes d’assistance pour Azure Active Directory (Azure AD) B2C sur le portail Azure, procédez comme suit :
 
 1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est le client de vos employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus, consultez [Association d’un abonnement Azure à Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est le client de vos employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus, consultez [Association d’un abonnement Azure à Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
    
     ![Support - Basculer entre les clients](./media/active-directory-b2c-support/support-switch-dir.png)
 3. Après avoir basculé entre les clients, cliquez sur **Aide + Support**.

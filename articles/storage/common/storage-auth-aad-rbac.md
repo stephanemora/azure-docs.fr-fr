@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659697"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082209"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gérer les droits d’accès aux données du Stockage Azure avec RBAC (préversion)
 
@@ -61,7 +61,7 @@ Les sections suivantes montrent comment attribuer un rôle limité au compte de 
 
 Pour attribuer un rôle intégré permettant d’accéder à l’ensemble des conteneurs ou des files d’attente du compte de stockage dans le Portail Azure :
 
-1. Dans le [Portail Azure](https://azure.portal.com/), accédez à votre compte de stockage.
+1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 2. Sélectionnez votre compte de stockage, puis sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du compte. Cliquez sur le bouton **Ajouter** pour ajouter un nouveau rôle.
 
     ![Capture d’écran montrant les paramètres de contrôle d’accès du stockage](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Pour attribuer un rôle intégré permettant d’accéder à l’ensemble des co
 
 Les étapes d’attribution d’un rôle intégré se limitant à un conteneur ou une file d’attente sont similaires. La procédure illustrée ici attribue un rôle limité à un conteneur, mais vous pouvez suivre les mêmes étapes pour attribuer un rôle limité à une file d’attente : 
 
-1. Dans le [Portail Azure](https://azure.portal.com/), accédez à votre compte de stockage, puis affichez la **Vue d’ensemble** du compte.
+1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis affichez la **Vue d’ensemble** du compte.
 2. Sous Service BLOB, sélectionnez **Parcourir les objets blob**. 
 3. Recherchez le conteneur pour lequel vous souhaitez attribuer un rôle, puis affichez les paramètres de ce conteneur. 
 4. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du conteneur.

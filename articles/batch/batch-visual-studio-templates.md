@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316747"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128858"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
 
@@ -53,7 +53,6 @@ Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ce
 ![Diagramme montrant comment le code client interagit avec le service Batch][diagram01]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Voici les composants requis pour utiliser les modèles Batch :
 
 * Un ordinateur où Visual Studio 2015 est installé. Les modèles Batch sont actuellement pris en charge seulement pour Visual Studio 2015.
@@ -440,10 +439,7 @@ parameters.json et, s’il le trouve, le charge en tant que dictionnaire de para
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Conserver la sortie d’un travail et d’une tâche dans le stockage Azure
 Les [conventions de fichiers Azure Batch][nuget_package] sont également utiles au développement de solutions Batch. Utilisez cette bibliothèque de classes .NET (actuellement en version préliminaire) dans vos applications .NET Batch pour stocker et récupérer facilement les sorties des tâches vers et depuis le stockage Azure. [Persist Azure Batch job and task output](batch-task-output.md) (Conserver une sortie de tâche et de travail Azure Batch) fait une description complète de la bibliothèque et de son utilisation.
 
-### <a name="batch-forum"></a>Forum Azure Batch
-Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications « permanentes » utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
