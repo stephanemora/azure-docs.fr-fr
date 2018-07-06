@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 9c562f1ce938e5f5d9371cbccf032c0eb1d67125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055028"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37086209"
 ---
 Une des fonctionnalités clés d’Azure IoT Edge est la capacité de déployer des modules sur vos appareils IoT Edge à partir du cloud. Un module IoT Edge est un package exécutable implémenté en tant que conteneur. Dans cette section, vous déployez un module qui génère des données de télémétrie pour votre appareil simulé. 
 
@@ -21,7 +21,7 @@ Une des fonctionnalités clés d’Azure IoT Edge est la capacité de déployer 
 1. Accédez à **IoT Edge** et sélectionnez votre appareil IoT Edge.
 1. Sélectionnez **Définir modules**.
 1. Dans la section **Modules de déploiement** de la page, cliquez sur **Ajouter** puis sélectionnez **Module IoT Edge**.
-1. Dans le champ **Nom**, entrez `tempsensor`. 
+1. Dans le champ **Nom**, entrez `tempSensor`. 
 1. Dans le champ **URI de l’image**, entrez `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. 
 1. Laissez les autres paramètres inchangés et sélectionnez **Enregistrer**.
 

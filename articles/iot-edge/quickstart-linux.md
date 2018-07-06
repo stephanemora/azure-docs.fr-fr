@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063491"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096272"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Linux x64
 
@@ -29,7 +29,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ![Architecture du démarrage rapide][2]
 
-Ce démarrage rapide transforme votre machine virtuelle ou ordinateur Linux en appareil IoT Edge. Vous pouvez ensuite déployer un module depuis le portail Azure vers votre appareil. Le module que vous déployez dans ce démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres didacticiels Azure IoT Edge s’appuient sur le travail que vous effectuez en déployant des modules qui analysent les données simulées des informations métier. 
+Ce démarrage rapide transforme votre machine virtuelle ou ordinateur Linux en appareil IoT Edge. Vous pouvez ensuite déployer un module depuis le portail Azure vers votre appareil. Le module que vous déployez dans ce démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez ici en déployant des modules qui analysent les données simulées des informations métier. 
 
 Si vous n’avez pas d'abonnement Azure actif, créez un [compte gratuit][lnk-account] avant de commencer.
 
@@ -46,7 +46,7 @@ Ajoutez l’extension Azure IoT à l’instance de Cloud Shell.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Commencez le démarrage rapide en créant votre IoT Hub dans le portail Azure.
+Commencez le guide de démarrage rapide en créant votre hub IoT dans le portail Azure.
 ![Créer un IoT Hub][3]
 
 Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé gratuitement un hub, vous pouvez utiliser cet IoT Hub. Chaque abonnement peut avoir uniquement un IoT hub gratuit. 
@@ -90,7 +90,7 @@ Créez une identité d’appareil pour votre appareil simulé afin qu’il puiss
 Installez et démarrez le runtime Azure IoT Edge sur votre appareil. 
 ![Inscrire un appareil][5]
 
-Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. L’**agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, y compris le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. 
+Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Inscrire votre appareil pour utiliser le référentiels de logiciels
 
@@ -133,7 +133,7 @@ Installez Moby, un runtime de conteneurs, et ses commandes CLI.
 
 Le démon de sécurité s’installe en tant que service système afin que le runtime IoT Edge démarre chaque fois que votre appareil démarre. L’installation inclut également une version de **hsmlib** qui autorise le démon de sécurité à interagir avec la sécurité matérielle de l’appareil. 
 
-1. Téléchargez et installez le démon de sécurité IoT Edge. 
+1. Télécharger et installer le démon de sécurité IoT Edge. 
 
    ```bash
    sudo apt-get update
@@ -171,8 +171,10 @@ Le démon de sécurité s’installe en tant que service système afin que le ru
 6. Affichez les modules en cours d’exécution sur votre appareil : 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   Après une fermeture de session et une ouverture de session, *sudo* n’est pas requis pour la commande ci-dessus.
 
    ![Afficher un module sur votre appareil](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -190,8 +192,9 @@ Dans ce guide de démarrage rapide, vous avez créé un nouveau périphérique I
 Rouvrez l’invite de commandes sur l’ordinateur qui exécute votre appareil simulé. Confirmez que le module déployé à partir du cloud est en cours d’exécution sur votre appareil IoT Edge :
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   Après une fermeture de session et une ouverture de session, *sudo* n’est pas requis pour la commande ci-dessus.
 
    ![Afficher trois modules sur votre appareil](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -242,7 +245,7 @@ Lorsque vous n’avez plus besoin des ressources Azure que vous avez créées, v
 Ce démarrage rapide constitue une étape nécessaire pour suivre tous les didacticiels d’IoT Edge. Vous pouvez continuer avec l’un des autres didacticiels pour savoir comment Azure IoT Edge peut vous aider à transformer ces données en informations métier à la périphérie.
 
 > [!div class="nextstepaction"]
-> [Filtrer les données de capteur à l’aide d’une fonction Azure](tutorial-deploy-function.md)
+> [Filtrer les données de capteur à l’aide d’Azure Function](tutorial-deploy-function.md)
 
 
 

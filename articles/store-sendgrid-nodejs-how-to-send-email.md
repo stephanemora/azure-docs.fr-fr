@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23059884"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Envoi de courrier électronique à l'aide de SendGrid depuis Node.js
@@ -162,7 +162,7 @@ Les exemples suivants montrent les filtres de pied de page et de suivi des clics
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Mise à jour des propriétés de messagerie électronique
-Vous pouvez remplacer certaines propriétés d’e-mail en utilisant **set*Property*** ou en ajouter en utilisant*add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
+Vous pouvez remplacer certaines propriétés d’e-mail avec **set*Property***, et en ajouter avec *add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
 
     email.addTo('jeff@contoso.com');
 
@@ -180,7 +180,7 @@ SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionna
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
 * Référentiel du module SendGrid Node.js : [sendgrid-nodejs][sendgrid-nodejs]
-* Documentation de l'API SendGrid : <https://sendgrid.com/docs>
+* Documentation de l’API SendGrid : <https://sendgrid.com/docs>
 * Offre spéciale SendGrid pour les clients Azure : [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
