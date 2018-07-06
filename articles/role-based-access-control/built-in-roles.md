@@ -1,6 +1,6 @@
 ---
-title: Rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC) dans Azure | Microsoft Docs
-description: Décrit les rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC) dans Azure. Répertorie les actions et les notActions.
+title: Rôles intégrés dans Azure | Microsoft Docs
+description: Décrit les rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC) dans Azure. Répertorie les actions, notActions, dataActions et notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267371"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294494"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure
+# <a name="built-in-roles-in-azure"></a>Rôles intégrés dans Azure
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md).
 
 Les rôles intégrés sont en constante évolution. Pour obtenir les dernières définitions de rôle, utilisez la commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list).
@@ -98,7 +98,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Collaborateur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. |
 | [Collaborateur de compte de stockage](#storage-account-contributor) | Permet de gérer des comptes de stockage, mais pas d’y accéder. |
 | [Rôle de service d’opérateur de clé de compte de stockage](#storage-account-key-operator-service-role) | Les opérateurs de clés de comptes de stockage sont autorisés à lister et à régénérer des clés sur des comptes de stockage |
-| [Contributeur aux données Blob du stockage (préversion)](#storage-blob-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux conteneurs blob et aux données du stockage Azure |
+| [Contributeur aux données blob du stockage (préversion)](#storage-blob-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux conteneurs blob et aux données du stockage Azure |
 | [Lecteur des données Blob du stockage (préversion)](#storage-blob-data-reader-preview) | Permet l'accès en lecture aux conteneurs blob et aux données du stockage Azure |
 | [Contributeur aux données en file d'attente du stockage (préversion)](#storage-queue-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux files d'attente et aux messages en file d'attente du stockage Azure |
 | [Lecteur des données en file d'attente du stockage (préversion)](#storage-queue-data-reader-preview) | Permet l'accès en lecture aux files d'attente et aux messages en file d'attente du stockage Azure |
@@ -711,7 +711,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Actions** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action | Vidage des données d'Application Insights |
+> | Microsoft.Insights/components/purge/action | Vider des données d’Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Supprime les données spécifiées de l’espace de travail |
 
@@ -1513,7 +1513,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Se connecter à la machine virtuelle comme utilisateur normal |
-> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Se connecter à la machine virtuelle avec des privilèges d'administrateur Windows ou d'utilisateur racine Linux |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Se connecter à une machine virtuelle avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux |
 
 ## <a name="virtual-machine-contributor"></a>Collaborateur de machine virtuelle
 > [!div class="mx-tableFixed"]

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825902"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083159"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Devenir éditeur dans les vitrines de la Place de marché  
 Les étapes suivantes vous aider à vous inscrire en tant qu’éditeur dans les vitrines de la Place de marché. Selon votre accord existant avec Microsoft et le type de liste sélectionné, certaines des étapes suivantes peuvent ne pas être nécessaires.  
@@ -30,7 +30,6 @@ Les étapes suivantes vous aider à vous inscrire en tant qu’éditeur dans les
 | 2 | Créer un ID Microsoft | 15 minutes | [Créer un ID Microsoft](#create-a-microsoft-id) |  
 | 3 | Envoyer le formulaire de candidature pour la Place de marché | 1 à 3 jours | [Envoyer le formulaire de candidature pour la Place de marché](#submit-the-marketplace-nomination-form) |  
 | 4 | S’inscrire dans le Centre de développement Microsoft | 5 à 10 jours | [S’inscrire dans le centre de développement](#register-in-dev-center) |  
-| 5. | Se connecter à AppSource | 15 minutes | [Se connecter à AppSource](#sign-into-appSource) |  
 | 5. |  Se connecter au Portail Cloud Partner | 15 minutes | [Se connecter au Portail Cloud Partner](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>S’inscrire au Microsoft Partner Network  
@@ -84,18 +83,6 @@ Un compte Centre de développement est requis pour publier des applications avec
 
 ---  
 
-## <a name="sign-into-appsource"></a>Se connecter à AppSource  
-| 15 minutes |  
-Une fois votre candidature approuvée et après vous être inscrit au MPN et dans le centre de développement, votre compte Place de marché est créé avec l’accès à AppSource. L’e-mail d’acceptation de votre candidature contient les informations d’identification à utiliser pour votre première connexion. 
-*   Pour accéder à MPN, consultez la page Adhésion à l’adresse [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Pour accéder au Centre de développement, visitez la page Centre de développement Windows à l’adresse [dev.windows.com](https://dev.windows.com).  
-*   Pour accéder à AppSource, consultez la page AppSource à l’adresse [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   Pour accéder au Portail Cloud Partner, consultez la page Portail Cloud Partner à l’adresse [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Pour plus d’informations sur l’utilisation du Portail Cloud Partner, consultez la section En savoir plus à l’adresse [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Pour obtenir de la documentation sur le Portail Cloud Partner, consultez la section Documentation à l’adresse [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
-
----  
-
 ## <a name="sign-into-cloud-partner-portal"></a>Se connecter au Portail Cloud Partner
 | 15 minutes |  
 Une fois votre candidature approuvée et après vous être inscrit au MPN et dans le centre de développement, votre compte Place de marché est créé avec l’accès au Portail Cloud Partner. L’e-mail d’acceptation de votre candidature contient les informations d’identification à utiliser pour votre première connexion. 
@@ -106,6 +93,6 @@ Une fois votre candidature approuvée et après vous être inscrit au MPN et dan
 *   Pour obtenir de la documentation sur le Portail Cloud Partner, consultez la section Documentation à l’adresse [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ## <a name="next-steps"></a>Étapes suivantes
-*   Consultez la page [Guide de l’éditeur Place de Marché Azure et AppSource](./marketplace-publishers-guide.md).  
+*   Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](./marketplace-publishers-guide.md).  
  
 ---  

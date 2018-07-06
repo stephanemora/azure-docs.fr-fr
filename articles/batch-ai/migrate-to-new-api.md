@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294875"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294956"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Migrer vers la mise à jour de l’API Azure Batch AI
 
-Dans la prochaine version de l’API REST Batch AI 2018-05-01 ainsi que les kits de développement logiciel (SDK) et outils Batch AI connexes, des modifications importantes et de nouvelles fonctionnalités ont été intégrées.
+Dans la version de l’API REST Batch AI 2018-05-01 ainsi que les kits de développement logiciel (SDK) et outils Batch AI connexes, des modifications importantes et de nouvelles fonctionnalités ont été intégrées.
 
-Si vous avez utilisé une version précédente de l’API Batch AI, cet article explique comment modifier votre code et les scripts pour la nouvelle API. Apportez ces modifications uniquement une fois que la nouvelle API est disponible.
+Si vous avez utilisé une version précédente de l’API Batch AI, cet article explique comment modifier votre code et les scripts pour la nouvelle API. 
 
 ## <a name="whats-changing"></a>Ce qui a changé
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831633"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294847"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
 
@@ -48,7 +48,10 @@ Azure Blockchain Workbench requiert plusieurs conditions préalables avant le d�
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Inscription d’application API Blockchain Workbench
 
-Le déploiement de Blockchain Workbench nécessite l’inscription d’une application Azure AD. Vous avez besoin d’un locataire Azure Active Directory (Azure AD) pour inscrire l’application. Vous pouvez utiliser un locataire existant ou en créer un. Si vous utilisez un locataire Azure AD existant, vous avez besoin d’autorisations suffisantes pour inscrire les applications au sein d’un locataire Azure AD. Les inscriptions d’application doivent se trouver dans le locataire de l’administrateur de l’abonnement où Workbench est déployé. Pour plus d’informations sur les locataires Azure AD, consultez [Obtention d’un client Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) et [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Le déploiement de Blockchain Workbench nécessite l’inscription d’une application Azure AD. Vous avez besoin d’un locataire Azure Active Directory (Azure AD) pour inscrire l’application. Vous pouvez utiliser un locataire existant ou en créer un. Si vous utilisez un locataire Azure AD existant, vous avez besoin d’autorisations suffisantes pour inscrire les applications et accorder les autorisations API Graph au sein d’un locataire Azure AD. Si vous n’avez pas d’autorisations suffisantes dans un locataire Azure AD existant, créez un locataire. 
+
+> [!IMPORTANT]
+> La solution Workbench n’a pas besoin d’être déployée dans le même locataire que celui que vous utilisez pour inscrire une application Azure AD. Elle doit être déployée dans un locataire pour lequel vous disposez d’autorisations suffisantes pour déployer des ressources. Pour plus d’informations sur les locataires Azure AD, consultez [Obtention d’un client Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) et [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD souhaité. Le locataire doit être locataire de l’administrateur de l’abonnement où Workbench est déployé et vous devez disposer d’autorisations suffisantes pour inscrire les applications.

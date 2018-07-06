@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3426b6f3f248b670016713d2b58425ff030605af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709119"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449131"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : ajouter un compte Microsoft (MSA) comme fournisseur d’identité à l’aide de stratégies personnalisées
 
@@ -24,7 +24,6 @@ ms.locfileid: "34709119"
 Cet article montre comment permettre aux utilisateurs de se connecter à partir d’un compte Microsoft (MSA) à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 Ces étapes sont les suivantes :
@@ -151,7 +150,7 @@ Définissez le compte Microsoft comme fournisseur de revendications, en ajoutant
 1.  Ouvrez le fichier de base de votre stratégie (par exemple, TrustFrameworkBase.xml).
 2.  Recherchez l’élément `<UserJourneys>` et copiez la totalité du contenu du nœud `<UserJourneys>`.
 3.  Ouvrez le fichier d’extension (par exemple, TrustFrameworkExtensions.xml), puis recherchez l’élément `<UserJourneys>`. Si l’élément n’existe pas, ajoutez-en un.
-4.  Collez l’intégralité du contenu du nœud `<UserJournesy>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
+4.  Collez l’intégralité du contenu du nœud `<UserJourneys>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Afficher le bouton
 L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection du fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` au compte Microsoft, un nouveau bouton apparaît quand l’utilisateur accède à la page. Pour ajouter cet élément :
@@ -161,7 +160,7 @@ L’élément `<ClaimsProviderSelections>` définit la liste des options de sél
 3.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>Lier le bouton à une action
@@ -171,7 +170,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
 2.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsExchanges>` :
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]
