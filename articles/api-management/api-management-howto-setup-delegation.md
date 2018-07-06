@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ab5d6c531b08a13d465811d68a07e07e9fb0167c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32151941"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109458"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
@@ -130,7 +130,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 ## <a name="delegate-example-code"></a> Exemple de Code
 Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail du serveur de publication, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
-**Code C# pour générer le hachage de returnUrl**
+****Code C# pour générer le hachage de returnUrl****
 
 ```csharp
 using System.Security.Cryptography;
@@ -147,7 +147,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-**Code NodeJS pour générer le hachage de returnUrl**
+****Code NodeJS pour générer le hachage de returnUrl****
 
 ```
 var crypto = require('crypto');
@@ -175,7 +175,7 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante :
 [Delegating product subscription]: #delegate-product-subscription
 [Demandez un jeton d'authentification unique (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Créez un utilisateur]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[appelant l'API REST pour l'abonnement au produit]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[appelant l'API REST pour l'abonnement au produit]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [exemple de code ci-dessous]: #delegate-example-code
 

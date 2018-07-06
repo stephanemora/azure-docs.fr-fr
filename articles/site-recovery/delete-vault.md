@@ -1,20 +1,16 @@
 ---
 title: Supprimer un archivage Site Recovery
 description: Découvrez comment supprimer un archivage Azure Site Recovery, en fonction du scénario de Site Recovery.
-service: site-recovery
 author: rajani-janaki-ram
-manager: rochakm
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/01/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 80c479aa23da2a8471af3fd83879a2dbfc5d6195
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f5f92b0dc064a992b93447f785db6c717f81e47b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300569"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436641"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Supprimer un archivage Site Recovery
 
@@ -52,7 +48,7 @@ Pour supprimer l’archivage, suivez les étapes recommandées pour votre scéna
 
 2. Dissociez et supprimez toutes les stratégies de réplication en accédant à votre coffre -> **Infrastructure Site Recovery** -> **For Hyper-V Sites (Pour des sites Hyper-V)** -> **Stratégies de réplication**
 
-3. Supprimez les références aux serveurs Hyper-V en suivant les étapes décrites dans [Annuler l’inscription d’un ordinateur hôte Hyper-V](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Supprimez les références aux serveurs Hyper-V en suivant les étapes décrites dans [Annuler l’inscription d’un ordinateur hôte Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Supprimez le site Hyper-V.
 

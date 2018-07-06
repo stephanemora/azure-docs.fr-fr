@@ -5,7 +5,7 @@ services: api-management
 documentationcenter: ''
 author: solankisamir
 manager: kjoshi
-editor: antonba
+editor: vlvinogr
 ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
@@ -14,27 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7d4351a9691c9787c42107306220e075f8648a0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936103"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435121"
 ---
-# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway 
+# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
 ##<a name="overview"></a> Vue d'ensemble
- 
+
 Le service Gestion des API peut être configuré dans un réseau virtuel en mode interne, ce qui le rend uniquement accessible à partir du réseau virtuel. La passerelle Azure Application Gateway est un service PAAS qui propose un équilibreur de charge de couche 7. Il agit comme un service proxy inverse et fournit dans son offre un pare-feu d’applications web (WAF).
 
 Combiner la gestion des API configurée dans un réseau virtuel interne avec le frontal Application Gateway permet les scénarios suivants :
 
 * Utilisez la même ressource de gestion des API pour la consommation à la fois par les consommateurs internes et externes.
 * Utilisez une seule ressource de gestion des API et mettez à disposition un sous-ensemble d’API défini dans la gestion des API pour les consommateurs externes.
-* Fournissez un moyen clé en main d’activer et désactiver l’accès à la gestion des API à partir de l’Internet public. 
+* Fournissez un moyen clé en main d’activer et désactiver l’accès à la gestion des API à partir de l’Internet public.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -54,7 +53,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 ## <a name="before-you-begin"></a> Avant de commencer
 
 1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Créez un réseau virtuel et des sous-réseaux distincts pour le service Gestion des API et Application Gateway. 
+2. Créez un réseau virtuel et des sous-réseaux distincts pour le service Gestion des API et Application Gateway.
 3. Si vous envisagez de créer un serveur DNS personnalisé pour le réseau virtuel, faites-le avant de commencer le déploiement. Vérifiez qu’il fonctionne en vous assurant qu’une machine virtuelle créée dans un nouveau sous-réseau du réseau virtuel peut résoudre tous les points de terminaison de service Azure et y accéder.
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Qu’est-ce qui est nécessaire pour créer une intégration entre le service Gestion des API et Application Gateway ?
@@ -67,7 +66,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 * **Sonde d’intégrité personnalisée :** Application Gateway, par défaut, utilise des sondes basées sur des adresses IP pour déterminer les serveurs actifs dans le BackendAddressPool. Le service Gestion des API répond uniquement aux demandes dont l’en-tête d’hôte est correct. C’est pourquoi les sondes par défaut échouent. Une sonde d’intégrité personnalisée doit être définie pour aider Application Gateway à déterminer que le service est actif et qu’il doit transférer les demandes.
 * **Certificat de domaine personnalisé :** pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM.
 
-## <a name="overview-steps"></a> Étapes requises pour l’intégration de la gestion des API et d’Application Gateway 
+## <a name="overview-steps"></a> Étapes requises pour l’intégration de la gestion des API et d’Application Gateway
 
 1. Créer un groupe de ressources pour Resource Manager
 2. Créer un réseau virtuel, un sous-réseau et une adresse IP publique pour la passerelle Application Gateway Créer un autre sous-réseau pour le service Gestion des API
@@ -165,14 +164,14 @@ Après la réussite de la commande ci-dessus, consultez la [configuration DNS re
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configurer un nom de domaine personnalisé dans le service Gestion des API
 
 ### <a name="step-1"></a>Étape 1
-Chargez le certificat avec la clé privée correspondant au domaine. Pour cet exemple, c’est `*.contoso.net`. 
+Chargez le certificat avec la clé privée correspondant au domaine. Pour cet exemple, c’est `*.contoso.net`.
 
 ```powershell
 $certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
 ```
 
 ### <a name="step-2"></a>Étape 2
-Une fois le certificat chargé, créez un objet de configuration de nom d’hôte pour le proxy avec le nom d’hôte `api.contoso.net`, car l’exemple de certificat fournit une autorité pour le domaine `*.contoso.net`. 
+Une fois le certificat chargé, créez un objet de configuration de nom d’hôte pour le proxy avec le nom d’hôte `api.contoso.net`, car l’exemple de certificat fournit une autorité pour le domaine `*.contoso.net`.
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
@@ -237,8 +236,8 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Créez une sonde personnalisée pour le point de terminaison de domaine de proxy `ContosoApi` du service Gestion des API. Le chemin d’accès `/status-0123456789abcdef` est un point de terminaison d’intégrité par défaut hébergé sur tous les services de gestion des API. Définissez `api.contoso.net` comme nom d’hôte de sonde personnalisée pour la protéger à l’aide du certificat SSL.
 
 > [!NOTE]
-> Le nom d’hôte `contosoapi.azure-api.net` est le nom d’hôte du proxy par défaut configuré lorsqu’un service nommé `contosoapi` est créé dans la version publique d’Azure. 
-> 
+> Le nom d’hôte `contosoapi.azure-api.net` est le nom d’hôte du proxy par défaut configuré lorsqu’un service nommé `contosoapi` est créé dans la version publique d’Azure.
+>
 
 ```powershell
 $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName "api.contoso.net" -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
@@ -292,7 +291,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### <a name="step-11"></a>Étape 11
 
-Configurez les chemins de règles d’URL pour les pools principaux. Vous pouvez ainsi sélectionner uniquement certaines des API du service Gestion des API pour les exposer au public. (Par exemple, pour `Echo API` (/echo/), `Calculator API` (/calc/), etc., rendez uniquement `Echo API` accessible à partir d’Internet). 
+Configurez les chemins de règles d’URL pour les pools principaux. Vous pouvez ainsi sélectionner uniquement certaines des API du service Gestion des API pour les exposer au public. (Par exemple, pour `Echo API` (/echo/), `Calculator API` (/calc/), etc., rendez uniquement `Echo API` accessible à partir d’Internet).
 
 L’exemple suivant crée une règle simple pour le chemin d’accès « /echo/ » acheminant le trafic vers le serveur principal « apimProxyBackendPool ».
 
@@ -306,7 +305,7 @@ Si le chemin d’accès ne correspond aux règles de chemins d’accès que nous
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
-L’étape ci-dessus garantit que seules les demandes correspondant au chemin d’accès « /echo » sont autorisées via Application Gateway. Les demandes pour d’autres API configurées dans le service Gestion des API lèvent des erreurs 404 dans la passerelle Application Gateway en cas d’accès à partir d’Internet. 
+L’étape ci-dessus garantit que seules les demandes correspondant au chemin d’accès « /echo » sont autorisées via Application Gateway. Les demandes pour d’autres API configurées dans le service Gestion des API lèvent des erreurs 404 dans la passerelle Application Gateway en cas d’accès à partir d’Internet.
 
 ### <a name="step-12"></a>Étape 12
 
@@ -341,7 +340,7 @@ $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGr
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Définition du CNAME du nom d’hôte du proxy du service Gestion des API sur le nom DNS public de la ressource Application Gateway
 
-Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, qui risque de ne pas être facile à utiliser. 
+Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, qui risque de ne pas être facile à utiliser.
 
 Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe le nom d’hôte proxy APIM (`api.contoso.net` dans les exemples ci-dessus) vers ce nom DNS. Pour configurer l’enregistrement CNAME d’adresses IP frontales, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle.
 

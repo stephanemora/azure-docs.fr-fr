@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: b0eaa13baa3e787db14e7a6f915018c3a4f280a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193048"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435756"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passer un objet JSON dans un runbook Azure Automation
 
@@ -27,7 +27,6 @@ Dans cet exemple, nous allons créer un script PowerShell qui appelle [Start-Azu
 Le runbook PowerShell démarre une machine virtuelle Azure, en obtenant les paramètres pour la machine virtuelle à partir de l’objet JSON qui a été passé.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
@@ -85,6 +84,10 @@ Lancer les commandes PowerShell suivantes :
    Connect-AzureRmAccount
    ```
     Vous êtes invité à entrer vos informations d’identification Azure.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** est désormais un alias de **Connect-AzureRMAccount**. Quand vous effectuez une recherche dans vos éléments de bibliothèque, si vous ne voyez pas **Connect-AzureRMAccount**, vous pouvez utiliser **Add-AzureRmAccount** ou mettre à jour vos modules dans votre compte Automation.
+
 1. Obtenir le contenu du fichier JSON et les convertir en une chaîne :
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

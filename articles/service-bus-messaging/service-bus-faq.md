@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802263"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109517"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
-Cet article évoque certaines questions fréquemment posées sur Microsoft Azure Service Bus. Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations générales de support et de tarification Azure.
+Cet article évoque certaines questions fréquemment posées sur Microsoft Azure Service Bus. Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](https://azure.microsoft.com/en-us/support/faq/) pour obtenir des informations générales de support et de tarification Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Questions générales sur Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
@@ -56,7 +56,7 @@ Cette section répond à certaines questions fréquemment posées sur la tarific
 
 L’article [Tarification et facturation de Service Bus](service-bus-pricing-billing.md) explique les paramètres de facturation dans Service Bus. Pour obtenir des informations spécifiques sur les options de tarification de Service Bus, consultez les [détails sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations générales sur la tarification Azure. 
+Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](https://azure.microsoft.com/en-us/support/faq/) pour obtenir des informations générales sur la tarification Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Quel est le coût de Service Bus ?
 Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [détails de tarification Service Bus][Pricing overview]. Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.

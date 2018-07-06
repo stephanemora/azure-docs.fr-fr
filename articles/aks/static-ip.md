@@ -2,19 +2,19 @@
 title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 description: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f6c34bd09d022b2453869c048f5f3cda7580b91
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596659"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100587"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Dans certains cas, comme lorsque l’équilibrage de charge d’Azure Kubernetes
 
 ## <a name="create-static-ip-address"></a>Créer une adresse IP statique
 
-Créez une adresse IP publique statique pour le service Kubernetes. L’adresse IP doit être créée dans le groupe de ressources du **nœud** AKS. Pour obtenir le nom du groupe de ressources, utilisez la commande [az resource show][az-resource-show].
+Créez une adresse IP publique statique pour le service Kubernetes. L’adresse IP doit être créée dans le groupe de ressources du **nœud** AKS. Obtenez le nom du groupe de ressources avec la commande [az resource show][az-resource-show].
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv

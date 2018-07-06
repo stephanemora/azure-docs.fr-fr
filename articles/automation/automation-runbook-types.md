@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94fbc1cf0232eaf48bb0be3c6edc0542142e4681
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7958042ccb2f55e9b6021f7d804a0dcd090695c5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196047"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109315"
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
 Azure Automation prend en charge plusieurs types de Runbook qui sont brièvement décrits dans le tableau ci-dessous.  Les sections suivantes fournissent de plus amples informations sur chaque type, notamment des considérations sur l'utilisation de chacun de ces types.
@@ -44,7 +44,7 @@ Azure Automation prend en charge plusieurs types de Runbook qui sont brièvemen
 * Impossible d'afficher ou de modifier directement le code PowerShell créé par le workflow graphique. Notez que vous pouvez afficher le code que vous créez dans toute activité de code.
 
 ## <a name="powershell-runbooks"></a>Runbooks PowerShell
-Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez directement le code du Runbook à l'aide de l'éditeur de texte du portail Azure.  Vous pouvez également utiliser n'importe quel éditeur de texte hors ligne et [importer le Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) dans Azure Automation.
+Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez directement le code du Runbook à l'aide de l'éditeur de texte du portail Azure.  Vous pouvez également utiliser n'importe quel éditeur de texte hors ligne et [importer le Runbook](automation-creating-importing-runbook.md) dans Azure Automation.
 
 ### <a name="advantages"></a>Avantages
 * Implémentez tout type de la logique complexe avec le code PowerShell sans la complexité supplémentaire liée au workflow PowerShell. 
@@ -65,7 +65,7 @@ Voici les problèmes connus actuels rencontrés avec les Runbooks PowerShell.
 * Un Runbook PowerShell peut échouer s’il tente d'écrire une très grande quantité de données dans un flux de sortie.   Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux.  Par exemple, au lieu d’exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
 
 ## <a name="powershell-workflow-runbooks"></a>Runbooks de workflow PowerShell
-Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workflow Windows PowerShell](automation-powershell-workflow.md).  Vous modifiez directement le code du Runbook à l'aide de l'éditeur de texte du portail Azure.  Vous pouvez également utiliser n'importe quel éditeur de texte hors ligne et [importer le Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) dans Azure Automation.
+Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workflow Windows PowerShell](automation-powershell-workflow.md).  Vous modifiez directement le code du Runbook à l'aide de l'éditeur de texte du portail Azure.  Vous pouvez également utiliser n'importe quel éditeur de texte hors ligne et [importer le Runbook](automation-creating-importing-runbook.md) dans Azure Automation.
 
 ### <a name="advantages"></a>Avantages
 * Implémentez tout type de logique complexe avec le code de workflow PowerShell.
@@ -80,7 +80,7 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 * Les Runbooks PowerShell peuvent uniquement être inclus en tant que Runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
 
 ## <a name="python-runbooks"></a>Runbooks Python
-Compilation de runbooks Python sous Python 2.  Vous pouvez modifier directement le code du runbook à l’aide de l’éditeur de texte dans le portail Azure, ou utiliser n’importe quel éditeur de texte en mode hors connexion et [importer le runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) dans Azure Automation.
+Compilation de runbooks Python sous Python 2.  Vous pouvez modifier directement le code du runbook à l’aide de l’éditeur de texte dans le portail Azure, ou utiliser n’importe quel éditeur de texte en mode hors connexion et [importer le runbook](automation-creating-importing-runbook.md) dans Azure Automation.
 
 ### <a name="advantages"></a>Avantages
 * Utilisez la bibliothèque standard robuste de Python.
