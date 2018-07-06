@@ -2,23 +2,23 @@
 title: Didacticiel Kubernetes sur Azure - Préparer une application
 description: Didacticiel ACS - Préparer une application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3e500ec0c7acbf8d8e10756c944516cd7e589610
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934112"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101008"
 ---
 # <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Didacticiel : Préparer une application pour Azure Kubernetes Service (AKS)
 
-Dans ce didacticiel (premier d’une série de huit), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :
+Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :
 
 > [!div class="checklist"]
 > * Clonage de la source de l’application à partir de GitHub
