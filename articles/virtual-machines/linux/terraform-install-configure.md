@@ -24,7 +24,7 @@ ms.locfileid: "29399166"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
  
-Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage de création de modèles simple](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform en vue d’approvisionner des ressources dans Azure. 
+Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage simple basé sur des templates](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform pour provisionner des ressources dans Azure. 
 
 > [!TIP]
 Pour en savoir plus sur l’utilisation de Terraform avec Azure, visitez [Terraform Hub](/azure/terraform). Terraform est installé par défaut dans [Cloud Shell](/azure/terraform/terraform-cloud-shell). Si vous utilisez Cloud Shell, vous pouvez ignorer les sections de ce document sur l’installation et la configuration.
@@ -42,9 +42,9 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>Configurer l’accès Terraform à Azure
 
-Configurez [un principal de service Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) pour permettre à Terraform d’approvisionner des ressources dans Azure. Le principal de service autorise vos scripts Terraform utilisant des informations d’identification à approvisionner des ressources dans votre abonnement Azure.
+Configurez [un service principal dans l'Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) pour permettre à Terraform de provisionner des ressources dans Azure. Ce service principal autorise vos scripts Terraform utilisant des informations d’identification à provisionner des ressources dans votre abonnement Azure.
 
-Il existe plusieurs façons de créer une application Azure AD et un principal de service Azure AD. À l’heure actuelle, le moyen le plus simple et le plus rapide consiste à utiliser Azure CLI 2.0, que [vous pouvez télécharger et installer sur Windows, Linux ou un Mac](/cli/azure/install-azure-cli).
+Il existe plusieurs façons de créer une application Azure AD et un service principal Azure AD. À l’heure actuelle, le moyen le plus simple et le plus rapide consiste à utiliser Azure CLI 2.0, que [vous pouvez télécharger et installer sur Windows, Linux ou un Mac](/cli/azure/install-azure-cli).
 
 Connectez-vous afin de gérer votre abonnement Azure en émettant la commande suivante :
 
@@ -64,7 +64,7 @@ Interrogez le compte pour obtenir les valeurs ID d’abonnement et ID locataire.
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-Créez ensuite des informations d’identification distinctes pour Terraform.
+Créez ensuite des informations d’identification distinctes pour Terraform en lui donnant les droits Contributeur sur la subscription.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
