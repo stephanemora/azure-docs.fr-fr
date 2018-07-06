@@ -37,7 +37,7 @@ Ces notes de publication fournissent des informations sur les améliorations, le
 ### <a name="new-features"></a>Nouvelles fonctionnalités 
 Cette build inclut les améliorations et les correctifs suivants pour Azure Stack.  
 
-- <!-- 2297790 - IS, ASDK --> **Azure Stack inclut désormais un client *Syslog*** en tant que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externe à Azure Stack. Actuellement, le client Syslog ne prend en charge que les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
+- <!-- 2297790 - IS, ASDK --> **Azure Stack inclut désormais un client *Syslog* en tant** que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externe à Azure Stack. Actuellement, le client Syslog ne prend en charge que les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
 
   Pour configurer le client Syslog, utilisez la cmdlet **Set-SyslogServer** exposée dans le point de terminaison privilégié. 
 

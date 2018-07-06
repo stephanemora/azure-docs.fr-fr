@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [Qu’est-ce qu’Azure AD B2C ?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Sécuriser l’accès privilégié](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Sécuriser l’accès privilégié](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Rôles d’annuaire dans PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM pour les ressources Azure](azure-pim-resource-rbac.md)
 ## [Flux de travail d’approbation PIM](azure-ad-pim-approval-workflow.md)
