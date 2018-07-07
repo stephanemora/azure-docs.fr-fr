@@ -115,6 +115,8 @@
   items:
     - name: Forum Aux Questions
       href: FAQs.md
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: Exporter ou supprimer des données de compte
