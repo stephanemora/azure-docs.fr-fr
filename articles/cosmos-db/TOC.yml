@@ -73,7 +73,7 @@ items:
     items:
       - name: Diffusion mondiale
         href: distribute-data-globally.md
-      - name: Configuration multimaître
+      - name: Multimaître
         href: multi-region-writers.md
       - name: Partitionnement
         href: partition-data.md
@@ -172,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
               - name: Requête
                 items:
                   - name: Exécuter des requêtes SQL
@@ -184,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: Partitionnement des données SQL
                 href: sql-api-partition-data.md
-              - name: 'procédures stockées, déclencheurs et fonctions définies par l''utilisateur'
-                href: programming.md
               - name: Modifier le flux
                 href: change-feed.md
               - name: Types de données
@@ -262,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Ressources
             items:
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Query Playground
@@ -328,12 +322,8 @@ items:
                 href: mongodb-ttl.md
               - name: "Visualiser vos données avec Power\_BI"
                 href: powerbi-visualize.md
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
           - name: Ressources
             items:
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documents API Graph
@@ -352,12 +342,8 @@ items:
             items:
               - name: Partitionnement dans Graph
                 href: graph-partitioning.md
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
           - name: Ressources
             items:
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documents API Table
@@ -410,8 +396,6 @@ items:
                 href: table-sdk-python.md
           - name: Ressources
             items:
-              - name: Gérer l’utilisation de l’Explorateur Stockage
-                href: storage-explorer.md
               - name: Présentation du Stockage de table
                 href: table-storage-overview.md
               - name: Guide de conception du stockage de tables
@@ -450,6 +434,8 @@ items:
         href: regional-failover.md
       - name: Journalisation de diagnostic
         href: logging.md
+      - name: 'procédures stockées, déclencheurs et fonctions définies par l''utilisateur'
+        href: programming.md
       - name: Vue d’ensemble de BulkExecutor
         href: bulk-executor-overview.md
       - name: Écritures et lectures rentables
@@ -460,12 +446,10 @@ items:
         href: manage-account-with-powershell.md
       - name: Gérer l’utilisation de l’Explorateur Stockage
         href: storage-explorer.md
-      - name: Enregistreurs multi-régions
+      - name: Configuration multimaître
         href: multi-master-workaround.md
   - name: Ressources
     items:
-      - name: Gérer l’utilisation de l’Explorateur Stockage
-        href: storage-explorer.md
       - name: Interroger un aide-mémoire
         href: query-cheat-sheet.md
       - name: "20\_jours de conseils"

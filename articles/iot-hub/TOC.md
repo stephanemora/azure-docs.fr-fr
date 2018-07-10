@@ -98,7 +98,7 @@
 
 ### Scénarios IoT étendus
 #### [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Enregistrer les messages IoT Hub dans le stockage de données Azure](iot-hub-store-data-in-azure-table-storage.md)
+#### [Enregistrer les messages IoT Hub dans le stockage d’objets blob Azure](iot-hub-store-data-in-azure-table-storage.md)
 #### [Visualisation des données dans Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Visualisation des données avec des applications web](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Prévisions météo avec Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)

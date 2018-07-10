@@ -106,8 +106,10 @@
           href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
         - name: Signatures d’accès partagé (SAP)
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Activer le protocole TLS sécurisé pour le client Stockage Azure
+        - name: Activer le protocole TLS sécurisé pour le client du stockage Azure
           href: ../common/storage-security-tls.md
+        - name: Offres de conformité
+          href: ../common/storage-compliance-offerings.md
     - name: Surveiller et résoudre des problèmes
       items:
         - name: Résoudre les connexions des fichiers Azure - Windows

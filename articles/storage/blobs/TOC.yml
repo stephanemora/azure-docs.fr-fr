@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Travailler avec des objets BLOB - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Travailler avec des objets BLOB - Java
+    - name: Travailler avec des objets blob - Java (Kit de développement logiciel (SDK) Stockage V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Travailler avec des objets blob - Java (Kit de développement logiciel (SDK) Stockage V7)
       href: storage-quickstart-blobs-java.md
     - name: Travailler avec des objets BLOB - Python
       href: storage-quickstart-blobs-python.md
@@ -190,8 +192,10 @@
           href: storage-https-custom-domain-cdn.md
         - name: Fonctionnalité de stockage immuable de stockage Blob Azure (préversion)
           href: storage-blob-immutable-storage.md
-        - name: Activer le protocole TLS sécurisé pour le client Stockage Azure
+        - name: Activer le protocole TLS sécurisé pour le client du stockage Azure
           href: ../common/storage-security-tls.md
+        - name: Offres de conformité
+          href: ../common/storage-compliance-offerings.md
     - name: Surveiller et résoudre des problèmes
       items:
         - name: Didacticiel sur la résolution des problèmes

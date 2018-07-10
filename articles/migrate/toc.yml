@@ -36,6 +36,10 @@
           href: contoso-migration-rehost-linux-vm.md
         - name: 8. Contoso - Réhéberger une application Linux sur des machines virtuelles Azure et Azure MySQL
           href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: '9. Contoso-Refactor, une application sur Azure Web App et Azure SQL Database'
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: '10. Contoso-Refactor, une application Linux sur Azure Web App et Azure MySQL'
+          href: contoso-migration-refactor-linux-app-service-mysql.md
     - name: Découvrir et évaluer un environnement de grande taille
       href: how-to-scale-assessment.md
     - name: Regrouper des machines

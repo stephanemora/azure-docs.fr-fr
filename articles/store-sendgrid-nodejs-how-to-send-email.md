@@ -162,7 +162,7 @@ Les exemples suivants montrent les filtres de pied de page et de suivi des clics
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Mise à jour des propriétés de messagerie électronique
-Vous pouvez remplacer certaines propriétés d’e-mail avec **set*Property***, et en ajouter avec *add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
+Vous pouvez remplacer certaines propriétés d’e-mail avec **set*Property***, et en ajouter avec **add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
 
     email.addTo('jeff@contoso.com');
 
