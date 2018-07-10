@@ -43,7 +43,7 @@ Le numéro de build de la mise à jour 1805 d’Azure Stack est **1.1805.1.47**.
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 <!-- 2297790 - IS, ASDK --> 
-- **Azure Stack inclut désormais un client *Syslog***  en tant que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externes à Azure Stack. Actuellement, le client Syslog prend en charge uniquement les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
+- **Azure Stack inclut désormais un client *Syslog* en** tant que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externes à Azure Stack. Actuellement, le client Syslog prend en charge uniquement les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
 
   Pour configurer le client Syslog, utilisez le cmdlet **Set-SyslogServer** exposé dans le point de terminaison privilégié. 
 

@@ -80,7 +80,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 
 - **Infrastructure backup** s’affiche maintenant dans la vignette Fournisseurs de ressources, et des alertes de sauvegarde sont activées. Pour plus d’informations sur le service Infrastructure Backup, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).
 
-- **Mettez à jour vers la cmdlet *Test-AzureStack***  pour améliorer les diagnostics de stockage. Pour plus d’informations sur cette cmdlet, consultez [Exécuter un test de validation pour Azure Stack](azure-stack-diagnostic-test.md).
+- **Mettez à jour vers la cmdlet *Test-AzureStack* pour** améliorer les diagnostics de stockage. Pour plus d’informations sur cette cmdlet, consultez [Exécuter un test de validation pour Azure Stack](azure-stack-diagnostic-test.md).
 
 - **Améliorations du contrôle d’accès en fonction du rôle** : vous pouvez maintenant utiliser le contrôle d’accès en fonction du rôle pour déléguer des autorisations à des groupes d’utilisateurs universels lorsqu’Azure Stack est déployé avec AD FS. Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez [Gérer le contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md).
 
