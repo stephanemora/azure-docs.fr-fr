@@ -71,8 +71,6 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Avec des modèles
           href: luis-tutorial-pattern.md
-        - name: Avec une liste d’expressions
-          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Exemples
   items:
     - name: Exemples de code
