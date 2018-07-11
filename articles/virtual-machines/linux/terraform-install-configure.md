@@ -42,9 +42,9 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>Configurer l’accès Terraform à Azure
 
-Configurez [un service principal dans l'Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) pour permettre à Terraform de provisionner des ressources dans Azure. Ce service principal autorise vos scripts Terraform utilisant des informations d’identification à provisionner des ressources dans votre abonnement Azure.
+Configurez [un principal de service Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) pour permettre à Terraform d’approvisionner des ressources dans Azure. Le principal de service autorise vos scripts Terraform utilisant des informations d’identification à approvisionner des ressources dans votre abonnement Azure.
 
-Il existe plusieurs façons de créer une application Azure AD et un service principal Azure AD. À l’heure actuelle, le moyen le plus simple et le plus rapide consiste à utiliser Azure CLI 2.0, que [vous pouvez télécharger et installer sur Windows, Linux ou un Mac](/cli/azure/install-azure-cli).
+Il existe plusieurs façons de créer une application Azure AD et un principal de service Azure AD. À l’heure actuelle, le moyen le plus simple et le plus rapide consiste à utiliser Azure CLI 2.0, que [vous pouvez télécharger et installer sur Windows, Linux ou un Mac](/cli/azure/install-azure-cli).
 
 Connectez-vous afin de gérer votre abonnement Azure en émettant la commande suivante :
 
@@ -64,7 +64,7 @@ Interrogez le compte pour obtenir les valeurs ID d’abonnement et ID locataire.
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-Créez ensuite des informations d’identification distinctes pour Terraform en lui donnant les droits Contributeur sur la subscription.
+Créez ensuite des informations d’identification distinctes pour Terraform.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
