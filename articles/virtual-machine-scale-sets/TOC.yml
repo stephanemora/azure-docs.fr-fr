@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Modèle
           href: tutorial-autoscale-template.md
-    - name: Déployer des applications sur un groupe de machines virtuelles identiques Azure à l’aide d’une image Packer personnalisée
-      items:
-        - name: "Azure CLI\_2.0"
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Exemples
   items:
     - name: "Azure CLI\_2.0"

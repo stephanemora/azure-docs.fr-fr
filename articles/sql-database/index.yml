@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: c159eec7a8674e57e6f7a815040527ed60966f46
-  ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
+  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37887281"
+  ms.lasthandoff: 07/09/2018
+  ms.locfileid: "37916147"
 abstract:
   description: Azure SQL Database est une base de données relationnelle en tant que service reposant sur la dernière version stable du moteur de base de données Microsoft SQL Server. SQL Database est une base de données hautes performances, fiable et sécurisée, que vous pouvez utiliser pour créer des applications et des sites web axés sur les données dans le langage de programmation de votre choix, sans avoir à gérer l’infrastructure. Découvrez comment utiliser SQL Database avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
   aside:
@@ -48,12 +48,12 @@ sections:
       image:
         src: media/index/i_perftier.svg
       title: Niveaux de performances et de prix
-    - href: /azure/sql-database/sql-database-single-database-scale
+    - href: /azure/sql-database/sql-database-scale-resources
       html: <p><a href="/azure/sql-database/sql-database-single-database-scale">Étendez</a>, <a href="/azure/sql-database/sql-database-read-scale-out">augmentez la taille de vos bases de données</a> ou divisez-les, selon vos besoin, afin d’améliorer les performances de votre application.</p>
       image:
         src: media/index/i_scale.svg
       title: Extensibilité et élasticité
-    - href: /azure/sql-database/sql-database-automatic-tuning
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
       html: <p>Laissez les informations s’intégrer au service afin d’<a href="/azure/sql-database/sql-database-automatic-tuning">ajuste automatiquement les performances de votre base de données</a> et d’<a href="/azure/sql-database/sql-advanced-threat-protection">identifier les menaces</a> et leurs <a href="/azure/sql-database/sql-vulnerability-assessment">vulnérabilités</a>.</p>
       image:
         src: media/index/i_intelligence.svg
