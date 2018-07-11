@@ -382,8 +382,8 @@
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Déléguer l’accès aux ressources
-### [Afficher les membres d’un rôle d’administrateur](users-groups-roles//directory-manage-roles-portal.md)
 ### [Rôles d’administrateur](users-groups-roles/directory-assign-admin-roles.md)
+#### [Afficher les membres d’un rôle d’administrateur](users-groups-roles//directory-manage-roles-portal.md)
 #### [Affecter un rôle d’administrateur à un utilisateur](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparer les autorisations des invités et des membres](fundamentals/users-default-permissions.md)
 ### [Sécurité du rôle administrateur](users-groups-roles/directory-admin-roles-secure.md)  
