@@ -10,22 +10,22 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061594"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344695"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
-Dans ce didacticiel, vous effectuez une opération ETL (extraction, transformation et chargement de données) pour déplacer des données d’Azure Data Lake Storage Gen2 Préversion vers Azure SQL Data Warehouse, à l’aide d’Azure Databricks.
+Dans ce tutoriel, vous effectuez une opération ETL (extraction, transformation et chargement de données) pour déplacer des données d’Azure Data Lake Storage Gen2 Préversion vers Azure SQL Data Warehouse, à l’aide d’Azure Databricks.
 
 L’illustration suivante montre le flux d’application :
 
 ![Azure Databricks avec Data Lake Storage Gen2 et SQL Data Warehouse](./media/handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks avec Data Lake Storage Gen2 et SQL Data Warehouse")
 
-Ce didacticiel décrit les tâches suivantes :
+Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Azure Databricks
@@ -41,7 +41,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * Créez une instance Azure SQL Data Warehouse, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur du serveur. Suivez les instructions indiquées dans [Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../../sql-data-warehouse/create-data-warehouse-portal.md).
 * Créez une clé principale de base de données pour Azure SQL Data Warehouse. Suivez les instructions indiquées dans [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
@@ -117,7 +117,7 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
 4. Entrez le code suivant dans la première cellule et exécutez le code :
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
 L’étape suivante consiste à charger un exemple de fichier de données dans le compte de stockage à transformer ultérieurement dans Azure Databricks. 
 
-1. Si vous n’avez pas de compte déjà créé pour Data Lake Storage Gen2, suivez le démarrage rapide pour créer un compte Data Lake Storage Gen2.
-2. L’exemple de données (**small_radio_json.json**) est disponible dans le référentiel [Exemples U-SQL et suivi des problèmes](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). Téléchargez le fichier JSON et note le chemin d’accès où vous enregistrez le fichier.
-3. Chargez les données dans votre compte de stockage. La méthode que vous utilisez pour charger les données dans votre compte de stockage varie selon le service d’espace de noms hiérarchique (HNS) est activé ou non.
+> [!NOTE]
+> Si vous n’avez pas déjà un compte activé pour Azure Data Lake Storage Gen2, suivez le [guide de démarrage rapide pour en créer un](./quickstart-create-account.md).
 
-    Si le service d’espace de noms hiérarchique est activé sur votre compte ADLS Gen2, vous pouvez utiliser Azure Data Factory, distp ou AzCopy (version 10) pour traiter le chargement. AzCopy version 10 est disponible uniquement pour les clients de la préversion. Pour utiliser AzCopy à partir de Cloud Shell :
+1. Téléchargez (**small_radio_json.json**) à partir du dépôt [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) et prenez note du chemin où vous enregistrez le fichier.
+
+2. Ensuite, vous chargez les exemples de données dans votre compte de stockage. La méthode que vous utilisez pour charger les données dans votre compte de stockage varie selon l’espace de noms hiérarchique est ou non activé.
+
+    Si l’espace de noms hiérarchique est activé sur votre compte de stockage Azure créé pour le compte Gen2, vous pouvez utiliser Azure Data Factory, distp ou AzCopy (version 10) pour gérer le chargement. AzCopy version 10 est disponible uniquement pour les clients de la préversion. Pour utiliser AzCopy dans le code suivant dans une fenêtre de commande :
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ Retournez à votre Notebook DataBricks et entrez le code suivant dans une nouvel
 
 1. Ajoutez l’extrait de code suivant dans une cellule de code vide et remplacez les valeurs d’espace réservé par les valeurs que vous avez enregistrées précédemment du compte de stockage.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ Retournez à votre Notebook DataBricks et entrez le code suivant dans une nouvel
 
 2. Vous pouvez maintenant charger l’exemple de fichier JSON en tant que trame de données dans Azure Databricks. Collez le code suivant dans une nouvelle cellule, puis appuyez sur **MAJ + ENTRÉE** (pour vous assurer de remplacer les valeurs d’espace réservé) :
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Exécutez le code suivant pour afficher le contenu de la trame de données.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ Les exemples de données brutes **small_radio_json.json** capturent l’audience
 
 1. Commencez en récupérant uniquement les colonnes *firstName*, *lastName*, *gender*, *location* et *level* à partir de la trame de données que vous avez déjà créée.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ Les exemples de données brutes **small_radio_json.json** capturent l’audience
 
 2.  Vous pouvez transformer ces données pour renommer la colonne **level** en **subscription_type**.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ Comme mentionné précédemment, le connecteur d’entrepôt de données SQL uti
 
 1. Fournissez la configuration pour accéder au compte de Stockage Azure à partir d’Azure Databricks.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Spécifiez un dossier temporaire qui sera utilisé lors du déplacement des données entre Azure Databricks et Azure SQL Data Warehouse.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Exécutez l’extrait de code suivant pour stocker les clés d’accès du Stockage Blob Azure dans la configuration. Cela garantit que vous n’avez pas à conserver la clé d’accès dans le bloc-notes en texte brut.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Indiquez les valeurs pour vous connecter à l’instance Azure SQL Data Warehouse. Vous devez avoir créé un entrepôt de données SQL dans le cadre de la configuration requise.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ Comme mentionné précédemment, le connecteur d’entrepôt de données SQL uti
 
 5. Exécutez l’extrait de code suivant pour charger la trame de données transformée, **renamedColumnsDF**, en tant que table dans l’entrepôt de données SQL. Cet extrait de code crée une table appelée **SampleTable** dans la base de données SQL.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")
@@ -327,7 +330,7 @@ Comme mentionné précédemment, le connecteur d’entrepôt de données SQL uti
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Une fois le didacticiel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
+Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
 
 ![Arrêter un cluster Databricks](./media/handle-data-using-databricks/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 
@@ -335,7 +338,7 @@ Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiqueme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Azure Databricks
@@ -347,7 +350,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Transformer des données dans Azure Databricks
 > * Chargement de données dans Azure SQL Data Warehouse
 
-Passez au didacticiel suivant pour en savoir plus sur la diffusion en continu des données en temps réel dans Azure Databricks à l’aide d’Azure Event Hubs.
+Passez au tutoriel suivant pour en savoir plus sur la diffusion en continu des données en temps réel dans Azure Databricks à l’aide d’Azure Event Hubs.
 
 > [!div class="nextstepaction"]
 >[Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs](../../azure-databricks/databricks-stream-from-eventhubs.md)

@@ -27,7 +27,7 @@
       href: how-to-text-to-speech.md
     - name: Traduction vocale
       href: how-to-translate-speech.md
-    - name: Transcription du traitement
+    - name: Transcription Batch
       href: batch-transcription.md
     - name: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
       href: get-speech-devices-sdk.md
@@ -41,6 +41,8 @@
       href: how-to-customize-pronunciation.md
     - name: Personnaliser les polices de la voix (voix du chatbot)
       href: how-to-customize-voice-font.md
+    - name: Enregistrement d’échantillons vocaux
+      href: record-custom-voice-samples.md
     - name: Préparer les transcriptions
       href: prepare-transcription.md
     - name: Utiliser des flux audio personnalisés

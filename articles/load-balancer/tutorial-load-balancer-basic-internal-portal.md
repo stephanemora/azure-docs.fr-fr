@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061843"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097476"
 ---
-# <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Didacticiel : équilibrer la charge du trafic interne vers les machines virtuelles avec un équilibreur de charge de base à l’aide du portail Azure
+# <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Tutoriel : équilibrer la charge du trafic interne vers les machines virtuelles avec un équilibreur de charge de base à l’aide du portail Azure
 
-L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Vous pouvez utiliser le portail Azure pour équilibrer la charge du trafic interne vers les machines virtuelles avec un équilibreur de charge de base. Ce didacticiel montre comment créer des ressources réseau, des serveurs principaux et un équilibreur de charge de base interne.
+L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Vous pouvez utiliser le portail Azure pour équilibrer la charge du trafic interne vers les machines virtuelles avec un équilibreur de charge de base. Ce tutoriel montre comment créer des ressources réseau, des serveurs principaux et un équilibreur de charge de base interne.
 
-Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) ou [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md).
+Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) ou [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
@@ -75,10 +75,10 @@ Dans cette section, vous allez créer deux machines virtuelles pour le pool prin
     - *myAvailabilitySet* : pour le nom du nouveau groupe à haute disponibilité que vous créez.
     -  *myVNet* : vérifiez qu’il est sélectionné en tant que réseau virtuel.
     - *myBackendSubnet* : vérifiez qu’il est sélectionné en tant que sous-réseau.
-    - *myNetworkSecurityGroup* : pour le nom du nouveau groupe de sécurité réseau (pare-feu) que vous devez créer.
+5. Sous **Groupes de sécurité réseau**, sélectionnez **Avancé**. Ensuite, pour **Groupe de sécurité réseau (pare-feu)**, sélectionnez **Aucun**.
 5. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
 6. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
-7. À l’aide des étapes 1 à 6, créez une deuxième machine virtuelle nommée *VM2* avec *myAvailibilityset* en tant que groupe à haute disponibilité, *myVnet* en tant que réseau virtuel, *myBackendSubnet* en tant que sous-réseau et *myNetworkSecurityGroup* en tant que groupe de sécurité réseau. 
+7. En suivant les étapes 1 à 6, créez une deuxième machine virtuelle nommée *VM2* avec *myAvailabilityset* comme groupe à haute disponibilité, *myVnet* comme réseau virtuel et *myBackendSubnet* comme sous-réseau, et sélectionnez **Aucun** pour le **Groupe de sécurité réseau (pare-feu)**. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>Installer IIS et personnaliser la page web par défaut
 
@@ -100,33 +100,6 @@ Dans cette section, vous allez créer deux machines virtuelles pour le pool prin
 5. Fermez la connexion RDP à *myVM1*.
 6. Répétez les étapes 1 à 5 avec *myVM2* pour installer IIS et personnaliser la page web par défaut.
 
-## <a name="create-nsg-rules"></a>Créer les règles du groupe de sécurité réseau
-
-Dans cette section, vous créez des règles du groupe de sécurité réseau pour autoriser les connexions entrantes à l’aide de HTTP et RDP.
-
-1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis dans la liste de ressources, cliquez sur **myNetworkSecurityGroup** qui se trouve dans le groupe de ressources **myResourceGroupLB**.
-2. Sous **Paramètres**, cliquez sur **Règles de sécurité entrantes**, puis sur **Ajouter**.
-3. Entrez ces valeurs pour la règle de sécurité entrante nommée *myHTTPRule* afin d’autoriser les connexions HTTP entrantes à l’aide du port 80 :
-    - *Service Tag* : pour **Source**.
-    - *Internet* : pour **Balise de service source**
-    - *80* : pour **Plages de port de destination**
-    - *TCP* : pour **Protocole**
-    - *Allow* : pour **Action**
-    - *100* pour **Priorité**
-    - *myHTTPRule* pour le nom
-    - *Allow HTTP* pour la description
-4. Cliquez sur **OK**.
- 
-5. Répétez les étapes 2 à 4 pour créer une autre règle nommée *myRDPRule* pour autoriser une connexion RDP entrante à l’aide du port 3389 avec les valeurs suivantes :
-    - *Service Tag* : pour **Source**.
-    - *Internet* : pour **Balise de service source**
-    - *3389* : pour **Plages de port de destination**
-    - *TCP* : pour **Protocole**
-    - *Allow* : pour **Action**
-    - *200* pour **Priorité**
-    - *myRDPRule* pour le nom
-    - *Allow RDP* pour la description
-
 ## <a name="create-basic-load-balancer-resources"></a>Créer des ressources d’équilibreur de charge de base
 
 Dans cette section, vous configurez les paramètres de l’équilibreur de charge pour un pool d’adresses principal et une sonde d’intégrité et spécifiez l’équilibreur de charge et les règles NAT.
@@ -139,13 +112,13 @@ Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses pri
 1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myLoadBalancer** dans la liste des ressources.
 2. Cliquez sur **Paramètres**, sur **Pools principaux**, puis sur **Ajouter**.
 3. Sur la page **Ajouter un pool principal**, procédez comme suit :
-    - Pour nom, tapez *myBackEndPool, comme nom du pool principal.
+    - Tapez *myBackEndPool* comme nom du pool principal.
     - Pour **Associé à**, dans le menu déroulant, cliquez sur **Groupe à haute disponibilité**
     - Pour **Groupe à haute disponibilité**, cliquez sur **myAvailabilitySet**.
     - Cliquez sur **Ajouter une configuration IP de réseau cible** pour ajouter chaque machine virtuelle (*myVM1* & *myVM2*) créée au pool principal.
     - Cliquez sur **OK**.
 
-        ![Ajout au pool d’adresses principal - ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
+        ![Ajout au pool d’adresses principal - ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
 
 3. Vérifiez que le paramètre du pool principal de l’équilibreur de charge affiche les machines virtuelles **VM1** et **VM2**.
 
@@ -163,7 +136,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     - *2* : pour le nombre de **seuils de défaillance** ou d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
 4. Cliquez sur **OK**.
 
-   ![Ajout d'une sonde](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
+   ![Ajout d’une sonde](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
@@ -214,4 +187,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’éq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Ensuite, vous avez utilisé ces ressources pour créer un équilibreur de charge interne afin d’équilibrer la charge du trafic interne vers les machines virtuelles. Découvrir maintenant comment [équilibrer la charge des machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Dans ce tutoriel, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Ensuite, vous avez utilisé ces ressources pour créer un équilibreur de charge interne afin d’équilibrer la charge du trafic interne vers les machines virtuelles. Découvrir maintenant comment [équilibrer la charge des machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

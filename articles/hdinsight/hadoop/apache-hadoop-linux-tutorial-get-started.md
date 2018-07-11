@@ -1,5 +1,5 @@
 ---
-title: 'Guide de démarrage rapide : Bien démarrer avec Hadoop et Hive dans Azure HDInsight à l’aide du modèle Resource Manager | Microsoft Docs'
+title: 'Démarrage rapide : Bien démarrer avec Hadoop et Hive dans Azure HDInsight à l’aide du modèle Resource Manager | Microsoft Docs'
 description: Découvrez comment créer des clusters HDInsight et interroger des données avec Hive.
 keywords: prise en main de hadoop,hadoop sur linux,démarrage rapide de hadoop,prise en main de hive,démarrage rapide de hive
 services: hdinsight
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763253"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096398"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Guide de démarrage rapide : Bien démarrer avec Hadoop et Hive dans Azure HDInsight à l’aide du modèle Resource Manager
+# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Démarrage rapide : Bien démarrer avec Hadoop et Hive dans Azure HDInsight à l’aide du modèle Resource Manager
 
 Dans cet article, vous allez apprendre à créer des clusters [Hadoop](http://hadoop.apache.org/) dans HDInsight à l’aide d’un modèle Resource Manager, puis à exécuter des travaux Hive dans HDInsight. La plupart des tâches Hadoop sont des tâches de traitements par lots. Vous créez un cluster, exécutez certaines tâches, puis supprimez le cluster. Dans cet article, vous allez effectuer les trois tâches.
 
@@ -193,7 +193,7 @@ Pour créer et exécuter une solution Hive :
 
 2. Entrez le nom d’utilisateur Hadoop et le mot de passe que vous avez spécifiés lors de la création du cluster. Le nom d’utilisateur par défaut est **admin**.
 
-3. Ouvrez l’ **affichage Hive** comme illustré dans la capture d’écran suivante.
+3. Ouvrez l’**affichage Hive** comme illustré dans la capture d’écran suivante :
    
     ![Sélection des vues Ambari](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "Menu Affichage Hive dans HDInsight")
 
@@ -254,7 +254,8 @@ Dans cet article, vous avez appris à créer un cluster HDInsight Linux à l’a
 
 Si vous êtes prêt à utiliser vos propres données et que vous avez besoin d’en savoir plus sur la façon dont HDInsight stocke les données ou sur l’ajout de données dans HDInsight, consultez les articles suivants :
 
-* Pour plus d’informations sur la façon dont HDInsight utilise le stockage Azure, consultez la page [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md) (Utilisation du stockage Azure avec HDInsight).
+* Pour plus d’informations sur la façon dont HDInsight utilise Stockage Azure, consultez la page [Utilisation de Stockage Azure avec HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* Pour plus d’informations sur la création d’un cluster HDInsight avec Data Lake Storage, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Pour plus d’informations sur le téléchargement de données dans HDInsight, consultez la page [Téléchargement de données dans HDInsight](../hdinsight-upload-data.md).
 
 Pour en savoir plus sur l’analyse des données avec HDInsight, consultez les articles suivants :

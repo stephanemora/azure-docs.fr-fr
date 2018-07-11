@@ -59,16 +59,20 @@
           href: luis-quickstart-intent-and-list-entity.md
         - name: 5. Ajouter une entité hiérarchique
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: 6. Ajouter une entité simple et une liste d’expressions
+        - name: 6. Ajouter une entité composite
+          href: luis-tutorial-composite-entity.md
+        - name: 7. Ajouter une entité simple et une liste d’expressions
           href: luis-quickstart-primary-and-secondary-data.md
-        - name: 7. Ajouter une entité keyPhrase
+        - name: 8. Ajouter une entité keyPhrase
           href: luis-quickstart-intent-and-key-phrase.md
-        - name: 8. Ajouter l’analyse des sentiments
+        - name: 9. Ajouter l’analyse des sentiments
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Améliorer l’application
       items:
         - name: Réviser les énoncés de point de terminaison
           href: luis-tutorial-review-endpoint-utterances.md
+        - name: Avec test par lot
+          href: luis-tutorial-batch-testing.md
         - name: Avec des modèles
           href: luis-tutorial-pattern.md
 - name: Exemples
@@ -138,7 +142,7 @@
     - name: Planifier votre application
       href: luis-how-plan-your-app.md
     - name: Démarrer une nouvelle application
-      href: Create-new-app.md
+      href: luis-how-to-start-new-app.md
     - name: Créer un modèle
       items:
         - name: Ajouter des intentions
@@ -147,15 +151,15 @@
           href: luis-how-to-add-example-utterances.md
         - name: Ajouter des entités
           href: luis-how-to-add-entities.md
-        - name: Utiliser une entité composite pour extraire des données groupées
-          href: luis-tutorial-composite-entity.md
-        - name: Utiliser une entité de liste pour faire correspondre le texte exact à l’aide de Node.js
-          href: luis-tutorial-list-entity.md
-        - name: Générer une application par programmation à l’aide de Node.js
-          href: luis-tutorial-node-import-utterances-csv.md
+        - name: Avec des API
+          items:
+            - name: Générer une application par programmation à l’aide de Node.js
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: Utiliser une entité de liste pour faire correspondre le texte exact à l’aide de Node.js
+              href: luis-tutorial-list-entity.md
     - name: Integrate
       items:
-        - name: Corriger l’orthographe avec l’API Vérification orthographique Bing v7
+        - name: Avec l’API Vérification orthographique Bing v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Avec le service de reconnaissance vocale
           href: luis-tutorial-speech-to-intent.md
@@ -176,7 +180,7 @@
     - name: Améliorer la précision de la prédiction
       items:
         - name: Réviser les énoncés de point de terminaison
-          href: Label-Suggested-Utterances.md
+          href: luis-how-to-review-endoint-utt.md
         - name: Ajouter une liste d’expressions
           href: luis-how-to-add-features.md
         - name: Ajouter des modèles
@@ -189,36 +193,36 @@
           href: interactive-test.md
         - name: Test par lot
           href: luis-how-to-batch-test.md
-        - name: Améliorer la précision des tests par lot
-          href: luis-tutorial-batch-testing.md
-    - name: Publier votre application
+    - name: Publier une application
       href: luis-how-to-publish-app.md
     - name: Utiliser des modèles prédéfinis
       items:
-        - name: Utiliser des entités prédéfinies
+        - name: Utiliser des entités
           href: luis-prebuilt-entities.md
-        - name: Utiliser des domaines prédéfinis
+        - name: Utiliser des domaines
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Utiliser l’application préintégrée Cortana
+        - name: Utiliser Cortana
           href: luis-how-to-cortana-prebuilt-app.md
-    - name: Gérer votre application LUIS
+    - name: Gérer l’application
       items:
         - name: Utilisation du tableau de bord
           href: luis-how-to-use-dashboard.md
-        - name: Créer des clés
+        - name: Créer des clés de point de terminaison
           href: luis-how-to-azure-subscription.md
-        - name: Ajouter des clés dans le service LUIS
+        - name: Ajouter des clés de point de terminaison à l’application
           href: luis-how-to-manage-keys.md
-        - name: Afficher l’utilisation du point de terminaison avec PowerShell
-          href: luis-how-to-manage-from-cloud-shell.md
         - name: Gérer les versions
           href: luis-how-to-manage-versions.md
         - name: Collaborer avec d'autres auteurs
           href: luis-how-to-collaborate.md
-        - name: Diffuser le quota de point de terminaison dans les clés avec Traffic Manager
-          href: traffic-manager.md
-    - name: Gérer votre compte LUIS
-      href: luis-how-to-account-settings.md
+        - name: Gérer la clé de création
+          href: luis-how-to-account-settings.md
+        - name: Gérer l’utilisation des points de terminaison
+          items:
+            - name: Afficher l’utilisation du point de terminaison avec PowerShell
+              href: luis-how-to-manage-from-cloud-shell.md
+            - name: Diffuser le quota de point de terminaison dans les clés avec Traffic Manager
+              href: traffic-manager.md
     - name: Migrer vers l’API V2
       href: migration-v1-to-v2.md
     - name: Rechercher une région par programmation
@@ -251,6 +255,8 @@
           href: luis-reference-prebuilt-deprecated.md
         - name: Entité Email
           href: luis-reference-prebuilt-email.md
+        - name: Entité keyPhrase
+          href: luis-reference-prebuilt-keyphrase.md
         - name: Entité Number
           href: luis-reference-prebuilt-number.md
         - name: Entité Ordinal

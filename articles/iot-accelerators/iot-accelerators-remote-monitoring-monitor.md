@@ -1,120 +1,119 @@
 ---
-title: Surveillance avancée dans la solution de surveillance à distance - Azure | Microsoft Docs
-description: Ce didacticiel vous montre comment surveiller les appareils à l’aide du tableau de bord de la solution de surveillance à distance.
+title: Surveiller vos appareils IoT à partir d’une solution Azure | Microsoft Docs
+description: Dans ce tutoriel, vous découvrez comment surveiller vos appareils IoT avec l’accélérateur de solution Monitoring à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 02/22/2018
-ms.topic: conceptual
-ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/08/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 5f42ed0fa5362959e5619f2d550ca1ae3711ed65
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627397"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097459"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Effectuer une surveillance avancée à l’aide de la solution de surveillance à distance
+# <a name="tutorial-monitor-your-iot-devices"></a>Tutoriel : Surveiller vos appareils IoT
 
-Ce tutoriel montre les fonctionnalités du tableau de bord de la solution de surveillance à distance. Pour présenter ces fonctionnalités, le tutoriel utilise un scénario dans l’application Contoso IoT.
+Dans ce tutoriel, vous utilisez l’accélérateur de solution Monitoring à distance pour surveiller vos appareils IoT connectés. Vous utilisez le tableau de bord des solutions pour afficher des données de télémétrie, des informations sur les appareils, des alertes et des indicateurs de performance clés.
 
-Dans ce tutoriel, vous utilisez deux appareils Contoso simulés pour apprendre à surveiller vos appareils à partir du tableau de bord de l’accélérateur de solution. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement de vos camions sur la route.
+Pour présenter ces fonctionnalités de monitoring, le tutoriel utilise deux appareils simulés sur des camions. Les camions sont gérés par une entreprise appelée Contoso et sont connectés à l’accélérateur de solution Monitoring à distance. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement de vos camions sur la route.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez :
 
 >[!div class="checklist"]
-> * Filtrage des appareils dans le tableau de bord
-> * Affichage des données de télémétrie en temps réel
-> * Affichage des détails sur l’appareil
-> * Affichage des alertes à partir de vos appareils
-> * Affichage des KPI du système
+> * Filtrer les appareils dans le tableau de bord
+> * Afficher les données de télémétrie en temps réel
+> * Afficher les détails sur l’appareil
+> * Afficher les alertes sur vos appareils
+> * Afficher les indicateurs KPI système
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
+Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution Monitoring à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé l’accélérateur de solution Monitoring à distance, vous devez suivre le guide de démarrage rapide [Déployer une solution de monitoring à distance cloud](quickstart-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Choisir les appareils à afficher
 
-Pour sélectionner les appareils à afficher sur la page **Tableau de bord**, utilisez des filtres. Pour afficher uniquement les appareils de type **Truck** (camion), choisissez le filtre prédéfini **Trucks** (Camions) dans la liste déroulante :
+Pour sélectionner les appareils connectés à afficher dans la page **Tableau de bord**, utilisez des filtres. Pour afficher uniquement les appareils de type **Truck** (camion), choisissez le filtre prédéfini **Trucks** (Camions) dans la liste déroulante :
 
-![Filtrer les camions sur le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter.png)
+[![Filtrer les camions sur le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Lorsque vous appliquez un filtre, seuls les appareils qui respectent les conditions de filtre s’affichent sur la carte de la page **Tableau de bord** :
+Quand vous appliquez un filtre, seuls les appareils qui correspondent aux conditions du filtre sont affichés sur la carte de la page **Tableau de bord** :
 
-![Affichage de camions sur la carte](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap.png)
+[![Seuls les camions sont affichés sur la carte](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
-Le filtre détermine également les appareils que vous voyez dans le graphique de **télémétrie** :
+Le filtre détermine également les appareils que vous voyez dans le graphique de **télémétrie** :
 
-![Affichage des données de télémétrie des camions sur le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry.png)
+[![Les données de télémétrie des camions sont affichées sur le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-expanded.png#lightbox)
 
-Pour créer, modifier et supprimer des filtres, choisissez **Gérer les filtres**.
+Pour créer, modifier et supprimer des filtres, choisissez **Gérer les groupes d’appareils**.
 
-## <a name="view-real-time-telemetry"></a>Affichage des données de télémétrie en temps réel
+## <a name="view-real-time-telemetry"></a>Afficher les données de télémétrie en temps réel
 
-L’accélérateur de solution trace les données détaillées de télémétrie en temps réel dans le graphique de la page **Tableau de bord**. Le graphique de télémétrie affiche des informations de télémétrie pour les appareils sélectionnés par le filtre actif :
+L’accélérateur de solution trace les données de télémétrie en temps réel dans le graphique de la page **Tableau de bord**. Vous voyez en haut du graphique de télémétrie les types de télémétrie disponibles pour les appareils sélectionnés par le filtre actif :
 
-![Tracé de télémétrie des camions](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview.png)
+[![Types de télémétrie des camions](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
-Pour sélectionner les valeurs de télémétrie à afficher, choisissez le type de données de télémétrie en haut du graphique :
+Pour afficher les données de télémétrie de température, cliquez sur **Temperature**:
 
-![Tracé de télémétrie des camions](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry.png)
-
-<!-- 05/01 - this features appears to have been removed
-To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
-
-![Pause and restart telemetry display](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
+[![Traçage des données de télémétrie de température des camions](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
 ## <a name="use-the-map"></a>Utiliser la carte
 
-La carte affiche des informations sur les camions simulés sélectionnés par le filtre actif. Vous pouvez effectuer un zoom avant et un panoramique sur la carte pour afficher les positions avec plus ou moins de détails. Les icônes d’appareil sur la carte indiquent les **alertes** et les **avertissements** qui sont activés pour l’appareil. Un récapitulatif du nombre **d’alertes** et **d’avertissements** est affiché à gauche de la carte.
+La carte affiche des informations sur les camions simulés sélectionnés par le filtre actif. Vous pouvez effectuer un zoom avant et un panoramique sur la carte pour afficher les positions avec plus ou moins de détails. La couleur d’une icône d’appareil sur la carte indique si des **Alertes** ou des **Avertissements** sont actifs pour l’appareil. Un total du nombre **d’alertes** et **d’avertissements** est affiché à gauche de la carte.
 
-<!-- 05/01 - cannot select a deice on the map
-To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
+Pour voir les détails des appareils, effectuez un panoramique et un zoom sur la carte pour localiser les appareils, puis sélectionnez l’appareil sur la carte. Cliquez ensuite sur l’étiquette de l’appareil pour ouvrir le panneau **Détails de l’appareil**. Les détails de l’appareil incluent les éléments suivants :
 
-* Recent telemetry values
-* Methods the device supports
-* Device properties
+* Valeurs de données de télémétrie récentes
+* Méthodes prises en charge par l’appareil
+* Propriétés de l’appareil
 
-![View device details on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail.png)-->
+[![Afficher les détails des appareils dans le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
 
-## <a name="view-alerts-from-your-devices"></a>Affichage des alertes à partir de vos appareils
+## <a name="view-alerts"></a>Afficher les alertes
 
-La carte met en évidence les appareils du filtre actif qui sont associés à des **alertes** et à des **avertissements**. Le panneau **Alertes** affiche des informations détaillées sur les alertes les plus récentes de vos appareils :
+Le panneau **Alertes** affiche des informations détaillées sur les alertes les plus récentes de vos appareils :
 
-![Afficher des alertes système dans le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms.png)
+[![Afficher les alertes des appareils sur le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
-Vous pouvez utiliser le filtre **Tableau de bord** pour n’afficher que les alertes récentes. Par défaut, le panneau affiche les alertes de l’heure écoulée :
+Vous pouvez utiliser un filtre pour délimiter l’intervalle de temps des alertes récentes. Par défaut, le panneau affiche les alertes de l’heure écoulée :
 
-![Filtrer les alertes par période](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter.png)
+[![Filtrer les alertes intervalle de temps](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-expanded.png#lightbox)
 
-## <a name="view-the-system-kpis"></a>Affichage des KPI du système
+## <a name="view-the-system-kpis"></a>Afficher les indicateurs KPI système
 
-La page **Tableau de bord** affiche les KPI du système :
+La page **Tableau de bord** montre les indicateurs de performance clés du système calculés par l’accélérateur de solution dans le panneau **Analytique** :
 
-![KPI du tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis.png)
+[![Indicateurs de performance clés du tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
 
-Vous pouvez utiliser le filtre **Tableau de bord** pour ajuster la période d’agrégation des KPI. Par défaut, le panneau affiche les KPI agrégés pendant la dernière heure écoulée.
+Le tableau de bord montre trois indicateurs de performance clés pour les alertes sélectionnées par les filtres actuels pour l’appareil et l’intervalle de temps :
+
+* Nombre d’alertes actives pour les règles qui ont déclenché le plus d’alertes.
+* Proportion des alertes par type d’appareil.
+* Pourcentage d’alertes qui sont des alertes critiques.
+
+Les mêmes filtres que ceux qui définissent l’intervalle de temps pour les alertes et qui contrôlent quels les appareils sont affichés déterminent la façon dont les indicateurs de performance clés sont agrégés. Par défaut, le panneau affiche les KPI agrégés pendant la dernière heure écoulée.
+
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Si vous envisagez de passer au tutoriel suivant, laissez l’accélérateur de solution Monitoring à distance déployé. Pour réduire les coûts d’exécution de l’accélérateur de solution pendant que vous ne l’utilisez pas, vous pouvez arrêter les appareils simulés dans le panneau des paramètres :
+
+[![Mettre en pause la télémétrie](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-expanded.png#lightbox)
+
+Vous pouvez redémarrer les appareils simulés quand vous êtes prêt à commencer le tutoriel suivant.
+
+Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le dans la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) :
+
+![Supprimer la solution](media/iot-accelerators-remote-monitoring-monitor/deletesolution.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a montré comment utiliser la page **Tableau de bord** pour filtrer et surveiller les camions simulés provisionnés dans votre solution de surveillance à distance :
+Ce tutoriel vous a montré comment utiliser la page **Tableau de bord** de l’accélérateur de solution Monitoring à distance pour filtrer et surveiller les camions simulés. Pour découvrir comment utiliser l’accélérateur de solution pour détecter des problèmes avec vos appareils connectés, passez au tutoriel suivant.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Filtrage des appareils dans le tableau de bord
-> * Affichage des données de télémétrie en temps réel
-> * Affichage des détails sur l’appareil
-> * Affichage des alertes à partir de vos appareils
-> * Affichage des KPI du système
-
-La surveillance de vos appareils n’ayant plus de secrets pour vous, nous vous suggérons de découvrir les opérations suivantes :
-
-* [Détecter les problèmes à l’aide de règles de seuil](iot-accelerators-remote-monitoring-automate.md)
-* [Gérer et configurer vos appareils](iot-accelerators-remote-monitoring-manage.md)
-* [Dépanner et corriger les problèmes d’un appareil](iot-accelerators-remote-monitoring-maintain.md)
-* [Tester votre solution avec des appareils simulés](iot-accelerators-remote-monitoring-test.md)
-
-<!-- Next tutorials in the sequence -->
+> [!div class="nextstepaction"]
+> [Détectez les problèmes liés aux appareils connectés à votre solution de monitoring](iot-accelerators-remote-monitoring-automate.md)

@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Activer les paramètres de diagnostic à l’aide de modèles Resource Manager
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: Préparer le format des journaux de diagnostic JSON Lines
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: Utiliser le journal d’activité
       items:
         - name: Afficher des événements dans le journal d’activité

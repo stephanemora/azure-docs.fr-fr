@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23059924"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Utilisation du service de messagerie électronique SendGrid à partir de PHP
@@ -35,7 +35,7 @@ SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionna
 * Transfert des demandes des clients
 * Notifications par courriers électroniques depuis votre application
 
-Pour plus d’informations, consultez la page [https://sendgrid.com][https://sendgrid.com].
+Pour plus d’informations, consultez [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Création d'un compte SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -47,7 +47,7 @@ L'utilisation de SendGrid dans une application Azure PHP ne nécessite ni confi
 Vous pouvez envoyer un courrier électronique à l'aide de l'API SMTP ou de l'API web fournie par SendGrid.
 
 ### <a name="smtp-api"></a>API SMTP
-Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilisez *Swift Mailer*, une bibliothèque à base de composants destinée à l'envoi de courriers à partir d'applications PHP. Vous pouvez télécharger la bibliothèque *Swift Mailer* à partir de [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (utilisez [Composer] pour installer Swift Mailer). L'envoi d'un courrier électronique avec la bibliothèque suppose la création d'instances des classes <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> et <span class="auto-style2">Swift\_Message</span>,la définition des propriétés, et l'appel de la méthode <span class="auto-style2">Swift\_Mailer::send</span>.
+Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilisez *Swift Mailer*, une bibliothèque à base de composants destinée à l'envoi de courriers à partir d'applications PHP. Vous pouvez télécharger la bibliothèque *Swift Mailer* à partir de [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (utilisez [Composer] pour installer Swift Mailer). L'envoi d'un courrier électronique avec la bibliothèque suppose la création d'instances des classes <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> et <span class="auto-style2">Swift\_Message</span>,la définition des propriétés, et l'appel de la méthode <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -383,8 +383,8 @@ Exemple :
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
-* Documentation de SendGrid : <https://sendgrid.com/docs>
-* Bibliothèque PHP de SendGrid : <https://github.com/sendgrid/sendgrid-php>
+* Documentation SendGrid : <https://sendgrid.com/docs>
+* Bibliothèque PHP SendGrid : <https://github.com/sendgrid/sendgrid-php>
 * Offre spéciale SendGrid pour les clients Azure : <https://sendgrid.com/windowsazure.html>
 
 Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
