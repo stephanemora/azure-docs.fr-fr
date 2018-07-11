@@ -7,14 +7,15 @@ author: AyoOlubeko
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34645791"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 
@@ -51,7 +52,7 @@ Toutes les parties doivent être examinées avec précaution, surtout en cas de 
 
 * Paramétrage
     * Créer un environnement miroir dans la région de récupération et en assurer la maintenance. La création de pools élastiques et la réplication des bases de données autonomes dans cet environnement de récupération assure une capacité de réserve dans la région de récupération. La maintenance de cet environnement comprend la réplication des nouvelles bases de données de locataire, au fur et à mesure de leur approvisionnement.  
-* Récupérer
+* Récupération
     * Lorsqu’un environnement de récupération réduit en taille est utilisé pour minimiser les coûts quotidiens, les pools et les bases de données autonomes doivent être mis à l’échelle pour atteindre une capacité entièrement opérationnelle dans la région de récupération.
     * Activer l’approvisionnement des nouveaux locataires dans la région de récupération dès que possible  
     * Être optimisé pour restaurer les locataires dans leur ordre de priorité
@@ -87,7 +88,7 @@ Ensuite, lors d’une étape distincte de rapatriement, vous basculez les bases 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
-1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt; utilisateur&gt;.trafficmanager.net : remplacez &lt;utilisateur&gt; par la valeur d’utilisateur de votre déploiement).
+1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement).
     * Faites défiler la page vers le bas et notez le nom et l’emplacement du serveur de catalogue dans le pied de page. L’emplacement correspond à la région dans laquelle vous avez déployé l’application.
     *Conseil : placez le pointeur de la souris sur l’emplacement pour agrandir l’affichage.*
     ![État intègre du hub d’événements dans la région d’origine](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -201,7 +202,7 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
  
     ![Hub d’événements hors connexion](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Si vous ouvrez directement la page des événements d’un locataire hors connexion, elle affiche une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;utilisateur&gt;.trafficmanager.net/contosoconcerthall ![Page Contoso hors connexion](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+    * Si vous ouvrez directement la page des événements d’un locataire hors connexion, elle affiche une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Page Contoso hors connexion](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Approvisionner un nouveau locataire dans la région de récupération
 Même avant le basculement de toutes les bases de données de locataire, vous pouvez approvisionner de nouveaux locataires dans la région de récupération.  
@@ -250,7 +251,7 @@ Dans cette tâche, vous mettez à jour l’une des bases de données de locatair
 2. Dans l’*ISE PowerShell*, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, configurez la valeur suivante :
     * **$DemoScenario = 5** pour supprimer un événement d’un locataire dans la région de récupération.
 3. Appuyez sur **F5** pour exécuter le script.
-4. Actualisez la page d’événements Concert Contoso Hall (http://events.wingtip-dpt.&lt;utilisateur&gt;.trafficmanager.net/contosoconcerthall - substitute &lt;utilisateur&gt; avec la valeur d’utilisateur de votre déploiement) et notez que le dernier événement a été supprimé.
+4. Actualisez la page d’événements Concert Contoso Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt;utilisateur&gt; avec la valeur d’utilisateur de votre déploiement) et notez que le dernier événement a été supprimé.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Rapatrier l’application dans sa région de production d’origine
 
@@ -283,7 +284,7 @@ Considérons à présent que la panne est résolue et que vous exécutez le scri
     * Appuyez sur **F5** pour exécuter le script de récupération dans une nouvelle fenêtre PowerShell.  Le rapatriement prend plusieurs minutes, et vous pouvez le surveiller dans la fenêtre PowerShell.
     ![Processus de rapatriement](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt;utilisateur&gt;.trafficmanager.net).
+4. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
     * Remarquez que tous les locataires sont en ligne et accessibles pendant ce processus.
 
 5. Une fois le rapatriement terminé, actualisez le hub d’événements et ouvrez la page d’événements de Hawthorn Hall. Notez que cette base de données a été rapatriée vers la région d’origine.

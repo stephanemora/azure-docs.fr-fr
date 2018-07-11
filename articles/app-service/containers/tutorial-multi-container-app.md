@@ -1,36 +1,36 @@
 ---
 title: Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 description: Découvrez comment utiliser plusieurs conteneurs sur Azure avec des fichiers de configuration Docker Compose et Kubernetes, avec une application WordPress et MySQL.
-keywords: azure app service, application web, linux, docker, compose, multiconteneur, conteneur, kubernetes
+keywords: service d’application Azure, application web, Linux, Docker, Compose, multiconteneur, plusieurs conteneurs, Web App pour conteneurs, plusieurs conteneurs, conteneurs, Kubernetes, Wordpress, base de données Azure pour MySQL, base de données de production avec des conteneurs
 services: app-service
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: dcda4e25932a74313674e91afc7382ea19724613
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751912"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129948"
 ---
-# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Didacticiel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
+# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutoriel : Création d’une application multiconteneur (préversion) dans Web App pour conteneurs
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce didacticiel, vous allez apprendre à créer une application multiconteneur à l’aide de WordPress et de MySQL.
+[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce tutoriel, vous allez apprendre à créer une application à plusieurs conteneurs à l’aide de WordPress et de MySQL. Vous allez effectuer ce tutoriel dans Cloud Shell, mais vous pouvez également exécuter ces commandes localement avec [Cloud Shell](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur).
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Convertir une configuration Docker Compose pour travailler avec Web App pour conteneurs
 > * Convertir une configuration Kubernetes pour travailler avec Web App pour conteneurs
-> * Déployer une application multiconteneur sur Azure
+> * Déployer une application à plusieurs conteneurs vers Azure
 > * Ajouter des paramètres d’application
 > * Utiliser le stockage persistant pour vos conteneurs
 > * Se connecter à la base de données Azure pour MySQL
@@ -40,35 +40,35 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce tutoriel, vous devez connaître [Docker Compose](https://docs.docker.com/compose/) ou [Kubernetes](https://kubernetes.io/).
 
-* Installer [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou une version ultérieure).
-* Avoir une expérience avec [Docker Compose](https://docs.docker.com/compose/) ou [Kubernetes](https://kubernetes.io/).
+## <a name="download-the-sample"></a>Téléchargez l’exemple
 
-## <a name="create-a-deployment-user"></a>Créer un utilisateur de déploiement
+Pour ce didacticiel, vous utilisez le fichier de composition de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mais vous le modifiez pour inclure Azure Database pour MySQL, le stockage persistant et Redis. Le fichier de configuration se trouve dans les [exemples Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
-Dans l’invite de commande locale, créez des informations d’identification de déploiement avec la commande [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Cet utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur une application web. Le nom d’utilisateur et le mot de passe par défaut sont tous les deux au niveau du compte. _Ils sont différents des informations d’identification de votre abonnement Azure._
+[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
-Dans l’exemple suivant, remplacez *\<username>* et *\<password>* (parenthèses comprises) par le nom et le mot de passe du nouvel utilisateur. Le nom d’utilisateur doit être unique au sein de Azure. Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles.
+Dans Cloud Shell, créez un répertoire pour le tutoriel, puis accédez à ce répertoire.
 
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
+```bash
+mkdir tutorial
+
+cd tutorial
 ```
 
-Vous devez obtenir une sortie JSON, avec le mot de passe indiqué comme étant `null`. Si vous obtenez une erreur `'Conflict'. Details: 409`, modifiez le nom d’utilisateur. Si vous obtenez une erreur `'Bad Request'. Details: 400`, utilisez un mot de passe plus fort.
+Exécutez ensuite la commande suivante pour cloner le dépôt de l’exemple d’application dans le répertoire de votre tutoriel. Accédez ensuite au répertoire `multicontainerwordpress`.
 
-Vous ne devez créer cet utilisateur de déploiement qu’une fois. Vous pouvez l’utiliser pour tous vos déploiements Azure.
+```bash
+git clone https://github.com/Azure-Samples/multicontainerwordpress
 
-> [!NOTE]
-> Notez le nom d’utilisateur et le mot de passe. Vous les utiliserez pour déployer ultérieurement l’application web.
->
->
+cd multicontainerwordpress
+```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Dans l’invite de commande locale, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Centre Sud*. Pour afficher tous les emplacements pris en charge pour App Service sous Linux au niveau **Standard**, exécutez la commande [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
+Dans Cloud Shell, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Centre Sud*. Pour afficher tous les emplacements pris en charge pour App Service sous Linux au niveau **Standard**, exécutez la commande [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -80,7 +80,7 @@ Une fois la commande terminée, une sortie JSON affiche les propriétés du grou
 
 ## <a name="create-an-azure-app-service-plan"></a>Créer un plan Azure App Service
 
-Dans l’invite de commande locale, créez un plan App Service dans le groupe de ressources avec la commande [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+Dans Cloud Shell, créez un plan App Service dans le groupe de ressources avec la commande [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -90,7 +90,7 @@ L’exemple suivant crée un plan App Service nommé `myAppServicePlan` dans le 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
-Lorsque le plan App Service est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :
+Une fois le plan App Service créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 {
@@ -139,19 +139,15 @@ Les listes suivantes présentent des options de configuration Docker Compose pri
 
 ### <a name="docker-compose-with-wordpress-and-mysql-containers"></a>Docker Compose avec conteneurs WordPress et MySQL
 
-Copiez et collez la configuration YAML locale suivante dans un fichier nommé `compose-wordpress.yml`.
-
-[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
 ## <a name="create-a-docker-compose-app"></a>Création d’une application Docker Compose
 
-Dans votre terminal d’invite de commandes local, créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
-Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
+Une fois l’application web créée, Cloud Shell affiche une sortie similaire à l’exemple suivant :
 
 ```json
 {
@@ -172,9 +168,9 @@ Une fois l’application web créée, Azure CLI affiche une sortie similaire �
 
 Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.net`). Le chargement de l’application peut prendre plusieurs minutes. Si vous recevez une erreur, attendez quelques minutes supplémentaires, puis actualisez le navigateur. Si vous rencontrez des difficultés et souhaitez résoudre les problèmes, consultez les [journaux du conteneur](#find-docker-container-logs).
 
-![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
+![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
 
-**Félicitations**, vous avez créé une application multiconteneur dans Web App pour conteneurs. Ensuite, vous devez configurer votre application pour utiliser Azure Database pour MySQL. N’installez pas WordPress pour le moment.
+**Félicitations**, vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs. Ensuite, vous devez configurer votre application pour utiliser Azure Database pour MySQL. N’installez pas WordPress pour le moment.
 
 ## <a name="connect-to-production-database"></a>Connexion à la base de données de production
 
@@ -190,7 +186,7 @@ Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL 
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :
+La création du serveur peut prendre quelques minutes. Une fois le serveur MySQL créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 {
@@ -223,7 +219,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
 ```
 
-Lorsque la base de données est créée, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois la base de données créée, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 {
@@ -241,13 +237,13 @@ Lorsque la base de données est créée, l’interface de ligne de commande Azur
 
 Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress, y compris le chemin d’accès de l’autorité de certification SSL défini par `MYSQL_SSL_CA`. Le [certificat racine CyberTrust Baltimore](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](http://www.digicert.com/) est fourni dans [l’image personnalisée](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) ci-dessous.
 
-Pour apporter ces modifications, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans le terminal d’invite de commande local. Les paramètres d’application respectent la casse et sont séparés par des espaces.
+Pour effectuer ces modifications, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
-Une fois le paramètre d’application créé, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois le paramètre d’application créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 [
@@ -296,7 +292,7 @@ Les modifications suivantes ont été apportées pour Redis (à utiliser dans un
 * [Ajoute le plug-in WordPress Redis Object Cache 1.3.8.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Utilise le paramètre d’application pour le nom d’hôte Redis dans le fichier WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Pour utiliser l’image personnalisée, vous devez mettre à jour votre fichier compose-wordpress.yml. Remplacez `image: wordpress` par `image: microsoft/multicontainerwordpress`. Vous n’avez plus besoin du conteneur de base de données. Supprimer les sections `db`, `environment`, `depends_on` et `volumes` du fichier de configuration. Votre fichier doit ressembler au code suivant :
+Pour utiliser l’image personnalisée, vous devez mettre à jour votre fichier docker-compose-wordpress.yml. Dans Cloud Shell, tapez `nano docker-compose-wordpress.yml` pour ouvrir l’éditeur de texte nano. Remplacez `image: wordpress` par `image: microsoft/multicontainerwordpress`. Vous n’avez plus besoin du conteneur de base de données. Supprimer les sections `db`, `environment`, `depends_on` et `volumes` du fichier de configuration. Votre fichier doit ressembler au code suivant :
 
 ```yaml
 version: '3.3'
@@ -309,15 +305,17 @@ services:
      restart: always
 ```
 
+Enregistrez vos modifications et quittez nano. Utilisez la commande `^O` pour enregistrer et `^X` pour quitter.
+
 ### <a name="update-app-with-new-configuration"></a>Mise à jour avec la nouvelle configuration
 
-Dans votre terminal d’invite de commandes local, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par le nom de l’application web créée précédemment.
+Dans Cloud Shell, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par le nom de l’application web créée précédemment.
 
 ```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
-Une fois l’application web reconfigurée, Azure CLI affiche des informations similaires à celles de l’exemple suivant :
+Une fois l’application reconfigurée, Cloud Shell affiche des informations similaires à celles de l’exemple suivant :
 
 ```json
 [
@@ -336,17 +334,17 @@ Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.ne
 
 ## <a name="add-persistent-storage"></a>Ajout de stockage persistant
 
-Votre application multiconteneur s’exécute maintenant dans Web App pour conteneurs. Toutefois, si vous installez WordPress maintenant et redémarrez votre application plus tard, vous verrez que l’installation de WordPress a disparu. Cela se produit parce que votre configuration Docker Compose pointe actuellement vers un emplacement de stockage à l’intérieur de votre conteneur. Les fichiers installés dans le conteneur ne sont pas conservés après le redémarrage de l’application. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
+Votre conteneur à plusieurs applications s’exécute maintenant dans Web App pour conteneurs. Toutefois, si vous installez WordPress maintenant et redémarrez votre application plus tard, vous verrez que l’installation de WordPress a disparu. Cela se produit parce que votre configuration Docker Compose pointe actuellement vers un emplacement de stockage à l’intérieur de votre conteneur. Les fichiers installés dans le conteneur ne sont pas conservés après le redémarrage de l’application. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
-Pour utiliser le stockage persistant, vous devez activer ce paramètre dans App Service. Pour apporter cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans le terminal d’invite de commande local. Les paramètres d’application respectent la casse et sont séparés par des espaces.
+Pour utiliser le stockage persistant, vous devez activer ce paramètre dans App Service. Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-Une fois le paramètre d’application créé, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois le paramètre d’application créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 [
@@ -366,7 +364,7 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 
 ### <a name="modify-configuration-file"></a>Modification du fichier de configuration
 
-Ouvrez à nouveau *compose-wordpress.yml*.
+Dans Cloud Shell, tapez `nano docker-compose-wordpress.yml` pour ouvrir l’éditeur de texte nano.
 
 L’option `volumes` mappe le système de fichiers sur un répertoire dans le conteneur. `${WEBAPP_STORAGE_HOME}` est une variable d’environnement d’App Service mappée sur le stockage persistant de votre application. Vous allez utiliser cette variable d’environnement dans l’option des volumes pour que les fichiers WordPress soient installés dans le stockage persistant plutôt que dans le conteneur. Apportez les modifications suivantes au fichier :
 
@@ -387,10 +385,10 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Mise à jour avec la nouvelle configuration
 
-Dans votre terminal d’invite de commandes local, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans Cloud Shell, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 Après son exécution, la commande retourne un résultat semblable à l’exemple suivant :
@@ -432,13 +430,13 @@ Ajoutez le conteneur redis en bas du fichier de configuration afin qu’il resse
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
-Pour utiliser Redis, vous devez allez devoir activer ce paramètre, `WP_REDIS_HOST`, dans App Service. Pour que WordPress communique avec l’hôte Redis, ce *paramètre est obligatoire*. Pour apporter cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans le terminal d’invite de commande local. Les paramètres d’application respectent la casse et sont séparés par des espaces.
+Pour utiliser Redis, vous devez allez devoir activer ce paramètre, `WP_REDIS_HOST`, dans App Service. Pour que WordPress communique avec l’hôte Redis, ce *paramètre est obligatoire*. Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
 ```
 
-Une fois le paramètre d’application créé, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois le paramètre d’application créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 [
@@ -458,7 +456,7 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 
 ### <a name="update-app-with-new-configuration"></a>Mise à jour avec la nouvelle configuration
 
-Dans votre terminal d’invite de commandes local, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans Cloud Shell, reconfigurez votre [application web](app-service-linux-intro.md) multiconteneur avec la commande [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,7 +509,7 @@ WordPress se connecte au serveur Redis. **L’état** de la connexion apparaît 
 
 Dans cette section, vous allez apprendre à utiliser une configuration Kubernetes pour déployer plusieurs conteneurs. Assurez-vous de suivre la procédure précédente pour créer un [groupe de ressources](#create-a-resource-group) et un [plan App Service](#create-an-azure-app-service-plan). Étant donné que cette procédure est quasiment similaire à celle de la section sur la composition, le fichier de configuration a été combiné pour vous.
 
-### <a name="supported-kubernetes-options-for-multicontainer"></a>Options Kubernetes prises en charge pour une application multiconteneur
+### <a name="supported-kubernetes-options-for-multi-container"></a>Options Kubernetes prises en charge pour l’application à plusieurs conteneurs
 
 * args
 * command
@@ -525,9 +523,9 @@ Dans cette section, vous allez apprendre à utiliser une configuration Kubernete
 >Les autres options Kubernetes qui ne sont pas explicitement appelées ne sont pas prises en charge dans la préversion publique.
 >
 
-### <a name="create-configuration-file"></a>Création d’un fichier de configuration
+### <a name="kubernetes-configuration-file"></a>Fichier de configuration Kubernetes
 
-Enregistrez la configuration YAML suivante dans un fichier nommé *kubernetes-wordpress.yml*.
+Vous allez utiliser *kubernetes-wordpress.yml* pour cette partie du tutoriel. Il est montré ici à titre de référence :
 
 [!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 
@@ -541,7 +539,7 @@ Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL 
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :
+Une fois le serveur MySQL créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 {
@@ -576,7 +574,7 @@ Si ce n’est pas déjà fait, créez un [serveur Azure Database pour MySQL](#cr
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
 ```
 
-Lorsque la base de données est créée, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois la base de données créée, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 {
@@ -592,13 +590,13 @@ Lorsque la base de données est créée, l’interface de ligne de commande Azur
 
 ### <a name="configure-database-variables-in-wordpress"></a>Configuration des variables de la base de données dans WordPress
 
-Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress. Pour apporter cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans le terminal d’invite de commande local. Les paramètres d’application respectent la casse et sont séparés par des espaces.
+Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress. Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
-Une fois le paramètre d’application créé, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois le paramètre d’application créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 [
@@ -627,17 +625,17 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 
 ### <a name="add-persistent-storage"></a>Ajout de stockage persistant
 
-Votre application multiconteneur s’exécute maintenant dans Web App pour conteneurs. Les données seront effacées lors du redémarrage, car les fichiers n’ont pas été rendus persistants. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
+Votre conteneur à plusieurs applications s’exécute maintenant dans Web App pour conteneurs. Les données seront effacées lors du redémarrage, car les fichiers n’ont pas été rendus persistants. Dans cette section, vous allez ajouter du stockage persistant à votre conteneur WordPress.
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
-Pour utiliser le stockage persistant, vous devez activer ce paramètre dans App Service. Pour apporter cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans le terminal d’invite de commande local. Les paramètres d’application respectent la casse et sont séparés par des espaces.
+Pour utiliser le stockage persistant, vous devez activer ce paramètre dans App Service. Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-Une fois le paramètre d’application créé, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant :
+Une fois le paramètre d’application créé, Cloud Shell affiche des informations similaires à l’exemple suivant :
 
 ```json
 [
@@ -649,15 +647,15 @@ Une fois le paramètre d’application créé, l’interface de ligne de command
 ]
 ```
 
-### <a name="create-a-multicontainer-app-kubernetes"></a>Créer une application multiconteneur (Kubernetes)
+### <a name="create-a-multi-container-app-kubernetes"></a>Création d’une application à plusieurs conteneurs (Kubernetes)
 
-Dans votre terminal d’invite de commandes local, créez une [application web](app-service-linux-intro.md) multiconteneur dans le groupe de ressources `myResourceGroup` et le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le groupe de ressources `myResourceGroup` et le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
 ```
 
-Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
+Une fois l’application web créée, Cloud Shell affiche une sortie similaire à l’exemple suivant :
 
 ```json
 {
@@ -681,7 +679,7 @@ L’application exécute maintenant plusieurs conteneurs dans Web App pour conte
 
 ![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
 
-**Félicitations**, vous avez créé une application multiconteneur dans Web App pour conteneurs.
+**Félicitations**, vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs.
 
 Pour utiliser Redis, suivez la procédure dans [Connexion de WordPress à Redis](#connect-wordpress-to-redis).
 
@@ -711,7 +709,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Convertir une configuration Docker Compose pour travailler avec Web App pour conteneurs
 > * Convertir une configuration Kubernetes pour travailler avec Web App pour conteneurs
-> * Déployer une application multiconteneur sur Azure
+> * Déployer une application à plusieurs conteneurs vers Azure
 > * Ajouter des paramètres d’application
 > * Utiliser le stockage persistant pour vos conteneurs
 > * Se connecter à la base de données Azure pour MySQL

@@ -7,17 +7,17 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316540"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128443"
 ---
-# <a name="tutorial-use-regular-expression-entity"></a>Didacticiel : utiliser une entité d’expression régulière
-Dans ce didacticiel, vous créez une application qui montre comment extraire des données mises en forme de façon homogène à partir d’un énoncé à l’aide de l’entité **Expression régulière**.
+# <a name="tutorial-3-add-regular-expression-entity"></a>Tutoriel : 3. Ajouter une entité d’expression régulière
+Dans ce tutoriel, vous créez une application qui montre comment extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
 
 
 <!-- green checkmark -->
@@ -25,13 +25,13 @@ Dans ce didacticiel, vous créez une application qui montre comment extraire des
 > * Comprendre les entités d’expression régulière 
 > * Utiliser une application LUIS pour un domaine de ressources humaines (RH) avec l’intention FindForm
 > * Ajouter une entité d’expression régulière pour extraire un numéro de formulaire d’un énoncé
-> * Effectuer l’apprentissage et publier l’application
+> * Entraîner et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
 Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du didacticiel sur le [domaine personnalisé](luis-tutorial-prebuilt-intents-entities.md) des entités prédéfinies, [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS](luis-reference-regions.md#luis-website), à partir du référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel sur les [entités intégrées](luis-tutorial-prebuilt-intents-entities.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application dans le site web [LUIS](luis-reference-regions.md#luis-website), à partir du dépôt Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `regex`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -97,7 +97,7 @@ LUIS segmente le texte de l’énoncé en unités lexicales lorsque l’énoncé
     L’application comporte une entité de nombre prédéfinie ajoutée à partir du didacticiel précédent, de sorte que chaque numéro de formulaire est étiqueté. Cela peut suffire pour votre application cliente, mais le numéro ne sera pas étiqueté avec le type de numéro. Création d’une entité avec un nom approprié permet à l’application cliente de traiter l’entité correctement lorsqu’elle est retournée à partir de LUIS.
 
 ## <a name="create-a-hrf-number-regular-expression-entity"></a>Créer une entité d’expression régulière de numéro HRF 
-Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est un format de numéro HRF en procédant comme suit :
+Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est un format de numéro HRF en effectuant les étapes suivantes :
 
 1. Dans le panneau gauche, sélectionnez **Entités**.
 
@@ -144,54 +144,70 @@ Pour obtenir une prédiction LUIS dans un chatbot ou une autre application, vous
 
     ![Capture d’écran de la page Publier avec l’URL du point de terminaison mise en surbrillance](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `When were HRF-123456 and hrf-234567 published?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `FindForm` avec les deux numéros de formulaire `HRF-123456` et `hrf-234567`.
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `When were HRF-123456 and hrf-234567 published in the last year?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `FindForm` avec les deux numéros de formulaire `HRF-123456` et `hrf-234567`.
 
     ```
     {
-      "query": "When were HRF-123456 and hrf-234567 published?",
+      "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.970179737
+        "score": 0.9993477
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.970179737
+          "score": 0.9993477
         },
         {
           "intent": "ApplyForJob",
-          "score": 0.0131893409
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00364777143
+          "score": 0.0206110049
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0024568392
+          "score": 0.00533067342
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.004215215
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.00173760345
+          "score": 0.00209096959
         },
         {
           "intent": "None",
-          "score": 0.00173070864
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00130692765
+          "score": 0.0017655947
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.00130328839
+          "score": 0.00109490135
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.0005704638
         },
         {
           "intent": "Utilities.Cancel",
-          "score": 0.0006671795
+          "score": 0.000525338168
         }
       ],
       "entities": [
+        {
+          "entity": "last year",
+          "type": "builtin.datetimeV2.daterange",
+          "startIndex": 53,
+          "endIndex": 61,
+          "resolution": {
+            "values": [
+              {
+                "timex": "2017",
+                "type": "daterange",
+                "start": "2017-01-01",
+                "end": "2018-01-01"
+              }
+            ]
+          }
+        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -237,10 +253,10 @@ Votre chatbot a maintenant suffisamment d’informations pour déterminer l’ac
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les numéros de formulaire et rechercher une API tierce. LUIS n’effectue pas ce travail. LUIS détermine uniquement ce qu’est l’intention de l’utilisateur et extrait des données sur cette intention. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez le menu représentant trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur l’entité KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+> [En savoir plus sur l’entité de liste](luis-quickstart-intent-and-list-entity.md)
 

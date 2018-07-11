@@ -9,23 +9,23 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: protection
-ms.topic: article
+ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc7f7323f0c5c5975b74d3d30194ed0711b12eb4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233874"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37767437"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
-Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cela inclut l’accès aux ressources d’Azure AD, aux ressources Azure (préversion) et à d’autres services Microsoft Online Services comme Office 365 ou Microsoft Intune.
+Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cela inclut l’accès aux ressources d’Azure AD, aux ressources Azure (préversion) et à d’autres services Microsoft Online Services comme Office 365 ou Microsoft Intune.
 
 > [!NOTE]
-> Lorsque vous activez Privileged Identity Management pour votre locataire, vous devez disposer d’une licence payante ou d’essai valide Azure AD Premium P2 ou Enterprise Mobility + Security E5 pour chaque utilisateur qui interagit avec ce service ou en bénéficie. Les exemples montrent les utilisateurs d’un groupe qui sont :
+> Lorsque vous activez Privileged Identity Management pour votre locataire, vous devez disposer d’une licence payante ou d’essai valide Azure AD Premium P2 ou Enterprise Mobility + Security E5 pour chaque utilisateur qui interagit avec ce service ou en bénéficie. Voici des exemples avec des utilisateurs/utilisateurs d’un groupe :
 >
 >- Affectés au rôle Administrateur de rôle privilégié 
 >- Désignés comme étant éligibles pour d’autres rôles d’annuaire pouvant être gérés via PIM 
@@ -33,7 +33,7 @@ Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gé
 >- Affectés à un rôle de ressource Azure avec des attributions juste-à-temps ou directes (à durée définie)  
 >- Affectés à une révision d’accès
 >
->Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-whatis.md).
+>Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](fundamentals/active-directory-whatis.md).
 
 Il est souhaitable pour les organisations de limiter le nombre de personnes qui ont accès aux informations ou aux ressources sécurisées afin de réduire le risque qu’un utilisateur malveillant accède à ces données ou qu’une ressource sensible soit accidentellement affectée par un utilisateur autorisé.  Cependant, les utilisateurs doivent pouvoir continuer à effectuer des opérations privilégiées dans les applications Azure AD, Azure, Office 365 ou SaaS. Les organisations peuvent donner aux utilisateurs un accès privilégié aux ressources Azure, telles que les abonnements, et à Azure AD. Elles doivent alors pouvoir surveiller ce que ces utilisateurs font avec leurs privilèges administratifs. Azure AD Privileged Identity Management permet de réduire le risque d’utilisation excessive, injustifiée ou malveillante des droits d’accès.
 
@@ -50,7 +50,7 @@ Dans Azure AD, Azure AD Privileged Identity Management peut gérer les utilisat
 
 ## <a name="just-in-time-administrator-access"></a>Administrateur des accès immédiats
 
-Jusqu’ici, vous pouviez affecter un utilisateur à un rôle d’administrateur via le portail Azure, les autres portails Microsoft Online Services ou les cmdlets Azure AD dans Windows PowerShell. Cet utilisateur devient ainsi un **administrateur permanent**, toujours actif dans le rôle qui lui a été affecté. Azure AD Privileged Identity Management introduit le concept d **’administrateur éligible**. Les administrateurs éligibles doivent être des utilisateurs qui ont besoin d’un accès privilégié de temps à autre, et non pas en permanence. Ce rôle reste inactif jusqu’à ce l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée. De plus en plus d’organisations choisissent d’utiliser cette approche pour limiter ou éliminer l’« accès administrateur permanent » aux rôles privilégiés.
+Jusqu’ici, vous pouviez affecter un utilisateur à un rôle d’administrateur via le portail Azure, les autres portails Microsoft Online Services ou les cmdlets Azure AD dans Windows PowerShell. Cet utilisateur devient ainsi un **administrateur permanent**, toujours actif dans le rôle qui lui a été affecté. Azure AD Privileged Identity Management introduit le concept d **’administrateur éligible**. Les administrateurs éligibles doivent être des utilisateurs qui ont besoin d’un accès privilégié de temps à autre, et non pas en permanence. Ce rôle reste inactif jusqu’à ce l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée. De plus en plus d’organisations choisissent d’utiliser cette approche pour limiter ou éliminer l’« accès administrateur permanent » aux rôles privilégiés.
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Activer Privileged Identity Management pour votre répertoire
 
@@ -64,9 +64,9 @@ Vous pouvez commencer à utiliser Azure AD Privileged Identity Management dans l
 3. Sélectionnez **Tous les services** et utilisez la zone de texte Filtre pour rechercher **Azure AD Privileged Identity Management**.
 4. Cochez **Épingler au tableau de bord**, puis cliquez sur **Créer**. L’application Privileged Identity Management s’ouvre.
 
-Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre répertoire et que vous accédez aux rôles d’annuaire Azure AD, un [Assistant Sécurité](active-directory-privileged-identity-management-security-wizard.md) vous guide tout au long de la procédure d’affectation initiale. Vous devenez alors automatiquement le premier **administrateur de la sécurité** et le premier **administrateur de rôle privilégié** de l’annuaire.
+Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre répertoire et que vous accédez aux rôles d’annuaire Azure AD, un [Assistant Sécurité](active-directory-privileged-identity-management-security-wizard.md) vous guide tout au long de la procédure d’affectation initiale. Vous devenez alors automatiquement le premier **administrateur de la sécurité** et le premier **administrateur de rôle privilégié** de l’annuaire.
 
-Pour les rôles Azure AD, seul un utilisateur qui possède le rôle d’administrateur de rôle privilégié peut gérer les affectations des autres administrateurs dans Azure AD PIM. Vous pouvez [permettre aux autres utilisateurs de gérer les rôles d’annuaire dans PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Les administrateurs généraux, les administrateurs de la sécurité et les lecteurs Sécurité peuvent consulter les affectations aux rôles Azure AD dans Azure AD PIM.
+Pour les rôles Azure AD, seul un utilisateur qui possède le rôle d’administrateur de rôle privilégié peut gérer les affectations des autres administrateurs dans Azure AD PIM. Vous pouvez [permettre aux autres utilisateurs de gérer les rôles d’annuaire dans PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Les administrateurs généraux, les administrateurs de la sécurité et les lecteurs Sécurité peuvent consulter les affectations aux rôles Azure AD dans Azure AD PIM.
 Pour les rôles RBAC Azure, seul un administrateur d’abonnement, un propriétaire de ressource ou un administrateur de l’accès utilisateur aux ressources peut gérer les affectations des autres administrateurs dans Azure AD PIM.  Par défaut, les utilisateurs qui possèdent un rôle d’administrateur de rôle privilégié, d’administrateur de la sécurité ou de lecteur Sécurité ne peuvent pas consulter les affectations aux rôles RBAC Azure dans Azure AD PIM.
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Vue d’ensemble de Privileged Identity Management (point d’entrée)
@@ -95,23 +95,23 @@ Azure AD Privileged Identity Manager fournit un tableau de bord d’administrati
 
 * Alertes indiquant des possibilités d’amélioration de la sécurité
 * Le nombre d'utilisateurs affectés à chaque rôle privilégié  
-* Le nombre d'administrateurs éligibles et permanents
+* Le nombre d’administrateurs éligibles et permanents
 * Un graphique des activations de rôle privilégié dans votre annuaire
 *   Le nombre d’affectations juste-à-temps, limitées dans le temps et permanentes pour les rôles de ressources Azure (préversion)
-*   Les utilisateurs et les groupes auxquels de nouveaux rôles ont été affectés au cours des 30 derniers jours (rôles de ressources Azure)
+*   Les utilisateurs et les groupes auxquels de nouveaux rôles ont été affectés au cours des 30 derniers jours (rôles de ressources Azure)
 
 
-![Capture d’écran du tableau de bord PIM][2]
+![Capture d’écran du tableau de bord PIM][2]
 
 ## <a name="privileged-role-management"></a>Gestion des rôles privilégiés
 
-Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrateurs en ajoutant ou en supprimant des administrateurs permanents ou éligibles pour chaque rôle d’annuaire Azure AD. Avec PIM pour les ressources Azure (préversion), les propriétaires, les administrateurs de l’accès utilisateur et les administrateurs généraux qui activent la gestion des abonnements dans leur client peuvent affecter des utilisateurs ou des groupes aux rôles de ressources Azure en leur octroyant un accès juste-à-temps (rôle éligible), limité dans le temps (activation non nécessaire) avec une date/heure de début et de fin ou permanent (si cette option est activée dans les paramètres de rôle).
+Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrateurs en ajoutant ou en supprimant des administrateurs permanents ou éligibles pour chaque rôle d’annuaire Azure AD. Avec PIM pour les ressources Azure (préversion), les propriétaires, les administrateurs de l’accès utilisateur et les administrateurs généraux qui activent la gestion des abonnements dans leur client peuvent affecter des utilisateurs ou des groupes aux rôles de ressources Azure en leur octroyant un accès juste-à-temps (rôle éligible), limité dans le temps (activation non nécessaire) avec une date/heure de début et de fin ou permanent (si cette option est activée dans les paramètres de rôle).
 
-![Capture d’écran d’ajout et de suppression d’administrateurs dans PIM][3]
+![Capture d’écran d’ajout et de suppression d’administrateurs dans PIM][3]
 
-## <a name="configure-the-role-activation-settings"></a>Configurer les paramètres d'activation de rôle
+## <a name="configure-the-role-activation-settings"></a>Configurer les paramètres d’activation de rôle
 
-À l’aide des [paramètres de rôle](active-directory-privileged-identity-management-how-to-change-default-settings.md), vous pouvez configurer les propriétés d’activation de rôle éligible pour les rôles d’annuaire Azure AD, notamment :
+À l’aide des [paramètres de rôle](active-directory-privileged-identity-management-how-to-change-default-settings.md), vous pouvez configurer les propriétés d’activation de rôle éligible pour les rôles d’annuaire Azure AD, notamment :
 
 * La durée de la période d’activation d’un rôle
 * La notification d'activation d’un rôle
@@ -123,7 +123,7 @@ Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrat
 
 Notez que dans l’image, les boutons de **l’authentification multifacteur** sont désactivés. Avec certains rôles dotés de privilèges élevés, l’authentification multifacteur est requise pour garantir une protection renforcée.
 
-Les paramètres de rôle pour les rôles de ressources Azure (préversion) permettent aux administrateurs de configurer les paramètres d’affectation juste-à-temps et directe, notamment :
+Les paramètres de rôle pour les rôles de ressources Azure (préversion) permettent aux administrateurs de configurer les paramètres d’affectation juste-à-temps et directe, notamment :
 
 - La possibilité d’affecter des utilisateurs ou des groupes à des rôles sans date/heure de fin (affectation permanente)
 - La durée par défaut d’une affectation (lorsqu’elle n’est pas permanente)
@@ -146,14 +146,14 @@ L’activation de rôles est personnalisable. Dans les paramètres de PIM, vous 
 
 Il existe deux méthodes pour suivre la façon dont vos employés et les administrateurs utilisent les rôles privilégiés. La première option consiste à utiliser l’[historique d’audit des rôles d’annuaire](active-directory-privileged-identity-management-how-to-use-audit-log.md). L’historique d’audit consigne le suivi des modifications des affectations de rôles privilégiés, l’historique de l’activation de rôles, ainsi que les modifications apportées aux paramètres pour les rôles de ressources Azure (préversion). 
 
-![Capture d’écran de l’historique d’activation dans PIM][6]
+![Capture d’écran de l’historique d’activation dans PIM][6]
 
 La deuxième option consiste à configurer des [révisions d’accès](active-directory-privileged-identity-management-how-to-start-security-review.md)régulières. Ces révisions d’accès peuvent être effectuées par un réviseur affecté (par exemple, un gestionnaire d’équipe) ou par les employés eux-mêmes. C’est la méthode la plus adaptée pour déterminer les utilisateurs qui nécessitent l’accès et ceux qui n’en ont plus besoin.
 
 ## <a name="azure-ad-pim-at-subscription-expiration"></a>Azure AD PIM à l’expiration de l’abonnement
 
-Votre organisation doit disposer d’un abonnement Azure AD Premium P2 (ou EMS E5) d’évaluation ou payant dans son client pour pouvoir utiliser Azure AD PIM.  En outre, les licences doivent être affectées aux administrateurs du client.  Plus précisément, les licences doivent être affectées aux administrateurs dans les rôles Azure AD gérés via Azure AD PIM, aux administrateurs dans les rôles RBAC Azure gérés via Azure AD PIM et à tous les utilisateurs non administrateurs qui effectuent des révisions d’accès.
-Si votre organisation ne renouvelle pas son abonnement Azure AD Premium P2 ou si votre période d’évaluation expire, les fonctionnalités d’Azure AD PIM ne seront plus disponibles dans votre client, les affectations de rôles éligibles seront supprimées et les utilisateurs ne pourront plus activer de rôles. Vous trouverez plus d’informations à ce sujet dans les [spécifications de l’abonnement à Azure AD PIM](./privileged-identity-management/subscription-requirements.md).
+Votre organisation doit disposer d’un abonnement Azure AD Premium P2 (ou EMS E5) d’évaluation ou payant dans son client pour pouvoir utiliser Azure AD PIM.  En outre, les licences doivent être affectées aux administrateurs du client.  Plus précisément, les licences doivent être affectées aux administrateurs dans les rôles Azure AD gérés via Azure AD PIM, aux administrateurs dans les rôles RBAC Azure gérés via Azure AD PIM et à tous les utilisateurs non administrateurs qui effectuent des révisions d’accès.
+Si votre organisation ne renouvelle pas son abonnement Azure AD Premium P2 ou si votre période d’évaluation expire, les fonctionnalités d’Azure AD PIM ne seront plus disponibles dans votre client, les affectations de rôles éligibles seront supprimées et les utilisateurs ne pourront plus activer de rôles. Vous trouverez plus d’informations à ce sujet dans les [spécifications de l’abonnement à Azure AD PIM](./privileged-identity-management/subscription-requirements.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

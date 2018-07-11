@@ -1,6 +1,6 @@
 ---
 title: Didacticiel permettant de créer une application LUIS retournant une analyse des sentiments - Azure | Microsoft Docs
-description: Dans ce didacticiel, découvrez comment ajouter une analyse des sentiments à votre application LUIS afin d’analyser les énoncés de sentiments positifs, négatifs et neutres.
+description: Dans ce tutoriel, découvrez comment ajouter une analyse des sentiments à votre application LUIS afin d’analyser les énoncés de sentiments positifs, négatifs et neutres.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,28 +9,28 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958427"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340931"
 ---
-# <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Didacticiel : Créer une application qui retourne un sentiment avec une prédiction d’intention
-Dans ce didacticiel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés.
+# <a name="tutorial-8--add-sentiment-analysis"></a>Tutoriel : 8.  Ajouter l’analyse des sentiments
+Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Comprendre l’analyse des sentiments
 > * Utiliser l’application LUIS pour le domaine des ressources humaines (RH) 
 > * Ajouter l’analyse des sentiments
-> * Effectuer l’apprentissage de l’application et la publier
+> * Entraîner et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS 
 
-Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin de créer votre application LUIS.
+Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du didacticiel [entités keyPhrase](luis-quickstart-intent-and-key-phrase.md), [importez](create-new-app.md#import-new-app) le JSON dans une application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité keyPhrase intégrée](luis-quickstart-intent-and-key-phrase.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle dans le site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `sentiment`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -78,12 +78,12 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
     [ ![Capture d’écran de l’application LUIS avec exemples d’énoncés dans l’intention de RetourEmployés](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train-the-luis-app"></a>Effectuer l’apprentissage de l’application LUIS
+## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 LUIS ne connaît pas la nouvelle intention et ses énoncés exemples avant d’être entraîné. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
+1. En haut à droite du site web LUIS, sélectionnez le bouton **Former**.
 
-    ![Capture d’écran du bouton Effectuer l’apprentissage mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
+    ![Capture d’écran du bouton Former mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
@@ -212,13 +212,10 @@ Cette application, avec l’analyse des sentiments activée, a identifié une in
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de sentiment de l’énoncé pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez le menu représentant trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
 > [Appeler une API de point de terminaison LUIS avec C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

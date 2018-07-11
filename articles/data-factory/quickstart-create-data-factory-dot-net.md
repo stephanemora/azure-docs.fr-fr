@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b934cff674ee6967c9ae97baa5c3b93226600e87
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046338"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085740"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Créer une fabrique de données et un pipeline avec le kit .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](quickstart-create-data-factory-dot-net.md)
 
-Ce guide de démarrage rapide explique comment utiliser le kit SDK .NET pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un didacticiel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Didacticiel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce guide de démarrage rapide explique comment utiliser le kit SDK .NET pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -95,7 +95,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 1. Laissez la page **Conteneur** ouverte. Vous l’utiliserez pour vérifier la sortie à la fin de ce guide de démarrage rapide.
 
 ### <a name="visual-studio"></a>Visual Studio
-La procédure pas à pas de cet article utilise Visual Studio 2017. Vous pouvez également utiliser Visual Studio 2013 ou 2015.
+La procédure pas à pas de cet article utilise Visual Studio 2017. Vous pouvez également utiliser Visual Studio 2013 ou 2015.
 
 ### <a name="azure-net-sdk"></a>Kit de développement logiciel (SDK) .NET Azure
 Téléchargez et installez le [Kit de développement logiciel (SDK) .NET Azure](http://azure.microsoft.com/downloads/) sur votre machine.
@@ -104,15 +104,15 @@ Téléchargez et installez le [Kit de développement logiciel (SDK) .NET Azure](
 Suivez les instructions fournies dans les sections de [cet article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) pour accomplir les tâches suivantes : 
 
 1. **Créez une application Azure Active Directory**. Créez une application dans Azure Active Directory représentant l’application .NET que vous créez dans ce didacticiel. Pour l’URL de connexion, vous pouvez fournir une URL factice, comme indiqué dans l’article (`https://contoso.org/exampleapp`).
-2. Obtenez l’**ID de l’application** et la **clé d’authentification**, puis notez ces valeurs. Elles vous serviront plus loin dans ce didacticiel. 
-3. Obtenez l’**ID d’abonné** et notez cette valeur. Elle vous servira plus loin dans ce didacticiel.
+2. Obtenez l’**ID de l’application** et la **clé d’authentification**, puis notez ces valeurs. Elles vous serviront plus loin dans ce tutoriel. 
+3. Obtenez l’**ID d’abonné** et notez cette valeur. Elle vous servira plus loin dans ce tutoriel.
 4. Affectez l’application au rôle **Contributeur** au niveau de l’abonnement afin que l’application puisse créer des fabriques de données dans l’abonnement.
 
-## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
+## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
-À l’aide de Visual Studio 2013/2015/2017, créez une application console C# .NET.
+À l’aide de Visual Studio 2013/2015/2017, créez une application console C# .NET.
 
-1. Lancez **Visual Studio**.
+1. Lancez **Visual Studio**.
 2. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**.
 3. Sélectionnez **Visual C#** -> **Application console (.NET Framework)** dans la liste des types de projets située sur la droite. .NET version 4.5.2 ou ultérieure est nécessaire.
 4. Entrez **ADFv2QuickStart** pour le nom.
@@ -145,7 +145,7 @@ Suivez les instructions fournies dans les sections de [cet article](../azure-res
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Ajoutez le code suivant à la méthode **Main** qui définit les variables. Remplacez les espaces réservés par vos propres valeurs. À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+2. Ajoutez le code suivant à la méthode **Main** qui définit les variables. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
     ```csharp
     // Set variables
@@ -204,7 +204,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 Ajoutez le code suivant à la méthode **Main** qui crée un **service lié Stockage Azure**.
 
-Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce guide de démarrage rapide, vous devez uniquement créer un service lié Stockage Azure à la fois pour la source de copie et le magasin récepteur, nommé « AzureStorageLinkedService » dans l’exemple.
+Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce guide de démarrage rapide, vous devez uniquement créer un service lié Stockage Azure à la fois pour la source de copie et le magasin récepteur, nommé « AzureStorageLinkedService » dans l’exemple.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -224,7 +224,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.S
 
 Ajoutez le code suivant à la méthode **Main** qui crée un **jeu de données d’objet blob Azure**.
 
-Vous définissez un jeu de données qui représente les données à copier d’une source vers un récepteur. Dans cet exemple, ce jeu de données d’objet blob fait référence au service lié Stockage Azure que vous avez créé à l’étape précédente. Le jeu de données prend un paramètre dont la valeur est définie dans une activité qui consomme le jeu de données. Le paramètre est utilisé pour construire le « FolderPath » pointant vers l’emplacement où les données résident/sont stockées.
+Vous définissez un jeu de données qui représente les données à copier d’une source vers un récepteur. Dans cet exemple, ce jeu de données d’objet blob fait référence au service lié Stockage Azure que vous avez créé à l’étape précédente. Le jeu de données prend un paramètre dont la valeur est définie dans une activité qui consomme le jeu de données. Le paramètre est utilisé pour construire le « FolderPath » pointant vers l’emplacement où les données résident/sont stockées.
 
 ```csharp
 // Create a Azure Blob dataset
@@ -252,7 +252,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.Serializat
 
 Ajoutez le code suivant à la méthode **Main** qui crée un **pipeline avec une activité de copie**.
 
-Dans cet exemple, ce pipeline contient une activité et accepte deux paramètres : chemin de l’objet blob d’entrée et chemin de l’objet blob de sortie. Les valeurs de ces paramètres sont définies quand le pipeline est déclenché/exécuté. L’activité de copie fait référence au même jeu de données d’objet blob créé à l’étape précédente comme entrée et sortie. Quand le jeu de données est utilisé comme jeu de données d’entrée, le chemin d’entrée est spécifié. De même, quand le jeu de données est utilisé comme jeu de données de sortie, le chemin de sortie est spécifié. 
+Dans cet exemple, ce pipeline contient une activité et accepte deux paramètres : chemin de l’objet blob d’entrée et chemin de l’objet blob de sortie. Les valeurs de ces paramètres sont définies quand le pipeline est déclenché/exécuté. L’activité de copie fait référence au même jeu de données d’objet blob créé à l’étape précédente comme entrée et sortie. Quand le jeu de données est utilisé comme jeu de données d’entrée, le chemin d’entrée est spécifié. De même, quand le jeu de données est utilisé comme jeu de données de sortie, le chemin de sortie est spécifié. 
 
 ```csharp
 // Create a pipeline with a copy activity
@@ -357,9 +357,9 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Créez et démarrez l’application, puis vérifiez l’exécution du pipeline.
 
-La console affiche la progression de la création de la fabrique de données, du service lié, des jeux de données, du pipeline et de l’exécution du pipeline. Elle vérifie ensuite l’état de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Utilisez ensuite des outils comme l’[explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les objets blob sont copiés dans « outputBlobPath » depuis « inputBlobPath » comme vous l’avez spécifié dans les variables.
+La console affiche la progression de la création de la fabrique de données, du service lié, des jeux de données, du pipeline et de l’exécution du pipeline. Elle vérifie ensuite l’état de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Utilisez ensuite des outils comme l’[explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les objets blob sont copiés dans « outputBlobPath » depuis « inputBlobPath » comme vous l’avez spécifié dans les variables.
 
-### <a name="sample-output"></a>Exemple de sortie : 
+### <a name="sample-output"></a>Exemple de sortie : 
 ```json
 Creating data factory SPv2Factory0907...
 {
@@ -478,7 +478,7 @@ Le pipeline crée automatiquement le dossier de sortie dans le conteneur d’obj
     ![Actualiser](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer par programmation la fabrique de données, ajoutez les lignes de code suivantes au programme : 
+Pour supprimer par programmation la fabrique de données, ajoutez les lignes de code suivantes au programme : 
 
 ```csharp
             Console.WriteLine("Deleting the data factory");

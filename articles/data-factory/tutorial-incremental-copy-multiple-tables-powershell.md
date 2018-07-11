@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle plusieurs tables en utilisant Azure Data Factory | Microsoft Docs
-description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
+description: Dans ce tutoriel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 73d6039624a52ae06d8cf74c386bf0d12d9b65d9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 377cb9df8ce09581a5fd5d9d7a7d55368daf44ca
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046304"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082442"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
-Dans ce didacticiel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
+Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
 
-Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Préparer les magasins de données source et de destination.
@@ -38,14 +38,14 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Réexécuter et surveiller le pipeline.
 > * Passer en revue les résultats finaux.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Voici les étapes importantes à suivre pour créer cette solution : 
 
 1. **Sélectionner la colonne de limite**.
     Sélectionnez une colonne pour chaque table du magasin de données sources, qui peut servir à identifier les enregistrements nouveaux ou mis à jour pour chaque exécution. Normalement, les données contenues dans cette colonne sélectionnée (par exemple, last_modify_time ou ID) continuent de croître à mesure que des lignes sont créées ou mises à jour. La valeur maximale de cette colonne est utilisée comme limite.
 
 2. **Préparer un magasin de données pour stocker la valeur de limite**.   
-    Dans ce didacticiel, la valeur de filigrane est stockée dans une base de données SQL.
+    Dans ce tutoriel, la valeur de filigrane est stockée dans une base de données SQL.
 
 3. **Créer un pipeline avec les activités suivantes** : 
     
@@ -65,7 +65,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-* **SQL Server**. Dans le cadre de ce didacticiel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
+* **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
@@ -268,7 +268,7 @@ Notez les points suivants :
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles Contributeur ou Propriétaire, ou administrateur de l’abonnement Azure.
-* À l’heure actuelle, Data Factory vous permet de créer des fabriques de données uniquement dans les régions USA Est, USA Est 2 et Europe Ouest. Les magasins de données (Stockage Azure, SQL Database, etc.) et les services de calcul (Azure HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, SQL Database, etc.) et les services de calcul (Azure HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -344,7 +344,7 @@ Dans cette étape, vous liez votre base de données SQL Server locale à la fabr
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     LinkedServiceName : SqlServerLinkedService
@@ -376,7 +376,7 @@ Dans cette étape, vous liez votre base de données SQL Server locale à la fabr
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     LinkedServiceName : AzureSQLDatabaseLinkedService
@@ -390,7 +390,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
 
-1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
 
     ```json
     {
@@ -870,7 +870,7 @@ project_table   2017-10-01 00:00:00.000
 Notez que les valeurs de filigrane des deux tables ont été mises à jour.
      
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Préparer les magasins de données source et de destination.
@@ -885,7 +885,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 > * Réexécuter et surveiller le pipeline.
 > * Passer en revue les résultats finaux.
 
-Passez au didacticiel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
+Passez au tutoriel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
 
 > [!div class="nextstepaction"]
 >[Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)

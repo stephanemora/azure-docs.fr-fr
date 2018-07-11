@@ -1,6 +1,6 @@
 ---
 title: Didacticiel pour créer une application LUIS afin d’obtenir les données d’emplacement - Azure | Microsoft Docs
-description: Dans ce didacticiel, vous allez découvrir comment créer une application LUIS simple utilisant une entité hiérarchique et des intentions pour extraire les données.
+description: Dans ce tutoriel, vous allez découvrir comment créer une application LUIS simple utilisant une entité hiérarchique et des intentions pour extraire les données.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,28 +9,28 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335558"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081691"
 ---
-# <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>Didacticiel : Créer une application utilisant une entité hiérarchique
-Dans ce didacticiel, vous allez créer une application qui montre comment rechercher les ensembles de données en fonction du contexte. 
+# <a name="tutorial-5-add-hierarchical-entity"></a>Tutoriel : 5. Ajouter une entité hiérarchique
+Dans ce tutoriel, vous allez créer une application qui montre comment rechercher les ensembles de données en fonction du contexte. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Comprendre les entités hiérarchiques et les enfants issus du contexte 
 > * Utiliser l’application LUIS pour le domaine des ressources humaines (RH) 
 > * Ajouter une entité hiérarchique avec des enfants d’origine et de destination
-> * Effectuer l’apprentissage et publier l’application
+> * Entraîner et publier l’application
 > * Interroger un point de terminaison d’application pour voir la réponse JSON LUIS, y compris les enfants hiérarchiques 
 
 Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du didacticiel [liste d’entités](luis-quickstart-intent-and-list-entity.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel [liste d’entités](luis-quickstart-intent-and-list-entity.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `hier`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -40,7 +40,7 @@ Cette application détermine lorsqu’un employé doit déménager de son emplac
 L’entité hiérarchique est adaptée à ce type de données, car les deux ensembles de données :
 
 * Sont liés l’un à l’autre dans le contexte de l’énoncé.
-* Utilisent des formulations spécifiques pour indiquer chaque emplacement. Exemples : de/à, quitte/arrive à, loin de/vers...
+* Utilisent des formulations spécifiques pour indiquer chaque emplacement. Exemples : de/à, quitte/arrive à, loin de/vers...
 * Les deux emplacements se trouvent fréquemment dans le même énoncé. 
 
 L’objectif de l’entité **hiérarchique** est de rechercher les données associées dans l’énoncé en fonction du contexte. Prenez l’énoncé suivant :
@@ -48,7 +48,7 @@ L’objectif de l’entité **hiérarchique** est de rechercher les données ass
 ```JSON
 mv Jill Jones from a-2349 to b-1298
 ```
-Deux emplacements sont indiqués dans l’énoncé : `a-2349` et `b-1298`. Part du principe que la lettre correspond au nom du bâtiment et le numéro au bureau dans ce bâtiment. Il est logique qu’ils soient groupés en tant qu’enfants d’une même entité hiérarchique, `Locations` car les deux groupes de données doivent être extraits de l’énoncé et sont liés l’un à l’autre. 
+Deux emplacements sont indiqués dans l’énoncé : `a-2349` et `b-1298`. Part du principe que la lettre correspond au nom du bâtiment et le numéro au bureau dans ce bâtiment. Il est logique qu’ils soient groupés en tant qu’enfants d’une même entité hiérarchique, `Locations` car les deux groupes de données doivent être extraits de l’énoncé et sont liés l’un à l’autre. 
  
 Si un seul enfant (origine ou destination) d’une entité hiérarchique est présent, il est tout de même extrait. Il n’est pas nécessaire de trouver tous les enfants pour en extraire un seul ou quelques-uns. 
 
@@ -79,7 +79,7 @@ Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques,
 
     [ ![Capture d’écran de l’application LUIS avec l’intention MoveEmployee mise en surbrillance dans le menu de gauche](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. Ajoutez les énoncés exemples suivants :
+3. Ajoutez les énoncés exemples suivants :
 
     |Exemples d’énoncés|
     |--|
@@ -128,8 +128,8 @@ Ajoutez l’entité de nombre prédéfinie dans l’application.
 
     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
-## <a name="train-the-luis-app"></a>Effectuer l’apprentissage de l’application LUIS
-LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant que son apprentissage n’a pas été effectué. 
+## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant qu’elle n’a pas été entraînée. 
 
 1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
 
@@ -254,7 +254,7 @@ Pour obtenir une prédiction LUIS dans un chatbot ou une autre application, vous
 }
 ```
 
-## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Auriez-vous pu utiliser une expression régulière pour chaque emplacement ?
+## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Auriez-vous pu utiliser une expression régulière pour chaque emplacement ?
 Oui, créez l’expression régulière avec les rôles d’origine et de destination et utilisez-les dans un modèle.
 
 Dans cet exemple, les emplacements tels que `a-1234`, suivent un format spécifiques : une ou deux lettres, suivies d’un tiret puis d’une série de 4 à 5 chiffres. Ces données peuvent être décrites comme une entité à expression régulière avec un rôle pour chaque emplacement. Les rôles sont disponibles pour les modèles. Vous pouvez créer des modèles basés sur ces énoncés, puis créer une expression régulière pour le format de l’emplacement et l’ajouter aux modèles. <!-- Go to this tutorial to see how that is done -->

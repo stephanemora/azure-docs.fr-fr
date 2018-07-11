@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303773"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081854"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Didacticiel : Configurer un laboratoire de classe 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
 
-Dans ce didacticiel, vous allez effectuer les actions suivantes :
+Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un laboratoire de classe
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous allez effectuer les actions suivantes :
 > * Envoyer un lien d’inscription aux étudiants
 
 ## <a name="prerequisites"></a>Prérequis
-Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Un propriétaire de laboratoire peut ajouter un utilisateur au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Un propriétaire de laboratoire peut ajouter un utilisateur au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
@@ -61,7 +61,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
 
 ## <a name="set-up-the-template"></a>Configurer le modèle 
-Le modèle de laboratoire est une image de machine virtuelle de base, à partir de laquelle toutes les machines virtuelles des utilisateurs sont créées. Configurez la machine virtuelle du modèle de façon qu’elle propose exactement ce que vous souhaitez fournir aux utilisateurs du laboratoire. Vous pouvez indiquer le nom et la description du modèle que voient les utilisateurs du laboratoire. Publiez le modèle au public pour rendre les instances du modèle de machine virtuelle accessible aux utilisateurs de votre laboratoire. 
+Le modèle de laboratoire est une image de machine virtuelle de base, à partir de laquelle toutes les machines virtuelles des utilisateurs sont créées. Configurez la machine virtuelle du modèle de façon qu’elle propose exactement ce que vous souhaitez fournir aux utilisateurs du laboratoire. Vous pouvez indiquer le nom et la description du modèle que voient les utilisateurs du laboratoire. Publiez le modèle pour rendre les instances du modèle de machine virtuelle accessible aux utilisateurs de votre laboratoire. 
 
 ### <a name="set-title-and-description"></a>Définir un titre et une description
 1. Dans la section **Modèle**, sélectionnez **Modifier** (icône de crayon) pour le modèle. 
@@ -80,7 +80,7 @@ Le modèle de laboratoire est une image de machine virtuelle de base, à partir 
 1. Pour vous connecter à la machine virtuelle, sélectionnez **Se connecter**, puis suivez les instructions. 
 
     ![Se connecter au modèle de machine virtuelle](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Installez les logiciels nécessaires pour que les étudiants puissent effectuer le laboratoire (par exemple Visual Studio, l’Explorateur de stockage Azure, et ainsi de suite). 
+1. Installez les logiciels nécessaires pour que les étudiants puissent travailler en laboratoire (par exemple Visual Studio, l’Explorateur Stockage Azure, et ainsi de suite). 
 2. Déconnectez-vous (fermez votre session Bureau à distance) du modèle de machine virtuelle. 
 3. **Arrêtez** le modèle de machine virtuelle en sélectionnant **Arrêter**. 
 
@@ -96,8 +96,8 @@ Quand vous publiez un modèle, Azure Lab Services crée les machines virtuelles 
 2. Cliquez maintenant sur le bouton **Publier**. Ce processus peut prendre un certain temps en fonction du nombre de machines virtuelles en cours de création, qui est identique au nombre d’utilisateurs autorisés dans le laboratoire.
     
     > [!IMPORTANT]
-    > Une fois que vous avez défini un modèle comme étant public, vous ne pouvez plus rendre son accès privé. 
-4. Basculez vers la page **Machines virtuelles** et vérifiez que cinq machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. 
+    > Une fois un modèle publié, sa publication ne peut pas être annulée. 
+4. Passez à la page **Machines virtuelles** et vérifiez que des machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. 
 
     ![Machines virtuelles](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Attendez que les machines virtuelles soient créées. Elles doivent être à l’état **Arrêtée**. Vous pouvez démarrer la machine virtuelle d’un étudiant, vous y connecter, l’arrêter et la supprimer dans cette page. Vous pouvez démarrer les machines virtuelles dans cette page ou laisser les étudiants le faire. 
@@ -117,7 +117,7 @@ Quand vous publiez un modèle, Azure Lab Services crée les machines virtuelles 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez créé un laboratoire de classe et configuré le laboratoire. Pour savoir comment un étudiant peut accéder à une machine virtuelle dans le laboratoire à l’aide du lien d’inscription, passez au didacticiel suivant :
+Dans ce tutoriel, vous avez créé un laboratoire de classe et configuré le laboratoire. Pour savoir comment un étudiant peut accéder à une machine virtuelle dans le laboratoire à l’aide du lien d’inscription, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
 > [Se connecter à une machine virtuelle dans le laboratoire de classe](tutorial-connect-virtual-machine-classroom-lab.md)

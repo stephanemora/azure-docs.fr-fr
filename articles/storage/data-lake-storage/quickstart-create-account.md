@@ -10,12 +10,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: aafb86e7ebc99ea48e09b34b58682c983fe9f293
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063103"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085386"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Démarrage rapide : créer un compte de stockage Azure Data Lake Storage Gen2 (Préversion)
 
@@ -50,7 +50,7 @@ Ce bouton lance un interpréteur de commandes interactif que vous pouvez utilise
 
 ### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide vous demande d’exécuter Azure CLI version 2.0.38 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Aperçu de création d’un compte Azure Data Lake Storage Gen2
 
@@ -79,7 +79,7 @@ Pour créer un groupe de ressources dans le portail Azure, procédez comme suit 
 3. Entrez un nom pour le nouveau groupe de ressources.
 4. Sélectionnez l’abonnement dans lequel vous créez le nouveau groupe de ressources.
 5. Choisissez l’emplacement du groupe de ressources.
-6. Cliquez sur le bouton **Créer** .  
+6. Cliquez sur le bouton **Créer**.  
 
 ![Capture d’écran montrant la création du groupe de ressources dans le portail Azure](./media/quickstart-create-account/create-resource-group.png)
 
@@ -114,6 +114,15 @@ Pour supprimer un groupe de ressources dans le portail Azure :
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Groupes de ressources** pour afficher la liste de vos groupes de ressources.
 2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton **Plus** (**...**) se trouvant à droite de la liste.
 3. Sélectionnez **Supprimer le groupe de ressources** et confirmez.
+
+
+## <a name="upgrade-your-powershell-module"></a>Mettre à niveau votre module powershell
+
+Pour interagir avec Data Lake Storage Gen2 via PowerShell, vous devez mettre à niveau votre module avec la préversion.
+
+Pour ce faire, ouvrez PowerShell avec des privilèges élevés et entrez la commande suivante : `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Ensuite, redémarrez votre interpréteur de commandes.
 
 ## <a name="create-an-account-using-powershell"></a>Créer un compte à l’aide de PowerShell
 
@@ -151,7 +160,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
@@ -162,6 +171,12 @@ Pour supprimer le groupe de ressources et les ressources associées, y compris l
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
+## <a name="upgrade-your-cli-module"></a>Mettre à niveau votre module CLI
+
+Pour interagir avec Data Lake Storage Gen2 via CLI, vous devez ajouter l’extension à votre interpréteur de commandes.
+
+Pour ce faire : à l’aide de Cloud Shell ou d’un interpréteur de commandes local, entrez la commande suivante : `az extension add --name storage-preview`
+
 ## <a name="create-an-account-using-azure-cli"></a>Créer un compte à l’aide d’Azure CLI 
 
 Pour lancer Azure Cloud Shell, connectez-vous au [portail Azure](https://portal.azure.com).
@@ -171,6 +186,7 @@ Pour vous connecter à votre installation locale de la CLI, exécutez la command
 ```cli
 az login
 ```
+
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Pour créer un groupe de ressources avec Azure CLI, utilisez la commande [az group create](/cli/azure/group#az_group_create). 
@@ -195,7 +211,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
@@ -208,6 +224,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un compte de stockage Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au démarrage rapide du stockage Blob.
+Dans ce guide de démarrage rapide, vous avez créé un compte de stockage Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au guide de démarrage rapide du stockage Blob.
 
 * [Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

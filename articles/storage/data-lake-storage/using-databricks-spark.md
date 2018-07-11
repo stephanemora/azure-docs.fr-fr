@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 013369c84ca7f2ec232f542549c22260eca46980
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062532"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096914"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Didacticiel : Accéder aux données Azure Data Lake Storage Gen2 Préversion avec DataBricks à l’aide de Spark
 
@@ -30,7 +30,7 @@ Dans ce didacticiel, vous allez apprendre à exécuter des requêtes Spark sur u
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce didacticiel montre comment consommer et interroger des données de vol de billet d’avion, qui sont mis à disposition par le [Ministère des transports américain](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Téléchargez au moins deux ans de données de billet d’avion (en sélectionnant tous les champs) et enregistrez le résultat sur votre machine. Veillez à noter le nom de fichier et le chemin d’accès de votre téléchargement ; vous aurez besoin de ces informations dans une étape ultérieure.
+Ce tutoriel montre comment consommer et interroger des données de vol de billet d’avion, qui sont mis à disposition par le [Ministère des transports américain](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Téléchargez au moins deux ans de données de billet d’avion (en sélectionnant tous les champs) et enregistrez le résultat sur votre machine. Veillez à noter le nom de fichier et le chemin d’accès de votre téléchargement ; vous aurez besoin de ces informations dans une étape ultérieure.
 
 > [!NOTE]
 > Cochez la case **Prezipped file** (Fichier précompressé) pour sélectionner tous les champs de données. Le téléchargement aura une taille de plusieurs gigaoctets, mais cette quantité de données est nécessaire pour l’analyse.
@@ -61,7 +61,7 @@ L’étape suivante consiste à créer un [cluster DataBricks](https://docs.azur
 8. Cliquez sur **Créer un cluster** en haut de la page (ce processus peut prendre jusqu’à 5 minutes).
 9. Lorsque le processus est terminé, sélectionnez **Azure Databricks** en haut à gauche de la barre de navigation.
 10. Sélectionnez **Notebook** dans la section **Nouveau** au bas de la page.
-11. Entrez le nom de votre choix dans le champ **Nom**.
+11. Entrez un nom de votre choix dans le champ **Nom**, puis sélectionnez **Python** comme langage.
 12. Tous les autres champs peuvent être laissés sur leurs valeurs par défaut.
 13. Sélectionnez **Créer**.
 14. Collez le code suivant dans la cellule **Cmd 1**, remplacez les valeurs par les valeurs que vous avez conservées dans votre compte de stockage.
@@ -96,7 +96,7 @@ Rouvrez DataBricks dans votre navigateur et effectuez les étapes suivantes :
 5. Sélectionnez **Créer**.
 6. Collez le code suivant dans la cellule **Cmd 1** (ce code s’auto-enregistre dans l’éditeur).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f31a7fbab99ad4a2dfd06b79cc2a450da0cffb62
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a96fae7d6af8f37bcdf1fe13761caef471df7d2
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048320"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085689"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
-Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant cet article : [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
 
     ![HDInsight dans un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Téléchargez le script Hive sur votre compte de stockage Blob
 
@@ -89,9 +89,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
-    Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
+    Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
         
     ```powershell
     Connect-AzureRmAccount
@@ -101,7 +101,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```powershell
     Get-AzureRmSubscription
     ```
-    Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
+    Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
@@ -138,7 +138,7 @@ Dans cette section, vous créez un runtime d’intégration autohébergé et l�
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
    ```
 
-   Voici l'exemple de sortie : 
+   Voici l’exemple de sortie : 
 
    ```powershell
    {
@@ -228,7 +228,7 @@ Mettez à jour les valeurs des propriétés suivantes dans la définition de ser
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
 ## <a name="create-linked-services"></a>Créez des services liés
-Dans PowerShell, basculez vers le dossier dans lequel vous avez créé des fichiers JSON et exécutez la commande suivante pour déployer les services liés : 
+Dans PowerShell, basculez vers le dossier dans lequel vous avez créé des fichiers JSON et exécutez la commande suivante pour déployer les services liés : 
 
 1. Dans PowerShell, basculez vers le dossier dans lequel vous avez créé des fichiers JSON.
 2. Exécutez la commande suivante pour créer un service lié Stockage Azure. 
@@ -276,7 +276,7 @@ Au cours de cette étape, vous allez créer un pipeline avec une activité Hive.
 
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 - **scriptPath** pointe vers le chemin d’accès au script Hive sur le compte de stockage Azure que vous avez utilisé pour MyStorageLinkedService. Le chemin respecte la casse.
 - **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. 
@@ -323,7 +323,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
     $result.Error -join "`r`n"
     ```
 
-   Voici la sortie de l’exemple d’exécution :
+   Voici la sortie de l’exemple d’exécution :
 
     ```json
     Pipeline run status: In Progress
@@ -370,7 +370,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
     "failureType": ""
     "target": "MyHiveActivity"
     ```
-4. Recherchez dans le dossier `outputfolder` le fichier créé en tant que résultat de la requête Hive. Le résultat doit ressembler à l’exemple suivant : 
+4. Recherchez dans le dossier `outputfolder` le fichier créé en tant que résultat de la requête Hive. Le résultat doit ressembler à l’exemple suivant : 
 
    ```
    8 en-US SCH-i500 California

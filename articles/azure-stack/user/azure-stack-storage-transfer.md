@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604724"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444134"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack
 
@@ -43,6 +43,10 @@ Vos exigences déterminent lequel des outils suivants est le mieux pour vous :
 * [Explorateur de stockage Microsoft](#microsoft-azure-storage-explorer)
 
     Application autonome, facile à utiliser, avec une interface utilisateur.
+
+* [Blobfuse ](#blobfuse)
+
+    Un pilote de système de fichiers virtuel pour Stockage Blob Azure, qui vous permet d’accéder à vos données blob de blocs dans votre compte de stockage via le système de fichiers Linux. 
 
 En raison des différences des services de stockage Azure et Azure Stack, chaque outil décrit dans les sections suivantes peut avoir des exigences spécifiques. Pour une comparaison entre le stockage Azure et le stockage Azure Stack, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
 
@@ -300,6 +304,34 @@ L’Explorateur de stockage Microsoft Azure est une application autonome de Micr
 
 * Pour en savoir plus sur la configuration de l’Explorateur de stockage Azure afin d’utiliser Azure Stack, consultez la rubrique [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack-storage-connect-se.md).
 * Pour en savoir sur l’Explorateur de stockage Microsoft Azure, consultez la rubrique [Bien démarrer avec l’Explorateur de stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+## <a name="blobfuse"></a>Blobfuse 
+
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) est un pilote de système de fichiers virtuel pour le Stockage Blob Azure, qui vous permet d’accéder à vos données blob de blocs dans votre compte de stockage via le système de fichiers Linux. Le Stockage Blob Azure est un service de stockage d’objets qui n’a pas d’espace de noms hiérarchique. Blobfuse fournit cet espace de noms en utilisant le schéma de répertoire virtuel avec la barre oblique `/` comme délimiteur. Blobfuse fonctionne à la fois sur Azure et sur Azure Stack. 
+
+Pour plus d’informations sur le montage du stockage Blob en tant que système de fichiers avec Blobfuse sur Linux, consultez [Guide pratique pour monter le stockage Blob en tant que système de fichiers avec Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+
+Pour Azure Stack, **blobEndpoint** doit être spécifié en plus de accountName, accountKey/sasToken et containerName lors de la configuration de vos informations d’identification du compte de stockage à l’étape de préparation pour le montage. 
+
+Dans le Kit de développement Azure Stack, blobEndpoint doit être `myaccount.blob.local.azurestack.external`. Pour le système intégré Azure Stack, contactez votre administrateur cloud si vous n’êtes pas sûr de votre point de terminaison. 
+
+Notez que vous ne pouvez pas configurer à la fois accountKey et sasToken. Quand la clé du compte de stockage est spécifiée, le fichier de configuration des informations d’identification est au format suivant : 
+
+```text  
+    accountName myaccount 
+    accountKey myaccesskey== 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
+
+Quand le jeton d’accès partagé est spécifié, le fichier de configuration des informations d’identification est au format suivant :
+
+```text  
+    accountName myaccount 
+    sasToken ?mysastoken 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

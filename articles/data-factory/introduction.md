@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047273"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082952"
 ---
-# <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
+# <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-introduction.md)
+> * [Version 1](v1/data-factory-introduction.md)
 > * [Version actuelle](introduction.md)
 
 Dans le monde des Big Data, les données brutes et désorganisées sont souvent enregistrées dans des systèmes de stockage relationnels, non-relationnels et autres systèmes. Toutefois, lorsqu’elles sont isolées, les données brutes n’ont pas le contexte ou la signification appropriés pour fournir des informations significatives aux analystes, aux scientifiques des données ou aux décideurs en entreprise. 
@@ -41,8 +41,8 @@ En outre, vous pouvez publier des données de sortie vers des magasins de donné
 
 ![Vue de niveau supérieur de Data Factory](media/introduction/big-picture.png)
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
-Les pipelines (flux de travail orientés données) dans Azure Data Factory effectuent généralement les quatre étapes suivantes :
+## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+Les pipelines (flux de travail orientés données) dans Azure Data Factory effectuent généralement les quatre étapes suivantes :
 
 ![Quatre étapes d’un flux de travail orienté données](media/introduction/four-steps-of-a-workflow.png)
 
@@ -82,7 +82,7 @@ Les jeux de données représentent les structures des données dans les magasins
 ### <a name="linked-services"></a>Services liés
 Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. Voyez les choses de la façon suivante : un service lié définit la connexion à la source de données et un jeu de données représente la structure des données. Par exemple, un service lié Stockage Azure spécifie la chaîne de connexion pour se connecter au compte de stockage Azure. De plus, un jeu de données blob Azure spécifie le conteneur d’objets blob et le dossier qui contient les données.
 
-Data Factory fait appel aux services liés pour deux raisons :
+Data Factory fait appel aux services liés pour deux raisons :
 
 - Pour représenter un **magasin de données** qui inclut, sans s’y limiter, une base de données SQL Server, une base de données Oracle, un partage de fichiers locaux ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des banques de données prises en charge, consultez l’article sur l’[activité de copie](copy-activity-overview.md).
 
@@ -105,7 +105,7 @@ Un service lié est également un paramètre fortement typé qui contient les in
 Control flow est une orchestration des activités du pipeline, qui inclut le chaînage des activités en une séquence, la création de branches, la définition de paramètres au niveau du pipeline et la transmission des arguments lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. Il inclut également la transmission d’états personnalisés et le bouclage des conteneurs, autrement dit, des itérateurs ForEach.
 
 
-Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
+Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
 
 - [Jeux de données et services liés](concepts-datasets-linked-services.md)
 - [Pipelines et activités](concepts-pipelines-activities.md)
@@ -113,11 +113,11 @@ Pour plus d’informations sur les concepts de Data Factory, consultez les artic
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Actuellement, vous pouvez créer des fabriques de données aux États-Unis de l'Est, États-Unis de l'Est 2 et en Europe de l'Ouest. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul.
+Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul.
 
 Azure Data Factory ne permet pas en soi de stocker des données. Il vous permet de créer des flux de travail pilotés par les données afin d’orchestrer le déplacement de données entre les magasins de données pris en charge, ainsi que le traitement des données à l’aide des services de calcul situés dans d’autres régions ou dans un environnement local. Il vous permet également de surveiller et gérer des flux de travail au moyen de programmes et à l’aide des mécanismes de l’interface utilisateur.
 
-Même si Data Factory est disponible uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et en Europe de l'Ouest, le service de déplacement des données intégré à Data Factory est disponible mondialement dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’un runtime d’intégration auto-hébergé installé dans votre environnement local.
+Même si Data Factory est disponible seulement dans certaines régions, le service de déplacement des données intégré à Data Factory est disponible mondialement dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’un runtime d’intégration auto-hébergé installé dans votre environnement local.
 
 Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe de l’ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory dans l’Est des États-Unis en ou l’Est des États-Unis 2 et l’utiliser pour planifier des tâches sur vos environnements de calcul en Europe de l’ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
 

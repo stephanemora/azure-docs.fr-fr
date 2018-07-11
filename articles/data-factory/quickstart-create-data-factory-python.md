@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 844527fcfdcc2e0db22a322cafd81d07e5bd35e7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7d348bf2372ff3bc48590b6c5e97e8eee8a4136b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048109"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084941"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Créer une fabrique de données et un pipeline à l’aide de Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](quickstart-create-data-factory-python.md)
 
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasins de données **source** et **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
-* **Créez une application dans Azure Active Directory** en suivant [cette instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notez les valeurs suivantes que vous utiliserez lors d’étapes ultérieures : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  » en suivant les instructions dans le même article.
+* **Créez une application dans Azure Active Directory** en suivant [cette instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notez les valeurs suivantes que vous utiliserez lors d’étapes ultérieures : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  » en suivant les instructions dans le même article.
 
 ### <a name="create-and-upload-an-input-file"></a>Créer et charger un fichier d’entrée
 
@@ -48,12 +48,12 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="install-the-python-package"></a>Installer le package Python
 1. Ouvrez un terminal ou une invite de commandes avec des privilèges d’administrateur. 
-2. D’abord, installez le package Python pour les ressources de gestion Azure :
+2. D’abord, installez le package Python pour les ressources de gestion Azure :
 
     ```
     pip install azure-mgmt-resource
     ```
-3. Pour installer le package Python pour Data Factory, exécutez la commande suivante :
+3. Pour installer le package Python pour Data Factory, exécutez la commande suivante :
 
     ```
     pip install azure-mgmt-datafactory
@@ -106,7 +106,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Ajoutez le code suivant à la méthode **Main** qui crée une instance de la classe DataFactoryManagementClient. Cet objet vous permet de créer la fabrique de données, un service lié, des jeux de données ainsi qu’un pipeline. Cet objet vous permet également de surveiller les détails de l’exécution du pipeline. Définissez la variable **subscription_id** pour l’ID de votre abonnement Azure. À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+3. Ajoutez le code suivant à la méthode **Main** qui crée une instance de la classe DataFactoryManagementClient. Cet objet vous permet de créer la fabrique de données, un service lié, des jeux de données ainsi qu’un pipeline. Cet objet vous permet également de surveiller les détails de l’exécution du pipeline. Définissez la variable **subscription_id** pour l’ID de votre abonnement Azure. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
     ```python   
     def main():
@@ -151,7 +151,7 @@ Ajoutez le code suivant à la méthode **Main** qui crée une **fabrique de donn
 
 Ajoutez le code suivant à la méthode **Main** qui crée un **service lié Stockage Azure**.
 
-Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce guide de démarrage rapide, vous devez uniquement créer un service lié Azure Storage pour la source de copie et le magasin récepteur, nommé « AzureStorageLinkedService » dans l’exemple. Remplacez `<storageaccountname>` et `<storageaccountkey>` par le nom et la clé de votre compte de stockage Azure.
+Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce guide de démarrage rapide, vous devez uniquement créer un service lié Azure Storage pour la source de copie et le magasin récepteur, nommé « AzureStorageLinkedService » dans l’exemple. Remplacez `<storageaccountname>` et `<storageaccountkey>` par le nom et la clé de votre compte de stockage Azure.
 
 ```python
     # Create an Azure Storage linked service
@@ -232,7 +232,7 @@ Ajoutez le code suivant à la méthode **Main** qui **déclenche une exécution 
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Surveiller une exécution du pipeline
-Pour surveiller l’exécution du pipeline, ajoutez le code suivant à la méthode **Main** :
+Pour surveiller l’exécution du pipeline, ajoutez le code suivant à la méthode **Main** :
 
 ```python
     #Monitor the pipeline run
@@ -243,7 +243,7 @@ Pour surveiller l’exécution du pipeline, ajoutez le code suivant à la métho
     print_activity_run_details(activity_runs_paged[0])
 ```
 
-Maintenant, ajoutez l’instruction suivante pour appeler la méthode**main** lorsque le programme est exécuté :
+Maintenant, ajoutez l’instruction suivante pour appeler la méthode**main** lorsque le programme est exécuté :
 
 ```python
 # Start the main method
@@ -251,7 +251,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Script complet
-Voici le code Python complet :
+Voici le code Python complet :
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -383,9 +383,9 @@ main()
 ## <a name="run-the-code"></a>Exécuter le code
 Créez et démarrez l’application, puis vérifiez l’exécution du pipeline.
 
-La console affiche la progression de la création de la fabrique de données, du service lié, des jeux de données, du pipeline et de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Utilisez ensuite des outils comme l’[explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les objets blob sont copiés dans « outputBlobPath » depuis « inputBlobPath » comme vous l’avez spécifié dans les variables.
+La console affiche la progression de la création de la fabrique de données, du service lié, des jeux de données, du pipeline et de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Utilisez ensuite des outils comme l’[explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les objets blob sont copiés dans « outputBlobPath » depuis « inputBlobPath » comme vous l’avez spécifié dans les variables.
 
-Voici l'exemple de sortie :
+Voici l’exemple de sortie :
 
 ```json
 Name: <data factory name>
@@ -419,7 +419,7 @@ Copy duration: 4
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Pour supprimer la fabrique de données, ajoutez le code suivant au programme :
+Pour supprimer la fabrique de données, ajoutez le code suivant au programme :
 
 ```python
 adf_client.factories.delete(rg_name,df_name)

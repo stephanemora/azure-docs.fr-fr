@@ -127,11 +127,13 @@
 #### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Résolution des problèmes
 #### [Données d’audit manquantes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Données manquantes dans les téléchargements](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Erreurs de pack de contenu des journaux d’activité Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Erreurs dans l’API de création de rapports Azure Active Directory](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [Accès par programme](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Composants requis](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Exemples d’audit](active-directory-reporting-api-audit-samples.md)

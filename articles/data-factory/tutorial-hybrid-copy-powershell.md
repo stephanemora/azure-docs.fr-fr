@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cfbd7080ff365daa15618b93dcfb9fd2d07aacff
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046576"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082699"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Didacticiel : Copier des données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure
-Dans ce didacticiel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud. 
+Dans ce tutoriel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud. 
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour plus d’informations, consultez [Présentation d’Azure Data Factory](introduction.md). 
 
-Dans ce didacticiel, vous effectuerez les étapes suivantes :
+Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
@@ -68,10 +68,10 @@ Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server l
 6. Dans l’arborescence, cliquez avec le bouton droit sur la base de données créée, puis sur **Nouvelle requête**.
 
 ### <a name="azure-storage-account"></a>Compte de Stockage Azure
-Dans ce didacticiel, vous utilisez un compte Stockage Azure à usage général (stockage d’objets Blob Azure spécifiquement) comme banque de données réceptrice/de destination. Si vous ne possédez pas de compte Stockage Azure à usage général, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account). Le pipeline de la fabrique de données que vous créez dans ce didacticiel copie les données de la base de données SQL Server locale (source) dans ce stockage Blob Azure (récepteur). 
+Dans ce tutoriel, vous utilisez un compte Stockage Azure à usage général (stockage d’objets Blob Azure spécifiquement) comme banque de données réceptrice/de destination. Si vous ne possédez pas de compte Stockage Azure à usage général, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account). Le pipeline de la fabrique de données que vous créez dans ce tutoriel copie les données de la base de données SQL Server locale (source) dans ce stockage Blob Azure (récepteur). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obtenir le nom de compte de stockage et la clé de compte
-Dans ce didacticiel, vous spécifiez le nom et la clé de votre compte Stockage Azure. Procédez comme suit pour obtenir le nom et la clé de votre compte de stockage : 
+Dans ce tutoriel, vous spécifiez le nom et la clé de votre compte Stockage Azure. Procédez comme suit pour obtenir le nom et la clé de votre compte de stockage : 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec vos nom d’utilisateur et mot de passe Azure. 
 
@@ -85,7 +85,7 @@ Dans ce didacticiel, vous spécifiez le nom et la clé de votre compte Stockage 
 
     ![Obtenir le nom et la clé du compte de stockage](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
-5. Dans les zones **Nom du compte de stockage** et **key1**, copiez les valeurs, puis collez-les dans le bloc-notes ou un autre éditeur pour une utilisation ultérieure dans le didacticiel. 
+5. Dans les zones **Nom du compte de stockage** et **key1**, copiez les valeurs, puis collez-les dans le bloc-notes ou un autre éditeur pour une utilisation ultérieure dans le tutoriel. 
 
 #### <a name="create-the-adftutorial-container"></a>Créer le conteneur adftutorial 
 Dans cette section, vous allez créer un conteneur d’objets blob nommé **adftutorial** dans votre stockage Blob Azure. 
@@ -106,13 +106,13 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
     ![Sélection du conteneur](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. Gardez la fenêtre **conteneur** de **adftutorial** ouverte. Elle vous permet de vérifier la sortie à la fin du didacticiel. Data Factory crée automatiquement le dossier de sortie de ce conteneur, de sorte que vous n’avez pas besoin d’en créer.
+5. Gardez la fenêtre **conteneur** de **adftutorial** ouverte. Elle vous permet de vérifier la sortie à la fin du tutoriel. Data Factory crée automatiquement le dossier de sortie de ce conteneur, de sorte que vous n’avez pas besoin d’en créer.
 
     ![Fenêtre de conteneur](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Installation d'Azure PowerShell
+#### <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
 Installez la dernière version d’Azure PowerShell, si elle n’est pas installée sur votre machine. 
 
 1. Accédez à [Téléchargements du Kit de développement logiciel Azure (SDK)](https://azure.microsoft.com/downloads/). 
@@ -121,11 +121,11 @@ Installez la dernière version d’Azure PowerShell, si elle n’est pas install
 
 3. Pour installer Azure PowerShell, exécutez le fichier MSI. 
 
-Pour des instructions détaillées, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Pour des instructions détaillées, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-powershell"></a>Se connecter à PowerShell
 
-1. Démarrez PowerShell sur votre machine et laissez-le ouvert jusqu’à la fin de ce didacticiel de démarrage rapide. Si vous le fermez, puis le rouvrez, vous devez réexécuter ces commandes.
+1. Démarrez PowerShell sur votre machine et laissez-le ouvert jusqu’à la fin de ce tutoriel de démarrage rapide. Si vous le fermez, puis le rouvrez, vous devez réexécuter ces commandes.
 
     ![Démarrer PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 
@@ -135,7 +135,7 @@ Pour des instructions détaillées, consultez [Installation et configuration d�
     Connect-AzureRmAccount
     ```        
 
-3. Si vous avez plusieurs abonnements Azure, exécutez la commande suivante pour sélectionner l’abonnement avec lequel vous souhaitez travailler. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
+3. Si vous avez plusieurs abonnements Azure, exécutez la commande suivante pour sélectionner l’abonnement avec lequel vous souhaitez travailler. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
@@ -185,7 +185,7 @@ Pour des instructions détaillées, consultez [Installation et configuration d�
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles *contributeur* ou *propriétaire*, ou un *administrateur* de l’abonnement Azure.
-> * Actuellement, vous ne pouvez créer des fabriques de données que dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l'Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (Azure HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+> * Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (Azure HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 > 
 > 
 
@@ -193,7 +193,7 @@ Pour des instructions détaillées, consultez [Installation et configuration d�
 
 Dans cette section, vous allez créer un runtime d’intégration auto-hébergé et l’associer à un ordinateur local avec la base de données SQL Server. Le runtime d’intégration auto-hébergé est le composant qui copie les données de la base de données SQL Server sur votre machine dans le stockage Blob Azure. 
 
-1. Créez une variable pour le nom du runtime d’intégration. Utilisez un nom unique, et notez-le. Vous l’utiliserez ultérieurement dans ce didacticiel. 
+1. Créez une variable pour le nom du runtime d’intégration. Utilisez un nom unique, et notez-le. Vous l’utiliserez ultérieurement dans ce tutoriel. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
@@ -204,7 +204,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
@@ -221,7 +221,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
     
     ```json
     Nodes                     : {}
@@ -246,7 +246,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
     
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
     
     ```json
     {
@@ -316,10 +316,10 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     h. Cliquez sur **Tester** pour vérifier que le runtime d’intégration se connecte à SQL Server.  
     Une coche verte apparaît si la connexion est établie. Sinon, c’est un message d’erreur concernant l’échec qui apparaît. Corrigez les problèmes et assurez-vous que le runtime d’intégration peut se connecter à votre instance SQL Server.
 
-    Notez toutes les valeurs précédentes pour une utilisation ultérieure dans ce didacticiel.
+    Notez toutes les valeurs précédentes pour une utilisation ultérieure dans ce tutoriel.
     
 ## <a name="create-linked-services"></a>Créez des services liés
-Créez des services liés dans la fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce didacticiel, vous liez votre compte Stockage Azure et votre instance SQL Server locale à la banque de données. Les services liés comportent les informations de connexion utilisées par le service de fabrique de données lors de l’exécution pour s’y connecter. 
+Créez des services liés dans la fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce tutoriel, vous liez votre compte Stockage Azure et votre instance SQL Server locale à la banque de données. Les services liés comportent les informations de connexion utilisées par le service de fabrique de données lors de l’exécution pour s’y connecter. 
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Créer un service lié Stockage Azure (destination/réception)
 Dans cette étape, vous liez votre compte Stockage Azure à la fabrique de données.
@@ -352,7 +352,7 @@ Dans cette étape, vous liez votre compte Stockage Azure à la fabrique de donn�
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
    ```
 
-   Voici un exemple de sortie :
+   Voici un exemple de sortie :
 
     ```json
     LinkedServiceName : AzureStorageLinkedService
@@ -482,7 +482,7 @@ Dans cette étape, vous définissez un jeu de données qui représente les donn�
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     DatasetName       : SqlServerDataset
@@ -524,7 +524,7 @@ Le service lié comporte les informations de connexion utilisées par le service
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     DatasetName       : AzureBlobDataset
@@ -535,7 +535,7 @@ Le service lié comporte les informations de connexion utilisées par le service
     ```
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
-Dans ce didacticiel, vous allez créer un pipeline avec une activité de copie. L’activité de copie utilise SqlServerDataset en tant que jeu de données d’entrée et AzureBlobDataset en tant que jeu de données de sortie. Le type de source est défini sur *SqlSource* et le type de récepteur sur *BlobSink*.
+Dans ce tutoriel, vous allez créer un pipeline avec une activité de copie. L’activité de copie utilise SqlServerDataset en tant que jeu de données d’entrée et AzureBlobDataset en tant que jeu de données de sortie. Le type de source est défini sur *SqlSource* et le type de récepteur sur *BlobSink*.
 
 1. Créez un fichier JSON sous le nom *SqlServerToBlobPipeline.json* dans le dossier *C:\ADFv2Tutorial* avec le code suivant :
 
@@ -579,7 +579,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec une activité de copie. 
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     PipelineName      : SQLServerToBlobPipeline
@@ -596,7 +596,7 @@ Démarrez l’exécution du pipeline SQLServerToBlobPipeline et capturez l’ID 
 $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
 ```
 
-## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
+## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline
 
 1. Pour vérifier en permanence l’état d’exécution du pipeline SQLServerToBlobPipeline, exécutez le script suivant dans PowerShell et imprimez le résultat final :
 
@@ -616,7 +616,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     }
     ```
 
-    Voici la sortie de l’exemple d’exécution :
+    Voici la sortie de l’exemple d’exécution :
 
     ```jdon
     ResourceGroupName : <resourceGroupName>
@@ -641,7 +641,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     ($result | Where-Object {$_.ActivityName -eq "CopySqlServerToAzureBlobActivity"}).Output.ToString()
     ```
 
-    Voici la sortie de l’exemple d’exécution :
+    Voici la sortie de l’exemple d’exécution :
 
     ```json
     {
@@ -669,7 +669,7 @@ Le pipeline crée automatiquement le dossier de sortie nommé *fromonprem* dans 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes :
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
@@ -682,7 +682,7 @@ Dans cet exemple, le pipeline copie les données d’un emplacement vers un autr
 
 Pour obtenir la liste des magasins de données pris en charge par Data Factory, consultez l’article [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Passez au didacticiel suivant pour découvrir comment copier des données en bloc d’une source vers une destination :
+Passez au tutoriel suivant pour découvrir comment copier des données en bloc d’une source vers une destination :
 
 > [!div class="nextstepaction"]
 >[Copier des données en bloc](tutorial-bulk-copy.md)

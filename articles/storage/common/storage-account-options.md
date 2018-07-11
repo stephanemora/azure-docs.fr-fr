@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335769"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445419"
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
@@ -46,7 +46,10 @@ Les comptes de stockage GPv2 exposent l’attribut **Niveau d’accès** au nive
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Mettre à niveau un compte de stockage vers un compte GPv2
 
-Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 ou de stockage d’objets blob vers un compte GPv2 à l’aide de PowerShell ou de l’interface de ligne de commande Azure. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée.
+Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 en utilisant le portail Azure, PowerShell ou l’interface de ligne de commande Azure. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée.
+
+#### <a name="upgrade-with-azure-portal"></a>Mettre à niveau avec le portail Azure
+Pour mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 avec le portail Azure, connectez-vous d’abord au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Sélectionnez **Paramètres** > **Configuration**. Vous voyez le bouton **Mettre à niveau**, ainsi qu’une remarque concernant le processus de mise à niveau.
 
 #### <a name="upgrade-with-powershell"></a>Mise à niveau à l’aide de PowerShell
 
@@ -262,9 +265,9 @@ Le coût de transfert de données de géoréplication des comptes de stockage d�
 
 ## <a name="migrating-existing-data"></a>Migration des données existantes
 
-Un compte GPv1 peut être facilement mis à niveau vers un compte GPv2 sans temps d’arrêt ni modifications de l’API, et sans migration des données. Il est donc vivement recommandé de migrer les comptes GPv1 vers des comptes GPv2 plutôt que vers des comptes de stockage d’objets blob.
+Un compte GPv1 ou de stockage Blob peut être facilement mis à niveau vers un compte GPv2 sans temps d’arrêt ni modifications de l’API, et sans migration des données. Il est donc vivement recommandé de migrer les comptes GPv1 vers des comptes GPv2 plutôt que vers des comptes de stockage d’objets blob. Pour plus d’informations sur la mise à niveau vers GPv2, consultez [Mettre à niveau un compte de stockage vers un compte GPv2](#upgrade-a-storage-account-to-gpv2).
 
-Toutefois, si vous avez besoin de migrer vers un compte de stockage d’objets blob et que vous ne pouvez pas utiliser des comptes GPv2, vous pouvez suivre les instructions ci-dessous. 
+Cependant, si vous avez besoin de migrer depuis un compte GPv1 vers un compte de stockage Blob et que vous ne pouvez pas utiliser des comptes GPv2, vous pouvez suivre les instructions ci-dessous. 
 
 Un compte de stockage d’objets blob est un compte spécialisé pour stocker uniquement les objets blob de blocs et d’ajout. Les comptes de stockage à usage général existants, qui vous permettent également de stocker des tables, des files d’attente, des fichiers, des disques et des objets blob ne peuvent pas être convertis en comptes de stockage d’objets blob. Pour utiliser les niveaux de stockage, vous devez créer des comptes de stockage d’objets blob et migrer vos données existantes vers les comptes nouvellement créés. 
 
