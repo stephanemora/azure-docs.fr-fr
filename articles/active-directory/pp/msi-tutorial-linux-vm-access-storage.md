@@ -15,11 +15,11 @@ ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 4a1a2d0c40012649f6cd89193fd3f704f325e38a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513922"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611042"
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Utiliser une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux pour accéder au stockage Azure
 
@@ -34,7 +34,6 @@ Ce didacticiel vous montre comment créer et utiliser une identité MSI (Managed
 > * Obtenir un jeton d’accès par l’intermédiaire de l’identité MSI affectée à l’utilisateur, et l’utiliser pour accéder au stockage Azure
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

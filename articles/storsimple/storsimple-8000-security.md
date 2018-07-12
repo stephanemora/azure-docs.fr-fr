@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650935"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906385"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
@@ -43,7 +43,7 @@ Les sections suivantes décrivent les fonctionnalités de sécurité StorSimple 
 
 Le service StorSimple Device Manager est un service de gestion hébergé dans Microsoft Azure, qui permet de gérer tous les appareils StorSimple de votre organisation. Vous pouvez accéder au service StorSimple Device Manager en vous connectant au portail Azure via un navigateur web à l’aide de vos informations d’identification professionnelles.
 
-L’accès au service StorSimple Device Manager requiert que votre organisation dispose d’un abonnement Azure incluant StorSimple. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure. Si votre organisation ne dispose pas d’un abonnement Azure et que vous souhaitez en savoir plus à ce sujet, consultez [Inscription à Azure en tant qu’organisation](../active-directory/sign-up-organization.md).
+L’accès au service StorSimple Device Manager requiert que votre organisation dispose d’un abonnement Azure incluant StorSimple. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure. Si votre organisation ne dispose pas d’un abonnement Azure et que vous souhaitez en savoir plus à ce sujet, consultez [Inscription à Azure en tant qu’organisation](../active-directory/fundamentals/sign-up-organization.md).
 
 Étant donné que le service StorSimple Device Manager est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
@@ -267,7 +267,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Vous pouvez télécharger le nouveau certificat à partir du service StorSimple Device Manager, puis l’installer dans le magasin de certificats de vos clients d’accès à distance. Pour obtenir des instructions, consultez :
 
-* [Applet de commande Import-Certificate](https://technet.microsoft.com/library/hh848630.aspx)
+* [Applet de commande Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **Q :** Mes données sont-elles protégées si le service StorSimple Device Manager est compromis ?
 

@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4ee6eefa431b06e0cb694635e188c87a8a4175c9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737263"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916477"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotéger des machines depuis Azure vers un site local
 
@@ -67,7 +67,7 @@ Le serveur cible maître reçoit les données de la restauration automatique. Pa
 
 Après avoir créé un serveur cible maître, effectuez les tâches suivantes :
 
-- Si la machine virtuelle est présente localement sur le serveur vCenter, le serveur cible maître a besoin d’accéder au fichier VMDK (Virtual Machine Disk) de la machine virtuelle locale. L’accès est obligatoire pour écrire les données répliquées sur les disques de la machine virtuelle. Assurez-vous que la banque de données de la machine virtuelle locale est montée sur l’hôte du serveur cible maître avec accès en lecture/écriture.
+- Si la machine virtuelle est présente localement sur le serveur vCenter, le serveur cible maître a besoin d’accéder au fichier VMDK (Virtual Machine Disk) de la machine virtuelle locale. L’accès est obligatoire pour écrire les données répliquées sur les disques de la machine virtuelle. Assurez-vous que le magasin de données de la machine virtuelle locale est monté sur l’hôte du serveur cible maître avec accès en lecture/écriture.
 - Si la machine virtuelle n’est pas présente en local sur le serveur vCenter, le service Site Recovery doit créer une nouvelle machine virtuelle pendant la reprotection. Cette machine virtuelle est créée sur l’hôte ESX sur lequel vous créez le serveur cible maître. Sélectionnez bien l’hôte ESX afin que la machine virtuelle de la restauration automatique soit créée sur l’hôte de votre choix.
 - Vous ne pouvez pas utiliser Storage vMotion pour le serveur cible maître. L’utilisation de Storage vMotion pour le serveur cible maître risque d’entraîner l’échec de la restauration automatique. La machine virtuelle ne peut pas démarrer, car les disques ne sont pas disponibles. Pour éviter que cela n’arrive, excluez les serveurs cibles maîtres de votre liste vMotion.
 - Si un serveur cible maître subit une tâche Storage vMotion après la reprotection, les disques de machine virtuelle protégés qui sont attachés au serveur cible maître migrent vers la cible de la tâche vMotion. Si vous essayez d’effectuer une restauration automatique après cela, le détachement des disques échoue car les disques sont introuvables. Cela devient difficile de trouver les disques dans vos comptes de stockage. Vous devez les rechercher manuellement et les attacher à la machine virtuelle. Après quoi, vous pouvez démarrer la machine virtuelle locale.

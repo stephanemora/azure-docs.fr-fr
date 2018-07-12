@@ -16,17 +16,17 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 31d93fc8b2034152e61d24a789bba62bfd3b7892
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639807"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635436"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-application"></a>Démarrage rapide : Utiliser le Cache Redis Azure avec une application .NET
 
 
 
-Ce démarrage rapide vous montre comment utiliser le Cache Redis Microsoft Azure avec .NET. Le Cache Redis Microsoft Azure se base sur le cache Redis open source connu. Il vous donne accès à un cache Redis dédié et sécurisé, qui est géré par Microsoft. Un cache créé avec Cache Redis Azure est accessible à partir de toutes les applications dans Microsoft Azure.
+Ce démarrage rapide vous montre comment utiliser le Cache Redis Microsoft Azure avec .NET. Le Cache Microsoft Azure Redis se base sur le cache Redis open source connu. Il vous donne accès à un cache Redis dédié et sécurisé, qui est géré par Microsoft. Un cache créé avec Cache Redis Azure est accessible à partir de toutes les applications dans Microsoft Azure.
 
 Dans ce démarrage rapide, vous allez utiliser le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) avec une code C\# dans une application console. Vous allez créer un cache et configurer l’application cliente .NET. Ensuite, vous ajouterez et mettrez à jour des objets dans le cache. 
 
@@ -37,7 +37,7 @@ Dans ce démarrage rapide, vous allez utiliser le client [StackExchange.Redis](h
 ## <a name="prerequisites"></a>Prérequis
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* Le client StackExchange.Redis a besoin de [.NET Framework 4 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+* Le client StackExchange.Redis a besoin de [.NET Framework 4 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-framework-runtime).
 
 ## <a name="create-a-cache"></a>Création d'un cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -244,7 +244,7 @@ Appuyez sur **Ctrl + F5** pour générer et exécuter l’application console po
 ![Application console terminée](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce guide de démarrage rapide afin de les réutiliser.
 
@@ -273,6 +273,6 @@ Après quelques instants, le groupe de ressources et toutes les ressources qu’
 Dans ce démarrage rapide, vous avez appris à utiliser le Cache Redis Azure à partir d’une application .NET. Continuez avec le démarrage rapide suivant pour utiliser le Cache Redis avec une application web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Créer une application web ASP.NET qui utilise un cache Redis Azure.](./cache-web-app-howto.md)
+> [Créer une application web ASP.NET qui utilise un Cache Redis Azure.](./cache-web-app-howto.md)
 
 

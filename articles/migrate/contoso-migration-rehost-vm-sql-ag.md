@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 33ab56003f2d9428816ea0f32cfd6381ea857df3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301301"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611286"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Migration de Contoso : réhéberger une application locale vers des machines virtuelles Azure et vers un groupe de disponibilité AlwaysOn SQL Server
 
@@ -23,14 +23,14 @@ Ce document fait partie d’une série d’articles qui montrent comment la soci
 
 **Article** | **Détails** | **État**
 --- | --- | ---
-[Article 1 : Vue d’ensemble](contoso-migration-overview.md) | Fournit une vue d’ensemble de la stratégie de migration de Contoso, de la série d’articles et des exemples d’applications que nous utilisons. | Disponible
-[Article 2 : Déployer une infrastructure Azure](contoso-migration-infrastructure.md) | Décrit comment Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration. | Disponible
-[Article 3 : Évaluer les ressources locales](contoso-migration-assessment.md)  | Montre comment Contoso évalue une application à deux niveaux locale SmartHotel s’exécutant sur VMware. Contoso évalue les machines virtuelles de l’application avec le service [Azure Migrate](migrate-overview.md) et la base de données SQL Server de l’application avec [l’Assistant Migration de données Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
+[Article 1 : vue d’ensemble](contoso-migration-overview.md) | Fournit une vue d’ensemble de la stratégie de migration de Contoso, de la série d’articles et des exemples d’application que nous utilisons. | Disponible
+[Article 2 : Déployer une infrastructure Azure](contoso-migration-infrastructure.md) | Décrit comment Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration. | Disponible
+[Article 3 : Évaluer les ressources locales](contoso-migration-assessment.md)  | Montre comment Contoso évalue une application à deux niveaux locale SmartHotel s’exécutant sur VMware. Contoso évalue les machines virtuelles de l’application avec le service [Azure Migrate](migrate-overview.md) et la base de données SQL Server de l’application avec [l’Assistant Migration de données Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
 [Article 4 : Réhéberger une application sur des machines virtuelles Azure et une instance SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Montre comment Contoso exécute une migration lift-and-shift vers Azure pour l’application SmartHotel. Elle migre la machine virtuelle frontale de l’application à l’aide d’[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), et la base de données de l’application vers une instance SQL Managed Instance à l’aide du [service Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible
 [Article 5 : Réhéberger une application sur des machines virtuelles Azure](contoso-migration-rehost-vm.md) | Montre comment Contoso migre les machines virtuelles de l’application SmartHotel en utilisant uniquement Site Recovery.
 Article 6 : Réhéberger une application sur des machines virtuelles et un groupes de disponibilité AlwaysOn SQL Server (cet article) | Montre comment Contoso migre l’application SmartHotel. Elle utilise Site Recovery pour migrer la machine virtuelle de l’application, et Database Migration Service pour migrer la base de données de l’application vers un cluster SQL Server protégé par un groupe de disponibilité AlwaysOn. | Disponible
 [Article 7 : Réhéberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Montre comment Contoso effectue une migration lift-and-shift de l’application osTicket Linux sur des machines virtuelles Azure à l’aide de Site Recovery. | Prévu
-[Article 8 : Réhéberger une application Linux sur des machines virtuelles Azure et Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Montre comment Contoso migre l’application osTicket Linux vers des machines virtuelles Azure à l’aide de Site Recovery, et migre la base de données de l’application vers une instance Azure MySQL Server à l’aide de MySQL Workbench. | Disponible
+[Article 8 : ré-héberger une application Linux sur des machines virtuelles Azure et Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Montre comment Contoso migre l’application osTicket Linux vers des machines virtuelles Azure à l’aide de Site Recovery, et migre la base de données de l’application vers une instance Azure MySQL Server à l’aide de MySQL Workbench. | Disponible
 
 
 
@@ -205,7 +205,7 @@ Avant de configurer le cluster, Contoso prend un instantané du disque du systè
 
 ## <a name="configure-the-cloud-witness"></a>Configurer le témoin de cloud
 
-1. Contoso configure le témoin de cloud à l’aide de l’**Assistant de configuration de quorum dans le gestionnaire du cluster de basculement.
+1. Contoso configure le témoin de cloud à l’aide de l’**Assistant de configuration de quorum** dans le gestionnaire du cluster de basculement.
 2. Dans l’Assistant, on sélectionne un témoin de cloud avec le compte de stockage.
 3. Une fois que le témoin de cloud est configuré, il s’affiche dans le composant logiciel enfichable Gestionnaire du Cluster de basculement.
 
@@ -513,7 +513,7 @@ Contoso migrera la base de données SmartHotel vers la machine virtuelle Azure *
 
     ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-1.png)
 
-3. Dans les détails de la migration, ajouter **SQLVM comme serveur source et SQLAOG1 comme cible. Spécifier des informations d’identification pour chaque machine.
+3. Dans les détails de la migration, ajouter **SQLVM** comme serveur source et **SQLAOG1** comme cible. Spécifier des informations d’identification pour chaque machine.
 
      ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-2.png)
 
@@ -550,7 +550,7 @@ Contoso peut protéger la base de données de l’application en cours d’exéc
 
     ![Groupe de disponibilité AlwaysOn](media/contoso-migration-rehost-vm-sql-ag/aog-3.png)
 
-5. L’amorçage automatique est activé dans **Sélectionner la synchronisation des données. Avec cette option, SQL Server crée automatiquement les réplicas secondaires pour chaque base de données du groupe, pour que Contoso n’ait pas à les sauvegarder et à les restaurer manuellement. Après la validation, le groupe de disponibilité est créé.
+5. L’amorçage automatique est activé dans **Sélectionner la synchronisation des données**. Avec cette option, SQL Server crée automatiquement les réplicas secondaires pour chaque base de données du groupe, pour que Contoso n’ait pas à les sauvegarder et à les restaurer manuellement. Après la validation, le groupe de disponibilité est créé.
 
     ![Groupe de disponibilité AlwaysOn](media/contoso-migration-rehost-vm-sql-ag/aog-4.png)
 
@@ -576,7 +576,7 @@ Une fois que tout est configuré, Contoso a un groupe de disponibilité fonction
 **Besoin de plus d’aide ?**
 - En savoir plus sur la création d’un [groupe de disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#create-the-availability-group) et d’un [écouteur](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#configure-listener).
 - [Configurer le cluster pour qu’il utilise l’adresse IP de l’équilibreur de charge](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener#configure-the-cluster-to-use-the-load-balancer-ip-address) (manuellement).
-- [En savoir plus](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-2) sur la création et l’utilisation de SAP.
+- [En savoir plus](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2) sur la création et l’utilisation de SAP.
 
 
 ## <a name="step-8-migrate-the-vm-with-site-recovery"></a>Étape 8 : migrer la machine virtuelle avec Site Recovery

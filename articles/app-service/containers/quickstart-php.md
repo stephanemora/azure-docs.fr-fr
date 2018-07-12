@@ -16,11 +16,11 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30230644"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306784"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Créer une application web PHP dans App Service sur Linux
 
@@ -38,8 +38,7 @@ Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Win
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce démarrage rapide :
+Pour suivre ce guide de démarrage rapide :
 
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
 * <a href="https://php.net" target="_blank">Installez PHP</a>

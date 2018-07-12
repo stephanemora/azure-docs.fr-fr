@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aa6f3560d3939eb448c4193e3b3301073c601904
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284035"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916600"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Répliquer une machine virtuelle Azure vers une autre région Azure
 
@@ -52,7 +52,7 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 
    ![État de la réplication](media/azure-to-azure-quickstart/replication-status.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 La réplication de la machine virtuelle dans la région principale cesse quand vous désactivez la réplication pour cette machine :
 

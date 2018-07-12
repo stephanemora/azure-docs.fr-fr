@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
 ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335473"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635374"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Démarrage rapide : contrôler un appareil connecté à un IoT Hub (.NET)
 
@@ -141,7 +141,7 @@ L’application back-end se connecte au point de terminaison côté service sur 
 
     ![Changement dans le client simulé](media/quickstart-control-device-dotnet/SimulatedDevice-2.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
