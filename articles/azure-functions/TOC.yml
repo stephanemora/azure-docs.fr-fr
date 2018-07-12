@@ -11,12 +11,12 @@
   items:
     - name: Créer la fonction - portail
       href: functions-create-first-azure-function.md
-    - name: Créer la fonction - CLI Azure
-      href: functions-create-first-azure-function-azure-cli.md
     - name: Créer une fonction - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: Créer une fonction - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: Créer la fonction - CLI Azure
+      href: functions-create-first-azure-function-azure-cli.md
     - name: Créer une fonction - Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Déclencheurs
@@ -97,6 +97,8 @@
       items:
         - name: Vue d'ensemble
           href: durable-functions-overview.md
+        - name: Types de fonctions et fonctionnalités
+          href: durable-functions-types-features-overview.md
         - name: Liaisons
           href: durable-functions-bindings.md
         - name: Point de contrôle et relecture

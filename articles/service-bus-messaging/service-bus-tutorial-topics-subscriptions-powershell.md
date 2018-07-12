@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651476"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531658"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
 
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Envoyer les messages et vérifiez qu’ils arrivent dans les abonnements attendus
 > * Recevoir des messages des abonnements
 
-Un exemple de ce scénario est une mise à jour d’assortiment d’inventaire pour plusieurs magasins de détail. Dans ce scénario, chaque magasin ou ensemble de magasins, reçoit les messages destinés à mettre à jour leurs assortiments. Ce tutoriel montre comment implémenter ce scénario à l’aide de filtres et des abonnements. Tout d’abord, vous créez une rubrique avec 3 abonnements, ajoutez des règles et des filtres, puis vous envoyez et recevez des messages à partir de la rubrique et des abonnements.
+Un exemple de ce scénario est une mise à jour d’assortiment d’inventaire pour plusieurs magasins de détail. Dans ce scénario, chaque magasin ou ensemble de magasins, reçoit les messages destinés à mettre à jour leurs assortiments. Ce tutoriel montre comment implémenter ce scénario à l’aide des filtres et des abonnements. Tout d’abord, vous créez une rubrique avec 3 abonnements, ajoutez des règles et des filtres, puis vous envoyez et recevez des messages à partir de la rubrique et des abonnements.
 
 ![file d'attente](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
@@ -40,10 +40,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou version ultérieure.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou ultérieur.
 2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
-Pour ce tutoriel, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez installer ou mettre à niveau, consultez [Installation et configuration d’Azure PowerShell][].
+Pour ce tutoriel, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation et configuration d’Azure PowerShell][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -92,7 +92,7 @@ Après l’exécution de la cmdlet `Get-AzureRmServiceBusKey`, copiez et collez 
 
 ## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 
-Une fois que l’espace de noms et la file d’attente sont créés et que vous avez les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Pou pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
+Une fois que l’espace de noms et la file d’attente sont créés et que vous avez les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
 
 Pour exécuter le code, procédez comme suit :
 
@@ -106,7 +106,7 @@ Pour exécuter le code, procédez comme suit :
 
 3. Accédez à l’exemple de dossier `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Si vous ne l’avez pas déjà fait, obtenez la chaîne de connexion à l’aide de la cmdlet PowerShell suivante. Veillez à remplacer `my-resourcegroup` et `namespace-name` avec vos valeurs spécifiques : 
+4. Si vous ne l’avez pas déjà fait, obtenez la chaîne de connexion à l’aide de l’applet de commande PowerShell suivante. Veillez à remplacer `my-resourcegroup` et `namespace-name` avec vos valeurs spécifiques : 
 
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
@@ -117,7 +117,7 @@ Pour exécuter le code, procédez comme suit :
    dotnet build
    ```
 6.  Accédez au dossier `\bin\Debug\netcoreapp2.0`.
-7.  Tapez la commande suivante pour exécuter le programme. Veillez à remplacer `myConnectionString` avec la valeur que vous avez obtenu précédemment, et `myQueueName` par le nom de la file d’attente que vous avez créée :
+7.  Tapez la commande suivante pour exécuter le programme. Veillez à remplacer `myConnectionString` par la valeur que vous avez obtenu précédemment, et `myQueueName` par le nom de la file d’attente que vous avez créée :
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -126,7 +126,7 @@ Pour exécuter le code, procédez comme suit :
 
    ![sortie du programme](./media/service-bus-quickstart-powershell/dotnet.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, l’espace de noms et toutes les ressources associées :
 
@@ -134,13 +134,13 @@ Exécutez la commande suivante pour supprimer le groupe de ressources, l’espac
 Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Cette section contient plus de détails sur ce que fait l’exemple de code. 
 
 ### <a name="get-connection-string-and-queue"></a>Obtention de la chaîne de connexion et de la file d’attente
 
-Le nom de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
+Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
 
 ```csharp
 static void Main(string[] args)
@@ -269,7 +269,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez provisionné des ressources à l’aide d’Azure PowerShell, puis envoyé et reçu des messages à partir d’une rubrique Service Bus et de ses abonnements. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez provisionné des ressources à l’aide d’Azure PowerShell, puis envoyé et reçu des messages à partir d’une rubrique Service Bus et de ses abonnements. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une rubrique Service Bus et un ou plusieurs abonnements à cette rubrique à l’aide du portail Azure

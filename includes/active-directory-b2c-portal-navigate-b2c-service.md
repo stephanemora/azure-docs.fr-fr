@@ -1,1 +1,1 @@
-Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez désormais utiliser le locataire que vous avez créé dans le tutoriel précédent.
+Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez désormais utiliser le locataire que vous avez créé dans le tutoriel précédent.

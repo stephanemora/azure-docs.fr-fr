@@ -13,6 +13,7 @@
 ## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Groupes d’administration](management-groups-overview.md)
 ## [Gouvernance de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Modèles pour la cohérence du cloud](templates-cloud-consistency.md)
 
 # Procédures
 ## Créer des modèles

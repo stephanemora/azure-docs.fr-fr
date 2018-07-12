@@ -10,6 +10,8 @@
   items:
     - name: Déployer une solution de surveillance à distance
       href: quickstart-remote-monitoring-deploy.md
+    - name: Déployer une solution de maintenance prédictive
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Déployer une solution de simulation d’appareil
       href: quickstart-device-simulation-deploy.md
 - name: Didacticiels

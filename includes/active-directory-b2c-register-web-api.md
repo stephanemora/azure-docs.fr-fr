@@ -6,9 +6,9 @@ Pour inscrire votre API web, utilisez les paramètres spécifiés dans la table.
 
 | Paramètre      | Exemple de valeur  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Nom** | API de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre API aux consommateurs. | 
-| **Application/API web** | Oui | Sélectionnez **Oui** pour une API web. |
-| **Autoriser le flux implicite** | Oui | Choisissez **Oui** si votre application doit utiliser une [connexion OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
+| **Name** | API de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre API aux consommateurs. | 
+| **Application/API web** | OUI | Sélectionnez **Oui** pour une API web. |
+| **Autoriser le flux implicite** | OUI | Choisissez **Oui** si votre application doit utiliser une [connexion OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
 | **URL de réponse** | `https://localhost:44316/` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Entrez une URL [appropriée](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) comme **URL de réponse**. Dans cet exemple, votre API web est locale et à l’écoute sur le port 44316. |
 | **URI ID d’application** | api | L’URI ID d’application est l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. |
 
