@@ -5,23 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: aad4fa9e8a3cfeaa01abc0512830bba63f90d4be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1aa666fcbb91ca62a9c33f91bfd266589864af9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626016"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865104"
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Créer et acheminer des événements personnalisés avec Azure PowerShell et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure PowerShell pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
-Une fois terminé, vous voyez que les données d’événement ont été envoyées à une application web.
+Une fois que vous avez fini, vous voyez que les données d’événement ont été envoyées à l’application web.
 
-![Affichage des résultats](./media/custom-event-quickstart-powershell/view-result.png)
+![Afficher les résultats](./media/custom-event-quickstart-powershell/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,6 +39,8 @@ L’exemple suivant crée un groupe de ressources nommé *gridResourceGroup* à 
 New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 ```
 
+[!INCLUDE [event-grid-register-provider-powershell.md](../../includes/event-grid-register-provider-powershell.md)]
+
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
 Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<your-topic-name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car c’est une partie de l’entrée DNS.
@@ -51,9 +53,9 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. En règle générale, le point de terminaison entreprend des actions basées sur les données d’événement. Pour simplifier ce démarrage rapide, vous déployez une [application web préconfigurée](https://github.com/dbarkol/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée inclut un plan App Service, une application web App Service et le code source à partir de GitHub.
+Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/dbarkol/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
 
-Remplacez `<your-site-name>` par un nom unique pour votre application web. Le nom de l’application web doit être unique, car c’est une partie de l’entrée DNS.
+Remplacez `<your-site-name>` par un nom unique pour votre application web. Le nom de l’application web doit être unique, car il fait partie de l’entrée DNS.
 
 ```powershell-interactive
 $sitename="<your-site-name>"
@@ -65,9 +67,9 @@ New-AzureRmResourceGroupDeployment `
   -hostingPlanName viewerhost
 ```
 
-Le déploiement peut prendre plusieurs minutes. Une fois le déploiement réussi, affichez votre application web pour vérifier qu’elle s’exécute. Dans un navigateur web, accédez à : `https://<your-site-name>.azurewebsites.net`
+Le déploiement peut prendre quelques minutes. Une fois le déploiement réussi, affichez votre application web pour vérifier qu’elle s’exécute. Dans un navigateur web, accédez à : `https://<your-site-name>.azurewebsites.net`
 
-Vous devez voir le site sans messages actuellement affichés.
+Vous devez voir le site sans messages affichés.
 
 ## <a name="subscribe-to-a-topic"></a>S’abonner à une rubrique
 
@@ -85,7 +87,7 @@ New-AzureRmEventGridSubscription `
   -TopicName $topicname
 ```
 
-Affichez votre application web de nouveau et notez qu’un événement de validation d’abonnement lui a été envoyée. Sélectionnez l’icône d’œil pour développer les données d’événement. Event Grid envoie l’événement de validation afin que le point de terminaison puisse vérifier qu’il souhaite recevoir des données d’événement. L’application web inclut du code pour valider l’abonnement.
+Affichez à nouveau votre application web, et notez qu’un événement de validation d’abonnement lui a été envoyé. Sélectionnez l’icône en forme d’œil pour développer les données d’événements. Event Grid envoie l’événement de validation pour que le point de terminaison puisse vérifier qu’il souhaite recevoir des données d’événement. L’application web inclut du code pour valider l’abonnement.
 
 ![Afficher l’événement d’abonnement](./media/custom-event-quickstart-powershell/view-subscription-event.png)
 
@@ -132,7 +134,7 @@ Envoyez un événement à votre rubrique.
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Affichez votre application web pour afficher les événements que vous venez d’envoyer.
+Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Affichez votre application web pour voir l’événement que vous venez d’envoyer.
 
 ```json
 [{
@@ -150,7 +152,7 @@ Vous avez déclenché l’événement, et Event Grid a envoyé le message au poi
 }]
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez de continuer à utiliser cet événement ou l’application de visionnage d’évènement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
 

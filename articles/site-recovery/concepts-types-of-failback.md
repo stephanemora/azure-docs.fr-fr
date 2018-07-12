@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: guaravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29803550"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920387"
 ---
 # <a name="overview-of-failback"></a>Vue d’ensemble de la restauration automatique
 
@@ -36,7 +36,7 @@ Si vous décidez de procéder à une restauration automatique vers la machine vi
 * Vous pouvez effectuer une restauration automatique sur un réseau de stockage virtuel (vSAN) ou un disque RDM (Raw Device Mapping), si les disques existent déjà et sont connectés à la machine virtuelle locale.
 
 > [!IMPORTANT]
-> Il est important activer disk.enableUUID= TRUE afin que, lors de la restauration automatique, le service Azure Site Recovery pisse identifier le VMDK d’origine sur la machine virtuelle sur laquelle les modifications en attente seront écrites. Si cette valeur n’est pas définie sur TRUE, le service s’efforce d’identifier le VMDK local correspondant. Si le VMDK correct n’est trouvé, un disque supplémentaire est créé, sur lequel les données sont écrites.
+> Il est important d'activer disk.enableUUID= TRUE afin que, lors de la restauration automatique, le service Azure Site Recovery puisse identifier le VMDK d’origine sur la machine virtuelle sur laquelle les modifications en attente seront écrites. Si cette valeur n’est pas définie sur TRUE, le service s’efforce d’identifier le VMDK local correspondant. Si le VMDK correct n’est trouvé, un disque supplémentaire est créé, sur lequel les données sont écrites.
 
 ## <a name="alternate-location-recovery-alr"></a>Récupération dans un autre emplacement
 Si la machine virtuelle locale n’existe pas avant la reprotection, la solution consiste à utiliser un autre emplacement. Cette procédure recrée la machine virtuelle locale. Cela entraîne également le téléchargement complet de données.
@@ -47,7 +47,7 @@ Si la machine virtuelle locale n’existe pas avant la reprotection, la solution
 * Vous ne pouvez pas effectuer une restauration automatique sur des disques RDM. Seuls les nouveaux disques de machine virtuelle (VMDK) peuvent être créés dans une banque de données VMFS/vSAN.
 
 > [!NOTE]
-> Une machine physique basculée vers Azure ne peut être restaurée automatiquement qu’en temps que machine virtuelle VMware. Le flux de travail est le même que pour une récupération dans un autre emplacement. Veillez à détecter au moins un serveur cible maître et les hôtes ESX/ESXi nécessaires sur lesquels vous devez effectuer une restauration automatique.
+> Une machine physique basculée vers Azure ne peut être restaurée automatiquement qu’en tant que machine virtuelle VMware. Le flux de travail est le même que pour une récupération dans un autre emplacement. Veillez à détecter au moins un serveur cible maître et les hôtes ESX/ESXi nécessaires sur lesquels vous devez effectuer une restauration automatique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

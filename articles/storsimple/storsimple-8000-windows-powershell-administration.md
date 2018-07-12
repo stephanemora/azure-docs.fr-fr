@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
 ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743714"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696818"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
@@ -61,7 +61,7 @@ Assurez-vous d’utiliser les paramètres PuTTY suivants pour vous connecter à 
    | Élément du clavier | Sélectionnez |
    | --- | --- |
    | Touche Retour arrière |Ctrl+? (127) |
-   | Touches Origine et Fin |standard |
+   | Touches Origine et Fin |Standard |
    | Touches de fonction et pavé numérique |ÉCHAP[n~ |
    | État initial des touches de direction |Normal |
    | État initial du pavé numérique |Normal |
@@ -183,7 +183,7 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 > Pour obtenir une liste de toutes les applets de commande disponibles dans une instance d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

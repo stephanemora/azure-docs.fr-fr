@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f2ab0a4458c83aa9e5c9cee4875e41c24f615018
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 24a6956d3f2289f6ac8ad85e2f48252cc1a4a633
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301197"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858753"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -207,7 +207,7 @@ Pour appliquer une stratégie de découverte du domaine d’accueil après l’a
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Étape 2 : Rechercher le principal de service auquel affecter la stratégie  
 Vous avez besoin de **l’ID d’objet** des principaux de service auxquels vous souhaitez affecter la stratégie. Il existe plusieurs façons de rechercher **l’ID d’objet** des principaux de service.    
 
-Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez également accéder à [l’outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. Étant donné que vous utilisez PowerShell, vous pouvez utiliser l’applet de commande get-AzureADServicePrincipal pour répertorier les principaux de service et leurs identifiants.
+Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. Étant donné que vous utilisez PowerShell, vous pouvez utiliser l’applet de commande get-AzureADServicePrincipal pour répertorier les principaux de service et leurs identifiants.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Étape 3 : Affecter la stratégie à votre principal de service  
 Une fois que vous avez **l’ID d’objet** du principal de service de l’application pour laquelle vous souhaitez configurer l’accélération automatique, exécutez la commande suivante. Cette commande associe la stratégie de découverte du domaine d’accueil que vous avez créée à l’étape 1 au principal de service que vous avez localisé à l’étape 2.

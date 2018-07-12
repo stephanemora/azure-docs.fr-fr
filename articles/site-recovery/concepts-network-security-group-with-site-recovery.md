@@ -7,20 +7,20 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 2b35578e2dc49cd47689f62fc47c5341ea8767a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b0570a7fe0cb6f334d18f82b1f06d5fa770b5af8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659655"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921312"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Groupes de sécurité réseau avec Azure Site Recovery
 
 Vous pouvez utiliser les groupes de sécurité réseau pour limiter le trafic réseau vers les ressources d’un réseau virtuel. Un [groupe de sécurité réseau (NSG)](../virtual-network/security-overview.md#network-security-groups) contient une liste de règles de sécurité qui autorisent ou refusent le trafic réseau entrant ou sortant en fonction de l’adresse IP source ou de destination, du port et du protocole.
 
-Sous le modèle de déploiement Resource Manager, les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des interfaces réseau individuelles. Lorsqu’un groupe NSG est associé à un sous-réseau, les règles s’appliquent à toutes les ressources connectées au sous-réseau. Le trafic peut être limité davantage en associant aussi un groupe NSG à des interfaces réseau individuelles au sein d’un sous-réseau qui a déjà un groupe NSG associé.
+Sous le modèle de déploiement Resource Manager, les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des interfaces réseau individuelles. Lorsqu’un NSG est associé à un sous-réseau, les règles s’appliquent à toutes les ressources connectées au sous-réseau. Le trafic peut être limité davantage en associant aussi un groupe NSG à des interfaces réseau individuelles au sein d’un sous-réseau qui a déjà un groupe NSG associé.
 
 Cet article décrit comment utiliser des groupes de sécurité réseau avec Azure Site Recovery.
 
@@ -45,7 +45,7 @@ Vous ne pouvez pas toujours savoir si les groupes de sécurité réseau sont app
 
 ## <a name="on-premises-to-azure-replication-with-nsg"></a>Réplication d’éléments locaux sur Azure avec un groupe NSG
 
-Avec Azure Site Recovery, vous pouvez effectuer une reprise après sinistre et une migration sur Azure de [machines virtuelles Hyper-V](hyper-v-azure-architecture.md), de [machines virtuelles VMware](vmware-azure-architecture.md) et de [serveurs physiques](physical-azure-architecture.md) locaux. Pour tous les scénarios de réplication d’éléments locaux sur Azure, les données sont envoyées à un compte de stockage Azure et stockées sur celui-ci. Lors d’une réplication, vous ne payez aucuns frais de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS.
+Azure Site Recovery permet une récupération d’urgence et une migration sur Azure de [machines virtuelles Hyper-V](hyper-v-azure-architecture.md), de [machines virtuelles VMware](vmware-azure-architecture.md) et de [serveurs physiques](physical-azure-architecture.md) locaux. Pour tous les scénarios de réplication de service local sur Azure, les données sont envoyées à un compte de stockage Azure et stockées sur celui-ci. Lors d’une réplication, vous ne payez aucuns frais de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS.
 
 Une fois que vous avez créé les machines virtuelles après le basculement vers Azure, vous pouvez utiliser les groupes NSG pour limiter le trafic réseau vers le réseau virtuel et les machines virtuelles. Site Recovery ne crée aucun groupe NSG pendant l’opération de basculement. Nous vous recommandons de créer les groupes NSG Azure nécessaires avant de lancer le basculement. Vous pouvez ensuite associer les groupes NSG aux machines virtuelles basculées automatiquement pendant le basculement en utilisant des scripts d’automatisation avec les [plans de récupération](site-recovery-create-recovery-plans.md) performants de Site Recovery.
 
@@ -59,7 +59,7 @@ Une fois que les groupes NSG sont créés et configurés, nous vous recommandons
 
 ## <a name="azure-to-azure-replication-with-nsg"></a>Réplication d’Azure sur Azure avec les groupes NSG
 
-Avec Azure Site Recovery, vous pouvez effectuer une reprise après sinistre de [machines virtuelles Azure](azure-to-azure-architecture.md). Quand la réplication est activée pour les machines virtuelles Azure, Site Recovery peut créer des réplicas de réseaux virtuels (notamment des sous-réseaux et des sous-réseaux de passerelle) sur la région cible et créer les mappages nécessaires entre les réseaux virtuels sources et cibles. Vous pouvez également précréer les sous-réseaux et réseaux cibles pour les utiliser quand la réplication est activée. Site Recovery ne crée aucune machine virtuelle dans la région Azure cible avant le [basculement](azure-to-azure-tutorial-failover-failback.md).
+Azure Site Recovery permet une récupération d’urgence de [machines virtuelles Azure](azure-to-azure-architecture.md). Quand la réplication est activée pour les machines virtuelles Azure, Site Recovery peut créer des réplicas de réseaux virtuels (notamment des sous-réseaux et des sous-réseaux de passerelle) sur la région cible et créer les mappages nécessaires entre les réseaux virtuels sources et cibles. Vous pouvez également précréer les sous-réseaux et réseaux cibles pour les utiliser quand la réplication est activée. Site Recovery ne crée aucune machine virtuelle dans la région Azure cible avant le [basculement](azure-to-azure-tutorial-failover-failback.md).
 
 Pour la réplication des machines virtuelles Azure, vérifiez que les règles NSG sur la région Azure source autorisent une [connectivité sortante](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)pour le trafic de réplication. Vous pouvez également tester et vérifier ces règles requises via cet [exemple de configuration NSG](azure-to-azure-about-networking.md#example-nsg-configuration).
 
@@ -74,7 +74,7 @@ Si nous prenons en compte l’[exemple de scénario](concepts-network-security-g
 Une fois que les groupes NSG sont créés et configurés, nous vous recommandons d’exécuter un [test de basculement](azure-to-azure-tutorial-dr-drill.md) pour vérifier les associations de groupe NSG scriptées et la connectivité des machines virtuelles post-basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
--   Découvrez plus en détail les [groupes de sécurité réseau](../virtual-network/security-overview.md#network-security-groups).
+-   En savoir plus sur les [groupes de sécurité réseau](../virtual-network/security-overview.md#network-security-groups).
 -   Découvrez plus en détail les [règles de sécurité](../virtual-network/security-overview.md#security-rules) des groupes NSG.
 -   Découvrez plus en détail les [règles de sécurité effectives](../virtual-network/diagnose-network-traffic-filter-problem.md) d’un groupe NSG.
--   Découvrez plus en détail les [plans de récupération](site-recovery-create-recovery-plans.md) pour automatiser le basculement d’applications.
+-   En savoir plus sur les [plans de récupération](site-recovery-create-recovery-plans.md) pour automatiser le basculement d’application

@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
 ms.openlocfilehash: efad7353a477577e5b5ac862b418ce78b1c4c304
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778475"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697250"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Didacticiel : Notifications Push vers des appareils Android à l’aide d’Azure Notification Hubs et de Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -35,7 +35,7 @@ Vous allez créer une application Android vide qui reçoit des notifications Pus
 
 Le code complet de ce didacticiel peut être téléchargé depuis GitHub [ici](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
 
-Dans ce didacticiel, vous allez effectuer les actions suivantes : 
+Dans ce tutoriel, vous allez effectuer les actions suivantes : 
 
 > [!div class="checklist"]
 > * Création d’un projet prenant en charge Google Cloud Messaging
@@ -44,7 +44,6 @@ Dans ce didacticiel, vous allez effectuer les actions suivantes :
 > * Test de l'application
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 - [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
@@ -732,4 +731,4 @@ Dans ce didacticiel, vous avez envoyé des notifications de diffusion à tous vo
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com

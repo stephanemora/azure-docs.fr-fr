@@ -16,11 +16,11 @@ ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 8f71feb610884af29bdfbf170cfc411f32c50233
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640846"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700780"
 ---
 # <a name="quickstart-how-to-use-azure-redis-cache-with-nodejs"></a>Guide de démarrage rapide : utilisation de Cache Redis Azure avec Node.js
 
@@ -129,7 +129,7 @@ Dans l’exemple ci-dessous, vous pouvez voir que la clé `Message` présentait 
 ![Application de cache terminée](./media/cache-nodejs-get-started/cache-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce guide de démarrage rapide afin de les réutiliser.
 

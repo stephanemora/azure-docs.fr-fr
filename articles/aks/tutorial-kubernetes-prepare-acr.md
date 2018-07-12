@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e72ec06f7c682e68ca94ba5d4044d1d9974b0b24
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 1e512bdd0a7df50b19fa49bd7b83632499775b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100973"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927721"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
 
@@ -69,7 +69,7 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Output:
+Sortie :
 
 ```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -128,7 +128,7 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result
@@ -142,7 +142,7 @@ Puis, pour afficher les balises d’une image spécifique, utilisez la commande 
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result
@@ -154,7 +154,7 @@ Au terme de ce didacticiel, l’image conteneur est stockée dans une instance p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, un Azure Container Registry a été préparé pour une utilisation dans un cluster ACS. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, un Azure Container Registry a été préparé pour une utilisation dans un cluster ACS. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
 > * Déploiement d’une instance Azure Container Registry

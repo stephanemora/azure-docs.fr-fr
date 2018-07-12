@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37053046"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
@@ -160,7 +160,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 } 
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
 * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
@@ -218,7 +218,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 }
 ```
 
-Notez les points suivants : 
+Notez les points suivants : 
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
 * Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService**) et dans le dossier **script** du conteneur **adfgetstarted**.
@@ -5383,7 +5383,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
     }
 }
 ```
-Notez les points suivants : 
+Notez les points suivants : 
 
 - La propriété **type** est définie sur **HDInsightSpark**.
 - **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob Azure contenant le dossier pyFiles. Dans cet exemple, le stockage Blob Azure est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre stockage Azure. Si vous procédez ainsi, créez un service lié de stockage Azure pour lier ce compte de stockage à la fabrique de données. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Consultez les [propriétés de l’activité Spark](#spark-activity-properties) pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark.

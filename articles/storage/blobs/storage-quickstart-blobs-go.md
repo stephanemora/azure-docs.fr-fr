@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
 ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189151"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38707561"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Go
 
@@ -22,8 +22,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le langage de prog
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce démarrage rapide : 
+Pour suivre ce guide de démarrage rapide : 
 * Installer [Go 1.8 ou une version ultérieure](https://golang.org/dl/)
 * Téléchargez et installez le [SDK Stockage Azure pour Go](https://github.com/azure/azure-storage-blob-go/) à l’aide de `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
 
@@ -88,7 +87,7 @@ Quand vous appuyez sur la touche pour continuer, l’exemple de programme suppri
 > Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](http://storageexplorer.com) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage. 
 >
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
 
@@ -203,7 +202,7 @@ _, err = downloadedData.ReadFrom(stream)
 handleErrors(err)
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **Delete**. 
 
 ```go

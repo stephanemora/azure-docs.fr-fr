@@ -10,11 +10,11 @@ ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075541"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453564"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guide de démarrage rapide : créer son premier conteneur dans Azure Container Instances
 
@@ -82,7 +82,7 @@ Une fois que le conteneur **ProvisioningState** passe à l’état `Succeeded`, 
 
 ![IIS déployé à l’aide d’Azure Container Instances affiché dans un navigateur][qs-powershell-01]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous avez fini d’utiliser le conteneur, vous pouvez le supprimer avec l’applet de commande [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] :
 

@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660535"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696957"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>Démarrage rapide : utiliser le Cache Redis Azure avec une application .NET Core
 
@@ -301,7 +301,7 @@ dotnet run
 ![Application console terminée](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce guide de démarrage rapide afin de les réutiliser.
 

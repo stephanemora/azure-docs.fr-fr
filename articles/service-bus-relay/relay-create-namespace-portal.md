@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: c4c9c94d369e0ed1ddbfe31484f55b0d276918d3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159889"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701894"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Créer un espace de noms Relay à l’aide du Portail Azure
 
@@ -34,7 +34,7 @@ Un espace de noms est un conteneur d’étendue pour tous les composants Azure R
 
 Félicitations ! Vous venez de créer un espace de noms Relay.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [FAQ Relay](relay-faq.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)

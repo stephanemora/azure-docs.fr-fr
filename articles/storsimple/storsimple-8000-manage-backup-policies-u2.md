@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 569dbfdeb7dcd526cb5a54b487ea1bfb59b13cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108277"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681582"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde
 
@@ -56,13 +56,13 @@ La liste tabulaire de stratégies de sauvegarde vous permet également de filtre
 
 Les opérations fréquentes pouvant être effectuées pour les stratégies de sauvegarde sont les suivantes :
 
-* Ajouter une stratégie de sauvegarde
+* Ajout d’une stratégie de sauvegarde
 * Ajouter ou modifier une planification
 * Ajouter ou supprimer un volume
 * Supprimer une stratégie de sauvegarde
 * Exécuter une sauvegarde manuelle
 
-## <a name="add-a-backup-policy"></a>Ajouter une stratégie de sauvegarde
+## <a name="add-a-backup-policy"></a>Ajout d’une stratégie de sauvegarde
 
 Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegardes. Lorsque vous créez un volume, aucune stratégie de sauvegarde par défaut n’est associée à votre volume. Vous devez ajouter et attribuer une stratégie de sauvegarde pour protéger les données du volume.
 

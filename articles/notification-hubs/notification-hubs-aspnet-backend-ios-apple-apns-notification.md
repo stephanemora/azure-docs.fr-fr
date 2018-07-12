@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33777533"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681551"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutoriel : notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -35,7 +35,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Envoyer des notifications depuis le serveur principal WebAPI
 > * Publication du nouveau serveur principal WebAPI
 > * Modification de votre application iOS
-> * Test de l'application
+> * Test de l’application
 
 ## <a name="prerequisites"></a>Prérequis
 Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Ce didacticiel est également un prérequis pour le didacticiel sur les [notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
@@ -465,7 +465,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
        }
     ```
 
-## <a name="test-the-application"></a>Test de l'application
+## <a name="test-the-application"></a>Test de l’application
 1. Dans XCode, exécutez l’application sur un appareil iOS physique (les notifications Push ne fonctionnent pas dans le simulateur).
 2. Dans l'interface utilisateur de l'application iOS, entrez la même valeur pour le nom d'utilisateur et le mot de passe. Cliquez ensuite sur **Log In**.
    
