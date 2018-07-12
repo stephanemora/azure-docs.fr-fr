@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264372"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971718"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertes de journal dans Azure Monitor - Alertes 
 Cet article fournit des détails sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les nouvelles [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes. Pour plus d’informations sur les Alertes Métrique à l’aide des Journaux, reportez-vous à la rubrique [Alertes Métrique en quasi temps réel](monitoring-near-real-time-metric-alerts.md)
@@ -120,7 +120,7 @@ Les API fournies pour les alertes de journal sont de type RESTful, et accessible
 
 Pour plus de détails, ainsi que des exemples d’utilisation de l’API REST, voir les informations suivantes :
 - [API REST d’alerte Log Analytics](../log-analytics/log-analytics-api-alerts.md) : pour créer et gérer les règles d’alerte de recherche dans les journaux pour Azure Log Analytics.
-- [API REST de règles de requête planifiée Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) : pour créer et gérer des règles d’alerte de recherche dans les journaux pour Azure Application Insights.
+- [API REST de règles de requête planifiée Azure Monitor](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) : pour créer et gérer des règles d’alerte de recherche dans les journaux pour Azure Application Insights.
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 Les utilisateurs peuvent également profiter de la souplesse d’[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour créer et mettre à jour des ressources, pour la création ou la mise à jour d’alertes de journal.

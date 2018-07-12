@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e0e9e01baccd71804b26282f288d19abff8ff8fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bc4280d6e0ac362712d3b406e2e32c42cf4a9be2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444920"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952679"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Comment activer ou désactiver des rôles dans Azure AD Privileged Identity Management
 Le service Azure Active Directory (AD) Privileged Identity Management simplifie la gestion par les entreprises de l’accès privilégié aux ressources dans Azure AD et d’autres services en ligne Microsoft tels qu’Office 365 ou que Microsoft Intune.  
@@ -44,11 +44,11 @@ Quand vous avez besoin d’assumer un rôle, vous pouvez demander une activation
 4. Sélectionnez **Activer**. Le panneau **Demande d’activation du rôle** s’affiche.
 5. Certains rôles requièrent l’authentification multifacteur (MFA) avant de pouvoir activer le rôle. Vous ne devez vous authentifier qu’une seule fois par session.
    
-    ![Vérification multifacteur avant activation du rôle : capture d’écran][2]
+    ![Vérification multifacteur avant activation du rôle : capture d’écran](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png)
 6. Entrez le motif de la demande d’activation dans le champ de texte.  Certains rôles vous obligent à fournir un numéro de ticket d’incident.
 7. Sélectionnez **OK**.  Si le rôle ne nécessite pas d’approbation, il est activé et apparaît dans la liste des rôles actifs (juste sous la liste des affectations de rôles éligibles). Si [l’activation du rôle nécessite une approbation](./privileged-identity-management/azure-ad-pim-approval-workflow.md), une notification toast apparaît brièvement dans le coin supérieur droit de votre navigateur pour vous informer que la demande est en attente d’approbation.
 
-    ![Notification de demande en attente - capture d’écran][3]
+    ![Notification de demande en attente - capture d’écran](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
 ## <a name="deactivate-a-role"></a>Désactiver un rôle
 Une fois qu’un rôle a été activé, il se désactive automatiquement quand sa limite de temps (durée éligible) est atteinte.
@@ -64,16 +64,9 @@ Au cas où vous n’auriez pas besoin de l’activation d’un rôle qui nécess
 4. Sélectionnez la bannière **Activation en attente d’approbation** dans le panneau de détails de l’activation de rôle.
 5. Sélectionnez **Annuler** en haut du panneau **En attente d’approbation**.
 
-   ![Capture d’écran d’annulation de demande en attente][4]
+   ![Capture d’écran d’annulation de demande en attente](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez en savoir plus sur Azure AD Privileged Identity Management, les liens suivants contiennent d'autres informations.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png

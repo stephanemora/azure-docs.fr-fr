@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447555"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952454"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Comment configurer les alertes de sécurité dans Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Alertes de sécurité
 Azure Privileged Identity Management (PIM) génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur le tableau de bord PIM. Sélectionnez l’alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement.
 
-![Alertes de sécurité du tableau de bord PIM - capture d’écran][1]
+![Alertes de sécurité du tableau de bord PIM - capture d’écran](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Alerte | Niveau de gravité | Déclencheur | Recommandation |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Vous pouvez personnaliser certaines alertes de sécurité dans PIM selon votre e
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) et sélectionnez la mosaïque **Azure AD Privileged Identity Management** dans le tableau de bord.
 2. Sélectionnez **Rôles privilégiés gérés** > **Paramètre** > **Paramètres des alertes**.
    
-    ![Accès aux paramètres des alertes de sécurité][2]
+    ![Accès aux paramètres des alertes de sécurité](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>Alerte « Les rôles sont activés trop fréquemment »
 Cette alerte se déclenche si un utilisateur active le même rôle privilégié plusieurs fois pendant une période spécifiée. Vous pouvez configurer la période et le nombre d’activations.
@@ -66,8 +66,3 @@ Cette alerte se déclenche si un utilisateur reste un certain temps sans activer
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757318"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971831"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
 
 [Les groupes de machines virtuelles identiques Azure](/azure/virtual-machine-scale-sets) vous permettent de créer et de gérer un groupe de machines virtuelles identiques dont la charge est équilibrée et où le nombre d’instances de machine virtuelle peut automatiquement augmenter ou diminuer en fonction de la demande ou d’une calendrier défini. 
 

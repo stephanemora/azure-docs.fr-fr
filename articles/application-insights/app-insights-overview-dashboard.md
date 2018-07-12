@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36336767"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970970"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -28,7 +28,7 @@ Application Insights a toujours fourni un volet d’aperçu du résumé pour per
 
 Le nouveau tableau de bord de vue d’ensemble se lance maintenant par défaut :
 
-![Volet d’aperçu de la vue d’ensemble](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Volet d’aperçu de la vue d’ensemble](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Meilleures performances
 
@@ -60,12 +60,6 @@ Vous pouvez conserver la vue par défaut si elle vous convient, ou bien ajouter 
 Pour revenir à l’expérience de vue d’ensemble, sélectionnez simplement :
 
 ![Bouton de la vue d’ensemble](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>Accéder au tableau de bord de vue d’ensemble classique
-
-Si vous préférez l’ancienne vue d’ensemble, choisissez **Vue d’ensemble classique**.
-
-![Vue d'ensemble classique](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

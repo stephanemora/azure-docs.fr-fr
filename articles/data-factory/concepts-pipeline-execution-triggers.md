@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048636"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867084"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1](v1/data-factory-scheduling-and-execution.md)
+> * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Version actuelle](concepts-pipeline-execution-triggers.md)
 
 Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions du pipeline différentes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique. 
@@ -105,8 +105,8 @@ Vous pouvez transmettre des paramètres dans le corps de la charge utile de la d
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -137,7 +137,7 @@ Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline
 
 - Déclencheur de planification : un déclencheur qui appelle un pipeline selon un planning horaire.
 
-- Déclencheur de fenêtre bascule : un déclencheur qui fonctionne sur un intervalle périodique, tout en conservant son état. Azure Data Factory ne prend actuellement pas en charge les déclencheurs d’événements. Par exemple, le déclencheur pour l’exécution d’un pipeline qui répond à un événement de réception d’un fichier n’est pas pris en charge.
+- Déclencheur de fenêtre bascule : un déclencheur qui fonctionne sur un intervalle périodique, tout en conservant son état.
 
 - Déclencheur basé sur des événements : un déclencheur qui répond à un événement.
 

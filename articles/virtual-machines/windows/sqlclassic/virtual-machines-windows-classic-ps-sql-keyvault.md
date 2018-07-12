@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 203b3f79e5cca93557b3aa69c5774570c9e57022
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399727"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719533"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurer Azure Key Vault Integration pour SQL Server sur des machines virtuelles Azure (Classic)
 > [!div class="op_single_selector"]
@@ -51,9 +51,9 @@ Utilisez PowerShell pour configurer Azure Key Vault Integration. Les sections su
 ### <a name="understand-the-input-parameters"></a>Comprendre les paramètres d’entrée
 Le tableau suivant répertorie les paramètres requis pour exécuter le script PowerShell dans la section suivante.
 
-| Paramètre | Description | exemples |
+| Paramètre | Description | Exemples |
 | --- | --- | --- |
-| **$akvURL** |**L'URL du coffre de clés** |« https://contosokeyvault.vault.azure.net/ » |
+| **$akvURL** |**L'URL du coffre de clés** |"https://contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nom du principal du service** |« fde2b411-33d5-4e11-af04eb07b669ccf2 » |
 | **$spSecret** |**Secret du principal du service** |« 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= » |
 | **$credName** |**Nom d’identification**: le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |« mycred1 » |

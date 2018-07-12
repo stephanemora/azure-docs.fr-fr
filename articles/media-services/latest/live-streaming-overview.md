@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237058"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972177"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -32,7 +32,7 @@ Cet article fournit une description détaillée du service et inclut des schéma
 
 ## <a name="overview-of-main-components"></a>Présentation des principaux composants
 
-Dans Media Services, les [événements en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement du contenu vidéo en flux continu. Un événement en temps réel fournit un point de terminaison d’entrée (URL de réception) que vous transmettez ensuite à un encodeur live local. Il reçoit des flux de données entrants en continu d’un encodeur live au format RTMP ou Smooth Streaming et les rend disponibles en diffusion via un ou plusieurs [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) (point de terminaison de streaming). Une [sortie en temps réel](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) vous permet de contrôler la publication, l’enregistrement et les paramètres de la fenêtre DVR du flux temps réel. Ces événements en temps réel fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise ultérieurs. 
+Dans Media Services, les [événements en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement du contenu vidéo en flux continu. Un événement en temps réel fournit un point de terminaison d’entrée (URL de réception) que vous transmettez ensuite à un encodeur live local. Il reçoit des flux de données entrants en continu d’un encodeur live au format RTMP ou Smooth Streaming et les rend disponibles en diffusion via un ou plusieurs [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) (point de terminaison de streaming). Une [sortie en temps réel](https://docs.microsoft.com/rest/api/media/liveoutputs) vous permet de contrôler la publication, l’enregistrement et les paramètres de la fenêtre DVR du flux temps réel. Ces événements en temps réel fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise ultérieurs. 
 
 Media Services assure **l’empaquetage dynamique** qui vous permet de prévisualiser et de diffuser votre contenu aux formats de streaming MPEG DASH, HLS et Smooth Streaming sans avoir à effectuer de ré-empaquetage manuel dans ces formats. Vous pouvez lire le contenu sur tout lecteur compatible avec HLS, DASH ou Smooth Streaming. Vous pouvez également utiliser le [Lecteur multimédia Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) pour tester votre flux.
 
@@ -101,7 +101,7 @@ Le tableau suivant compare les fonctionnalités des deux types d’événements 
 
 ## <a name="liveoutput"></a>Sortie en temps réel
 
-Une [sortie en temps réel](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) vous permet de contrôler la publication, l’enregistrement et les paramètres de la fenêtre DVR du flux temps réel. La relation entre un événement en temps réel et une sortie en temps réel est similaire au contenu multimédia traditionnel où un canal (événement en temps réel) a un flux de contenu constant et un programme (sortie en temps réel) est limité à un événement minuté sur cet événement en temps réel.
+Une [sortie en temps réel](https://docs.microsoft.com/rest/api/media/liveoutputs) vous permet de contrôler la publication, l’enregistrement et les paramètres de la fenêtre DVR du flux temps réel. La relation entre un événement en temps réel et une sortie en temps réel est similaire au contenu multimédia traditionnel où un canal (événement en temps réel) a un flux de contenu constant et un programme (sortie en temps réel) est limité à un événement minuté sur cet événement en temps réel.
 Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour la sortie en temps réel en définissant la propriété **ArchiveWindowLength**. La valeur **ArchiveWindowLength** est un intervalle de temps ISO 8601 représentant la longueur de la fenêtre d’archive (magnétoscope numérique ou DVR). Cette valeur peut être comprise entre 5 minutes et 25 heures. 
 
 La propriété **ArchiveWindowLength** détermine également la durée maximale que les clients peuvent rechercher en arrière à partir de la position dynamique actuelle. Les sorties en temps réel peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.

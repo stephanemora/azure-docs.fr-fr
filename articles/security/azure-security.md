@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: bda8f72de16d1d8d95823de98aab8ec209908e63
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437788"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971004"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
@@ -113,7 +113,7 @@ Cette section contient des informations supplémentaires sur les fonctionnalité
 L’une des méthodes les plus simples pour démarrer les tests de vulnérabilité de votre [application App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste à utiliser [l’intégration à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) pour effectuer l’analyse des vulnérabilités dans votre application en un clic. Vous pouvez afficher les résultats des tests dans un rapport facile à comprendre et découvrir comment résoudre chaque problème de vulnérabilité grâce à des instructions pas à pas.
 
 ### <a name="penetration-testing"></a>Test de pénétration
-Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une autre suite logicielle d’analyse ou un autre fournisseur, vous devez suivre le [processus d’approbation de test d’intrusion Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-pen-testing ) et obtenir une approbation préalable pour effectuer les tests d’intrusion de votre choix.
+Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une autre suite logicielle d’analyse ou un autre fournisseur, vous devez suivre le [processus d’approbation de test d’intrusion Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) et obtenir une approbation préalable pour effectuer les tests d’intrusion de votre choix.
 
 ### <a name="web-application-firewall"></a>Pare-feu d’application web
 Le pare-feu d’applications web (WAF) [d’Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) aide à protéger les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session. Il est préconfiguré avec une protection contre les menaces identifiées par [OWASP (Open Web Application Security Project) comme les 10 vulnérabilités les plus courantes](https://msdn.microsoft.com/library/).

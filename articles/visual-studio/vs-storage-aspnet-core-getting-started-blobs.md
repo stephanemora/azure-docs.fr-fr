@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621221"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720227"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -32,7 +32,7 @@ Ce didacticiel montre comment écrire du code ASP.NET Core pour des scénarios c
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -40,7 +40,7 @@ Ce didacticiel montre comment écrire du code ASP.NET Core pour des scénarios c
 
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
 
-Cette section explique comment configurer l’environnement de développement : création d’une application modèle-vue-contrôleur (MVC) ASP.NET, ajout d’une connexion Services connectés, ajout d’un contrôleur et spécification des directives requises portant sur les espaces de noms.
+Cette section explique les étapes à effectuer pour configurer l’environnement de développement. création d’une application modèle-vue-contrôleur (MVC) ASP.NET, ajout d’une connexion Services connectés, ajout d’un contrôleur et spécification des directives requises portant sur les espaces de noms.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Création d’un projet d’application MVC ASP.NET
 
@@ -56,13 +56,13 @@ Cette section explique comment configurer l’environnement de développement : 
 
     ![Capture d’écran de la boîte de dialogue Nouvelle application web ASP.NET Core](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Utiliser les services connectés pour se connecter à un compte de stockage Azure
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Utiliser les services connectés pour se connecter à un compte de stockage Azure
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet.
 
 2. Dans le menu contextuel, sélectionnez **Ajouter** > **Service connecté**.
 
-1. Dans la boîte de dialogue **Services connectés**, sélectionnez **Stockage cloud avec le Stockage Azure**, puis **Configurer**.
+1. Dans la boîte de dialogue **Services connectés**, sélectionnez **Stockage cloud avec le Stockage Azure**, puis sélectionnez **Configurer**.
 
     ![Capture d’écran de la boîte de dialogue Services connectés](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
 
@@ -205,7 +205,7 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
 
 1. Exécutez l’application, puis sélectionnez **Créer un conteneur d’objets blob** pour afficher des résultats qui devraient ressembler à la capture d’écran suivante :
   
-    ![Capture d’écran Créer un conteneur d’objets blob](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
+    ![Capture d’écran d’un conteneur d’objets blob](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
 
     Comme mentionné précédemment, la méthode `CloudBlobContainer.CreateIfNotExists` renvoie **true** uniquement lorsque le conteneur n’existe pas et est créé. Par conséquent, si l’application s’exécute alors que le conteneur existe, la méthode renvoie la valeur **false**.
 
@@ -453,7 +453,7 @@ Cette section montre comment télécharger un objet blob. Vous pouvez le conserv
     <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Download blob** (Télécharger l’objet blob) pour télécharger l’objet blob. L’objet blob spécifié dans l’appel de méthode `CloudBlobContainer.GetBlockBlobReference` effectue le téléchargement vers l’emplacement spécifié dans l’appel de méthode `File.OpenWrite`. Le texte *success!* (réussite) doit s’afficher dans le navigateur. 
+1. Exécutez l’application, puis sélectionnez **Download blob** (Télécharger l’objet blob) pour télécharger l’objet blob. L’objet blob spécifié dans l’appel de méthode `CloudBlobContainer.GetBlockBlobReference` effectue le téléchargement vers l’emplacement spécifié dans l’appel de méthode `File.OpenWrite`. Le texte *success!* doit s’afficher dans le navigateur. 
 
 ## <a name="delete-blobs"></a>Suppression d’objets blob
 
@@ -510,9 +510,9 @@ Les étapes suivantes montrent comment supprimer un objet blob :
     <li><a asp-area="" asp-controller="Blobs" asp-action="DeleteBlob">Delete blob</a></li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Supprimer l’objet blob** pour supprimer l’objet blob spécifié dans l’appel de méthode `CloudBlobContainer.GetBlockBlobReference`. Le texte *success!* (réussite) doit s’afficher dans le navigateur. Sélectionnez le bouton **Précédent** du navigateur, puis **Lister les objets blob** pour vérifier que l’objet blob ne se trouve plus dans le conteneur.
+1. Exécutez l’application, puis sélectionnez **Supprimer l’objet blob** pour supprimer l’objet blob spécifié dans l’appel de méthode `CloudBlobContainer.GetBlockBlobReference`. Le texte *success!* doit s’afficher dans le navigateur. Sélectionnez le bouton **Précédent** du navigateur, puis **Lister les objets blob** pour vérifier que l’objet blob ne se trouve plus dans le conteneur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à stocker, à lister et à récupérer des objets blob dans le Stockage Azure à l’aide d’ASP.NET Core. Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
 

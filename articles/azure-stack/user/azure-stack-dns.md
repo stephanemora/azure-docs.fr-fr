@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4e854a2751ce366e3ca3a353487f2c972401c248
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8459a5f88bf660ac460f778f67618e9805afa29d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196523"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970702"
 ---
 # <a name="using-dns-in-azure-stack"></a>Utilisation de DNS dans Azure Stack
 
@@ -35,7 +35,7 @@ Vous pouvez spécifier une étiquette de nom de domaine DNS pour les ressources 
 
 Par exemple, si vous créez une ressource d’adresse IP publique avec **contoso** comme étiquette de nom de domaine à l’emplacement Azure Stack local, le [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) **contoso.local.cloudapp.azurestack.external** est résolu en l’adresse IP publique de la ressource. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure Stack.
 
-Pour en savoir plus sur la résolution de noms, reportez-vous à l’article [Résolution DNS](https://docs.microsoft.com/en-us/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour en savoir plus sur la résolution de noms, reportez-vous à l’article [Résolution DNS](https://docs.microsoft.com/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
 > Chaque étiquette de nom de domaine que vous créez doit être unique dans son emplacement Azure Stack.

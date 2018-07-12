@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237389"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970242"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Fonctionnalité de stockage immuable de stockage Blob Azure (préversion)
 
@@ -42,7 +42,7 @@ Cette fonctionnalité offre :
 
 - **Configuration du niveau du conteneur :** la fonctionnalité de stockage immuable permet aux utilisateurs de configurer des stratégies de rétention basée sur le temps et des balises de conservations juridiques au niveau du conteneur.  Ils peuvent créer et verrouiller des stratégies de rétention basée sur le temps, étendre des intervalles de rétention, définir et supprimer des conservations juridiques, etc, via des paramètres simples au niveau du conteneur.  Ces stratégies s’appliquent à tous les objets Blob du conteneur, qu’ils soient existants ou nouveaux.
 
-- **Prise en charge du journal d'audit :** chaque conteneur contient un journal d'audit affichant jusqu’à cinq commandes de rétention basée sur le temps pour des stratégies de rétention basée sur le temps, avec un maximum de trois journaux pour des extensions d’intervalle de rétention.  Pour une rétention basée sur le temps, le journal contient un ID d’utilisateur, un type de commande, des timestamps et l’intervalle de rétention. Pour une conservation juridique, le journal contient un ID d’utilisateur, un type de commande, des timestamps et les balises de conservation juridique. Ce journal est conservé pendant la durée de vie du conteneur, selon la norme SEC 17a-4(f). Un journal plus complet de toutes les activités du panneau de configuration peut être consulté dans le [journal d'activité Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Il est de la responsabilité de l’utilisateur de stocker ces journaux de manière récurrente. Ils peuvent être nécessaires à des fins réglementaires ou autres.
+- **Prise en charge du journal d'audit :** chaque conteneur contient un journal d'audit affichant jusqu’à cinq commandes de rétention basée sur le temps pour des stratégies de rétention basée sur le temps, avec un maximum de trois journaux pour des extensions d’intervalle de rétention.  Pour une rétention basée sur le temps, le journal contient un ID d’utilisateur, un type de commande, des timestamps et l’intervalle de rétention. Pour une conservation juridique, le journal contient un ID d’utilisateur, un type de commande, des timestamps et les balises de conservation juridique. Ce journal est conservé pendant la durée de vie du conteneur, selon la norme SEC 17a-4(f). Un journal plus complet de toutes les activités du panneau de configuration peut être consulté dans le [journal d'activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Il est de la responsabilité de l’utilisateur de stocker ces journaux de manière récurrente. Ils peuvent être nécessaires à des fins réglementaires ou autres.
 
  La fonctionnalité est activée dans toutes les régions Azure publiques.
 
@@ -68,7 +68,7 @@ Pour savoir comment définir et lever une conservation juridique, consultez la s
 
 Un conteneur peut disposer d’une conservation juridique et d’une stratégie de rétention basée sur le temps. Tous les objets Blob de ce conteneur demeureront dans l’état immuable jusqu’à ce que toutes les conservations juridiques aient été levées, même si leur période de rétention a expiré. À l’inverse, un objet Blob demeure dans un état immuable jusqu’à expiration de la période de rétention effective, même si toutes les conservations juridiques ont été levées.
 Le tableau suivant montre les types d’opérations d’objets Blob qui seront désactivées dans chaque scénario immuable.
-Reportez-vous à la documentation [API du Service Blob Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) pour en savoir plus sur l’API REST d’objets Blob.
+Reportez-vous à la documentation [API du Service Blob Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) pour en savoir plus sur l’API REST d’objets Blob.
 
 |Scénario  |État d'objets blob  |Opérations d’objets Blob non autorisées  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Reportez-vous à la documentation [API du Service Blob Azure](https://docs.micro
 
 > [!NOTE]
 > Les premières opérations Put Blob, Put Block List et Put Block nécessaires pour créer un objet Blob sont autorisées dans les deux premiers scénarios du tableau ci-dessus. Toutes les autres opérations ne sont pas autorisées.
-> La fonctionnalité de stockage immuable n’est disponible que dans des comptes GPv2 et de stockage d’objets Blob, et elle doit être créée via [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+> La fonctionnalité de stockage immuable n’est disponible que dans des comptes GPv2 et de stockage d’objets Blob, et elle doit être créée via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Tarifs
 
@@ -94,7 +94,7 @@ Les exigences suivantes s’appliquent dans la préversion publique :
 
 ## <a name="getting-started"></a>Prise en main
 
-Le stockage Azure immuable pour les objets Blob Azure est pris en charge sur les versions les plus récentes du [portail Azure](http://portal.azure.com), d’Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) et d’Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018).
+Le stockage Azure immuable pour les objets Blob Azure est pris en charge sur les versions les plus récentes du [portail Azure](http://portal.azure.com), d’Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et d’Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018).
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -130,7 +130,7 @@ Le stockage Azure immuable pour les objets Blob Azure est pris en charge sur les
 
 ### <a name="cli-20"></a>CLI 2.0
 
-Installer l’[extension CLI](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) avec `az extension add -n storage-preview`
+Installer l’[extension CLI](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) avec `az extension add -n storage-preview`
 
 Si vous avez déjà installé l’extension, exécutez la commande suivante pour activer la fonctionnalité de stockage immuable : `az extension update -n storage-preview`
 

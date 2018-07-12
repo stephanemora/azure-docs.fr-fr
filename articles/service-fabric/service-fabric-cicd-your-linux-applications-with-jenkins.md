@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 047b3d00da4f192febeeab79c9c87b67a8a0489b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207959"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972246"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utiliser Jenkins pour générer et déployer vos applications Linux
 Jenkins est un outil populaire pour l’intégration et le déploiement en continu de vos applications. Voici comment générer et déployer votre application Azure Service Fabric à l’aide de Jenkins.
@@ -38,7 +38,6 @@ Cet article décrit les diverses méthodes de configuration de votre environneme
    * Pour les environnements de production, utilisez [Configurer le déploiement à l’aide des informations d’identification Azure](#configure-deployment-using-azure-credentials). Microsoft recommande cette méthode pour les environnements de production, car les informations d’identification Azure vous permettent de limiter l’accès dont dispose un travail Jenkins sur vos ressources Azure. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Assurez-vous que Git est installé localement. Vous pouvez installer la version appropriée de Git à partir de [la page de téléchargements de Git](https://git-scm.com/downloads) en fonction de votre système d’exploitation. Si vous débutez avec Git, vous trouverez plus d’informations à ce sujet dans la [documentation Git](https://git-scm.com/docs).
 - Cet article utilise l’*exemple de prise en main de Service Fabric* sur GitHub : [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started) pour l’application à générer et déployer. Vous pouvez dupliquer ce référentiel pour suivre la procédure, ou en déviant légèrement des instructions, utiliser votre propre projet GitHub.
@@ -66,7 +65,6 @@ Une fois que vous avez installé le plug-in, passez à [Créer et configurer un 
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les sections suivantes montrent comment le configurer dans un cluster lors de l’utilisation d’un compte de stockage Azure pour enregistrer l’état de l’instance de conteneur.
 
 ### <a name="prerequisites"></a>Prérequis
-
 - Disposer d’un cluster Linux Service Fabric sur lequel Docker est installé. Docker est déjà installé sur les clusters Service Fabric exécutés dans Azure. Si vous exécutez le cluster localement (environnement de développement OneBox), vérifiez si Docker est installé sur votre ordinateur avec la commande `docker info`. S’il n’est pas installé, installez-le en utilisant les commandes suivantes :
 
    ```sh
@@ -169,7 +167,6 @@ Une fois que vous avez configuré Jenkins, passez à [Créer et configurer un tr
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les sections suivantes expliquent comment le configurer en dehors d’un cluster.
 
 ### <a name="prerequisites"></a>Prérequis
-
 - Assurez-vous que Docker est installé sur votre machine. Les commandes suivantes peuvent être utilisées pour installer Docker à partir du terminal :
 
   ```sh
@@ -301,12 +298,12 @@ Pour les environnements de production, la configuration d’informations d’ide
 
 Pour les environnements de développement et de test, vous pouvez configurer des informations d’identification Azure ou le point de terminaison de gestion de cluster pour déployer votre application. Pour plus d’informations sur la façon de configurer un point de terminaison de gestion de cluster, consultez [Configurer le déploiement à l’aide d’un point de terminaison de gestion de cluster](#configure-deployment-using-cluster-management-endpoint).   
 
-1. Pour créer un principal du service Azure Active Directory et lui affecter des autorisations dans votre abonnement Azure, suivez les étapes de [Use the portal to create an Azure Active Directory application and service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Utiliser le portail pour créer une application et un principal du service Azure Active Directory). Prenez note des points suivants :
+1. Pour créer un principal du service Azure Active Directory et lui affecter des autorisations dans votre abonnement Azure, suivez les étapes de [Use the portal to create an Azure Active Directory application and service principal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Utiliser le portail pour créer une application et un principal du service Azure Active Directory). Prenez note des points suivants :
 
    * Lorsque vous suivez les étapes décrites dans la rubrique, veillez à copier et enregistrer les valeurs suivantes : *ID d’application*, *Clé d’application*, *ID d’annuaire ID (ID de locataire)* et *ID d’abonnement*. Vous en avez besoin pour configurer les informations d’identification Azure dans Jenkins.
-   * Si vous ne disposez pas des [autorisations requises](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) sur votre annuaire, vous devez demander à un administrateur de vous accorder les autorisations ou de créer le principal du service pour vous, ou vous devez configurer le point de terminaison de gestion pour votre cluster dans les **actions post-génération** de votre projet dans Jenkins.
-   * Dans la section [Create an Azure Active Directory application](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) (Créer une application Azure Active Directory), vous pouvez entrer n’importe quelle URL correcte pour l’**URL de connexion**.
-   * Dans la section [Assign application to a Role](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) (Affecter un rôle à l’application), vous pouvez affecter à votre application le rôle *Lecteur* sur le groupe de ressources de votre cluster.
+   * Si vous ne disposez pas des [autorisations requises](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) sur votre annuaire, vous devez demander à un administrateur de vous accorder les autorisations ou de créer le principal du service pour vous, ou vous devez configurer le point de terminaison de gestion pour votre cluster dans les **actions post-génération** de votre projet dans Jenkins.
+   * Dans la section [Create an Azure Active Directory application](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) (Créer une application Azure Active Directory), vous pouvez entrer n’importe quelle URL correcte pour l’**URL de connexion**.
+   * Dans la section [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) (Affecter un rôle à l’application), vous pouvez affecter à votre application le rôle *Lecteur* sur le groupe de ressources de votre cluster.
 
 2. De retour dans le travail Jenkins, cliquez sur l’onglet **Post-Build Actions** (Actions post-génération).
 3. Dans la liste déroulante **Post-Build Actions** (Actions post-génération), sélectionnez **Deploy Service Fabric Project** (Déployer le projet Service Fabric). 

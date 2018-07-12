@@ -16,11 +16,11 @@ ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
 ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917402"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971857"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Prise en main de l’exécution de charges de travail Excel et SOA sur un cluster HPC Pack dans Azure
 Cet article vous montre comment déployer un cluster Microsoft HPC Pack 2012 R2 dans des machines virtuelles Azure à l’aide d’un modèle de démarrage rapide Azure ou éventuellement d’un script de déploiement Azure PowerShell. Le cluster utilise des images de machine virtuelle Azure Marketplace conçues pour exécuter des charges de travail d’architecture orientée services (SOA) ou Microsoft Excel avec HPC Pack. Vous pouvez utiliser le cluster pour exécuter des services Excel HPC et SOA à partir d’un ordinateur client local. Les services Excel HPC incluent le déchargement de classeurs Excel et les fonctions Excel définies par l'utilisateur (UDF).
@@ -36,7 +36,6 @@ Le diagramme général suivant montre le cluster HPC Pack que vous créez.
 ![Cluster HPC avec des nœuds exécutant des charges de travail Excel][scenario]
 
 ## <a name="prerequisites"></a>Prérequis
-
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour envoyer des exemples de tâches Excel et SOA au cluster. Vous avez également besoin d’un ordinateur Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement).
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 * **Quota de cœurs** : vous devez peut-être augmenter le quota de cœurs, en particulier si vous déployez plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Si vous utilisez un modèle de démarrage rapide Azure, le quota de cœurs dans le Resource Manager est défini par région Azure. Dans ce cas, vous devrez peut-être augmenter le quota d’une région spécifique. Consultez [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md). Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.

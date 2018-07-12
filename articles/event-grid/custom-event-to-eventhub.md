@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/06/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4233884d02377f54fa7c12b4a4a016c283f66a8d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7b2cf18aa2bbce1fcaf8b26dbca00d7fd352c3b1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851000"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867230"
 ---
 # <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid
 
@@ -32,6 +32,8 @@ L’exemple suivant crée un groupe de ressources nommé *gridResourceGroup* à 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
 ```
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
@@ -102,7 +104,7 @@ En général, vous créez une application qui récupère les événements dans u
 * [Recevoir des événements d’Azure Event Hubs avec Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
 * [Recevoir des événements d’Event Hubs avec Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
 
 ```azurecli-interactive

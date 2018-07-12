@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.openlocfilehash: 83d3a2d973604e3b8a709b24cabcb3abba1e304c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 080cb3ee536227e5ddce3fac856de79b2b061dcf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659682"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970766"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>S’authentifier auprès d’Azure AD à partir d’une identité Managed Service Identity Azure (préversion)
 
@@ -32,7 +32,7 @@ Cet article montre comment s’authentifier auprès du Stockage Azure avec MSI �
 
 Pour pouvoir utiliser MSI et vous authentifier auprès du Stockage Azure à partir de votre machine virtuelle, vous devez d’abord activer MSI sur la machine virtuelle. Pour apprendre à activer MSI, consultez l’un des articles suivants :
 
-- [Portail Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Portail Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [interface de ligne de commande Azure](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Modèle Azure Resource Manager](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)

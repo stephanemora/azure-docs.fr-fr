@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/21/2018
+ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018337"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970259"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -24,7 +24,7 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Mémoire par vCore | 2 Go | 5 GO | 10 Go |
+| Mémoire par vCore | 2 Go | 5 GO | 10 Go |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
@@ -64,6 +64,8 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Est de l'Asie | X | X |
 | Asie du Sud-Est | X | X |
 | Est de l’Australie |  | X |
+| Centre de l’Australie |  | X |
+| Centre de l’Australie 2 |  | X |
 | Sud-est de l’Australie |  | X |
 | Inde centrale | X | X |
 | Inde occidentale | X | X |

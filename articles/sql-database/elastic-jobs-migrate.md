@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: johnpaulkee
-ms.openlocfilehash: 2f5e4587de009329cd8cf0eded88f79afe96a184
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 97d50b6ddcbb46cb291578caab5193e13cc56932
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034893"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868879"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrer vers les nouvelles tâches de base de données élastique
 
@@ -66,7 +66,7 @@ La migration devant utiliser une partie des *anciennes* applets de commande de t
 # Install the old elastic job cmdlets if necessary and initialize the old jobs cmdlets
 .\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-# Install the the old jobs cmdlets
+# Install the old jobs cmdlets
 cd Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools
 Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 .\InstallElasticDatabaseJobsCmdlets.ps1
@@ -365,7 +365,7 @@ Pour migrer vos cibles (serveurs, bases de données et collections personnalisé
 Migrate-TargetGroups $agent
 ```
 
-Exemple de sortie :
+Exemple de sortie :
 
 ```powershell
 # --------------------- Migrating target groups ---------------------
@@ -562,7 +562,7 @@ Pour migrer les tâches, le contenu de la tâche, les déclencheurs de tâche et
 Migrate-Jobs $agent
 ```
 
-Exemple de sortie :
+Exemple de sortie :
 ```powershell
 --------------------- Migrating jobs and job steps ---------------------
 Job job1
