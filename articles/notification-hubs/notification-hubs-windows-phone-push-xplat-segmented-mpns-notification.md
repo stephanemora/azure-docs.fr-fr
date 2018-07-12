@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776992"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652743"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des appareils Windows Phone spécifiques à l’aide d’Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -41,7 +41,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Test de l'application
 
 ## <a name="prerequisites"></a>Prérequis
-
 Terminez le [didacticiel : notifications Push vers des applications Windows Phone à l’aide d’Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). Dans ce didacticiel, vous mettez à jour l’application mobile afin que vous puissiez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. 
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Ajout d’une sélection de catégories à l’application mobile
@@ -304,7 +303,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 Dans ce didacticiel, vous avez appris à envoyer des notifications Push à des appareils spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications à des utilisateurs spécifiques qui peuvent utiliser plusieurs appareils, passez au didacticiel suivant : 
 
 > [!div class="nextstepaction"]
->[Notifications push vers des utilisateurs spécifiques](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+>[Notifications Push vers des utilisateurs spécifiques](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 
 <!-- Anchors. -->
