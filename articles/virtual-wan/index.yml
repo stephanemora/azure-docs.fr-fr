@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: WAN virtuel Azure
+metadata:
+  document_id: 
+  title: Documentation sur le WAN virtuel - Tutoriels, informations de référence sur les API | Microsoft Docs
+  meta.description: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+  services: virtual-wan
+  author: cherylmc
+  manager: jeconnoc
+  ms.service: virtual-wan
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/06/2018
+  ms.author: cherylmc
+  ms.openlocfilehash: 5d631882f65380c11a34dc67c8554387d6e66c43
+  ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/13/2018
+  ms.locfileid: "39010189"
+abstract:
+  description: Apprenez à configurer, créer et gérer un WAN virtuel Azure. Générez la connectivité sécurisée des branches à l’échelle mondiale.
+sections:
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: Apprenez à configurer, créer et gérer une connexion de site à site à l’aide d’Azure du WAN virtuel Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=2004900">Créer et gérer un WAN virtuel</a>
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">Référence d’API REST</a></p>

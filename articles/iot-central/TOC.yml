@@ -49,8 +49,8 @@
           href: howto-version-devicetemplate.md
         - name: Créer une règle de télémétrie
           href: howto-create-telemetry-rules.md
-        - name: Créer une règle d’événements
-          href: howto-create-event-rules.md
+        - name: Configurer la page d’accueil
+          href: howto-configure-homepage.md
         - name: Préparer et charger des images
           href: howto-prepare-images.md
     - name: Operator

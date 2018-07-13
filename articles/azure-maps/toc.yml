@@ -4,7 +4,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: À propos d’Azure Maps
+    - name: "Qu’est-ce qu’Azure Maps\_?"
       href: about-azure-maps.md
 - name: Démarrages rapides
   items:
@@ -22,22 +22,10 @@
   items:
     - name: Niveaux de zoom et grille mosaïque
       href: zoom-levels-and-tile-grid.md
-    - name: Couverture du géocodage
-      href: geocoding-coverage.md
-    - name: Couverture du trafic
-      href: traffic-coverage.md
-    - name: Couverture du rendu
-      href: render-coverage.md
-    - name: Couverture du routage
-      href: routing-coverage.md
     - name: Catégories de recherche prise en charge
       href: supported-search-categories.md
     - name: Langues prises en charge
       href: supported-languages.md
-    - name: Modèle de consommation
-      href: consumption-model.md
-    - name: Étendre geoJSON
-      href: extend-geojson.md
 - name: Procédures
   items:
     - name: Gérer les comptes Maps
@@ -76,6 +64,22 @@
           href: map-accessibility.md
 - name: Informations de référence
   items:
+    - name: Couverture du service
+      items:
+        - name: Géocodage
+          href: geocoding-coverage.md
+        - name: Trafic
+          href: traffic-coverage.md
+        - name: Rendu
+          href: render-coverage.md
+        - name: Routage
+          href: routing-coverage.md
+    - name: Extensions d’API et de paramètre
+      items:
+        - name: Modèle de consommation du véhicule
+          href: consumption-model.md
+        - name: Étendre le format geoJSON
+          href: extend-geojson.md
     - name: REST
       items:
         - name: Render Service
@@ -139,4 +143,4 @@
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: vidéos
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'

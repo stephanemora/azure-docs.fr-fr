@@ -279,6 +279,9 @@
           items: null
         - name: Charger Data Lake Storage Gen2
           href: load-azure-data-lake-storage-gen2.md
+          items:
+            - name: Copier depuis Data Lake Storage Gen1
+              href: load-azure-data-lake-storage-gen2-from-gen1.md
         - name: Charger Azure SQL Data Warehouse
           href: load-azure-sql-data-warehouse.md
         - name: Charger Data Lake Storage Gen1
