@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344829"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952536"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 Language Understanding (LUIS) est un service cloud qui applique l’apprentissage automatique personnalisé aux conversations d’utilisateur, aux textes en langage naturel pour prédire le sens général et extraire des informations détaillées et pertinentes. 
@@ -99,7 +99,7 @@ Un exemple d’[énoncé](luis-how-to-add-example-utterances.md) est une entrée
 Une fois que votre application LUIS est publiée et reçoit de vrais énoncés d’utilisateur, LUIS propose plusieurs méthodes pour améliorer la précision de la prédiction : l’[apprentissage actif](#active-learning) des énoncés de point de terminaison, des [listes d’expression](#phrase-lists) pour l’inclusion de domaines de mots, et des [modèles](#patterns) pour réduire le nombre d’énoncés nécessaires.
 
 ### <a name="active-learning"></a>Apprentissage actif
-Dans le processus d’[apprentissage actif](label-suggested-utterances.md), LUIS vous permet d’adapter votre application aux énoncés réels en sélectionnant les énoncés reçus au point de terminaison pour votre révision. Vous pouvez accepter ou corriger la prédiction du point de terminaison, affiner et republier. LUIS apprend plus rapidement grâce à ce processus itératif et nécessite moins de temps et d’efforts. 
+Dans le processus d’[apprentissage actif](luis-how-to-review-endoint-utt.md), LUIS vous permet d’adapter votre application aux énoncés réels en sélectionnant les énoncés reçus au point de terminaison pour votre révision. Vous pouvez accepter ou corriger la prédiction du point de terminaison, affiner et republier. LUIS apprend plus rapidement grâce à ce processus itératif et nécessite moins de temps et d’efforts. 
 
 ### <a name="phrase-lists"></a>Listes d’expressions 
 LUIS fournit des [listes d’expression](luis-concept-feature.md) pour que vous puissiez indiquer les expressions ou mots importants à votre modèle de domaine. LUIS utilise ces listes pour renforcer l’importance de ces mots et expressions qui normalement ne se trouvent pas dans le modèle.

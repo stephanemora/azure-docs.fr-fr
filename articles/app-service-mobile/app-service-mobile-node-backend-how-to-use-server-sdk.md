@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598077"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473747"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -347,7 +347,7 @@ La plupart des paramètres du fichier azureMobile.js ont un paramètre équivale
 
 Pour définir un paramètre d’application :
 
-1. Connectez-vous au [Portail Azure].
+1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis sélectionnez le nom de votre application mobile.
 3. Le volet **Paramètres** s’ouvre par défaut. Si ce n’est pas le cas, sélectionnez **Paramètres**.
 4. Dans le menu **GÉNÉRAL**, sélectionnez **Paramètres de l’application**.
@@ -363,7 +363,7 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 
 L’utilisation de la base de données SQL Azure en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
 
-1. Connectez-vous au [Portail Azure].
+1. Connectez-vous au [portail Azure].
 2. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
 3. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 4. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
@@ -893,7 +893,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Portail Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemple basicapp sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

@@ -1,4 +1,4 @@
-Le service et votre type d’abonnement déterminent le nombre de requêtes que vous pouvez formuler par seconde (RPS) ou par mois (RPM). Assurez-vous que votre application inclut la logique nécessaire pour rester dans votre quota. Si vous dépassez votre RPM, la requête échoue avec le code d’état HTTP 403. Si vous dépassez votre RPS, la requête échoue avec le code d’état HTTP 429. La réponse inclut également l’en-tête Retry-After, qui contient le nombre de secondes d’attente avant d’envoyer une autre requête.  
+Le service et votre type d’abonnement déterminent le nombre de requêtes que vous pouvez formuler par seconde (RPS). Assurez-vous que votre application inclut la logique nécessaire pour rester dans votre quota. Si vous dépassez votre RPS, la requête échoue avec le code d’état HTTP 429. La réponse inclut également l’en-tête Retry-After, qui contient le nombre de secondes d’attente avant d’envoyer une autre requête.  
   
 ### <a name="denial-of-service-dos-versus-throttling"></a>Déni de service (DOS) et limitation
 
