@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842320"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344889"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Didacticiel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
@@ -37,7 +37,7 @@ Par défaut, Azure achemine automatiquement le trafic entre tous les sous-résea
 > * Déployer des machines virtuelles sur différents sous-réseaux
 > * Router le trafic d’un sous-réseau vers un autre via une NVA
 
-Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure CLI](tutorial-create-route-table-cli.md) ou [Azure PowerShell](tutorial-create-route-table-powershell.md).
+Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tutorial-create-route-table-cli.md) ou [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -49,25 +49,25 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
 2. Sélectionnez **Mise en réseau**, puis **Table de routage**.
-3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
+3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myRouteTablePublic|
+    |Nom|myRouteTablePublic|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroup*.|
-    |Lieu|Est des États-Unis|
+    |Emplacement|USA Est|
  
     ![Créer une table de routage](./media/tutorial-create-route-table-portal/create-route-table.png) 
 
 ## <a name="create-a-route"></a>Créer un itinéraire
 
 1. Dans le champ *Rechercher des ressources, services et documents* en haut du portail, commencez à saisir *myRouteTablePublic*. Quand **myRouteTablePublic** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
-2. Sous **PARAMÈTRES**, sélectionnez **Itinéraires**, puis **+ Ajouter**, comme indiqué dans l’image suivante :
+2. Sous **PARAMÈTRES**, sélectionnez **Itinéraires**, puis **+ Ajouter**, comme indiqué dans l’image suivante :
 
     ![Ajouter un itinéraire](./media/tutorial-create-route-table-portal/add-route.png) 
  
-3. Sous **Ajouter un itinéraire**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
+3. Sous **Ajouter un itinéraire**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -78,43 +78,43 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
 
-Avant de pouvoir associer une table d’itinéraires à un sous-réseau, vous devez créer un réseau virtuel et un sous-réseau :
+Avant de pouvoir associer une table d’itinéraires à un sous-réseau, vous devez créer un réseau virtuel et un sous-réseau :
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
-3. Sous **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
+3. Sous **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVirtualNetwork|
+    |Nom|myVirtualNetwork|
     |Espace d’adressage| 10.0.0.0/16|
     |Abonnement | Sélectionnez votre abonnement.|
     |Groupe de ressources|Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Lieu|Sélectionnez *Est des États-Unis*.|
+    |Emplacement|Sélectionnez *Est des États-Unis*.|
     |Nom du sous-réseau|Public|
     |Plage d’adresses|10.0.0.0/24|
     
 4. Dans le champ **Rechercher des ressources, services et documents** en haut du portail, commencez à taper *myVirtualNetwork*. Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la.
-5. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**, puis **+ Sous-réseau**, comme indiqué dans l’image suivante :
+5. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**, puis **+ Sous-réseau**, comme indiqué dans l’image suivante :
 
     ![Ajouter un sous-réseau](./media/tutorial-create-route-table-portal/add-subnet.png) 
 
-6. Sélectionnez ou saisissez les informations suivantes, puis cliquez sur **OK** :
+6. Sélectionnez ou saisissez les informations suivantes, puis cliquez sur **OK** :
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|Privé|
+    |Nom|Privé|
     |Espace d’adressage| 10.0.1.0/24|
 
-7. Effectuez les étapes 5 et 6, en fournissant les informations suivantes :
+7. Effectuez les étapes 5 et 6, en fournissant les informations suivantes :
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|DMZ|
+    |Nom|DMZ|
     |Espace d’adressage| 10.0.2.0/24|
 
 8. La zone **myVirtualNetwork - Sous-réseaux** s’affiche une fois que vous avez effectué l’étape précédente. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**, puis **Public**.
-9. Comme indiqué dans l’image suivante, sélectionnez **Table d’itinéraires**, puis **MyRouteTablePublic** et sélectionnez **Enregistrer** :
+9. Comme indiqué dans l’image suivante, sélectionnez **Table d’itinéraires**, puis **MyRouteTablePublic** et sélectionnez **Enregistrer** :
 
     ![Associer une table de routage](./media/tutorial-create-route-table-portal/associate-route-table.png) 
 
@@ -128,34 +128,34 @@ Une NVA est une machine virtuelle qui exécute une fonction réseau, telle que l
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVmNva|
+    |Nom|myVmNva|
     |Nom d'utilisateur|Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe|Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
-    |Lieu|Sélectionnez **Est des États-Unis**.|
+    |Emplacement|Sélectionnez **Est des États-Unis**.|
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
 5. Sélectionnez ou saisissez les informations suivantes pour **Paramètres**, puis sélectionnez **OK** :
 
     |Paramètre|Valeur|
     |---|---|
-    |Réseau virtuel|myVirtualNetwork : si cette option est sélectionnée, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork** sous **Choisir un réseau virtuel**.|
+    |Réseau virtuel|myVirtualNetwork : si cette option est sélectionnée, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork** sous **Choisir un réseau virtuel**.|
     |Sous-réseau|Sélectionnez **Sous-réseau**, puis **DMZ** sous **Choisir un sous-réseau**. |
-    |Adresse IP publique| Sélectionnez **Adresse IP publique** et sélectionnez **Aucune** sous **Choisir une adresse IP publique**. Aucune adresse IP publique n’est assignée à cette machine virtuelle, car elle ne sera pas connectée à Internet.
+    |Adresse IP publique| Sélectionnez **Adresse IP publique** et sélectionnez **Aucune** sous **Choisir une adresse IP publique**. Aucune adresse IP publique n’est assignée à cette machine virtuelle, car elle ne sera pas connectée à Internet.
 6. Sous **Créer** dans **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
     La création de la machine virtuelle ne nécessite que quelques minutes. Ne passez pas à l’étape suivante tant qu’Azure n’a pas terminé la création de la machine virtuelle et n’a pas ouvert une boîte contenant des informations sur la machine virtuelle.
 
-7. Dans la boîte qui s’est ouverte pour la machine virtuelle après sa création, sous **PARAMÈTRES**, sélectionnez **Mise en réseau**, puis **myvmnva158** (l’interface réseau Azure créée pour votre machine virtuelle a un numéro différent après **myvmnva**), comme illustré dans l’image suivante :
+7. Dans la boîte qui s’est ouverte pour la machine virtuelle après sa création, sous **PARAMÈTRES**, sélectionnez **Mise en réseau**, puis **myvmnva158** (l’interface réseau Azure créée pour votre machine virtuelle a un numéro différent après **myvmnva**), comme illustré dans l’image suivante :
 
     ![Mise en réseau de machines virtuelles](./media/tutorial-create-route-table-portal/virtual-machine-networking.png) 
 
-8. Pour qu’une interface réseau soit en mesure de transférer le trafic réseau qui lui est envoyé, mais qui n’est pas destiné à sa propre adresse IP, le transfert IP doit être activé pour l’interface réseau. Sous **PARAMÈTRES**, sélectionnez **Configurations IP**, **activez** le **transfert IP**, puis choisissez **Enregistrer**, comme illustré dans l’image suivante :
+8. Pour qu’une interface réseau soit en mesure de transférer le trafic réseau qui lui est envoyé, mais qui n’est pas destiné à sa propre adresse IP, le transfert IP doit être activé pour l’interface réseau. Sous **PARAMÈTRES**, sélectionnez **Configurations IP**, **activez** le **transfert IP**, puis choisissez **Enregistrer**, comme illustré dans l’image suivante :
 
-    ![Activer le transfert IP](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png) 
+    ![Activer le transfert IP](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png) 
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Créez deux machines virtuelles dans le réseau virtuel de manière à pouvoir valider que le trafic provenant du sous-réseau *Public* est routé vers le sous-réseau *Privé* via la NVA ultérieurement. Suivez les étapes 1 à 6 de [Créer une NVA](#create-a-network-virtual-appliance). Utilisez les mêmes paramètres aux étapes 3 et 5, avec les exceptions suivantes :
+Créez deux machines virtuelles dans le réseau virtuel de manière à pouvoir valider que le trafic provenant du sous-réseau *Public* est routé vers le sous-réseau *Privé* via la NVA ultérieurement. Suivez les étapes 1 à 6 de [Créer une NVA](#create-a-network-virtual-appliance). Utilisez les mêmes paramètres aux étapes 3 et 5, avec les exceptions suivantes :
 
 |Nom de la machine virtuelle      |Sous-réseau      | Adresse IP publique     |
 |--------- | -----------|---------              |
@@ -181,7 +181,7 @@ Vous pouvez créer la machine virtuelle *myVmPrivate* pendant qu’Azure crée l
     ```
 
     Bien que ce didacticiel utilise l’outil de traçage d’itinéraire pour tester le routage, il n’est pas recommandé d’autoriser le protocole IMCP dans le pare-feu Windows lors de déploiements en production.
-7. Vous avez activé le transfert d’IP dans Azure pour l’interface réseau de la machine virtuelle dans [Activer le transfert IP](#enable-ip-forwarding). Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert d’adresse IP au sein du système d’exploitation de la machine virtuelle *myVmNva* :
+7. Vous avez activé le transfert d’IP dans Azure pour l’interface réseau de la machine virtuelle dans [Activer le transfert IP](#enable-ip-forwarding). Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert d’adresse IP au sein du système d’exploitation de la machine virtuelle *myVmNva* :
 
     À partir d’une invite de commandes sur la machine virtuelle *myVmPrivate*, connectez le Bureau à distance à la machine virtuelle *myVmNva* :
 

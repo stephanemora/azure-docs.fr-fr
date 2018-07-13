@@ -3,7 +3,7 @@ title: Gérer des groupes de machines virtuelles identiques avec Azure CLI 2.0 
 description: Commandes Azure CLI 2.0 communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
-ms.openlocfilehash: ca447f3ca0ed6656912a0d3e5082ebd2dd308a14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cynthn
+ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652482"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308051"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gérer un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI 2.0 courantes qui vous permettent d’effectuer ces tâches.

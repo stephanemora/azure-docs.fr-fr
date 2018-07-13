@@ -3,7 +3,7 @@ title: 'Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure P
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure PowerShell pour créer et gérer des machines virtuelles Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a1d89b1e1b7c398ae05fef5577bb1631409631b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d47981042fc13a96bdf5cb9690e4dc83a6aa0162
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211104"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932549"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell
 
@@ -36,7 +36,7 @@ Les machines virtuelles fournissent un environnement informatique entièrement c
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -147,7 +147,7 @@ Ces informations peuvent être utilisées pour déployer une machine virtuelle a
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
-    -Location "East US" `
+    -Location "EastUS" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
@@ -240,7 +240,7 @@ Get-AzureRmVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
-Output:
+Sortie :
 
 ```azurepowershell-interactive
 Status

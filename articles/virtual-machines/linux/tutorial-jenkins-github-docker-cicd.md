@@ -3,7 +3,7 @@ title: 'Didacticiel : créer un pipeline de développement dans Azure avec Jenki
 description: 'Didacticiel : avec ce didacticiel, vous allez apprendre à créer une machine virtuelle Jenkins dans Azure, qui fait des extractions à partir de GitHub à chaque validation de code et génère un nouveau conteneur Docker pour exécuter votre application.'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211189"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931726"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Didacticiel : créer une infrastructure de développement sur une machine virtuelle Linux dans Azure avec Jenkins, GitHub et Docker
 
@@ -37,7 +37,7 @@ Pour automatiser les phases de création et de test du développement de l’app
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Création d’une instance Jenkins
 Dans le didacticiel précédent [How to customize a Linux virtual machine on first boot (Personnalisation d’une machine virtuelle Linux au premier démarrage)](tutorial-automate-vm-deployment.md), vous avez appris à automatiser la personnalisation des machines virtuelles avec cloud-init. Ce didacticiel utilise un fichier cloud-init pour installer Jenkins et Docker sur une machine virtuelle. Jenkins est un serveur d’automatisation open source courant qui s’intègre aisément à Azure pour activer l’intégration continue (CI, Continuous Integration) et la livraison continue (CD, Continous Delivery). Pour plus de didacticiels sur l’utilisation de Jenkins, consultez le [hub Jenkins dans Azure](https://docs.microsoft.com/azure/jenkins/).
@@ -148,8 +148,8 @@ Pour que Jenkins réponde à un événement dans GitHub (un code de validation p
 Dans votre site web Jenkins, sélectionnez **Créer de nouvelles tâches** dans la page d’accueil :
 
 - Entrez *HelloWorld* comme nom de la tâche. Sélectionnez **Projet libre**, puis cliquez sur **OK**.
-- Dans la section **Général**, sélectionnez le projet **GitHub**, puis entrez l’URL de votre référentiel dupliqué (par exemple, *https://github.com/iainfoulds/nodejs-docs-hello-world*).
-- Dans la section **Gestion du code source**, sélectionnez **Git** et entrez l’URL de votre référentiel dupliqué *.git* (par exemple, *https://github.com/iainfoulds/nodejs-docs-hello-world.git*).
+- Dans la section **Général**, sélectionnez le projet **GitHub**, puis entrez l’URL de votre référentiel dupliqué (par exemple, *https://github.com/cynthn/nodejs-docs-hello-world*).
+- Dans la section **Gestion du code source**, sélectionnez **Git** et entrez l’URL de votre référentiel dupliqué *.git* (par exemple, *https://github.com/cynthn/nodejs-docs-hello-world.git*).
 - Dans la section **Déclencheurs de génération**, sélectionnez **Déclencher un hook GitHub pour l’interrogation GITScm**.
 - Dans la section **Build**, cliquez sur **Ajouter une étape de build**. Sélectionnez **Exécuter l’interpréteur de commandes**, puis entrez `echo "Testing"` dans la fenêtre de commande.
 - Sélectionnez **Enregistrer** en bas de la fenêtre des tâches.
@@ -231,7 +231,7 @@ Ouvrez un navigateur web et entrez `http://<publicIps>:1337`. Votre application 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez configuré GitHub pour qu’il exécute une tâche de génération Jenkins à chaque validation de code et déploie ensuite un conteneur Docker pour tester votre application. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez configuré GitHub pour qu’il exécute une tâche de génération Jenkins à chaque validation de code et déploie ensuite un conteneur Docker pour tester votre application. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Jenkins

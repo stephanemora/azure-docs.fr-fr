@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062039"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345489"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - version préliminaire
 
@@ -25,7 +25,7 @@ Le module Azure Machine Learning que vous créez dans ce didacticiel lit les don
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer un module Azure Machine Learning
+> * Créer un module Azure Machine Learning
 > * Envoyer (push) un conteneur de module dans un registre de conteneurs Azure
 > * Déployer un module Azure Machine Learning sur votre appareil Azure IoT Edge
 > * Afficher les données générées
@@ -60,14 +60,14 @@ Modifiez le fichier de configuration du démon IoT Edge :
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Mettez à jour la section **Connecter** de la configuration. Par exemple : 
+Mettez à jour la section **Connecter** de la configuration avec votre adresse IP. Par exemple :
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-Entrez les mêmes adresses dans la section **Écouter** de la configuration. Par exemple : 
+Entrez les mêmes adresses dans la section **Écouter** de la configuration. Par exemple :
 
 ```yaml
 listen:
@@ -87,11 +87,11 @@ Dans cette section, vous allez télécharger les fichiers de modèles entraîné
 
 Sur l’ordinateur exécutant la Gestion des modules pour Azure ML, téléchargez et enregistrez [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) et [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl), que vous trouverez dans le kit de ressources Azure ML IoT sur GitHub. Ces fichiers définissent le modèle d’apprentissage de la machine entraînée qui sera déployé sur l’appareil IoT Edge.
 
-Utilisez le modèle entraîné pour créer un conteneur qui pourra être déployé sur des appareils IoT Edge. Utilisez la commande suivante pour :
+Utilisez le modèle entraîné pour créer un conteneur qui pourra être déployé sur des appareils IoT Edge. Utilisez la commande suivante pour :
 
-   * enregistrer votre modèle
-   * Créez un manifeste.
-   * créer une image de conteneur Docker nommée *machinelearningmodule*
+   * enregistrer votre modèle ;
+   * créer un manifeste ;
+   * créer une image de conteneur Docker nommée *machinelearningmodule* ;
    * déployer l’image vers un cluster Azure Kubernetes Service (AKS).
 
 ```cmd
@@ -104,11 +104,11 @@ Vérifiez que votre image de conteneur a bien été créée et stockée dans le 
 
 1. Sur le [Portail Azure](https://portal.azure.com), accédez à **Tous les services** et sélectionnez **Registres de conteneurs**.
 2. Sélectionnez votre registre. Le nom doit commencer par **mlcr** : il appartient au groupe de ressources, à l’emplacement et à l’abonnement que vous avez utilisés pour configurer la Gestion des modules.
-3. Sélectionnez **Clés d’accès**.
+3. Sélectionnez **Clés d’accès**
 4. Copiez **Serveur de connexion**, **Nom d’utilisateur** et **Mot de passe**.  Vous en aurez besoin pour accéder au registre sur vos appareils Edge.
-5. Sélectionnez **Référentiels**.
-6. Sélectionnez **machinelearningmodule**.
-7. Vous avez maintenant le chemin d’accès complet de l’image du conteneur. Notez le chemin d’accès de l’image pour la section suivante. Il devrait se présenter ainsi : **<nom_registre>.azureacr.io/machinelearningmodule:1**.
+5. Sélectionnez **Référentiels**
+6. Sélectionnez **machinelearningmodule**
+7. Vous avez maintenant le chemin d’accès complet de l’image du conteneur. Notez le chemin d’accès de l’image pour la section suivante. Il devrait se présenter ainsi : **<nom_registre>.azureacr.io/machinelearningmodule:1**
 
 ## <a name="deploy-to-your-device"></a>Déployer sur votre appareil
 
@@ -125,20 +125,20 @@ Vérifiez que votre image de conteneur a bien été créée et stockée dans le 
 1. Si vous avez déjà déployé le module tempSensor sur votre appareil IoT Edge, il est possible qu’il se remplisse automatiquement. S’il ne figure pas encore dans la liste des modules, ajoutez-le.
 
     1. Cliquez sur **Ajouter** et sélectionnez **Module IoT Edge**.
-    2. Dans le champ **Nom**, entrez `tempsensor`.
+    2. Dans le champ **Nom**, entrez `tempSensor`.
     3. Dans le champ **URI de l’image**, entrez `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Sélectionnez **Enregistrer**.
 
 1. Ajoutez le module de Machine Learning que vous avez créé.
 
     1. Cliquez sur **Ajouter** et sélectionnez **Module Azure Machine Learning**.
-    1. Dans le champ **Nom**, entrez `machinelearningmodule`.
+    1. Dans le champ **Nom**, entrez `machinelearningmodule`
     1. Dans le champ **Image**, saisissez l’adresse de votre image, par exemple `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Sélectionnez **Enregistrer**.
 
 1. Revenez à l’étape **Ajouter des modules** et sélectionnez **Suivant**.
 
-1. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Le premier itinéraire transmet les messages du capteur de température au module Machine Learning le point de terminaison « amlInput », le point de terminaison utilisé par tous les modules Azure Machine Learning. Le deuxième itinéraire transmet les messages du module Machine Learning à IoT Hub. Dans cet itinéraire, « amlOutput » correspond au point de terminaison utilisé par tous les modules Azure Machine Learning pour transmettre des données, et « $upstream » signifie IoT Hub.
+1. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Le premier itinéraire transmet les messages du capteur de température au module Machine Learning le point de terminaison « amlInput », le point de terminaison utilisé par tous les modules Azure Machine Learning. Le deuxième itinéraire transmet les messages du module Machine Learning à IoT Hub. Dans cet itinéraire, « amlOutput » correspond au point de terminaison utilisé par tous les modules Azure Machine Learning pour transmettre des données, et « $upstream » signifie IoT Hub.
 
     ```json
     {
@@ -193,7 +193,7 @@ Les étapes suivantes montrent comment configurer Visual Studio Code pour survei
 
 4. Sélectionnez à nouveau **...**, puis **Commencer le monitoring du message D2C**.
 
-5. Observez les messages en provenance de tempSensor toutes les cinq secondes. Le corps du message contient une propriété appelée **anomalie** qu’offre le machinelearningmodule avec la valeur true ou false. La propriété **AzureMLResponse** contient la valeur « OK » si le modèle a été exécuté correctement.
+5. Observez les messages en provenance de tempSensor toutes les cinq secondes. Le corps du message contient une propriété appelée **anomalie** qu’offre le machinelearningmodule avec la valeur true ou false. La propriété **AzureMLResponse** contient la valeur « OK » si le modèle a été exécuté correctement.
 
    ![Réponse d’Azure ML dans le corps du message](./media/tutorial-deploy-machine-learning/ml-output.png)
 

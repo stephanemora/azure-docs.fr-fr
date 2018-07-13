@@ -11,19 +11,19 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: 93c1c9cb27e5eb2d56583dccaffe92e9d50ecc2d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c2d92f26bec2045e7f1e8afff189d58d8c29f25a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959272"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099474"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Prise en main sur Azure Dev Spaces avec .NET Core et Visual Studio
 
 Dans ce guide, vous allez apprendre à :
 
-- Configurez Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
-- développer du code de façon itérative dans des conteneurs à l’aide de Visual Studio.
+- Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
+- Développer du code de façon itérative dans des conteneurs à l’aide de Visual Studio.
 - Développer indépendamment deux services distincts et utiliser la découverte des services DNS de Kubernetes pour appeler un autre service.
 - Développer et tester votre code de façon productive dans un environnement d’équipe.
 
@@ -35,7 +35,7 @@ Dans ce guide, vous allez apprendre à :
 1. Installez la dernière version de [Visual Studio 2017](https://www.visualstudio.com/vs/).
 1. Dans le programme d’installation de Visual Studio, vérifiez que la charge de travail suivante est sélectionnée :
     * Développement web et ASP.NET
-1. Installez [l’extension Visual Studio pour Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+1. Installer [Visual Studio Tools pour Kubernetes](https://aka.ms/get-azds-visualstudio)
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Créer une application web s’exécutant dans un conteneur
 
@@ -124,7 +124,7 @@ Actualisez l’application web dans le navigateur, puis accédez à la page À p
 
 
 ## <a name="call-another-container"></a>Appeler un autre conteneur
-Dans cette section, vous allez créer un deuxième service, `mywebapi`, et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous allez effectuer le débogage dans les deux conteneurs.
+Dans cette section, vous allez créer un deuxième service `mywebapi` et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous allez effectuer le débogage dans les deux conteneurs.
 
 ![](media/common/multi-container.png)
 

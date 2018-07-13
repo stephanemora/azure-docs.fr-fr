@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 930cd3cc637c2c8286f8388b9f116b9ba33c3fc5
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 8298f4a31db974f75e80aef7589bfd31fd7c7491
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236006"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921050"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Exécuter Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.

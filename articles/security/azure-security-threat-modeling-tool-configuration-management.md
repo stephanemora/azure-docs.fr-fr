@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028980"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857444"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Mesures de prévention 
 | Produit/Service | Article |
@@ -42,7 +42,7 @@ ms.locfileid: "37028980"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [An Introduction to Content Security Policy (Présentation de la stratégie de sécurité de contenu)](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference (Informations de référence sur la stratégie de sécurité de contenu)](http://content-security-policy.com/), [Security features (Fonctionnalités de sécurité)](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy (Présentation de la stratégie de sécurité de contenu)](https://docs.webplatform.org/wiki/tutorials/content-security-policy), [Can I use CSP? (Puis-je utiliser CSP ?)](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **Informations de référence**              | [An Introduction to Content Security Policy (Présentation de la stratégie de sécurité de contenu)](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference (Informations de référence sur la stratégie de sécurité de contenu)](http://content-security-policy.com/), [Security features (Fonctionnalités de sécurité)](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy (Présentation de la stratégie de sécurité de contenu)](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP? (Puis-je utiliser CSP ?)](http://caniuse.com/#feat=contentsecuritypolicy) |
 | **Étapes** | <p>La stratégie de sécurité de contenu (CSP, Content Security Policy) est un mécanisme de protection fiable, correspondant à une norme W3C, qui permet aux propriétaires d’applications web de contrôler le contenu incorporé dans leur site. La stratégie CSP est ajoutée sous la forme d’un en-tête de réponse HTTP sur le serveur web et est appliquée côté client par les navigateurs. Cette stratégie repose sur une liste verte : un site web peut déclarer un ensemble de domaines approuvés à partir desquels un contenu actif tel qu’un script JavaScript peut être chargé.</p><p>La stratégie CSP procure les avantages de sécurité suivants :</p><ul><li>**Protection contre l’exécution de scripts intersites (XSS, Cross-Site Scripting) :** si une page est vulnérable aux attaques XSS, un attaquant peut exploiter cette faille de 2 manières :<ul><li>Injection du code `<script>malicious code</script>`. Ce type d’attaque ne fonctionnera pas en raison d’une restriction de base 1 de la stratégie CSP.</li><li>Injection du code `<script src=”http://attacker.com/maliciousCode.js”/>`. Ce type d’attaque échouera, car le domaine contrôlé par l’attaquant ne figurera pas dans la liste blanche de domaines de la stratégie CSP.</li></ul></li><li>**Contrôle de l’exfiltration des données :** si un contenu malveillant présent sur une page web tente de se connecter à un site web externe et de voler des données, la stratégie CSP annule la connexion. Ce comportement découle du fait que le domaine cible ne figure pas dans la liste verte de la stratégie CSP.</li><li>**Protection contre le détournement de clics :** le détournement de clics est une technique d’attaque par laquelle un attaquant superpose un cadre caché à un site web authentique et incite les utilisateurs à cliquer sur des éléments de l’interface utilisateur. À l’heure actuelle, la technique de défense contre le détournement de clics consiste à configurer un en-tête de réponse X-Frame-Options. Toutefois, certains navigateurs ne respectent pas cet en-tête. L’application de la stratégie CSP constitue donc un moyen de protection standard contre le détournement de clics</li><li>**Signalement des attaques en temps réel:** en cas d’attaque par injection sur un site web protégé par la stratégie CSP, les navigateurs envoient automatiquement une notification à un point de terminaison configuré sur le serveur web. De cette façon, la stratégie CSP fait office de système d’avertissement en temps réel.</li></ul> |
 
 ### <a name="example"></a>Exemples
@@ -562,7 +562,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |
-| **Informations de référence**              | [Vue d’ensemble de la gestion des appareils avec IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware (Mise à jour du micrologiciel des appareils)](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
+| **Informations de référence**              | [Vue d’ensemble de la gestion des appareils avec IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware (Mise à jour du micrologiciel des appareils)](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
 | **Étapes** | LWM2M est un protocole défini par l’organisme Open Mobile Alliance pour la gestion des appareils IoT. La gestion des appareils IoT Azure permet d’interagir avec les appareils physiques à l’aide de travaux d’appareil. Assurez-vous que la passerelle cloud implémente un processus pour garantir la mise à jour continue des données de l’appareil et d’autres données de configuration à l’aide de la gestion des appareils Azure IoT Hub. |
 
 ## <a id="controls-policies"></a>S’assurer que les appareils disposent de contrôles de sécurité des points de terminaison configurés conformément aux directives organisationnelles

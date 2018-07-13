@@ -9,27 +9,27 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: df22040de398810fd9250ef46da2f95b6915c4a9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030656"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436087"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Windows - préversion
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Windows - préversion
 
 Dans cette démarrage rapide, utilisez l'interface de cloud Azure IoT Edge pour déployer à distance un code prédéfini sur un appareil IoT Edge. Pour accomplir cette tâche, utilisez d’abord votre appareil Windows pour simuler un appareil IoT Edge, puis déployez un module sur celui-ci.
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
 1. Créez un IoT Hub.
-2. Enregistrez un appareil IoT Edge dans votre IoT Hub.
+2. Inscrivez un appareil IoT Edge dans votre IoT Hub.
 3. Installez et démarrez le runtime IoT Edge sur votre appareil.
 4. Déployez à distance un module sur un appareil IoT Edge et envoyez les données de télémétrie à IoT Hub.
 
 ![Plan du didacticiel][2]
 
-Le module que vous déployez dans ce démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez en déployant des modules qui analysent les données simulées des informations métier. 
+Le module que vous déployez dans ce guide de démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez ici en déployant des modules qui analysent les données simulées des informations métier. 
 
 >[!NOTE]
 >Le runtime IoT Edge sur Windows est en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -40,7 +40,7 @@ Si vous n’avez pas d'abonnement Azure actif, créez un [compte gratuit][lnk-ac
 
 Ce démarrage rapide transforme votre ordinateur ou machine virtuelle Windows en appareil IoT Edge. Si vous exécutez Windows sur une machine virtuelle, activez la [virtualisation imbriquée][lnk-nested] et allouez au moins 2 Go de mémoire. 
 
-La machine que vous utilisez pour un appareil IoT Edge doit être configurée comme suit :
+Vérifiez que les prérequis suivants sont remplis sur l’ordinateur que vous utilisez pour un appareil IoT Edge :
 
 1. Assurez-vous d’utiliser une version Windows prise en charge :
    * Windows 10 ou version ultérieure
@@ -60,18 +60,18 @@ Ajoutez l’extension Azure IoT à l’instance de Cloud Shell.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Commencez le démarrage rapide en créant votre IoT Hub dans le portail Azure.
+Commencez le guide de démarrage rapide en créant votre hub IoT dans le portail Azure.
 ![Créer un IoT Hub][3]
 
-Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé gratuitement un hub, vous pouvez utiliser cet IoT hub. Chaque abonnement peut avoir uniquement un IoT hub gratuit. 
+Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé gratuitement un hub, vous pouvez utiliser cet IoT Hub. Chaque abonnement peut avoir uniquement un IoT hub gratuit. 
 
-1. Dans Azure Cloud Shell, créez un groupe de ressources. Le code suivant crée un groupe de ressources appelé **TestResources** dans la région **USA Ouest**. En plaçant toutes les ressources pour les démarrages rapides et les tutoriels d’un groupe, vous pouvez les gérer ensemble. 
+1. Dans Azure Cloud Shell, créez un groupe de ressources. Le code suivant crée un groupe de ressources appelé **TestResources** dans la région **USA Ouest**. En plaçant toutes les ressources pour les démarrages rapides et les didacticiels dans un groupe, vous pouvez les gérer ensemble. 
 
    ```azurecli-interactive
    az group create --name TestResources --location westus
    ```
 
-1. Créez un IoT hub dans votre nouveau groupe de ressources. Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **TestResources**. Remplacez *{hub_nom}* par un nom unique pour votre application IoT hub.
+1. Créez un IoT hub dans votre nouveau groupe de ressources. Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **TestResources**. Remplacez *{hub_name}* par un nom unique pour votre IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
@@ -103,12 +103,12 @@ Créez une identité d’appareil pour votre appareil simulé afin qu’il puiss
 Installez et démarrez le runtime Azure IoT Edge sur votre appareil IoT Edge. 
 ![Inscrire un appareil][5]
 
-Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. L’**agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, y compris le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. 
+Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. 
 
 >[!NOTE]
->Les étapes d’installation de cette section sont manuels pour l’instant pendant un script d’installation est en cours de développement. 
+>Les étapes d’installation de cette section sont manuelles pour l’instant alors qu’un script d’installation est en cours de développement. 
 
-Les instructions de cette section configurent le runtime IoT Edge avec les conteneurs Linux. Si vous souhaitez utiliser des conteneurs Windows, consultez [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md) (Installer le runtime Azure IoT Edge sur Windows à utiliser avec des conteneurs Windows).
+Les instructions de cette section configurent le runtime IoT Edge avec les conteneurs Linux. Si vous souhaitez utiliser des conteneurs Windows, consultez [Installer le runtime Azure IoT Edge sur Windows à utiliser avec des conteneurs Windows](how-to-install-iot-edge-windows-with-windows.md).
 
 ### <a name="download-and-install-the-iot-edge-service"></a>Télécharger et installer le service IoT Edge
 
@@ -145,7 +145,7 @@ Les instructions de cette section configurent le runtime IoT Edge avec les conte
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-6. Créer un nouveau fichier appelé **iotedge.reg** et ouvrez-le dans un éditeur de texte. 
+6. Créez un fichier appelé **iotedge.reg** et ouvrez-le dans un éditeur de texte. 
 
 7. Ajoutez le contenu suivant et enregistrez le fichier. 
 
@@ -157,15 +157,15 @@ Les instructions de cette section configurent le runtime IoT Edge avec les conte
    "TypesSupported"=dword:00000007
    ```
 
-8. Accédez à votre fichier dans l’Explorateur de fichiers et double-cliquez dessus pour importer les modifications dans le registre Windows. 
+8. Accédez à votre fichier dans l’Explorateur de fichiers et double-cliquez dessus pour importer les modifications dans le Registre Windows. 
 
 ### <a name="configure-the-iot-edge-runtime"></a>Configurer le runtime IoT Edge 
 
-Configurez le runtime avec la chaîne de connexion de votre appareil IoT Edge que vous avez copié lors de l’enregistrement d’un nouvel appareil. Ensuite, configurez le réseau du runtime. 
+Configurez le runtime avec la chaîne de connexion de votre appareil IoT Edge que vous avez copiée lors de l’inscription d’un nouvel appareil. Ensuite, configurez le réseau du runtime. 
 
-1. Ouvrez le fichier de configuration IoT Edge, qui se trouve dans `C:\ProgramData\iotedge\config.yaml`. Ce fichier est protégé, par conséquent, exécutez un éditeur de texte tel que Bloc-notes en tant qu’administrateur, puis utilisez l’éditeur pour ouvrir le fichier. 
+1. Ouvrez le fichier de configuration IoT Edge, qui se trouve dans `C:\ProgramData\iotedge\config.yaml`. Ce fichier étant protégé, exécutez un éditeur de texte tel que le Bloc-notes en tant qu’administrateur, puis utilisez l’éditeur pour ouvrir le fichier. 
 
-2. Recherchez la section **approvisionnement** et remplacez la valeur de **device_connection_string** par la chaîne que vous avez copiée à partir des informations de votre appareil IoT Edge. 
+2. Recherchez la section sur le **provisionnement** et remplacez la valeur de **device_connection_string** par la chaîne que vous avez copiée à partir des informations de votre appareil IoT Edge. 
 
 3. Dans votre fenêtre PowerShell d’administrateur, récupérez le nom d’hôte de votre appareil IoT Edge et copiez la sortie. 
 
@@ -173,43 +173,50 @@ Configurez le runtime avec la chaîne de connexion de votre appareil IoT Edge qu
    hostname
    ```
 
-4. Dans le fichier de configuration, recherchez la section **Nom d’hôte de l’appareil Edge**. Remplacez la valeur de **nom d’hôte** par le nom d’hôte que vous avez copié à partir de PowerShell.
+4. Dans le fichier de configuration, recherchez la section sur le **nom d’hôte de l’appareil Edge**. Remplacez la valeur de **hostname** par le nom d’hôte que vous avez copié à partir de PowerShell.
 
-3. Dans la fenêtre PowerShell d’administrateur, récupérez l’adresse IP votre appareil IoT Edge. 
+3. Dans votre fenêtre PowerShell d’administrateur, récupérez l’adresse IP de votre appareil IoT Edge. 
 
    ```powershell
    ipconfig
    ```
 
-4. Copiez la valeur de **Adresse IPv4** dans la section **vEthernet (DockerNAT)** de la sortie. 
+4. Copiez la valeur de **IPv4 Address** dans la section **vEthernet (DockerNAT)** de la sortie. 
 
-5. Créez une variable d’environnement appelée **IOTEDGE_HOST**, en remplaçant  *\<ip_address\>* par l’adresse IP de votre appareil IoT Edge. 
+5. Créez une variable d’environnement appelée **IOTEDGE_HOST**, en remplaçant *\<ip_address\>* par l’adresse IP de votre appareil IoT Edge. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
+  
+  Conservez la variable d'environnement sur les redémarrages.
 
-6. Dans le fichier `config.yaml`, recherchez la section **Paramètres de connexion**. Remplacez les valeurs de **management_uri** et **workload_uri** par votre adresse IP et les ports que vous avez ouverts dans la section précédente. 
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+
+6. Dans le fichier `config.yaml`, recherchez la section sur les **paramètres de connexion**. Remplacez les valeurs de **management_uri** et **workload_uri** par votre adresse IP et les ports que vous avez ouverts dans la section précédente. Remplacez **\<GATEWAY_ADDRESS\>** par votre adresse IP. 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-7. Recherchez la section **Paramètres d’écoute** et ajoutez les mêmes valeurs pour **management_uri** et **workload_uri**. 
+7. Recherchez la section sur les **paramètres d’écoute** et ajoutez les mêmes valeurs pour **management_uri** et **workload_uri**. 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 8. Recherchez la section **Paramètres de runtime de conteneur Moby**  et vérifiez que la valeur de **network** est définie sur `nat`.
 
 9. Enregistrez le fichier de configuration. 
 
-10. Dans PowerShell, redémarrez le service de IoT Edge.
+10. Dans PowerShell, redémarrez le service IoT Edge.
 
    ```powershell
    Stop-Service iotedge -NoWait
@@ -239,7 +246,7 @@ Vérifiez que le runtime a été correctement installé et configuré.
     sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
-3. Affichez les modules s’exécutant sur votre appareil IoT Edge. Étant donné que le service vient de démarrer pour la première fois, vous devez uniquement voir le module **edgeAgent** en cours d’exécution. Le module edgeAgent s’exécute par défaut et vous aide à installer et démarrer tous les modules supplémentaires que vous déployez sur votre appareil. 
+3. Affichez tous les modules s’exécutant sur votre appareil IoT Edge. Comme le service vient de démarrer pour la première fois, vous devez uniquement voir le module **edgeAgent** en cours d’exécution. Le module edgeAgent s’exécute par défaut et vous aide à installer et démarrer tous les modules supplémentaires que vous déployez sur votre appareil. 
 
    ```powershell
    iotedge list
@@ -274,11 +281,11 @@ iotedge logs tempSensor -f
 
   ![Afficher les données dans votre module](./media/quickstart/iotedge-logs.png)
 
-Vous pouvez afficher les messages reçus par votre IoT Hub à l’aide de [l’outil d’exploration IoT Hub][lnk-iothub-explorer] ou l’[extension du kit IoT Azure pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Vous pouvez également afficher les messages reçus par votre hub IoT à l’aide de [l’outil IoT Hub Explorer][lnk-iothub-explorer] ou [l’extension Azure IoT Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous pouvez utiliser l’appareil simulé que vous avez configuré dans ce démarrage rapide pour tester les tutoriels IoT Edge. Si vous souhaitez que le module tempSensor n’envoie plus de données de télémétrie à votre IoT Hub, utilisez la commande suivante pour arrêter le service IoT Edge et supprimer les conteneurs qui ont été créés sur votre appareil. Lorsque vous souhaitez de nouveau utiliser votre machine en tant qu’appareil IoT Edge, pensez à démarrer le service. 
+Vous pouvez utiliser l’appareil simulé que vous avez configuré dans ce guide de démarrage rapide pour tester les tutoriels IoT Edge. Si vous souhaitez que le module tempSensor n’envoie plus de données à votre hub IoT, utilisez la commande suivante pour arrêter le service IoT Edge et supprimer les conteneurs qui ont été créés sur votre appareil. Lorsque vous souhaitez de nouveau utiliser votre machine en tant qu’appareil IoT Edge, pensez à démarrer le service. 
 
    ```powershell
    Stop-Service iotedge -NoWait
@@ -293,12 +300,12 @@ Lorsque vous n’avez plus besoin des ressources Azure que vous avez créées, v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez créé un nouvel appareil IoT Edge et utilisé l’interface de cloud d’Azure IoT Edge pour déployer du code sur l’appareil. Vous possédez désormais un appareil de test générant des données brutes sur son environnement. 
+Dans ce guide de démarrage rapide, vous avez créé un appareil IoT Edge et utilisé l’interface cloud Azure IoT Edge pour déployer du code sur l’appareil. Vous possédez désormais un appareil de test générant des données brutes sur son environnement. 
 
-Vous pouvez continuer avec l’un des autres tutoriels pour savoir comment Azure IoT Edge peut vous aider à transformer ces données en informations métier à la périphérie.
+Vous êtes prêt à passer à l’un des autres tutoriels pour savoir comment Azure IoT Edge peut vous aider à transformer ces données en informations métier « at the edge » (« en périphérie»).
 
 > [!div class="nextstepaction"]
-> [Filtrer les données de capteur à l’aide d’une fonction Azure](tutorial-deploy-function.md)
+> [Filtrer les données de capteur à l’aide d’Azure Function](tutorial-deploy-function.md)
 
 
 <!-- Images -->

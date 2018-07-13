@@ -3,15 +3,15 @@ title: Installer un serveur cible maître Linux pour le basculement à partir d�
 description: Pour reprotéger une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Découvrez comment en installer.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 338a104de6fadeff842e6e135db395758c8f8dce
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285931"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921067"
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 

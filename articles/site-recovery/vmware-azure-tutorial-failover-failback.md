@@ -1,19 +1,20 @@
 ---
-title: "Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués sur Azure avec Site Recovery | Microsoft Docs"
-description: "Découvrez comment basculer des machines virtuelles et des serveurs physiques VMware vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery"
+title: Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués sur Azure avec Site Recovery | Microsoft Docs
+description: Découvrez comment basculer des machines virtuelles et des serveurs physiques VMware vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/05/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57be12e3d203ba88cf7900598a09abdd206e1495
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115098"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués vers Azure
 
@@ -58,13 +59,13 @@ Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle e
 
 4. Vous pouvez afficher et modifier les paramètres réseau, notamment le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouvera après le basculement et l’adresse IP à lui affecter.
 
-5. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques** .
+5. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques**.
 
 ## <a name="run-a-failover-to-azure"></a>Effectuer un basculement vers Azure
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
 
-2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
+2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
    - **Dernier** (par défaut) : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
    - **Dernier point traité** : cette option bascule la machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
    - **Dernier point de cohérence des applications** : cette option bascule la machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery.

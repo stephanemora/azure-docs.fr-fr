@@ -1,19 +1,19 @@
 ---
 title: Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook
 description: Découvrez comment rediriger des alertes de métrique Azure vers d’autres systèmes que Azure.
-author: johnkemnetz
+author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: johnkem
+ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262349"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887342"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurer un webhook sur une alerte de métrique Azure
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
@@ -37,36 +37,33 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 
 ```JSON
 {
-    "WebhookName": "Alert1515515157799",
-    "RequestBody": {
-        "status": "Activated",
-        "context": {
-            "timestamp": "2015-08-14T22:26:41.9975398Z",
-            "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
-            "name": "ruleName1",
-            "description": "some description",
-            "conditionType": "Metric",
-            "condition": {
-                "metricName": "Requests",
-                "metricUnit": "Count",
-                "metricValue": "10",
-                "threshold": "10",
-                "windowSize": "15",
-                "timeAggregation": "Average",
-                "operator": "GreaterThanOrEqual"
-            },
-            "subscriptionId": "s1",
-            "resourceGroupName": "useast",
-            "resourceName": "mysite1",
-            "resourceType": "microsoft.foo/sites",
-            "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
-            "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+    "status": "Activated",
+    "context": {
+        "timestamp": "2015-08-14T22:26:41.9975398Z",
+        "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
+        "name": "ruleName1",
+        "description": "some description",
+        "conditionType": "Metric",
+        "condition": {
+            "metricName": "Requests",
+            "metricUnit": "Count",
+            "metricValue": "10",
+            "threshold": "10",
+            "windowSize": "15",
+            "timeAggregation": "Average",
+            "operator": "GreaterThanOrEqual"
         },
-        "properties": {
-            "key1": "value1",
-            "key2": "value2"
-        }
+        "subscriptionId": "s1",
+        "resourceGroupName": "useast",
+        "resourceName": "mysite1",
+        "resourceType": "microsoft.foo/sites",
+        "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
+        "resourceRegion": "centralus",
+        "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+    },
+    "properties": {
+        "key1": "value1",
+        "key2": "value2"
     }
 }
 ```
@@ -96,7 +93,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 | ResourceId |O | |ID de la ressource affectée. |
 | resourceRegion |O | |Région ou emplacement de la ressource affectée. |
 | portalLink |O | |Lien direct vers la page de résumé de la ressource sur le portail. |
-| properties |N |Facultatif |Ensemble de paires clé/valeur contenant les détails de l’événement. Par exemple : `Dictionary<String, String>`. Le champ properties est facultatif. Dans un workflow basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au Webhook consiste à utiliser l’URI du Webhook (sous la forme de paramètres de requête). |
+| properties |N |Facultatif |Ensemble de paires clé/valeur contenant les détails de l’événement. Par exemple : `Dictionary<String, String>`. Le champ properties est facultatif. Dans un workflow basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au Webhook consiste à utiliser l’URI du Webhook (sous la forme de paramètres de requête). |
 
 > [!NOTE]
 > Vous pouvez définir le champ **properties** uniquement à l’aide des [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).

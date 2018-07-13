@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626868"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309774"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Connecter votre appareil Raspberry Pi à l’accélérateur de solution de surveillance à distance (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel montre comment connecter un appareil physique à l’accélérateur de solution de surveillance à distance. Dans ce didacticiel, vous utilisez Node.js, qui est une bonne option pour les environnements avec des contraintes minimales en ressources.
+Ce tutoriel vous montre comment connecter un appareil physique à l’accélérateur de solution Surveillance à distance. Dans ce didacticiel, vous utilisez Node.js, qui est une bonne option pour les environnements avec des contraintes minimales en ressources.
 
 ### <a name="required-hardware"></a>Matériel requis
 

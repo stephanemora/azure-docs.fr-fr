@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335820"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127853"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>Didacticiel : Créer une application à l’aide d’une entité de type liste
+# <a name="tutorial-4-add-list-entity"></a>Didacticiel : 4. Ajouter une entité de liste
 Dans ce didacticiel, créez une application qui montre comment obtenir des données correspondant à une liste prédéfinie. 
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ Dans ce didacticiel, créez une application qui montre comment obtenir des donn�
 Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du didacticiel [entités regex du domaine personnalisé](luis-quickstart-intents-regex-entity.md), [importez](create-new-app.md#import-new-app) le JSON dans une application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du didacticiel [entité regex](luis-quickstart-intents-regex-entity.md), [importez](create-new-app.md#import-new-app) le JSON dans une application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `list`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -43,7 +43,7 @@ Le nom canonique pour chaque élément est le numéro d’employé. Pour ce doma
 
 |Objectif du synonyme|Valeur du synonyme|
 |--|--|
-|NOM|John W. Smith|
+|Nom|John W. Smith|
 |Adresse de messagerie|john.w.smith@mycompany.com|
 |Extension de téléphone|x12345|
 |Numéro de téléphone mobile personnel|425-555-1212|
@@ -98,8 +98,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Capture d’écran de la page d’intentions avec de nouveaux énoncés mis en surbrillance](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-    Cette application comporte une entité de nombre prédéfinie ajoutée à partir du didacticiel précédent, de sorte que chaque numéro est étiqueté. Cela peut suffire pour votre application cliente, mais le numéro n’est pas étiqueté avec le type de numéro. La création d’une entité avec un nom approprié permet à l’application cliente de traiter l’entité lorsqu’elle est retournée à partir de LUIS.
-
 ## <a name="create-an-employee-list-entity"></a>Créer une entité de liste d’employés
 Maintenant que l’intention **MoveEmployee** dispose d’énoncés, LUIS doit comprendre ce qu’est un employé. 
 
@@ -123,7 +121,7 @@ Maintenant que l’intention **MoveEmployee** dispose d’énoncés, LUIS doit c
 
     |Objectif du synonyme|Valeur du synonyme|
     |--|--|
-    |NOM|John W. Smith|
+    |Nom|John W. Smith|
     |Adresse de messagerie|john.w.smith@mycompany.com|
     |Extension de téléphone|x12345|
     |Numéro de téléphone mobile personnel|425-555-1212|
@@ -137,7 +135,7 @@ Maintenant que l’intention **MoveEmployee** dispose d’énoncés, LUIS doit c
 
     |Objectif du synonyme|Valeur du synonyme|
     |--|--|
-    |NOM|Jill Jones|
+    |Nom|Jill Jones|
     |Adresse de messagerie|jill-jones@mycompany.com|
     |Extension de téléphone|x23456|
     |Numéro de téléphone mobile personnel|425-555-0000|
@@ -298,10 +296,10 @@ Votre chatbot a maintenant suffisamment d’informations pour déterminer l’ac
 LUIS en a fini avec cette demande. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez le menu représentant trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Applications Mu** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrir comment ajouter une entité hiérarchique](luis-quickstart-intent-and-hier-entity.md)
+> [Ajouter une entité hiérarchique à l’application](luis-quickstart-intent-and-hier-entity.md)
 

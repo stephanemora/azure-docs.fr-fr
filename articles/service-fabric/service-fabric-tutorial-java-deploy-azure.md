@@ -1,5 +1,5 @@
 ---
-title: Déployer une application Java Service Fabric sur un cluster dans Azure | Microsoft Docs
+title: Déployer une application Java vers un cluster Service Fabric dans Azure | Microsoft Docs
 description: Dans ce didacticiel, vous allez apprendre à déployer une application Java Service Fabric sur un cluster Azure Service Fabric.
 services: service-fabric
 documentationcenter: java
@@ -15,40 +15,44 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644040"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109672"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Didacticiel : Déployer une application Java sur un cluster Service Fabric dans Azure
+
 Ce troisième didacticiel de la série vous montre comment déployer une application Service Fabric sur un cluster dans Azure.
 
-Dans ce troisième volet, vous apprenez à :
+Dans ce troisième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Créer un cluster Linux sécurisé dans Azure 
+> * Créer un cluster Linux sécurisé dans Azure
 > * Déployer une application sur le cluster
 
-Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
+
 > [!div class="checklist"]
-> *  [Générer une application Reliable Services Service Fabric de Java](service-fabric-tutorial-create-java-app.md)
+> * [Générer une application Reliable Services Service Fabric de Java](service-fabric-tutorial-create-java-app.md)
 > * [Déployer et déboguer l’application sur un cluster local](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Déployer l’application sur un cluster Azure
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-java-elk.md)
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Prérequis
-Avant de commencer ce didacticiel :
-- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Installez le Kit de développement logiciel (SDK) Service Fabric pour [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
-- [Installez Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
+
+Avant de commencer ce tutoriel :
+
+* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Installez le Kit de développement logiciel (SDK) Service Fabric pour [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
+* [Installez Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## <a name="create-a-service-fabric-cluster-in-azure"></a>Créer un cluster Service Fabric dans Azure
 
-Les étapes suivantes créent les ressources nécessaires pour déployer votre application sur un cluster Service Fabric. En outre, les ressources nécessaires pour surveiller l’intégrité de votre solution à l’aide de la pile ELK (Elasticsearch, Logstash, Kibana) sont configurées. Plus précisément, [Event Hubs](https://azure.microsoft.com/services/event-hubs/) est utilisé en tant que récepteur pour les journaux de Service Fabric. Il est configuré pour envoyer des journaux du cluster Service Fabric à votre instance Logstash. 
+Les étapes suivantes créent les ressources nécessaires pour déployer votre application sur un cluster Service Fabric. En outre, les ressources nécessaires pour surveiller l’intégrité de votre solution à l’aide de la pile ELK (Elasticsearch, Logstash, Kibana) sont configurées. Plus précisément, [Event Hubs](https://azure.microsoft.com/services/event-hubs/) est utilisé en tant que récepteur pour les journaux de Service Fabric. Il est configuré pour envoyer des journaux du cluster Service Fabric à votre instance Logstash.
 
 1. Ouvrez un terminal et téléchargez le package suivant qui contient les scripts d’assistance et les modèles nécessaires pour créer les ressources dans Azure
 
@@ -56,23 +60,23 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Connexion à votre compte Azure 
+2. Connexion à votre compte Azure
 
     ```bash
     az login
     ```
 
-3. Configurer l’abonnement Azure que vous souhaitez utiliser pour créer les ressources 
+3. Configurer l’abonnement Azure que vous souhaitez utiliser pour créer les ressources
 
     ```bash
     az account set --subscription [SUBSCRIPTION-ID]
-    ``` 
+    ```
 
-4. À partir du dossier *service-fabric-java-quickstart/AzureCluster*, exécutez la commande suivante pour créer un certificat de cluster dans Key Vault. Ce certificat est utilisé pour sécuriser votre cluster Service Fabric. Indiquez la région (doit être identique à votre cluster Service Fabric), le nom du groupe de ressource de coffre de clés, le nom du coffre de clés, le mot de passe du certificat et le nom DNS du cluster. 
+4. À partir du dossier *service-fabric-java-quickstart/AzureCluster*, exécutez la commande suivante pour créer un certificat de cluster dans Key Vault. Ce certificat est utilisé pour sécuriser votre cluster Service Fabric. Indiquez la région (doit être identique à votre cluster Service Fabric), le nom du groupe de ressource de coffre de clés, le nom du coffre de clés, le mot de passe du certificat et le nom DNS du cluster.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
-    
+
     Example: ./new-service-fabric-cluster-certificate.sh 'westus' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.westus.cloudapp.azure.com'
     ```
 
@@ -84,11 +88,11 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     Certificate Thumbprint: <THUMBPRINT>
     ```
 
-5. Créez un groupe de ressources pour le compte de stockage qui stocke vos journaux 
+5. Créez un groupe de ressources pour le compte de stockage qui stocke vos journaux
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
-    
+
     Example: az group create --location westus --name teststorageaccountrg
     ```
 
@@ -96,11 +100,11 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
     ```bash
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
-    
+
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
     ```
 
-7. Accédez au [portail Azure](https://portal.azure.com), puis à l’onglet **Signature d’accès partagé** pour votre compte de stockage. Générez le jeton SAP comme suit. 
+7. Accédez au [portail Azure](https://portal.azure.com), puis à l’onglet **Signature d’accès partagé** pour votre compte de stockage. Générez le jeton SAP comme suit.
 
     ![Générer la SAP pour le stockage](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
 
@@ -114,16 +118,16 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
-    
+
     Example: az group create --location westus --name testeventhubsrg
     ```
 
-10. Créez une ressource Event Hubs à l’aide de la commande suivante. Suivez les invites pour entrer les informations de namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule et receiveAuthorizationRule. 
+10. Créez une ressource Event Hubs à l’aide de la commande suivante. Suivez les invites pour entrer les informations de namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule et receiveAuthorizationRule.
 
     ```bash
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
-    
-    Example: 
+
+    Example:
     az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
@@ -132,8 +136,8 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
     ```
 
-    Copiez le contenu du champ de **sortie** dans la sortie JSON de la commande précédente. Les informations d’expéditeur sont utilisées lors de la création du cluster Service Fabric. La clé et le nom du récepteur doivent être enregistrés pour une utilisation dans le didacticiel suivant lorsque le service Logstash est configuré pour recevoir des messages à partir d’Event Hub. L’objet blob suivant est un exemple de sortie JSON :     
-    
+    Copiez le contenu du champ de **sortie** dans la sortie JSON de la commande précédente. Les informations d’expéditeur sont utilisées lors de la création du cluster Service Fabric. La clé et le nom du récepteur doivent être enregistrés pour une utilisation dans le didacticiel suivant lorsque le service Logstash est configuré pour recevoir des messages à partir d’Event Hub. L’objet blob suivant est un exemple de sortie JSON :
+
     ```json
     "outputs": {
         "receiver Key": {
@@ -169,9 +173,9 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
     Votre URL de SAP pour Event Hubs suit la structure : https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Par exemple, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Ouvrez le fichier *sfdeploy.parameters.json* de fichier et remplacez le contenu suivant des étapes précédentes 
+12. Ouvrez le fichier *sfdeploy.parameters.json* de fichier et remplacez le contenu suivant des étapes précédentes
 
-    ```
+    ```json
     "applicationDiagnosticsStorageAccountName": {
         "value": "teststorageaccount"
     },
@@ -191,7 +195,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Déployer votre application sur le cluster
 
-1. Avant de déployer votre application, vous devez ajouter l’extrait de code suivant au fichier *Voting/VotingApplication/ApplicationManifest.xml*. Le champ **X509FindValue** est l’empreinte renvoyée de l’étape 4 de la section **Créer un cluster Service Fabric dans Azure**. Cet extrait de code est imbriqué sous le champ **ApplicationManifest** (le champ racine). 
+1. Avant de déployer votre application, vous devez ajouter l’extrait de code suivant au fichier *Voting/VotingApplication/ApplicationManifest.xml*. Le champ **X509FindValue** est l’empreinte renvoyée de l’étape 4 de la section **Créer un cluster Service Fabric dans Azure**. Cet extrait de code est imbriqué sous le champ **ApplicationManifest** (le champ racine).
 
     ```xml
     <Certificates>
@@ -211,34 +215,35 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh**. 
+4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh**.
 
     ```bash
     ./install.sh
     ```
 
-5. Pour accéder à Service Fabric Explorer, ouvrez votre navigateur favori et tapez https://testlinuxcluster.westus.cloudapp.azure.com:19080. Choisissez le certificat dans le magasin de certificats que vous souhaitez utiliser pour vous connecter à ce point de terminaison. Si vous utilisez un ordinateur Linux, les certificats qui ont été générés par le script *new-service-fabric-cluster-certificate.sh* doivent être importés dans Chrome pour afficher Service Fabric Explorer. Si vous utilisez un Mac, vous devez installer le fichier PFX dans votre chaîne de clé. Vous remarquerez que votre application a été installée sur le cluster. 
+5. Pour accéder à Service Fabric Explorer, ouvrez votre navigateur favori et tapez https://testlinuxcluster.westus.cloudapp.azure.com:19080. Choisissez le certificat dans le magasin de certificats que vous souhaitez utiliser pour vous connecter à ce point de terminaison. Si vous utilisez un ordinateur Linux, les certificats qui ont été générés par le script *new-service-fabric-cluster-certificate.sh* doivent être importés dans Chrome pour afficher Service Fabric Explorer. Si vous utilisez un Mac, vous devez installer le fichier PFX dans votre chaîne de clé. Vous remarquerez que votre application a été installée sur le cluster.
 
     ![PFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. Pour accéder à votre application, tapez https://testlinuxcluster.westus.cloudapp.azure.com:8080 
+6. Pour accéder à votre application, tapez https://testlinuxcluster.westus.cloudapp.azure.com:8080
 
     ![Application Voting Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
-7. Pour désinstaller votre application du cluster, exécutez le script *uninstall.sh* dans le dossier **Scripts** 
+7. Pour désinstaller votre application du cluster, exécutez le script *uninstall.sh* dans le dossier **Scripts**
 
     ```bash
     ./uninstall.sh
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Créer un cluster Linux sécurisé dans Azure 
-> * Créer les ressources nécessaires pour la surveillance avec ELK 
+> * Créer un cluster Linux sécurisé dans Azure
+> * Créer les ressources nécessaires pour la surveillance avec ELK
 > * Facultatif : Comment utiliser des clusters tiers pour essayer Service Fabric
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 > [!div class="nextstepaction"]
 > [Monitor your Service Fabric applications using ELK](service-fabric-tutorial-java-elk.md) (Surveiller vos applications Service Fabric à l’aide d’ELK)

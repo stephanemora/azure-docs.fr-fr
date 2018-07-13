@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657238"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438228"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutoriel : en savoir plus sur la gouvernance de machines virtuelles Windows avec Azure PowerShell
 
@@ -55,7 +55,7 @@ Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressou
 * [Collaborateur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
+Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
 
 L’exemple suivant permet de créer un groupe Azure Active Directory nommé *VMDemoContributors* avec le pseudonyme de messagerie *vmDemoGroup*. Le pseudonyme de messagerie sert d’alias pour le groupe.
 
@@ -176,7 +176,7 @@ Un message d’erreur s’affiche, indiquant que l’opération de suppression n
 
 ## <a name="tag-resources"></a>Baliser des ressources
 
-Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -194,7 +194,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Rechercher des ressources à l’aide de leurs balises
 
-Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) :
+Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) :
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name
@@ -233,7 +233,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Assigner des utilisateurs à un rôle

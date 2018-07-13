@@ -7,14 +7,14 @@ manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187302"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921210"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planificateur de déploiement Site Recovery de Hyper-V vers Azure
 
@@ -82,7 +82,6 @@ Nombre de serveurs pouvant être profilés par instance en cours d’exécution 
 * L’outil s’applique principalement au scénario de récupération d’urgence Hyper-V vers Azure. Pour la récupération d’urgence Hyper-V vers un site secondaire, il permet uniquement de disposer de recommandations côté source telles que la bande passante réseau requise, l’espace de stockage disponible requis sur chacun des serveurs Hyper-V source, et les numéros et définitions de lots de réplication initiale.  Ignorez les recommandations et coûts Azure dans le rapport. De plus, l’opération d’obtention du débit ne s’applique pas au scénario de récupération d’urgence Hyper-V vers un site secondaire.
 
 ## <a name="prerequisites"></a>Prérequis
-
 L’outil comprend trois phases principales pour Hyper-V : obtention de la liste de machines virtuelles, profilage et génération de rapports. En outre, une quatrième option permet de calculer le débit uniquement. La configuration requise pour le serveur sur lequel les différentes phases doivent être exécutées est présentée dans le tableau suivant :
 
 | Configuration requise du serveur | Description |

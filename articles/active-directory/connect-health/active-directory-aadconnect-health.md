@@ -3,7 +3,7 @@ title: Surveillez votre infrastructure d’identité locale dans le cloud.
 description: Cette page décrit Azure AD Connect Health et vous explique pourquoi l’utiliser.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: aef9a923932b3794e32275bacd2f880d0b8b7b73
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 006914b279f2d762bf0dee6f83d6866235c062bc
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939580"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887502"
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud
 Azure Active Directory (Azure AD) Connect Health vous permet de surveiller et d’analyser votre infrastructure d’identité locale et les services de synchronisation. Il vous permet de maintenir une connexion fiable à Office 365 et à Microsoft Online Services en fournissant des fonctionnalités de surveillance de vos composants d’identification clés tels que les serveurs Active Directory Federation Services (AD FS), les serveurs Azure AD Connect (moteur de synchronisation), les contrôleurs de domaine Active Directory, etc. En outre, les points de données clés sur ces composants sont facilement accessibles, ce qui vous permet d’obtenir des données d’utilisation et d’autres informations importantes pour prendre des décisions avisées.

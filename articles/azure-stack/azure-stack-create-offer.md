@@ -1,6 +1,6 @@
 ---
 title: Créer une offre dans Azure Stack | Microsoft Docs
-description: En tant qu’administrateur cloud, apprenez à créer une offre pour vos utilisateurs dans Azure Stack.
+description: En tant qu’administrateur cloud, apprenez à créer une offre pour vos utilisateurs dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/2/2018
 ms.author: brenduns
-ms.openlocfilehash: e5b96a9464bf4d0e3b69d2f635da32c6648ce793
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247515"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345887"
 ---
-# <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
+# <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
 
 Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à l’achat ou à l’abonnement aux utilisateurs. Ce document montre comment créer une offre comprenant le [plan que vous avez créé](azure-stack-create-plan.md). Cette offre donne aux abonnés la possibilité de configurer des machines virtuelles.
 
@@ -37,9 +37,9 @@ Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs p
 
    ![Sélectionner un plan](media/azure-stack-create-offer/image02.png)
   
-4. Après avoir créé l’offre, vous pouvez modifier son état. Les offres doivent être rendues *publiques* pour permettre aux utilisateurs d’avoir une vue d’ensemble lorsqu’ils s’abonnent. Les offres peuvent être :
+4. Après avoir créé l’offre, vous pouvez modifier son état. Les offres doivent être rendues *publiques* pour permettre aux utilisateurs d’avoir une vue d’ensemble lorsqu’ils s’abonnent. Les offres peuvent être :
 
-   - **Public** : ils sont visibles pour les utilisateurs.
+   - **Public** : ils sont visibles pour les utilisateurs.
    - **Privé** : visibles uniquement par les administrateurs cloud. Ce paramètre est utile lors de l’élaboration du plan ou de l’offre, ou si l’administrateur cloud souhaite [créer chaque abonnement pour les utilisateurs](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
    - **Retiré**: ils sont fermés aux nouveaux abonnés. L’administrateur cloud peut utiliser cet état pour empêcher tout abonnement futur, sans que cela affecte les abonnés actuels.
 
@@ -59,7 +59,7 @@ Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs p
      Sélectionnez **Toutes les ressources**, recherchez votre nouvelle offre, puis sélectionnez la nouvelle offre. Sélectionnez **Changer l’état**, puis sélectionnez **Public**.
 
    > [!NOTE]
-   > Vous pouvez également utiliser PowerShell pour créer des offres, des plans et des quotas par défaut. Pour plus d’informations, consultez [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin) (Lisez-moi d’Azure Stack Service Administrator).
+   > Vous pouvez également utiliser PowerShell pour créer des offres, des plans et des quotas par défaut. Pour plus d’informations, consultez le [Module 1.3.0 Azure Stack PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

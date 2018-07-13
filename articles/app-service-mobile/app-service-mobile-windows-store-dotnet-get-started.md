@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 508989e0e2daeac7922d61ff692ee4579139cfc8
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594945"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307219"
 ---
 # <a name="create-a-windows-app"></a>Créer une application Windows
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -35,7 +35,7 @@ En cours d’exécution sur un téléphone
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels Mobile App pour les applications UWP.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -70,7 +70,7 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 
     Notez que les données enregistrées à l’étape précédente sont chargées à partir d’Azure après le démarrage de l’application UWP.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de l’authentification à votre application](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Apprenez à authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 * [Ajouter des notifications Push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md)  

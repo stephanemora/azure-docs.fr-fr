@@ -1,19 +1,20 @@
 ---
-title: 'Démarrage rapide : Cluster Azure Kubernetes pour Linux'
+title: 'Démarrage rapide : Cluster Azure Kubernetes pour Linux'
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans ACS avec Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 3bcdd4ba935b0fe9fe891503999c907aa1667abd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0105b9e59a2ae872c53f9522f93f2ffca7c1bd7a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127836"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -27,23 +28,11 @@ Ce guide de démarrage rapide suppose une compréhension élémentaire des conce
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite que vous exécutiez la version 2.0.27 minimum d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
-## <a name="enabling-aks-preview"></a>Activation de la préversion d’AKS
-
-Assurez-vous que les fournisseurs de services Azure requis sont activés à l’aide de la commande `az provider register`.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-Une fois celui-ci inscrit, vous êtes prêt à créer un cluster Kubernetes avec AKS.
-
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create][az-group-create]. Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
-Lorsque vous créez un groupe de ressources, vous êtes invité à spécifier un emplacement. Il s’agit de l’emplacement où résideront vos ressources dans Azure. Il n’y a que quelques emplacements disponibles, car ACS est en préversion. Ces emplacements sont les suivants `eastus, westeurope, centralus, canadacentral, canadaeast`.
+Créez un groupe de ressources avec la commande [az group create][az-group-create]. Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
+
+Lorsque vous créez un groupe de ressources, vous êtes invité à spécifier un emplacement. Il s’agit de l’emplacement où résideront vos ressources dans Azure.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
@@ -51,7 +40,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location eastus
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -68,7 +57,7 @@ Output:
 
 ## <a name="create-aks-cluster"></a>Créer un cluster ACS
 
-Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*.
+Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Lorsque vous déployez un cluster AKS, l’intégrité du conteneur solution de surveillance peut également être activée. Pour plus d’informations sur l’activation de la solution de surveillance du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -99,14 +88,14 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-Output:
+Sortie :
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
 k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
 
-## <a name="run-the-application"></a>Exécution de l'application
+## <a name="run-the-application"></a>Exécution de l’application
 
 Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, incluant les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Cela inclut deux [déploiements Kubernetes][kubernetes-deployment], un pour les applications Azure Vote Python et l’autre pour une instance Redis. En outre, deux [services Kubernetes][kubernetes-service] sont créés, un service interne pour l’instance Redis et un service externe pour l’accès à l’application Azure Vote à partir d’Internet.
 
@@ -179,7 +168,7 @@ Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter l’applicati
 kubectl apply -f azure-vote.yaml
 ```
 
-Output:
+Sortie :
 
 ```
 deployment "azure-vote-back" created
@@ -188,7 +177,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Test de l'application
+## <a name="test-the-application"></a>Test de l’application
 
 Lorsque l’application est exécutée, un [service Kubernetes][kubernetes-service] est créé, qui expose le serveur frontal de l’application à Internet. L’exécution de ce processus peut prendre plusieurs minutes.
 
@@ -233,10 +222,10 @@ Dans ce guide de démarrage rapide, les images de conteneur, créées au préala
 
 Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs.
 
-Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au didacticiel sur le cluster Kubernetes.
+Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Didacticiel ACS][aks-tutorial]
+> [Tutoriel ACS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -248,6 +237,8 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -255,5 +246,4 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 

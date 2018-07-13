@@ -6,21 +6,20 @@ author: bsiva
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 5f14bbed7ae59737f62fb736591775cb7ba495c5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4b428dff1cebf353cc081696649494e6e4ec9b92
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29811066"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921108"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>Préparation de l’environnement cible en vue de la réplication VMware sur Azure
 
 Cet article décrit comment préparer votre environnement cible Azure de manière à lancer la réplication de machines virtuelles VMware sur Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 L’article suppose que :
 - Vous avez créé un coffre Recovery Services pour protéger vos machines virtuelles VMware. Vous pouvez créer un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").

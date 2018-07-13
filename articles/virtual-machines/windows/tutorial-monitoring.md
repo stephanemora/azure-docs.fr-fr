@@ -3,7 +3,7 @@ title: 'Didacticiel : surveiller et mettre à jour des machines virtuelles Windo
 description: Avec ce didacticiel, vous allez apprendre à surveiller les diagnostics de démarrage et les métriques de performances, et à gérer les mises à jour de package sur une machine virtuelle Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193874"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932651"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Windows dans Azure
 
@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Surveiller les modifications et l’inventaire
 > * Configurer la surveillance avancée
 
-Ce didacticiel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Ce tutoriel exige la version 5.7.0 ou une version ultérieure du module Azure PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
@@ -282,7 +282,7 @@ Après quelques minutes, la nouvelle machine virtuelle s’affiche dans l’espa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré et examiné des machines virtuelles avec Azure Security Center. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez configuré et examiné des machines virtuelles avec Azure Security Center. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créez un réseau virtuel

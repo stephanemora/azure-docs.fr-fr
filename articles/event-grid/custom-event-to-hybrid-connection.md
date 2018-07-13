@@ -5,22 +5,21 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302975"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127711"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers des connexions hybrides Azure Relay avec Azure CLI et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Les connexions hybrides Azure Relay sont l’un des gestionnaires d’événements pris en charge. Vous utilisez des connexions hybrides comme gestionnaires d’événements lorsque vous devez traiter des événements à partir d’applications qui ne possèdent pas de point de terminaison public. Ces applications peuvent se trouver dans votre réseau d’entreprise. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. Vous envoyez les événements à la connexion hybride.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet article suppose que vous disposez déjà d’une connexion hybride et d’une application d’écouteur. Pour aborder les connexions hybrides, consultez la section [Prise en main des connexions hybrides Relay : .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Prise en main des connexions hybrides Relay : nœud](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 
@@ -56,7 +55,7 @@ Vous vous abonnez à une rubrique pour communiquer à Event Grid les événement
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-Le script suivant obtient l’ID de ressource de l’espace de nom Relay. Il construit l’identifiant de la connexion hybride, puis s’abonne à une rubrique Event Grid. Il définit le type de point de terminaison sur `hybridconnection` et utilise l’ID de connexion hybride pour le point de terminaison.
+Le script suivant obtient l’ID de ressource de l’espace de nom Relay. Il construit l’identifiant de la connexion hybride, puis s’abonne à une rubrique Event Grid. Le script définit le type de point de terminaison sur `hybridconnection` et utilise l’ID de connexion hybride pour le point de terminaison.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -74,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Créer l’application de traitement des événements
+
+Vous avez besoin d’une application qui peut récupérer des événements à partir de la connexion hybride. L’[exemple de consommateur de connexions hybrides Microsoft Azure Event Grid pour C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) effectue cette opération. Vous avez déjà terminé les étapes requises.
+
+1. Vérifiez que vous disposez de Visual Studio 2017 Update 15.5 ou version ultérieure.
+
+1. Clonez le référentiel sur votre ordinateur local.
+
+1. Chargez le projet HybridConnectionConsumer dans Visual Studio.
+
+1. Dans Program.cs, remplacez `<relayConnectionString>` et `<hybridConnectionName>` par la chaîne de connexion et le nom de la connexion hybride créés.
+
+1. Compilez et exécutez l’application à partir de Visual Studio.
+
 ## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique
 
-Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Tout d’abord, il nous faut l’URL et la clé de la rubrique personnalisée. Utilisez de nouveau le nom de votre rubrique pour `<topic_name>`.
+Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Cet article montre comment utiliser Azure CLI pour déclencher l’événement. Vous pouvez également utiliser l’[application de serveur de publication Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
+
+Tout d’abord, il nous faut l’URL et la clé de la rubrique personnalisée. Utilisez de nouveau le nom de votre rubrique pour `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
@@ -93,7 +108,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 Votre application d’écouteur doit recevoir le message d’événement.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
+Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées dans cet article.
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
@@ -101,9 +116,9 @@ az group delete --name gridResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous savez créer des rubriques et des abonnements d’événements, vous pouvez en apprendre davantage sur Event Grid et ce qu’il peut vous offrir :
+Maintenant que vous savez créer des rubriques et des abonnements d’événements, vous pouvez en apprendre davantage sur Event Grid et ce qu’il peut vous offrir :
 
-- [Event Grid](overview.md)
+- [À propos d’Event Grid](overview.md)
 - [Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé ](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md)

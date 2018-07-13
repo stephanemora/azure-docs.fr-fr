@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389833"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127531"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Bien démarrer avec la réception de messages à l’aide de l’hôte du processeur d’événements dans .NET Standard
 
@@ -30,10 +30,10 @@ Ce didacticiel explique comment écrire une application console .NET Core qui re
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017, mais Visual Studio 2015 est également pris en charge.
+* [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017, mais Visual Studio 2015 est également pris en charge.
 * [Outils Visual Studio 2015 ou 2017 .NET Core](http://www.microsoft.com/net/core).
 * Un abonnement Azure.
-* Un espace de noms Azure Event Hubs.
+* Un espace de noms Azure Event Hubs et un hub d’événements.
 * Un compte de stockage Azure.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements  
@@ -42,7 +42,7 @@ La première étape consiste à utiliser le [portail Azure](https://portal.azure
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage  
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+1. Connectez-vous au [portail Azure](https://portal.azure.com).  
 2. Dans le panneau de navigation gauche du portail, cliquez sur **Créer une ressource**, puis sur **Stockage** et sur **Compte de stockage**.  
 3. Renseignez les champs dans la fenêtre du compte de stockage, puis cliquez sur **Créer**.
 
@@ -59,7 +59,7 @@ Démarrez Visual Studio. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Ajout du package NuGet Event Hubs
 
-Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) et [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) à votre projet en effectuant les étapes suivantes : 
+Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) et [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) à votre projet en effectuant les étapes suivantes : 
 
 1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
 2. Cliquez sur l’onglet **Parcourir**, recherchez **Microsoft.Azure.EventHubs**, puis sélectionnez le package **Microsoft.Azure.EventHubs**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
@@ -126,8 +126,8 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
 2. Ajoutez des constantes à la classe `Program` pour la chaîne de connexion du concentrateur d’événements, le nom du concentrateur d’événements, le nom du conteneur de compte de stockage, le nom du compte de stockage et la clé du compte de stockage. Ajoutez le code suivant, en remplaçant les espaces réservés par les valeurs correspondantes.
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -143,9 +143,9 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -160,7 +160,7 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
     }
     ```
 
-3. Ajoutez la ligne de code suivante à la méthode `Main` :
+3. Ajoutez la ligne de code suivante à la méthode `Main` :
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -174,8 +174,8 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -213,14 +213,14 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
 
 4. Exécutez le programme et assurez-vous qu’il n’y a aucune erreur.
 
-Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
+Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

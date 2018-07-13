@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029321"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308495"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Cet article vous explique les bases de l’utilisation des partages de fichiers Azure à l’aide de l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). L’Explorateur Stockage est un outil client populaire qui est disponible pour Windows, macOS et Linux. Vous pouvez utiliser l’Explorateur Stockage pour gérer les partages de fichiers Azure et d’autres ressources de stockage.
@@ -123,7 +123,7 @@ Pour illustrer comment restaurer un fichier à partir d’un instantané de part
 ### <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
 Pour supprimer un instantané de partage, accédez à la [liste des instantanés de partage](#list-and-browse-share-snapshots). Cliquez avec le bouton droit sur l’instantané de partage à supprimer, puis sélectionnez **Supprimer**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Vous ne pouvez pas utiliser l’Explorateur Stockage pour supprimer des ressources. Pour nettoyer les éléments de ce guide de démarrage rapide, vous pouvez utiliser le [portail Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]

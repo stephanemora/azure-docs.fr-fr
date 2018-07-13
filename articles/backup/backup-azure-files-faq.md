@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286398"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434835"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,7 +68,7 @@ La sauvegarde pour les partages de fichiers Azure est actuellement en préversio
 Écrivez à [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si vous souhaitez l’utiliser dans une région qui n’est pas spécifiée ci-dessus.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Combien de partages de fichiers Azure puis-je protéger dans un coffre ?<br/>
-Dans la préversion, vous pouvez protéger les partages de fichiers Azure d’un maximum de 25 comptes de stockage par coffre. Vous pouvez également protéger jusqu’à 200 partages de fichiers Azure dans un seul coffre.
+Dans la préversion, vous pouvez protéger les partages de fichiers Azure d’un maximum de 50 comptes de stockage par coffre. Vous pouvez également protéger jusqu’à 200 partages de fichiers Azure dans un seul coffre.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Puis-je protéger deux partages de fichiers différents du même compte de stockage dans différents coffres ?
 Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement être protégés par le même coffre.
@@ -78,7 +78,7 @@ Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Combien de sauvegardes à la demande puis-je prendre pour chaque partage de fichiers ? <br/>
 À tout moment, vous pouvez disposer de 200 instantanés pour un partage de fichiers. La limite inclut des instantanés pris par Azure Backup, comme défini dans votre stratégie. Si vos sauvegardes échouent une fois la limite atteinte, supprimez des points de restauration à la demande pour réussir les prochaines sauvegardes.
 
-### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Après avoir activé les réseaux virtuels sur mon compte de stockage, la sauvegarde des partages de fichiers du compte commence à échouer. Pourquoi ?
+### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Après avoir activé les réseaux virtuels sur mon compte de stockage, la sauvegarde des partages de fichiers du compte commence à échouer. Pourquoi ?
 La sauvegarde de partages de fichiers Azure ne prend pas en charge les comptes de stockage ayant activé les réseaux virtuels. Désactivez les réseaux virtuels dans les comptes de stockage afin de réussir les sauvegardes. 
 
 ## <a name="restore"></a>Restore

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201755"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435295"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Store avec des clusters Azure HDInsight
 
@@ -38,7 +38,7 @@ Dans cet article, vous découvrez le fonctionnement de Data Lake Store avec des 
 
 Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur d’objets blob dans le stockage Azure comme système de fichiers par défaut, ou, avec HDInsight 3.5 et des versions plus récentes, vous pouvez sélectionner le stockage Azure ou Azure Data Lake Store en tant que système de fichiers par défaut avec quelques exceptions. 
 
-Les clusters HDInsight peuvent utiliser Data Lake Store de deux manières :
+Les clusters HDInsight peuvent utiliser Data Lake Store de deux manières :
 
 * Comme stockage par défaut
 * Comme stockage supplémentaire, avec Azure Storage Blob comme stockage par défaut.
@@ -48,10 +48,10 @@ Les clusters HDInsight peuvent utiliser Data Lake Store de deux manières :
 | Type de cluster HDInsight | Data Lake Store comme stockage par défaut | Data Lake Store comme stockage supplémentaire| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight version 3.6 | OUI | OUI | |
-| HDInsight version 3.5 | OUI | OUI | À l’exception de HBase|
-| HDInsight version 3.4 | Non  | OUI | |
-| HDInsight version 3.3 | Non  | Non  | |
-| HDInsight version 3.2 | Non  | OUI | |
+| HDInsight version 3.5 | OUI | OUI | With the exception of HBase|
+| HDInsight version 3.4 | Non | OUI | |
+| HDInsight version 3.3 | Non | Non | |
+| HDInsight version 3.2 | Non | OUI | |
 | Storm | | |Vous pouvez utiliser Data Lake Store pour écrire des données à partir d’une topologie Storm. Vous pouvez également vous en servir pour stocker des données de référence qui peuvent ensuite être lues par une topologie Storm.|
 
 L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture ou d’écriture sur le stockage Azure à partir du cluster.
@@ -72,38 +72,38 @@ Notez que les deux clusters utilisent le même compte Data Lake Store **mydatala
 
 Pour être en mesure d’utiliser Data Lake Store en tant que stockage par défaut, vous devez accorder l’accès du principal de service aux chemins d’accès suivants :
 
-- Racine du compte Data Lake Store.  Par exemple : adl://mydatalakestore/.
-- Dossier pour tous les dossiers de cluster.  Par exemple : adl://mydatalakestore/clusters.
-- Dossier pour le cluster.  Par exemple : adl://mydatalakestore/clusters/cluster1storage.
+- Racine du compte Data Lake Store.  Par exemple : adl://mydatalakestore/.
+- Dossier pour tous les dossiers de cluster.  Par exemple : adl://mydatalakestore/clusters.
+- Dossier pour le cluster.  Par exemple : adl://mydatalakestore/clusters/cluster1storage.
 
 Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez [Configure Data Lake store access](#configure-data-lake-store-access) (Configurer l’accès à Data Lake Store).
 
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Utiliser Data Lake Store comme stockage supplémentaire
 
-Vous pouvez également utiliser Data Lake Store en tant que stockage supplémentaire pour le cluster. Dans ce cas, le stockage de cluster par défaut peut être un compte Azure Storage Blob ou Data Lake Store. Si vous exécutez des tâches HDInsight sur des données stockées dans Data Lake Store en tant que stockage supplémentaire, vous devez utiliser le chemin d’accès complet aux fichiers. Par exemple : 
+Vous pouvez également utiliser Data Lake Store en tant que stockage supplémentaire pour le cluster. Dans ce cas, le stockage de cluster par défaut peut être un compte Azure Storage Blob ou Data Lake Store. Si vous exécutez des tâches HDInsight sur des données stockées dans Data Lake Store en tant que stockage supplémentaire, vous devez utiliser le chemin d’accès complet aux fichiers. Par exemple :
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Notez qu’il n’y a encore aucun **cluster_root_path** dans l’URL. La raison est que Data Lake Store n’est pas un stockage par défaut dans ce cas et qu’il vous suffit donc de fournir le chemin d’accès aux fichiers.
 
-Pour être en mesure d’utiliser Data Lake Store comme stockage supplémentaire, il suffit d’accorder l’accès du principal de service aux chemins d’accès où sont stockés vos fichiers.  Par exemple : 
+Pour être en mesure d’utiliser Data Lake Store comme stockage supplémentaire, il suffit d’accorder l’accès du principal de service aux chemins d’accès où sont stockés vos fichiers.  Par exemple :
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez [Configurer l’accès à Data Lake Store](#configure-data-lake-store-access).
+Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez [Configure Data Lake store access](#configure-data-lake-store-access) (Configurer l’accès à Data Lake Store).
 
 
 ## <a name="use-more-than-one-data-lake-store-accounts"></a>Utiliser plusieurs comptes Data Lake Store
 
 L’ajout d’un compte Data Lake Store comme compte supplémentaire et de plusieurs comptes Data Lake Store s’effectue en donnant au cluster HDInsight l’autorisation d’accéder aux données de plusieurs comptes Data Lake Store. Consultez [Configurer l’accès à Data Lake Store](#configure-data-lake-store-access).
 
-## <a name="configure-data-lake-store-access"></a>Configurer l’accès aux données Data Lake Store
+## <a name="configure-data-lake-store-access"></a>Consultez Configurer l’accès à Data Lake Store
 
-Pour configurer l’accès à Data Lake store à partir de votre cluster HDInsight, vous devez disposer d’un principal de service Azure Active directory (Azure AD). Vous pouvez créer un principal de service uniquement si vous être administrateur Azure AD. Le principal de service doit être créé avec un certificat. Pour plus d’informations, consultez [Configurer l’accès à Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access), et [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate) (Créer un principal du service avec un certificat auto-signé).
+Pour configurer l’accès à Data Lake store à partir de votre cluster HDInsight, vous devez disposer d’un principal de service Azure Active directory (Azure AD). Vous pouvez créer un principal de service uniquement si vous être administrateur Azure AD. Le principal de service doit être créé avec un certificat. Pour plus d’informations, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), et [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate) (Créer un principal du service avec un certificat auto-signé).
 
 > [!NOTE]
-> Si vous vous apprêtez à utiliser Azure Data Lake Store en tant que stockage supplémentaire pour le cluster HDInsight, nous vous recommandons vivement de procéder ainsi lorsque vous créez le cluster comme décrit dans cet article. L’ajout d’Azure Data Lake Store en tant que stockage supplémentaire à un cluster HDInsight existant est un processus complexe sujet aux erreurs.
+> Si vous vous apprêtez à utiliser Azure Data Lake Store en tant que stockage supplémentaire pour le cluster HDInsight, nous vous recommandons vivement de procéder ainsi lorsque vous créez le cluster comme décrit dans cet article. L’ajout d’Azure Data Lake Store en tant que stockage supplémentaire à un cluster HDInsight existant n’est pas pris en charge.
 >
 
 ## <a name="access-files-from-the-cluster"></a>Accès aux fichiers à partir du cluster
@@ -130,7 +130,7 @@ Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Store à
 
 Suivez les liens ci-dessous pour obtenir des instructions détaillées sur la manière de créer des clusters HDInsight avec accès au Data Lake Store.
 
-* [Utilisation du portail](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Utilisation du portail](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Utilisation de PowerShell (avec Data Lake Store en tant que stockage par défaut)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Utilisation de PowerShell (avec Data Lake Store en tant que stockage supplémentaire)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Utilisation de modèles Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -142,8 +142,7 @@ Dans cet article, vous avez appris à utiliser Azure Data Lake Store compatible 
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]
-* [Prise en main d’Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
-* [Création d’un cluster HDInsight pour utiliser Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Création d’un cluster HDInsight pour utiliser Data Lake Store à l’aide d’Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]

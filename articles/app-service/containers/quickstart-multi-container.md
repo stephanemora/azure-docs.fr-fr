@@ -1,7 +1,7 @@
 ---
 title: Créer une application multiconteneur (préversion) dans Azure Web App pour conteneurs à l’aide d’une configuration Docker Compose
 description: Déployer votre première application multiconteneur dans Azure Web App pour conteneurs en quelques minutes
-keywords: azure app service, application web, linux, docker, compose, multiconteneur, plusieurs conteneurs, conteneurs, kubernetes
+keywords: service d’application Azure, application web, Linux, Docker, Compose, multiconteneur, plusieurs conteneurs, Web App pour conteneurs, plusieurs conteneurs, conteneurs, Kubernetes, Wordpress, base de données Azure pour MySQL, base de données de production avec des conteneurs
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753711"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127418"
 ---
-# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>Créer une application multiconteneur (préversion) à l’aide d’Azure Web App pour conteneurs
+# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Créer une application multiconteneur (préversion) à l’aide d’Azure Web App pour conteneurs
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Ce guide de démarrage rapide montre comment déployer une application multiconteneur sur Web App pour conteneurs dans [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) à l’aide d’une configuration Docker Compose. Pour Kubernetes, suivez les étapes propres à Kubernetes dans le [tutoriel sur les applications multiconteneurs](tutorial-multi-container-app.md).
+[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Ce guide de démarrage rapide montre comment déployer une application multiconteneur sur Web App pour conteneurs dans [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) à l’aide d’une configuration Docker Compose. Pour Kubernetes et une solution de bout en bout complète qui utilise une base de données Azure pour MySQL, suivez le [didacticiel sur les multiconteneurs](tutorial-multi-container-app.md).
 
-Vous allez effectuer les étapes de ce guide de démarrage rapide dans Cloud Shell, mais vous pouvez également exécuter ces commandes en local avec [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur). Ce guide de démarrage rapide utilise un fichier de configuration Docker Compose.
+Vous allez effectuer les étapes de ce guide de démarrage rapide dans Cloud Shell, mais vous pouvez également exécuter ces commandes en local avec [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur). 
 
-![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
+![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Vous allez effectuer les étapes de ce guide de démarrage rapide dans Cloud She
 
 ## <a name="download-the-sample"></a>Téléchargez l’exemple
 
-Pour ce guide de démarrage rapide, vous utilisez le fichier Compose de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mais vous allez le modifier pour inclure Azure Database pour MySQL, le stockage persistant et Redis. Le fichier de configuration se trouve dans les [exemples Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Pour ce guide de démarrage rapide, vous utilisez le fichier Composer de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). Le fichier de configuration se trouve dans les [exemples Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -48,10 +48,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-Exécutez ensuite la commande suivante pour cloner le référentiel de l’exemple d’application sur votre répertoire de démarrage rapide.
+Exécutez ensuite la commande suivante pour cloner le référentiel de l’exemple d’application sur votre répertoire de démarrage rapide. Accédez ensuite au répertoire `multicontainerwordpress`.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
@@ -100,11 +102,9 @@ Lorsque le plan App Service est créé, l’interface Azure CLI affiche des in
 
 ## <a name="create-a-docker-compose-app"></a>Création d’une application Docker Compose
 
-Dans votre terminal Cloud Shell, passez au répertoire `multicontainerwordpress`. Créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
@@ -129,9 +129,9 @@ Une fois l’application web créée, Azure CLI affiche une sortie similaire �
 
 Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.net`). Le chargement de l’application peut prendre plusieurs minutes. Si vous recevez une erreur, attendez quelques minutes supplémentaires, puis actualisez le navigateur.
 
-![Exemple d’application multiconteneur sur Web App pour conteneurs][1]
+![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
 
-**Félicitations**, vous avez créé une application multiconteneur dans Web App pour conteneurs.
+**Félicitations**, vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 

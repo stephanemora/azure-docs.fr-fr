@@ -1,17 +1,17 @@
 ---
 title: Installation du service Mobilité (VMware ou serveur physique vers Azure) | Microsoft Docs
 description: Découvrez comment installer l’agent du service Mobilité pour protéger vos serveurs physiques et machines virtuelles VMware locaux avec Azure Site Recovery.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: 7c292af91fea7f0e0d3b32412cfa9907560d68d9
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.topic: article
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287777"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37919085"
 ---
 # <a name="install-the-mobility-service"></a>Installer le service Mobilité 
 

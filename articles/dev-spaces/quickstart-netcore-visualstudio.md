@@ -11,20 +11,20 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960421"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100119"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (.NET Core et Visual Studio)
 
 Dans ce guide, vous allez apprendre à :
 
-- Configurez Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
-- développer du code de façon itérative dans des conteneurs à l’aide de Visual Studio.
-- Déboguez le code exécuté dans votre cluster.
+- Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
+- Développer du code de façon itérative dans des conteneurs à l’aide de Visual Studio.
+- Déboguer le code exécuté dans votre cluster.
 
 > [!Note]
 > **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md) ou postez un commentaire sur cette page. Vous pouvez aussi essayer ce [didacticiel](get-started-netcore-visualstudio.md) plus détaillé.
@@ -39,7 +39,7 @@ Dans ce guide, vous allez apprendre à :
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurer Azure Dev Spaces
 
-Installez [l’extension Visual Studio pour Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+Installez [Visual Studio Tools pour Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="connect-to-a-cluster"></a>Se connecter à un cluster
 
@@ -90,7 +90,7 @@ Visual Studio communique avec l’espace de développement pour générer et dé
 Cliquez sur le lien **À propos de** en haut de la page pour déclencher le point d’arrêt. Vous avez un accès complet aux informations pour le débogage, comme si le code s’exécutait en local, y compris à la pile des appels, aux variables locales, aux informations sur les exceptions, etc.
 
 
-## <a name="iteratively-develop-code"></a>Développer du code itératif
+## <a name="iteratively-develop-code"></a>Développer du code de façon itérative
 
 Azure Dev Spaces vous permet non seulement d’obtenir un code s’exécutant dans Kubernetes, mais également de visualiser rapidement et de façon itérative la prise en compte des modifications de votre code dans un environnement Kubernetes dans le cloud.
 

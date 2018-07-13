@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767421"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857719"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Créer un groupe et ajouter des membres dans Azure Active Directory
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Cet article explique comment créer et remplir un nouveau groupe dans Azure Acti
 
    ![Sélection de la commande Ajouter](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. Dans le panneau **Groupe** , ajoutez un nom et une description pour le groupe.
-6. Pour sélectionner les membres à ajouter au groupe, sélectionnez **Affecté** dans la zone **Type d’appartenance**, puis sélectionnez **Membres**. Pour plus d’informations sur la façon de gérer l’appartenance à un groupe de manière dynamique, consultez la page [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe](../active-directory-groups-dynamic-membership-azure-portal.md).
+6. Pour sélectionner les membres à ajouter au groupe, sélectionnez **Affecté** dans la zone **Type d’appartenance**, puis sélectionnez **Membres**. Pour plus d’informations sur la façon de gérer l’appartenance à un groupe de manière dynamique, consultez la page [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe](../users-groups-roles/groups-dynamic-membership.md).
 
    ![Sélection de membres à ajouter](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. Dans le panneau **Membres**, sélectionnez un ou plusieurs utilisateurs ou appareils à ajouter au groupe, puis cliquez sur le **Sélectionner** en bas du panneau pour les ajouter au groupe. La zone **Utilisateur** filtre l’affichage en fonction de la correspondance de votre entrée avec une partie ou l’intégralité d’un nom d’utilisateur ou d’appareil. Dans cette zone aucun caractère générique n’est accepté.
@@ -56,4 +56,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
 * [Gérer les membres d’un groupe](active-directory-groups-members-azure-portal.md)
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
-* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](../users-groups-roles/groups-dynamic-membership.md)

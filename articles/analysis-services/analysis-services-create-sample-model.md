@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : ajouter un exemple de modèle de base à votre serveur Azure Analysis Services à l’aide du portail | Microsoft Docs'
+title: 'Didacticiel : ajouter un exemple de modèle de base à votre serveur Azure Analysis Services à l’aide du portail | Microsoft Docs'
 description: Dans cette leçon de didacticiel, découvrez comment ajouter un exemple de modèle dans Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f44e33d2b735b6743b2b74760f816442c2cd17fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c63995a461cee6bc39603a43604b8080942bd88b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596785"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442805"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Didacticiel : ajouter un exemple de modèle à partir du portail
 
-Dans ce didacticiel, vous ajoutez un exemple de base de données de modèle tabulaire Adventure Works à votre serveur. L’exemple de modèle est une version complète de l’exemple de modèle de données Adventure Works Internet Sales (1200). Un exemple de modèle sert à tester la gestion des modèles, à se connecter à des outils et des applications clientes, ainsi qu’à interroger des données de modèle. Un serveur Analysis Services dans votre abonnementCe didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) pour : 
+Dans ce didacticiel, vous ajoutez un exemple de base de données de modèle tabulaire Adventure Works à votre serveur. L’exemple de modèle est une version complète de l’exemple de modèle de données Adventure Works Internet Sales (1200). Un exemple de modèle sert à tester la gestion des modèles, à se connecter à des outils et des applications clientes, ainsi qu’à interroger des données de modèle. Un serveur Analysis Services dans votre abonnementCe didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
 > [!div class="checklist"]
 > * Ajouter un exemple de modèle de données tabulaire complet à un serveur 
@@ -27,7 +27,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un serveur Azure Analysis Services. Pour en savoir plus, consultez [Créer un serveur - Portail](analysis-services-create-server.md).
 - Des autorisations d’administrateur du serveur

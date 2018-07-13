@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.openlocfilehash: 69a2bf6e622cd2338d57e62ed82951cb2385edd6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36334905"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie

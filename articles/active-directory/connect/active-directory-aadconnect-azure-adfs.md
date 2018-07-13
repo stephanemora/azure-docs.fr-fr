@@ -4,7 +4,7 @@ description: Dans ce document, vous allez apprendre à déployer AD FS dans Azur
 keywords: déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs, déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
-ms.author: anandy; billmath
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212670"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917133"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
@@ -323,7 +323,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 
 | Paramètre | Description |
 |:--- |:--- |
-| Lieu |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
+| Emplacement |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
 | StorageAccountType |Type de compte de stockage créé |
 | VirtualNetworkUsage |Indique si un réseau virtuel sera créé ou si un compte existant est utilisé |
 | VirtualNetworkName |Nom du réseau virtuel à créer, obligatoire lors de l’utilisation du réseau virtuel nouveau ou existant |

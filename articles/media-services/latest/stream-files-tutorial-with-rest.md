@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 05/30/2018
 ms.author: juliako
 ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651457"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308611"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutoriel : charger, encoder et diffuser en continu des vidéos à l’aide de REST
 
@@ -36,7 +36,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Configurer Postman
 > * Envoyer des requêtes à l’aide de Postman
 > * Tester l’URL de diffusion en continu
-> * Supprimer des ressources
+> * Supprimer les ressources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -278,7 +278,7 @@ En règle générale, vous devez supprimer tous les éléments à l’exception 
 
 Pour supprimer une ressource, sélectionnez l’opération « Supprimer... » sous la ressource que vous souhaitez supprimer.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment. Vous pouvez utiliser l’outil **CloudShell**.
 

@@ -1,6 +1,6 @@
 ---
 title: 'VS Code : Se connecter et interroger des données dans Azure SQL Database | Microsoft Docs'
-description: Découvrez comment vous connecter à SQL Database sur Azure avec Visual Studio Code. Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
+description: Découvrez comment vous connecter à SQL Database sur Azure avec Visual Studio Code. Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: connexion à sql database
 services: sql-database
 author: CarlRabeler
@@ -10,19 +10,18 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 7250b2578db86fdb4cbd591a605256424cb0be55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e1294b8f83da2ad6748f051925219cdc7683d032
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794937"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441095"
 ---
-# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database : utilisez Visual Studio Code pour vous connecter et interroger des données
+# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database : utilisez Visual Studio Code pour vous connecter et interroger des données
 
 [Visual Studio Code](https://code.visualstudio.com/docs) est un éditeur de code graphique pour Linux, macOS et Windows qui prend en charge les extensions, y compris [l’extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et SQL Data Warehouse. Ce guide de démarrage rapide explique comment utiliser Visual Studio Code pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
 
@@ -35,7 +34,7 @@ Avant de commencer, assurez-vous que vous avez installé la toute dernière vers
 ## <a name="configure-vs-code"></a>Configurer Visual Studio Code 
 
 ### <a name="mac-os"></a>**Mac OS**
-Pour macOS, vous devez installer OpenSSL qui est un composant requis pour DotNet Core utilisé par l’extension mssql. Ouvrez votre terminal et entrez les commandes ci-après pour installer **brew** et **OpenSSL**. 
+Pour macOS, vous devez installer OpenSSL qui est un composant requis pour .Net Core utilisé par l’extension mssql. Ouvrez votre terminal et entrez les commandes ci-après pour installer **brew** et **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -73,7 +72,7 @@ Définissez le mode de langage sur **SQL** dans Visual Studio Code pour active
 
 ## <a name="connect-to-your-database"></a>Connectez-vous à votre base de données
 
-Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure SQL Database.
+Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure SQL Database.
 
 > [!IMPORTANT]
 > Avant de poursuivre, assurez-vous que votre serveur et votre base de données sont prêts, et que vous disposez de vos informations de connexion. Une fois que vous avez commencé à saisir les informations concernant le profil de connexion, si vous modifiez le focus à partir de Visual Studio Code, vous devez redémarrer la création du profil de connexion.
@@ -89,12 +88,12 @@ Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure
 
    | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
+   | **Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
    | **Nom de la base de données** | mySampleDatabase | Nom de la base de données à laquelle se connecter. |
    | **Authentification** | Connexion SQL| L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
    | **Nom d'utilisateur** | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | **Mot de passe (connexion SQL)** | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
-   | **Enregistrer le mot de passe ?** | Oui ou Non | Sélectionnez Oui si vous ne souhaitez pas entrer le mot de passe à chaque fois. |
+   | **Enregistrer le mot de passe ?** | Oui ou Non | Sélectionnez Oui si vous ne souhaitez pas entrer le mot de passe à chaque fois. |
    | **Entrez un nom pour ce profil** | Nom de profil de connexion, par exemple **mySampleDatabase** | Un nom de profil enregistré permet d’accélérer votre connexion lors des connexions suivantes. | 
 
 5. Appuyez sur la touche **ÉCHAP** pour fermer le message d’information qui vous informe que le profil est créé et connecté.
@@ -107,7 +106,7 @@ Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure
 
 Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie à l’aide de l’instruction Transact-SQL [SELET](https://msdn.microsoft.com/library/ms189499.aspx).
 
-1. Dans la fenêtre **Éditeur**, saisissez la requête suivante dans la fenêtre de requête vide :
+1. Dans la fenêtre **Éditeur**, saisissez la requête suivante dans la fenêtre de requête vide :
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -124,7 +123,7 @@ Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie
 
 Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
-1. Dans la fenêtre **Éditeur**, supprimez la requête précédente et saisissez la requête suivante :
+1. Dans la fenêtre **Éditeur**, supprimez la requête précédente et saisissez la requête suivante :
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -152,7 +151,7 @@ Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.
 
 Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez ajouté précédemment à l’aide de l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
-1.  Dans la fenêtre **Éditeur**, supprimez la requête précédente et saisissez la requête suivante :
+1.  Dans la fenêtre **Éditeur**, supprimez la requête précédente et saisissez la requête suivante :
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -166,7 +165,7 @@ Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez aj
 
 Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de l’instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql).
 
-1. Dans la fenêtre **Éditeur**, supprimez la requête précédente et saisissez la requête suivante :
+1. Dans la fenêtre **Éditeur**, supprimez la requête précédente et saisissez la requête suivante :
 
    ```sql
    DELETE FROM [SalesLT].[Product]

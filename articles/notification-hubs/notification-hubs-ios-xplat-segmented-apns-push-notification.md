@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: f6096238deb2186edfac2eb9d1c9a9e76db07553
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33776632"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308517"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -38,7 +38,6 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 > * Exécution de l’application et génération de notifications
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cette rubrique s’appuie sur l’application que vous avez créée dans le [Didacticiel : notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez déjà avoir effectué le [Didacticiel : notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Ajout d’une sélection de catégories à l’application

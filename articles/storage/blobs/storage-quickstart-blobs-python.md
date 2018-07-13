@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
 ms.openlocfilehash: 8b3735380105bca8421e3f1d654425eea465918e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767397"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308198"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Python
 
@@ -158,7 +158,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de **delete\_container**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **delete\_blob** pour supprimer ces fichiers.
 
 ```python

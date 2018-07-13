@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072604"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920887"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
 
@@ -25,7 +25,6 @@ Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une 
 Cet article explique comment créer une solution de récupération d’urgence pour Active Directory. Il inclut les conditions préalables et les instructions de basculement. Avant de commencer, vous devez vous familiariser avec Active Directory et Site Recovery.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
 * Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.

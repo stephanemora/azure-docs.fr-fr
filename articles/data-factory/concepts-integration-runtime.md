@@ -1,6 +1,6 @@
 ---
-title: Infrastructure Integration Runtime dans Azure Data Factory | Microsoft Docs
-description: Découvrez l’infrastructure Integration Runtime dans Azure Data Factory.
+title: Infrastructure Integration Runtime dans Azure Data Factory | Microsoft Docs
+description: Découvrez l’infrastructure Integration Runtime dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2964d0a579b903ddebfd19c90d2ce38d2374bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e44c6eb4294cfb0e150d6dd1c20b9f4805ca84c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050418"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112950"
 ---
-# <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
-Integration Runtime (IR) est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
+# <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
+IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
 
-- **Déplacement des données** : déplace des données entre les banques de données d’un réseau public et celles d’un réseau privé (sur un réseau privé local ou virtuel). Les connecteurs intégrés, la conversion de format, le mappage de colonnes, ainsi que les transferts de données performants et évolutifs sont pris en charge.
-- **Répartition des activités** : répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
-- **Exécution des packages SSIS** : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure géré.
+- **Déplacement des données** : déplace des données entre les banques de données d’un réseau public et celles d’un réseau privé (sur un réseau privé local ou virtuel). Les connecteurs intégrés, la conversion de format, le mappage de colonnes, ainsi que les transferts de données performants et évolutifs sont pris en charge.
+- **Répartition des activités** : répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
+- **Exécution des packages SSIS** : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure géré.
 
-Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par le service lié et fournit l’environnement de calcul dans lequel l’activité s’exécute ou depuis lequel elle est envoyée.  L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
+Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par le service lié et fournit l’environnement de calcul dans lequel l’activité s’exécute ou depuis lequel elle est envoyée.  L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
 
 ## <a name="integration-runtime-types"></a>Types de runtime d’intégration
-Data Factory propose trois types de runtime d’intégration. Vous devez choisir le type qui répond le mieux à vos besoins en matière de fonctionnalités d’intégration de données et d’environnement réseau.  Ces trois types sont :
+Data Factory propose trois types de runtime d’intégration. Vous devez choisir le type qui répond le mieux à vos besoins en matière de fonctionnalités d’intégration de données et d’environnement réseau.  Ces trois types sont :
 
 - Azure
 - Auto-hébergé
 - Azure-SSIS
 
-Le tableau suivant décrit les fonctionnalités et l’environnement réseau pour chaque type de runtime d’intégration :
+Le tableau suivant décrit les fonctionnalités et l’environnement réseau pour chaque type de runtime d’intégration :
 
 Type de runtime | Réseau public | Réseau privé
 ------- | -------------- | ---------------
 Azure | Déplacement des données<br/>Répartition des activités | &nbsp;
 Auto-hébergé | Déplacement des données<br/>Répartition des activités | Déplacement des données<br/>Répartition des activités
-Azure-SSIS | Exécution des packages SSIS | Exécution des packages SSIS
+Azure-SSIS | Exécution des packages SSIS | Exécution des packages SSIS
 
-Le schéma suivant montre comment les différents runtimes d’intégration peuvent être utilisés conjointement pour offrir des fonctionnalités d’intégration de données et un environnement réseau riches :
+Le schéma suivant montre comment les différents runtimes d’intégration peuvent être utilisés conjointement pour offrir des fonctionnalités d’intégration de données et un environnement réseau riches :
 
 ![Différents types de runtime d’intégration](media\concepts-integration-runtime\different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Runtime d’intégration Azure
-Un runtime d’intégration Azure peut :
+Un runtime d’intégration Azure peut :
 
 - Exécuter des activités de copie entre les magasins de données cloud
-- Répartir les activités de transformation suivantes dans un réseau public : activité Hive HDInsight, activité Pig HDInsight, activité MapReduce HDInsight, activité HDInsight Spark, activité de diffusion en continu HDInsight, activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité Web, activité de recherche et activité d’obtention des métadonnées.
+- Répartir les activités de transformation suivantes dans un réseau public : activité Hive HDInsight, activité Pig HDInsight, activité MapReduce HDInsight, activité HDInsight Spark, activité de diffusion en continu HDInsight, activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité Web, activité de recherche et activité d’obtention des métadonnées.
 
 ### <a name="azure-ir-network-environment"></a>Environnement réseau du runtime d'intégration Azure
-L’infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul sur les réseaux publics comprenant des points de terminaison accessibles publiquement. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
+L’infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul sur les réseaux publics comprenant des points de terminaison accessibles publiquement. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration Azure
 Le runtime d’intégration Azure fournit une expérience de calcul entièrement gérée, sans serveur dans Azure.  Vous n’avez plus à vous soucier de l’approvisionnement de l’infrastructure, de l’installation du logiciel, des mises à jour correctives ou de la mise à l’échelle des besoins.  Par ailleurs, vous payez uniquement pour ce que vous utilisez.
@@ -64,46 +64,46 @@ Le runtime d’intégration Azure fournit le calcul natif pour déplacer des don
 
 La répartition des activités est une opération légère pour acheminer l’activité vers le service de calcul cible. Par conséquent, vous n’avez pas besoin de mettre la taille de calcul à l’échelle pour ce scénario.
 
-Pour en savoir plus sur la création et la configuration d’un runtime d’intégration Azure, consultez la rubrique « Comment créer et configurer Azure IR » sous Procédures. 
+Pour en savoir plus sur la création et la configuration d’un runtime d’intégration Azure, consultez la rubrique « Comment créer et configurer Azure IR » sous Procédures. 
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime d’intégration auto-hébergé
-Un runtime d’intégration auto-hébergé peut :
+Un runtime d’intégration auto-hébergé peut :
 
 - Exécuter une activité de copie entre des magasins de données cloud et un magasin de données situé sur un réseau privé.
-- Répartir les activités de transformation suivantes par à des ressources de calcul dans un réseau virtuel local ou Azure : activité Hive HDInsight (BYOC), activité Pig HDInsight (BYOC), activité MapReduce HDInsight (BYOC), activité HDInsight Spark (BYOC), activité de diffusion en continu HDInsight (BYOC), activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité de recherche et activité d’obtention des métadonnées.
+- Répartir les activités de transformation suivantes par à des ressources de calcul dans un réseau virtuel local ou Azure : activité Hive HDInsight (BYOC), activité Pig HDInsight (BYOC), activité MapReduce HDInsight (BYOC), activité HDInsight Spark (BYOC), activité de diffusion en continu HDInsight (BYOC), activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité de recherche et activité d’obtention des métadonnées.
 
 > [!NOTE] 
 > Utilisez le runtime d’intégration auto-hébergé pour prendre en charge les magasins de données nécessitant l’utilisation de votre propre pilote tels que SAP, Hana, MySQL, etc.  Pour en savoir plus, consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 ### <a name="self-hosted-ir-network-environment"></a>Environnement réseau du runtime d'intégration auto-hébergé
-Si vous souhaitez intégrer vos données en toute sécurité dans un environnement réseau privé, qui n’a pas de ligne de vue directe depuis l’environnement cloud public, vous pouvez installer un runtime d’intégration auto-hébergé dans l’environnement local derrière votre pare-feu d’entreprise, ou à l’intérieur d’un réseau privé virtuel.  Le runtime d’intégration auto-hébergé établit uniquement des connexions HTTP sortantes pour l’accès à Internet.
+Si vous souhaitez intégrer vos données en toute sécurité dans un environnement réseau privé, qui n’a pas de ligne de vue directe depuis l’environnement cloud public, vous pouvez installer un runtime d’intégration auto-hébergé dans l’environnement local derrière votre pare-feu d’entreprise, ou à l’intérieur d’un réseau privé virtuel.  Le runtime d’intégration auto-hébergé établit uniquement des connexions HTTP sortantes pour l’accès à Internet.
 
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration auto-hébergé
-Le runtime d’intégration auto-hébergé doit être installé sur un ordinateur local ou une machine virtuelle à l’intérieur d’un réseau privé. Actuellement, nous prenons uniquement en charge l’exécution du runtime d’intégration auto-hébergé sur un système d’exploitation Windows.  
+Le runtime d’intégration auto-hébergé doit être installé sur un ordinateur local ou une machine virtuelle à l’intérieur d’un réseau privé. Actuellement, nous prenons uniquement en charge l’exécution du runtime d’intégration auto-hébergé sur un système d’exploitation Windows.  
 
 Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez augmenter la taille des instances du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration auto-hébergé » sous Procédures.
 
-## <a name="azure-ssis-integration-runtime"></a>Runtime d’intégration Azure SSIS
-Pour effectuer une opération lift-and-shift sur la charge de travail SSIS existante, vous pouvez créer un runtime d’intégration Azure SSIS pour exécuter les packages SSIS en mode natif.
+## <a name="azure-ssis-integration-runtime"></a>Runtime d’intégration Azure SSIS
+Pour effectuer une opération lift-and-shift sur la charge de travail SSIS existante, vous pouvez créer un runtime d’intégration Azure SSIS pour exécuter les packages SSIS en mode natif.
 
 ### <a name="azure-ssis-ir-network-environment"></a>Environnement réseau du runtime d'intégration Azure SSIS
-Le runtime d’intégration Azure SSIS peut être configuré dans un réseau public ou un réseau privé.  L’accès aux données sur site est pris en charge en associant le runtime d’intégration Azure SSIS à un réseau virtuel connecté à votre réseau local.  
+Le runtime d’intégration Azure SSIS peut être configuré dans un réseau public ou un réseau privé.  L’accès aux données sur site est pris en charge en associant le runtime d’intégration Azure SSIS à un réseau virtuel connecté à votre réseau local.  
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d’intégration Azure SSIS
-Le runtime d’intégration Azure SSIS est un cluster entièrement géré de machines virtuelles Azure qui est chargé d’exécuter vos packages SSIS. Vous pouvez demander à votre propre serveur Azure SQL Database ou Managed Instance (préversion) d’héberger le catalogue de projets/packages SSIS (SSISDB) qui y sera attaché. Vous pouvez monter en puissance le calcul en spécifiant la taille du nœud et augmenter la taille des instances en spécifiant le nombre de nœuds du cluster. Vous pouvez maîtriser le coût d’exécution de votre runtime d’intégration Azure SSIS en l’arrêtant et en le démarrant comme bon vous semble.
+Le runtime d’intégration Azure SSIS est un cluster entièrement géré de machines virtuelles Azure qui est chargé d’exécuter vos packages SSIS. Vous pouvez demander à votre propre serveur Azure SQL Database ou Managed Instance (préversion) d’héberger le catalogue de projets/packages SSIS (SSISDB) qui y sera attaché. Vous pouvez monter en puissance le calcul en spécifiant la taille du nœud et augmenter la taille des instances en spécifiant le nombre de nœuds du cluster. Vous pouvez maîtriser le coût d’exécution de votre runtime d’intégration Azure SSIS en l’arrêtant et en le démarrant comme bon vous semble.
 
-Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration Azure SSIS » sous Procédures.  Une fois votre runtime d’intégration créé, vous pouvez déployer et gérer vos packages SSIS existants, sans changement ou presque, à l’aide des outils SQL Server Data Tools (SSDT) et SQL Server Management Studio (SSMS), comme si vous utilisez SSIS en local.
+Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration Azure SSIS » sous Procédures.  Une fois votre runtime d’intégration créé, vous pouvez déployer et gérer vos packages SSIS existants, sans changement ou presque, à l’aide des outils SQL Server Data Tools (SSDT) et SQL Server Management Studio (SSMS), comme si vous utilisez SSIS en local.
 
-Pour plus d’informations sur le runtime Azure-SSIS, voir les articles suivants : 
+Pour plus d’informations sur le runtime Azure-SSIS, voir les articles suivants : 
 
-- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
-- [Procédures : Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Managed Instance (préversion) et de joindre le runtime d’intégration à un réseau virtuel. 
+- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
+- [Procédures : Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Managed Instance (préversion) et de joindre le runtime d’intégration à un réseau virtuel. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Surveiller le runtime d’intégration Azure-SSIS). Cet article explique comment récupérer des informations sur un runtime d’intégration Azure-SSIS ainsi que des descriptions d’état dans les informations renvoyées. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
 - [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 
 ## <a name="integration-runtime-location"></a>Emplacement du runtime d’intégration
-L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au [runtime d’intégration globalement disponible](https://azure.microsoft.com/global-infrastructure/services/) pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
+L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au [runtime d’intégration globalement disponible](https://azure.microsoft.com/global-infrastructure/services/) pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
 
 L’emplacement du runtime d’intégration définit l’emplacement de son calcul principal, mais aussi l’emplacement où le déplacement des données, la répartition des activités et l’exécution des packages SSIS sont effectués. L’emplacement du runtime d’intégration peut être différent de l’emplacement de la fabrique de données à laquelle il appartient. 
 
@@ -126,13 +126,13 @@ Le runtime d’intégration auto-hébergé est logiquement enregistré auprès d
 Lorsqu’il est utilisé pour procéder au déplacement des données, le runtime d’intégration auto-hébergé extrait des données de la source et les écrit dans la destination.
 
 ### <a name="azure-ssis-ir-location"></a>Emplacement du runtime d’intégration Azure SSIS
-Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est essentiel pour parvenir à un niveau de performance élevé dans vos flux de travail ETL (extraction, transformation et chargement).
+Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est essentiel pour parvenir à un niveau de performance élevé dans vos flux de travail ETL (extraction, transformation et chargement).
 
-- L’emplacement de votre runtime d’intégration Azure SSIS ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur Azure SQL Database/Managed Instance (préversion) où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
+- L’emplacement de votre runtime d’intégration Azure SSIS ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur Azure SQL Database/Managed Instance (préversion) où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
 - Si vous n’avez pas de serveur Azure SQL Database/Managed Instance (préversion) pour héberger SSISDB, mais que vous avez des sources/destinations de données locales, vous devez créer un serveur Azure SQL Database/Managed Instance (préversion) là où un réseau virtuel est connecté à votre réseau local.  Ainsi, vous pouvez créer votre runtime d’intégration Azure SSIS en utilisant le nouveau serveur Azure SQL Database/Managed Instance (préversion) et en associant ce réseau virtuel, au même endroit, afin de réduire efficacement les déplacements de données entre les différents emplacements.
 - Si l’emplacement de votre serveur Azure SQL Database/Managed Instance (préversion) où SSISDB est hébergé n’est pas le même que l’emplacement où un réseau virtuel est connecté à votre réseau local, créez d’abord votre runtime d’intégration Azure SSIS en utilisant Azure SQ Database/Managed Instance (préversion) et en associant un autre réseau virtuel situé au même emplacement. Ensuite, configurez une connexion entre deux réseaux virtuels situés à différents emplacements.
 
-Le schéma suivant représente les paramètres d’emplacement de Data Factory et de ses runtimes d’intégration :
+Le schéma suivant représente les paramètres d’emplacement de Data Factory et de ses runtimes d’intégration :
 
 ![Emplacement du runtime d’intégration](media/concepts-integration-runtime/integration-runtime-location.png)
 
@@ -140,10 +140,10 @@ Le schéma suivant représente les paramètres d’emplacement de Data Factory 
 
 ### <a name="copy-activity"></a>Activité de copie
 
-Dans le cas d’une activité de copie, les services liés source et récepteur doivent être indiqués pour définir la direction du flux de données. La logique suivante est utilisée pour déterminer l’instance de runtime d’intégration qui effectue la copie : 
+Dans le cas d’une activité de copie, les services liés source et récepteur doivent être indiqués pour définir la direction du flux de données. La logique suivante est utilisée pour déterminer l’instance de runtime d’intégration qui effectue la copie : 
 
 - **Copie entre deux sources de données cloud** : lorsque les services liés source et du récepteur utilisent le runtime d'intégration Azure, ADF utilisera le runtime d'intégration Azure régional (si spécifié) ou déterminera automatiquement l’emplacement du runtime d'intégration Azure si vous avez choisi la résolution automatique du runtime d'intégration (par défaut) décrite dans la section [Emplacement du runtime d'intégration](#integration-runtime-location).
-- **Copie entre une source de données cloud et une source de données d’un réseau privé** : si le service lié source ou récepteur pointe vers un runtime d’intégration auto-hébergé, l’activité de copie est exécutée sur ce runtime d’intégration.
+- **Copie entre une source de données cloud et une source de données d’un réseau privé** : si le service lié source ou récepteur pointe vers un runtime d’intégration auto-hébergé, l’activité de copie est exécutée sur ce runtime d’intégration.
 - **Copie entre deux sources de données d’un réseau privé** : les services liés source et récepteur doivent tous deux pointer vers la même instance du runtime d’intégration. Ce runtime d’intégration est utilisé pour exécuter l’activité de copie.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Activité Lookup/GetMetadata

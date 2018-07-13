@@ -3,7 +3,7 @@ title: Utilisation d’Azure AD Connect Health avec la synchronisation | Micros
 description: Cette page dédiée à Azure AD Connect Health explique comment surveiller la synchronisation d’Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0407726fa7dd5801081549f30207eac0b5e46b6e
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961636"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887049"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -86,7 +86,7 @@ Le rapport classe les erreurs de synchronisation existantes dans les catégories
 | Échec de validation de données |Erreurs dues à des données non valides, par exemple des caractères non pris en charge dans des attributs critiques comme UserPrincipalName, erreurs de format qui empêchent la validation des données avant leur écriture dans Azure AD. |
 | Modification du domaine fédéré | Erreurs lorsque les comptes utilisent un autre domaine fédéré. |
 | Attribut de grande taille |Erreurs quand un ou plusieurs attributs dépassent la taille, la longueur ou le nombre autorisés. |
-| Autres |Toutes les autres erreurs qui ne figurent pas dans les catégories ci-dessus. En fonction des informations reçues, cette catégorie sera divisée en plusieurs sous-catégories. |
+| Autres |Toutes les autres erreurs qui ne figurent pas dans les catégories ci-dessus. En fonction des informations reçues, cette catégorie sera divisées en plusieurs sous-catégories. |
 
 ![Rapport de résumé des erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/errorreport01.png)
 ![Catégories de rapports d’erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)

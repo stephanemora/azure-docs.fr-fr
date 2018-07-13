@@ -13,11 +13,11 @@ ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
 ms.openlocfilehash: 2728c354a84c4b13b0ad8509d038837733251975
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788430"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306892"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Créer une application web Docker Python et PostgreSQL dans Azure
 
@@ -40,8 +40,7 @@ Vous pouvez suivre les étapes de cet article sur MacOS. Les instructions pour L
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 1. [Installez Git](https://git-scm.com/)
 1. [Installez Python](https://www.python.org/downloads/)
@@ -87,7 +86,7 @@ git checkout tags/0.1-initialapp
 
 Cet exemple de référentiel contient une application [Flask](http://flask.pocoo.org/). 
 
-### <a name="run-the-application"></a>Exécution de l'application
+### <a name="run-the-application"></a>Exécution de l’application
 
 > [!NOTE] 
 > Plus tard, vous simplifierez ce processus en créant un conteneur Docker à utiliser avec la base de données de production.
@@ -192,7 +191,7 @@ L’interface Azure CLI confirme la création de la règle de pare-feu avec une 
 ```
 
 > [!TIP] 
-> Vous pouvez être encore plus restrictifs dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ## <a name="connect-your-python-flask-application-to-the-database"></a>Connexion de votre application Python Flask à la base de données
@@ -506,7 +505,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)

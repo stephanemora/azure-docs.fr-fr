@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: a15a64c1ccf1e40179a46baf9815f669ac4adfde
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751126"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113355"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gérer des groupes de bases de données avec des travaux de base de données élastique
 
@@ -219,5 +219,5 @@ De même, un script doit être capable d’exécuter avec succès par une vérif
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer et gérer des travaux élastiques à l’aide de PowerShell](elastic-jobs-powershell.md)
-- [Créer et gérer des travaux élastiques à l’aide de T-SQL (Transact-SQL)](elastic-jobs-tsql.md)
+- [Créer et gérer des tâches élastiques à l’aide de PowerShell](elastic-jobs-powershell.md)
+- [Créer et gérer des tâches élastiques à l’aide de T-SQL (Transact-SQL)](elastic-jobs-tsql.md)
