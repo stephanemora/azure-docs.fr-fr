@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369161"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317677"
 ---
 # <a name="anomaly-detection-c-application"></a>Détection d’anomalies dans une application C#
 
@@ -22,7 +22,7 @@ Explorer une application Windows de base qui utilise une API Détection d’anom
 
 ## <a name="prerequisites"></a>Prérequis
 
-### <a name="platform-requirements"></a>Exigences relatives à la plateforme
+### <a name="platform-requirements"></a>Plateforme requise
 
 L’exemple a été développé pour le .NET Framework à l’aide de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
