@@ -16,11 +16,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 633f2a48bb79fbfe5b5356edd4318806162cab5d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046694"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38668054"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Didacticiel : Créer un pipeline Data Factory qui déplace les données à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "37046694"
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-powershell.md). 
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-powershell.md). 
 
 Dans cet article, vous allez apprendre à utiliser PowerShell pour créer une fabrique de données avec un pipeline qui copie les données d’un stockage Blob Azure dans une base de données SQL Azure. Si vous débutez avec Azure Data Factory, lisez l’article [Présentation d’Azure Data Factory](data-factory-introduction.md) avant de suivre ce didacticiel.   
 
@@ -49,7 +49,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que vous respectez la configuration requise décrite dans l’article [Configuration requise pour le didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-- Installez **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Installez **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="steps"></a>Étapes
 Voici les étapes à effectuer dans le cadre de ce didacticiel :
@@ -76,9 +76,9 @@ Voici les étapes à effectuer dans le cadre de ce didacticiel :
 
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
 
-1. Lancez **PowerShell**. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.
+1. Lancez **PowerShell**. Conservez Azure PowerShell ouvert jusqu’à la fin de ce tutoriel. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.
 
-    Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
+    Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
 
     ```PowerShell
     Connect-AzureRmAccount
@@ -109,7 +109,7 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut 
     ```
     Ce nom peut avoir déjà été utilisé. Par conséquent, rendez le nom de la fabrique de données unique en ajoutant un préfixe ou un suffixe (par exemple : ADFTutorialDataFactoryPSH05152017) et réexécutez la commande.  
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche, changez le nom (par exemple, votrenomADFTutorialDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory – Règles d’affectation des noms](data-factory-naming-rules.md) pour les artefacts Data Factory.
 
@@ -167,7 +167,7 @@ Dans cette étape, vous allez lier votre compte Stockage Azure à votre fabrique
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```
     LinkedServiceName : AzureStorageLinkedService
@@ -208,7 +208,7 @@ Dans cette étape, vous liez votre base de données SQL Azure à votre fabrique 
     New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
     
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```
     LinkedServiceName : AzureSqlLinkedService
@@ -291,7 +291,7 @@ Dans cette étape, vous créez un jeu de données nommé InputDataset qui pointe
     ```PowerShell  
     New-AzureRmDataFactoryDataset $df -File .\InputDataset.json
     ```
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```
     DatasetName       : InputDataset
@@ -355,7 +355,7 @@ Dans cette partie de l’étape, vous créez un jeu de données de sortie nommé
     New-AzureRmDataFactoryDataset $df -File .\OutputDataset.json
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```
     DatasetName       : OutputDataset
@@ -419,7 +419,7 @@ Le jeu de données de sortie pilote actuellement la planification. Dans ce didac
       }
     } 
     ```
-    Notez les points suivants :
+    Notez les points suivants :
    
     - Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md). Dans les solutions Data Factory, vous pouvez également utiliser [Activités de transformation des données](data-factory-data-transformation-activities.md).
     - L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. 
@@ -440,7 +440,7 @@ Le jeu de données de sortie pilote actuellement la planification. Dans ce didac
     New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
-    Voici l'exemple de sortie : 
+    Voici l’exemple de sortie : 
 
     ```
     PipelineName      : ADFTutorialPipeline
@@ -529,7 +529,7 @@ Au cours de cette étape, vous utilisez Azure PowerShell pour surveiller ce qui 
     Get-AzureRmDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 
-   Voici l'exemple de sortie : 
+   Voici l’exemple de sortie : 
 
     ```
     Id                  : c0ddbd75-d0c7-4816-a775-704bbd7c7eab_636301332000000000_636301368000000000_OutputDataset

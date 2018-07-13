@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108717"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688726"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utiliser le service StorSimple Device Manager pour gérer vos informations d’identification de compte de stockage
 
@@ -88,7 +88,7 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
    
     4. Pour activer le mode SSL, cliquez sur le bouton **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre service StorSimple Device Manager et le cloud. Cliquez sur le bouton **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
-    5. Cliquez sur **Ajouter**. Un message s’affiche pour vous informer de la création des informations d’identification du compte de stockage.
+    5. Cliquez sur **Add**. Un message s’affiche pour vous informer de la création des informations d’identification du compte de stockage.
 
 5. Les informations d’identification de compte de stockage nouvellement créées s’affiche sur le panneau du service Device Manager, sous **Informations d’identification du compte de stockage**.
    

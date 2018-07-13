@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.openlocfilehash: 5fedbac439636b56da217e7babd30820bce7b342
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931756"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442564"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Confidentialité des utilisateurs et Azure AD Connect Health 
 
@@ -87,7 +87,7 @@ Vous pouvez reprendre la collecte des données pour un locataire dans Azure AD C
 1.  Cliquez sur **Paramètres généraux** sous Configuration dans le panneau principal. 
 2.  Cliquez sur le bouton **Activer la collecte de données** en haut du panneau. 
  
- ![Activer la collecte de données](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
+ ![Activer la collecte des données](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
  
 3.  Entrez le nom exact du locataire pour activer le bouton **Activer**.
 4.  Cliquez sur le bouton **Activer** pour accorder l’autorisation de collecte de données dans le service Connect Health. La modification sera appliquée quelques instants plus tard. 

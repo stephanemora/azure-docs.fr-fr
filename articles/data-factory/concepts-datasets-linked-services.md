@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044974"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38581264"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-create-datasets.md)
+> * [Version 1](v1/data-factory-create-datasets.md)
 > * [Version actuelle](concepts-datasets-linked-services.md)
 
 Cet article décrit les jeux de données, comment ils sont définis au format JSON et comment ils sont utilisés dans les pipelines d’Azure Data Factory. 
@@ -147,7 +147,7 @@ Dans l’exemple suivant, le jeu de données représente une table nommée MyTab
 }
 
 ```
-Notez les points suivants :
+Notez les points suivants :
 
 - Le type est défini sur AzureSQLTable.
 - La propriété de type tableName (propre au type AzureSqlTable) est définie sur MyTable.

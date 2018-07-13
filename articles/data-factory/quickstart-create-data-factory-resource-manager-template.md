@@ -14,18 +14,18 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
 ms.openlocfilehash: 525a11d0cbb10d4170930fb4df362e0a9ea024e2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054273"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38623504"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
+> * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Version actuelle](quickstart-create-data-factory-resource-manager-template.md) 
 
-Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un didacticiel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Didacticiel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -385,7 +385,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-    Voici l'exemple de sortie : 
+    Voici l’exemple de sortie : 
 
     ```json
     TriggerName       : ArmTemplateTestTrigger
@@ -402,7 +402,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Voici l'exemple de sortie : 
+    Voici l’exemple de sortie : 
     
     ```
     Confirm
@@ -416,7 +416,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
     
     ```
     TriggerName       : ArmTemplateTestTrigger

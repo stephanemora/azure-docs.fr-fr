@@ -15,15 +15,15 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049795"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38623550"
 ---
-# <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
+# <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-introduction.md)
+> * [Version 1](data-factory-introduction.md)
 > * [Version 2 (version actuelle)](../introduction.md)
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Il s’agit plus d’une plateforme d’extraction et de chargement (EL) et de t
 Dans Azure Data Factory, les données utilisées et générées par les flux de travail sont actuellement des *données à tranches temporelles* (toutes les heures, tous les jours, toutes les semaines, et ainsi de suite). Par exemple, un pipeline peut lire des données d’entrée, traiter des données et générer des données de sortie une fois par jour. Vous ne pouvez également exécuter un flux de travail qu’une seule fois.  
   
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ? 
+## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ? 
 Les pipelines (flux de travail orientés données) dans Azure Data Factory effectuent généralement les trois étapes suivantes :
 
 ![Trois étapes d’Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232005"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562756"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - Déployer une infrastructure de migration
 
@@ -556,7 +556,7 @@ Après la mise à jour des paramètres du réseau, Contoso peut installer ses co
 1. Dans le portail Azure, elle déploie une nouvelle machine virtuelle Windows Server sur le réseau virtuel approprié.
 2. Elle crée des ensembles à haute disponibilité dans chaque emplacement pour la machine virtuelle. Les ensembles de disponibilité effectuent les tâches suivantes :
     - Vérifier que la structure Azure sépare les machines virtuelles dans différentes infrastructures dans la région Azure. 
-    -  Permet à Contoso de bénéficier d’un contrat SLA à 99,95 % pour les machines virtuelles dans Azure.  [Plus d’informations](https://docs.microsoftcom/azure/virtual-machines/windows/regions-and-availability#availability-sets)
+    -  Permet à Contoso de bénéficier d’un contrat SLA à 99,95 % pour les machines virtuelles dans Azure.  [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)
 
     ![Groupe de disponibilité](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Une fois la machine virtuelle déployée, Contoso configure l’interface réseau pour la machine virtuelle. Ici, elle définit l’adresse IP privée comme étant statique et spécifie une adresse valide.

@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111474"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968953"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualiser les données de surveillance à distance avec Time Series Insights
 
@@ -57,7 +57,7 @@ Azure Time Series Insights est un service entièrement managé d’analytique, d
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **contorosrmtsi**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
     | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
     | Groupe de ressources | **Créer un nouveau**. Nous utilisons le nom **ContosoRM**. |
-    | Lieu | Nous utilisons **Est des États-Unis**. Créez votre environnement dans la même région que votre solution de surveillance à distance. |
+    | Emplacement | Nous utilisons **Est des États-Unis**. Créez votre environnement dans la même région que votre solution de surveillance à distance. |
     | Sku |**S1** |
     | Capacité | **1** |
     | Épingler au tableau de bord | **Oui** |
@@ -99,7 +99,7 @@ Créez une source d’événement à connecter à votre hub IoT. Vérifiez que v
 1. Cliquez sur **Créer**.
 
 > [!NOTE]
-> Si vous devez accorder à des utilisateurs supplémentaires l’accès à l’Explorateur Time Series Insights, vous pouvez suivre ces étapes pour [accorder l’accès aux données](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
+> Si vous devez accorder à des utilisateurs supplémentaires l’accès à l’Explorateur Time Series Insights, vous pouvez suivre ces étapes pour [accorder l’accès aux données](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
 
 ## <a name="time-series-insights-explorer"></a>Explorateur Time Series Insights
 

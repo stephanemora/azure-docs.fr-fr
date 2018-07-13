@@ -3,17 +3,18 @@ title: Didacticiel d’Azure Container Registry - Envoyer une image mise à jour
 description: Distribuez une image Docker modifiée vers votre registre de conteneurs Azure géorépliqué, puis déployez les modifications automatiquement sur les applications web en cours d’exécution dans plusieurs régions. Troisième partie d’une série en trois parties.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634085"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Didacticiel : Envoyer (push) une image mise à jour vers les déploiements régionaux
 
@@ -70,7 +71,7 @@ Votre `Index.cshtml` modifié doit ressembler à ceci :
 
 ## <a name="rebuild-the-image"></a>Régénérer l’image
 
-Maintenant que vous avez mis à jour l’application web, régénérez son image de conteneur. Comme précédemment, utilisez le nom d’image complet, y compris l’URL du serveur de connexion, pour la balise :
+Maintenant que vous avez mis à jour l’application web, régénérez son image de conteneur. Comme précédemment, utilisez le nom d’image complet, y compris le nom de domaine complet (FQDN) du serveur de connexion, pour la balise :
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -78,15 +79,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Envoyer l’image à Azure Container Registry
 
-Maintenant, envoyez l’image de conteneur *acr-helloworld* mise à jour dans le registre géorépliqué. Ici, vous exécutez une seule commande `docker push` pour déployer l’image mise à jour sur les réplicas de registre, à la fois dans les régions *Ouest des États-Unis* et *Est des États-Unis*.
+Ensuite, envoyez l’image conteneur *acr-helloworld* mise à jour dans votre registre géorépliqué. Ici, vous exécutez une seule commande `docker push` pour déployer l’image mise à jour sur les réplicas de registre, à la fois dans les régions *Ouest des États-Unis* et *Est des États-Unis*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Le résultat doit ressembler à ce qui suit :
+Le résultat de `docker push` doit ressembler à ce qui suit :
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Vérifiez que l’image de conteneur mise à jour a également été déployée 
 
 ![Affichage du navigateur de l’application web modifiée en cours d’exécution dans la région Est des États-Unis][deployed-app-eastus-modified]
 
-Avec un seul `docker push`, vous avez mis à jour les deux déploiements d’application Web régionaux et le registre de conteneurs Azure a distribué les images des conteneurs à partir de référentiels en réseau fermé.
+Avec une seule commande `docker push`, vous avez automatiquement mis à jour l’application web exécutée dans les deux déploiements d’application web régionaux. De plus, Azure Container Registry a distribué les images conteneurs des référentiels les plus proches de chaque déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez mis à jour et envoyé une nouvelle version du conteneur d’application web dans le registre géorépliqué. Les webhooks dans Azure Container Registry ont informé Web App pour conteneurs de la mise à jour, ce qui a déclenché une extraction locale à partir des registres réplicas.
+Dans ce didacticiel, vous avez mis à jour et envoyé une nouvelle version du conteneur d’application web dans le registre géorépliqué. Les webhooks dans Azure Container Registry ont informé Web App pour conteneurs de la mise à jour, ce qui a déclenché une extraction locale à partir du réplica de registre le plus proche.
 
-Dans ce dernier didacticiel de la série, vous avez :
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build : génération d’images et correctifs automatisés
 
-> [!div class="checklist"]
-> * Mis à jour l’application web HTML
-> * Créé et marqué l’image Docker
-> * Envoyé la modification à Azure Container Registry
-> * Affiché l’application mise à jour dans deux régions différentes
+Outre la géoréplication, ACR Build est une autre fonctionnalité d’Azure Container Registry vous permettant d’optimiser votre pipeline de déploiement de conteneurs. Commencez par consulter la vue d’ensemble d’ACR Build pour connaître ses fonctionnalités dans les grandes lignes :
+
+[Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Build](container-registry-build-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

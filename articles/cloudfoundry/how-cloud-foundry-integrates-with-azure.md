@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062204"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968617"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Intégrer Cloud Foundry avec Azure
 
@@ -77,7 +77,7 @@ Cliquez [ici](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-noz
 ## <a name="7-cost-saving"></a>7. Réduction des coûts
 ### <a name="cost-saving-for-devtest-environments"></a>Réduction des coûts pour les environnements de Dev/Test
 #### <a name="b-series-"></a>Série B : *
-Alors que des VM de séries F et D étaient généralement recommandées pour l’environnement de production Pivotal Cloud Foundry, la nouvelle [série B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) « modulable » offre de nouvelles options. Les machines virtuelles extensibles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les petites bases de données et les environnements de test et de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. Le tarif est de 0,012 $/heure (B1) comparé à 0,05 $/heure (F1) ; pour plus d’informations, consultez la liste complète des [tailles de machine virtuelle](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) et des [prix](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). 
+Alors que des VM de séries F et D étaient généralement recommandées pour l’environnement de production Pivotal Cloud Foundry, la nouvelle [série B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) « modulable » offre de nouvelles options. Les machines virtuelles extensibles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les petites bases de données et les environnements de test et de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. Le tarif est de 0,012 $/heure (B1) comparé à 0,05 $/heure (F1) ; pour plus d’informations, consultez la liste complète des [tailles de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) et des [prix](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). 
 #### <a name="managed-standard-disk"></a>Disque managé Standard : 
 Les disques Premium sont recommandés pour la fiabilité de leurs performances en production.  Avec [Disque managé](https://azure.microsoft.com/services/managed-disks/), le stockage standard peut également offrir une fiabilité similaire mais avec des performances différentes. Pour les charges de travail qui ne sont pas sensibles aux performances, comme les environnements de développement/test ou non critiques, les disques standard managés offrent une alternative à moindre coût.  
 ### <a name="cost-saving-in-general"></a>Généralités sur la réduction des coûts 

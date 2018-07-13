@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 2cc0e29615ad4fc19040055d847435a9dffa9c95
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659335"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968559"
 ---
 # <a name="extending-geojson-geometries"></a>Extension de géométries GeoJSON
 
@@ -30,7 +30,7 @@ La [spécification GeoJSON][1] ne prend en charge que les géométries suivantes
 * Point
 * Polygon
 
-Certaines API Azure Maps (par exemple, [Search Inside Geometry](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchinsidegeometry)) acceptent les géométries comme « Circle », qui ne relèvent pas de la [spécification GeoJSON][1].
+Certaines API Azure Maps (par exemple, [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) acceptent les géométries comme « Circle », qui ne relèvent pas de la [spécification GeoJSON][1].
 
 Cet article fournit une explication détaillée sur la façon dont Azure Maps étend la [spécification GeoJSON][1] pour représenter certaines géométries.
 

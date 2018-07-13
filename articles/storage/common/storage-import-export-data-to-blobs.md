@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659691"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968930"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -21,14 +21,14 @@ Cet article fournit des instructions détaillées sur l’utilisation du service
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de créer une tâche d’importation pour transférer des données dans le Stockage Blob Azure, passez soigneusement en revue et complétez la liste suivante des prérequis pour ce service. Vous devez :
+Avant de créer une tâche d’importation pour transférer des données dans le Stockage Blob Azure, passez soigneusement en revue et complétez la liste suivante des prérequis pour ce service. Vous devez respecter les consignes suivantes :
 
-- Avoir un abonnement Azure actif pouvant être utilisé pour le service Import/Export.
+- Avoir un abonnement Azure actif utilisable avec le service Import/Export
 - Avoir au moins un compte de stockage Azure avec un conteneur de stockage. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account). Pour plus d’informations sur le conteneur de stockage, accédez à [Créer un conteneur de stockage](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems). 
 - Activez BitLocker sur le système Windows. Consultez [Comment activer BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. Décompressez le fichier dans le dossier par défaut `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
+- [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
 
 
 ## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
@@ -63,7 +63,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     |/sk:     |Clé de compte de stockage Azure.         |
     |/t:     |Lettre de lecteur du disque à expédier. Exemple : lecteur `D`.         |
     |/bk:     |Clé BitLocker du lecteur. Son mot de passe numérique à partir de la sortie de ` manage-bde -protectors -get D: `      |
-    |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
+    |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
     |/dstdir:     |Nom du conteneur de destination dans le Stockage Azure.         |
     |/skipwrite:     |Option qui spécifie qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées.          |
 7. Répétez l’étape précédente pour chaque disque à expédier. Un fichier journal avec le nom fourni est créé pour chaque exécution de la ligne de commande.
@@ -76,9 +76,9 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 Effectuez les étapes suivantes pour créer une tâche d’importation dans le portail Azure.
 
 1. Connectez-vous sur https://portal.azure.com/.
-2. Accédez à **Tous les services > Stockage > Tâches d’importation/exportation**. 
+2. Accédez à **Tous les services > Stockage > Tâches d’importation/exportation**. 
     
-    ![Accédez à Tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Accéder à Tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
 3. Cliquez sur **Créer une tâche d’importation/exportation**.
 
@@ -89,7 +89,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
     - Sélectionnez **Importer dans Azure**.
     - Indiquez un nom décrivant le travail d’importation. Utilisez le nom pour suivre la progression de vos tâches.
         - Le nom peut contenir uniquement des lettres minuscules, des chiffres, des tirets et des traits de soulignement.
-        - Le nom doit commencer par une lettre et ne peut pas contenir d’espace.
+        - Le nom doit commencer par une lettre et ne doit pas contenir d’espaces.
     - Sélectionnez un abonnement.
     - Entrez ou sélectionnez un groupe de ressources.  
 
@@ -106,8 +106,8 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 4. Dans **Informations de réexpédition** :
 
     - Sélectionnez le transporteur dans la liste déroulante.
-    - Entrez un numéro de compte de transporteur valide que vous avez créé avec ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
-    - Indiquez le nom d’une personne, un numéro de téléphone, un e-mail, le nom de la rue, la ville, le code postal, l’état/la province et le pays/la région et vérifiez que ces informations sont complètes et valides.
+    - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
+    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
 
     ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -130,7 +130,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Voir l’état de la tâche et des lecteurs](storage-import-export-view-drive-status.md)
+* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
 * [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
 
 
