@@ -2,19 +2,19 @@
 title: Démarrage rapide - Créer un registre Docker privé dans Azure avec l’interface de ligne de commande Azure
 description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec l’interface de ligne de commande Azure.
 services: container-registry
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: iainfou
+ms.author: marsma
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 745cfbb6ee72ac69ab5452701e654306e9645eb7
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 20dfae9c24bac7d9f76ae95f8b6d7c0610a0735e
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100669"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888539"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs à l’aide de l’interface de ligne de commande Azure
 
@@ -131,7 +131,7 @@ L’exemple suivant répertorie les étiquettes sur le référentiel **aci-hello
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-Output:
+Sortie :
 
 ```bash
 Result
@@ -179,7 +179,7 @@ Pour voir l’application en cours d’exécution, accédez à l’adresse IP pu
 
 ![Application Hello world dans le navigateur][aci-app-browser]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, l’instance ACR et toutes les images conteneurs.
 

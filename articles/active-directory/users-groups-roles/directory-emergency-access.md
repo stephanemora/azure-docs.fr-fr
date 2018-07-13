@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 185f6730babe077332be9f054ba338ff48295eca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448822"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595652"
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Gérer les comptes d’administration de l’accès d’urgence dans Azure AD 
 
@@ -82,6 +82,6 @@ Pour former des membres du personnel à l’utilisation des comptes d’accès d
 - [S’inscrire à Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), si ce n’est pas déjà fait.
 - [Exiger Azure Multi-Factor Authentication pour les utilisateurs individuels désignés comme administrateurs](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 - [Configurer des protections supplémentaires pour les administrateurs généraux dans Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), si vous utilisez Office 365.
-- [Effectuer une vérification de l’accès des administrateurs généraux](../active-directory-privileged-identity-management-how-to-start-security-review.md) et de la [transition des administrateurs généraux existants à des rôles d’administrateur plus spécifiques](directory-assign-admin-roles.md).
+- [Effectuer une vérification de l’accès des administrateurs généraux](../privileged-identity-management/pim-how-to-start-security-review.md) et de la [transition des administrateurs généraux existants à des rôles d’administrateur plus spécifiques](directory-assign-admin-roles.md).
 
 

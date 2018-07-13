@@ -185,7 +185,7 @@
           href: luis-how-to-add-features.md
         - name: Ajouter des modèles
           href: luis-how-to-model-intent-pattern.md
-    - name: Former
+    - name: Entraîner
       href: luis-how-to-train.md
     - name: Test
       items:
@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Utiliser des domaines
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Utiliser Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Gérer l’application
       items:
         - name: Utilisation du tableau de bord
@@ -253,7 +251,7 @@
           href: luis-reference-prebuilt-dimension.md
         - name: Entité Deprecated
           href: luis-reference-prebuilt-deprecated.md
-        - name: Entité Email
+        - name: Entité email
           href: luis-reference-prebuilt-email.md
         - name: Entité keyPhrase
           href: luis-reference-prebuilt-keyphrase.md
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: Référence de domaine prédéfini
       href: luis-reference-prebuilt-domains.md
-    - name: Référence de l’application prédéfinie Cortana
-      href: luis-reference-cortana-prebuilt.md
     - name: Création des API V2
       href: 'https://aka.ms/luis-authoring-apis'
     - name: API V2 de point de terminaison

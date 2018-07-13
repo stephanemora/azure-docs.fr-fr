@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345489"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299252"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - version préliminaire
 
@@ -63,7 +63,7 @@ sudo nano /etc/iotedge/config.yaml
 Mettez à jour la section **Connecter** de la configuration avec votre adresse IP. Par exemple :
 ```yaml
 connect:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -71,7 +71,7 @@ Entrez les mêmes adresses dans la section **Écouter** de la configuration. Par
 
 ```yaml
 listen:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 

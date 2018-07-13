@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: bryanla
 ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36295387"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969926"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutoriel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights
 
@@ -269,7 +269,7 @@ Le code utilisé pour illustrer les pinceaux apparaît également dans l’exemp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Vous connecter et explorer l’exemple d’application TSI et sa source.

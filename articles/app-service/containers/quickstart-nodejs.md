@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293902"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969542"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Créer une application web Node.js dans Azure App Service sur Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "35293902"
 > Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer une application App Service sur _Windows_, consultez [Créer une application web Node.js dans Azure](../app-service-web-get-started-nodejs.md).
 >
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce démarrage rapide montre comment déployer une application Node.js sur App Service sur Linux à l’aide de [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce démarrage rapide montre comment déployer une application Node.js sur App Service sur Linux à l’aide de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 Vous allez effectuer ce démarrage rapide dans Cloud Shell, mais vous pouvez également exécuter ces commandes localement avec [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ Vous allez effectuer ce démarrage rapide dans Cloud Shell, mais vous pouvez ég
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Installer l’extension de l’application web pour Cloud Shell
 
-Pour effectuer ce démarrage rapide, vous devez ajouter l’[extension d’application web az](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Si l’extension est déjà installée, mettez-la à jour vers la dernière version. Pour mettre à jour l’extension de l’application web, saisissez `az extension update -n webapp`.
+Pour effectuer ce démarrage rapide, vous devez ajouter l’[extension d’application web az](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Si l’extension est déjà installée, mettez-la à jour vers la dernière version. Pour mettre à jour l’extension de l’application web, saisissez `az extension update -n webapp`.
 
 Pour installer l’extension de l’application web, exécutez la commande suivante :
 
@@ -136,7 +136,7 @@ La commande `az webapp up` exécute les actions suivantes :
 
 - Créer une application avec le nom spécifié
 
-- [Décompressez](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) les fichiers depuis le répertoire de travail en cours sur l’application web.
+- [Décompressez](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) les fichiers depuis le répertoire de travail en cours sur l’application web.
 
 ## <a name="browse-to-the-app"></a>Accéder à l’application
 
@@ -190,7 +190,7 @@ Vous voyez apparaître la page Vue d’ensemble de votre application web. Elle v
 
 Le menu de gauche fournit différentes pages vous permettant de configurer votre application.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources dans Cloud Shell. Si vous avez modifié la région, mettez à jour le nom du groupe de ressources `appsvc_rg_Linux_CentralUS` pour utiliser le groupe de ressources spécifique à votre application.
 

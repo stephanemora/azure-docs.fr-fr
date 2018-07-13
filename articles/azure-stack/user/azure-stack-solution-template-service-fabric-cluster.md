@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: a88d8dd2af94ac796a3b2e3c667fd40a308f02a1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33877159"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969110"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -28,7 +28,6 @@ Pour déployer un cluster Service Fabric sécurisé dans Azure Stack, utilisez l
 Pour plus d’informations sur l’utilisation de l’infrastructure de Service Fabric, consultez les articles [Vue d’ensemble d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) et [Scénarios de sécurité d’un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) dans la documentation Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Le déploiement du cluster Service Fabric requiert les éléments suivants :
 1. **Certificat de cluster**  
@@ -193,7 +192,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 ## <a name="use-service-fabric-powershell"></a>Utiliser PowerShell Service Fabric
 
-1. Installez le *Kit de développement logiciel (SDK) Microsoft Azure Service Fabric* en suivant les instructions de la procédure [Préparer votre environnement de développement sur Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) dans la documentation Azure Service Fabric.  
+1. Installez le *Kit de développement logiciel (SDK) Microsoft Azure Service Fabric* en suivant les instructions de la procédure [Préparer votre environnement de développement sur Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) dans la documentation Azure Service Fabric.  
 
 2. Une fois l’installation terminée, configurez les variables d’environnement système pour vous assurer que les cmdlets Service Fabric sont accessibles à partir de PowerShell.  
     

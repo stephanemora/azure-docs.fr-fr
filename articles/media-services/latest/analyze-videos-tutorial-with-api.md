@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114222"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971996"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Didacticiel : analyser des vidéos avec Azure Media Services 
 
@@ -112,7 +112,7 @@ Lorsque vous créez une **transformation**, vous devez tout d’abord vérifier 
 
 #### <a name="job"></a>Travail
 
-Comme indiqué ci-dessus, l’objet [Transformation](https://docs.microsoft.com/rest/api/media/transforms) est la formule et un [travail](https://docs.microsoft.com/en-us/rest/api/media/jobs) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l’emplacement de votre vidéo par : URL HTTPS, URL SAP ou des éléments qui se trouvent dans votre compte Media Services. 
+Comme indiqué ci-dessus, l’objet [Transformation](https://docs.microsoft.com/rest/api/media/transforms) est la formule et un [travail](https://docs.microsoft.com/rest/api/media/jobs) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l’emplacement de votre vidéo par : URL HTTPS, URL SAP ou des éléments qui se trouvent dans votre compte Media Services. 
 
 Dans cet exemple, l’entrée de la tâche est une vidéo locale.  
 
@@ -120,7 +120,7 @@ Dans cet exemple, l’entrée de la tâche est une vidéo locale.
 
 ### <a name="wait-for-the-job-to-complete"></a>Attendre la fin du travail
 
-Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. Il existe différentes options pour être prévenu de l’achèvement du [travail](https://docs.microsoft.com/en-us/rest/api/media/jobs). L’option la plus simple (indiquée ici) est d’utiliser l’interrogation. 
+Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. Il existe différentes options pour être prévenu de l’achèvement du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’option la plus simple (indiquée ici) est d’utiliser l’interrogation. 
 
 L’interrogation n’est pas une meilleure pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid.
 

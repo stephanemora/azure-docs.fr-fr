@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.openlocfilehash: c97585607a8694840d24f4582f5a850b3d6e11f0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053853"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618557"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 Dans ce guide de démarrage rapide, vous apprenez à utiliser PHP pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce démarrage rapide : 
+Pour suivre ce guide de démarrage rapide : 
 * Installez [PHP](http://php.net/downloads.php)
 * Installez le [kit de développement logiciel (SDK) Stockage Azure pour PHP](https://github.com/Azure/azure-storage-php)
 
@@ -82,7 +82,7 @@ Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](
 
 Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle touche pour terminer la démonstration et supprimer les fichiers de test. Maintenant que vous avez compris l’exemple, ouvrez le fichier example.rb pour examiner le code. 
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
 
@@ -178,7 +178,7 @@ Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()**. 
     fpassthru($blob->getContentStream());
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **deleteContainer()**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **deleteBlob()** pour supprimer ces fichiers.
 
 ```PHP

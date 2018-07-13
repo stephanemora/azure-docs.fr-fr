@@ -289,6 +289,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Pare-feu
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Assistance
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/

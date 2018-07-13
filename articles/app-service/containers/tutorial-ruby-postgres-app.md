@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ae476e21e4935ea555e671c3c7144748d60abb6
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: 927c8f6d0fefbc592999487217c41aeecc96b0d9
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35662703"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950979"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Créer une application web Ruby et Postgres dans Azure App Service sur Linux
 
@@ -39,10 +39,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Installez Git](https://git-scm.com/)
-* [Installez Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
+* [Installez Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
 * [Installez Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Téléchargez et exécutez PostgreSQL](https://www.postgresql.org/download/)
 
@@ -77,7 +77,7 @@ Dans cette étape, vous allez créer un exemple d’application Ruby on Rails, c
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel :
+Exécutez la commande suivante pour cloner l’exemple de référentiel :
 
 ```bash
 git clone https://github.com/Azure-Samples/rubyrails-tasks.git
@@ -496,7 +496,7 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez une base de données Postgres dans Azure

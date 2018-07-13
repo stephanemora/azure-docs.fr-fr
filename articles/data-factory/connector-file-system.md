@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 ms.openlocfilehash: f7f3f8d28c44a0ecadb9fed895ec2d37a5469142
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37046916"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-file-system-connector.md)
+> * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Version actuelle](connector-file-system.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers un système de fichiers. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
