@@ -89,7 +89,7 @@ Dès que tous les documents sont chargés, l’index est prêt à être utilisé
 
 Le portail comprend **l’Explorateur de recherche** afin que vous puissiez interroger un index sans avoir à écrire du code. Vous pouvez utiliser l’[Explorateur de recherche](search-explorer.md) sur n’importe quel index.
 
-L’expérience de recherche est basée sur les paramètres par défaut, tels que la [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et le paramètre de requête searchModehttps://docs.microsoft.com/rest/api/searchservice/search-documents). 
+L’expérience de recherche est basée sur les paramètres par défaut, tels que la [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et le paramètre de requête searchMode https://docs.microsoft.com/rest/api/searchservice/search-documents) . 
 
 Les résultats sont retournés dans JSON, au format détaillé, afin que vous puissiez inspecter le document dans son intégralité.
 
