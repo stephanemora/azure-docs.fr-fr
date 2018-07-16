@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368092"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095749"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Modération de catalogue eCommerce avec machine Learning
 
@@ -158,7 +158,7 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Classer en signes, jouets et stylos
 
-1. [Connectez-vous](https://www.customvision.ai/account/signin) à la [préversion de l’API Vision personnalisée](https://www.customvision.ai/).
+1. [Connectez-vous](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) à la [préversion de l’API Vision personnalisée](https://www.customvision.ai/).
 2. Utilisez le [guide de démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) pour créer un classifieur personnalisé afin de détecter la présence potentielle de signes, jouets et stylos.
    ![Image de formation Vision personnalisée](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obtenez l’URL du point de terminaison de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) de votre classifieur personnalisé.
