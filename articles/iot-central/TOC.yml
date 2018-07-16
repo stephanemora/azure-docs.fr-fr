@@ -37,10 +37,12 @@
   items:
     - name: Administrateur
       items:
-        - name: Création d'une application
-          href: howto-create-application.md
+        - name: 'En tant que CSP, créer et gérer une application'
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Gérer votre application
           href: howto-administer.md
+        - name: Exporter vos données
+          href: howto-export-data.md
     - name: Générateur
       items:
         - name: Configurer le modèle d’appareil
@@ -49,6 +51,10 @@
           href: howto-version-devicetemplate.md
         - name: Créer une règle de télémétrie
           href: howto-create-telemetry-rules.md
+        - name: Créer une règle d’événements
+          href: howto-create-event-rules.md
+        - name: Créer des workflows dans Microsoft Flow
+          href: howto-add-microsoft-flow.md
         - name: Configurer la page d’accueil
           href: howto-configure-homepage.md
         - name: Préparer et charger des images

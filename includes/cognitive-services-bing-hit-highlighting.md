@@ -12,30 +12,30 @@ Si `textDecorations` est **true**, Bing peut inclure les marqueurs suivants dans
 
 |Unicode|HTML|Description
 |-|-|-
-|U+E000|\<b>|Marque le début du terme de requête (mise en surbrillance des correspondances)
-|U+E001|\</b>|Marque la fin du terme de requête
-|U+E002|\<i>|Marque le début du contenu en italique 
-|U+E003|\</i>|Marque la fin du contenu en italique
-|U+E004|\<br/>|Marque un saut de ligne
+|U+E000|\<b&gt;|Marque le début du terme de requête (mise en surbrillance des correspondances)
+|U+E001|\</b&gt;|Marque la fin du terme de requête
+|U+E002|\<i&gt;|Marque le début du contenu en italique 
+|U+E003|\</i&gt;|Marque la fin du contenu en italique
+|U+E004|\<br/&gt;|Marque un saut de ligne
 |U+E005||Marque le début d’un numéro de téléphone
 |U+E006||Marque la fin d’un numéro de téléphone
 |U+E007||Marque le début d’une adresse
 |U+E008||Marque la fin d’une adresse
 |U+E009|\&nbsp;|Marque une espace insécable
-|U+E00C|\<strong>|Marque le début du contenu en gras
-|U+E00D|\</strong>|Marque la fin du contenu en gras
+|U+E00C|\<strong&gt;|Marque le début du contenu en gras
+|U+E00D|\</strong&gt;|Marque la fin du contenu en gras
 |U+E00E||Marque le début du contenu dont l’arrière-plan doit être plus clair que son arrière-plan qui l’entoure
 |U+E00F||Marque la fin du contenu dont l’arrière-plan doit être plus clair que son arrière-plan qui l’entoure
 |U+E010||Marque le début du contenu dont l’arrière-plan doit être plus foncé que son arrière-plan qui l’entoure
 |U+E011||Marque la fin du contenu dont l’arrière-plan doit être plus foncé que son arrière-plan qui l’entoure
-|U+E012|\<del>|Marque le début du contenu qui doit être barré
-|U+E013|\</del>|Marque la fin du contenu qui doit être barré
-|U+E016|\<sub>|Marque le début du contenu en indice
-|U+E017|\</sub>|Marque la fin du contenu en indice
-|U+E018|\<sup>|Marque le début du contenu en exposant
-|U+E019|\</sup>|Marque la fin du contenu en exposant
+|U+E012|\<del&gt;|Marque le début du contenu qui doit être barré
+|U+E013|\</del&gt;|Marque la fin du contenu qui doit être barré
+|U+E016|\<sub&gt;|Marque le début du contenu en indice
+|U+E017|\</sub&gt;|Marque la fin du contenu en indice
+|U+E018|\<sup&gt;|Marque le début du contenu en exposant
+|U+E019|\</sup&gt;|Marque la fin du contenu en exposant
 
-L’exemple suivant illustre une réponse `Computation` contenant des marqueurs de type indice pour un terme de requête log(2). Le champ `expression` contient les marqueurs uniquement si textDecoration est **true**.
+L’exemple suivant illustre une réponse `Computation` contenant des marqueurs de type indice pour un terme de requête log(2). Le champ `expression` contient les marqueurs uniquement si `textDecoration` est **true**.
 
 ![marqueurs de calcul](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 

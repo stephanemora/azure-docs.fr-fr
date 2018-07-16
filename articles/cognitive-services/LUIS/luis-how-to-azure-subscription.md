@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3526871f126ac975f323fe84b14883b361b684ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370765"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340771"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gérer les clés d’abonnement de point de terminaison Azure
 
@@ -40,7 +40,7 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
     ![Clés Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Connectez-vous au site web [LUIS](luis-reference-regions.md) de votre région et [ajoutez la nouvelle clé de point de terminaison LUIS](Manage-Keys.md#assign-endpoint-key). 
+    > * Connectez-vous au site web [LUIS](luis-reference-regions.md) de votre région et [ajoutez la nouvelle clé de point de terminaison LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
     > * Vous devez mémoriser le nom du service Azure que vous avez créé pour le sélectionner sur la page de publication [LUIS](luis-reference-regions.md) de la région.  
 
 ## <a name="change-luis-pricing-tier"></a>Modifier le niveau tarifaire LUIS
@@ -53,7 +53,7 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
     ![Modifier votre niveau de paiement LUIS](./media/luis-usage-tiers/plans.png)
 4.  Lorsque la modification de tarification est terminée, une fenêtre contextuelle vérifie le nouveau niveau tarifaire. 
     ![Vérifier votre niveau de paiement LUIS](./media/luis-usage-tiers/updated.png)
-5. N’oubliez pas d’[affecter cette clé de point de terminaison](manage-keys.md#assign-endpoint-key) sur la page **Publier** et de l’utiliser dans toutes les requêtes de point de terminaison. 
+5. N’oubliez pas d’[affecter cette clé de point de terminaison](luis-how-to-manage-keys.md#assign-endpoint-key) sur la page **Publier** et de l’utiliser dans toutes les requêtes de point de terminaison. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Dépassement de l’utilisation du niveau tarifaire
 Chaque niveau autorise des requêtes de point de terminaison pour votre compte LUIS à un débit spécifique. Si le débit de requêtes est supérieur à celui autorisé pour votre compte facturé à l’usage par minute ou par mois, les requêtes reçoivent une erreur HTTP « 429 : trop de requêtes ».

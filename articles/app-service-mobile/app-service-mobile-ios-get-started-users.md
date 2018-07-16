@@ -33,7 +33,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de [Déma
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application.  Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé.  Dans ce didacticiel, nous utilisons le schéma d’URL _appname_.  Toutefois, vous pouvez utiliser le schéma d’URL de votre choix.  Il doit être propre à votre application mobile.  Pour activer la redirection côté serveur :
 
-1. Dans le[ portail Azure], sélectionnez votre App Service.
+1. Dans le [portail Azure], sélectionnez votre App Service.
 
 2. Cliquez sur l’option de menu **Authentication/Authorisation**.
 
@@ -217,7 +217,7 @@ L’authentification App Service utilise la communication inter-application d’
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[ portail Azure]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com
 
 [Démarrage rapide iOS]: app-service-mobile-ios-get-started.md
 
