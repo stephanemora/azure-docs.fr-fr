@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7f8dd46dc8289322726934f330761b0f1ab94bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265935"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888246"
 ---
 # <a name="authoring-cycle"></a>Cycle de création
 LUIS apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison. 
@@ -40,7 +40,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 Lorsque vous avez entre 10 et 15 énoncés différents dans chaque intention, avec les entités requises étiquetées, vous formez LUIS, puis publiez pour obtenir vos points de terminaison. Veillez à créer votre application et à la publier afin qu’elle soit disponible dans les [régions de point de terminaison](luis-reference-regions.md) requises. 
 
 ## <a name="https-endpoint-testing"></a>Test de point de terminaison HTTPS
-Vous pouvez tester votre application LUIS à partir du point de terminaison HTTPS répertorié sur la page **[Publier](publishapp.md)**. Le test à partir du point de terminaison permet à LUIS de choisir n’importe quel énoncé avec une confiance faible pour la révision.  
+Vous pouvez tester votre application LUIS à partir du point de terminaison HTTPS répertorié sur la page **[Publier](luis-how-to-publish-app.md)**. Le test à partir du point de terminaison permet à LUIS de choisir n’importe quel énoncé avec une confiance faible pour la révision.  
 
 ## <a name="recycle"></a>Recycler
 Lorsque vous avez terminé un cycle de création, vous pouvez recommencer. Commencez par examiner les énoncés de point de terminaison marqués par LUIS avec une confiance faible. Vérifiez ces énoncés en termes d’intention et d’entité. Une fois les énoncés passés en revue, la liste doit être vide.  
@@ -51,5 +51,3 @@ Le test par lot est un moyen de voir combien d’exemples d’énoncés sont év
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez les concepts de la [collaboration](luis-concept-collaborator.md).
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 7aec5d5b90ac7145ce9f337ec74c590b4b88c6b1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c67a2c16077c9033b52a909360b21cb7f88a5a9d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266360"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344986"
 ---
 # <a name="plan-your-luis-app"></a>Planifier votre application LUIS
 
@@ -61,7 +61,7 @@ Une entité composite est constituée d’autres entités qui forment des partie
 Pour en savoir plus sur l’extraction de l’entité composite à partir de la réponse à la requête JSON du point de terminaison, voir [Extraction de données](luis-concept-data-extraction.md#composite-entity-data). Pour en savoir plus sur l’utilisation d’une entité composite, essayez le [didacticiel](luis-tutorial-composite-entity.md) sur les entités composites.
 
 ### <a name="prebuilt-entity"></a>Entité prédéfinie
-LUIS fournit des [entités prédéfinies](Pre-builtEntities.md) pour les types courants comme `Number`, que vous pouvez utiliser pour le nombre de tickets dans une commande de tickets.
+LUIS fournit des [entités prédéfinies](luis-prebuilt-entities.md) pour les types courants comme `Number`, que vous pouvez utiliser pour le nombre de tickets dans une commande de tickets.
 
 ![Entité prédéfinie Number (nombre)](./media/luis-plan-your-app/number-entity.png)
 
