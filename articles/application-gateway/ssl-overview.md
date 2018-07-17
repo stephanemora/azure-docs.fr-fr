@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.openlocfilehash: b1b6cec8cfeee2253ccd62f764ce4da4cb1b459d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1c94bc7fb97902c9d44392d2eb9bf4ee29f72af6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160526"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949745"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway
 
@@ -42,7 +42,7 @@ La passerelle Application Gateway communique uniquement avec les instances de se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir découvert le chiffrement SSL de bout en bout, consultez l’article indiquant comment [activer le chiffrement SSL de bout en bout sur la passerelle Application Gateway](tutorial-ssl-powershell.md) pour créer une passerelle d’application à l’aide du chiffrement SSL de bout en bout.
+Après avoir découvert le chiffrement SSL de bout en bout, accédez à [Configurer une passerelle d’application avec arrêt SSL à l’aide du portail Azure](create-ssl-portal.md) pour créer une passerelle d’application à l’aide du chiffrement SSL de bout en bout.
 
 <!--Image references-->
 

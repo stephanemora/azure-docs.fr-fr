@@ -12,17 +12,24 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461501"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Charger des données d’image dans le cloud avec le Stockage Azure
 
 Ce didacticiel est la première partie d’une série d’étapes. Ce didacticiel vous montre comment déployer une application web qui utilise la bibliothèque de client du Stockage Azure pour charger des images sur un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 Dans ce premier volet, vous apprenez à :
 
@@ -36,7 +43,7 @@ Dans ce premier volet, vous apprenez à :
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources 
 
@@ -53,7 +60,7 @@ az group create --name myResourceGroup --location westcentralus
 L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, ceux-ci ne sont pris en charge pour les comptes de Stockage Blob que dans l’Ouest du centre des États-Unis et les États-Unis de l’Ouest 2. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
+> Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, les abonnements aux événements sont uniquement pris en charge pour les comptes de stockage d’objets blob dans les régions suivantes : Asie Sud-Est, Asie Est, Australie Est, Australie Sud-Est, USA Centre, USA Est, USA Est 2, Europe Ouest, Europe Nord, Japon Est, Japon de l’Ouest, USA Centre-Ouest, USA Ouest et USA Ouest 2. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
 
 Dans la commande suivante, indiquez le nom global unique de votre compte de stockage Blob dans l’espace réservé `<blob_storage_account>`.  
 
@@ -64,7 +71,7 @@ az storage account create --name <blob_storage_account> \
 ``` 
  
 ## <a name="create-blob-storage-containers"></a>Créer des conteneurs de Stockage Blob
- 
+
 L’application utilise deux conteneurs dans le compte de stockage Blob. Les conteneurs s’apparentent à des dossiers et servent à stocker les objets Blob. C’est dans le conteneur _images_ que l’application charge les images pleine résolution. Dans l’une des parties suivantes de la série, une application de fonction Azure charge les miniatures d’images redimensionnées dans le conteneur _thumbnails_. 
 
 Récupérez la clé du compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Vous utiliserez ensuite cette clé pour créer deux conteneurs avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
@@ -74,7 +81,7 @@ Dans ce cas, `<blob_storage_account>` est le nom du compte de stockage Blob que 
 ```azurecli-interactive 
 $blobStorageAccount="<blob_storage_account>"
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container create -n images --account-name $blobStorageAccount \
@@ -111,11 +118,18 @@ Dans la commande suivante, remplacez`<web_app>` par un nom unique (les caractèr
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## <a name="deploy-the-sample-app-from-the-github-repository"></a>Déployer l’exemple d’application à partir du référentiel GitHub 
+## <a name="deploy-the-sample-app-from-the-github-repository"></a>Déployer l’exemple d’application à partir du référentiel GitHub
+
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 
 App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
 
 L’exemple de projet contient une application [ASP.NET MVC](https://www.asp.net/mvc) qui accepte une image, l’enregistre dans un compte de stockage et affiche des images à partir d’un conteneur de miniatures. L’application web utilise les espaces de noms [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)et [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) de la bibliothèque de client du Stockage Azure pour interagir avec le Stockage Azure. 
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
+
+---
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -142,6 +156,8 @@ Une fois l’application web déployée et configurée, vous pouvez tester la fo
 ## <a name="upload-an-image"></a>Charger une image 
 
 Pour tester l’application web, accédez à l’URL de l’application publiée. L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`. Sélectionnez la zone **Charger des photos** pour sélectionner et charger un fichier, ou glissez-déplacez un fichier sur la zone. L’image disparaît si le chargement a réussi.
+
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 
 ![Application ImageResizer](media/storage-upload-process-images/figure1.png)
 
@@ -182,6 +198,69 @@ Les classes et méthodes suivantes sont utilisées dans la tâche précédente 
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+![Application de chargement d’image](media/storage-upload-process-images/upload-app-nodejs.png)
+
+Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
+
+- [multer](https://github.com/expressjs/multer) implémente la stratégie de chargement pour le gestionnaire de routage
+- [into-stream](https://github.com/sindresorhus/into-stream) convertit la mémoire tampon dans un flux, comme requis par [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
+
+Étant donné que le fichier est envoyé à l’itinéraire, le contenu du fichier reste en mémoire jusqu’à son chargement dans le conteneur d’objets blob.
+
+> [!IMPORTANT]
+> Le chargement des fichiers très volumineux en mémoire peut nuire aux performances de votre application web. Si vous pensez que des utilisateurs pourraient publier des fichiers volumineux, vous devriez peut-être utiliser la mise en lots de fichiers sur le système de fichiers, puis planifier les chargements dans le stockage d’objets blob. Une fois les fichiers dans le stockage d’objets blob, vous pouvez les supprimer du système de fichiers du serveur.
+
+```javascript
+const
+      express = require('express')
+    , router = express.Router()
+
+    , multer = require('multer')
+    , inMemoryStorage = multer.memoryStorage()
+    , uploadStrategy = multer({ storage: inMemoryStorage }).single('image')
+
+    , azureStorage = require('azure-storage')
+    , blobService = azureStorage.createBlobService()
+
+    , getStream = require('into-stream')
+    , containerName = 'images'
+;
+
+const handleError = (err, res) => {
+    res.status(500);
+    res.render('error', { error: err });
+};
+
+const getBlobName = originalName => {
+    const identifier = Math.random().toString().replace(/0\./, ''); // remove "0." from start of string
+    return `${originalName}-${identifier}`;
+};
+
+router.post('/', uploadStrategy, (req, res) => {
+
+    const
+          blobName = getBlobName(req.file.originalname)
+        , stream = getStream(req.file.buffer)
+        , streamLength = req.file.buffer.length
+    ;
+
+    blobService.createBlockBlobFromStream(containerName, blobName, stream, streamLength, err => {
+
+        if(err) {
+            handleError(err);
+            return;
+        }
+
+        res.render('success', { 
+            message: 'File uploaded to Azure Blob storage.' 
+        });
+    });
+});
+```
+---
+
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Vérifier que l’image s’affiche dans le compte de stockage
 
 Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sous **vue d’ensemble**, sélectionnez le conteneur **images**.
@@ -200,7 +279,13 @@ Choisissez un fichier en utilisant le sélecteur de fichiers et sélectionnez **
 
 Revenez à votre application pour vérifier que l’image chargée dans le conteneur **thumbnails** est visible.
 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 Dans le conteneur **thumbnails**, sur le Portail Azure, sélectionnez l’image que vous avez chargée et sélectionnez **Supprimer** pour supprimer l’image. Dans la deuxième partie de la série, vous automatiserez la création d’images miniatures ; cette image de test n’est donc pas nécessaire.
 

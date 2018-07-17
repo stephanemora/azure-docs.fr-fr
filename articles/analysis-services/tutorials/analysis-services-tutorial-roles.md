@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/09/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 72d980a683503374ed778dc57726114ebecd929f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443532"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929227"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : configurer l’administrateur du serveur et les rôles d’utilisateur
 
@@ -124,7 +124,7 @@ Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com
     }
     ```
 
-3. Modifiez la valeur d’objet **"memberName": \"globalsales@adventureworks.com\"** en un compte d’utilisateur ou de groupe dans Azure AD.
+3. Remplacez la valeur d’objet `"memberName": "globalsales@adventureworks.com"` par un compte d’utilisateur ou de groupe dans Azure AD.
 4. Appuyez sur **F5** pour exécuter le script.
 
 ## <a name="verify-your-changes"></a>Vérifiez vos modifications.
@@ -134,7 +134,7 @@ Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com
 
     ![Vérifier dans l’Explorateur d’objets](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les comptes d’utilisateur ou de groupe et les rôles. Pour ce faire, utilisez **Propriétés du rôle** > **Appartenance** pour supprimer des comptes d’utilisateur, ou cliquez sur un rôle avec le bouton droit de la souris, puis cliquez sur **Supprimer**.
 

@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 976f61d99b88d241b39bfec9d95e16de272d9c14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a302cdcf94baa869e55262c4cd380fc05bf64299
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461603"
 ---
 # <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>Didacticiel : Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Build
 
@@ -28,15 +29,13 @@ Dans ce didacticiel, le dernier de la série, vous allez apprendre à :
 > * Afficher la génération déclenchée
 > * Vérifier l’image d’application mise à jour
 
-> [!IMPORTANT]
-> ACR Build est actuellement en préversion, et sa prise en charge n’est assurée que par les registres de conteneurs Azure des régions **États-Unis de l’Est** (eastus) et **Europe de l’Ouest** (westeurope). Ces préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.32** d’Azure CLI ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0][azure-cli].
+Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.32** d’Azure CLI ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 ### <a name="complete-previous-tutorials"></a>Terminer les didacticiels précédents
 
@@ -130,7 +129,7 @@ Utilisez la commande [az acr build-task run][az-acr-build-task-run] pour déclen
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Une fois la génération terminée, prenez note de **l’ID de génération** (par exemple, « eastus6 ») si vous souhaitez terminer l’étape facultative suivante.
+Une fois la génération terminée, prenez note de **l’ID de génération** (par exemple, « aa6 ») si vous souhaitez terminer l’étape facultative suivante.
 
 ### <a name="optional-run-application-container-locally"></a>Facultatif : exécuter localement un conteneur d’application
 
@@ -142,7 +141,7 @@ Tout d’abord, connectez-vous au registre de conteneurs à l’aide de la comma
 az acr login --name $ACR_NAME
 ```
 
-À présent, exécutez localement le conteneur avec `docker run`. Remplacez **\<build-id\>** par l’ID de génération trouvé dans la sortie de l’étape précédente (par exemple, « eastus5 »).
+À présent, exécutez localement le conteneur avec `docker run`. Remplacez **\<build-id\>** par l’ID de génération trouvé dans la sortie de l’étape précédente (par exemple, « aa6 »).
 
 ```azurecli
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
@@ -164,14 +163,14 @@ Si vous avez terminé le didacticiel précédent (sans supprimer le registre), v
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
-eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
-eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## <a name="update-base-image"></a>Mettre à jour l’image de base
@@ -203,18 +202,18 @@ Le résultat ressemble à ce qui suit. Le DÉCLENCHEUR de la dernière générat
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------    --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
-eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
-eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
+aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
+aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
 ```
 
-Si vous souhaitez effectuer l’étape facultative suivante de l’exécution du conteneur nouvellement généré pour voir le numéro de version mis à jour, prenez note de la valeur **ID DE GÉNÉRATION** de la génération déclenchée par la mise à jour de l’image (dans la sortie précédente, il s’agit de « eastus6 »).
+Si vous souhaitez effectuer l’étape facultative suivante de l’exécution du conteneur nouvellement généré pour voir le numéro de version mis à jour, prenez note de la valeur **ID DE GÉNÉRATION** de la génération déclenchée par la mise à jour de l’image (dans la sortie précédente, il s’agit de « aa8 »).
 
 ### <a name="optional-run-newly-built-image"></a>Facultatif : exécuter l’image qui vient d’être générée
 
@@ -230,7 +229,7 @@ Accédez à http://localhost:8081 dans le navigateur ; vous devez voir le numér
 
 Il est important de noter que si vous avez mis à jour votre image de **base** avec un nouveau numéro de version, l’image **d’application** générée en dernier affiche la nouvelle version. ACR Build a choisi la modification que vous avez apportée à l’image de base et régénéré automatiquement l’image de l’application.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer toutes les ressources créées dans cette série de didacticiels, notamment le registre de conteneurs, l’instance de conteneur, le coffre de clés et le principal du service, exécutez les commandes suivantes :
 
@@ -254,7 +253,6 @@ Dans ce didacticiel, vous avez découvert comment utiliser une tâche de génér
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

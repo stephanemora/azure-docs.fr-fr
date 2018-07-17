@@ -11,12 +11,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 11/29/2017
 ms.author: sngun
-ms.openlocfilehash: c83d8ad5b424be1a9a695f3b9a466d45ddf8f0b4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 42cfe71210b95732b4b69f7ca21a8b647e187a38
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700279"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858858"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemples de CLI pour Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 |**Créer un compte, une base de données et des conteneurs Azure Cosmos DB**||
 |[Créer un compte d’API SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte unique d’API Azure Cosmos DB avec base de données et conteneur, à utiliser avec l’API SQL. |
 | [Créer un compte d’API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crée un compte unique d’API DocumentDB Azure MongoDB avec base de données et collection. |
-| [Créer un compte d’API Gremlin](scripts/create-graph-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crée un compte unique d’API Gremlin Azure Cosmos DB avec base de données et collection. |
+| [Créer un compte d’API Gremlin](scripts/create-graph-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crée un compte unique d’API Gremlin Azure Cosmos DB avec base de données et conteneur. |
 |**Mettre à l’échelle Azure Cosmos DB**||
 | [Mettre à l’échelle le débit d’un conteneur](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Modifie le débit approvisionné sur un conteneur.|
 |[Répliquer un compte de base de données Azure Cosmos DB dans plusieurs régions et configurer les priorités de basculement](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Réplique les données de compte globalement dans plusieurs régions avec une priorité de basculement spécifié.|

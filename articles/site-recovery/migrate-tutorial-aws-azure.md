@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737610"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922655"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -34,10 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Version 64 bits de Windows Server 2008 R2 SP1 ou version ultérieure
-    - Red Hat Enterprise Linux 6.7 (instances virtualisées HVM uniquement), avec un pilote Citrix Paravirtual ou un pilote AWS Paravirtual. Les instances qui exécutent les pilotes Red Hat Paravirtual *ne sont pas* prises en charge.
+    - Red Hat Enterprise Linux 6.7 (instances virtualisées HVM uniquement) et ne doit avoir que des pilotes Citrix PV ou AWS PV. Les instances exécutant des pilotes Red Hat PV **ne sont pas** prises en charge.
 
 - Le service Mobilité doit être installé sur chaque machine virtuelle que vous souhaitez répliquer. 
 
@@ -70,7 +67,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 8. Pour **Emplacement**, sélectionnez **Europe de l’Ouest**.
 9. Sélectionnez **Créer** pour créer le compte de stockage.
 
-### <a name="create-a-vault"></a>création d'un coffre
+### <a name="create-a-vault"></a>Création d'un coffre
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Recherchez puis sélectionnez **Coffres Recovery Services**.
 2. Dans la page Coffres Recovery Services, sélectionnez **Ajouter**.

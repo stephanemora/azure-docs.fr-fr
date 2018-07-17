@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bebfabfa2c9012fa55bfc6964dc0b638cb7ab3f1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722947"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API 
 
@@ -38,7 +39,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
  
@@ -55,7 +55,7 @@ Cette section vous montre comment masquer les en-têtes HTTP que vous ne souhait
 
 Pour consulter la réponse d’origine :
 
-1. Sélectionnez l’onglet **API**.
+1. Dans votre instance de service APIM, sélectionnez **API** (sous **GESTION DES API**).
 2. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
 3. Sélectionnez l’opération **GetSpeakers**.
 4. Cliquez sur l’onglet **Test**, sur la partie supérieure de l’écran.
@@ -67,24 +67,24 @@ Pour consulter la réponse d’origine :
 
 ### <a name="set-the-transformation-policy"></a>Définir la stratégie de transformation
 
-1. Accédez à votre instance APIM.
-2. Sélectionnez l’onglet **API**.
-3. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-4. Sélectionnez **Toutes les opérations**.
-5. Sélectionnez l’onglet **Conception** en haut de l’écran.
-6. Dans la fenêtre **Traitement sortant**, cliquez sur le triangle (à côté du crayon).
-7. Sélectionnez **Éditeur de Code**.
-    
+1. Sélectionnez **API de conférence de démonstration**.
+2. Sélectionnez l’onglet **Conception** en haut de l’écran.
+3. Sélectionnez **Toutes les opérations**.
+4. Dans la fenêtre **Traitement sortant**, cliquez sur le triangle (à côté du crayon) et sélectionnez **Éditeur de code**.
      ![Modifier la stratégie](./media/set-edit-policies/set-edit-policies01.png)
-9. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
-10. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez deux fois sur **+ Set HTTP header** (afin d’insérer deux extraits de stratégie).
+5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
+6. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez deux fois sur **+ Set HTTP header** (afin d’insérer deux extraits de stratégie).
 
     ![Stratégies](./media/transform-api/transform-api.png)
-11. Modifiez votre code **<outbound>** afin qu’il ressemble à ceci :
+7. Modifiez votre code **<outbound>** afin qu’il ressemble à ceci :
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-                
+
+    ![Stratégies](./media/transform-api/set-policy.png)
+8. Cliquez sur le bouton **Enregistrer** .
+
+
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Remplacer les URL d’origine dans le corps de la réponse de l’API par les URL de la passerelle APIM
 
 Cette section vous explique comment protéger vos URL d’origine qui apparaissent dans le corps de la réponse HTTP de l’API, en les redirigeant vers la passerelle APIM.
@@ -93,11 +93,10 @@ Cette section vous explique comment protéger vos URL d’origine qui apparaisse
 
 Pour consulter la réponse d’origine :
 
-1. Sélectionnez l’onglet **API**.
-2. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-3. Sélectionnez l’opération **GetSpeakers**.
-4. Cliquez sur l’onglet **Test**, sur la partie supérieure de l’écran.
-5. Appuyez sur le bouton **Envoyer**, sur la partie inférieure de l’écran. 
+1. Sélectionnez **API de conférence de démonstration**.
+2. Sélectionnez l’opération **GetSpeakers**.
+3. Cliquez sur l’onglet **Test**, sur la partie supérieure de l’écran.
+4. Appuyez sur le bouton **Envoyer**, sur la partie inférieure de l’écran. 
 
     Comme vous pouvez le voir, la réponse se présente ainsi :
 
@@ -105,16 +104,13 @@ Pour consulter la réponse d’origine :
 
 ### <a name="set-the-transformation-policy"></a>Définir la stratégie de transformation
 
-1. Accédez à votre instance APIM.
-2. Sélectionnez l’onglet **API**.
-3. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-4. Sélectionnez **Toutes les opérations**.
-5. Sélectionnez l’onglet **Conception** en haut de l’écran.
-6. Dans la fenêtre **Traitement sortant**, cliquez sur le triangle (à côté du crayon).
-7. Sélectionnez **Éditeur de Code**.
-8. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
-9. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
-10. Modifiez votre code **<find-and-replace** (dans l’élément **<outbound>**) afin de remplacer votre URL par une instance correspondant à celle de la passerelle APIM. Par exemple : 
+1. Sélectionnez **API de conférence de démonstration**.
+2. Sélectionnez **Toutes les opérations**.
+3. Sélectionnez l’onglet **Conception** en haut de l’écran.
+4. Dans la fenêtre **Traitement sortant**, cliquez sur le triangle (à côté du crayon) et sélectionnez **Éditeur de code**.
+5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
+6. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
+7. Modifiez votre code **find-and-replace** (dans l’élément **\<outbound\>**) afin de remplacer l’URL par une instance correspondant à celle de la passerelle APIM. Par exemple : 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -122,22 +118,19 @@ Pour consulter la réponse d’origine :
 
 Cette section vous montre comment ajouter une protection pour votre API principale, en configurant les limites de débit. Par exemple, vous pouvez limiter le nombre d’appels dirigés vers l’API, ceci pour éviter toute surutilisation de celle-ci par les développeurs. Dans cet exemple, la limite est fixée à 3 appels par intervalle de 15 secondes, pour chaque identifiant d’abonnement. Après 15 secondes, un développeur peut de nouveau tenter d’appeler l’API.
 
-1. Accédez à votre instance APIM.
-2. Sélectionnez l’onglet **API**.
-3. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-4. Sélectionnez **Toutes les opérations**.
-5. Sélectionnez l’onglet **Conception** en haut de l’écran.
-6. Dans la fenêtre **Traitement entrant**, cliquez sur le triangle (à côté du crayon).
-7. Sélectionnez **Éditeur de Code**.
-8. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
-9. Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
-10. Remplacez votre code **<rate-limit-by-key** (dans l’élément **<inbound>**) par le code suivant :
+1. Sélectionnez **API de conférence de démonstration**.
+2. Sélectionnez **Toutes les opérations**.
+3. Sélectionnez l’onglet **Conception** en haut de l’écran.
+4. Dans la fenêtre **Traitement entant**, cliquez sur le triangle (à côté du crayon) et sélectionnez **Éditeur de code**.
+5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
+6. Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
+7. Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>**) par le code suivant :
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Tester les transformations
         
-À ce stade, votre code de stratégie ressemble à ceci :
+À ce stade, si vous examinez le code dans l’éditeur de code, vos stratégies ressemblent à ceci :
 
     <policies>
         <inbound>
@@ -162,12 +155,10 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ### <a name="test-the-stripped-response-headers"></a>Tester les en-têtes de réponse supprimés
 
-1. Accédez à votre instance APIM.
-2. Sélectionnez l’onglet **API**.
-3. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-4. Cliquez sur l’opération **GetSpeakers**.
-5. Sélectionnez l’onglet **Test**.
-6. Appuyez sur **Envoyer**.
+1. Sélectionnez **API de conférence de démonstration**.
+2. Cliquez sur l’opération **GetSpeakers**.
+3. Sélectionnez l’onglet **Test**.
+4. Appuyez sur **Envoyer**.
 
     Comme vous pouvez le voir, les en-têtes ont été supprimés :
 
@@ -175,12 +166,10 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ### <a name="test-the-replaced-url"></a>Tester l’URL remplacé
 
-1. Accédez à votre instance APIM.
-2. Sélectionnez l’onglet **API**.
-3. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-4. Cliquez sur l’opération **GetSpeakers**.
-5. Sélectionnez l’onglet **Test**.
-6. Appuyez sur **Envoyer**.
+1. Sélectionnez **API de conférence de démonstration**.
+2. Cliquez sur l’opération **GetSpeakers**.
+3. Sélectionnez l’onglet **Test**.
+4. Appuyez sur **Envoyer**.
 
     Comme vous pouvez le constater, l’URL a été remplacée.
 
@@ -188,15 +177,13 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ### <a name="test-the-rate-limit-throttling"></a>Tester la limite de débit (limitation)
 
-1. Accédez à votre instance APIM.
-2. Sélectionnez l’onglet **API**.
-3. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-4. Cliquez sur l’opération **GetSpeakers**.
-5. Sélectionnez l’onglet **Test**.
-6. Appuyez trois fois consécutives sur **Envoyer**.
+1. Sélectionnez **API de conférence de démonstration**.
+2. Cliquez sur l’opération **GetSpeakers**.
+3. Sélectionnez l’onglet **Test**.
+4. Appuyez trois fois consécutives sur **Envoyer**.
 
     Une fois que vous avez transmis 3 fois la requête, vous recevez une réponse **429 Trop de demandes**.
-7. Attendez environ 15 secondes, puis appuyez de nouveau sur **Envoyer**. Cette fois, vous devriez obtenir une réponse **200 OK**.
+5. Attendez environ 15 secondes, puis appuyez de nouveau sur **Envoyer**. Cette fois, vous devriez obtenir une réponse **200 OK**.
 
     ![Limitation](./media/transform-api/test-throttling.png)
 
@@ -208,7 +195,7 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Transformer une API pour supprimer des en-têtes de réponse
@@ -216,7 +203,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Protéger une API en ajoutant une stratégie de limite de débit (limitation)
 > * Tester les transformations
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Surveiller votre API](api-management-howto-use-azure-monitor.md)

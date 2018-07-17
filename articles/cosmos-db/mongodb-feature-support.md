@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796353"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928684"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Prise en charge de l’API MongoDB pour la syntaxe et les fonctionnalités de MongoDB
 
@@ -23,14 +23,19 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 À l’aide de l’API Azure Cosmos DB MongoDB, vous pouvez profiter des avantages des API MongoDB que vous connaissez déjà, ainsi que de toutes les fonctionnalités d’entreprise fournit par la base de données Azure Cosmos : [distribution globale](distribute-data-globally.md), [partitionnement automatique](partition-data.md), garanties de disponibilité et latence, indexation automatique de tous les champs, chiffrement au repos, sauvegardes et bien plus encore.
 
+## <a name="mongodb-protocol-support"></a>Prise en charge des protocoles MongoDB
+
+L’API Azure Cosmos DB MongoDB est compatible avec la version **3.2** du serveur MongoDB par défaut. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les opérateurs de requête ou les fonctionnalités ajoutés dans MongoDB version **3.4** sont actuellement disponibles en tant que fonctionnalités en préversion. Les pilotes de client comprenant ces protocoles doivent être en mesure de se connecter à Cosmos DB à l’aide de l’API MongoDB.
+
+En outre, le [pipeline d’agrégation MongoDB](#aggregation-pipeline) est actuellement disponible en tant qu’une fonctionnalité distincte en préversion.
+
 ## <a name="mongodb-query-language-support"></a>Prise en charge du langage de requêtes MongoDB
 
 L’API MongoDB d’Azure Cosmos DB permet la prise en charge complète des constructions de langage de requête MongoDB. Vous trouverez ci-dessous la liste détaillée des opérations prises en charge actuellement, les opérateurs, les étapes, les commandes et les options.
 
-
 ## <a name="database-commands"></a>Commandes de base de données
 
-Azure Cosmos DB prend en charge les commandes de base de données suivantes sur tous les comptes de l’API MongoDB. 
+Azure Cosmos DB prend en charge les commandes de base de données suivantes sur tous les comptes de l’API MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Commandes d’opérations de requête et d’écriture
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Non pris en charge. Utilisez plutôt $regex 
+$text |  | Non pris en charge. Utilisez plutôt $regex.
+
+## <a name="unsupported-operators"></a>Opérateurs non pris en charge
+
+Les opérateurs ```$where``` et ```$eval``` ne sont pas pris en charge par Azure Cosmos DB.
 
 ### <a name="methods"></a>Méthodes
 
@@ -316,6 +325,10 @@ Azure Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles. Az
 ## <a name="replication"></a>Réplication
 
 Azure Cosmos DB prend en charge la réplication automatique et native des couches inférieures. Cette logique est prolongée pour obtenir également la réplication globale et à faible latence. Azure Cosmos DB ne prend pas en charge les commandes de réplication manuelle.
+
+## <a name="write-concern"></a>Élément Write Concern
+
+Certaines API MongoDB prennent en charge la spécification d’un élément [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/), qui indique le nombre de réponses nécessaires au cours d’une opération d’écriture. En raison de la façon dont Cosmos DB gère la réplication en arrière-plan, toutes les écritures atteignent automatiquement le quorum par défaut. Tout élément Write Concern spécifié par le code client est ignoré. Pour en savoir plus, consultez [Niveaux de cohérence des données analysables dans Azure Cosmos DB](consistency-levels.md).
 
 ## <a name="sharding"></a>Partitionnement
 

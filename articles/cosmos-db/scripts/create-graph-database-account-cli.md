@@ -1,6 +1,6 @@
 ---
-title: Script Azure CLI - Créer un compte, une base de données et une collection d’API Gremlin Azure Cosmos DB | Microsoft Docs
-description: Exemple de script Azure CLI - Créer un compte, une base de données et une collection d’API Gremlin Azure Cosmos DB
+title: Script Azure CLI - Créer un compte, une base de données et un graphique d’API Gremlin Azure Cosmos DB | Microsoft Docs
+description: Exemple de script Azure CLI - Créer un compte, une base de données et un graphique d’API Gremlin Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
 author: SnehaGunda
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/29/2018
 ms.author: sngun
-ms.openlocfilehash: 72253d2733b7d15d22506e520b81ebe1379d289f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2993b5400db399ffc9ad50839c2f35d06fedfc8d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796020"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859103"
 ---
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-the-azure-cli"></a>Azure Cosmos DB : Créer un compte d’API Gremlin avec Azure CLI
 
-Cet exemple de script CLI crée une collection, une base de données et un compte d’API Gremlin Azure Cosmos DB. 
+Cet exemple de script CLI crée un graphique, une base de données et un compte d’API Gremlin Azure Cosmos DB. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-gremlin-account/create-cosmosdb-gremlin-account.sh?highlight=15-35 "Create an Azure Cosmos DB Gremlin API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-gremlin-account/create-cosmosdb-gremlin-account.sh?highlight=15-35 "Create an Azure Cosmos DB Gremlin API account, database, and graph")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

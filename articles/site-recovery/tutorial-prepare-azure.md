@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737202"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915967"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
@@ -54,11 +54,12 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 1. Dans le menu [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**.
 2. Dans **Créer un compte de stockage**, entrez un nom correspondant au compte. Pour ces didacticiels, nous utilisons **contosovmsacct1910171607**. Le nom que vous sélectionnez doit être unique dans Azure, avoir entre 3 et 24 caractères, et contenir uniquement des nombres et des lettres minuscules.
 3. Dans **Modèle de déploiement**, sélectionnez **Resource Manager**.
-4. Dans **Type de compte**, sélectionnez **Stockage (Usage général v1)**. Ne sélectionnez pas Stockage Blob. Dans **Performances**, sélectionnez **Standard**. 
+4. Dans **Type de compte**, sélectionnez **Stockage (Usage général v1)**. Ne sélectionnez pas Stockage Blob.
 5. Dans **Réplication**, sélectionnez la valeur par défaut **Stockage géo-redondant avec accès en lecture** pour la redondance de stockage. Laissez **Transfert sécurisé requis** en tant que **Désactivé**.
-6. Dans **Abonnement**, sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage. 
-2. Dans **Groupe de ressources**, entrez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ces tutoriels, nous utilisons **ContosoRG**.
-3. Dans **Emplacement**, sélectionnez un emplacement géographique pour votre compte de stockage. 
+6. Dans **Performances**, sélectionnez **Standard**, et dans **Niveau d’accès**, choisissez l’option par défaut **Chaud**.
+7. Dans **Abonnement**, sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
+8. Dans **Groupe de ressources**, entrez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ces tutoriels, nous utilisons **ContosoRG**.
+9. Dans **Emplacement**, sélectionnez un emplacement géographique pour votre compte de stockage. 
 
    ![Créez un compte de stockage.](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ Quand les machines virtuelles Azure sont créées à partir du stockage après l
 
 - [En savoir plus](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sur les réseaux Azure.
 - [En savoir plus](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sur les types de stockage Azure.
-- - [En savoir plus](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sur la redondance du stockage et le [transfert sécurisé](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) pour le stockage.
+- [En savoir plus](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sur la redondance du stockage et le [transfert sécurisé](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) pour le stockage.
 
 
 

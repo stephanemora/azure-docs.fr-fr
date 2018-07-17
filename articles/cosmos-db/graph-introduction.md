@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081210"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857148"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Présentation d’Azure Cosmos DB : API Graph
 
@@ -99,7 +99,7 @@ Azure Cosmos DB se démarque des autres bases de données de graphiques sur le m
 
  Effectuez un choix parmi cinq niveaux de cohérence bien définis pour obtenir un équilibre optimal entre cohérence et performances. Pour les requêtes et les opérations de lecture, Azure Cosmos DB propose cinq niveaux de cohérence distincts : Fort, En fonction de l’obsolescence, Par session, Préfixe cohérent et Éventuel. Ces niveaux de cohérence bien définis et granulaires vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. Pour plus d’informations, consultez [Niveaux de cohérence des données paramétrables dans Azure Cosmos DB](consistency-levels.md).
 
-Azure Cosmos DB peut également utiliser plusieurs modèles, tels que des documents et des graphiques, au sein des mêmes conteneurs/bases de données. Vous pouvez utiliser une collection de documents pour stocker des données de graphiques côte à côte avec des documents. Vous pouvez utiliser tant des requêtes SQL sur JSON que des requêtes Gremlin pour interroger les mêmes données en tant que graphique.
+Azure Cosmos DB peut également utiliser plusieurs modèles, tels que des documents et des graphiques, au sein des mêmes conteneurs/bases de données. Vous pouvez utiliser un conteneur de documents pour stocker des données de graphiques côte à côte avec des documents. Vous pouvez utiliser tant des requêtes SQL sur JSON que des requêtes Gremlin pour interroger les mêmes données en tant que graphique.
 
 ## <a name="get-started"></a>Prise en main
 Vous pouvez utiliser l’interface de ligne de commande (CLI) Azure, Azure PowerShell ou le portail Azure avec prise en charge de l’API Graph pour créer des comptes Azure Cosmos DB. Une fois les comptes créés, le portail Azure fournit un point de terminaison de service, tel que `https://<youraccount>.gremlin.cosmosdb.azure.com`, qui fournit un WebSocket frontal pour Gremlin. Vous pouvez configurer vos outils compatibles avec TinkerPop, tels que la [console Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), pour vous connecter à ce point de terminaison et créer des applications en Java, Node.js, ou tout pilote de client Gremlin.

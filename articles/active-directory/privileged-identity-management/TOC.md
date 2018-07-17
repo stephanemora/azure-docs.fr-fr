@@ -42,9 +42,9 @@
 ### [Démarrage d’une révision d’accès](pim-resource-roles-start-access-review.md)
 ### [Démarrage d’une révision d’accès](pim-resource-roles-complete-access-review.md)
 
-# FAQ
-## PIM pour des rôles de ressources
-### [Types d’attributions](pim-resource-roles-eligible-visibility.md)
+# Concepts
+## [Types d’attributions](pim-resource-roles-eligible-visibility.md)
+## [Notifications par e-mail](pim-email-notifications.md)
 
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)

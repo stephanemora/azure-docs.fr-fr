@@ -10,20 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 029d4012e63c10d1b8741df5a86f7b5d06dfd942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 894da1d8d74307d08fb036d5e10660339d6ce7e0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34665700"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37933168"
 ---
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>Obtenir un débogage Kubernetes pour VS Code
 Des fonctionnalités puissantes comme le débogage Kubernetes sont disponibles pour les développeurs .NET Core et Node.js à l’aide de VS Code.
 
 1. Installez [VS Code](https://code.visualstudio.com/Download) si vous ne l’avez pas encore fait.
-1. Téléchargez l’[extension VS Azure Dev Spaces](https://aka.ms/get-azds-code).
-1. Installez l’extension : 
+1. Téléchargez et installez l’[extension VS Azure Dev Spaces](hhttps://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Cliquez sur Installer une fois sur la page Place de marché de l’extension, puis à nouveau dans VS Code. 
 
-    ```cmd
-    code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix
-    ```
+

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 0074e0a66ae842d798d6fd8cd2f4392644d873fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650755"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767134"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de .NET
 
@@ -63,7 +63,7 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir la sol
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 
-Pour exécuter l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. L’exemple d’application lit la chaîne de connexion à partir d’une variable d’environnement et l’utilise pour authentifier les requêtes dans Stockage Azure.
+Pour exécuter l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. L’exemple d’application lit la chaîne de connexion à partir d’une variable d’environnement et l’utilise pour autoriser les requêtes dans Stockage Azure.
 
 Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion :
 
@@ -149,7 +149,7 @@ Quand vous appuyez sur la touche **Entrée**,l’application supprime le contene
 
 Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle touche pour terminer la démonstration et supprimer les fichiers de test. Maintenant que vous avec compris l’exemple, ouvrez le fichier Program.cs pour examiner le code. 
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Ensuite, explorez l’exemple de code pour comprendre son fonctionnement.
 
@@ -266,7 +266,7 @@ Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 
 L’exemple se débarrasse des ressources créées en supprimant l’ensemble du conteneur avec la méthode [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Si vous voulez, vous pouvez aussi supprimer les fichiers locaux.
 

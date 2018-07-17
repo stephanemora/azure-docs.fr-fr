@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444607"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916113"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure
 
@@ -67,7 +67,7 @@ Créez une connexion Bureau à distance à la machine virtuelle. Ces instruction
 
 2. Ouvrez le fichier RDP téléchargé et cliquez sur **Se connecter** lorsque vous y êtes invité. 
 
-3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *nom_machine_virtuelle*\*nom_utilisateur*, entrez le mot de passe créé pour la machine virtuelle, puis cliquez sur **OK**.
+3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *nom_machine_virtuelle*\\*nom_utilisateur*, entrez le mot de passe créé pour la machine virtuelle, puis cliquez sur **OK**.
 
 4. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Cliquez sur **Oui** ou **Continuer** pour créer la connexion.
 
@@ -88,7 +88,7 @@ Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble 
 
 ![Site IIS par défaut](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

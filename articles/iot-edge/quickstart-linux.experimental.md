@@ -4,17 +4,17 @@ description: Dans ce démarrage rapide, découvrez comment déployer à distance
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 07/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099183"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611925"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Linux x64
 
@@ -29,9 +29,16 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ![Plan du didacticiel][2]
 
-Ce démarrage rapide transforme votre machine virtuelle ou ordinateur Linux en appareil IoT Edge. Vous pouvez ensuite déployer un module depuis le portail Azure vers votre appareil. Le module que vous déployez dans ce démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez en déployant des modules qui analysent les données simulées des informations métier. 
+Ce démarrage rapide transforme votre machine virtuelle ou ordinateur Linux en appareil IoT Edge. Vous pouvez ensuite déployer un module depuis le portail Azure vers votre appareil. Le module que vous déployez dans ce démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez ici en déployant des modules qui analysent les données simulées des informations métier. 
 
 Si vous n’avez pas d'abonnement Azure actif, créez un [compte gratuit][lnk-account] avant de commencer.
+
+## <a name="prerequisites"></a>Prérequis
+
+Ce démarrage rapide utilise une machine Linux en tant qu’appareil IoT Edge. Si vous n’en avez aucune de disponible pour le test, suivez les instructions de [Créer une machine virtuelle Linux dans le portail Azure](../virtual-machines/linux/quick-create-portal.md). 
+* Vous n’êtes pas obligé de suivre les étapes d’installation et d’exécution du serveur web. Une fois connecté à votre machine virtuelle, vous pouvez vous arrêter.  
+* Créez votre machine virtuelle dans un nouveau groupe de ressources, que vous pouvez utiliser lorsque vous créez le reste des ressources Azure pour ce démarrage rapide. Nom reconnaissable, par exemple *IoTEdgeResources*. 
+* Vous n’avez pas besoin d’une très grande machine virtuelle pour tester IoT Edge. Une taille comparable à **B1ms** est suffisante. 
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -54,6 +61,8 @@ Installez et démarrez le runtime Azure IoT Edge sur votre appareil.
 ![Inscrire un appareil][5]
 
 Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. 
+
+Effectuez les étapes suivantes dans la machine Linux ou la machine virtuelle que vous avez préparée pour ce démarrage rapide. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Inscrire votre appareil pour utiliser le référentiels de logiciels
 
@@ -85,11 +94,16 @@ Mettez à jour **apt-get**.
    sudo apt-get update
    ```
 
-Installez Moby, un runtime de conteneurs, et ses commandes CLI. 
+Installez **Moby**, un runtime de conteneurs.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Installez les commandes d’interface de ligne de commande pour Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>Installer et configurer le démon de sécurité IoT Edge
@@ -109,15 +123,19 @@ Le démon de sécurité s’installe en tant que service système afin que le ru
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Ajoutez la chaîne de connexion de l’appareil IoT Edge que vous avez copiée lors de l’inscription de votre appareil. Remplacez la valeur de la variable **device_connection_string** que vous avez copiée précédemment dans ce démarrage rapide.
+3. Ajoutez la chaîne de connexion d’appareil IoT Edge. Recherchez la variable **device_connection_string** et mettez à jour sa valeur avec la chaîne que vous avez copiée après l’inscription de votre appareil.
 
-4. Redémarrez le démon de sécurité Edge :
+4. Enregistrez et fermez le fichier. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Redémarrez le démon de sécurité IoT Edge.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Vérifiez que le démon de sécurité Edge s’exécute en tant que service système :
+5. Vérifiez que le démon de sécurité Edge s’exécute en tant que service système.
 
    ```bash
    sudo systemctl status iotedge
@@ -131,12 +149,14 @@ Le démon de sécurité s’installe en tant que service système afin que le ru
    journalctl -u iotedge
    ```
 
-6. Affichez les modules en cours d’exécution sur votre appareil : 
+6. Affichez les modules en cours d’exécution sur votre appareil. 
+
+   >[!TIP]
+   >Vous devez utiliser *sudo* pour exécuter les commandes `iotedge` en premier. Déconnectez-vous de votre machine et connectez-vous de nouveau pour mettre à jour les autorisations. Vous pouvez ensuite exécuter les commandes `iotedge` sans les privilèges élevés. 
 
    ```bash
    sudo iotedge list
    ```
-Après une fermeture de session et une ouverture de session, *sudo* n’est pas requis pour la commande ci-dessus.
 
    ![Afficher un module sur votre appareil](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -157,7 +177,6 @@ Rouvrez l’invite de commandes sur l’ordinateur qui exécute votre appareil s
    ```bash
    sudo iotedge list
    ```
-Après une fermeture de session et une ouverture de session, *sudo* n’est pas requis pour la commande ci-dessus.
 
    ![Afficher trois modules sur votre appareil](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -175,9 +194,24 @@ Le module de capteur de température peut attendre de se connecter à Edge Hub s
 
 Vous pouvez afficher la télémétrie envoyée par l’appareil à l’aide de l’[outil d’exploration IoT Hub][lnk-iothub-explorer] ou l’[extension Azure IoT Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Si vous souhaitez poursuivre les didacticiels IoT Edge, vous pouvez utiliser l’appareil que vous avez inscrit et configuré dans ce démarrage rapide. Si vous souhaitez supprimer les installations de votre appareil, utilisez les commandes suivantes.  
+Si vous souhaitez poursuivre les didacticiels IoT Edge, vous pouvez utiliser l’appareil que vous avez inscrit et configuré dans ce démarrage rapide. Sinon, vous pouvez supprimer les ressources Azure que vous avez créées et supprimer le runtime IoT Edge de votre appareil. 
+
+### <a name="delete-azure-resources"></a>Supprimer les ressources Azure
+
+Si vous avez créé votre machine virtuelle et un IoT Hub dans un nouveau groupe de ressources, vous pouvez supprimer ce groupe et toutes les ressources associées. Si vous voulez conserver un élément de ce groupe de ressources, supprimez simplement une par une les ressources que vous souhaitez nettoyer. 
+
+Pour supprimer un groupe de ressources, procédez comme suit : 
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
+2. Dans la zone de texte **Filtrer par nom...**, saisissez le nom du groupe de ressources contenant votre IoT Hub. 
+3. À droite de votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+4. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez de nouveau le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
+
+### <a name="remove-the-iot-edge-runtime"></a>Supprimer le runtime IoT Edge
+
+Si vous souhaitez supprimer les installations de votre appareil, utilisez les commandes suivantes.  
 
 Supprimez le runtime IoT Edge.
 
@@ -185,10 +219,18 @@ Supprimez le runtime IoT Edge.
    sudo apt-get remove --purge iotedge
    ```
 
-Supprimez les conteneurs qui ont été créés sur votre appareil. 
+Lorsque le runtime IoT Edge est supprimé, les conteneurs qu’il a créés sont arrêtés, mais existent toujours sur votre appareil. Affichez tous les conteneurs.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+Supprimez les conteneurs qui ont été créés sur votre appareil par le runtime IoT Edge. Modifiez le nom du conteneur tempSensor si vous l’avez appelé différemment. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Supprimez le runtime de conteneurs.
@@ -196,8 +238,6 @@ Supprimez le runtime de conteneurs.
    ```bash
    sudo apt-get remove --purge moby
    ```
-
-Lorsque vous n’avez plus besoin du hub Azure IoT ou de l’appareil IoT Edge que vous avez créé dans ce démarrage rapide, vous pouvez les supprimer dans le portail Azure. Accédez à la page de présentation de votre hub IoT, puis sélectionnez **Supprimer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -221,5 +261,6 @@ Ce démarrage rapide constitue une étape nécessaire pour suivre tous les didac
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
 <!-- Links -->
+[lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

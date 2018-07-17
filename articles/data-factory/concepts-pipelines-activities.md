@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 001fefef900a0dd468f8deb8d705c308d8149f71
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1a713d23a385723517ba1fe924f9ec54d81eade5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055177"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857888"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-create-pipelines.md)
+> * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Version actuelle](concepts-pipelines-activities.md)
 
 Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour vos scénarios de déplacement des données et de traitement des données.
@@ -58,6 +58,8 @@ Activités de transformation des données | Environnement de calcul
 [Activités Machine Learning : exécution de lot et mise à jour de ressource](transform-data-using-machine-learning.md) | Microsoft Azure
 [Procédure stockée](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Service Analytique Azure Data Lake
+[Code personnalisé](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
 Pour plus d’informations, consultez l’article [Activités de transformation des données](transform-data.md).
 
@@ -292,7 +294,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
   }
 }
 ```
-Notez les points suivants :
+Notez les points suivants :
 
 - Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
 - L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. Consultez l’article [Jeux de données](concepts-datasets-linked-services.md) pour en savoir plus sur la définition de jeux de données dans JSON.
@@ -339,7 +341,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
     }
 }
 ```
-Notez les points suivants :
+Notez les points suivants :
 
 - Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
 - Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé AzureStorageLinkedService) et dans le dossier script du conteneur `adfgetstarted`.

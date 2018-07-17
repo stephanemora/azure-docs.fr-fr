@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660550"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867203"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Démarrage rapide : Envoyer et recevoir des messages à l’aide du portail Azure et de .NET
 
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou version ultérieure.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou ultérieur.
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
 ## <a name="log-on-to-the-azure-portal"></a>Se connecter au portail Azure
@@ -43,18 +43,18 @@ Tout d’abord, accédez au [portail Azure][Azure portal] et connectez-vous à l
 Un espace de noms de messagerie Service Bus fournit un conteneur d’étendue unique, référencé par son [nom de domaine complet][], dans lequel vous créez une ou plusieurs files d’attente, rubriques et abonnements. L’exemple suivant crée un espace de noms de messagerie Service Bus dans un [groupe de ressources](/azure/azure-resource-manager/resource-group-portal) nouveau ou existant :
 
 1. Dans le volet de navigation gauche du portail, cliquez sur  **+ Créer une ressource**, puis sur **Intégration Entreprise** et sur **Service Bus**.
-2. Dans la boîte de dialogue **Créer un espace de noms** , entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
+2. Dans la boîte de dialogue **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 3. Après avoir vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Standard ou Premium).
-4. Dans le champ **Abonnement** , sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
+4. Dans le champ **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
 5. Dans le champ **Groupe de ressources** , choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.      
 6. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
-7. Cliquez sur **Créer**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+7. Cliquez sur **Créer**. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 ![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
 
 ### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
 
-Créer un espace de noms génère automatiquement une règle de signature d’accès partagé (SAS) initiale comprenant une paire de clés primaire et secondaire qui vous offre un contrôle complet sur tous les aspects de l’espace de noms. Pour copier la règle initiale, effectuez les étapes suivantes : 
+Créer un espace de noms génère automatiquement une règle de signature d’accès partagé (SAS) initiale comprenant une paire de clés primaire et secondaire qui vous offre un contrôle complet sur tous les aspects de l’espace de noms. Pour copier la règle initiale, effectuez les étapes suivantes : 
 
 1.  Cliquez sur **Toutes les ressources**, puis sur le nom de l’espace de noms que vous venez de créer.
 2. Dans la fenêtre Espace de noms, cliquez sur **Stratégies d’accès partagé**.
@@ -87,7 +87,7 @@ Pour exécuter le code, procédez comme suit :
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-3. Accédez au dossier d’exemples `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Accédez à l’exemple de dossier `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
 4. Copiez la chaîne de connexion et le nom de la file d’attente obtenus dans la section [Obtenir les informations d’identification de gestion](#obtain-the-management-credentials).
 
@@ -109,17 +109,17 @@ Pour exécuter le code, procédez comme suit :
 
    ![sortie du programme](./media/service-bus-quickstart-portal/dotnet.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous pouvez utiliser le portail pour supprimer le groupe de ressources, l’espace de noms et la file d’attente.
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Cette section contient plus de détails sur ce que fait l’exemple de code. 
 
 ### <a name="get-connection-string-and-queue"></a>Obtention de la chaîne de connexion et de la file d’attente
 
-Le nom de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
+Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
 
 ```csharp
 static void Main(string[] args)

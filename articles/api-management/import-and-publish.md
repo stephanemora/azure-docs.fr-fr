@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722845"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importer et publier votre première API 
 
@@ -37,7 +38,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -52,6 +52,8 @@ Cette section montre comment importer et publier une API de serveur principal à
     ![Création d'une API](./media/api-management-get-started/create-api.png)
 
     Vous pouvez définir les valeurs de l’API lors de la création ou ultérieurement en accédant à l’onglet **Paramètres**. L’étoile rouge à côté d’un champ indique que ce champ est obligatoire.
+
+    Utilisez les valeurs de la table ci-dessous pour créer votre première API.
 
     |Paramètre|Valeur|Description|
     |---|---|---|
@@ -75,19 +77,21 @@ Les opérations peuvent être directement appelées depuis le portail Azure, qui
 1. Sélectionnez l’API que vous avez créée à l’étape précédente (à partir de l’onglet **API**).
 2. Appuyez sur l’onglet **Test**.  ![Tester l’API](./media/api-management-get-started/test-api.png)
 3. Cliquez sur **GetSpeakers**.
-    La page affiche les champs des paramètres de requête, mais ici, nous n’en avons pas. La page affiche également des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. La clé est renseignée automatiquement.
+    La page affiche les champs des paramètres de requête (inexistants, en l’occurrence) et les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. La clé est renseignée automatiquement.
 4. Appuyez sur **Envoyer**.
 
     Le serveur principal répond avec **200 OK** et certaines données.
 
 ## <a name="call-operation"></a>Appel d’une opération à partir du portail des développeurs
 
-Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API. 
+Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API.
 
-1. Sélectionnez **API de conférence de démonstration**.
-2. Cliquez sur **GetSpeakers**.
+1. Accédez au **portail des développeurs**.
+![Portail des développeurs](./media/api-management-get-started/developer-portal.png)
+
+2. Sélectionnez **API** et cliquez sur **API de conférence de démonstration**, puis sur **GetSpeakers**.
     
-    La page affiche les champs des paramètres de requête, mais ici, nous n’en avons pas. La page affiche également des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance APIM, la clé est renseignée automatiquement, car vous êtes déjà administrateur.
+    La page affiche les champs des paramètres de requête (inexistants, en l’occurrence) et les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance APIM, la clé est renseignée automatiquement, car vous êtes déjà administrateur.
 3. Appuyez sur **Essayer**.
 4. Appuyez sur **Envoyer**.
     
@@ -95,14 +99,14 @@ Vous pouvez également appeler des opérations depuis le **portail des développ
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Importer votre première API
 > * Tester l’API dans le portail Azure
 > * Tester l’API dans le portail des développeurs
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Créer et publier un produit](api-management-howto-add-products.md)

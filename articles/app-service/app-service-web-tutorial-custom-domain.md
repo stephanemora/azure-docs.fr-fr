@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714513"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461637"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutoriel : Mapper un nom DNS personnalisé existant à des applications web Azure
 
@@ -35,18 +35,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Mapper un sous-domaine (par exemple, `www.contoso.com`) à l’aide d’un enregistrement CNAME
 > * Mapper un domaine racine (par exemple, `contoso.com`) à l’aide d’un enregistrement A
 > * Mapper un domaine générique (par exemple, `*.contoso.com`) à l’aide d’un enregistrement CNAME
+> * Rediriger l’URL par défaut vers un répertoire personnalisé
 > * Automatiser le mappage de domaine à l’aide de scripts
-
-Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pour mapper un nom DNS personnalisé à App Service. 
-
-> [!NOTE]
-> Nous vous recommandons d’utiliser un enregistrement CNAME pour tous les noms DNS personnalisés, à l’exception d’un domaine racine (par exemple, `contoso.com`).
 
 Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Créez une application App Service](/azure/app-service/), ou utilisez une application créée pour un autre didacticiel.
 * Achetez un nom de domaine et assurez-vous que vous avez accès au registre DNS pour votre fournisseur de domaines (par exemple, GoDaddy).
@@ -92,7 +88,7 @@ Si le plan App Service n’est pas **F1** , fermez la page **Monter en puissance
 
 ### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
 
-Sélectionnez un des niveaux qui n’est pas gratuit (**D1**, **B1**, **B2**, **B3**, ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, cliquez sur **Afficher des options supplémentaires**.
+Sélectionnez un niveau payant (**D1**, **B1**, **B2**, **B3** ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, cliquez sur **Afficher d’autres options**.
 
 Cliquez sur **Appliquer**.
 
@@ -104,13 +100,26 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>Mapper un enregistrement CNAME
+## <a name="map-your-domain"></a>Mapper votre domaine
+
+Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pour mapper un nom DNS personnalisé à App Service. Suivez les étapes respectives :
+
+- [Mapper un enregistrement CNAME](#map-a-cname-record)
+- [Mapper un enregistrement A](#map-an-a-record)
+- [Mapper un domaine générique (avec un enregistrement CNAME)](#map-a-wildcard-domain)
+
+> [!NOTE]
+> Vous devez utiliser des enregistrements CNAME pour tous les noms DNS personnalisés à l’exception des domaines racine (par exemple, `contoso.com`). Pour les domaines racine, utilisez des enregistrements A.
+
+### <a name="map-a-cname-record"></a>Mapper un enregistrement CNAME
 
 Dans l’exemple de ce didacticiel, vous ajoutez un enregistrement CNAME pour le sous-domaine `www` (`www.contoso.com`, par exemple).
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
 
-### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
 
 Ajoutez un enregistrement CNAME pour mapper un sous-domaine au nom d’hôte par défaut de l’application (`<app_name>.azurewebsites.net`, où `<app_name>` est le nom de votre application).
 
@@ -120,7 +129,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>Activer le mappage d’enregistrement CNAME dans Azure
+#### <a name="enable-the-cname-record-mapping-in-azure"></a>Activer le mappage d’enregistrement CNAME dans Azure
 
 Dans le volet de navigation gauche de la page d’application du portail Azure, sélectionnez **Domaines personnalisés**. 
 
@@ -136,7 +145,7 @@ Tapez le nom de domaine complet que vous avez ajouté pour un enregistrement CNA
 
 Sélectionnez **Valider**.
 
-Le bouton **Ajouter un nom d’hôte** est activé. 
+La page **Ajouter un nom d’hôte** s’affiche. 
 
 Assurez-vous que **Type d’enregistrement du nom d’hôte** est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)**.
 
@@ -148,19 +157,22 @@ Un certain temps peut être nécessaire pour que le nouveau nom d’hôte soit r
 
 ![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
+> [!NOTE]
+> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md).
+
 Si vous avez raté une étape ou fait une faute de frappe à un endroit, une erreur de vérification peut apparaître au bas de la page.
 
 ![Erreur de vérification](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>Mapper un enregistrement A
+### <a name="map-an-a-record"></a>Mapper un enregistrement A
 
 Dans l’exemple de ce didacticiel, vous ajoutez un enregistrement A pour le domaine racine (par exemple, `contoso.com`). 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Copier l’adresse IP de l’application
+#### <a name="copy-the-apps-ip-address"></a>Copier l’adresse IP de l’application
 
 Pour mapper un enregistrement A, vous avez besoin de l’adresse IP externe de l’application. Vous pouvez trouver cette adresse IP sur la page **Domaines personnalisés** de l’application dans le portail Azure.
 
@@ -172,9 +184,11 @@ Dans la page **Domaines personnalisés**, copiez l’adresse IP de l’applicat
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
 
-### <a name="create-the-a-record"></a>Créer l’enregistrement A
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-a-record"></a>Créer l’enregistrement A
 
 Pour mapper un enregistrement A à une application, App Service a besoin de **deux** enregistrements DNS :
 
@@ -194,7 +208,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>Activer le mappage d’enregistrement A dans l’application
+#### <a name="enable-the-a-record-mapping-in-the-app"></a>Activer le mappage d’enregistrement A dans l’application
 
 De retour sur la page **Domaines personnalisés** de l’application dans le portail Azure, ajoutez à la liste le nom DNS personnalisé complet (par exemple, `contoso.com`).
 
@@ -206,7 +220,7 @@ Tapez le nom de domaine complet pour lequel vous avez configuré l’enregistrem
 
 Sélectionnez **Valider**.
 
-Le bouton **Ajouter un nom d’hôte** est activé. 
+La page **Ajouter un nom d’hôte** s’affiche. 
 
 Assurez-vous que **Type d’enregistrement du nom d’hôte** est défini sur **Enregistrement A (exemple.com)**.
 
@@ -218,19 +232,24 @@ Un certain temps peut être nécessaire pour que le nouveau nom d’hôte soit r
 
 ![Enregistrement A ajouté](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
+> [!NOTE]
+> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md).
+
 Si vous avez raté une étape ou fait une faute de frappe à un endroit, une erreur de vérification peut apparaître au bas de la page.
 
 ![Erreur de vérification](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>Mapper un domaine générique
+### <a name="map-a-wildcard-domain"></a>Mapper un domaine générique
 
 Dans l’exemple du didacticiel, vous mappez un [nom DNS générique](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (par exemple, `*.contoso.com`) vers l’application App Service en ajoutant un enregistrement CNAME. 
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
 
-### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
 
 Ajoutez un enregistrement CNAME pour mapper un nom générique au nom d’hôte par défaut de l’application (`<app_name>.azurewebsites.net`).
 
@@ -240,7 +259,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>Activer le mappage d’enregistrement CNAME dans l’application
+#### <a name="enable-the-cname-record-mapping-in-the-app"></a>Activer le mappage d’enregistrement CNAME dans l’application
 
 Vous pouvez maintenant ajouter à l’application un sous-domaine qui correspond au nom générique (par exemple, `sub1.contoso.com` et `sub2.contoso.com` correspond à `*.contoso.com`). 
 
@@ -268,13 +287,16 @@ Cliquez de nouveau sur l’icône **+** pour ajouter un autre nom d’hôte qui 
 
 ![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
+> [!NOTE]
+> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md).
+
 ## <a name="test-in-browser"></a>Test dans le navigateur
 
 Dans votre navigateur, accédez aux noms DNS que vous avez configurés précédemment (par exemple, `contoso.com`, `www.contoso.com`,`sub1.contoso.com` et `sub2.contoso.com`).
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>Résolution de l'erreur 404 « Site Web introuvable »
+## <a name="resolve-404-not-found"></a>Résoudre une erreur 404 « Introuvable »
 
 Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l'URL de votre domaine personnalisé, vérifiez que votre domaine résout l'adresse IP de votre application en utilisant <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Dans le cas contraire, cela peut être dû à l’une des raisons suivantes :
 
@@ -283,7 +305,7 @@ Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l'U
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Diriger l'URL par défaut vers un répertoire personnalisé
+## <a name="redirect-to-a-custom-directory"></a>Rediriger vers un répertoire personnalisé
 
 Par défaut, App Service dirige les demandes web au répertoire racine du code de votre application. Cependant, certaines infrastructures web ne démarrent pas dans le répertoire racine. Par exemple, [Laravel](https://laravel.com/) démarre dans le sous-répertoire `public`. Pour continuer l'exemple DNS `contoso.com`, une telle application serait accessible à partir de `http://contoso.com/public`, mais il est préférable de diriger `http://contoso.com` vers le répertoire `public`. Cette étape n'implique pas la résolution DNS, mais la personnalisation du répertoire virtuel.
 
@@ -333,6 +355,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Mapper un sous-domaine à l’aide d’un enregistrement CNAME
 > * Mapper un domaine racine à l’aide d’un enregistrement A
 > * Mapper un domaine générique à l’aide d’un enregistrement CNAME
+> * Rediriger l’URL par défaut vers un répertoire personnalisé
 > * Automatiser le mappage de domaine à l’aide de scripts
 
 Passez au didacticiel suivant pour découvrir comment lier un certificat SSL personnalisé à une application web.

@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263148"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918269"
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
 
@@ -137,6 +137,11 @@ Les données de surveillance de vos machines virtuelles sont maintenant transfé
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Afficher les données de surveillance figurant dans le compte de stockage
 
+> [!WARNING]
+> À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 Si vous avez suivi les étapes précédentes, les données ont commencé à circuler vers votre compte de stockage.
 
 1. Pour certains types de données, par exemple le Journal d’activité, il doit y avoir une activité qui génère un événement dans le compte de stockage. Pour générer une activité dans le Journal d’activité, suivez [ces instructions](./monitor-quick-audit-notify-action-in-subscription.md). Il se peut que vous deviez attendre cinq minutes avant que l’événement apparaisse dans le compte de stockage.
@@ -159,7 +164,7 @@ Si vous avez suivi les étapes précédentes, les données ont commencé à circ
 
 Vous avez à présent correctement configuré les données de surveillance à archiver sur un compte de stockage.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 1. Revenez à la section **Exporter le journal d’activité** de l’étape précédente **Router les journaux d’abonnement vers le compte de stockage**, puis cliquez sur **Réinitialiser**.
 

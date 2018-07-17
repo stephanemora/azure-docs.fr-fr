@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 62967636a4d80f72f731a666947d5d4d5e47f7e5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e71b279d6681696b8666846cfbd27007f464679
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163042"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37864857"
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Équilibrer la charge des conteneurs dans un cluster DC/OS Azure Container Service
 
@@ -95,7 +95,7 @@ Ensuite, créez un fichier nommé *hello-web.json* et copiez-y le contenu suivan
 }
 ```
 
-Utilisez l’interface de ligne de commande DC/OS pour exécuter l’application. Par défaut, Marathon déploie l’application dans le cluster privé. Cela signifie que le déploiement ci-dessus est uniquement accessible via votre équilibreur de charge, ce qui correspond généralement au comportement souhaité.
+Utilisez l’interface de ligne de commande DC/OS pour exécuter l’application. Par défaut, Marathon déploie l’application sur le cluster privé. Cela signifie que le déploiement ci-dessus est uniquement accessible via votre équilibreur de charge, ce qui correspond généralement au comportement souhaité.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

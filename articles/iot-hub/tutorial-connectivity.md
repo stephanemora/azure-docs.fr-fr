@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651419"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869572"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : utiliser un appareil simulé pour tester la connectivité avec votre Hub IoT
 
@@ -49,7 +49,7 @@ Vous pouvez vérifier la version actuelle de Node.js sur votre machine de dével
 node --version
 ```
 
-Téléchargez l’exemple de projet Node.js de simulateur d’appareil à partir de https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip et extrayez l’archive ZIP.
+Téléchargez l’exemple de projet Node.js de simulateur d’appareil à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -123,6 +123,9 @@ Cette fois, vous voyez une erreur d’authentification lorsque l’application t
 Si votre appareil utilise l’un des Kits de développement logiciel (SDK) de l’appareil IoT Hub, le code de bibliothèque du Kit de développement logiciel (SDK) génère le jeton SAP utilisé pour l’authentification auprès du Hub. Un jeton SAP est généré à partir du nom de votre Hub, du nom de votre appareil et de la clé de l’appareil.
 
 Dans certains scénarios, comme dans une passerelle de protocole cloud ou dans le cadre d’un schéma d’authentification personnalisé, vous devrez peut-être générer le jeton SAP vous-même. Pour résoudre les problèmes liés à votre code de génération SAP, il est utile de pouvoir générer un jeton SAP vérifié à utiliser pendant le test.
+
+> [!NOTE]
+> L’exemple SimulatedDevice-2.js inclut des exemples de génération d’un jeton SAP avec et sans le kit de développement logiciel.
 
 Pour générer un jeton SAP vérifié à l’aide de CLI, exécutez la commande suivante :
 
@@ -254,7 +257,7 @@ L’appareil simulé imprime un message lorsqu’il reçoit une mise à jour de 
 
 En plus de recevoir les modifications apportées aux propriétés souhaitées lorsqu’elles sont effectuées, l’appareil simulé vérifie automatiquement les propriétés souhaitées lors de son démarrage.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorials-iot-hub-rg** qui contient votre Hub IoT, puis cliquez sur **Supprimer**.
 

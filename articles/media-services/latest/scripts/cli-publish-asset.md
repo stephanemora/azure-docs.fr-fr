@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: juliako
-ms.openlocfilehash: 5394ec12e0a11ac68585dcd64dc5255c38249937
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 9b23fba88f8a6f6d7ecd211f8ad9c137cb92789d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161361"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723083"
 ---
 # <a name="cli-example-publish-an-asset"></a>Exemple CLI : Publier un élément multimédia
 
@@ -27,7 +27,7 @@ Le script Azure CLI de cet article montre comment créer un localisateur de diff
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Exemple de script
 

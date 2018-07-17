@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285795"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920720"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -30,7 +30,11 @@ Azure Migrate vous aide à :
 ## <a name="current-limitations"></a>Limitations actuelles
 
 - Actuellement, vous pouvez seulement évaluer les machines virtuelles VMware locales pour la migration vers les machines virtuelles Azure. Les machines virtuelles VMware doivent être gérées par vCenter Server (version 5.5, 6.0 ou 6.5).
-- La prise en charge de Hyper-V est sur notre feuille de route. En attendant, nous vous recommandons d’utiliser le [Planificateur de déploiement Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) pour planifier la migration des charges de travail Hyper-V.
+
+> [!NOTE]
+> La prise en charge des serveurs physiques et Hyper-V se trouve sur notre feuille de route. En attendant, nous vous recommandons d’utiliser le [Planificateur de déploiement Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) pour planifier la migration des charges de travail Hyper-V, ainsi que nos [outils partenaires](https://azure.microsoft.com/migration/partners/) pour planifier celle de vos charges de travail physiques.
+
+
 - Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation. Si vous voulez découvrir un environnement plus grand, vous pouvez séparer la découverte et créer plusieurs projets. [En savoir plus](how-to-scale-assessment.md). Azure Migrate prend en charge jusqu’à 20 projets par abonnement.
 - Vous ne pouvez créer un projet Azure Migrate que dans la région Centre-Ouest ou Est des États-Unis. Toutefois, cela n’affecte pas votre capacité à planifier la migration pour un autre emplacement Azure cible. L’emplacement du projet de migration est utilisé uniquement pour stocker les métadonnées détectées à partir de l’environnement local.
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.

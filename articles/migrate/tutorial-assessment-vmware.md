@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71d4bc0aa1ea2658c4cd40834a769eaaac649bc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228371"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970783"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -33,10 +33,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - **VMware** : les machines virtuelles à migrer doivent être gérées par un vCenter Server exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
-
-> [!NOTE]
-> La prise en charge pour Hyper-V fait partie de la feuille de route et sera activée prochainement.
-
 - **Compte de serveur vCenter** : vous avez besoin d'un compte en lecture seule pour accéder au serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
 - **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA.
 - **Paramètres de statistiques** : vous devez définir les paramètres de statistiques pour le serveur vCenter sur le niveau 3 avant de commencer le déploiement. Si le niveau appliqué est inférieur à 3, l’évaluation fonctionne, mais les données de performances pour le stockage et le réseau ne sont pas collectées. Dans ce cas, les recommandations de taille seront effectuées selon les données de performances pour le processeur et la mémoire, et selon les données de configuration pour les adaptateurs de disque et réseau.
@@ -49,6 +45,7 @@ Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiqueme
 - Autorisations : objet de centre de données > Propager vers l’objet enfant, rôle = lecture seule
 - Détails : l’utilisateur est affecté au niveau du centre de données et a accès à tous les objets du centre de données.
 - Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’autorisation Propager vers l’objet enfant aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
@@ -85,6 +82,14 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
+
+  Pour OVA version 1.0.9.12
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   Pour OVA version 1.0.9.8
 
@@ -143,7 +148,7 @@ Importez le fichier téléchargé sur le serveur vCenter.
 5. Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
     - Acceptez les termes de licence et lisez les informations relatives aux tiers.
     - Le collecteur vérifie que la machine virtuelle a accès à Internet.
-    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [En savoir plus](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) sur les exigences de connectivité Internet et la liste des URL auxquelles le collecteur accède.
+    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sur les exigences de connectivité Internet et la liste des URL auxquelles le collecteur accède.
 
     > [!NOTE]
     > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge.
@@ -157,10 +162,12 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Dans **Étendue de la collecte**, sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. Elle ne doit pas contenir plus de 1 500 machines virtuelles. [En savoir plus](how-to-scale-assessment.md) sur la manière dont vous pouvez découvrir un environnement plus large.
 
 7. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet Azure Migrate que vous avez copiés à partir du portail. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collector. Dans la page **Vue d’ensemble** du projet, cliquez sur **Découvrir des machines**, puis copiez les valeurs.  
-8. Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de détection et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte. [En savoir plus](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
+8. Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de détection et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
 
 > [!NOTE]
-> Le collecteur prend uniquement en charge « Anglais (États-Unis) » comme langue du système d’exploitation et langue de l’interface du collecteur. La prise en charge de langues supplémentaires sera bientôt disponible.
+> Le collecteur prend uniquement en charge « Anglais (États-Unis) » comme langue du système d’exploitation et langue de l’interface du collecteur.
+> Si vous modifiez les paramètres d’un ordinateur que vous souhaitez évaluer, relancez une détection avant d’exécuter l’évaluation. Dans le collecteur, utilisez l’option **Redémarrer la collecte** pour ce faire. Une fois la collection terminée, sélectionnez l’option **Recalculer** pour effectuer l’évaluation dans le portail, pour obtenir des résultats d’évaluation de mise à jour.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
@@ -222,7 +229,7 @@ L’estimation des coûts mensuels de calcul et de stockage est agrégée pour t
 
 Chaque évaluation dans Azure Migrate est associée à un niveau de confiance allant de 1 étoile à 5 étoiles (1 étoile constituant la valeur la plus faible, et 5 étoiles la valeur la plus élevée). Le niveau de confiance est assigné à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation. Le niveau de confiance d’une évaluation permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate.
 
-L’évaluation de confiance de l’évaluation est plus utile pour les évaluations avec un critère de dimensionnement « dimensionnement basé sur les performances ». Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des données d’utilisation relatives au processeur et à la mémoire de la machine virtuelle. Par ailleurs, pour chaque disque attaché à la machine virtuelle, les E/S par seconde du disque et les données de débit sont nécessaires. De même, pour chaque carte réseau jointe à une machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni comme suit :
+Le niveau de confiance de l’évaluation est plus utile pour les évaluations ayant un critère de dimensionnement « dimensionnement basé sur les performances ». Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des données d’utilisation relatives au processeur et à la mémoire de la machine virtuelle. Par ailleurs, pour chaque disque attaché à la machine virtuelle, les E/S par seconde du disque et les données de débit sont nécessaires. De même, pour chaque carte réseau jointe à une machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni comme suit :
 
    **Disponibilité des points de données** | **Niveau de confiance**
    --- | ---

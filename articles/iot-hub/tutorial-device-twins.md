@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 808cfd1f4d47f49be60c3f45278d2334ba720c49
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033668"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865180"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -103,7 +103,7 @@ Vous utilisez les propriétés souhaitées pour envoyer des informations d’ét
 
 Pour afficher l’exemple de code de l’appareil simulé qui reçoit les propriétés souhaitées, accédez au dossier **iot-hub/Tutorials/DeviceTwins** dans l’exemple de projet Node.js que vous avez téléchargé. Ouvrez ensuite le fichier SimulatedDevice.js dans un éditeur de texte.
 
-Les sections suivantes décrivent le code qui s’exécute sur l’appareil simulé qui répond aux modifications de propriétés souhaitées envoyées à partir de l’application back-end :
+Les sections suivantes décrivent le code qui s’exécute sur l’appareil simulé qui répond aux modifications de propriétés souhaitées envoyées à partir de l’application back end :
 
 ### <a name="retrieve-the-device-twin-object"></a>Récupérer l’objet de jumeau d’appareil
 
@@ -245,7 +245,7 @@ La capture d’écran suivante montre le résultat de l’application back-end e
 
 ![Application back-end](./media/tutorial-device-twins/BackEnd2.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 

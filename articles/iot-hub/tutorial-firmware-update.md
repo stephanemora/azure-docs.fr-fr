@@ -12,20 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 515c9917add27663e8d145fee3e1effc89291bc0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0c8734bec1ce14a3a9692efa3a1fcf975067953a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033685"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968900"
 ---
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
 Vous devrez peut-être mettre à jour le microprogramme sur les appareils connectés à votre hub IoT. Par exemple, il peut être nécessaire d’ajouter de nouvelles fonctionnalités au microprogramme ou d’appliquer des correctifs de sécurité. Dans de nombreux scénarios IoT, il est difficile d’intervenir physiquement puis d’appliquer manuellement les mises à jour du microprogramme à vos appareils. Ce tutoriel montre comment démarrer et surveiller le processus de mise à jour du microprogramme à distance via une application back-end connectée à votre hub.
 
-Pour créer et surveiller le processus de mise à jour du microprogramme, l’application back-end de ce tutoriel crée une _configuration_ dans votre hub IoT. La gestion automatique des appareil IoT Hub utilise cette configuration pour mettre à jour un ensemble de _propriétés souhaitées du jumeau d’appareil_ sur tous vos appareils de refroidissement. Les propriétés souhaitées spécifient les détails de la mise à jour du microprogramme requise. Pendant que les appareils de refroidissement exécutent le processus de mise à jour du microprogramme, ils signalent leur état à l’application back-end à l’aide des _propriétés signalées du jumeau d’appareil_. L’application back-end peut utiliser la configuration pour surveiller les propriétés signalées envoyées depuis l’appareil et suivre le processus de mise à jour du microprogramme jusqu'à la fin :
+Pour créer et surveiller le processus de mise à jour du microprogramme, l’application back-end de ce tutoriel crée une _configuration_ dans votre hub IoT. La [gestion automatique des appareils](iot-hub-auto-device-config.md) IoT Hub utilise cette configuration pour mettre à jour un ensemble de _propriétés souhaitées du jumeau d’appareil_ sur tous vos appareils de refroidissement. Les propriétés souhaitées spécifient les détails de la mise à jour du microprogramme requise. Pendant que les appareils de refroidissement exécutent le processus de mise à jour du microprogramme, ils signalent leur état à l’application back-end à l’aide des _propriétés signalées du jumeau d’appareil_. L’application back-end peut utiliser la configuration pour surveiller les propriétés signalées envoyées depuis l’appareil et suivre le processus de mise à jour du microprogramme jusqu'à la fin :
 
 ![Processus de mise à jour du microprogramme](media/tutorial-firmware-update/Process.png)
 
@@ -101,7 +99,7 @@ Si vous exécutez ces commandes à partir d’une invite de commandes Windows ou
 
 ## <a name="start-the-firmware-update"></a>Démarrer la mise à jour du microprogramme
 
-Vous devez créer une configuration de gestion automatique des appareils dans l’application back-end pour commencer le processus de mise à jour du microprogramme sur tous les appareils comportant un **devicetype** de refroidissement. Dans cette section, vous allez apprendre à :
+Vous devez créer une [configuration de gestion automatique des appareils](iot-hub-auto-device-config.md#create-a-configuration) dans l’application back-end pour commencer le processus de mise à jour du microprogramme sur tous les appareils comportant un **devicetype** de refroidissement. Dans cette section, vous allez apprendre à :
 
 * Créer une configuration à partir d’une application back-end.
 * Surveiller la tâche jusqu'à son achèvement.
@@ -192,7 +190,7 @@ En raison d’une latence dans le registre des identités des appareils IoT Hub,
 
 ![Afficher la configuration dans le portail](./media/tutorial-firmware-update/portalview.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 

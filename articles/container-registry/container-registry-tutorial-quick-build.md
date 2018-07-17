@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: fefa6096e39d86b94f8ea348d894179220ad09e1
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: d86c47c890fd15515c590e06b395ca82f9747ffe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461467"
 ---
 # <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-build"></a>Didacticiel - Générer des images de conteneur dans le cloud avec Azure Container Registry Build
 
@@ -34,10 +35,9 @@ Dans les didacticiels suivants, vous apprendrez comment utiliser les tâches de 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.32** d’Azure CLI ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0][azure-cli].
+Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.32** d’Azure CLI ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 ### <a name="github-account"></a>Compte GitHub
 
@@ -290,7 +290,7 @@ Lorsque `Server running at http://localhost:80` s’affiche, accédez au nom de 
 
 Pour dissocier votre console du conteneur, appuyez sur `Control+C`.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Arrêtez l’instance de conteneur avec la commande [az container delete][az-container-delete] :
 

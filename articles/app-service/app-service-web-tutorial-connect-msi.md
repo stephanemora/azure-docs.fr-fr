@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461535"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Didacticiel : sécuriser la connexion SQL Database avec une identité de service managée
 
@@ -32,10 +33,12 @@ Vous apprendrez à :
 > * configurer le code de l’application pour l’authentification auprès de SQL Database à l’aide de l’authentification Azure Active Directory ;
 > * accorder des privilèges minimaux à l’identité de service dans SQL Database.
 
+> [!NOTE]
+> L’authentification Azure Active Directory est _différente_ de [l’authentification Windows intégrée](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) dans Active Directory (AD DS) local. AD DS et Azure Active Directory utilisent des protocoles d’authentification totalement différents. Pour plus d’informations, consultez [The difference between Windows Server AD DS and Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad) (Différence entre Windows Server AD DS et Azure AD).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet article reprend à l’endroit où s’interrompait le [Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Si vous ne l’avez pas encore fait, commencez par suivre ce didacticiel. Vous pouvez également adapter la procédure à votre propre application ASP.NET avec SQL Database.
 
@@ -65,7 +68,7 @@ Voici un exemple de sortie après la création de l’identité dans Azure Activ
 Vous utiliserez la valeur de `principalId` ci-dessus à l’étape suivante. Si vous souhaitez visualiser les détails de la nouvelle identité dans Azure Active Directory, exécutez la commande facultative ci-après avec la valeur de `principalId` :
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>Accorder à l’identité un accès à la base de données
@@ -157,7 +160,7 @@ Dans le Cloud Shell, ajoutez l’identité de service managée pour votre applic
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 
@@ -206,7 +209,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * configurer le code de l’application pour l’authentification auprès de SQL Database à l’aide de l’authentification Azure Active Directory ;
 > * accorder des privilèges minimaux à l’identité de service dans SQL Database.
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
