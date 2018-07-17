@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264007"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951107"
 ---
 # <a name="best-practices"></a>Meilleures pratiques
 Suivez le processus de création d’applications pour générer votre application LUIS. 
@@ -25,7 +25,7 @@ Suivez le processus de création d’applications pour générer votre applicati
 * Tester à partir du point de terminaison 
 * Ajouter des fonctionnalités
 
-Une fois votre application [publiée](publishapp.md), utilisez le cycle de création pour y ajouter des fonctionnalités, la publier et la tester à partir du point de terminaison. Ne commencez pas le cycle de création suivant en ajoutant d’autres exemples d’énoncés. LUIS ne pourrait pas apprendre votre modèle avec des énoncés d’utilisateurs réels. 
+Une fois votre application [publiée](luis-how-to-publish-app.md), utilisez le cycle de création pour y ajouter des fonctionnalités, la publier et la tester à partir du point de terminaison. Ne commencez pas le cycle de création suivant en ajoutant d’autres exemples d’énoncés. LUIS ne pourrait pas apprendre votre modèle avec des énoncés d’utilisateurs réels. 
 
 Pour que LUIS soit efficace dans sa tâche d’apprentissage, ne développez pas les énoncés tant que le jeu actuel d’exemples d’énoncés et d’énoncés du point de terminaison ne retourne pas des scores sûrs à haute valeur prédictive. Améliorez les résultats à l’aide de l’apprentissage actif, de [modèles](luis-concept-patterns.md) et de [listes d’expressions](luis-concept-feature.md). 
 
@@ -77,7 +77,7 @@ N’appliquez pas ces pratiques tant que votre application n’a pas reçu de de
 C’est l’intention de secours, qui indique tout ce qui ne concerne pas l’application. Ajoutez un exemple d’énoncé à l’intention None tous les 10 exemples d’énoncés dans le reste de votre application LUIS.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif
-Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](label-suggested-utterances.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
+Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](luis-how-to-review-endoint-utt.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application
 Analysez la précision des prédictions à l’aide d’un jeu de test. 
@@ -113,6 +113,4 @@ Ajoutez 10 ou 15 énoncés avant de passer à l’apprentissage et à la publica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [planifier votre application](plan-your-app.md) dans votre application LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Découvrez comment [planifier votre application](luis-how-plan-your-app.md) dans votre application LUIS.

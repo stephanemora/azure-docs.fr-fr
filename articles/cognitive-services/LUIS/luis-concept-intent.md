@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cbf1ad2da3bbc86f8c6861458ae9e5d5c49c56ce
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265150"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888576"
 ---
 # <a name="intents-in-luis"></a>Les intentions dans LUIS
 
@@ -100,5 +100,3 @@ S’il ne vous est pas possible de réduire le nombre d’intentions ou de les d
 * En savoir plus sur [entités](luis-concept-entity-types.md) (mots importants pertinents pour les intentions).
 * Découvrir comment [ajouter et gérer les intentions](luis-how-to-add-intents.md) dans une application LUIS.
 * Voir les [meilleures pratiques](luis-concept-best-practices.md) en matière d’intention.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
