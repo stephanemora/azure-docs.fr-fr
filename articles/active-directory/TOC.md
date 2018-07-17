@@ -143,9 +143,9 @@
 ## Gestion des mots de passe
 ### [Vue d’ensemble des mots de passe](authentication/active-directory-passwords-overview.md)
 ### Documents utilisateur
-#### [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)
+#### [Réinitialiser ou modifier votre mot de passe](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Meilleures pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
-#### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
+#### [S’inscrire pour la réinitialisation du mot de passe en libre-service](user-help/active-directory-passwords-reset-register.md)
 ### [Fonctionnement SSPR](authentication/concept-sspr-howitworks.md)
 ### [Guide de déploiement SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR et Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Planifier l’exécution d’Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### Tâches
-#### [Configurer les appareils Windows 10 inscrits dans Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configurer les appareils joints Azure AD](device-management-azuread-joined-devices-setup.md)
+#### [Configurer les appareils Windows 10 inscrits dans Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurer les appareils joints Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
