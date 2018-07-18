@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Prise en main](get-started.md)
+## [Démarrer](get-started.md)
 ## [Certifications](sap-certifications.md)
 # SAP HANA sur Azure (grandes instances)
 ## [Présentation et architecture](hana-overview-architecture.md)
@@ -48,8 +48,19 @@
 ### Multi-SID SAP
 #### [Windows avec disque partagé pour l’instance (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Guide de déploiement](deployment-guide.md)
-## [Guide de déploiement SGBD](dbms-guide.md)
+## [Guide de déploiement NetWeaver SAP](deployment-guide.md)
+## Guides de déploiement SGBD pour charge de travail SAP
+### [Déploiement SGBD de machines virtuelles générales Azure pour charge de travail SAP](dbms_guide_general.md)
+### [Déploiement SGBD de machines virtuelles SQL Server Azure pour charge de travail SAP](dbms_guide_sqlserver.md)
+### [Déploiement SGBD de machines virtuelles Oracle Azure pour charge de travail SAP](dbms_guide_oracle.md)
+### [Déploiement SGBD de machines virtuelles IBM DB2 Azure pour charge de travail SAP](dbms_guide_ibm.md)
+### [Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP](dbms_guide_sapase.md)
+### [Déploiement Content Server, liveCache et SAP MaxDB sur Azure](dbms_guide_maxdb.md)
+### [Guide des opérations SAP HANA sur Azure](hana-vm-operations.md)
+#### Disponibilité de SAP HANA sur les machines virtuelles Azure
+##### [Présentation de la disponibilité de SAP HANA sur Azure](sap-hana-availability-overview.md)
+##### [Disponibilité de SAP HANA sur Azure au sein d’une région Azure](sap-hana-availability-one-region.md)
+##### [Disponibilité de SAP HANA sur Azure dans l’ensemble des régions Azure](sap-hana-availability-across-regions.md)
 ## [Récupération d’urgence de SAP avec Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # Intégration d’identité d’AAD SAP et authentification unique
 ## [Intégration avec SAP Cloud](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

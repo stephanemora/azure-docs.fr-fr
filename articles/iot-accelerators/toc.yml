@@ -10,6 +10,8 @@
   items:
     - name: Déployer une solution de surveillance à distance
       href: quickstart-remote-monitoring-deploy.md
+    - name: Déployer une solution de fabrique connectée
+      href: quickstart-connected-factory-deploy.md
     - name: Déployer une solution de maintenance prédictive
       href: quickstart-predictive-maintenance-deploy.md
     - name: Déployer une solution de simulation d’appareil
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Fabrique connectée
       items:
-        - name: Déployer un accélérateur de solution
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Utiliser le tableau de bord
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Déployer une passerelle
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: Utiliser l’éditeur d’OPC

@@ -551,7 +551,7 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Augmenter par programme la taille des instances
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Montée en puissance des machines virtuelles du type de nœud principal
+                - name: Mettre à l'échelle ou à niveau des machines virtuelles du type de nœud principal
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Mise à niveau
               href: service-fabric-cluster-upgrade.md
@@ -569,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Se connecter à distance à la machine virtuelle du nœud de cluster
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: Mettre à niveau/migrer une référence SKU VMSS
-              href: service-fabric-update-vmss-sku.md
         - name: Clusters autonomes
           items:
             - name: Créer

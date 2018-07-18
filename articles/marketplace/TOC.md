@@ -8,12 +8,8 @@
 ### Comment publier sur la Place de marché  
 #### [Déterminer le type de référencement pour votre solution](./determine-your-listing-type.md)  
 #### [Devenir un éditeur sur la Place de marché](./become-publisher.md)  
-#### [Exigences par type de liste](./listing-type-requirements.md) 
-#### Listes de validations commerciales  
-##### [Instructions](./guidelines.md)  
-##### [S’inscrire dans le centre de développement](./register-dev-center.md)  
-##### [Ajouter des informations fiscales et bancaires](./add-bank-tax-info.md)  
-##### [Activer la version d’évaluation à l’aide d’Azure AD](./enable-trial-using-azure-ad.md)  
+##### [Création d'un compte Microsoft](./guidelines.md)
+##### [S’inscrire dans le centre de développement](./register-dev-center.md) 
 ##### [Options de facturation pour la Place de marché Microsoft Azure](./billing-options-azure-marketplace.md)  
 
 ### Guide de publication par Type d’offre 
@@ -24,12 +20,21 @@
 #### [Containers](./marketplace-containers.md)
 #### [Service de conseil](./consulting-services.md)  
 #### [Applications AppSource](./appsource-offer-publishing-guide.md)
+#### [Activer votre expérience d’essai sur la place de marché à l’aide d’Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
 #### [Solutions recommandées](./preferred-solutions.md) 
 
 ### Support  
 #### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)  
+
+### Guides de publication  
+#### [Service de conseil de la Place de marché Microsoft Azure](consulting-services.md)  
+#### [Guide de publication technique de l’application SaaS Place de marché Microsoft Azure](marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Activer votre essai sur la place de marché à l’aide d’Azure Active Directory](./enable-trial-using-azure-ad.md)  
+
+### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
+#### [Solutions recommandées](./preferred-solutions.md) 
 
 ## [Portail des partenaires cloud](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

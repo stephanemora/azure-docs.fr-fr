@@ -9,14 +9,20 @@
       href: speech-scenarios.md
 - name: Démarrages rapides
   items:
-    - name: Essayez le service de reconnaissance vocale gratuitement
+    - name: Essayez le service Speech gratuitement
       href: get-started.md
-    - name: 'Reconnaissance vocale dans C#'
-      href: quickstart-csharp-windows.md
+    - name: 'Reconnaissance vocale dans C# (.NET sur Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Reconnaissance vocale dans C# (.NET Core sur Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Reconnaissance vocale dans une application UWP
+      href: quickstart-csharp-uwp.md
     - name: Reconnaissance vocale dans C++ pour Windows
       href: quickstart-cpp-windows.md
     - name: Reconnaissance vocale dans C++ pour Linux
       href: quickstart-cpp-linux.md
+    - name: Reconnaissance vocale dans Java pour Android
+      href: quickstart-java-android.md
     - name: Prise en main du Kit de développement logiciel (SDK) de dispositifs vocaux
       href: speech-devices-sdk-qsg.md
 - name: Procédures
@@ -69,7 +75,7 @@
       href: speech-translation.md
     - name: Kit de développement logiciel (SDK) de reconnaissance vocale
       href: speech-sdk.md
-    - name: Kit de développement logiciel (SDK) de dispositifs vocaux
+    - name: Kit de développement logiciel (SDK) Speech Devices
       href: speech-devices-sdk.md
 - name: Informations de référence
   items:

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: "Qu’est-ce que Stream Analytics\_?"
+    - name: Qu’est-ce que Stream Analytics ?
       href: stream-analytics-introduction.md
 - name: Démarrages rapides
   items:
@@ -20,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Exécuter une instance UDF JavaScript
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - Déployer avec CI/CD dans VSTS
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Exemples
   items:
     - name: Exemples de code
