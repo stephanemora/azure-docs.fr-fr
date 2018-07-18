@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bc24465fa0efc9c473a78503d18200ea5b361920
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644604"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752269"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.
 
-L’application de base de données Wingtip Tickets SaaS par client utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-what-is-a-dtu.md). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
+L’application de base de données Wingtip Tickets SaaS par client utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -84,7 +84,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 | 2 | Générer une charge d’intensité normale (environ 40 DTU) |
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
 | 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
-| 5. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
+| 5 | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
 | 6. | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.

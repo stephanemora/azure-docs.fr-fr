@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: b51a4573ad7a8461b7261f08d94639d2030492d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923407"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge pour la réplication de machines virtuelles VMware et de serveurs physiques vers un site secondaire
 
@@ -60,7 +61,7 @@ Hôte - Association de cartes réseau | OUI
 Hôte -VLAN | OUI 
 Hôte - IPv4 | OUI 
 Hôte - IPv6 | Non  
-Machine virtuelle invitée : association de cartes réseau | Non 
+Machine virtuelle invitée - Association de cartes réseau | Non 
 Machine virtuelle invitée - IPv4 | OUI
 Machine virtuelle invitée - IPv6 | Non 
 Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI

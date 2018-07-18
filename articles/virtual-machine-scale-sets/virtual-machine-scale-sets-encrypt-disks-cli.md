@@ -3,7 +3,7 @@ title: Chiffrer des disques dans des groupes identiques Azure avec Azure CLI | M
 description: Découvrez comment utiliser Azure CLI 2.0 pour chiffrer des instances de machine virtuelle et des disques attachés dans un groupe de machines virtuelles identiques Linux.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: iainfou
-ms.openlocfilehash: 22d3c763317def137b4e0beb155f28585d7c6ae1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cynthn
+ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776412"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704553"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Chiffrer des disques de données attachés et de systèmes d’exploitation dans un groupe de machines virtuelles identiques avec Azure CLI 2.0 (préversion)
 
@@ -38,7 +38,7 @@ Les opérations de mise à niveau et de réinitialisation des machines virtuelle
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.31 ou ultérieure pour suivre ce tutoriel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.31 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="register-for-disk-encryption-preview"></a>S’inscrire à la fonctionnalité de chiffrement de disque en préversion
 

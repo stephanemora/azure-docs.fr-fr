@@ -1,36 +1,40 @@
 ---
-title: Développer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS| Microsoft Docs
-description: Cet article explique comment un éditeur de logiciels indépendant peut développer et installer des composants personnalisés payants ou sous licence pour le runtime d’intégration Azure-SSIS.
+title: Installer des composants sous licence pour le runtime d’intégration Azure-SSIS | Microsoft Docs
+description: Découvrez comment un éditeur de logiciels indépendant peut développer et installer des composants personnalisés payants ou sous licence pour le runtime d’intégration Azure-SSIS.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 146dc8c4475a041f28d7fe7ca464dfbc104258c7
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265952"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Développer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>Problème : le runtime d’intégration Azure-SSIS nécessite une approche différente
+Cet article explique comment un éditeur de logiciels indépendant peut développer et installer des composants personnalisés payants ou sous licence pour les packages SQL Server Integration Services (SSIS) exécutés dans Azure dans le runtime d’intégration Azure-SSIS.
 
-La nature du runtime d’intégration Azure-SSIS présente plusieurs difficultés, qui rendent les méthodes standard de gestion des licences utilisées pour l’installation en local des composants personnalisés inappropriées.
+## <a name="the-problem"></a>Le problème
+
+La nature du runtime d’intégration Azure-SSIS présente plusieurs difficultés, qui rendent les méthodes standard de gestion des licences utilisées pour l’installation en local des composants personnalisés inappropriées. Par conséquent, le runtime d’intégration Azure-SSIS nécessite une approche différente.
 
 -   Les nœuds du runtime d’intégration Azure-SSIS sont volatils et peuvent être alloués ou libérés à tout moment. Par exemple, vous pouvez démarrer ou arrêter des nœuds pour gérer le coût ou procéder à une montée ou une descente en puissance sur différentes tailles de nœuds. Par conséquent, la liaison d’une licence de composants tiers à un nœud donné à l’aide d’informations spécifiques à la machine comme l’adresse MAC ou l’ID du processeur n’est plus viable.
 
 -   Vous pouvez également augmenter ou diminuer la taille des instances du runtime d’intégration Azure-SSIS, ce qui vous permet de réduire ou développer le nombre de nœuds à tout moment.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>Solution : les variables d’environnement Windows et du système SSIS dédiés à la liaison et la validation des licences
+## <a name="the-solution"></a>La solution
 
-En raison des restrictions des méthodes traditionnelles de gestion des licences décrites dans la section précédente, le runtime d’intégration Azure-SSIS fournit les variables d’environnement Windows et du système SSIS dédiées à la liaison et la validation des licences des composants tiers. Les éditeurs de logiciels indépendants peuvent utiliser ces variables pour obtenir des données uniques et persistantes associées à un runtime d’intégration Azure-SSIS, comme l’ID de cluster et le nombre de nœuds de cluster. En s’appuyant sur ces données, les éditeurs de logiciels indépendants sont en mesure de lier la licence de leur composant à un runtime d’intégration Azure-SSIS *en tant que cluster*, avec un ID qui n’est jamais modifié, ni pendant les montées et descentes en puissance, ni pendant l’augmentation et la diminution du nombre d’instances, ni même pendant la reconfiguration du runtime d’intégration Azure-SSIS.
+En raison des limitations des méthodes traditionnelles de gestion des licences décrites dans la section précédente, l’IR Azure-SSIS fournit une nouvelle solution. Cette solution utilise les variables d’environnement Windows et du système SSIS dédiés à la liaison et la validation des licences pour les composants tiers. Les éditeurs de logiciels indépendants peuvent utiliser ces variables pour obtenir des données uniques et persistantes associées à un runtime d’intégration Azure-SSIS, comme l’ID de cluster et le nombre de nœuds de cluster. Avec ces informations, les éditeurs de logiciels indépendants peuvent lier la licence de leur composant à un IR Azure-SSIS *en tant que cluster*. Cette liaison utilise un ID qui ne change pas lorsque les clients démarrent ou arrêtent, mettent à l’échelle vers le haut ou vers le bas, diminuent ou augmentent la taille des instances, ou reconfigurent l’IR Azure-SSIS.
 
 Le schéma suivant représente l’installation typique, l’activation et la liaison des licences, ainsi que les flux de validation pour les composants tiers qui utilisent ces nouvelles variables :
 
@@ -70,6 +74,10 @@ Le schéma suivant représente l’installation typique, l’activation et la li
                                                                                                                                
     }
     ```
+
+## <a name="isv-partners"></a>Partenaires éditeurs de logiciels indépendants
+
+Vous trouverez une liste des partenaires éditeurs de logiciels indépendants qui ont adapté leurs composants et extensions pour l’IR Azure-SSIS à la fin de ce billet de blog - [Enterprise Edition, installation personnalisée et extensibilité tierce pour SSIS dans ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

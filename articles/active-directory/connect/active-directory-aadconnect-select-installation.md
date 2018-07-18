@@ -43,7 +43,7 @@ Vous obtenez :
 
 Cas où vous pouvez toujours utiliser Express :
 
-- Si vous ne voulez pas synchroniser toutes les UO, vous pouvez néanmoins utiliser Express et, sur la dernière page, désélectionner **Démarrer le processus de synchronisation...***. Réexécutez ensuite l’Assistant Installation, changez les unités d’organisation dans les [options de configuration](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) et activez la synchronisation planifiée.
+- Si vous ne voulez pas synchroniser toutes les UO, vous pouvez néanmoins utiliser Express et, sur la dernière page, désélectionner **Démarrer le processus de synchronisation...**\*. Réexécutez ensuite l’Assistant Installation, changez les unités d’organisation dans les [options de configuration](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) et activez la synchronisation planifiée.
 - Vous voulez activer une des fonctionnalités dans Azure AD Premium, comme la réécriture du mot de passe. Choisissez d’abord Express pour effectuer l’installation initiale. Réexécutez ensuite l’Assistant Installation et changez les [options de configuration](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personnalisée

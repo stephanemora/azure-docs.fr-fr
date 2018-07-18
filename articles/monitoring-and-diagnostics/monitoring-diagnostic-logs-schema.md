@@ -1,24 +1,19 @@
 ---
-title: Services et schémas pris en charge par les journaux de diagnostic Azure | Microsoft Docs
+title: Services et schémas pris en charge par les journaux de diagnostic Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de diagnostic Azure.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 4/12/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
+ms.date: 6/08/2018
 ms.author: johnkem
-ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: logs
+ms.openlocfilehash: 45595893a199b845c8b010bc1e2545b89aa688cd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264977"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -29,30 +24,34 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Analysis Services | Schéma non disponible. |
-| API Management | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
+| Gestion des API | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../batch/batch-diagnostics.md) |
-| Insights client | Schéma non disponible. |
-| Réseau de distribution de contenu | Schéma non disponible. |
+| Réseau de distribution de contenu | [Journaux de diagnostic Azure pour CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Journalisation Azure Cosmos DB](../cosmos-db/logging.md) |
+| Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accès aux journaux de diagnostic d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accès aux journaux de diagnostic d’Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Base de données pour PostgreSQL |  Schéma non disponible. |
 | Event Hubs |[Journaux de diagnostic d’Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| ExpressRoute | Schéma non disponible. |
 | IoT Hub | [Opérations IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Journalisation d’Azure Key Vault](../key-vault/key-vault-logging.md) |
-| Équilibreur de charge |[Analytique des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
-| Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Load Balancer |[Analytique des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
+| Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Group |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| Protection DDOS | Schéma non disponible. |
+| Protection DDOS | [Gérer le service Azure DDoS Protection standard](../virtual-network/manage-ddos-protection.md) |
+| Dédié à PowerBI | Schéma non disponible. |
 | Recovery Services | [Modèle de données pour la sauvegarde Azure](../backup/backup-azure-reports-data-model.md)|
-| action |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../search/search-traffic-analytics.md) |
-| Gestion de serveur | Schéma non disponible. |
+| Recherche |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../search/search-traffic-analytics.md) |
 | Service Bus |[Journaux de diagnostic Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Base de données SQL | [Journalisation de diagnostic de base de données SQL Azure](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Journaux de diagnostic des travaux](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | Schéma non disponible. |
 | Virtual Network | Schéma non disponible. |
+| Passerelles de réseau virtuel | Schéma non disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 |Type de ressource|Catégorie|Nom d’affichage de la catégorie|
@@ -74,6 +73,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeStore/accounts|Requests|Journaux de requête|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux de serveur PostgreSQL|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|Événements de sauvegarde PostgreSQL|
 |Microsoft.Devices/IotHubs|connexions|connexions|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Télémétrie d’appareil|
 |Microsoft.Devices/IotHubs|C2DCommands|Commandes C2D|
@@ -90,6 +90,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Devices/provisioningServices|ServiceOperations|Opérations de service|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
 |Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux de mise à l’échelle automatique|
@@ -112,6 +113,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Journaux de diagnostics PS2|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Événement de résultats d’intégrité de sondage Traffic Manager|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table des compteurs GWM|
+|Microsoft.PowerBIDedicated/capacities|Engine (Moteur)|Engine (Moteur)|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Données de rapport de sauvegarde Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Travaux Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Événements Azure Site Recovery|

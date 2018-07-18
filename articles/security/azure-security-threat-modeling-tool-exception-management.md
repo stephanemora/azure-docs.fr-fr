@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019583"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031710"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastructure de sécurité : Gestion des exceptions | Corrections 
 | Produit/Service | Article |
@@ -36,10 +36,10 @@ ms.locfileid: "28019583"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, NET Framework 3 |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Étapes** | Des services Windows Communication Framework (WCF) peuvent être configurés pour exposer des informations de débogage. Les informations de débogage ne doivent pas être utilisées dans les environnements de production. La balise `<serviceDebug>` définit si la fonctionnalité d’informations de débogage est activée pour un service WCF. Si l’attribut includeExceptionDetailInFaults est défini sur true, les informations sur les exceptions de l’application sont renvoyées aux clients. Les personnes malveillantes peuvent exploiter les informations supplémentaires qu’elles obtiennent de la sortie de débogage pour lancer des attaques ciblées sur l’infrastructure, la base de données ou d’autres ressources utilisées par l’application. |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Le fichier de configuration suivant inclut la balise `<serviceDebug>` : 
 ```
 <configuration> 
@@ -60,7 +60,7 @@ Désactivez les informations de débogage dans le service. Ceci peut être effec
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Générique, NET Framework 3 |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Étapes** | L’exposition publique des informations sur un service peut fournir aux personnes malveillantes une piste précieuse sur la manière dont elles peuvent exploiter le service. La balise `<serviceMetadata>` active la fonctionnalité de publication de métadonnées. Les métadonnées de service peuvent contenir des informations sensibles qui ne doivent pas être accessibles publiquement. Au minimum, autorisez uniquement les utilisateurs approuvés à accéder aux métadonnées et vérifiez que les informations inutiles ne sont pas exposées. Mieux encore, désactivez complètement la possibilité de publier des métadonnées. Une configuration WCF sûre ne contiendra pas la balise `<serviceMetadata>`. |
 
 ## <a id="exception"></a>Vérifier que la gestion des exceptions correcte est effectuée dans l’API web ASP.NET
@@ -74,7 +74,7 @@ Désactivez les informations de débogage dans le service. Ceci peut être effec
 | **Informations de référence**              | [Gestion des exceptions dans l’API web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Validation de modèle dans l’API web ASP.NET](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Étapes** | Par défaut, la plupart des exceptions non interceptées dans l’API web ASP.NET sont converties en réponse HTTP avec le code d’état`500, Internal Server Error`|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour contrôler le code d’état renvoyé par l’API, `HttpResponseException` peut être utilisé comme indiqué ci-dessous : 
 ```csharp
 public Product GetProduct(int id)
@@ -88,7 +88,7 @@ public Product GetProduct(int id)
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour contrôler davantage la réponse d’exception, la classe `HttpResponseMessage` peut être utilisée comme indiqué ci-dessous : 
 ```csharp
 public Product GetProduct(int id)
@@ -108,7 +108,7 @@ public Product GetProduct(int id)
 ```
 Pour intercepter les exceptions non prises en charge qui ne sont pas du type `HttpResponseException`, des filtres d’exception peuvent être utilisés. Les filtres d’exception implémentent l’interface `System.Web.Http.Filters.IExceptionFilter`. La méthode la plus simple pour écrire un filtre d’exception consiste à le dériver de la classe `System.Web.Http.Filters.ExceptionFilterAttribute` et à remplacer la méthode OnException. 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Voici un filtre qui convertit des `NotImplementedException` exceptions en code d’état HTTP `501, Not Implemented` : 
 ```csharp
 namespace ProductStore.Filters
@@ -136,7 +136,7 @@ Plusieurs méthodes pour enregistrer un filtre d’exception d’API web sont po
 - Par contrôleur
 - Globalement
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour appliquer le filtre à une action spécifique, ajoutez le filtre en tant qu’attribut à l’action : 
 ```csharp
 public class ProductsController : ApiController
@@ -148,7 +148,7 @@ public class ProductsController : ApiController
     }
 }
 ```
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour appliquer le filtre à toutes les actions sur un `controller`, ajoutez le filtre en tant qu’attribut à la classe `controller` : 
 
 ```csharp
@@ -159,14 +159,14 @@ public class ProductsController : ApiController
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour appliquer le filtre globalement à tous les contrôleurs d’API web, ajoutez une instance du filtre à la collection `GlobalConfiguration.Configuration.Filters`. Les filtres d’exception de cette collection s’appliquent à n’importe quelle action de contrôleur d’API web. 
 ```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour valider un modèle, l’état du modèle peut être transmis à la méthode CreateErrorResponse comme indiqué ci-dessous : 
 ```csharp
 public HttpResponseMessage PostProduct(Product item)
@@ -225,7 +225,7 @@ Vérifiez les liens dans la section Références pour plus d’informations sur 
 | **Informations de référence**              | [Échec en toute sécurité](https://www.owasp.org/index.php/Fail_securely) |
 | **Étapes** | L’application doit échouer en toute sécurité. Toute méthode renvoyant une valeur booléenne, en fonction de la décision prise, doit comporter un bloc d’exception créé avec soin. Il existe un grand nombre d’erreurs logiques dues à des problèmes de sécurité lorsque le bloc d’exception n’est pas écrit correctement.|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {

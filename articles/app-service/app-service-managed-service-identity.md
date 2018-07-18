@@ -1,6 +1,6 @@
 ---
-title: Identité de service managée dans App Service et Azure Functions | Microsoft Docs
-description: Guide de référence conceptuel et d’installation pour la prise en charge de l’identité de service managée dans Azure App Service et Azure Functions
+title: Managed Service Identity dans App Service et Azure Functions | Microsoft Docs
+description: Guide de référence conceptuel et d’installation pour la prise en charge de Managed Service Identity dans Azure App Service et Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -9,24 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153657"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061435"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser l’identité de service managée (préversion publique) dans App Service et Azure Functions
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser Managed Service Identity dans App Service et Azure Functions
 
 > [!NOTE] 
-> L’identité de service managée pour App Service et Azure Functions est disponible en préversion. App Service sur Linux et Web App pour conteneurs ne sont pas pris en charge actuellement.
-
+> App Service sur Linux et Web App pour conteneurs ne prennent pas en charge Managed Service Identity.
 
 > [!Important] 
-> Si vous migrez votre application entre différents abonnements/locataires, Managed Service Identity pour App Service et Azure Functions présentera un comportement anormal. L’application doit obtenir une nouvelle identité, et l’identité existante ne peut pas être supprimée correctement sans supprimer le site lui-même. Votre application doit être recréée avec une nouvelle identité, et les stratégies d’accès des ressources en aval doivent être mises à jour de manière à utiliser la nouvelle identité.
-
+> Si vous migrez votre application entre différents abonnements/locataires, Managed Service Identity pour App Service et Azure Functions présentera un comportement anormal. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval devront également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
 
 Cette rubrique vous montre comment créer une identité d’application managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité de service managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur l’identité de service managée, consultez la [vue d’ensemble de l’identité de service managée](../active-directory/managed-service-identity/overview.md).
 
@@ -77,6 +75,31 @@ Les étapes suivantes vous guident dans la création d’une application web à 
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
+### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
+
+Les étapes suivantes vous guident dans la création d’une application web à laquelle vous attribuez une identité en utilisant Azure PowerShell :
+
+1. Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+
+2. Créez une application web avec Azure PowerShell. Pour plus d’exemples sur l’utilisation d’Azure PowerShell avec App Service, consultez [Exemples App Service PowerShell](../app-service/app-service-powershell-samples.md) :
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. Exécutez la commande `identity assign` pour créer l’identité de cette application :
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    ```
+
 ### <a name="using-an-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
 
 Vous pouvez utiliser un modèle Azure Resource Manager pour automatiser le déploiement de vos ressources Azure. Pour en savoir plus sur le déploiement sur App Service et Functions, consultez [Automatiser le déploiement de ressources dans App Service](../app-service/app-service-deploy-complex-application-predictably.md) et [Automatiser le déploiement de ressources dans Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
@@ -121,7 +144,7 @@ Quand le site est créé, il a les propriétés supplémentaires suivantes :
 }
 ```
 
-Où `<TENANTID>` et `<PRINCIPALID>` sont remplacés par des GUID. La propriété tenantId identifie le locataire AAD auquel appartient l’application. La propriété principalId est un identificateur unique pour la nouvelle identité de l’application. Dans AAD, l’application a le même nom que celui que vous avez donné à votre instance App Service ou Azure Functions.
+Où `<TENANTID>` et `<PRINCIPALID>` sont remplacés par des GUID. La propriété tenantId identifie le locataire AAD auquel appartient l’identité. La propriété principalId est un identificateur unique pour la nouvelle identité de l’application. Dans AAD, le principal de service porte le même nom que celui que vous avez donné à votre instance App Service ou Azure Functions.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obtention de jetons pour les ressources Azure
 
@@ -205,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Exemples de code
-Pour effectuer cette demande en C# :
+<a name="token-csharp"></a>Pour écrire cette requête en C# :
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -216,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > Dans le cas des langages .NET, vous pouvez également utiliser [Microsoft.Azure.Services.AppAuthentication](#asal) au lieu d’élaborer cette demande vous-même.
 
-En Node.JS :
+<a name="token-js"></a>En Node.JS :
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -231,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-Dans PowerShell :
+<a name="token-powershell"></a>Dans PowerShell :
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -239,6 +262,21 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+## <a name="remove"></a>Suppression d’une identité
+
+Vous pouvez supprimer une identité en désactivant la fonctionnalité à l’aide du portail, de PowerShell ou de l’interface CLI, de la même façon que vous l’avez créée. Dans le protocole de modèle REST/ARM, vous pouvez le faire en définissant le type sur « Aucun » :
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+Si vous supprimez l’identité de cette façon, vous supprimez également le principal d’AAD. Les identités attribuées par le système sont automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
+
+> [!NOTE] 
+> Vous pouvez également définir le paramètre d’application WEBSITE_DISABLE_MSI, qui désactive uniquement le service de jetons local. Toutefois, cela ne touche pas à l’identité, et les outils continueront d’afficher MSI comme étant activé. Par conséquent, l’utilisation de ce paramètre n’est pas recommandée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

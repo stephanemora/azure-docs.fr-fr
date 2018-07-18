@@ -11,19 +11,19 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054687"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866815"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
 Dans ce didacticiel, vous allez apprendre à dépanner les modifications apportées à une machine virtuelle Azure. En activant le suivi des modifications, vous pouvez suivre celles apportées aux logiciels, fichiers, démons Linux, services Windows et clés de registre Windows présents sur vos ordinateurs.
 L’identification de ces modifications de configuration peut vous aider à mettre à jour les problèmes opérationnels constatés dans votre environnement.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour le suivi des modifications et l’inventaire
@@ -34,7 +34,6 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Afficher les modifications
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -114,6 +113,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : « c:\temp\myfile.txt ».       |
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 ### <a name="add-a-linux-file"></a>Ajouter un fichier Linux
 
@@ -131,6 +131,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Recursion     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
    > [!NOTE]   
    > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.

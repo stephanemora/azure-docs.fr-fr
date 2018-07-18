@@ -1,23 +1,21 @@
 ---
 title: Démarrage rapide (Python) pour contrôler un appareil à partir d’Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications Python. Une application est une application back-end qui peut contrôler à distance des appareils connectés à votre concentrateur. L’autre application simule un appareil connecté à votre concentrateur qui peut être contrôlé à distance.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 42d70fe28b07f81f4f417612e323359c6dec9468
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c48faa70154f59bae35045b623d6533c241115bb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611342"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : contrôler un appareil connecté à un IoT Hub (Python)
 
@@ -35,7 +33,6 @@ Ce démarrage rapide utilise deux applications Python prédéfinies :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Python. Votre machine de développement doit disposer de Python 2.7.x ou 3.5.x.
 
@@ -69,8 +66,10 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
+
+    Si vous choisissez un autre nom pour votre appareil, mettez à jour le nom de l’appareil dans les exemples d’applications avant de les exécuter.
 
 1. Exécutez la commande suivante pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
 
@@ -92,7 +91,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre concentrateur. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre concentrateur après l’exécution de la méthode directe.
 
-1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Python. Ensuite, accédez au dossier **Quickstarts\simulated-device-2**.
+1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Python. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.py**.
 
@@ -118,7 +117,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 L’application back-end se connecte au point de terminaison côté service sur votre IoT Hub. L’application effectue des appels de méthode directe à un appareil via votre IoT Hub et écoute les accusés de réception. Une application back-end de l’IoT Hub s’exécute généralement dans le cloud.
 
-1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Python. Puis, accédez au dossier **Quickstarts\back-end-application**.
+1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Python. Ensuite, accédez au dossier **iot-hub\Quickstarts\back-end-application**.
 
 1. Utilisez un éditeur de texte pour ouvrir le fichier **BackEndApplication.py**.
 
@@ -144,11 +143,9 @@ L’application back-end se connecte au point de terminaison côté service sur 
 
     ![Changement dans le client simulé](media/quickstart-control-device-python/SimulatedDevice-2.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Si vous envisagez de consulter les tutoriels suivants, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
-
-Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources qui contient votre hub IoT, puis cliquez sur **Supprimer**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -157,4 +154,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](iot-hub-python-python-process-d2c.md)
+> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

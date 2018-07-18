@@ -3,22 +3,19 @@ title: Stratégies d’indexation d’Azure Cosmos DB | Microsoft Docs
 description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB. Découvrez comment configurer et modifier la stratégie d’indexation pour bénéficier d’une indexation automatique et de meilleures performances.
 keywords: fonctionnement de l’indexation, indexation automatique, base de données d’indexation
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298294"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
@@ -79,9 +76,9 @@ Azure Cosmos DB prend en charge trois modes d’indexation que vous pouvez confi
 
 L’indexation cohérente prend en charge des requêtes cohérentes au détriment de la réduction éventuelle du débit d’écriture. Cette réduction dépend des chemins uniques qui doivent être indexés et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour les charges de travail « écrire rapidement, interroger immédiatement ».
 
-**Différé** : l’index est mis à jour de façon asynchrone quand une collection Azure Cosmos DB est inactive, autrement dit quand la capacité de débit de la collection n’est pas entièrement exploitée pour traiter les requêtes de l’utilisateur. Le mode d’indexation « différé » peut être approprié pour les charges de travail « ingérer maintenant, interroger plus tard » nécessitant une ingestion des documents. Notez que vous pourriez obtenir des résultats incohérents, car les données sont ingérées et indexées lentement. Cela signifie que les requêtes COUNT ou des résultats de requête spécifiques risquent de ne pas être cohérents ou répétables à un moment donné. 
+**Différé** : l’index est mis à jour de façon asynchrone quand une collection Azure Cosmos DB est inactive, autrement dit quand la capacité de débit de la collection n’est pas entièrement exploitée pour traiter les requêtes de l’utilisateur.  Notez que vous pourriez obtenir des résultats incohérents, car les données sont ingérées et indexées lentement. Cela signifie que les requêtes COUNT ou des résultats de requête spécifiques risquent de ne pas être cohérents ou répétables à un moment donné. 
 
-L’index est généralement en mode de rattrapage avec les données ingérées. Avec l’indexation différée, les changements de durée de vie (TTL) provoquent la suppression et la recréation de l’index. Cela rend les résultats de requête et les requêtes COUNT incohérents pendant un certain laps de temps. Pour cette raison, la plupart des comptes Azure Cosmos DB doivent utiliser le mode d’indexation Cohérent.
+L’index est généralement en mode de rattrapage avec les données ingérées. Avec l’indexation différée, les changements de durée de vie (TTL) provoquent la suppression et la recréation de l’index. Cela rend les résultats de requête et les requêtes COUNT incohérents pendant un certain laps de temps. La plupart des comptes Azure Cosmos DB doivent utiliser le mode d’indexation Cohérent.
 
 **Aucun**: une collection en mode d’indexation « Aucun » n’est associée à aucun index. Ce mode est souvent employé si Azure Cosmos DB est utilisé en tant que stockage de clés-valeurs et si les documents ne sont accessibles que par le biais de leur propriété ID. 
 
@@ -229,11 +226,11 @@ L’exemple suivant montre comment augmenter la précision des index de plage d�
 
 De même, vous pouvez exclure complètement les chemins de l’indexation. L’exemple suivant montre comment exclure une section entière des documents (une *sous-arborescence*) de l’indexation à l’aide de l’opérateur générique \*.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

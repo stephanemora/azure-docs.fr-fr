@@ -14,19 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763558"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970052"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
 Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit un exemple utilisant des [Fonctions durables](durable-functions-overview.md) pour implémenter un chaînage de fonctions.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Installer Fonctions durables](durable-functions-install.md).
 
@@ -72,7 +71,7 @@ Voici le code source :
 
 Toutes les fonctions d’orchestration JavaScript doivent inclure le module `durable-functions`. Il s’agit d’une bibliothèque JavaScript qui convertit les actions de la fonction d’orchestration en protocole d’exécution Durable pour les langages hors processus. Il existe trois différences importantes entre une fonction d’orchestration et les autres fonctions JavaScript :
 
-1. La fonction est une [fonction de générateur.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. La fonction est une [fonction de générateur.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. La fonction est encapsulée dans un appel au module `durable-functions` (ici `df`).
 3. La fonction s’arrête par l’appel de `return`, et non `context.done`.
 

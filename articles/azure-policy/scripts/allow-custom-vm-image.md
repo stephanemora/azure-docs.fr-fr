@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: ca2d25828bc184a783dd065df3cc8200a3af6ee3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 89517d56eb62a5b92685b45a4a95ac7e716d4a43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601545"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>Autoriser une image de machine virtuelle personnalisée à partir d’un groupe de ressources
 
@@ -77,4 +78,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez trouver d’autres exemples de modèles Azure Policy dans la documentation d’Azure Policy.
+- Consultez plus d’exemples sur [Exemples Azure Policy](../json-samples.md).

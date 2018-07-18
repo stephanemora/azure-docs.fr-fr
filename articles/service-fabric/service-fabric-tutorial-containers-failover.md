@@ -1,5 +1,5 @@
 ---
-title: Basculer et mettre à l’échelle une application de conteneurs Azure Service Fabric | Microsoft Docs
+title: Basculer et mettre à l’échelle une application de conteneurs sur Service Fabric dans Azure | Microsoft Docs
 description: Dans ce didacticiel, vous apprenez la gestion du basculement dans une application de conteneurs Azure Service Fabric.  Sachez également mettre à l’échelle les conteneurs et les services qui s’exécutent dans un cluster.
 services: service-fabric
 documentationcenter: ''
@@ -16,42 +16,45 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29555480"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112267"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
 
-Ce didacticiel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
+Ce tutoriel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric  
+> * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric
 > * Mettre à l’échelle les conteneurs web frontaux dans une application
 
 ## <a name="prerequisites"></a>Prérequis
-À partir de la [Partie 2](service-fabric-tutorial-package-containers.md), l’application s’exécute dans un cluster Service Fabric actif.
+
+À partir de la [Partie 2](service-fabric-tutorial-package-containers.md), l’application s’exécute dans un cluster Service Fabric actif.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Basculer un conteneur dans un cluster
+
 Service Fabric s’assure que vos instances de conteneur se déplacent automatiquement vers d’autres nœuds du cluster en cas d’échec. Vous pouvez aussi manuellement drainer un nœud de conteneurs, puis déplacer normalement ces conteneurs vers d’autres nœuds du cluster. Il existe plusieurs façon de mettre à l’échelle vos services, dans cet exemple, nous utilisons Service Fabric Explorer.
 
-Pour basculer le conteneur frontal, effectuez les étapes suivantes :
+Pour basculer le conteneur frontal, effectuez les étapes suivantes :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
-2. Cliquez sur le nœud **fabric:/TestContainer/azurevotefront** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID). Remarquez le nom du nœud dans l’arborescence qui vous renseigne sur les nœuds en cours d’exécution dans le conteneur, par exemple `_nodetype_1`.
+2. Cliquez sur le nœud **fabric:/TestContainer/azurevotefront** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID). Remarquez le nom du nœud dans l’arborescence qui vous renseigne sur les nœuds en cours d’exécution dans le conteneur, par exemple `_nodetype_1`
 3. Développez le nœud **Nœuds** dans l’arborescence. Cliquez sur les points de suspension (trois points) en regard du nœud qui exécute le conteneur.
-1. Choisissez **Redémarrer** pour redémarrer ce nœud et confirmer l’action de redémarrage. Le redémarrage entraîne le basculement du conteneur vers un autre nœud du cluster.
+4. Choisissez **Redémarrer** pour redémarrer ce nœud et confirmer l’action de redémarrage. Le redémarrage entraîne le basculement du conteneur vers un autre nœud du cluster.
 
 ![RedémarrageDuNœud][noderestart]
 
 Remarquez comment le nom du nœud (indiquant l’emplacement où les conteneurs frontaux s’exécutent) est remplacé par un autre nœud du cluster. Au bout de quelques instants, vous devez être en mesure d’accéder de nouveau à l’application et la voir s’exécuter sur un autre nœud.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>Mettre à l’échelle les conteneurs et services dans un cluster
+
 Les conteneurs Service Fabric peuvent être mis à l’échelle dans un cluster pour s’adapter à la charge sur les services. Pour mettre à l’échelle un conteneur, vous modifiez le nombre d’instances s’exécutant dans le cluster.
 
-Pour mettre à l’échelle le service web frontal, effectuez les étapes suivantes :
+Pour mettre à l’échelle le service web frontal, effectuez les étapes suivantes :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Cliquez sur les points de suspension (trois points) en regard du nœud **fabric:/TestContainer/azurevotefront** dans l’arborescence, puis choisissez **Mettre à l’échelle le service**.
@@ -69,15 +72,15 @@ Vous constatez désormais que le service possède deux instances. Dans l’arbor
 
 Par cette tâche de gestion simple, nous avons doublé les ressources disponibles pour permettre à notre service frontal de traiter la charge utilisateur. Il est important de comprendre que vous n’avez pas besoin de plusieurs instances d’un service pour que celui-ci s’exécute de manière fiable. En cas de défaillance d’un service, Service Fabric veille à ce qu'une nouvelle instance du service s’exécute dans le cluster.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a présenté le basculement d’un conteneur ainsi que la mise à l’échelle d’une application. Les étapes suivantes ont été effectuées :
+Ce didacticiel vous a présenté le basculement d’un conteneur ainsi que la mise à l’échelle d’une application. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
-> * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric  
+> * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric
 > * Mettre à l’échelle les conteneurs web frontaux dans une application
 
-Dans cette série de didacticiels, vous avez appris à : 
+Dans cette série de didacticiels, vous avez appris à :
 > [!div class="checklist"]
 > * Créer des images de conteneur
 > * Envoyer des images conteneur à Azure Container Registry

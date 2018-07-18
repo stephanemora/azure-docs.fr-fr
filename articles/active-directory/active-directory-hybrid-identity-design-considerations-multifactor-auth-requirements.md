@@ -3,7 +3,7 @@ title: 'Conception d’identités hybrides : exigences en matière d’authentif
 description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
 documentationcenter: ''
 services: active-directory
-author: femila
+author: billmath
 manager: billmath
 editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: fe5ac8386394bf659de8d9905827359900f08d93
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 0c4d3edabbef6fe5626ce85c753cc7775ff2f1b9
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801032"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915399"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d'authentification multifacteur (Multi-Factor Authentication) pour votre solution d'identités hybrides
 Dans un monde basé sur la mobilité, avec des utilisateurs qui accèdent à des données et à des applications dans le cloud et à partir de n'importe quel périphérique, la sécurisation de ces informations est devenue prééminente.  On entend parler chaque jour de nouvelles failles de sécurité.  Bien qu'il n'existe aucune garantie contre ces violations, l'authentification multifacteur (Multi-Factor Authentication), fournit une couche supplémentaire de sécurité afin de les empêcher.

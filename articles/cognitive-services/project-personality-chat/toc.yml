@@ -1,0 +1,11 @@
+- name: Documentation Project Personality Chat
+- name: Vue d'ensemble
+  expanded: true
+  items:
+    - name: "Qu’est-ce que Project Personality Chat\_?"
+      href: overview.md
+- name: Ressources
+  expanded: true
+  items:
+    - name: Forum Aux Questions
+      href: faq.md

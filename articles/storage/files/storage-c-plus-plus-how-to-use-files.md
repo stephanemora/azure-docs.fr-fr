@@ -1,11 +1,11 @@
 ---
-title: "Développer pour Azure Files avec C++ | Microsoft Docs"
-description: "Découvrez comment développer des services et applications C++ qui utilisent Azure Files pour stocker les données de fichiers."
+title: Développer pour Azure Files avec C++ | Microsoft Docs
+description: Découvrez comment développer des services et applications C++ qui utilisent Azure Files pour stocker les données de fichiers.
 services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737569"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Développer pour Azure Files avec C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,9 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
-
 Ce didacticiel explique comment effectuer des opérations de base sur Azure Files. Au moyen d’exemples écrits en C++, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à charger, lister et supprimer des fichiers. Si vous ne connaissez pas Azure Files, l’étude des concepts abordés dans les sections suivantes vous sera utile pour comprendre les exemples.
-
 
 * Créer et supprimer des partages de fichiers Azure
 * Créer et supprimer des répertoires
@@ -38,7 +37,7 @@ Ce didacticiel explique comment effectuer des opérations de base sur Azure File
 * Créer une signature d’accès partagé pour un fichier qui utilise une stratégie d’accès partagé définie sur le partage
 
 > [!Note]  
-> Étant donné qu’Azure Files est accessible sur SMB, il est possible d’écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S C++ standard. Cet article indique comment écrire des applications qui utilisent le SDK C++ Stockage Azure, lequel a recours à l’[API REST Fichier](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
+> Comme Azure Files est accessible sur SMB, vous pouvez écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S C++ standard. Cet article indique comment écrire des applications qui utilisent le SDK C++ Stockage Azure, lequel a recours à l’[API REST Fichier](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
 
 ## <a name="create-a-c-application"></a>Création d’une application C++
 Pour générer les exemples, vous devez installer la bibliothèque cliente de stockage Azure 2.4.0 pour C++. Vous devez également avoir préalablement créé un compte de stockage Azure.
@@ -78,8 +77,8 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
-Tous les fichiers et répertoires figurant dans un partage de fichiers Azure se trouvent dans un conteneur appelé **Partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client Azure Files.
+## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
+Tous les fichiers et répertoires figurant dans un partage de fichiers Azure se trouvent dans un conteneur qu’on appelle un **Partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client Azure Files.
 
 ```cpp
 // Create the Azure Files client.
@@ -105,7 +104,7 @@ if (share.create_if_not_exists()) {
 
 À ce stade, le **partage** contient une référence à un partage nommé **my-sample-share**.
 
-## <a name="delete-an-azure-file-share"></a>Suppression d’un partage de fichiers Azure
+## <a name="delete-an-azure-file-share"></a>Supprimer un partage de fichiers Azure
 La suppression d’un partage s’effectue en appelant la méthode **delete_if_exists** sur un objet cloud_file_share. Voici un exemple de code permettant d’effectuer cette opération.
 
 ```cpp
@@ -357,6 +356,6 @@ if (share.exists())
 Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 
 * [Bibliothèque cliente de stockage pour C++](https://github.com/Azure/azure-storage-cpp)
-* [Exemples de service de fichier de Stockage Azure en C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Exemples du service de fichier de stockage Azure en C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

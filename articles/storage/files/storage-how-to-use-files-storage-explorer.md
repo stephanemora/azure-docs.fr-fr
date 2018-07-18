@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738171"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308495"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Cet article vous explique les bases de l’utilisation des partages de fichiers Azure à l’aide de l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). L’Explorateur Stockage est un outil client populaire qui est disponible pour Windows, macOS et Linux. Vous pouvez utiliser l’Explorateur Stockage pour gérer les partages de fichiers Azure et d’autres ressources de stockage.
@@ -97,7 +97,7 @@ La progression du téléchargement s’affiche dans le volet **Activités** en b
 
 ## <a name="create-and-modify-share-snapshots"></a>Créer et modifier des instantanés de partage
 Un instantané conserve une copie d’un point dans le temps d’un partage de fichiers Azure. Les instantanés de partage de fichiers sont similaires à d’autres technologies que vous connaissez peut-être déjà :
-- Le [service VSS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) pour les systèmes de fichiers Windows comme NTFS et ReFS
+- Le [service VSS](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS
 
@@ -123,7 +123,7 @@ Pour illustrer comment restaurer un fichier à partir d’un instantané de part
 ### <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
 Pour supprimer un instantané de partage, accédez à la [liste des instantanés de partage](#list-and-browse-share-snapshots). Cliquez avec le bouton droit sur l’instantané de partage à supprimer, puis sélectionnez **Supprimer**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Vous ne pouvez pas utiliser l’Explorateur Stockage pour supprimer des ressources. Pour nettoyer les éléments de ce guide de démarrage rapide, vous pouvez utiliser le [portail Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]

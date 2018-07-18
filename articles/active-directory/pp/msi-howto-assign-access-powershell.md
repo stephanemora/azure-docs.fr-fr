@@ -15,11 +15,11 @@ ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ac8cca1e80defca33a879db5d4c160362314931a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31587943"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610960"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Attribuer à une identité de service administré (MSI) un accès à une ressource à l’aide de PowerShell
 
@@ -28,7 +28,6 @@ ms.locfileid: "31587943"
 Une fois que vous avez configuré une ressource Azure avec une identité du service administré, vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet exemple montre comment accorder à l’identité du service administré d’une machine virtuelle Azure l’accès à un compte de stockage Azure, à l’aide de PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

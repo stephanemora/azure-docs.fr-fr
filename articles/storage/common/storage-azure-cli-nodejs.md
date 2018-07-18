@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de la CLI Azure 1.0 avec Azure Storage | Microsoft Docs"
-description: "Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure 1.0 (CLI Azure) avec Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure. L’interface de ligne de commande Azure est un outil multiplateforme."
+title: Utilisation de la CLI Azure 1.0 avec Azure Storage | Microsoft Docs
+description: Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure 1.0 (CLI Azure) avec Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure. L’interface de ligne de commande Azure est un outil multiplateforme.
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e2c2dc45f2cb91ca225bf183ddde5fa2d1123c4
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936987"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilisation de l’interface de ligne de commande Azure 1.0 avec Azure Storage
 
@@ -42,7 +43,7 @@ Ce guide inclut des exemples basés sur Ubuntu, mais les résultats devraient ê
 
 **Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/), [Options d’achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
 
-Pour plus d’informations sur les abonnements Azure, consultez la section [Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) .
+Pour plus d’informations sur les abonnements Azure, consultez la section [Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) .
 
 **Une fois le compte et l’abonnement à Microsoft Azure créés :**
 
@@ -87,7 +88,7 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
    * **&lt;clé_compte_stockage&gt;** : clé d’accès associée à votre compte de stockage.
    * **&lt;nom_conteneur&gt;** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
    * **&lt;image_à_télécharger&gt;** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « ~/images/HelloWorld.png ».
-   * **&lt;dossier_destination&gt;** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés à partir d’Azure Storage, par exemple « ~/downloadImages ».
+   * **&lt;dossier_destination&gt;**  : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés à partir d’Azure Storage, par exemple « ~/downloadImages ».
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches `ESC`, `:`, `wq!` pour enregistrer le script.
 8. Pour exécuter ce script, saisissez simplement le nom de fichier correspondant dans la console de l’interpréteur de commandes. Une fois ce script exécuté, vous devez disposer d’un répertoire de destination local incluant le fichier image téléchargé. La capture d’écran suivante présente un exemple de cette opération :
 
@@ -129,7 +130,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ## <a name="create-and-manage-blobs"></a>Créer et gérer des objets blob
 Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du stockage d’objets blob Microsoft Azure. Pour obtenir des informations détaillées, consultez [Prise en main du Stockage Blob Azure à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md) et [Concepts de service Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-### <a name="create-a-container"></a>Créer un conteneur
+### <a name="create-a-container"></a>Créez un conteneur.
 Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur privé à l’aide de la commande `azure storage container create` :
 
 ```azurecli
@@ -185,7 +186,7 @@ azure storage blob delete mycontainer myBlockBlob2
 Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB standard. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure Files, voir [Présentation d’Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Créer un partage de fichiers
-Un partage de fichiers Azure est un partage de fichiers SMB dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
+Un partage de fichiers Azure correspond à un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
 
 ```azurecli
 azure storage share create myshare

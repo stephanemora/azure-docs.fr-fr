@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258679"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029014"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -84,11 +84,12 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
     > [!note]  
     > Les étapes suivantes s’appliquent uniquement lorsque vous effectuez la rotation des secrets externes Azure Stack.
 
-2.  Préparez un nouveau jeu de certificats externes de remplacement. Le nouveau jeu répond aux spécifications de certificat décrites sur la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3.  Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Remarque : vous devez conserver des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
-3.  Créez un partage de fichiers auquel vous pouvez accéder depuis les machines virtuelles ERCS. Le partage de fichiers doit être accessible en lecture et en écriture pour l’identité **CloudAdmin**.
-4.  Ouvrez une console PowerShell ISE à partir d’un ordinateur sur lequel vous avez accès au partage de fichiers. Accédez à votre partage de fichiers. 
-5.  Exécutez **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** pour créer les répertoires requis pour vos certificats externes.
+2. Vérifiez qu’une rotation des secrets n’a pas été exécutée dans votre environnement au cours du mois passé. Pour l’instant, Azure Stack ne prend en charge qu’une rotation des secrets par mois. 
+3. Préparez un nouveau jeu de certificats externes de remplacement. Le nouveau jeu répond aux spécifications de certificat décrites sur la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Remarque : vous devez conserver des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
+5.  Créez un partage de fichiers auquel vous pouvez accéder depuis les machines virtuelles ERCS. Le partage de fichiers doit être accessible en lecture et en écriture pour l’identité **CloudAdmin**.
+6.  Ouvrez une console PowerShell ISE à partir d’un ordinateur sur lequel vous avez accès au partage de fichiers. Accédez à votre partage de fichiers. 
+7.  Exécutez **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** pour créer les répertoires requis pour vos certificats externes.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rotation des clés internes et externes
 
@@ -153,9 +154,9 @@ Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredent
 
 La cmdlet Start-SecretRotation effectue la rotation des secrets de l’infrastructure d’un système Azure Stack. Par défaut, elle effectue la rotation de tous les secrets exposés au réseau de l’infrastructure interne, et avec une entrée d’utilisateur elle procède également à la rotation des certificats de tous les points de terminaison d’infrastructure réseau externe. Lors de la rotation de points de terminaison d’infrastructure réseau externe, Start-SecretRotation doit être exécuté via un bloc de script Invoke-Command, avec la session de point de terminaison privilégié de l’environnement Azure Stack transmise comme paramètre de session.
  
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Type | Obligatoire | Position | Default | Description |
+| Paramètre | type | Obligatoire | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets internes et externes. Le répertoire de fin doit être **\Certificates**. |
 | CertificatePassword | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets internes et externes. |

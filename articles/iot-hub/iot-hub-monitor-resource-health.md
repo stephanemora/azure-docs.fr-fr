@@ -1,31 +1,28 @@
 ---
 title: Surveiller l’intégrité de votre Azure IoT Hub | Microsoft Docs
 description: Utilisez Azure Monitor et Azure Resource Health pour surveiller votre IoT Hub et diagnostiquer rapidement les problèmes
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202218"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611369"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
 Les entreprises qui implémentent Azure IoT Hub s’attendent à ce que leurs ressources fournissent des performances fiables. Pour vous aider à garder un œil attentif sur vos opérations, IoT Hub est entièrement intégré dans [Azure Monitor][lnk-AM] et [Azure Resource Health][lnk-ARH]. Ces deux services fonctionnent de concert pour vous fournir les données nécessaires au bon fonctionnement de vos solutions IoT. 
 
-Azure Monitor constitue une source unique pour la surveillance et la journalisation de tous vos services Azure. Vous pouvez envoyer les journaux générés par Azure Monitor à Log Analytics, Event Hubs ou au stockage Azure pour un traitement personnalisé. Les paramètres de mesures et de diagnostic d’Azure Monitor vous offrent une visibilité en temps réel des performances de vos ressources. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Monitor](#use-azure-monitor) avec votre IoT Hub. 
+Azure Monitor constitue une source unique pour la surveillance et la journalisation de tous vos services Azure. Vous pouvez envoyer les journaux de diagnostic générés par Azure Monitor à Log Analytics, Event Hubs ou au stockage Azure pour un traitement personnalisé. Les paramètres des mesures et des diagnostics d’Azure Monitor vous permettent de visualiser les performances de vos ressources. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Monitor](#use-azure-monitor) avec votre IoT Hub. 
+
+> [!IMPORTANT]
+> Ni la fiabilité ni l’ordre des événements émis par le service IoT Hub à l’aide des journaux de diagnostic Azure Monitor ne sont garantis. Certains événements peuvent être perdus ou remis de manière désordonnée. De même, les journaux de diagnostic ne sont pas censés être en temps réel, et l’enregistrement des événements dans la destination de votre choix peut prendre plusieurs minutes.
 
 Azure Resource Health vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources. Un tableau de bord personnalisé indique l’état d’intégrité actuel et passé de votre IoT Hub. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Resource Health](#use-azure-resource-health) avec votre IoT Hub. 
 
@@ -47,7 +44,7 @@ Azure Monitor effectue le suivi des différentes opérations qui se produisent d
 
 #### <a name="connections"></a>connexions
 
-La catégorie de connexions effectue le suivi des erreurs provoquées par la connexion des appareils à un hub IoT ou leur déconnexion de celui-ci. Le suivi de cette catégorie est utile pour identifier les tentatives de connexion non autorisées et pour repérer les moments auxquels une connexion est perdue pour les appareils qui se trouvent dans des zones bénéficiant d’une connectivité médiocre.
+La catégorie de connexions suit les événements de connexions et de déconnexion des appareils à partir d’un hub IoT, ainsi que les erreurs. Le suivi de cette catégorie est utile pour identifier les tentatives de connexion non autorisées et pour repérer les moments auxquels une connexion est perdue pour les appareils qui se trouvent dans des zones bénéficiant d’une connectivité médiocre.
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9365fd70036c8b489efaea42bda9c670182c496c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798642"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082272"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Effectuer des opérations d’API Table Azure Cosmos DB avec Azure PowerShell 
 
@@ -45,7 +45,7 @@ Une fois Azure PowerShell installé ou mis à jour, vous devez installer le modu
 Install-Module AzureRmStorageTable
 ```
 
-Puis, installez les assemblys Azure Cosmos DB en local pour pouvoir utiliser ces cmdlets PowerShell. Pour obtenir des instructions sur la procédure à suivre, consultez [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) (Module PowerShell Azure RM Storage Tables pour les tables de Cosmos DB).
+Puis, installez les assemblys Azure Cosmos DB en local pour pouvoir utiliser ces cmdlets PowerShell. Pour obtenir des instructions sur la procédure à suivre, consultez [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/) (Module PowerShell Azure RM Storage Tables pour les tables de Cosmos DB).
 
 Pour effectuer les exercices suivants, vous avez besoin d’un compte de base de données Azure Cosmos DB. Si vous n’en avez pas déjà un, créez un compte Azure Cosmos DB à l’aide du [portail Azure](https://portal.azure.com). Pour créer un compte de base de données, consultez [Azure Cosmos DB : Créer un compte de base de données](create-table-dotnet.md#create-a-database-account).
 
@@ -88,7 +88,7 @@ Vous ne pouvez pas répertorier les tables dans le compte Azure Cosmos DB à l�
 
 ## <a name="delete-a-table"></a>Suppression d’une table 
 
-PowerShell ne prend pas en charge la suppression de tables d’Azure Cosmos DB. Pour supprimer une table, accédez au [portail Azure](https://azure.portal.com), recherchez le compte Azure Cosmos DB que vous utilisez, puis recherchez la table et supprimez-la. 
+PowerShell ne prend pas en charge la suppression de tables d’Azure Cosmos DB. Pour supprimer une table, accédez au [portail Azure](https://portal.azure.com), recherchez le compte Azure Cosmos DB que vous utilisez, puis recherchez la table et supprimez-la. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

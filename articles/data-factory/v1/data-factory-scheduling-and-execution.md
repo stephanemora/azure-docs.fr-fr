@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f18d6817d3a04ad787888ba058e1251303e575a7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd8b682e073e86bb824d31d6ebab20a80f807730
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622405"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054600"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Planification et exécution avec Data Factory
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, disponible en préversion, consultez l’article [Exécution et déclencheurs du pipeline dans Azure Data Factory](../concepts-pipeline-execution-triggers.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez l’article [Exécution et déclencheurs du pipeline dans Azure Data Factory](../concepts-pipeline-execution-triggers.md).
 
 Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. Cet article suppose que vous avez des notions de base sur les concepts de modèle de données Data Factory, dont l’activité, les pipelines, les services connexes et les groupes de données. Pour les concepts de base d’Azure Data Factory, consultez les articles suivants :
 

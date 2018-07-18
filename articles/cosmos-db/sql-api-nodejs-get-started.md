@@ -3,34 +3,31 @@ title: Didacticiel Node.js pour l’API SQL d’Azure Cosmos DB | Microsoft Docs
 description: Didacticiel Node.js qui crée une base de données Cosmos DB avec l’API SQL.
 keywords: didacticiel node.js, base de données du nœud
 services: cosmos-db
-documentationcenter: node.js
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 editor: monicar
-ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: node
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: nodejs
+ms.topic: tutorial
 ms.date: 08/14/2017
-ms.author: anhoh
-ms.openlocfilehash: d8e5ef9da0d884d3120f71b7b06b079b2bdfbded
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: sngun
+ms.openlocfilehash: 6a98d3b477a3cb06c1454a79b77dffa685853a35
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38668122"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Didacticiel Node.js : utilisez l’API SQL dans Azure Cosmos DB pour créer une application de console Node.js
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js pour MongoDB](mongodb-samples.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
-> 
+
 
 Bienvenue dans le didacticiel Node.js pour le Kit de développement logiciel (SDK) Node.js d’Azure Cosmos DB ! À la fin de ce didacticiel, vous disposerez d’une application de console qui crée et interroge des ressources Azure Cosmos DB.
 
@@ -53,6 +50,7 @@ Une fois que vous avez terminé le didacticiel Node.js, utilisez les boutons de 
 Commençons dès maintenant !
 
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Configuration requise pour le didacticiel Node.js
+
 Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](https://azure.microsoft.com/pricing/free-trial/)dès aujourd’hui. 
@@ -62,11 +60,13 @@ Vérifiez que vous disposez des éléments suivants :
 * [Node.js](https://nodejs.org/) version v0.10.29 ou supérieure.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Étape 1 : créer un compte Azure Cosmos DB
+
 Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte que vous souhaitez utiliser, vous pouvez passer directement à l’étape [Configurer votre application Node.js](#SetupNode). Si vous utilisez l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer, puis passez directement à l’étape [Configurer votre application Node.js](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupNode"></a>Étape 2 : configurer votre application Node.js
+
 1. Ouvrez votre terminal préféré.
 2. Recherchez le dossier ou le répertoire où vous souhaitez enregistrer votre application Node.js.
 3. Créez deux fichiers JavaScript vides avec les commandes suivantes :
@@ -82,6 +82,7 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 Parfait ! Vous avez terminé l’installation, nous pouvons donc passer à l’écriture du code.
 
 ## <a id="Config"></a>Étape 3 : définir les configurations de votre application
+
 Ouvrez ```config.js``` dans l’éditeur de texte de votre choix.
 
 Puis, copiez et collez l’extrait de code ci-dessous et attribuez aux propriétés ```config.endpoint``` et ```config.primaryKey``` l’URI de votre point de terminaison Azure Cosmos DB et votre clé primaire. Ces deux configurations se trouvent dans le [portail Azure](https://portal.azure.com).
@@ -165,7 +166,6 @@ Copiez et collez ```database id```, ```collection id``` et ```JSON documents``` 
         }
     };
 
-
 Les définitions de base de données, de collection et de document vous servent de ```database id```, de ```collection id``` et de données de documents Azure Cosmos DB.
 
 Enfin, exportez votre objet ```config``` pour pouvoir y faire référence dans le fichier ```app.js```.
@@ -179,19 +179,19 @@ Enfin, exportez votre objet ```config``` pour pouvoir y faire référence dans l
     module.exports = config;
 
 ## <a id="Connect"></a> Étape 4 : se connecter à un compte Azure Cosmos DB
+
 Ouvrez votre fichier ```app.js``` vide dans l’éditeur de texte. Copiez et collez le code ci-dessous pour importer le module ```documentdb``` et le module ```config``` que vous venez de créer.
 
     // ADD THIS PART TO YOUR CODE
     "use strict";
 
     var documentClient = require("documentdb").DocumentClient;
+    const uriFactory = require('documentdb').UriFactory;
     var config = require("./config");
-    var url = require('url');
 
 Copiez et collez le code pour utiliser l’élément ```config.endpoint``` déjà enregistré et ```config.primaryKey``` pour créer un DocumentClient.
 
     var config = require("./config");
-    var url = require('url');
 
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -199,30 +199,29 @@ Copiez et collez le code pour utiliser l’élément ```config.endpoint``` déj�
 Maintenant que vous avez le code permettant d’initialiser le client Azure Cosmos DB, voyons comment utiliser les ressources Azure Cosmos DB.
 
 ## <a name="step-5-create-a-node-database"></a>Étape 5 : Création d’une base de données de nœud
-Copiez et collez le code ci-dessous pour définir l’état HTTP correspondant à Non trouvé, l’URL de la base de données et l’URL de la collection. Le client Azure Cosmos DB utilise ces URL pour trouver la base de données et la collection appropriées.
+
+Copiez et collez le code ci-dessous pour définir l’état HTTP correspondant à Non trouvé, l’ID de la base de données et l’ID de la collection. Le client Azure Cosmos DB utilise ces ID pour trouver la base de données et la collection appropriées.
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
     // ADD THIS PART TO YOUR CODE
     var HttpStatusCodes = { NOTFOUND: 404 };
-    var databaseUrl = `dbs/${config.database.id}`;
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+    var databaseId = config.database.id;
+    var collectionId = config.collection.id;
 
-Vous pouvez créer une [base de données](sql-api-resources.md#databases) à l’aide de la fonction [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents partitionné entre les collections.
+Vous pouvez créer une [base de données](sql-api-resources.md#databases) à l’aide de la fonction [createDatabase](/javascript/api/documentdb/documentclient) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents partitionné entre les collections.
 
-Copiez et collez la fonction **getDatabase** pour créer votre base de données dans le fichier app.js avec l’élément ```config``` spécifié dans l’objet ```id```. La fonction vérifie qu’il existe aucune base de données ayant l’ID ```FamilyRegistry``` . Si elle existe, nous allons retourner cette base de données au lieu d’en créer une.
-
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+Copiez et collez la fonction **getDatabase** pour créer votre base de données dans le fichier app.js avec l’élément ```databaseId``` spécifié à partir de l’objet ```config```. La fonction vérifie qu’il existe aucune base de données ayant l’ID ```FamilyRegistry``` . Si elle existe, nous allons retourner cette base de données au lieu d’en créer une.
 
     // ADD THIS PART TO YOUR CODE
     function getDatabase() {
-        console.log(`Getting database:\n${config.database.id}\n`);
-
+        console.log(`Getting database:\n${databaseId}\n`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.readDatabase(databaseUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createDatabase(config.database, (err, created) => {
+                        client.createDatabase({ id: databaseId }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -234,7 +233,7 @@ Copiez et collez la fonction **getDatabase** pour créer votre base de données 
                 }
             });
         });
-    }
+    };
 
 Copiez et collez le code suivant où vous avez défini la fonction **getDatabase** pour ajouter la fonction d’assistance **exit** qui imprime le message de sortie et l’appel à la fonction **getDatabase**.
 
@@ -252,7 +251,7 @@ Copiez et collez le code suivant où vous avez défini la fonction **getDatabase
         process.stdin.setRawMode(true);
         process.stdin.resume();
         process.stdin.on('data', process.exit.bind(process, 0));
-    }
+    };
 
     getDatabase()
     .then(() => { exit(`Completed successfully`); })
@@ -263,31 +262,31 @@ Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la comman
 Félicitations ! Vous avez créé une base de données Azure Cosmos DB.
 
 ## <a id="CreateColl"></a>Étape 6 : Création d’une collection
+
 > [!WARNING]
 > **CreateCollection** crée une collection, ce qui a des conséquences tarifaires. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
-> 
-> 
 
-Vous pouvez créer une [collection](sql-api-resources.md#collections) à l’aide de la fonction [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
+Vous pouvez créer une [collection](sql-api-resources.md#collections) à l’aide de la fonction [createCollection](/javascript/api/documentdb/documentclient) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
 
-Dans le fichier app.js, copiez et collez la fonction **getCollection** sous la fonction **getDatabase** pour créer votre collection avec l’élément ```id``` spécifié dans l’objet ```config```. Là encore, nous allons nous assurer qu’il n’existe aucune collection avec l’ID ```FamilyCollection``` . Si elle existe, nous allons retourner cette collection au lieu d’en créer une.
+Dans le fichier app.js, copiez et collez la fonction **getCollection** sous la fonction **getDatabase** pour créer votre collection avec l’élément ```collectionId``` spécifié à partir de l’objet ```config```. Là encore, nous allons nous assurer qu’il n’existe aucune collection avec l’ID ```FamilyCollection``` . Si elle existe, nous allons retourner cette collection au lieu d’en créer une.
 
                 } else {
                     resolve(result);
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getCollection() {
-        console.log(`Getting collection:\n${config.collection.id}\n`);
-
+        console.log(`Getting collection:\n${collectionId}\n`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.readCollection(collectionUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
+                        client.createCollection(databaseUrl, { id: collectionId }, { offerThroughput: 400 }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -299,7 +298,7 @@ Dans le fichier app.js, copiez et collez la fonction **getCollection** sous la f
                 }
             });
         });
-    }
+    };
 
 Copiez et collez le code sous l’appel à **getDatabase** pour exécuter la fonction **getCollection**.
 
@@ -317,7 +316,8 @@ Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la comman
 Félicitations ! Vous avez créé une collection Azure Cosmos DB.
 
 ## <a id="CreateDoc"></a>Étape 7 : Création d’un document
-Vous pouvez créer un [document](sql-api-resources.md#documents) à l’aide de la fonction [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Vous pouvez maintenant insérer un document dans Azure Cosmos DB.
+
+Vous pouvez créer un [document](sql-api-resources.md#documents) à l’aide de la fonction [createDocument](/javascript/api/documentdb/documentclient) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Vous pouvez maintenant insérer un document dans Azure Cosmos DB.
 
 Copiez et collez la fonction **getFamilyDocument** sous la fonction **getCollection** pour créer les documents contenant les données JSON enregistrées dans l’objet ```config```. Là encore, nous allons nous assurer qu’un document avec le même ID n’existe pas déjà.
 
@@ -326,17 +326,17 @@ Copiez et collez la fonction **getFamilyDocument** sous la fonction **getCollect
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Getting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
+                        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
                         client.createDocument(collectionUrl, document, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
@@ -380,12 +380,12 @@ Copiez et collez la fonction **queryCollection** sous la fonction **getFamilyDoc
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function queryCollection() {
-        console.log(`Querying collection through index:\n${config.collection.id}`);
-
+        console.log(`Querying collection through index:\n${collectionId}`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.queryDocuments(
                 collectionUrl,
@@ -403,7 +403,6 @@ Copiez et collez la fonction **queryCollection** sous la fonction **getFamilyDoc
             });
         });
     };
-
 
 Le schéma suivant montre comment la syntaxe de requête SQL d’Azure Cosmos DB est appelée sur la collection que vous avez créée.
 
@@ -438,14 +437,13 @@ Copiez et collez la fonction **replaceFamilyDocument** sous la fonction **queryC
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function replaceFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Replacing document:\n${document.id}\n`);
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         document.children[0].grade = 6;
-
         return new Promise((resolve, reject) => {
             client.replaceDocument(documentUrl, document, (err, result) => {
                 if (err) reject(err);
@@ -475,6 +473,7 @@ Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la comman
 Félicitations ! Vous avez remplacé un document Azure Cosmos DB.
 
 ## <a id="DeleteDocument"></a>Étape 10 : Suppression d’un document
+
 Azure Cosmos DB prend en charge la suppression des documents JSON.
 
 Copiez et collez la fonction **deleteFamilyDocument** sous la fonction **replaceFamilyDocument**.
@@ -488,9 +487,8 @@ Copiez et collez la fonction **deleteFamilyDocument** sous la fonction **replace
 
     // ADD THIS PART TO YOUR CODE
     function deleteFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Deleting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.deleteDocument(documentUrl, (err, result) => {
                 if (err) reject(err);
@@ -519,6 +517,7 @@ Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la comman
 Félicitations ! Vous avez supprimé un document Azure Cosmos DB.
 
 ## <a id="DeleteDatabase"></a>Étape 11 : Suppression de la base de données de nœud
+
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.).
 
 Copiez et collez la fonction **cleanup** sous la fonction **deleteFamilyDocument** pour supprimer la base de données et toutes ses ressources enfants.
@@ -532,15 +531,15 @@ Copiez et collez la fonction **cleanup** sous la fonction **deleteFamilyDocument
 
     // ADD THIS PART TO YOUR CODE
     function cleanup() {
-        console.log(`Cleaning up by deleting database ${config.database.id}`);
-
+        console.log(`Cleaning up by deleting database ${databaseId}`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.deleteDatabase(databaseUrl, (err) => {
                 if (err) reject(err)
                 else resolve(null);
             });
         });
-    }
+    };
 
 Copiez et collez le code sous l’appel à la fonction **deleteFamilyDocument** pour exécuter la fonction **cleanup**.
 
@@ -554,6 +553,7 @@ Copiez et collez le code sous l’appel à la fonction **deleteFamilyDocument** 
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ## <a id="Run"></a>Étape 12 : Exécution de l’application Node.js
+
 La séquence permettant d’appeler vos fonctions doit être similaire à celle-ci :
 
     getDatabase()
@@ -605,6 +605,7 @@ La sortie de votre application de prise en main doit s’afficher. La sortie doi
 Félicitations ! Vous avez créé et terminé le didacticiel Node.js et disposez à présent de votre première application de console Azure Cosmos DB !
 
 ## <a id="GetSolution"></a>Obtenir la solution complète du didacticiel Node.js
+
 Si vous n’avez pas le temps de suivre les étapes de ce didacticiel, ou que vous voulez simplement télécharger le code, vous pouvez l’obtenir à partir de [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Pour exécuter la solution GetStarted qui contient tous les exemples de cet article, vous devez disposer des éléments suivants :

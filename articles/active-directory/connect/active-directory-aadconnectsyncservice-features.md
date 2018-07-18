@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593169"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957998"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composants :
@@ -58,7 +58,8 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | DeviceWriteback |[Azure AD Connect : Activation de l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect Sync : extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
-| PasswordSync |[Implémenter la synchronisation de hachage de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Synchronisation de hachage de mot de passe |[Implémenter la synchronisation de hachage de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Authentification directe|[Connexion de l’utilisateur avec l’authentification directe Azure Active Directory](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge pour le moment. |
 

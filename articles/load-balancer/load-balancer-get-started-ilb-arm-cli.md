@@ -1,5 +1,5 @@
 ---
-title: Créer un équilibreur de charge de base interne - Azure CLI 2.0 | Microsoft Docs
+title: Créer un équilibreur de charge de base interne - Azure CLI 2.0 | Microsoft Docs
 description: Découvrez comment créer un équilibreur de charge interne à l’aide d’Azure CLI 2.0
 services: load-balancer
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264470"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38676084"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Créer un équilibreur de charge interne pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -28,7 +28,7 @@ Cet article explique comment créer un équilibreur de charge interne pour équi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter une version d’Azure CLI 2.0.28 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans ce tutoriel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -47,7 +47,7 @@ Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet*
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -108,36 +108,9 @@ Une règle d’équilibreur de charge définit la configuration IP frontale pour
 
 Avant de déployer des machines virtuelles et de pouvoir tester votre équilibreur de charge, créez les ressources de réseau virtuel de prise en charge.
 
-###  <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
-Créez un groupe de sécurité réseau pour définir les connexions entrantes vers votre réseau virtuel.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>Créer une règle de groupe de sécurité réseau
-
-Créez une règle de groupe de sécurité réseau visant à autoriser les connexions entrantes via le port 80.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
 ### <a name="create-nics"></a>Créer des cartes réseau
 
-Créez deux interfaces réseau à l’aide de la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create) et associez-les à l’adresse IP privée et au groupe de sécurité réseau. 
+Créez deux interfaces réseau à l’aide de la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create) et associez-les à l’adresse IP privée. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -146,7 +119,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -158,7 +130,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 ### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-Créez un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic#az_network_availabilityset_create)
+Créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic#az_network_availabilityset_create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -168,7 +140,7 @@ Créez un groupe à haute disponibilité à l’aide de la commande [az vm avail
 
 ### <a name="create-two-virtual-machines"></a>Créer deux machines virtuelles
 
-Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
+Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
 
 ```yaml
 #cloud-config
@@ -249,7 +221,7 @@ Pour obtenir l’adresse IP privée de l’équilibreur de charge, utilisez la c
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Tester l’équilibreur de charge](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 19f9bd1385766ab52613cd8dd191a92329f44616
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ea6241c98cd65af14242301be4681e613d867fbc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299210"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071179"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -177,6 +177,7 @@ Go</a>
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Fonctions sans serveur</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Containers</a></li>
+                                                    <li><a class="barLink" href="/azure/aks/">Microservices avec Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices avec Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -269,6 +270,11 @@ Terraform </a>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
 Visual Studio Team Services </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Découvrir DevOps avec Azure </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -490,6 +496,11 @@ Visual Studio Team Services </a>
                                                 <p>Web App pour conteneurs</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/dev-spaces/">
+                                                <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
+                                                <p>Azure Dev Spaces</p>
+                                        </li>
                                     </ul>
                                     <h3>Intégration</h3>
                                     <ul>
@@ -673,6 +684,12 @@ Visual Studio Team Services </a>
                                             <a href="/azure/network-watcher/">
                                                 <img src="media/index/network-watcher.svg" alt="" />
                                                 <p>Network Watcher</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Pare-feu Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -878,7 +895,7 @@ Visual Studio Team Services </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>Recherche d’anomalies</p>
                                             </a>
                                         </li>
@@ -912,8 +929,6 @@ Visual Studio Team Services </a>
                                                 <p>API Recherche visuelle Bing</p>
                                             </a>
                                         </li>
-
-
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -985,9 +1000,15 @@ Visual Studio Team Services </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/data-lake-storage/introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Data Lake Storage Gen 1</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1030,6 +1051,12 @@ Visual Studio Team Services </a>
                                             <a href="/azure/storage/blobs/storage-blob-storage-tiers">
                                                 <img src="media/index/storage.svg" alt="" />
                                                 <p>Stockage archive</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-netapp-files/">
+                                                <img src="media/index/NetAppStorage.svg" alt="" />
+                                                <p>Azure NetApp Files</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1226,19 +1253,19 @@ Visual Studio Team Services </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-edge/">
-                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <img src="media/index/iot-edge-alt.svg" alt="" />
                                                 <p>IoT Edge</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-central/">
-                                                <img src="media/index/IoT-central.svg" alt="" />
+                                                <img src="media/index/iot-central.svg" alt="" />
                                                 <p>IoT Central</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-suite/">
-                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>Accélérateurs de solution IoT</p>
                                             </a>
                                         </li>
@@ -1256,7 +1283,7 @@ Visual Studio Team Services </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-maps/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
                                             </a>
                                         </li>
@@ -1390,7 +1417,7 @@ Visual Studio Team Services </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-maps/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
                                             </a>
                                         </li>
@@ -1461,6 +1488,12 @@ Visual Studio Team Services </a>
                                             <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>Passerelle VPN</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/role-based-access-control/">
+                                                <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                <p>Contrôle d’accès en fonction du rôle</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2100,6 +2133,44 @@ Visual Studio Team Services </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Pare-feu Azure</h3>
+                                                    <p>Service de sécurité réseau cloud hautement disponible et évolutif</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-wan/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/WAN.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>WAN virtuel</h3>
+                                                    <p>Générer la connectivité sécurisée des branches à l’échelle mondiale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2144,6 +2215,25 @@ Visual Studio Team Services </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/data-lake-storage/introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>Stockage Data Lake Storage sécurisé et hautement évolutif</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2154,7 +2244,7 @@ Visual Studio Team Services </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Data Lake Storage Gen 1</h3>
                                                     <p>Référentiel hyperscale pour les charges de travail d’analyse des Big Data</p>
                                                 </div>
                                             </div>
@@ -2289,6 +2379,25 @@ Visual Studio Team Services </a>
                                                 <div class="cardText">
                                                     <h3>Stockage archive</h3>
                                                     <p>Stockage cloud sécurisé et à faible coût pour les données rarement consultées</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NetAppStorage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Services de fichiers réseau de qualité professionnelle reposant sur NetApp</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2502,7 +2611,7 @@ Visual Studio Team Services </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                        <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2665,6 +2774,25 @@ Visual Studio Team Services </a>
                                                 <div class="cardText">
                                                     <h3>Web App pour conteneurs</h3>
                                                     <p>Déployer et exécuter facilement des applications web en conteneur qui évoluent avec votre entreprise</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dev-spaces/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Dev Spaces</h3>
+                                                    <p>Développement Kubernetes rapide avec des conteneurs et des microservices</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3175,6 +3303,25 @@ Visual Studio Team Services </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Services de fichiers NFS de qualité professionnelle reposant sur NetApp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3471,7 +3618,6 @@ Visual Studio Team Services </a>
                                                                     <span>Answer Search</span>
                                                                 </a>
                                                             </li>
-
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
@@ -3484,8 +3630,6 @@ Visual Studio Team Services </a>
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
-
-
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -3582,7 +3726,7 @@ Visual Studio Team Services </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                        <img src="media/index/iot-edge-alt.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3601,7 +3745,7 @@ Visual Studio Team Services </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/IoTCentralBlue.svg" alt="" />
+                                                        <img src="media/index/iot-central.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3620,7 +3764,7 @@ Visual Studio Team Services </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                        <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3677,7 +3821,7 @@ Visual Studio Team Services </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                        <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -4287,6 +4431,25 @@ Visual Studio Team Services </a>
                                                 <div class="cardText">
                                                     <h3>Passerelle VPN</h3>
                                                     <p>Établissez une connectivité sécurisée intersite</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/role-based-access-control/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Contrôle d’accès en fonction du rôle</h3>
+                                                    <p>Gérer l’accès aux ressources Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5395,7 +5558,7 @@ Azure pour les développeurs Java </h3>
                                                     <a href="/java/azure">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/overview/azure">Référence API</a>
+                                                    <a href="/java/api">Référence API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5546,7 +5709,7 @@ Docker </h3>
                                                     <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools pour Docker</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Téléchargement pour Visual Studio</a>
+                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Téléchargement pour Visual Studio</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Téléchargement pour Visual Studio Code</a>
@@ -5690,6 +5853,60 @@ Outils et Kit de développement logiciel (SDK) Service Fabric </h3>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Télécharger l’interface de ligne de commande Service Fabric </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Outils de migration de base de données </h3>
+                                                <p>
+                                                    <a href="https://aka.ms/dma">Data Migration Assistant (DMA)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://aka.ms/ssma">Assistant Migration SQL Server (SSMA)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://aka.ms/dea-tool">Assistant Expérimentation de base de données</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Azure Dev Spaces </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Prise en main</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Téléchargement de .NET Core et VS Code</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">Téléchargement de .NET Core et Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Téléchargement pour Node.js</a>
                                                 </p>
                                             </div>
                                         </div>

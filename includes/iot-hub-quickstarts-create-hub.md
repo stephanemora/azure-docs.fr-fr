@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666960"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288053"
 ---
 La première étape consiste à utiliser le portail Azure pour créer un hub IoT dans votre abonnement. Le hub IoT vous permet de traiter de gros volumes de données de télémétrie dans le cloud en provenance de nombreux appareils. Ensuite, le hub active un ou plusieurs services principaux en cours d’exécution dans le cloud pour lire et traiter ces données de télémétrie.
 
@@ -27,7 +27,7 @@ La première étape consiste à utiliser le portail Azure pour créer un hub IoT
 
    * **Abonnement** : choisissez l’abonnement que vous souhaitez utiliser pour créer cet IoT Hub.
 
-   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. Pour plus d’informations, consultez l’article [Use resource groups to manage your Azure resources][lnk-resource-groups] (Utiliser des groupes de ressources pour gérer vos ressources Azure).
+   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. En plaçant toutes les ressources associées dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez l’article [Use resource groups to manage your Azure resources][lnk-resource-groups] (Utiliser des groupes de ressources pour gérer vos ressources Azure).
 
    * **Région** : sélectionnez la région correspondant à votre emplacement.
 

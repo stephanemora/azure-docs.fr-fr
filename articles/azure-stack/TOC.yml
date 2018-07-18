@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Notes de publication d’App Service sur Azure Stack Update 2
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Déployer Ethereum
+          href: azure-stack-ethereum.md
         - name: Renseigner le Marketplace
           items:
             - name: Présentation de la Place de marché
@@ -294,15 +296,15 @@
             - name: "Offrir un cluster\_Kubernetes"
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Utilisation et facturation
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Vue d'ensemble
-              href: azure-stack-billing-and-chargeback.md
             - name: Gérer l’utilisation et la facturation en tant que fournisseur de services Cloud
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Ajouter des locataires pour l’utilisation et la facturation
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Gérer l’inscription des locataires
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Ajouter des locataires pour l’utilisation et la facturation
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Gérer l’inscription des locataires
+                  href: azure-stack-csp-ref-operations.md
             - name: Référence relative à l’utilisation et la facturation
               items:
                 - name: Rapports des données d’utilisation

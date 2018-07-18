@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : Présentation des stratégies personnalisées du pack de démarrage | Microsoft Docs'
-description: Une rubrique sur les stratégies personnalisées Azure Active Directory B2C
+title: Présentation des stratégies personnalisées du pack de démarrage dans Azure Active Directory B2C | Microsoft Docs
+description: Une rubrique sur les stratégies personnalisées Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: ebcd7a677acde12558b0f566bce9172a0d00233b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442472"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Présentation des stratégies personnalisées du pack de démarrage Azure AD B2C Custom Policy
 
@@ -193,7 +193,7 @@ Cette section décrit les profils techniques déjà déclarés par le fournisseu
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Profils techniques pour Trustframework Policy Engine TechnicalProfiles
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Profils techniques pour le moteur Trust Framework Policy Engine
 
 Aucun profil technique n’est actuellement défini pour le fournisseur de revendications **Trustframework Policy Engine TechnicalProfiles**.
 

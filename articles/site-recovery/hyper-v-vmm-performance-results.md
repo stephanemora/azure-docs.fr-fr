@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: e15f435a3f32b8908b5b93bccc6c57710ab589bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4e6884bdcbc0d9921186ec9ff11a701b707faeef
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29378684"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921295"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
 
@@ -36,7 +36,7 @@ Voici ce que nous avons fait lors des tests :
 3. Création de clouds sur le serveur VMM principal et sur celui de récupération
 4. Configuration de la réplication dans Site Recovery, notamment du mappage entre les clouds source et de récupération
 5. Activation de la protection des machines virtuelles, et exécution autorisée de la réplication initiale de ces machines
-6. Vérification de la stabilisation du système, après une période d’attente de quelques heures
+6. Vérification de la stabilisation du système, après une période d’attente de quelques heures.
 7. Capture des métriques de performances sur une période de 12 heures tandis que l’ensemble des machines virtuelles présentent l’état de réplication attendu ces 12 heures durant
 8. Évaluation du delta entre les métriques de performances de référence, et celles de la réplication
 
@@ -180,6 +180,6 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 | Débit de lecture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
 | Débit d’écriture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Configurer la réplication](hyper-v-vmm-disaster-recovery.md)

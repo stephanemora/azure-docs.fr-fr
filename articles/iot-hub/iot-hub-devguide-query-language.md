@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 663277bfe347f42fa7ee241f5acddf4a3dca9268
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633510"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444182"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
@@ -168,13 +168,13 @@ SELECT * FROM devices.modules
 Nous n’autorisons pas de jointure entre les collections devices et devices.modules. Si vous souhaitez interroger les jumeaux de module sur les appareils, faites-le à partir des balises. Cette requête retourne tous les jumeaux de module sur tous les appareils ayant pour état « scanning » (analyse) :
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning'
+Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
 Cette requête retourne tous les jumeaux de module ayant pour état « scanning » (analyse), mais uniquement sur le sous-ensemble d’appareils spécifié.
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Exemple en code C#

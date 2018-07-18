@@ -13,12 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800735"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332369"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Solutions d'identité hybride Microsoft
 Les solutions d’identité hybride [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permettent de synchroniser des objets de répertoire locaux avec Azure AD tout en gérant vos utilisateurs locaux. La première décision à prendre lorsque vous envisagez de synchroniser votre Active Directory Windows Server local avec Azure AD est de savoir si vous souhaitez utiliser une identité synchronisée ou une identité fédérée. Les identités synchronisées et éventuellement les hachages du mot de passe, permettent à vos utilisateurs d’utiliser le même mot de passe pour accéder aux ressources de l’organisation locales et sur le cloud. Pour obtenir des spécifications de scénario plus avancées, telles que l’authentification unique (SSO) ou l’authentification multifacteur locale, vous devez déployer Active Directory Federation Services (AD FS) pour fédérer les identités. 
@@ -53,7 +53,7 @@ L’authentification directe peut être configurée par le biais d’Azure AD Co
 - Joint à un domaine dans la forêt dans laquelle les utilisateurs sont validés
 
 ## <a name="federated-identity-ad-fs"></a>Identité fédérée (AD FS)
-Pour obtenir un meilleur contrôle sur le mode d’accès des utilisateurs à Office 365 et autres services cloud, vous pouvez configurer la synchronisation de répertoires avec authentification unique (SSO) à l’aide de [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). La fédération des connexions utilisateurs avec AD FS délègue l’authentification à un serveur local qui valide les informations d’identification de l’utilisateur. Dans ce modèle, les informations d’identification Active Directory locales ne sont jamais passées à Azure AD.
+Pour obtenir un meilleur contrôle sur le mode d’accès des utilisateurs à Office 365 et autres services cloud, vous pouvez configurer la synchronisation de répertoires avec authentification unique (SSO) à l’aide de [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). La fédération des connexions utilisateurs avec AD FS délègue l’authentification à un serveur local qui valide les informations d’identification de l’utilisateur. Dans ce modèle, les informations d’identification Active Directory locales ne sont jamais passées à Azure AD.
 
 ![Identité fédérée](./media/choose-hybrid-identity-solution/federated-identity.png)
 

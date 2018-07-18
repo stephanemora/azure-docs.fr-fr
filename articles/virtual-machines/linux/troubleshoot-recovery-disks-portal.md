@@ -3,7 +3,7 @@ title: Utiliser une machine virtuelle de dépannage Linux dans le portail Azure 
 description: Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
+authors: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
-ms.author: iainfou
-ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: cynthn
+ms.openlocfilehash: efa001a24be3fb646a2a10afe72cb9b4ebfbf836
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271740"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932006"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Linux pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.
@@ -174,10 +174,10 @@ Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel exis
 ![Mettre à jour les paramètres des diagnostics de démarrage](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
 
 ## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation
-1. Arrêtez les machines virtuelles Windows avec disque managé affectées.
-2. [Créez une capture instantanée de disque managé](../windows/snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle du disque managé.
+1. Arrêtez la machine virtuelle Windows avec disque managé affectée.
+2. [Créez une capture instantanée de disque managé](../windows/snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle avec disque managé.
 3. [Créez un disque managé à partir de la capture instantanée](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attachez le disque managé comme disque de données de la machine virtuelle](../windows/attach-disk-ps.md).
+4. [Attachez le disque managé en tant que disque de données de la machine virtuelle](../windows/attach-disk-ps.md).
 5. [Transformez le disque de données de l’étape 4 en disque de système d’exploitation](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

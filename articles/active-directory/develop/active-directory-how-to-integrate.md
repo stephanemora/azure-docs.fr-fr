@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: be7dec07597b0a82633d330a72274a94dbb9bf67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156042"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937136"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD. Béné
 
 **Utilisation d’Azure AD pour contrôler quels utilisateurs ont accès à votre application.**  Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l'aide de l'API Graph, vous pouvez lire cette liste et l'utiliser pour contrôler l’attribution de privilèges d’accès et la suppression de privilèges d’accès pour les ressources et l’accès à votre application.
 
-**Utilisation d’Azure AD pour les rôles en fonction d’Access Control.**  Les administrateurs et les propriétaires d'applications peuvent attribuer des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Azure AD. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l'aide de l'API Graph. En savoir plus sur l’ [utilisation d'Azure AD pour les autorisations](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Utilisation d’Azure AD pour les rôles en fonction d’Access Control.**  Les administrateurs et les propriétaires d'applications peuvent attribuer des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Azure AD. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l'aide de l'API Graph. En savoir plus sur l’ [utilisation d'Azure AD pour les autorisations](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Accéder au profil de l'utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
 **Azure AD est le serveur d'autorisation pour Office 365 et d'autres services métiers de Microsoft.**  Si vous prenez en charge Azure AD pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d'utilisateur actuels aux comptes d'utilisateur Azure AD à l'aide d'OAuth 2.0, vous pouvez demander l'accès en lecture et en écriture à un profil utilisateur, un calendrier, des e-mails, des contacts, des fichiers et d’autres informations. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. En savoir plus sur l’ [accès aux API Office 365](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).

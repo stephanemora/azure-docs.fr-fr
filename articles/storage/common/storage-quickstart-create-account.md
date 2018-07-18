@@ -3,18 +3,18 @@ title: Démarrage rapide Azure - Créer un compte de stockage | Microsoft Docs
 description: Apprenez rapidement à créer un compte de stockage à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603774"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856526"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -24,7 +24,6 @@ Pour démarrer avec le stockage Azure, vous devez d’abord créer un compte de 
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -55,7 +54,7 @@ Ce bouton lance un interpréteur de commandes interactif que vous pouvez utilise
 
 ### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ---
 
@@ -98,7 +97,7 @@ Pour créer un groupe de ressources dans le portail Azure, procédez comme suit 
 3. Entrez un nom pour le nouveau groupe de ressources.
 4. Sélectionnez l’abonnement dans lequel vous créez le nouveau groupe de ressources.
 5. Choisissez l’emplacement du groupe de ressources.
-6. Cliquez sur le bouton **Créer** .  
+6. Cliquez sur le bouton **Créer**.  
 
 ![Capture d’écran montrant la création du groupe de ressources dans le portail Azure](./media/storage-quickstart-create-account/create-resource-group.png)
 
@@ -166,7 +165,7 @@ Pour créer un compte de stockage à usage général v2 dans le portail Azure, p
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Tous les services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
 2. Entrez un nom pour votre compte de stockage.
 3. Définissez le champ **Type de compte** sur **StorageV2 (usage général v2)**.
-4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (préversion ZRS)**, **Stockage géo-redondant (GRS)** ou **Stockage géo-redondant avec accès en lecture (RA-GRS)**.
+4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (ZRS)**, **Stockage géoredondant (GRS)** ou **Stockage géoredondant avec accès en lecture (RA-GRS)**.
 5. Laissez ces champs définis sur leurs valeurs par défaut : **Modèle de déploiement**, **Performances** et **Transfert sécurisé requis**.
 6. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 7. Dans la section **Groupe de ressources**, sélectionnez **Use existing** (Utiliser l’existant), puis choisissez le groupe de ressources que vous avez créé dans la section précédente.
@@ -187,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (préversion ZRS), Stockage géo-redondant (GRS) ou Stockage géo-redondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
+Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (ZRS en préversion), Stockage géoredondant (GRS) ou Stockage géoredondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
 
 |Option de réplication  |Paramètre SkuName  |
 |---------|---------|
@@ -220,15 +219,9 @@ Pour créer un compte de stockage à usage général v2 avec l’option Stockage
 
 ---
 
-> [!NOTE]
-> L’option [Stockage redondant dans une zone](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) est actuellement en préversion et disponible uniquement dans les zones suivantes :
->    - Est des États-Unis 2
->    - Centre des États-Unis
->    - France-Centre (cette zone est actuellement en préversion. Consultez [Préversion de Microsoft Azure avec des zones de disponibilité Azure désormais ouvertes en France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) pour demander l’accès.)
-    
-Pour plus d’informations sur les différentes options de réplication disponibles, consultez l’article [Storage replication options](storage-redundancy.md) (Options de réplication de stockage).
+Pour plus d’informations sur les options de réplication disponibles, consultez [Options de réplication de stockage](storage-redundancy.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous souhaitez supprimer les ressources créées par ce démarrage rapide, vous pouvez simplement supprimer le groupe de ressources. La suppression du groupe de ressources efface également le compte de stockage associé et d’autres ressources liées au groupe de ressources.
 
@@ -260,7 +253,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un compte de stockage standard à usage général. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au démarrage rapide du stockage Blob.
+Dans ce guide de démarrage rapide, vous avez créé un compte de stockage standard à usage général. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au guide de démarrage rapide du stockage Blob.
 
 # <a name="portaltabportal"></a>[Portail](#tab/portal)
 

@@ -4,24 +4,24 @@ description: Découvrez comment collaborent l’API Table Azure Cosmos DB et Sto
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 378f00f2-cfd9-4f6b-a9b1-d1e4c70799fd
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2560c2ee34a83ce86db043e17fb41192c31de398
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1ebf244aeb00b1eb87b846a5bb1db6bd4f954e26
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798166"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Développement avec l’API Table Azure Cosmos DB et Stockage Table Azure
 
 L’API Table Azure Cosmos DB et Stockage Table Azure partagent le même modèle de données de table et exposent les mêmes opérations de création, suppression, mise à jour et interrogation par le biais de leurs SDK. 
+
+[!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Développement avec l’API Table Azure Cosmos DB
 
@@ -33,9 +33,21 @@ L’API Table Azure Cosmos DB et Stockage Table Azure partagent le même modèle
 
 Des informations supplémentaires sur l’utilisation de l’API Table sont disponibles dans l’article [FAQ : Développer avec l’API Table](faq.md#develop-with-the-table-api).
 
-## <a name="developing-with-the-azure-table-storage"></a>Développement avec Stockage Table Azure
+## <a name="developing-with-azure-table-storage"></a>Développement avec Stockage de tables Azure
 
-[Stockage Table Azure](table-storage-overview.md) met à votre disposition de nombreux SDK et didacticiels, qui se trouvent désormais dans la section [Stockage Table Azure](table-storage-overview.md). Ces articles sont mis à jour à mesure que l’interopérabilité entre les SDK Stockage Table Azure et les API Table Azure Cosmos DB devient disponible.  
+Ces Kit de développement logiciel (SDK) sont disponibles pour le développement avec le stockage de tables Azure :
+
+- [Kit de développement logiciel (SDK) WindowsAzure.Storage .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Cette bibliothèque vous permet de travailler avec le service de Table de stockage.
+- [Kit de développement logiciel (SDK) Python](table-sdk-python.md). Le Kit de développement logiciel (SDK) Table d’Azure Cosmos DB pour Python prend également en charge le service de Table de stockage.
+- [Kit de développement logiciel (SDK) Stockage Azure pour Java](https://github.com/azure/azure-storage-java). Ce Kit de développement logiciel (SDK) du Stockage Azure fournit une bibliothèque cliente en Java pour consommer le stockage de tables Azure.
+- [Kit de développement logiciel (SDK) Node.js](table-sdk-nodejs.md). Ce Kit de développement logiciel (SDK) fournit un package Node.js et une bibliothèque de client compatible avec le navigateur JavaScript afin de consommer le service de Table de stockage.
+- [Module PowerShell AzureRmStorageTable](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). Ce module PowerShell comporte des cmdlet permettant de travailler avec des Tables de stockage.
+- [Bibliothèque de client de stockage Azure pour C++](https://github.com/Azure/azure-storage-cpp/). Cette bibliothèque vous permet de créer des applications sur Stockage Azure.
+- [Bibliothèque de client du service de Table de Stockage Azure pour Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Ce projet fournit un package Ruby qui facilite l’accès aux services de Table de stockage Azure.
+- [Bibliothèque de client PHP du service de Table de Stockage Azure pour Ruby](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Ce projet fournit une bibliothèque de client PHP qui facilite l’accès aux services de Table de stockage Azure.
+
+
+   
 
 
 

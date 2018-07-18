@@ -7,16 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 60d65b17d4cbe8a45ff3fb62b06852d7b945e8f1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832857"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861105"
 ---
 # <a name="document-collection-analysis"></a>Analyse d’une collection de documents
 
@@ -75,7 +75,7 @@ Créez un projet en utilisant cet exemple comme modèle :
 
 ## <a name="data-description"></a>Description des données
 
-Le jeu de données utilisé dans ce scénario contient des synthèses de textes et les métadonnées associées pour chaque action législative présentée par le Congrès des États-Unis. Les données collectées proviennent du site [GovTrack.us](https://www.govtrack.us/), qui suit les activités du Congrès des États-Unis et offre aux américains un moyen de participer au processus législatif de leur pays. Vous pouvez télécharger ces données en bloc par le biais de [ce lien](https://www.govtrack.us/data/congress/) à l’aide d’un script manuel (non fourni dans ce scénario). Les instructions pour télécharger les données sont consultables dans la [documentation de l’API GovTrack](https://www.govtrack.us/developers/api).
+Le jeu de données utilisé dans ce scénario contient des synthèses de textes et les métadonnées associées pour chaque action législative présentée par le Congrès des États-Unis. Les données collectées proviennent du site [GovTrack.us](https://www.govtrack.us/), qui suit les activités du Congrès des États-Unis et offre aux américains un moyen de participer au processus législatif de leur pays. Vous pouvez télécharger ces données en bloc par le biais de [ce lien](https://www.govtrack.us/data/congress/) à l’aide d’un script manuel (non fourni dans ce scénario). Les instructions pour télécharger les données sont consultables dans la [documentation de l’API GovTrack](https://www.govtrack.us/developers).
 
 ### <a name="data-source"></a>Source de données
 

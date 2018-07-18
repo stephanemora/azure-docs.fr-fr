@@ -1,6 +1,6 @@
 ---
-title: Créer un laboratoire personnalisé à l’aide de Azure DevTest Labs | Microsoft Docs
-description: Dans ce guide de démarrage rapide, vous créez un laboratoire personnalisé à l’aide de Azure DevTest Labs.
+title: Créer un laboratoire à l’aide de Azure DevTest Labs | Microsoft Docs
+description: Dans ce guide de démarrage rapide, vous créez un laboratoire à l’aide de Azure DevTest Labs.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362241"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636985"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire personnalisé à l’aide de Azure DevTest Labs
-Dans ce didacticiel, vous créez un laboratoire personnalisé en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
+Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
-Dans ce didacticiel, vous effectuez les actions suivantes :
+Dans ce didacticiel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer un laboratoire personnalisé
+> * Création d’un laboratoire
 > * Ajouter des machines virtuelles (VM) dans le laboratoire
 > * Ajouter un utilisateur au rôle Utilisateur de laboratoire
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="create-a-custom-lab"></a>Créer un laboratoire personnalisé
+## <a name="create-a-lab"></a>Création d’un laboratoire
 Les étapes suivantes montrent comment utiliser le portail Azure pour créer un laboratoire dans Azure DevTest Labs. 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
@@ -97,8 +97,8 @@ Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendi
 4. Répétez ces étapes pour supprimer le groupe de ressources supplémentaire créé pour vous, avec le nom `<your resource group name><random numbers>`. Par exemple : `splab3988722144001`. Les machines virtuelles sont créées dans ce groupe de ressources plutôt que dans le groupe de ressources au sein duquel se trouve le laboratoire. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez créé un laboratoire personnalisé avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au didacticiel suivant :
+Dans ce didacticiel, vous avez créé un laboratoire avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au didacticiel suivant :
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Accéder au laboratoire personnalisé](tutorial-use-custom-lab.md)
+> [Didacticiel : Accéder au laboratoire](tutorial-use-custom-lab.md)
 

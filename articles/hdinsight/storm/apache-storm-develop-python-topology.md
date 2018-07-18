@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 9137e509ff352bdcb7a74b652b5c7c7edef2d7ea
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311690"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131158"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Développer des topologies Storm Apache à l’aide de Python sur HDInsight
 
@@ -32,14 +32,13 @@ Le code de ce projet est disponible à l’adresse [https://github.com/Azure-Sam
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Python 2.7 ou ultérieure
 
 * Java JDK 1.8 ou version ultérieure.
 
 * Maven 3.
 
-* (Facultatif) Un environnement de développement Storm local. Un environnement Storm local n’est nécessaire que si vous souhaitez exécuter la topologie localement. Pour plus d’informations, consultez la page [Configurer un environnement de développement](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html).
+* (Facultatif) Un environnement de développement Storm local. Un environnement Storm local n’est nécessaire que si vous souhaitez exécuter la topologie localement. Pour plus d’informations, consultez la page [Configurer un environnement de développement](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Prise en charge multi-langage de Storm
 
@@ -98,7 +97,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> Cette commande requiert un environnement de développement Storm local. Pour plus d’informations, consultez la page [Configurer un environnement de développement](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html).
+> Cette commande requiert un environnement de développement Storm local. Pour plus d’informations, consultez la page [Configurer un environnement de développement](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 Une fois démarrée, la topologie émet des informations de ce type sur la console locale :
 

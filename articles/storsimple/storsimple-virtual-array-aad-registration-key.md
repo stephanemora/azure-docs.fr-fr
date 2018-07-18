@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 06/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d033cc09de8e115324067d7bbdf052751730d63
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e33a3f843017ec24f3a79701fac9a62e15b4f9ba
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28031050"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109186"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Pour l’instant, le service StorSimple Device Manager utilise un service de contrôle d’accès (ACS) pour authentifier le service sur votre appareil StorSimple. Ce mécanisme d’ACS sera bientôt mis hors service et remplacé par une authentification Azure Active Directory (AAD).
+Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Actuellement, le service Gestionnaire de périphériques StorSimple utilise un service de contrôle d’accès (ACS) pour authentifier le service sur votre appareil StorSimple. Ce mécanisme d’ACS sera bientôt mis hors service et remplacé par une authentification Azure Active Directory (AAD).
 
 Les informations contenues dans cet article s’appliquent uniquement à la gamme StorSimple 1200 Virtual Arrays. Cet article décrit en détail l’authentification AAD et la nouvelle clé d’inscription du service associé, ainsi que les modifications apportées aux règles de pare-feu applicables aux appareils StorSimple.
 
@@ -59,9 +59,9 @@ Avec un StorSimple Virtual Array, utilisez le tableau suivant pour déterminer l
 
 | Si votre appareil exécute  | Procédez comme suit                                    |
 |----------------------------|--------------------------------------------------------------|
-| Update 1.0 ou une version ultérieure et que l’appareil est hors connexion. <br> Vous voyez une alerte indiquant que l’URL n’est pas dans la liste verte.| Modifiez les règles de pare-feu et incluez-y l’URL d’authentification. Consultez les [URL d’authentification](#url-changes-for-aad-authentication). |
+| Update 1.0 ou une version ultérieure et que l’appareil est hors connexion. <br> Vous voyez une alerte indiquant que l’URL n’est pas dans la liste verte.| 1. Modifiez les règles de pare-feu et incluez-y l’URL d’authentification. Consultez la section [URL d’authentification](#url-changes-for-aad-authentication). <br> 2. [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys). <br> 3. Suivez les étapes 1 à 5 pour [vous connecter à l’interface Windows PowerShell du tableau virtuel](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Utilisez la cmdlet `Invoke-HcsReRegister` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
 | Update 1.0 ou une version ultérieure et que l’appareil est en ligne.| Aucune action n’est requise.                                       |
-| Update 0.6 ou une version antérieure et que l’appareil est hors ligne. | [Téléchargez Update 1.0 via le serveur de catalogue](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Appliquez Update 1.0 via l’interface utilisateur web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys). <br> Suivez les étapes 1 à 5 pour [vous connecter à l’interface Windows PowerShell du tableau virtuel](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Utilisez la cmdlet `Invoke-HcsReRegister` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
+| Update 0.6 ou une version antérieure et que l’appareil est hors ligne. | 1. [Téléchargez Update 1.0 via le serveur de catalogue](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Appliquez Update 1.0 via l’interface utilisateur web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys). <br>4. Suivez les étapes 1 à 5 pour [vous connecter à l’interface Windows PowerShell du tableau virtuel](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Utilisez la cmdlet `Invoke-HcsReRegister` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
 | Update 0.6 ou une version antérieure et que l’appareil est en ligne | Modifiez les règles de pare-feu et incluez-y l’URL d’authentification.<br> Installez Update 1.0 à l’aide du portail Azure. |
 
 ## <a name="aad-based-registration-keys"></a>Clés d’inscription AAD
@@ -76,7 +76,7 @@ Vous ne pouvez pas utiliser les nouvelles clés d’inscription au service AAD s
 
 Procédez comme suit pour générer une clé d’inscription au service AAD.
 
-#### <a name="to-generate-the-aad-service-registration-key"></a>Pour générer la clé d’inscription au service AAD
+#### <a name="to-generate-the-aad-service-registration-key"></a>Pour régénérer la clé d’inscription du service AAD
 
 1. Dans **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
     
@@ -90,6 +90,6 @@ Procédez comme suit pour générer une clé d’inscription au service AAD.
 
     ![Confirmer la régénération](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le déploiement de [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: d7f4bbe5e9950f864c6998b6a7c8844503083559
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5cc8db11e61eba1c5a366ac9816a472e8b692360
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654213"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à GPU optimisé
 
@@ -39,6 +40,7 @@ Pour les étapes d’installation et de vérification des pilotes, consultez l�
 - [Calcul haute performance](sizes-hpc.md)
 - [Mémoire optimisée](sizes-memory.md)
 - [Optimisé pour le stockage](sizes-storage.md)
+- [Générations précédentes](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

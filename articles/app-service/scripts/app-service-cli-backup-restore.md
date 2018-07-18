@@ -15,11 +15,11 @@ ms.date: 12/07/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: a7f292cfcfc90d3bacb245448b8e53d80488ebad
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282060"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306678"
 ---
 # <a name="restore-a-web-app-from-a-backup"></a>Restauration d’une application web à partir d’une sauvegarde
 
@@ -29,7 +29,7 @@ Pour exécuter ce script, vous avez besoin d’une sauvegarde existante pour une
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 

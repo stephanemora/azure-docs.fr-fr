@@ -5,12 +5,13 @@
     - name: "Présentation d’Azure\_DNS"
       href: dns-overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Résolution de noms - portail
       href: dns-getstarted-portal.md
-    - name: Créer une zone DNS et un enregistrement - PowerShell
+    - name: Résolution de noms - PowerShell
       href: dns-getstarted-powershell.md
-    - name: Créer une zone DNS et un enregistrement - CLI
+    - name: Résolution de noms - CLI
       href: dns-getstarted-cli.md
 - name: Didacticiels
   items:

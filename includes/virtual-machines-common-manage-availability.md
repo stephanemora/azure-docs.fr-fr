@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8173a5abbbeea38bc831b7cc76898714cd4dd4d4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670205"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -20,7 +21,7 @@ Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : 
 * Les **événements de maintenance matérielle non planifiée** surviennent lorsque la plateforme Azure prédit qu’une défaillance du matériel ou d’un composant de la plateforme, associé à une machine physique, est sur le point de se produire. Lorsque la plateforme prédit une défaillance, elle génère un événement de maintenance matérielle non prévue afin de réduire l’impact sur les machines virtuelles hébergées sur ce matériel. Azure utilise la technologie de Migration dynamique pour migrer les machines virtuelles depuis le matériel défectueux vers une machine physique intègre. La migration dynamique est une opération de préservation des machines virtuelles qui interrompt la machine virtuelle pendant une courte période. La mémoire, les fichiers ouverts et les connexions réseau sont conservés, mais les performances peuvent être réduites avant et/ou après l’événement. Dans les cas où la migration dynamique ne peut pas être utilisée, la machine virtuelle subit des temps d’arrêt imprévus, comme décrit ci-dessous.
 
 
-* Les **temps d’arrêt imprévus** surviennent rarement lorsque l’infrastructure physique ou matérielle sous-jacente de votre machine virtuelle est victime d’une défaillance. Cela comprend les défaillances du réseau local, du disque local ou au niveau du rack. Lorsqu’une défaillance de ce type est détectée, la plateforme Azure migre automatiquement (répare) votre machine virtuelle vers une machine physique saine dans le même centre de données. Lors de la procédure de réparation, les machines virtuelles subissent des temps d’arrêt (redémarrage) et, dans certains cas, une perte du lecteur temporaire. Le système d’exploitation attaché et les disques de données sont toujours conservés. 
+* On parle de **temps d’arrêt inattendu** lorsque le matériel ou l’infrastructure physique de l’ordinateur virtuel échoue de manière inattendue. Cela comprend les défaillances du réseau local, du disque local ou au niveau du rack. Lorsqu’une défaillance de ce type est détectée, la plateforme Azure migre automatiquement (répare) votre machine virtuelle vers une machine physique saine dans le même centre de données. Lors de la procédure de réparation, les machines virtuelles subissent des temps d’arrêt (redémarrage) et, dans certains cas, une perte du lecteur temporaire. Le système d’exploitation attaché et les disques de données sont toujours conservés. 
 
   Les machines virtuelles peuvent éventuellement subir un temps d’arrêt en cas de panne ou de catastrophe qui affectent l’ensemble d’un centre de données ou d’une région. Dans ce genre de scénarios, Azure offre des options de protection pour les [zones de disponibilité](../articles/availability-zones/az-overview.md) et les [régions jumelées](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 

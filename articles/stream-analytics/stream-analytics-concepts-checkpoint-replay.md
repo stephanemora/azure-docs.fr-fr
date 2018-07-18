@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529202"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936715"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concepts de point de contrôle et de relecture dans les travaux Azure Stream Analytics
 Cet article décrit les concepts de point de contrôle et de relecture internes dans Azure Stream Analytics ainsi que leur impact sur la récupération de travail. Chaque fois qu’un travail Stream Analytics s’exécute, les informations d’état sont gérées en interne. Ces informations d’état sont régulièrement enregistrées dans un point de contrôle. Dans certains scénarios, les informations de point de contrôle sont utilisées pour la récupération du travail en cas d’échec ou de mise à niveau. Dans d’autres circonstances, le point de contrôle ne peut pas être utilisé pour la récupération et une relecture est nécessaire.
@@ -48,7 +48,7 @@ Microsoft met occasionnellement à niveau les fichiers binaires qui exécutent l
 
 Actuellement, le format de point de contrôle de récupération n’est pas conservé d’une mise à niveau à l’autre. Par conséquent, l’état de la requête de streaming doit être restauré entièrement à l’aide de la technique de relecture. Pour autoriser les travaux Stream Analytics à relire exactement la même entrée qu’avant, il faut définir la stratégie de rétention des données sources sur au moins la taille des fenêtres de votre requête. Sinon, vous obtenez des résultats incorrects ou partiels pendant la mise à niveau de service, car les données sources peuvent ne pas être conservées suffisamment longtemps pour contenir la taille de fenêtre entière.
 
-En règle générale, la relecture nécessaire est proportionnelle à la taille de la fenêtre multipliée par le taux d’événements moyen. Par exemple, pour un travail avec un taux d’entrée de 1 000 événements par seconde, une taille de fenêtre supérieure à une heure est considérée comme une grande relecture. Pour les requêtes avec une grande relecture, vous pouvez observer un retard dans la sortie (aucune sortie) pendant un long moment. 
+En règle générale, la relecture nécessaire est proportionnelle à la taille de la fenêtre multipliée par le taux d’événements moyen. Par exemple, pour un travail avec un taux d’entrée de 1 000 événements par seconde, une taille de fenêtre supérieure à une heure est considérée comme une grande relecture. Il peut être nécessaire de retraiter jusqu’à une heure de données pour initialiser l’état afin de pouvoir produire des résultats corrects et complets, ce qui peuvent entraîner un retard de sortie (aucune sortie) pour une période prolongée. Les requêtes sans fenêtre ou autre opérateur temporel, tel que `JOIN` ou `LAG`, n’aurait aucune relecture.
 
 ## <a name="estimate-replay-catch-up-time"></a>Estimer le temps de rattrapage de relecture
 Pour estimer la longueur du délai suite à une mise à niveau de service, vous pouvez suivre cette technique :

@@ -3,23 +3,25 @@ title: Codes d’erreur des rapports d’activité des connexions dans le portai
 description: Informations de référence des codes d’erreur des rapports d’activité des connexions.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/02/2018
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/31/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231987"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -29,7 +31,7 @@ Les informations indiquées dans le rapport sur les connexions des utilisateurs 
 - À quelles applications l’utilisateur s’est-il connecté ?
 - Quelles connexions ont échoué ? Le cas échéant, pourquoi ?
 
-Cette rubrique répertorie les codes d’erreur et les descriptions associées. 
+Cet article répertorie les codes d’erreur et les descriptions associées. 
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Comment afficher les connexions en échec ? 
 
@@ -54,58 +56,125 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 
 ## <a name="error-codes"></a>Codes d’erreur
 
+
 |Error|Description|
 |---|---|
-|50001|Le principal du service nommé X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire. Il se peut également que le principal de la ressource soit introuvable dans le répertoire ou non valide.|
-|50008|L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton.|
-|50011|L’adresse de réponse est manquante, configurée de façon incorrecte ou bien elle ne correspond pas aux adresses de réponse configurées pour l’application.|
-|50012|Un utilisateur a signalé une fraude lors de l’authentification multifacteur.|
+|20001|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
+|20012|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
+|20033|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
+|40008|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
+|40009|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
+|40014|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
+|50000|Il existe un problème avec notre service de connexion. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour résoudre ce problème.|
+|50001|Le nom de principal du service est introuvable dans ce locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire. Il se peut également que le principal de la ressource soit introuvable dans le répertoire ou non valide.|
+|50002|La connexion a échoué en raison de l’accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème|
+|50003|La connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Découvrez les procédures de résolution décrites à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application.|
+|50005|L’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel.|
+|50006| La vérification de la signature a échoué en raison d’une signature non valide. Découvrez la procédure de résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application.|
+|50007|Le certificat de chiffrement de partenaire pour cette application est introuvable. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème.|
+|50008|L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton. Contactez votre fournisseur de fédération.|
+|50010|La validation de l’URI d’audience pour l’application a échoué, car aucune audience de jeton n’a été configurée. Contactez le propriétaire de l’application.|
+|50011|L’adresse de réponse est manquante, configurée de façon incorrecte ou elle ne correspond pas aux adresses de réponse configurées pour l’application. Testez la résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application.|
+|50013|L’assertion n’est pas valide pour différentes raisons : l’émetteur du jeton ne correspond pas à la version d’API dans l’intervalle de temps valide (expiré, format incorrect). Le jeton d’actualisation dans l’assertion n’est pas un jeton d’actualisation principal.|
+|50017|La validation de la certification a échoué pour les raisons suivantes :<ul><li>Le certificat d’émission est introuvable dans la liste de certificats approuvés.</li><li>L’élément CrlSegment attendu est introuvable.</li><li>Le certificat d’émission est introuvable dans la liste de certificats approuvés.</li><li>Le point de distribution CRL delta est configuré sans point de distribution CRL correspondant.</li><li>Impossible de récupérer les segments CRL valides en raison d’un problème de délai d’expiration.</li><li>Impossible de télécharger la liste CRL.</li></ul>Contactez l’administrateur du locataire.|
+|50020|L’utilisateur n’est pas autorisé. Impossible d’émettre des jetons en raison d’un problème de version. Le nom de l’émetteur n’est pas spécifié. Il existe des problèmes avec le nom de l’émetteur (valeur nulle, longueur maximale). Contactez le propriétaire de l’application.|
+|50027|Jeton JWT non valide pour l’une des raisons suivantes :<ul><li>Aucune (sous-)revendication nonce</li><li>Non-concordance de l’identificateur du sujet</li><li>Revendication en double pour idToken</li><li>Émetteur inattendu</li><li>Audience inattendue</li><li>Intervalle de temps non valide </li><li>format de jeton incorrect</li><li>Échec du jeton d’ID externe de l’émetteur lors de la vérification de la signature.</li></ul>Contactez le propriétaire de l’application.|
+|50029|URI non valide. Le nom du domaine contient des caractères non valides. Contactez l’administrateur du locataire.|
+|50034|L’utilisateur n’existe pas dans le répertoire. Contactez l’administrateur du locataire.|
+|50042|La valeur salt nécessaire pour générer un identificateur par paire est manquante dans le principal. Contactez l’administrateur du locataire.|
+|50048|L’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire.|
+|50050|Le format de la requête est incorrect. Contactez le propriétaire de l’application.|
 |50053|Le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrects.|
-|50054|Un ancien mot de passe est utilisé pour l’authentification.|
 |50055|Mot de passe non valide, mot de passe arrivé à expiration entré.|
-|50057|Le compte d’utilisateur est désactivé.|
-|50058|Aucune information sur l’identité de l’utilisateur ne se trouve dans les informations d’identification indiquées ; l’utilisateur est introuvable dans le locataire ; une demande de connexion en mode silencieux a été envoyée, mais aucun utilisateur n’est connecté ou encore le service n’a pas pu authentifier l’utilisateur.|
+|50056|Le mot de passe est nul ou non valide. Le mot de passe pour cet utilisateur n’existe pas dans le magasin.|
+|50057|Le compte d’utilisateur est désactivé. Le compte a été désactivé par un administrateur.|
+|50058|L’application a essayé d’effectuer une connexion en mode silencieux, et cela n’a pas fonctionné pour l’utilisateur. L’application a besoin de démarrer un flux interactif donnant aux utilisateurs une option de connexion. Contactez le propriétaire de l’application.|
+|50059|L’utilisateur n’existe pas dans le répertoire. Contactez l’administrateur du locataire.|
+|50061|La requête de déconnexion n’est pas valide. Contactez le propriétaire de l’application.|
 |50072|L’utilisateur doit s’inscrire pour l’authentification (interactive) du second facteur|
 |50074|L’utilisateur n’a pas réussi la vérification de l’authentification multifacteur.|
 |50076|L’utilisateur n’a pas réussi le test de l’authentification multifacteur (non interactif)|
-|50079|L’utilisateur doit s’inscrire pour l’authentification du second facteur.|
-|50089|La validation du jeton du flux a échoué en raison de l’expiration du jeton flux.|
-|50097|L’appareil n'est pas authentifié.|
-|50105|L’utilisateur connecté n’est pas affecté à un rôle pour cette application.|
+|50079|L’utilisateur doit s’inscrire pour l’authentification (non interactive) du second facteur.|
+|50085|Le jeton d’actualisation a besoin d’une connexion IDP sociale. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe.|
+|50089|Échec du jeton de flux. L’authentification a échoué. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe.|
+|50097|L’authentification des appareils est obligatoire. Les revendications DeviceId-DeviceAltSecId sont nulles, ou il n’existe aucun appareil correspondant à l’identificateur.|
+|50099|La signature JWT n’est pas valide. Contactez le propriétaire de l’application.|
+|50105|L’utilisateur connecté n’est pas affecté à un rôle pour l’application concernée. Affectez l’utilisateur à l’application. Pour plus d’informations : [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50107|L’objet de domaine de fédération requis n’existe pas. Contactez l’administrateur du locataire.|
+|50120|Problème avec l’en-tête JWT. Contactez l’administrateur du locataire.|
+|50124|La transformation des revendications contient un paramètre d’entrée non valide. Contactez l’administrateur du locataire pour mettre à jour la stratégie.|
 |50125|La connexion a été interrompue en raison d’une réinitialisation de mot de passe ou d’une entrée d’inscription de mot de passe|
 |50126|Nom d’utilisateur ou mot de passe non valides, ou nom d’utilisateur ou mot de passe locaux non valides.|
 |50127|L’utilisateur a besoin d’installer une application de répartiteur pour accéder à ce contenu.|
+|50128|Nom de domaine non valide. Informations d’identification de locataire introuvables dans la requête ou déduites des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service.|
 |50129|L’appareil n’est pas rattaché à l’espace de travail. Un rattachement à l’espace de travail est nécessaire pour inscrire l’appareil.|
-|50131|Utilisation dans différentes erreurs d’accès conditionnel. Par exemple, état d’appareil Windows incorrect, demande bloquée en raison d’une activité suspecte, d’une stratégie d’accès et de décisions de stratégie de sécurité.|
+|50130|La valeur de revendication ne peut pas être interprétée en tant que méthode d’authentification connue.|
+|50131|Utilisation dans différentes erreurs d’accès conditionnel. Par exemple, État d’appareil Windows incorrect, requête bloquée en raison d’une activité suspecte, d’une stratégie d’accès et de décisions de stratégie de sécurité.|
+|50132|Les informations d’identification ont été révoquées pour les raisons suivantes :<ul><li>Artefact d’authentification unique non valide ou expiré</li><li>Session pas assez récente pour l’application</li><li>Une requête de connexion en mode silencieux a été envoyée, mais la session de l’utilisateur auprès d’Azure AD n’est pas valide ou a expiré.</li></ul>|
 |50133|La session n’est pas valide en raison de l’expiration ou de la modification récente du mot de passe.|
-|50140|L’utilisateur est invité à donner son consentement pour rester connecté sur l’appareil|
-|50144|Le mot de passe Active Directory de l’utilisateur est arrivé à expiration.|
-|53000|Une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme.|
+|50135|La modification du mot de passe est nécessaire en raison du risque du compte.|
+|50136|Redirection de session MSA vers une application ; une seule session MSA détectée. |
+|50140|Cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
+|50143|Incompatibilité de session. La session n’est pas valide, car le locataire de l’utilisateur ne correspond pas à l’indicateur de domaine en raison d’une ressource différente. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails.|
+|50144|Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. Générez un nouveau mot de passe pour l’utilisateur ou demandez à l’utilisateur final d’utiliser l’outil de réinitialisation en libre service.|
+|50146|Cette application doit être configurée avec une clé de signature spécifique. Elle n’est configuré avec aucune clé, ou la clé a expiré ou n’est pas encore valide. Contactez le propriétaire de l’application.|
+|50148|L’élément code_verifier ne correspond pas à l’élément code_challenge fourni dans la requête d’autorisation pour PKCE. Contactez le développeur de l’application. |
+|50155|L’authentification de l’appareil a échoué pour cet utilisateur.|
+|50158|La vérification de sécurité externe n’a pas abouti.|
+|50161|Les revendications envoyées par un fournisseur externe ne sont pas suffisantes, ou il manque une revendication demandée à un fournisseur externe.|
+|50166|L’envoi de la requête au fournisseur de revendications a échoué.|
+|50169|Le domaine n’est pas un domaine configuré de l’espace de noms de service actuel.|
+|50172|Le fournisseur de revendications externe n’est pas approuvé. Contactez l’administrateur du locataire.|
+|50173|Un jeton d’authentification récent est nécessaire. Demandez à l’utilisateur de se connecter à nouveau à l’aide de nouvelles informations d’identification.|
+|50177|La vérification externe n’est pas prise en charge pour les utilisateurs de PassThrough.|
+|50178|Le contrôle de session n’est pas pris en charge pour les utilisateurs de PassThrough.|
+|50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
+|51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
+|51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
+|51006|L’authentification Windows intégrée est nécessaire. L’utilisateur s’est connecté à l’aide d’un jeton de session ne contenant pas de revendication wia. Demandez à l’utilisateur de se connecter à nouveau.|
+|52004|L’utilisateur n’a pas donné son consentement pour l’accès aux ressources de LinkedIn. |
+|53000|Une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’inscrire ses appareils auprès d’un fournisseur approuvé de gestion des périphériques mobiles, comme Intune.|
+|53001|Une stratégie d’accès conditionnel nécessite un appareil de jonction de domaine, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’utiliser un appareil de jonction de domaine.|
+|53002|L’application utilisée n’est pas une application approuvée pour l’accès conditionnel. L’utilisateur doit utiliser une des options de la liste des applications approuvées afin d’obtenir l’accès.|
 |53003|L’accès a été bloqué en raison de stratégies d’accès conditionnel.|
+|53004|L’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur.|
 |65 001|L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application Y pour la ressource Z.|
-|65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a retourné une demande incorrecte ou la ressource est introuvable.|
-|70001|L’application nommée X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre demande d’authentification au locataire incorrect.|
-|80001|L’Agent d’authentification ne peut pas se connecter à Active Directory.|
-|80002|La demande de validation du mot de passe de l’Agent d’authentification est arrivée à expiration.|
-|80003|Réponse non valide reçue par l’Agent d’authentification.|
-|80004|Nom d’utilisateur principal (UPN) incorrect utilisé dans la demande de connexion.|
-|80005|Agent d’authentification : une erreur s’est produite.|
+|65004|L’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
+|65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|70000|Octroi non valide pour l’une des raisons suivantes :<ul><li>L’assertion SAML 2.0 demandée a une méthode de confirmation d’objet non valide.</li><li>Le flux OnBehalfOf de l’application n’est pas pris en charge sur V2.</li><li>Le jeton d’actualisation principal n’est pas signé avec la clé de session.</li><li>Le jeton d’actualisation externe n’est pas valide.</li><li>L’octroi d’accès a été obtenu pour un autre locataire.</li></ul>|
+|70001|L’application nommée X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application associée à l’identificateur X n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être configuré de manière incorrecte la valeur d’identificateur de l’application ou envoyé votre requête d’authentification à un locataire incorrect.|
+|70002|L’application a renvoyé des informations d’identification client non valides. Contactez le propriétaire de l’application.|
+|70003|L’application a renvoyé un type d’octroi non pris en charge. Contactez le propriétaire de l’application.|
+|70004|L’application a renvoyé un URI de redirection non valide. L’adresse de redirection spécifiée par le client ne correspond à aucune adresse configurée ni à aucune adresse de la liste d’approbation OIDC. Contactez le propriétaire de l’application.|
+|70005|L’application a renvoyé un type de réponse non pris en charge pour les raisons suivantes :<ul><li>Le type de réponse « jeton » n’est pas activé pour l’application.</li><li>Le type de réponse « id_token » requiert la portée « OpenID ». La réponse contient une valeur de paramètre OAuth non prise en charge dans l’élément wctx codé.</li></ul>Contactez le propriétaire de l’application.|
+|70007|L’application a renvoyé une valeur non prise en charge pour « response_mode » lors de la demande d’un jeton. Contactez le propriétaire de l’application.|
+|70008|Le code d’autorisation ou le jeton d’actualisation fourni a expiré et a été révoqué. Demandez à l’utilisateur de réessayer de se connecter.|
+|70011|La portée demandée par l’application n’est pas valide. Contactez le propriétaire de l’application.|
+|70012|Une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Veuillez réessayer. Si le problème persiste, [ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md). |
+|70018|Le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée.|
+|70019|Le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter.|
+|70037|La réponse donnée à la question de vérification est incorrecte. La session d’authentification à distance a été refusée.|
+|75001|Une erreur s’est produite lors de la liaison de message SAML.|
+|75003|L’application a renvoyé une erreur relative à une liaison non prise en charge (impossible d’envoyer une réponse de protocole SAML via des liaisons autres que HTTP POST). Contactez le propriétaire de l’application.|
+|75005|Azure AD ne prend pas en charge les demandes SAML envoyées par l’application pour l’authentification unique. Contactez le propriétaire de l’application.|
+|75008|La requête provenant de l’application a été refusée, car la requête SAML avait une destination inattendue. Contactez le propriétaire de l’application.|
+|75011|La méthode d’authentification de l’utilisateur auprès du service ne correspond pas à la méthode d’authentification demandée. Contactez le propriétaire de l’application.|
+|75016|Dans la requête d’authentification SAML2, NameIdPolicy n’est pas valide. Contactez le propriétaire de l’application.|
+|80001|L’Agent d’authentification ne peut pas se connecter à Active Directory. Assurez-vous que l’agent d’authentification est installé sur un ordinateur de jonction de domaine ayant une visibilité sur un contrôleur de domaine qui peut répondre à la requête de connexion de l’utilisateur.|
+|80002|Erreur interne. La requête de validation du mot de passe est arrivée à expiration. Nous n’avons pas pu envoyer la requête d’authentification au service d’identité hybride interne. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
+|80003|Réponse non valide reçue par l’Agent d’authentification. Une erreur inconnue s’est produite lors de la tentative d’authentification auprès de l’instance Active Directory locale. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
+|80005|Agent d’authentification : une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur.|
 |80007|L’Agent d’authentification ne peut pas valider le mot de passe.|
-|80010|L’Agent d’authentification ne peut pas déchiffrer le mot de passe.|
-|80011|L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement.|
-|81001|Le ticket Kerberos de l’utilisateur est trop volumineux.|
-|81002|Impossible de valider le ticket Kerberos de l’utilisateur.|
-|81003|Impossible de valider le ticket Kerberos de l’utilisateur.|
-|81004|Échec de l’authentification Kerberos.|
-|81008|Impossible de valider le ticket Kerberos de l’utilisateur.|
-|81009|Impossible de valider le ticket Kerberos de l’utilisateur.|
-|81010|Échec de l’authentification unique transparente, car le ticket Kerberos de l’utilisateur est arrivé à expiration ou n’est pas valide.|
-|81011|L’objet utilisateur basé sur les informations est introuvable dans le ticket Kerberos de l’utilisateur.|
-|81012|L’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil.|
-|81013|Impossible de trouver l’objet utilisateur à partir des informations contenues dans le ticket Kerberos de l’utilisateur.|
-|90014|Utilisation dans différents cas lorsqu’un champ attendu est absent des informations d’identification.|
-|90093|Graphique retourné avec un code d’erreur interdit pour la demande.|
-|90094|Le consentement de l’administrateur est nécessaire.|
+|80010|L’Agent d’authentification ne peut pas déchiffrer le mot de passe. |
+|80011|L’agent d’authentification n’a pas pu récupérer la clé de déchiffrement.|
+|80012|Les utilisateurs ont essayé de se connecter en dehors des heures autorisées (spécifiées dans Active Directory).|
+|80013|La tentative d’authentification n’a pas abouti en raison du temps de décalage entre l’ordinateur exécutant l’agent d’authentification et Active Directory. Résolvez les problèmes de synchronisation.|
+|80014|L’agent d’authentification a expiré. [Ouvrez un ticket de support](fundamentals/active-directory-troubleshooting-support-howto.md) avec le code d’erreur, l’ID de corrélation et la date/l’heure pour obtenir plus de détails sur cette erreur.|
+|81001|Le ticket Kerberos de l’utilisateur est trop volumineux. Cela peut se produire si l’utilisateur appartient à trop de groupes, auquel cas le ticket Kerberos contient trop d’appartenances aux groupes. Réduisez les appartenances à des groupes de l’utilisateur, puis réessayez.|
+|81005|Le package d’authentification n’est pas pris en charge.|
+|81007|Le locataire n’est pas activé pour l’authentification unique transparente.|
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus, voir [Rapports d’activité des connexions dans le portail Azure Active Directory](active-directory-reporting-activity-sign-ins.md).

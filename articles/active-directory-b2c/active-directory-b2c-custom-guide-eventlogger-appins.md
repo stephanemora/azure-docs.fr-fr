@@ -1,20 +1,21 @@
 ---
-title: Suivre le comportement des utilisateurs à l’aide d’événements dans Application Insights à partir d’Azure AD B2C | Microsoft Docs
+title: Suivre le comportement des utilisateurs à l’aide d’événements dans Application Insights à partir d’Azure Active Directory B2C | Microsoft Docs
 description: Guide pas à pas pour activer les journaux d’événements dans Application Insights à partir des parcours utilisateur Azure AD B2C à l’aide de stratégies personnalisées (préversion)
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
-ms.openlocfilehash: db9ba62cb6ef0d2627dbeb07cb8165a4ac7ae490
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709962"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Suivre le comportement des utilisateurs dans les parcours Azure AD B2C à l’aide d’Application Insights
 
@@ -37,7 +38,6 @@ Un profil technique utilise ce fournisseur pour définir un événement à parti
 Application Insights peut unifier les événements en utilisant un ID de corrélation pour enregistrer une session utilisateur. Application Insights rend la session et les événements disponibles en quelques secondes et présente de nombreux outils d’analyse, d’exportation et de visualisation.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Suivez les étapes décrites dans [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md). Cet article part du principe que vous utilisez le pack de démarrage de stratégie personnalisée. Cependant, le pack de démarrage n’est pas obligatoire.
 

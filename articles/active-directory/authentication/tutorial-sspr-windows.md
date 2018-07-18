@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867491"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972979"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -28,7 +28,7 @@ Pour permettre aux utilisateurs de réinitialiser leur mot de passe Azure AD à 
 * Mise à jour d’avril 2018 de Windows 10 ou client plus récent [joint à Azure AD](../device-management-azure-portal.md) ou [joint à Azure AD hybride](../device-management-hybrid-azuread-joined-devices-setup.md).
 * activer la réinitialisation du mot de passe libre-service Azure AD.
 * Configurez et déployez le paramètre permettant d’activer le lien de réinitialisation du mot de passe via l’une des méthodes suivantes :
-   * [Profil de configuration d’appareil Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Profil de configuration d’appareil Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Cette méthode nécessite un appareil inscrit à Intune.
    * [Clé de Registre](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
@@ -66,7 +66,7 @@ Pour permettre aux utilisateurs de réinitialiser leur mot de passe Azure AD à 
    * Cliquez sur **Sélectionner**
 4. Cliquez sur **Créer**
 
-Vous trouverez plus d’informations sur la création de groupes dans l’article [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory-manage-groups.md).
+Vous trouverez plus d’informations sur la création de groupes dans l’article [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../fundamentals/active-directory-manage-groups.md).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Attribuer la stratégie de configuration d’appareil au groupe d’appareils
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248535"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938007"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -347,7 +347,7 @@ Une autre meilleure pratique pour fractionner des données d’apprentissage et 
 ### <a name="handling-imbalanced-data"></a>Gestion de données déséquilibrées
 Dans les problèmes de classification, s'il y a plus d'exemples pour une classe que pour les autres, on parle d’un jeu de données _déséquilibré_. Dans l'idéal, on préfère avoir suffisamment de représentants de chaque classe dans les données d'apprentissage pour pouvoir distinguer les différentes classes. Si une classe représente moins de 10 % des données, les données sont considérées comme déséquilibrées. La classe sous-représentée est appelée _classe minoritaire_.
 
-De nombreux problèmes de PdM sont confrontés à de tels jeux de données déséquilibrés, où une classe est fortement sous-représentée par rapport à l'autre classe, ou aux classes. Dans certains cas, la classe minoritaire peut ne représenter que 0,001 % du total des points de données. Le déséquilibre des classes ne concerne pas uniquement la PdM. On rencontre des problèmes similaires dans d’autres domaines où les défaillances et les anomalies sont rares, par exemple, la détection des fraudes et l’intrusion dans des réseaux. Ces défaillances sont à l’origine des exemples de classes minoritaires.
+De nombreux problèmes de PdM sont confrontés à de tels jeux de données déséquilibrés, où une classe est fortement sous-représentée par rapport à l'autre classe, ou aux classes. Dans certains cas, la classe minoritaire peut ne représenter que 0,001 % du total des points de données. Le déséquilibre des classes ne concerne pas uniquement la PdM. On rencontre des problèmes similaires dans d’autres domaines où les défaillances et les anomalies sont rares, par exemple, la détection des fraudes et l’intrusion dans des réseaux. Ces défaillances sont à l’origine des exemples de classes minoritaires.
 
 Le déséquilibre des classes dans les données compromet les performances de la plupart des algorithmes d’apprentissage standard, car ils tendent à minimiser le taux d’erreur global. Pour un jeu de données avec 99 % d’exemples négatifs et 1 % d’exemples positifs, un modèle peut avoir une précision de 99 % en étiquetant toutes les instances comme négatives. Mais le modèle classifiera mal tous les exemples positifs. Ainsi, malgré une très grande précision, l’algorithme ne sera pas utile. Par conséquent, les mesures d'évaluation classiques, telles que la _précision globale sur le taux d'erreur_, sont insuffisantes pour un apprentissage déséquilibré. Face à des jeux de données déséquilibrés, d’autres métriques sont utilisés pour l’évaluation du modèle :
 - Precision
@@ -369,7 +369,7 @@ Le _suréchantillonnage aléatoire_ implique la sélection d’un échantillon a
 Il existe de nombreuses techniques d’échantillonnage sophistiquées. La technique choisie varie selon les propriétés des données et les résultats des expériences itératives obtenus par le scientifique des données.
 
 #### <a name="cost-sensitive-learning"></a>Apprentissage sensible au coût
-Dans la PdM, les défaillances qui constituent la classe minoritaire sont plus intéressants que des exemples normaux. Par conséquent, on se concentre sur les performances de l’algorithme en cas de défaillances. Prédire de manière incorrecte qu’une classe positive sera une classe négative peut coûter plus que l’inverse. Cette situation est généralement appelée perte inégale ou coût asymétrique d’éléments mal classés dans différentes classes. Le classifieur idéal doit offrir une grande précision de prédiction sur la classe minoritaire, sans compromettre la précision de la classe majoritaire.
+Dans la PdM, les défaillances qui constituent la classe minoritaire sont plus intéressants que des exemples normaux. Par conséquent, on se concentre sur les performances de l’algorithme en cas de défaillances Prédire de manière incorrecte qu’une classe positive sera une classe négative peut coûter plus que l’inverse. Cette situation est généralement appelée perte inégale ou coût asymétrique d’éléments mal classés dans différentes classes. Le classifieur idéal doit offrir une grande précision de prédiction sur la classe minoritaire, sans compromettre la précision de la classe majoritaire.
 
 Il existe plusieurs manières d’atteindre cet équilibre. Pour atténuer le problème des pertes inégales, attribuez un coût élevé à la classification incorrecte de la classe minoritaire et essayez de minimiser le coût total. Les algorithmes comme _SVM (machine à vecteur de support)_ adoptent cette méthode par nature, en autorisant que le coût des exemples positifs et négatifs soit spécifié pendant l’apprentissage. De même, des méthodes d’amélioration telles que des _arbres de décision optimisés_ affichent généralement de bonnes performances en cas de données déséquilibrées.
 
@@ -434,7 +434,7 @@ Microsoft Azure propose du contenu gratuit et une formation sur les concepts et 
 |:-------------------|--------------|
 | [Développeur d’IA sur Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer)  | Public |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths)  | Public |
-| [Apprentissage AI Azure à partir de GitHub](http://azure.github.io/learnanalytics/public) | Public |
+| [Apprentissage AI Azure à partir de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Webinaires Microsoft AI sur Youtube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Présentation de Microsoft AI](http://channel9.msdn.com/Shows/AI-Show) | Public |

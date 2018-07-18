@@ -2,30 +2,27 @@
 title: Faire expirer des données dans Cosmos DB avec la durée de vie | Documents Microsoft
 description: Avec la TTL, Microsoft Azure Cosmos DB offre la possibilité de vider automatiquement les documents du système après une période déterminée.
 services: cosmos-db
-documentationcenter: ''
 keywords: durée de vie
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615119"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Faire expirer des données dans des collections Cosmos DB automatiquement avec la durée de vie
-Les applications peuvent générer et stocker de grandes quantités de données. Certaines de ces données, telles que les données d’événement générées par la machine, les journaux et les informations de session utilisateur, sont utiles uniquement pendant une certaine période. Une fois les données trop nombreuses par rapport aux besoins de l’application, vous pouvez les vider et réduire les besoins de stockage d’une application.
+Les applications peuvent générer et stocker de grandes quantités de données. Certaines de ces données, telles que les données d’événement générées par la machine, les journaux et les informations de session utilisateur, sont utiles uniquement pendant une certaine période. Une fois les données trop nombreuses par rapport aux besoins de l’application, vous pouvez les vider et réduire ainsi ses besoins de stockage.
 
 Avec la « durée de vie » (TTL, Time to Live), Microsoft Azure Cosmos DB offre la possibilité de vider automatiquement les documents de la base de données après une période déterminée. La durée de vie par défaut peut être définie au niveau de la collection et être substituée par document. Une fois la TTL définie, soit en tant que valeur par défaut de la collection, soit au niveau du document, Cosmos DB supprime automatiquement les documents existant une fois cette période (en secondes) écoulée depuis leur dernière modification.
 
-Dans Cosmos DB, la durée de vie utilise un décalage par rapport au moment où le document a été modifié pour la dernière fois. Pour ce faire, il utilise le champ `_ts` qui existe sur tous les documents. Le champ _ts est un horodateur d’époque de style Unix représentant la date et l’heure. Le champ `_ts` est mis à jour à chaque modification d’un document. 
+Dans Azure Cosmos DB, la durée de vie utilise un décalage par rapport au moment où le document a été modifié pour la dernière fois. Il utilise pour cela le champ `_ts`, qui existe sur tous les documents. Le champ _ts est un horodateur d’époque de style Unix représentant la date et l’heure. Le champ `_ts` est mis à jour à chaque modification d’un document. 
 
 ## <a name="ttl-behavior"></a>Comportement de la TTL
 La fonction TTL est contrôlée par les propriétés TTL à deux niveaux : au niveau de la collection et au niveau du document. Les valeurs sont définies en secondes et sont traitées en tant qu’écart par rapport à l’horodatage de dernière modification du document (`_ts`).
@@ -33,8 +30,8 @@ La fonction TTL est contrôlée par les propriétés TTL à deux niveaux : au ni
 1. DefaultTTL pour la collection
    
    * Si ce paramètre est manquant (ou a la valeur null), les documents ne sont pas supprimés automatiquement.
-   * Si ce paramètre est présent et a la valeur « -1 » (infinie), les documents n’expirent pas par défaut.
-   * Si ce paramètre est présent et que sa valeur est un nombre (« n »), les documents expirent « n » secondes après la dernière modification.
+   * Si ce paramètre est présent et a la valeur « -1 » (= infini), les documents n’expirent pas par défaut.
+   * Si ce paramètre est présent et que sa valeur est définie sur un nombre quelconque (« n »), les documents expirent « n » secondes après la dernière modification.
 2. TTL pour les documents : 
    
    * La propriété s’applique uniquement si le paramètre DefaultTTL est présent pour la collection parente.
@@ -47,8 +44,8 @@ La logique ci-dessus peut être représentée dans le tableau suivant :
 |  | DefaultTTL manquante/non définie sur la collection | DefaultTTL = -1 sur la collection | DefaultTTL = « n » sur la collection |
 | --- |:--- |:--- |:--- |
 | TTL manquante sur le document |Rien à substituer au niveau du document, car aucun concept de TTL n’existe pour le document et la collection. |Aucun document de cette collection n’expire. |Les documents de cette collection expireront une fois l’intervalle n écoulé. |
-| TTL = -1 sur le document |Rien à substituer au niveau du document, car la collection ne définit pas la propriété DefaultTTL qu’un document peut substituer. La TTL sur un document n’est pas interprétée par le système. |Aucun document de cette collection n’expire. |Le document avec TTL=-1 dans cette collection n’expire jamais. Tous les autres documents expirent après l’intervalle « n ». |
-| TTL = n sur le document |Rien à substituer au niveau du document. La TTL sur un document n’est pas interprétée par le système. |Le document avec TTL = n expire après l’intervalle n, en secondes. D’autres documents héritent de l’intervalle -1 et n’expirent jamais. |Le document avec TTL = n expire après l’intervalle n, en secondes. D’autres documents héritent de l’intervalle « n » de la collection. |
+| TTL = -1 sur le document |Rien à substituer au niveau du document, car la collection ne définit pas la propriété DefaultTTL qu’un document peut substituer. La durée de vie sur un document n’est pas interprétée par le système. |Aucun document de cette collection n’expire. |Le document avec TTL=-1 dans cette collection n’expire jamais. Tous les autres documents expirent après l’intervalle « n ». |
+| TTL = n sur le document |Rien à substituer au niveau du document. La durée de vie sur un document n’est pas interprétée par le système. |Le document avec TTL = n expire après l’intervalle n, en secondes. D’autres documents héritent de l’intervalle -1 et n’expirent jamais. |Le document avec TTL = n expire après l’intervalle n, en secondes. D’autres documents héritent de l’intervalle « n » de la collection. |
 
 ## <a name="configuring-ttl"></a>Configuration de la TTL
 Par défaut, la durée de vie est désactivée dans toutes les collections Cosmos DB et sur tous les documents. La durée de vie (TTL) peut être définie par programme ou dans le portail Azure, dans la section **Paramètres** de la collection. 
@@ -81,9 +78,9 @@ Vous pouvez configurer une durée de vie par défaut au niveau de la collection.
 
 
 ## <a name="setting-ttl-on-a-document"></a>Définition de la TTL sur un document
-En plus de définir une TTL par défaut sur une collection, vous pouvez définir une TTL spécifique au niveau d’un document. Cela remplace la valeur par défaut de la collection.
+En plus de définir une durée de vie par défaut sur une collection, vous pouvez définir une durée de vie spécifique au niveau d’un document. Cela remplace la valeur par défaut de la collection.
 
-* Pour définir la durée de vie sur un document, vous devez fournir un nombre positif non nul qui indique, en secondes, le délai d’expiration du document après l’horodatage de dernière modification du document (`_ts`).
+* Pour définir la durée de vie sur un document, vous devez fournir un nombre positif non nul qui indique, en secondes, le délai d’expiration du document après l’horodatage de la dernière modification du document (`_ts`).
 * Si un document n’a pas de champ TTL, la valeur par défaut de la collection s’applique.
 * Si la TTL est désactivée au niveau de la collection, le champ TTL du document sera ignoré jusqu’à ce que la TTL soit de nouveau activée sur la collection.
 
@@ -150,7 +147,7 @@ Pour désactiver la TTL entièrement sur une collection et arrêter la recherche
 
 <a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interaction entre la TTL et l’index
-L’ajout ou la modification du paramètre TTL sur une collection modifie l’index sous-jacent. Lorsque la valeur TTL passe de Désactivée à Activée, la collection est réindexée. Si vous apportez des modifications à la stratégie d’indexation et que le mode d’indexation est cohérent, les utilisateurs ne remarqueront aucune modification de l’index. Lorsque le mode d’indexation est différé, l’index est toujours en retard : si la valeur TTL change, l’index est recréé de A à Z. Lorsque la valeur TTL est modifiée et que le mode d’indexation est différé, les requêtes effectuées pendant la reconstruction de l’index ne retournent pas de résultats complets ou corrects.
+L’ajout ou la modification du paramètre TTL sur une collection modifie l’index sous-jacent. Lorsque la valeur TTL passe de Désactivée à Activée, la collection est réindexée. Si vous apportez des modifications à la stratégie d’indexation et que le mode d’indexation est cohérent, les utilisateurs ne remarqueront aucune modification de l’index. Quand le mode d’indexation est défini sur « différé », l’index est toujours en retard : si la valeur de la durée de vie change, l’index est recréé de A à Z. Lorsque la valeur TTL est modifiée et que le mode d’indexation est différé, les requêtes effectuées pendant la reconstruction de l’index ne retournent pas de résultats complets ou corrects.
 
 Si vous avez besoin de données exactes, ne modifiez pas la valeur TTL avec un mode d’indexation différé. L’idéal est de choisir des index cohérents pour garantir des résultats de requête cohérents. 
 
@@ -169,7 +166,7 @@ Non, il n’y a aucun impact sur les frais d’unités de requête pour les supp
 
 **La fonctionnalité TTL s’applique-t-elle uniquement à des documents entiers, ou puis-je faire expirer des valeurs de propriété de document individuelles ?**
 
-La TTL s’applique à l’ensemble du document. Si vous souhaitez faire expirer uniquement une partie d’un document, il est recommandé d’extraire la partie du document principal dans un document distinct « lié », puis d’utiliser la durée de vie sur ce document extrait.
+La TTL s’applique à l’ensemble du document. Si vous voulez faire expirer seulement une partie d’un document, il est recommandé d’extraire la partie du document principal dans un document distinct « lié », puis d’utiliser la durée de vie sur ce document extrait.
 
 **La fonction TTL impose-t-elle des exigences d’indexation spécifiques ?**
 

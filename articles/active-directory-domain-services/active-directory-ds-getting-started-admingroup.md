@@ -1,24 +1,26 @@
 ---
-title: "Bien démarrer avec Azure Active Directory Domain Services | Microsoft Docs"
-description: "Activer Azure Active Directory Domain Services à l’aide du portail Azure"
+title: Bien démarrer avec Azure Active Directory Domain Services | Microsoft Docs
+description: Activer Azure Active Directory Domain Services à l’aide du portail Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263973"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
@@ -40,16 +42,19 @@ L’Assistant crée automatiquement le groupe d’administration dans votre rép
 
 3. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Résumé** de l’Assistant.
 
-4. Dans la page **Résumé** de l’Assistant, examinez les paramètres de configuration du domaine managé. Si nécessaire, vous pouvez revenir à une étape quelconque de l’Assistant pour y apporter des modifications. Lorsque vous avez terminé, cliquez sur **OK** pour créer le domaine managé.
+
+## <a name="deploy-your-managed-domain"></a>Déployer votre domaine managé
+
+1. Dans la page **Résumé** de l’Assistant, examinez les paramètres de configuration du domaine managé. Si nécessaire, vous pouvez revenir à une étape quelconque de l’Assistant pour y apporter des modifications. Lorsque vous avez terminé, cliquez sur **OK** pour créer le domaine managé.
 
     ![Résumé](./media/getting-started/domain-services-blade-summary.png)
 
-5. Vous voyez une notification indiquant la progression de votre déploiement Azure AD Domain Services. Cliquez sur la notification pour afficher la progression détaillée du déploiement.
+2. Vous voyez une notification indiquant la progression de votre déploiement Azure AD Domain Services. Cliquez sur la notification pour afficher la progression détaillée du déploiement.
 
     ![Notification - Déploiement en cours](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Approvisionner votre domaine managé
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Vérifier l’état du déploiement de votre domaine géré
 Le processus d’approvisionnement de votre domaine managé peut prendre jusqu’à une heure.
 
 1. Pendant que votre déploiement est en cours, vous pouvez rechercher « Domain Services » dans la zone de recherche **Rechercher des ressources**. Sélectionnez **Azure AD Domain Services** dans les résultats de la recherche. Le panneau **Azure AD Domain Services** affiche le domaine managé en cours d’approvisionnement.
@@ -67,6 +72,9 @@ Le processus d’approvisionnement de votre domaine managé peut prendre jusqu�
 4. Lorsque le domaine managé est entièrement approvisionné, l’onglet **Vue d’ensemble** affiche l’état du domaine comme **En cours d’exécution**.
 
     ![Domain Services - Onglet Vue d’ensemble une fois la configuration terminée](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Pendant le processus d’approvisionnement, Azure AD Domain Services crée des applications d’entreprise nommées « Services de contrôleur de domaine » et « AzureActiveDirectoryDomainControllerServices » dans votre répertoire. Ces applications d’entreprise sont nécessaires pour entretenir votre domaine géré. Il est impératif de ne pas les supprimer.
+    >
 
 5. Sous l’onglet **Propriétés**, vous voyez deux adresses IP auxquelles des contrôleurs de domaine sont disponibles pour le réseau virtuel.
 

@@ -6,15 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364350"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644193"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -102,8 +102,10 @@ Vous pouvez configurer Azure SQL Database de manière à implémenter automatiqu
     ![Index recommandés](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Notez que l’option **DROP_INDEX** à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index, et ne doit pas être activée dans ces cas.
+> Notez que l’option **DROP_INDEX** n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas.
 >
+
+Une fois que vous avez sélectionné la configuration voulue, cliquez sur Appliquer.
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Exécuter manuellement le script T-SQL recommandé
 Sélectionnez une recommandation, puis cliquez sur **Afficher le script**. Exécutez ce script sur votre base de données pour appliquer la recommandation manuellement.

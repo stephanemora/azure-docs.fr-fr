@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626987"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Surveiller la remise des messages Event Grid 
 
@@ -41,9 +42,15 @@ Pour les abonnements, les métriques sont les suivantes :
 
 ## <a name="event-subscription-status"></a>État de l’abonnement aux événements
 
-Pour afficher les métriques d’un abonnement aux événements, recherchez **Abonnements Event Grid** dans les services disponibles, puis sélectionnez-le.
+Pour afficher les métriques pour un abonnement aux événements, vous pouvez rechercher par type d’abonnement ou par abonnement pour une ressource spécifique.
 
-![Rechercher des abonnements aux événements](./media/monitor-event-delivery/select-event-subscriptions.png)
+Pour effectuer une recherche par type d’abonnement aux événements, sélectionnez **Tous les services**.
+
+![Sélectionner Tous les services](./media/monitor-event-delivery/all-services.png)
+
+Recherchez **event grid** et sélectionnez **Abonnements Event Grid** parmi les options disponibles.
+
+![Rechercher des abonnements aux événements](./media/monitor-event-delivery/search-and-select.png)
 
 Filtrez par le type d’événement, l’abonnement et l’emplacement. Sélectionnez **Métriques** pour l’abonnement à afficher.
 
@@ -53,9 +60,15 @@ Affichez les métriques de la rubrique d’événement et de l’abonnement.
 
 ![Afficher les métriques d’événement](./media/monitor-event-delivery/subscription-metrics.png)
 
+Pour rechercher les métriques pour une ressource spécifique, sélectionnez cette ressource. Ensuite, sélectionnez **Événements**.
+
+![Sélectionner les événements pour une ressource](./media/monitor-event-delivery/select-events.png)
+
+Les métriques pour les abonnements pour cette ressource s’affichent.
+
 ## <a name="custom-event-status"></a>État d’un événement personnalisé
 
-Si vous avez publié une rubrique personnalisée, vous pouvez afficher ses métriques. Sélectionnez le groupe de ressources qui contient la rubrique, puis sélectionnez la rubrique.
+Si vous avez publié une rubrique personnalisée, vous pouvez afficher ses métriques. Sélectionnez le groupe de ressources pour la rubrique, puis sélectionnez la rubrique.
 
 ![Sélectionner une rubrique personnalisée](./media/monitor-event-delivery/select-custom-topic.png)
 

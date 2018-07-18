@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935570"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972996"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -41,7 +41,6 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
@@ -59,10 +58,14 @@ Le service Gestion des API émet des métriques chaque minute, pour une visibili
 Pour accéder aux métriques :
 
 1. Sélectionnez **Métriques** dans le menu vers le bas de la page.
-2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent (vous pouvez ajouter plusieurs métriques). 
 
+    ![Mesures](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent (vous pouvez ajouter plusieurs métriques).  
     Par exemple, sélectionnez **Nombre total de demandes de la passerelle** et **Demandes de la passerelle ayant échoué** dans la liste des métriques.
-3. Le graphique affiche le nombre total d’appels d’API. Il montre également le nombre d’appels d’API qui ont échoué. 
+3. Le graphique affiche le nombre total d’appels d’API. Il montre également le nombre d’appels d’API qui ont échoué.
+
+    ![graphique des métriques](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurer une règle d’alerte pour une demande non autorisée
 
@@ -74,7 +77,10 @@ Vous pouvez configurer les paramètres pour recevoir des alertes en fonction des
 
 Pour configurer des alertes :
 
-1. Sélectionnez **Règles d’alerte** dans la barre de menus vers le bas de la page.
+1. Sélectionnez **Alertes (classiques)** dans la barre de menus vers le bas de la page.
+
+    ![alertes](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Sélectionnez **Ajouter une alerte Métrique**.
 3. Entrez un **Nom** pour cette alerte.
 4. Sélectionnez **Demandes de la passerelle non autorisées** comme métrique à surveiller.
@@ -101,6 +107,12 @@ Pour afficher les journaux d’activité :
 1. Sélectionnez votre instance de service APIM.
 2. Cliquez sur **Journal d’activité**.
 
+    ![journal d’activité](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Sélectionnez l’étendue de filtrage souhaitée, puis cliquez sur **Appliquer**.
+
+    ![journaux d’activité](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
 Les journaux de diagnostic offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit ainsi qu’à des fins de dépannage. Les journaux de diagnostic diffèrent des journaux d’activité. Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur vos ressources Azure. Les journaux de diagnostic fournissent des informations sur les opérations effectuées par votre ressource.
@@ -108,7 +120,10 @@ Les journaux de diagnostic offrent des informations détaillées sur les opérat
 Pour configurer les journaux de diagnostic :
 
 1. Sélectionnez votre instance de service APIM.
-2. Cliquez sur **Journal de diagnostic**.
+2. Cliquez sur **Journaux de diagnostic**.
+
+    ![journaux de diagnostic](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de diagnostic et les mesures dans un compte de stockage, les transmettre en continu à un hub d’événement ou les envoyer à Log Analytics. 
 
 Le service Gestion des API fournit actuellement des journaux de diagnostic (par lot toutes les heures) concernant chaque requête d’API. Chaque entrée a le schéma suivant :
@@ -201,7 +216,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité
@@ -209,7 +224,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Afficher les métriques de votre API
 > * Configurer une règle d’alerte quand votre API obtient des appels non autorisés
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Suivre des appels](api-management-howto-api-inspector.md)

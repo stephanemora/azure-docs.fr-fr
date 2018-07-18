@@ -1,0 +1,179 @@
+---
+title: Méthode de translittération de l’API de traduction de texte Translator Text de Microsoft | Microsoft Docs
+description: Utilisez la méthode de translittération de l’API de traduction de texte Translator Text de Microsoft.
+services: cognitive-services
+author: Jann-Skotdal
+manager: chriswendt1
+ms.service: cognitive-services
+ms.technology: microsoft translator
+ms.topic: article
+ms.date: 03/29/2018
+ms.author: v-jansko
+ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35370233"
+---
+# <a name="text-api-30-transliterate"></a>API de texte 3.0 : translittération
+
+Convertit du texte dans une langue d’un script vers un autre script.
+
+## <a name="request-url"></a>URL de la demande
+
+Envoyez une requête `POST` à :
+
+```HTTP
+https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
+```
+
+## <a name="request-parameters"></a>Paramètres de la demande
+
+Les paramètres transmis à la chaîne de requête sont les suivants :
+
+<table width="100%">
+  <th width="20%">Paramètre de requête.</th>
+  <th>Description</th>
+  <tr>
+    <td>api-version</td>
+    <td>*Paramètre obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
+  </tr>
+  <tr>
+    <td>Langage</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte à convertir d’un script à un autre. Les langues possibles sont répertoriées dans l’étendue `transliteration` obtenue en interrogeant le service pour connaître les [langues prises en charge](.\v3-0-languages.md).</td>
+  </tr>
+  <tr>
+    <td>fromScript</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie le script utilisé par le texte d’entrée. Recherchez les [langues prises en charge](.\v3-0-languages.md) à l’aide de l’étendue `transliteration`, afin de rechercher les scripts d’entrée disponibles pour la langue sélectionnée.</td>
+  </tr>
+  <tr>
+    <td>toScript</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie le script de sortie. Recherchez les [langues prises en charge](.\v3-0-languages.md) à l’aide de l’étendue `transliteration`, afin de rechercher les scripts de sortie disponibles pour l’association de langue et de script d’entrée sélectionnée.</td>
+  </tr>
+</table> 
+
+Les en-têtes de requête sont les suivants :
+
+<table width="100%">
+  <th width="20%">headers</th>
+  <th>Description</th>
+  <tr>
+    <td>_One authorization_<br/>_header_</td>
+    <td>*En-tête de requête obligatoire*.<br/>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
+  </tr>
+  <tr>
+    <td>Content-Type</td>
+    <td>*En-tête de requête obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
+  </tr>
+  <tr>
+    <td>Content-Length</td>
+    <td>*En-tête de requête obligatoire*.<br/>Longueur du corps de la requête.</td>
+  </tr>
+  <tr>
+    <td>X-ClientTraceId</td>
+    <td>*Facultative*.<br/>GUID généré par le client et servant à identifier la requête de façon unique. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
+  </tr>
+</table> 
+
+## <a name="request-body"></a>Corps de la demande
+
+Le corps de la requête est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`, qui représente la chaîne à convertir.
+
+```json
+[
+    {"Text":"こんにちは"},
+    {"Text":"さようなら"}
+]
+```
+
+Les limites suivantes s'appliquent :
+
+* Le tableau ne peut pas compter plus de 10 éléments.
+* La valeur de texte d’un élément de tableau ne peut pas dépasser 1 000 caractères, espaces compris.
+* L’intégralité du texte inclus dans la requête ne peut pas dépasser 5 000 caractères, espaces compris.
+
+## <a name="response-body"></a>Response body
+
+Une réponse correcte est un tableau JSON avec un résultat pour chaque élément dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
+
+  * `text` : chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
+  
+  * `script` : chaîne spécifiant le script utilisé dans la sortie.
+
+Exemple de réponse JSON :
+
+```json
+[
+    {"text":"konnnichiha","script":"Latn"},
+    {"text":"sayounara","script":"Latn"}
+]
+```
+
+## <a name="response-headers"></a>En-têtes de réponse
+
+<table width="100%">
+  <th width="20%">headers</th>
+  <th>Description</th>
+  <tr>
+    <td>X-RequestId</td>
+    <td>Valeur générée par le service pour identifier la requête. Elle sert à des fins de dépannage.</td>
+  </tr>
+</table> 
+
+## <a name="response-status-codes"></a>Codes d’état de réponse
+
+Les codes d’état HTTP qu’une requête peut renvoyer sont les suivants. 
+
+<table width="100%">
+  <th width="20%">Code d’état</th>
+  <th>Description</th>
+  <tr>
+    <td>200</td>
+    <td>Vous avez réussi !</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>L’un des paramètres de demande est manquant ou non valide. Corrigez les paramètres de requête avant de réessayer.</td>
+  </tr>
+  <tr>
+    <td>401</td>
+    <td>Il n’a pas été possible d’authentifier la requête. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>La requête n’est pas autorisée. Vérifiez le message d’erreur détaillé. Cela indique souvent que toutes les traductions gratuites fournies avec un abonnement d’essai ont été utilisées.</td>
+  </tr>
+  <tr>
+    <td>429</td>
+    <td>L’appelant envoie trop de demandes.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la requête dans l’en-tête de réponse `X-RequestId` et identificateur du client dans l’en-tête de requête `X-ClientTraceId`.</td>
+  </tr>
+  <tr>
+    <td>503</td>
+    <td>Serveur temporairement indisponible. relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la requête dans l’en-tête de réponse `X-RequestId` et identificateur du client dans l’en-tête de requête `X-ClientTraceId`.</td>
+  </tr>
+</table> 
+
+## <a name="examples"></a>Exemples
+
+L’exemple suivant montre comment convertir deux chaînes de japonais en japonais romanisé.
+
+# <a name="curltabcurl"></a>[curl](#tab/curl)
+
+La charge utile JSON de la requête dans cet exemple :
+
+```
+[{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
+```
+
+Si vous utilisez cUrl dans une fenêtre de ligne de commande ne prenant pas en charge les caractères Unicode, utilisez la charge utile JSON suivante et enregistrez-la dans un fichier nommé `request.txt`. Veillez à enregistrer le fichier avec l’encodage `UTF-8`.
+
+```
+curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
+```
+
+---

@@ -5,15 +5,16 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647831"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
 
@@ -39,10 +40,10 @@ Il existe deux options pour connecter des réseaux virtuels :
 - [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md) 
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseaux virtuels se limite aux réseaux de la même région, bien que l’homologation entre régions soit possible en préversion dans certaines régions.  
+L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseau virtuel est limité aux réseaux d’une même région.  
  
 > [!IMPORTANT]
-> Les homologations de réseaux virtuels créées entre les régions peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que les homologations d’une version publique. Les homologations de réseaux virtuels peuvent avoir des fonctionnalités limitées et ne pas être disponibles dans toutes les régions Azure. Pour connaître les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux mises à jour du  [réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
+> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Connecter une application locale 
 

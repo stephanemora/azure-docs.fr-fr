@@ -3,7 +3,7 @@ title: Protocole SAML de déconnexion unique Azure | Microsoft Docs
 description: Cet article décrit le protocole SAML de déconnexion unique dans Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155495"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317675"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocole SAML de déconnexion unique
-Azure Active Directory (Azure AD) prend en charge le profil de déconnexion unique du navigateur web SAML 2.0. Pour que la déconnexion unique fonctionne correctement, l’élément **LogoutURL** de l’application doit être explicitement inscrit auprès d’Azure AD pendant l’inscription de l’application. Azure AD utilise l’élément LogoutURL pour rediriger les utilisateurs une fois qu’ils sont déconnectés.
 
-Ce schéma illustre le workflow du processus de déconnexion unique Azure AD.
+Azure Active Directory (Azure AD) prend en charge le profil de déconnexion unique du navigateur web SAML 2.0. Pour que la déconnexion unique fonctionne correctement, l’élément **LogoutURL** de l’application doit être explicitement inscrit auprès d’Azure AD pendant l’inscription de l’application. Azure AD utilise LogoutURL pour rediriger les utilisateurs une fois qu’ils sont déconnectés.
 
-![Workflow de déconnexion unique](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+Le diagramme suivant illustre le workflow du processus de déconnexion unique Azure AD.
+
+![Workflow de déconnexion unique Azure AD](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 Le service cloud envoie un message `LogoutRequest` à Azure AD pour indiquer qu’une session a été arrêtée. L’extrait suivant illustre un exemple d’élément `LogoutRequest` .
@@ -45,7 +47,7 @@ L’élément `LogoutRequest` envoyé à Azure AD requiert les attributs suivant
 
 * `ID` : identifie la demande de déconnexion. La valeur `ID` ne doit pas commencer par un chiffre. La méthode classique consiste à ajouter **id** à la représentation sous forme de chaîne d’un GUID.
 * `Version` : définissez la valeur de cet élément sur **2.0**. Cette valeur est obligatoire.
-* `IssueInstant` : chaîne `DateTime` associée à une valeur UTC et ayant le [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure Active Directory attend une valeur de ce type, mais ne l’applique pas.
+* `IssueInstant` : chaîne `DateTime` associée à une valeur UTC (temps universel coordonné) et au [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD attend une valeur de ce type, mais ne l’applique pas.
 
 ### <a name="issuer"></a>Émetteur
 L’élément `Issuer` dans `LogoutRequest` doit correspondre exactement à l’un des **ServicePrincipalNames** du service cloud dans Azure AD. En règle générale, il est défini sur **l’URI ID d’application** spécifié au moment de l’inscription de l’application.

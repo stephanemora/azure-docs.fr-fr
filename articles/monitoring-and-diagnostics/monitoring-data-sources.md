@@ -1,24 +1,19 @@
 ---
-title: Consommer des données d’analyse à partir d’Azure | Microsoft Docs
+title: Sources de données d’analyse dans Azure
 description: En savoir plus sur toutes les sources de données d’analyse disponibles sur Azure dès aujourd'hui.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/27/2017
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/12/2018
 ms.author: johnkem
-ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082996"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
 
@@ -33,19 +28,19 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 | Mesures personnalisées ou d’application | Mesures | Toute application instrumentée avec Application Insights | <ul><li>**API REST :**[API REST d’Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Métriques de stockage | Mesures | Stockage Azure | <ul><li>**Table de stockage :**[Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Données de facturation | Mesures | Tous les services Azure | <ul><li>**API REST** [API Azure Resource Usage et RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Journal d’activité | Événements | Tous les services Azure | <ul><li>**API REST :**[API Événements Azure Monitor](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Stockage d’objets blob ou concentrateur d’événements :**[profil du journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Journal d’activité | Événements | Tous les services Azure | <ul><li>**API REST :**[API Événements Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Stockage d’objets blob ou concentrateur d’événements :**[profil du journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Journaux de diagnostics Azure Monitor | Événements | [Consulter la liste ici](monitoring-diagnostic-logs-schema.md) | <ul><li>**Stockage d’objets blob ou concentrateur d’événements :**[Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | Journaux de SE invité Compute (ex. IIS, ETW, syslogs) | Événements | Machines virtuelles [Windows](../virtual-machines-dotnet-diagnostics.md) et Linux (v2), [Services cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Table ou blob de stockage :**[diagnostics Azure Windows ou Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Concentrateur d’événements :**[Diagnostics Windows Azure](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Journaux App Service | Événements | App Services | <ul><li>**Stockage d’objets blob, table ou fichier :**[Diagnostics Web App](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Journaux de stockage | Événements | Stockage Azure | <ul><li>**Table de stockage :**[Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Alertes Security Center | Événements | Azure Security Center | <ul><li>**API REST :**[Alertes de sécurité](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Création de rapports Active Directory | Événements | Azure Active Directory | <ul><li>**API REST :** [API Graph Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
+| Création de rapports Active Directory | Événements | Azure Active Directory | <ul><li>**API REST :**  [API Graph Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
 | État des ressources de Security Center | Statut | [Toutes les ressources prises en charge](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**API REST :**[États de sécurité](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Intégrité des ressources | Statut | Services pris en charge | <ul><li>**API REST :**[API REST Resource Health](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Alertes de métrique Azure Monitor | Notifications | [Consulter la liste ici](monitoring-supported-metrics.md) | <ul><li>**Webhook:**[Alertes de métrique Azure](insights-webhooks-alerts.md)</li></ul> |
 | Alertes Journal d’activité Azure Monitor | Notifications | Tous les services Azure | <ul><li>**Webhook :** Alertes Journal d’activité Azure</li></ul> |
 | Notifications de mise à l’échelle automatique | Notifications | [Consulter la liste ici](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook :**[Schéma de la charge utile du webhook de notification de mise à l’échelle automatique](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertes Requête de recherche dans les journaux | Notifications | Log Analytics | <ul><li>**Webhook :**[Alertes Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Alertes Requête de recherche dans les journaux | Notifications | Log Analytics | <ul><li>**Webhook:** [Action webhook pour les règles d’alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Alertes de métrique Application Insights | Notifications | Application Insights | <ul><li>**Webhook :**[Alertes Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Tests web Application Insights | Notifications | Application Insights | <ul><li>**Webhook :**[Alertes Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

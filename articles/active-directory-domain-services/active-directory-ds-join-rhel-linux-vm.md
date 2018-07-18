@@ -8,22 +8,24 @@ manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: b91ffb0965516a8e3f6678a6607ab0b26a0c2a67
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fceeb9655562d7abf6930cc484b4a9eb275ee81e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34586846"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330799"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux 7 à un domaine géré
 Cet article indique comment joindre une machine virtuelle Red Hat Enterprise Linux (RHEL) 7 à un domaine géré par les services de domaine Azure Active Directory.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :  
@@ -84,17 +86,17 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE] 
+     > [!NOTE]
      > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
      * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).
      * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
      * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.
      >
 
-2. Initialisez Kerberos. Sur votre terminal SSH, saisissez la commande suivante : 
+2. Initialisez Kerberos. Sur votre terminal SSH, saisissez la commande suivante :
 
-    > [!TIP] 
-    > * Vérifiez que vous spécifiez un utilisateur appartenant au groupe « AAD DC Administrators ». 
+    > [!TIP]
+    > * Vérifiez que vous spécifiez un utilisateur appartenant au groupe « AAD DC Administrators ».
     > * Spécifiez le nom de domaine en majuscules. Dans le cas contraire, kinit échoue.
     >
 
@@ -102,9 +104,9 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     kinit bob@CONTOSO100.COM
     ```
 
-3. Joignez l’ordinateur au domaine. Sur votre terminal SSH, saisissez la commande suivante : 
+3. Joignez l’ordinateur au domaine. Sur votre terminal SSH, saisissez la commande suivante :
 
-    > [!TIP] 
+    > [!TIP]
     > Utilisez le même compte utilisateur qu’à l’étape précédente (« kinit »).
     >
 

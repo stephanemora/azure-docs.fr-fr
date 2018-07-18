@@ -1,11 +1,11 @@
 ---
-title: "Développer pour Azure Files avec Java | Microsoft Docs"
-description: "Découvrez comment développer des services et applications Java qui utilisent Azure Files pour stocker les données de fichiers."
+title: Développer pour Azure Files avec Java | Microsoft Docs
+description: Découvrez comment développer des services et applications Java qui utilisent Azure Files pour stocker les données de fichiers.
 services: storage
 documentationcenter: java
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 8cd3698d4281b933881c45dfa5e7868bd7b0bdaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738198"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Développer pour Azure Files avec Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
-Ce didacticiel décrit les principes fondamentaux de l’utilisation de Java pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce didacticiel, nous allons créer une application de console simple et effectuer des actions de base avec Java et Azure Files :
+Ce didacticiel décrit les principes fondamentaux de l’utilisation de Java pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce tutoriel, nous allons créer une application console et montrer comment effectuer des actions de base avec Java et Azure Files :
 
 * Créer et supprimer des partages de fichiers Azure
 * Créer et supprimer des répertoires
@@ -34,10 +35,10 @@ Ce didacticiel décrit les principes fondamentaux de l’utilisation de Java pou
 * Charger, télécharger et supprimer un fichier
 
 > [!Note]  
-> Étant donné qu’Azure Files est accessible sur SMB, il est possible d’écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des classes d’E/S Java standard. Cet article indique comment écrire des applications qui utilisent le SDK Java de Stockage Azure, qui utilise l’[API REST Azure Files](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
+> Comme Azure Files est accessible sur SMB, vous pouvez écrire des applications qui accèdent au partage de fichiers Azure à l’aide des classes d’E/S Java standard. Cet article indique comment écrire des applications qui utilisent le SDK Java de Stockage Azure, qui utilise l’[API REST Azure Files](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
 
 ## <a name="create-a-java-application"></a>Création d’une application Java
-Pour générer les exemples, vous avez besoin du Kit de développement Java (JDK) et du [Kit de développement Azure Storage (SDK) pour Java][]. Vous devez également avoir préalablement créé un compte de stockage Azure.
+Pour générer les exemples, vous avez besoin du SDK Java et du [SDK de Stockage Azure pour Java](https://github.com/Azure/azure-storage-java). Vous devez également avoir préalablement créé un compte de stockage Azure.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configurer votre application pour utiliser Azure Files
 Pour utiliser les API de stockage Azure, ajoutez l’instruction suivante au début du fichier Java depuis lequel vous voulez accéder au service de stockage.
@@ -78,7 +79,7 @@ try {
 
 **CloudStorageAccount.parse** lève une exception InvalidKeyException. Vous devrez donc le placer dans un bloc try/catch.
 
-## <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
+## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Tous les fichiers et répertoires dans Azure Files se trouvent dans un conteneur appelé **Partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client Azure Files.
 
 ```java
@@ -103,7 +104,7 @@ if (share.createIfNotExists()) {
 
 À ce stade, le **partage** contient une référence à un partage nommé **sampleshare**.
 
-## <a name="delete-an-azure-file-share"></a>Suppression d’un partage de fichiers Azure
+## <a name="delete-an-azure-file-share"></a>Supprimer un partage de fichiers Azure
 La suppression d’un partage s’effectue en appelant la méthode **deleteIfExists** sur un objet CloudFileShare. Voici un exemple de code permettant d’effectuer cette opération.
 
 ```java
@@ -144,7 +145,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## <a name="delete-a-directory"></a>Supprimer un répertoire
-La suppression d’un répertoire est une tâche relativement simple, mais il convient de noter que vous ne pouvez pas supprimer de répertoire contenant des fichiers ou d’autres répertoires.
+La suppression d’un répertoire est une tâche simple. Notez, toutefois, que vous ne pouvez pas supprimer un répertoire s’il contient des fichiers ou d’autres répertoires.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -172,7 +173,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>Charger un fichier
-Un partage de fichiers Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
+Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
 
 La première étape du téléchargement d’un fichier consiste à obtenir une référence au répertoire dans lequel ce fichier doit résider. Pour cela, vous devez appeler la méthode **getRootDirectoryReference** de l’objet de partage.
 
@@ -233,7 +234,7 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 * [Azure pour les développeurs Java](/java/azure)/)
 * [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 * [Kit de développement logiciel (SDK) Azure Storage pour Android](https://github.com/azure/azure-storage-android)
-* [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
+* [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md)

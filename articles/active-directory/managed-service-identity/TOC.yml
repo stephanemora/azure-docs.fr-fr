@@ -66,6 +66,8 @@
           href: qs-configure-powershell-windows-vm.md
         - name: Modèle Azure Resource Manager
           href: qs-configure-template-windows-vm.md
+        - name: REST
+          href: qs-configure-rest-vm.md
         - name: SDK Azure
           href: qs-configure-sdk-windows-vm.md
     - name: Configurer une identité pour un jeu de mise à l’échelle de machine virtuelle Azure
@@ -78,6 +80,8 @@
           href: qs-configure-powershell-windows-vmss.md
         - name: Modèle Azure Resource Manager
           href: qs-configure-template-windows-vmss.md
+        - name: REST
+          href: qs-configure-rest-vmss.md
     - name: Utiliser une MSI de machine virtuelle
       items:
         - name: Obtenir un jeton d’accès
@@ -96,6 +100,8 @@
           href: how-to-manage-ua-identity-powershell.md
         - name: Modèle Azure Resource Manager
           href: how-to-manage-ua-identity-arm.md
+        - name: REST
+          href: how-to-manage-ua-identity-rest.md
 - name: Informations de référence
   items:
     - name: Interface de ligne de commande

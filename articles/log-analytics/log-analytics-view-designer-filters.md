@@ -11,26 +11,31 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23655411"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131408"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtres dans les vues de Log Analytics
 Un **filtre** dans une [vue de Log Analytics](log-analytics-view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
 
 ## <a name="using-a-filter"></a>Utilisation d’un filtre
-Cliquez sur **Filtre** pour ouvrir le volet de filtre pour une vue.  Cela vous permet de sélectionner un intervalle de temps et des valeurs pour tous les filtres disponibles pour la vue.  Lorsque vous sélectionnez un filtre, il affiche une liste des valeurs disponibles.  Vous pouvez en sélectionner une ou plusieurs ou bien les saisir. La vue est automatiquement mise à jour en filtrant avec les valeurs spécifiées. 
+Cliquez sur l’intervalle de temps de données en haut de la vue pour ouvrir la liste déroulante où vous pouvez changer l’intervalle de temps des données pour la vue.
 
-Si aucune valeur n’est sélectionnée pour un filtre, celui-ci n’est pas appliqué à la vue.  Si vous supprimez toutes les valeurs d’un filtre, celui-ci n’est plus appliqué.
+![Exemple de filtre](media/log-analytics-view-designer/filters-example-time.png)
+
+Cliquez sur le **+** pour ajouter un filtre à l’aide des filtres personnalisés définis pour la vue. Sélectionner une valeur pour le filtre dans la liste déroulante ou tapez une valeur. Continuez à ajouter des filtres en cliquant sur le **+**. 
 
 
-![Exemple de filtre](media/log-analytics-view-designer/filters-example.png)
+![Exemple de filtre](media/log-analytics-view-designer/filters-example-custom.png)
+
+Si vous supprimez toutes les valeurs d’un filtre, celui-ci n’est plus appliqué.
 
 
 ## <a name="creating-a-filter"></a>Création d’un filtre

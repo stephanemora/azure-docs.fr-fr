@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069031"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108754"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Créer une machine virtuelle et installer un certificat récupéré auprès d’un coffre de clés Azure Stack
 
@@ -37,17 +37,16 @@ Les certificats sont utilisés dans de nombreux scénarios, comme l’authentifi
 
 ### <a name="process-description"></a>Description du processus
 
-Les étapes suivantes décrivent le processus permettant de placer un certificat sur la machine virtuelle :
+Les étapes suivantes décrivent le processus permettant de placer un certificat sur la machine virtuelle :
 
 1. Créer un secret Key Vault.
 2. Mettre à jour le fichier azuredeploy.parameters.json.
 3. Déployer le modèle
 
->[!NOTE]
->Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack, ou à partir d’un client externe si vous êtes connecté via un VPN.
+> [!NOTE]
+> Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack, ou à partir d’un client externe si vous êtes connecté via un VPN.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
 * [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)
@@ -57,8 +56,8 @@ Les étapes suivantes décrivent le processus permettant de placer un certificat
 
 Le script suivant crée un certificat au format .pfx et un coffre de clés, puis stocke le certificat dans le coffre de clés en tant que secret.
 
->[!IMPORTANT]
->Vous devez utiliser le paramètre `-EnabledForDeployment` lors de la création du coffre de clés. Il garantit que le coffre de clés peut être référencé à partir de modèles Azure Resource Manager.
+> [!IMPORTANT]
+> Vous devez utiliser le paramètre `-EnabledForDeployment` lors de la création du coffre de clés. Il garantit que le coffre de clés peut être référencé à partir de modèles Azure Resource Manager.
 
 ```powershell
 
@@ -123,11 +122,11 @@ Set-AzureKeyVaultSecret `
 
 À l’exécution du script précédent, la sortie inclut l’URI du secret. Notez cet URI. Vous devez le référencer dans le [modèle Placer le certificat dans Windows Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Téléchargez le dossier [Modèle vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) sur votre ordinateur de développement. Ce dossier contient les fichiers `azuredeploy.json` et `azuredeploy.parameters.json` dont vous avez besoin aux étapes suivantes.
 
-Modifiez le fichier `azuredeploy.parameters.json` en fonction des valeurs de votre environnement. Les paramètres les plus intéressants sont le nom du coffre, le groupe de ressources du coffre et l’URI du secret (généré par le script précédent). Le fichier suivant est un exemple de fichier de paramètres :
+Modifiez le fichier `azuredeploy.parameters.json` en fonction des valeurs de votre environnement. Les paramètres les plus intéressants sont le nom du coffre, le groupe de ressources du coffre et l’URI du secret (généré par le script précédent). Le fichier suivant est un exemple de fichier de paramètres :
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Mettre à jour le fichier azuredeploy.parameters.json
 
-Mettez à jour le fichier azuredeploy.parameters.json avec les valeurs vaultName, URI du secret, VmName et autres en fonction de votre environnement. Le fichier JSON suivant est un exemple de fichier de paramètres du modèle :
+Mettez à jour le fichier azuredeploy.parameters.json avec les valeurs vaultName, URI du secret, VmName et autres en fonction de votre environnement. Le fichier JSON suivant est un exemple de fichier de paramètres du modèle :
 
 ```json
 {
@@ -175,7 +174,7 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Une fois le modèle déployé, la sortie suivante est générée :
+Une fois le modèle déployé, la sortie suivante est générée :
 
 ![Résultats du déploiement du modèle](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
@@ -196,5 +195,5 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Déployer une machine virtuelle avec un mot de passe Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
+* [Déployer une machine virtuelle avec un mot de passe Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 * [Autoriser une application à accéder à Key Vault](azure-stack-kv-sample-app.md)

@@ -32,7 +32,7 @@ Dans cette version, aucune modification importante n’a été apportée au Kit�
 
 ### <a name="visual-studio-2017-release-candidate"></a>Version finale de Visual Studio 2017
 
-- Dans la version finale de Visual Studio 2017, cette version du Kit SDK pour .NET est intégrée dans la charge de travail Azure. Tous les outils requis pour le développement Azure équipent l’ensemble des versions de Visual Studio, à compter de la version finale 2017. Pour Visual Studio 2015 et Visual Studio 2013, le SDK est également disponible via WebPI. Nous arrêterons d’équiper les versions du Kit SDK Azure pour .NET pour Visual Studio 2013 au moment du lancement de la version finale de Visual Studio 2017. Suivez ce lien pour télécharger Visual Studio 2017 RC : https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- Dans la version finale de Visual Studio 2017, cette version du Kit SDK pour .NET est intégrée dans la charge de travail Azure. Tous les outils requis pour le développement Azure équipent l’ensemble des versions de Visual Studio, à compter de la version finale 2017. Pour Visual Studio 2015 et Visual Studio 2013, le SDK est également disponible via WebPI.  Nous arrêterons d’équiper les versions du Kit SDK Azure pour .NET pour Visual Studio 2013 au moment du lancement de la version finale de Visual Studio 2017. Suivez ce lien pour télécharger Visual Studio 2017 RC : https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 

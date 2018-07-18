@@ -1,31 +1,25 @@
 ---
 title: Architecture de la solution de surveillance à distance - Azure | Microsoft Docs
 description: Présentation détaillée de l’architecture de l’accélérateur de solution de surveillance à distance
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757431"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Architecture de l’accélérateur de solution de surveillance à distance
 
 [L’accélérateur de solution](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
 
-Cet article vous familiarise avec les éléments clés de la solution de surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
+Cet article vous présente certains des éléments clés de la solution Surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
 * Résoudre les problèmes dans la solution.
 * Adapter la solution à vos besoins professionnels.
@@ -33,7 +27,7 @@ Cet article vous familiarise avec les éléments clés de la solution de surveil
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution de surveillance à distance dans [l’architecture IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) :
+Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution Surveillance à distance dans [l’architecture IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) :
 
 ![Architecture logique](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -97,13 +91,13 @@ La solution inclut deux microservices pour gérer la télémétrie d’appareil.
 
 Le microservice [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) :
 
-* Stocke les données de télémétrie dans Cosmos DB.
+* Stocke les données de télémétrie dans Azure Cosmos DB.
 * Analyse le flux des données de télémétrie issu des appareils.
 * Génère des alarmes en fonction des règles définies.
 
-Les alarmes sont stockées dans Cosmos DB.
+Les alarmes sont stockées dans Azure Cosmos DB.
 
-Le microservice `telemetry-agent` permet au portail de solutions de lire les données de télémétrie reçues des appareils. Le portail de solutions utilise également ce service pour :
+Le microservice [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) permet au portail de la solution de lire les données de télémétrie envoyées à partir des appareils. Le portail de solutions utilise également ce service pour :
 
 * Définir des règles de surveillance telles que les seuils qui déclenchent des alarmes.
 * Récupérer la liste des alarmes passées.
@@ -114,9 +108,9 @@ Utilisez le point de terminaison RESTful fourni par ce microservice pour gérer 
 
 Le microservice [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) est un adaptateur situé devant le service de stockage principal, et utilisé pour l’accélérateur de solution. Son rôle se résume aux opérations de collecte et de stockage de paires clé/valeur.
 
-Le déploiement standard de l’accélérateur de solution utilise Cosmos DB comme service de stockage principal.
+Le déploiement standard de l’accélérateur de solution utilise Azure Cosmos DB comme service de stockage principal.
 
-La base de données Cosmos DB stocke les données de l’accélérateur de solution. Le microservice **storage-adapter** fait office d’adaptateur permettant aux autres microservices dans la solution d’accéder aux services de stockage.
+La base de données Azure Cosmos DB stocke les données de l’accélérateur de solution. Le microservice **storage-adapter** fait office d’adaptateur permettant aux autres microservices dans la solution d’accéder aux services de stockage.
 
 ## <a name="presentation"></a>Présentation
 
@@ -139,8 +133,10 @@ Le microservice [ui-config](https://github.com/Azure/pcs-config-dotnet) permet �
 
 Si vous souhaitez consulter le code source et la documentation de développement, commencez avec l’un des deux principaux dépôts GitHub :
 
-* [Accélérateur de solution de surveillance à distance avec Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)
-* [Accélérateur de solution de surveillance à distance avec Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Architecture de l’accélérateur de solution de surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
+* [Accélérateur de la solution Surveillance à distance avec Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Accélérateur de la solution Surveillance à distance avec Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-Pour plus d’informations sur la conception de l’accélérateur de solution de surveillance à distance, consultez [Personnaliser l’accélérateur de solution](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Diagrammes détaillés de l’architecture de la solution :
+* [Accélérateur de solution pour l’architecture de la solution Surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+Pour plus d’informations conceptuelles sur l’accélérateur de la solution Surveillance à distance, consultez [Personnaliser l’accélérateur de solution](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

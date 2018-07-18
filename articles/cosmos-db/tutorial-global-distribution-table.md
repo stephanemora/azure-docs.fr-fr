@@ -1,29 +1,27 @@
 ---
 title: Didacticiel de distribution mondiale Azure Cosmos DB pour l’API Table | Microsoft Docs
-description: Découvrez comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API Table.
+description: Découvrez comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API de table.
 services: cosmos-db
 keywords: distribution mondiale, Table
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: f877baa33d94dad07250da9a10209555dbca65c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7baa1e5b4b50d1f420b514854fa4d4c9ef786c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582133"
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API Table
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API de table
 
-Cet article décrit les tâches suivantes : 
+Cet article décrit les tâches suivantes : 
 
 > [!div class="checklist"]
 > * Configurer la distribution mondiale à l’aide du portail Azure
@@ -50,7 +48,7 @@ C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohére
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez :
+Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > * Configurer la diffusion mondiale à l’aide du portail Azure

@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646454"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
@@ -46,7 +47,6 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -121,14 +121,14 @@ Dans l’application Wingtip, les locataires sont des lieux. Un lieu peut être 
 
 Chaque lieu bénéficie d’un site web personnalisé pour répertorier ses événements et vendre ses tickets. Chaque application web est indépendante et isolée des autres locataires. En interne dans Azure SQL Database, les données de chaque locataire sont stockées dans une base de données partitionnée multilocataire, par défaut. Toutes les données sont marquées avec l’identificateur du locataire.
 
-Une page web centrale de **concentrateur d’événements** fournit une liste de liens vers les locataires de votre déploiement. Réalisez les étapes suivantes pour vous familiariser avec la page web de **concentrateur d’événements** et une application web individuelle :
+Une page web centrale de **hub d’événements** fournit une liste de liens vers les locataires de votre déploiement. Réalisez les étapes suivantes pour vous familiariser avec la page web de **hub d’événements** et une application web individuelle :
 
-1. Ouvrez le **concentrateur d’événements** dans votre navigateur web :
+1. Ouvrez le **hub d’événements** dans votre navigateur web :
     - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt;user&gt; par la valeur de l’utilisateur de votre déploiement.)*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+    ![hub d’événements](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
-2. Cliquez sur **Fabrikam Jazz Club** dans le **concentrateur d’événements**.
+2. Cliquez sur **Fabrikam Jazz Club** dans le **hub d’événements**.
 
    ![Événements](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
@@ -143,10 +143,10 @@ Pour contrôler la distribution des requêtes entrantes, l’application Wingtip
 3. L’application recherche la clé dans le catalogue et obtient l’emplacement correspondant de la base de données du locataire.
 4. L’application utilise les informations d’emplacement pour rechercher une base de données qui contient toutes les données du locataire et y accéder.
 
-#### <a name="events-hub"></a>Concentrateur d’événements
+#### <a name="events-hub"></a>Hub d’événements
 
-1. Le **concentrateur d’événements** répertorie tous les locataires inscrits dans le catalogue et les lieux correspondants.
-2. Le **concentrateur d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque mappage pour créer les URL.
+1. Le **hub d’événements** répertorie tous les locataires inscrits dans le catalogue et les lieux correspondants.
+2. Le **hub d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque mappage pour créer les URL.
 
 Dans un environnement de production, vous créez généralement un enregistrement DNS CNAME pour [pointer un domaine Internet d’entreprise](../traffic-manager/traffic-manager-point-internet-domain.md) vers le profil Traffic Manager.
 
@@ -179,12 +179,12 @@ Le nouveau locataire Red Maple Racing est ajouté à la base de données *Tenant
 
 ![Nouveau locataire](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Actualisez le **concentrateur d’événements** : le nouveau locataire apparaît dans la liste.
+Actualisez le **hub d’événements** : le nouveau locataire apparaît dans la liste.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Approvisionner un nouveau locataire dans sa propre base de données
 
 Le modèle multilocataire partitionné vous permet de choisir s’il faut approvisionner un nouveau locataire dans une base de données qui contient d’autres locataires dans sa propre base de données. Un locataire isolé dans sa propre base de données bénéficie des avantages suivants :
-- Les performances de la base de données du locataire peuvent être gérées indépendamment des besoins des autres locataires.
+- Les performances de la base de données du locataire peuvent être gérés indépendamment des besoins des autres locataires.
 - Si nécessaire, la base de données peut être restaurée à un point antérieur dans le temps, car aucun autre locataire n’est impacté.
 
 Vous pouvez placer les clients d’une version d'évaluation ou les clients en mode économique dans des bases de données multilocataires. Vous pouvez placer chaque client Premium dans sa propre base de données dédiée. Si vous créez un grand nombre de bases de données qui ne contiennent qu’un seul locataire, vous pouvez les gérer collectivement dans un pool élastique afin d’optimiser les coûts de ressource.
@@ -200,7 +200,7 @@ Ensuite, nous approvisionnerons un autre locataire, dans sa propre base de donn�
 
    - Faites défiler vers le bas de la page. Dans la bannière, vous voyez le nom de la base de données dans laquelle les données du locataire sont stockées.
 
-3. Actualisez le **concentrateur d’événements** : les deux nouveaux locataires apparaissent maintenant dans la liste.
+3. Actualisez le **hub d’événements** : les deux nouveaux locataires apparaissent maintenant dans la liste.
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Explorer les serveurs et les bases de données de locataires
 
@@ -208,11 +208,11 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des groupes de ressources. Ouvrez le groupe de ressources que vous avez créé lors du déploiement de l’application.
 
-   ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![groupe de ressources](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
 2. Cliquez sur le serveur **catalog-mt&lt;utilisateur&gt;**. Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb*. La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
 
-   ![catalog server](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
+   ![serveur de catalogue](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
 3. Revenez au groupe de ressources et sélectionnez le serveur *tenants1-mt* contenant les bases de données de locataires.
     - La base de données tenants1 est une base de données multilocataire dans laquelle les trois locataires d’origine, plus le premier locataire que vous avez ajouté, sont stockés. Elle est configurée comme une base de données 50 DTU standard.

@@ -1,24 +1,20 @@
 ---
-title: "Vue d’ensemble des notions de base d’Azure Service Bus | Microsoft Docs"
-description: "Présentation de l’utilisation de Service Bus pour connecter les applications Azure à d’autres logiciels."
+title: Vue d’ensemble des notions de base d’Azure Service Bus | Microsoft Docs
+description: Présentation de l’utilisation de Service Bus pour connecter les applications Azure à d’autres logiciels.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2018
+ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641320"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -37,14 +33,14 @@ Service Bus est un service cloud mutualisé, ce qui signifie que le service est
 Dans un espace de noms, vous pouvez utiliser une ou plusieurs instances de trois mécanismes de communication distincts, chacun se connectant de manière différente à l’application. Les choix sont les suivants :
 
 * Les *files d’attente* permettent la communication unidirectionnelle. Chacune agit comme un intermédiaire (ou *broker*) qui stocke les messages envoyés jusqu’à leur réception. Chaque message est reçu par un destinataire unique.
-* Les *rubriques* fournissent une communication unidirectionnelle à l’aide *d’abonnements* : une seule rubrique peut avoir plusieurs abonnements. À l’instar d’une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
+* Les *rubriques* fournissent des communications unidirectionnelles à l’aide d’*abonnements*. Une seule rubrique peut avoir plusieurs abonnements. À l’instar d’une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
 * Les *relais* permettent la communication bidirectionnelle. À l’inverse des files d’attente et des rubriques, le relais ne stocke pas les messages en transit ; il ne s’agit pas d’un intermédiaire. Il ne fait que les transférer vers l’application de destination.
 
 Lorsque vous créez une file d'attente, une rubrique ou un relais, vous lui donnez un nom. Ce nom, combiné à celui de votre espace de noms, donne un identificateur unique à l’objet. Les applications peuvent fournir ce nom à Service Bus, puis utiliser cette file d’attente, cette rubrique ou ce relais pour communiquer entre elles. 
 
 Pour utiliser ces objets dans le scénario de relais, les applications Windows peuvent utiliser Windows Communication Foundation (WCF). Ce service est appelé [Relais WCF](../service-bus-relay/relay-what-is-it.md). Pour les files d’attente et les rubriques, les applications Windows peuvent utiliser des API de messagerie définie par Service Bus. Pour faciliter l’utilisation de ces objets à partir d’applications non-Windows, Microsoft fournit des Kits de développement logiciel (SDK) pour Java, Node.js et d’autres langages. Vous pouvez également accéder aux files d’attente et aux rubriques à l’aide des [API REST](/rest/api/servicebus/) sur HTTP(s). 
 
-Il est important de comprendre que même si Service Bus fonctionne dans le cloud (c'est-à-dire dans les centres de données Microsoft Azure), les applications qui y ont recours peuvent s'exécuter n'importe où. Vous pouvez utiliser Service Bus pour connecter des applications qui s’exécutent sous Azure, par exemple, ou des applications qui s’exécutent dans votre centre de données. Vous pouvez également l’utiliser pour connecter une application qui s’exécute sous Azure ou une autre plateforme cloud avec une application locale ou avec des tablettes et des téléphones. Il est également possible de connecter des appareils électroménagers, des capteurs ou d’autres appareils à une application centrale ou de les connecter entre eux. Service Bus est un mécanisme de communication générique dans le cloud, accessible quasiment partout. La façon dont vous l’utilisez dépend des besoins de vos applications.
+Il est important de comprendre que même si Service Bus fonctionne dans le cloud (c’est-à-dire dans les centres de données Microsoft Azure), les applications qui y ont recours peuvent s’exécuter n’importe où. Vous pouvez utiliser Service Bus pour connecter des applications qui s’exécutent sous Azure, par exemple, ou des applications qui s’exécutent dans votre centre de données. Vous pouvez également l’utiliser pour connecter une application qui s’exécute sous Azure ou une autre plateforme cloud avec une application locale ou avec des tablettes et des téléphones. Service Bus est un mécanisme de communication générique dans le cloud, accessible quasiment partout. La façon dont vous l’utilisez dépend des besoins de vos applications.
 
 ## <a name="queues"></a>Files d’attente
 
@@ -54,9 +50,9 @@ Supposons que vous décidiez de connecter deux applications à l'aide d'une file
 
 **Figure 2 : les files d’attente Service Bus offrent un système de files d’attente unidirectionnelles asynchrones.**
 
-L’expéditeur envoie un message à une file d’attente Service Bus et le destinataire le récupère plus tard. Une file d’attente peut avoir un seul destinataire, comme l’indique la Figure 2, ou plusieurs applications peuvent lire à partir de la même file d’attente. Dans ce dernier cas, chaque message est lu par un seul destinataire. Dans le cas d’un service de multidiffusion, utilisez plutôt une rubrique.
+L’expéditeur envoie un message à une file d’attente Service Bus et le destinataire le consomme plus tard. Une file d’attente peut avoir un seul destinataire, comme l’indique la Figure 2, ou plusieurs applications peuvent lire à partir de la même file d’attente. Dans ce dernier cas, chaque message est lu par un seul destinataire. Dans le cas d’un service de multidiffusion, utilisez plutôt une rubrique.
 
-Chaque message se compose de deux parties : un jeu de propriétés (chacun de type paire clé/valeur) et une charge utile de message. La charge utile peut être de type binaire, texte, voire XML. La façon dont les messages sont utilisés dépend de ce que tente de faire l’application. Par exemple, une application qui envoie un message à propos d’une vente récente peut mentionner les propriétés **Seller="Ava"** et **Amount=10000**. Le corps du message peut contenir une image numérisée du contrat signé ou rester vide s’il n’y en a pas.
+Chaque message se compose de deux parties : un jeu de propriétés (chacun de type paire clé/valeur) et une charge utile de message. La charge utile peut être de type binaire, texte, voire XML. La façon dont les messages sont utilisés dépend de ce que tente de faire l’application. Par exemple, une application qui envoie un message à propos d’une vente récente peut mentionner les propriétés **Seller="Ava"** et **Amount=10000**. Le corps du message peut contenir une image numérisée du contrat signé ou rester vide s’il n’y en a pas.
 
 Le destinataire peut lire le message de file d’attente Service Bus de deux façons. La première option, appelée *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, reçoit un message de la file d’attente et le supprime immédiatement. C’est simple, mais si le destinataire rencontre un problème avant d’avoir fini de traiter le message, ce dernier est perdu. Comme il est retiré de la file d’attente, aucun autre destinataire ne peut y accéder. 
 
@@ -78,11 +74,11 @@ Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne so
 
 **Figure 3 : en fonction du filtre spécifié par l’application, celle-ci peut recevoir certains messages ou tous les messages envoyés à une rubrique Service Bus.**
 
-Les *rubriques* sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La différence est que les rubriques permettent à chaque application réceptrice de créer son propre *abonnement* et éventuellement de définir un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
+Les *rubriques* sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La différence est que les rubriques permettent à chaque application réceptrice de créer son propre *abonnement* et éventuellement de définir un *filtre*. Un abonné reçoit une copie de chaque message dans la rubrique, mais en utilisant un filtre, il peut recevoir uniquement les messages qui correspondent au filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
 
-* L’abonné 1 ne reçoit que les messages contenant la propriété *Seller="Ava"*.
-* L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle souhaite peut-être pouvoir afficher ses propres ventes, ainsi que toutes les ventes importantes, quel que soit le vendeur.
-* L’abonné 3 a défini son filtre sur *True*, ce qui veut dire qu’il reçoit tous les messages. Par exemple, cette application peut être chargée de maintenir une piste d’audit et doit donc voir tous les messages.
+* L’abonné 1 ne reçoit que les messages contenant la propriété **Seller="Ava"**.
+* L’abonné 2 reçoit les messages qui contiennent la propriété **Seller="Ruby"** et/ou la propriété **Amount** avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle souhaite peut-être pouvoir afficher ses propres ventes, ainsi que toutes les ventes importantes, quel que soit le vendeur.
+* L’abonné 3 a défini son filtre sur **True**, ce qui veut dire qu’il reçoit tous les messages. Par exemple, cette application peut être chargée de maintenir une piste d’audit et doit donc voir tous les messages.
 
 Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les messages à l’aide de l’option [ReceiveAndDelete ou PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnements. Cette approche, communément appelée *publication et abonnement* (ou *pub/sub*), est utile quand plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
 
@@ -92,7 +88,7 @@ Les files d’attente et les rubriques permettent la communication asynchrone un
 
 ![][4]
 
-**Figure 4 : le relais Service Bus permet la communication bidirectionnelle synchrone entre applications.**
+**Figure 4 : le relais Service Bus permet la communication bidirectionnelle synchrone entre applications.**
 
 La question évidente à poser à propos des relais est la suivante : pourquoi y recourir ? Même si je n’ai pas besoin de files d’attente, pourquoi faire communiquer les applications via un service cloud au lieu de les faire interagir directement ? La réponse est que de les faire communiquer directement peut s’avérer plus compliqué qu’il n’y paraît.
 

@@ -3,21 +3,19 @@ title: Introduction à l’API d’Azure Cosmos DB Cassandra | Microsoft Docs
 description: Découvrez comment vous pouvez utiliser Azure Cosmos DB pour développer et transférer vos applications existantes et créer de nouvelles applications à l’aide de l’API Cassandra avec les pilotes Cassandra et CQL que vous connaissez déjà.
 services: cosmos-db
 author: govindk
-manager: ''
-documentationcenter: ''
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
+manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-cassandra
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: edc8ba7f8dd52a5facbfeb930a8660b082d72877
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795269"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Présentation d’Azure Cosmos DB : API Apache Cassandra
 
@@ -57,7 +55,7 @@ L’API Cassandra vous permet d’interagir avec les données stockées dans la 
 
 **Choix de la cohérence** : Azure Cosmos DB vous permet de choisir parmi cinq niveaux de cohérence bien définis pour obtenir un équilibre optimal entre cohérence et performances. Ces niveaux de cohérence sont : Forte, Obsolescence limitée, Session, Préfixe cohérent et Éventuelle. Ces niveaux de cohérence bien définis et granulaires permettent au développeur de trouver un bon compromis entre cohérence, disponibilité et latence. Pour en savoir plus, consultez [Niveaux de cohérence des données analysables dans Azure Cosmos DB](consistency-levels.md). 
 
-**Niveau entreprise**: Sécurisé et conforme par défaut – Azure Cosmos DB fournit des [certifications de conformité](https://www.microsoft.com/trustcenter) pour garantir aux utilisateurs de pouvoir utiliser la plateforme sans se préoccuper des problèmes de conformité. Azure Cosmos DB fournit également le chiffrement au repos et en mouvement, un pare-feu IP et des journaux d’audit pour les activités de plan de contrôle.  
+**Classe entreprise**: Azure Cosmos DB fournit des [certifications de conformité](https://www.microsoft.com/trustcenter) pour veiller au fait que les utilisateurs puissent utiliser la plateforme en toute sécurité. Azure Cosmos DB fournit également le chiffrement au repos et en mouvement, un pare-feu IP et des journaux d’audit pour les activités de plan de contrôle.  
 
 <a id="sign-up-now"></a>
 ## <a name="sign-up-now"></a>ici 

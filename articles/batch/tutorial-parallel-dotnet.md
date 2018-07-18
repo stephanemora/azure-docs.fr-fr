@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31514000"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722811"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Didacticiel : exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -37,7 +37,7 @@ Dans ce didacticiel, vous convertissez des fichiers de multimédia MP4 en parall
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 ou une version plus récente). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs). 
 
 * Un compte Batch et un compte Stockage Azure lié. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 
@@ -303,7 +303,7 @@ batchClient.JobOperations.TerminateJob(jobId, successMessage);
 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Après avoir exécuté les tâches, l’application supprime automatiquement le conteneur de stockage d’entrée créé et vous donne la possibilité de supprimer le travail et le pool Azure Batch. Les classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) et [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) de BatchServiceClient disposent toutes deux de méthodes de suppression correspondantes, appelées si l’utilisateur confirme la suppression. Bien que vous ne soyez pas facturé pour les travaux et les tâches à proprement parler, les nœuds de calcul vous sont facturés. Par conséquent, nous vous conseillons d’affecter les pools uniquement en fonction des besoins. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. Toutefois, les fichiers d’entrée et de sortie restent dans le compte de stockage.
 

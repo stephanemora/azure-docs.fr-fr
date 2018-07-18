@@ -1,8 +1,8 @@
 ---
-title: "Conservation et stockage des données dans Azure Application Insights | Microsoft Docs"
-description: "Déclaration de confidentialité et politique de rétention"
+title: Conservation et stockage des données dans Azure Application Insights | Microsoft Docs
+description: Retention and privacy policy statement
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294064"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -196,7 +197,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config].
 
 ## <a name="credits"></a>Crédits
-Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [http://www.maxmind.com](http://www.maxmind.com).
+Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur [http://www.maxmind.com](http://www.maxmind.com).
 
 
 

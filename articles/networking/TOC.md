@@ -53,7 +53,7 @@
 ### [Azure PowerShell](powershell-samples.md)
 
 ## Didacticiels
-### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter un ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Informations de référence

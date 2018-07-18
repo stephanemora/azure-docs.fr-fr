@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212273"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301578"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -57,8 +57,13 @@ Au lieu de configurer le port d’un service donné dans l’équilibreur de cha
 ![Communications externes][0]
 
 > [!WARNING]
-> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP.
+> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. C’est une source potentielle de vulnérabilités qui risquent, par exemple, d’être exploitées dans les cas de figure suivants :
 >
+> * Un utilisateur malveillant lance une attaque par déni de service en appelant à de nombreuses reprises un service interne qui ne dispose pas d’une surface d’attaque suffisamment renforcée.
+> * Un utilisateur malveillant remet des paquets incorrects à un service interne, ce qui entraîne un comportement inattendu.
+> * Un service destiné à être interne retourne des informations privées ou sensibles censées être hors de portée des services extérieurs au cluster, ce qui les expose à un utilisateur malveillant. 
+>
+> Veillez à bien comprendre et à limiter les conséquences potentielles sur la sécurité de votre cluster et des applications associées avant de rendre le port du proxy inverse public. 
 >
 
 

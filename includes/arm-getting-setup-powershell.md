@@ -24,7 +24,7 @@ Vérifiez que la valeur de **PSVersion** est 3.0 ou 4.0. Dans le cas contraire, 
 ### <a name="set-your-azure-account-and-subscription"></a>Configurer votre compte et votre abonnement Microsoft Azure
 Si vous ne possédez pas encore un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire pour une [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
-Ouvrez une invite de commandes PowerShell Azure et connectez-vous à Azure avec cette commande.
+Ouvrez une invite de commandes Azure PowerShell et connectez-vous à Azure avec cette commande.
 
     Connect-AzureRmAccount
 

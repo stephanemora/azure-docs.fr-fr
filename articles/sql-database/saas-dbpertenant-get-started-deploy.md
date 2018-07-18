@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645359"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -35,7 +36,6 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 Une [série de didacticiels associés](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) vous propose d’explorer les divers modèles de conception et de gestion SaaS. Ces didacticiels vont au-delà de ce déploiement initial. Lorsque vous utilisez les didacticiels, vous pouvez examiner les scripts fournis pour voir comment les différents modèles SaaS sont implémentés. Ces scripts montrent comment les fonctionnalités de SQL Database simplifient le développement des applications SaaS.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, assurez-vous qu’Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -107,13 +107,13 @@ L’application présente les lieux qui hébergent des événements. Les types d
 
 En interne dans l’application, chaque locataire obtient une base de données SQL déployée sur un pool élastique SQL.
 
-Une page **Events Hub** centrale fournit une liste de liens vers les locataires de votre déploiement.
+Une page **Hub d’événements** centrale fournit une liste de liens vers les locataires de votre déploiement.
 
-1. Utilisez l’URL pour ouvrir la page Events Hub dans votre navigateur web en utilisant l’adresse : http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net. Remplacez &lt;user&gt; par la valeur utilisateur de votre déploiement.
+1. Utilisez l’URL pour ouvrir la page Hub d’événements dans votre navigateur web : http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net. Remplacez &lt;user&gt; par la valeur utilisateur de votre déploiement.
 
-    ![Concentrateur d’événements](media/saas-dbpertenant-get-started-deploy/events-hub.png)
+    ![Hub d’événements](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Sélectionnez **Fabrikam Jazz Club** dans l’Events Hub.
+2. Sélectionnez **Fabrikam Jazz Club** dans le hub d’événements.
 
     ![Événements](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 

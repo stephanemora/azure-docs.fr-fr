@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622276"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046460"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622276"
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Transform data by using the Apache Spark activity in Data Factory version 2](../transform-data-using-spark.md) (Transformer des données à l’aide d’une activité Apache Spark dans la version 2 de Data Factory).
+> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide d’une activité Apache Spark dans Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introduction
 L’activité Spark est l’une des [activités de transformation des données](data-factory-data-transformation-activities.md) prises en charge par Data Factory. Cette activité exécute le programme Spark spécifié sur votre cluster Spark dans Azure HDInsight. 
@@ -268,8 +268,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 Étant donné que vous définissez getDebugInfo sur **Toujours**, un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.

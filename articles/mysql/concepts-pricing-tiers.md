@@ -6,15 +6,15 @@ author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 07/11/2018
+ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271975"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971935"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -24,8 +24,8 @@ Vous pouvez créer un serveur Azure Database pour MySQL dans un des trois diffé
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Mémoire par vCore | Ligne de base | 2x De base | 2x Usage général |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
+| Mémoire par vCore | 2 Go | 5 GO | 10 Go |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 
@@ -37,18 +37,18 @@ Pour choisir un niveau tarifaire, utilisez le tableau suivant comme point de dé
 | Usage général | La plupart des charges de travail professionnelles qui nécessitent une capacité de calcul et de mémoire équilibrée avec un débit d’E/S extensible. Il s’agit, par exemple, de serveurs destinés à l’hébergement d’applications web et mobiles, ainsi que d’autres applications d’entreprise.|
 | Mémoire optimisée | Charges de travail de base de données haute performance qui nécessitent des performances en mémoire suffisantes pour un traitement plus rapide des transactions et une simultanéité plus élevée. Il s’agit, par exemple, de serveurs destinés au traitement de données en temps réel et à des applications transactionnelles ou analytiques haute performance.|
 
-Après avoir créé un serveur, le nombre de vCores peut être augmenté ou diminué (au sein du même niveau de tarification) en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
+Après avoir créé un serveur, le nombre de vCores, la génération du matériel et le niveau tarifaire peuvent être augmentés ou diminués (excepté à vers et à partir de la version De base) en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Vous ne pouvez pas modifier le type de stockage de sauvegarde après la création d’un serveur. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
 
-## <a name="compute-generations-vcores-and-memory"></a>Générations de calcul, vCores et mémoire
+## <a name="compute-generations-and-vcores"></a>Générations de calcul et vCores
 
-Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité). 
+Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité).
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | Centre des États-Unis | X |  |
 | Est des États-Unis | X | X |
 | Est des États-Unis 2 | X | X |
-| Centre-Nord des États-Unis | X |  |
+| Centre-Nord des États-Unis | X | X |
 | États-Unis - partie centrale méridionale | X | X |
 | États-Unis de l’Ouest | X | X |
 | Ouest des États-Unis 2 |  | X |
@@ -57,20 +57,22 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Sud du Brésil | X | X |
 | Europe du Nord | X | X |
 | Europe de l'Ouest |  | X |
+| France-Centre |  | X |
 | Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
-| Est de l'Asie | X |  |
+| Est de l'Asie | X | X |
 | Asie du Sud-Est | X | X |
 | Est de l’Australie |  | X |
+| Centre de l’Australie |  | X |
+| Centre de l’Australie 2 |  | X |
 | Sud-est de l’Australie |  | X |
-| Inde centrale | X |  |
-| Inde occidentale | X |  |
+| Inde centrale | X | X |
+| Inde occidentale | X | X |
 | Inde du Sud |  | X |
 | Est du Japon | X | X |
 | Ouest du Japon | X | X |
+| Centre de la Corée |  | X |
 | Corée du Sud |  | X |
-
-Selon le niveau tarifaire, chaque vCore est doté d’une quantité spécifique de mémoire. Lorsque vous augmentez ou diminuez le nombre de vCores pour votre serveur, la mémoire augmente ou diminue proportionnellement. Le niveau Usage général fournit le double de quantité de mémoire par vCore par rapport au niveau De base. Le niveau À mémoire optimisée fournit le double de quantité de mémoire par rapport au niveau Usage général.
 
 ## <a name="storage"></a>Stockage
 
@@ -79,9 +81,9 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
-| E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde |
+| E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
 
 Vous pouvez ajouter une capacité de stockage supplémentaire pendant et après la création du serveur. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
@@ -99,9 +101,9 @@ Le service effectue automatiquement des sauvegardes de votre serveur. La périod
 
 ## <a name="scale-resources"></a>Mettre les ressources à l’échelle
 
-Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Le nombre de vCores peut être augmenté ou diminué au sein du même niveau de tarification. La période de rétention de sauvegarde peut être augmentée ou diminuée et va de 7 à 35 jours. La taille de stockage ne peut être qu’augmentée. La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour MySQL à l’aide d’Azure CLI](scripts/sample-scale-server.md).
+Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la génération du matériel, le niveau tarifaire (excepté à partir de la version De base), la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le type de stockage de sauvegarde après la création d’un serveur. Le nombre de vCores peut être augmenté ou diminué. La période de rétention de sauvegarde peut être augmentée ou diminuée et va de 7 à 35 jours. La taille de stockage ne peut être qu’augmentée. La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour MySQL à l’aide d’Azure CLI](scripts/sample-scale-server.md).
 
-Lorsque vous modifiez le nombre de vCores, une copie du serveur d’origine est créée avec la nouvelle allocation du calcul. Une fois que le nouveau serveur est opérationnel, les connexions sont basculées vers le nouveau serveur. Pendant le moment durant lequel le système bascule vers le nouveau serveur, aucune nouvelle connexion ne peut être établie, et toutes les transactions non validées sont restaurées. Cette fenêtre varie, mais dans la plupart des cas elle dure moins d’une minute.
+Lorsque vous modifiez le nombre de vCores, la génération du matériel ou le niveau tarifaire, une copie du serveur d’origine est créée avec la nouvelle allocation du calcul. Une fois que le nouveau serveur est opérationnel, les connexions sont basculées vers le nouveau serveur. Pendant le moment durant lequel le système bascule vers le nouveau serveur, aucune nouvelle connexion ne peut être établie, et toutes les transactions non validées sont restaurées. Cette fenêtre varie, mais dans la plupart des cas elle dure moins d’une minute.
 
 La mise à l’échelle du stockage et la modification de la période de rétention de sauvegarde sont des opérations en ligne. Aucune interruption de service n’a lieu et votre application n’est pas affectée. Comme les E/S par seconde augmentent avec la taille du stockage approvisionné, vous pouvez augmenter le nombre de E/S par seconde disponibles pour votre serveur en mettant à l’échelle l’espace de stockage.
 

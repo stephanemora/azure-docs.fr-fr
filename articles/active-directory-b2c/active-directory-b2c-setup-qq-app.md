@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : configuration QQ | Microsoft Docs'
+title: Configuration de QQ dans Azure Active Directory B2C | Microsoft Docs
 description: Proposez l’inscription et la connexion à des consommateurs disposant de comptes QQ dans vos applications sécurisées par Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 1f9a0f56158f08dd3b22078f111c9ec6911b726c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444427"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C : Proposer l’inscription et la connexion à des consommateurs disposant de comptes QQ
 
@@ -31,8 +31,8 @@ Pour utiliser QQ en tant que fournisseur d’identité dans Azure Active Directo
 
 1. Accédez au [centre des développeurs QQ](http://open.qq.com) et connectez-vous avec les informations d’identification de votre compte QQ.
 2. Une fois connecté, accédez à [http://open.qq.com/reg](http://open.qq.com/reg) vous inscrire en tant que développeur.
-3. Dans le menu, sélectionnez **个人** (Développeur individuel).
-4. Entrez les informations requises dans le formulaire, puis cliquez sur **下一步** (Étape suivante).
+3. Dans le menu, sélectionnez **个人** (développeur individuel).
+4. Entrez les informations requises dans le formulaire, puis cliquez sur **下一步** (étape suivante).
 5. Finalisez le processus de vérification d’e-mail.
 
 > [!NOTE]
@@ -41,16 +41,16 @@ Pour utiliser QQ en tant que fournisseur d’identité dans Azure Active Directo
 ### <a name="register-a-qq-application"></a>Inscrire une application QQ
 
 1. Accédez à [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
-2. Cliquez sur **应用管理** (Gestion de l’application).
-3. Cliquez sur **创建应用** (Création d’application).
+2. Cliquez sur **应用管理** (gestion des applications).
+3. Cliquez sur **创建应用** (créer une application).
 4. Entrez les informations nécessaires relatives à l’application.
-5. Cliquez sur **创建应用** (Création d’application).
+5. Cliquez sur **创建应用** (créer une application).
 6. Entrez les informations requises.
-7. Pour le champ **授权回调域** (URL de rappel), entrez `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Par exemple, si votre `tenant_name` est contoso.onmicrosoft.com, définissez l’URL sur `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-8. Cliquez sur **创建应用** (Création d’application).
-9. Dans la page de confirmation, cliquez sur **应用管理** (Gestion des applications) pour retourner à la page de gestion des applications.
-10. Cliquez sur **查看** (Afficher) en regard de l’application que vous venez de créer.
-11. Cliquez sur **修改** (Modifier).
+7. Dans le champ **授权回调域** (URL de rappel), entrez `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Par exemple, si votre `tenant_name` est contoso.onmicrosoft.com, définissez l’URL sur `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+8. Cliquez sur **创建应用** (créer une application).
+9. Dans la page de confirmation, cliquez sur **应用管理** (gestion des applications) pour revenir à la page de gestion des applications.
+10. Cliquez sur **查看** (afficher) en regard de l’application que vous venez de créer.
+11. Cliquez sur **修改** (modifier).
 12. En haut de la page, copiez l’**ID de l’application** et la **clé d’application**.
 
 ## <a name="configure-qq-as-an-identity-provider-in-your-tenant"></a>Configuration de QQ en tant que fournisseur d'identité dans votre client

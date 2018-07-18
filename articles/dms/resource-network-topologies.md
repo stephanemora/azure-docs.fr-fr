@@ -1,5 +1,5 @@
 ---
-title: Topologies de réseau pour des migrations d’instances gérées de bases de données SQL Azure à l’aide de Azure Database Migration Service | Microsoft Docs
+title: Topologies de réseau pour des migrations d’Azure SQL Database Managed Instance à l’aide de Azure Database Migration Service | Microsoft Docs
 description: Découvrez les configurations de la source et de la cible pour Database Migration Service.
 services: database-migration
 author: HJToland3
@@ -10,16 +10,16 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
-ms.openlocfilehash: 5904864ffba656dab17e1549ed9832be4258a67f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/21/2018
+ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235398"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316865"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologies de réseau pour des migrations d’instances gérées de bases de données SQL Azure à l’aide de Azure Database Migration Service
-Dans cet article, vous découvrirez différentes topologies de réseau avec lesquelles Azure Database Migration Service peut fonctionner pour offrir une expérience de la migration transparente vers Azure SQL Database Managed Instance à partir de serveurs SQL locaux.
+Cet article traite de différentes topologies de réseau avec lesquelles Azure Database Migration Service peut fonctionner pour offrir une expérience de la migration complète vers Azure SQL Database Managed Instance à partir de serveurs SQL locaux.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL Database Managed Instance configuré pour les charges de travail hybrides 
 Utilisez cette topologie si votre Azure SQL Database Managed Instance est connecté à votre réseau local. Cette approche fournit le routage réseau le plus simplifié et génère le débit de données maximale lors de la migration.
@@ -40,7 +40,7 @@ Utilisez cette topologie de réseau si votre environnement requiert un ou plusie
 
 **Configuration requise**
 - Le réseau virtuel utilisé par Azure Database Migration Service pour ce scénario doit également être connecté au réseau local à l’aide de https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou de [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Vous devez configurer [VNET Peering réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre le réseau virtuel utilisé pour Azure SQL Database Managed Instance et Azure Database Migration Service.
+- Configurez [VNET Peering réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre le réseau virtuel utilisé pour Azure SQL Database Managed Instance et Azure Database Migration Service.
 
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Migrations de cloud à cloud : réseau virtuel partagé
@@ -62,7 +62,7 @@ Utilisez cette topologie de réseau si votre environnement requiert un ou plusie
 ![Topologie de réseau pour les migrations de cloud à cloud avec un réseau virtuel partagé](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **Configuration requise**
-- Vous devez configurer [VNET Peering réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre le réseau virtuel utilisé pour Azure SQL Database Managed Instance et Azure Database Migration Service.
+- Configurez [VNET Peering réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre le réseau virtuel utilisé pour Azure SQL Database Managed Instance et Azure Database Migration Service.
 
 
 ## <a name="see-also"></a>Voir aussi

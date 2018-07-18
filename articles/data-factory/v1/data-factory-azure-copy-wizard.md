@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ebd8abf8c34be1fa6fcd282c9bfbc63d81a56239
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6330854f4ee9b2db1597d916c815bb6646da6a29
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621130"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052747"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). 
+> Cet article s’applique à la version 1 de Data Factory. 
 
 L’Assistant Azure Data Factory Copy facilite le processus de réception des données, qui est généralement la première étape dans un scénario d’intégration des données de bout en bout. Lorsque vous passez par l’Assistant Azure Data Factory Copy, vous n’avez pas besoin de comprendre les définitions JSON pour les services liés, les jeux de données et les pipelines. L’Assistant crée automatiquement un pipeline pour copier les données de la source de données sélectionnée vers la destination sélectionnée. En outre, l’Assistant de copie vous permet de valider les données en cours de réception au moment de la création. Cela vous permet de gagner du temps, surtout lorsque vous réceptionnez des données pour la première fois à partir de la source de données. Pour lancer l’Assistant Data Factory Copy, cliquez sur la mosaïque **Copier les données** sur la page d’accueil de votre fabrique de données.
 

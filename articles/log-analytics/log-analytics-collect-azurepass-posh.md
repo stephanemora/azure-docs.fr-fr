@@ -3,7 +3,7 @@ title: Collecter des métriques de ressources PaaS Azure avec Log Analytics | Mi
 description: Découvrez comment activer la collecte de métriques de ressources PaaS Azure à l’aide de PowerShell pour la rétention et l’analyse dans Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593283"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128460"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics
 
@@ -28,7 +29,6 @@ Les ressources PaaS (Platform as a Service) Azure, telles que SQL Azure et Sites
 À l’heure actuelle, il n’existe aucun moyen d’activer la journalisation des métriques pour les ressources PaaS par le biais du portail Azure. Vous devez donc utiliser un script PowerShell. Cette fonctionnalité de journalisation des métriques en mode natif, associée à la surveillance Log Analytics, vous permet de surveiller les ressources Azure à l’échelle. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Vérifiez que les modules Azure Resource Manager suivants sont installés sur votre ordinateur avant de continuer :
 
 - AzureRM.Insights

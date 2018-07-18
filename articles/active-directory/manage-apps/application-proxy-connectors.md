@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293005"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025200"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -92,7 +92,6 @@ Les connecteurs envoient uniquement des demandes sortantes. Le trafic sortant es
 
 Pour plus d’informations sur la configuration des règles sortantes de pare-feu, consultez [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Utilisez [l’outil de test des ports du connecteur de proxy d’application Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) pour vous assurer que votre connecteur peut joindre le service de proxy d’application. Au minimum, assurez-vous d’avoir coché les États-Unis du Centre et les régions les plus proches de vous. En outre, un nombre plus élevé de coches vertes signifie une résilience accrue. 
 
 ## <a name="performance-and-scalability"></a>Performances et évolutivité
 
@@ -104,7 +103,7 @@ Les performances du connecteur sont liées au processeur et à la mise en résea
 
 En revanche, la mémoire est moins problématique pour les connecteurs. Le service en ligne s’occupe de la majeure partie du traitement et de tout le trafic non authentifié. Tout ce qui peut être effectué dans le cloud est réalisé dans le cloud. 
 
-L’équilibrage de charge se produit entre les connecteurs d’un groupe de connecteurs donné. Nous faisons une variation de tourniquet pour déterminer quel connecteur du groupe sert une requête particulière. Après avoir choisi un connecteur, nous mettons en place une affinité de session entre cet utilisateur et l’application pour la durée de la session. Si, pour une raison quelconque, la machine ou le connecteur devient indisponible, le trafic commencera à passer à un autre connecteur du groupe. Cette résilience est également la raison pour laquelle nous vous recommandons d’avoir plusieurs connecteurs.
+L’équilibrage de charge se produit entre les connecteurs d’un groupe de connecteurs donné. Nous faisons une variation de tourniquet pour déterminer quel connecteur du groupe sert une requête particulière. Si, pour une raison quelconque, la machine ou le connecteur deviennent indisponibles, le trafic passe à un autre connecteur du groupe. Cette résilience est également la raison pour laquelle nous vous recommandons d’avoir plusieurs connecteurs.
 
 Un autre facteur affectant les performances est la qualité de la connexion réseau entre les connecteurs, y compris : 
 

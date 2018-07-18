@@ -3,17 +3,18 @@ title: Créer un jeu de compétences dans un pipeline de recherche cognitive (Re
 description: Définissez des étapes d’extraction des données, de traitement du langage naturel ou d’analyse de l’image pour enrichir et extraire des informations structurées à partir de vos données pour les utiliser dans Recherche Azure.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640924"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268021"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
 
 Cette définition est une compétence personnalisée qui appelle une API web dans le cadre du processus d’enrichissement. Pour chaque organisation identifiée par la reconnaissance d’entité nommée, cette compétence appelle une API web pour rechercher la description de cette organisation. L’orchestration du moment auquel appeler l’API web et du traitement des informations reçues est gérée en interne par le moteur d’enrichissement. Toutefois, l’initialisation nécessaire pour appeler cette API personnalisée doit être indiquée dans le fichier JSON (par exemple, l’URI, les en-têtes HTTP et les entrées attendus). Pour obtenir des conseils sur la création d’une API web personnalisée pour le pipeline d’enrichissement, consultez [Guide pratique pour définir une interface personnalisée](cognitive-search-custom-skill-interface.md).
 
-Notez que le champ « contexte » contient la valeur ```"/document/content/organizations/*"``` avec un astérisque, ce qui signifie que l’étape d’enrichissement est appelée *pour chaque* organisation sous ```"/document/content/organizations"```. 
+Notez que le champ « contexte » contient la valeur ```"/document/organizations/*"``` avec un astérisque, ce qui signifie que l’étape d’enrichissement est appelée *pour chaque* organisation sous ```"/document/organizations"```. 
 
-La sortie, dans ce cas une description de société, est générée pour chaque organisation identifiée. Lorsque vous faites référence à la description d’une étape en aval (par exemple, dans l’extraction d’expressions clés), vous utilisez le chemin d’accès ```"/document/content/organizations/*/description"``` pour ce faire. 
+La sortie, dans ce cas une description de société, est générée pour chaque organisation identifiée. Lorsque vous faites référence à la description d’une étape en aval (par exemple, dans l’extraction d’expressions clés), vous utilisez le chemin d’accès ```"/document/organizations/*/description"``` pour ce faire. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Les enrichissements créent une structure à partir d’informations non structurées
 

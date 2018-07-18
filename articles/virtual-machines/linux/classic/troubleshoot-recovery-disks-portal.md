@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: f3f575b8b689ce97b202385e42b3f7854e883e36
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072213"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681008"
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>Résoudre les problèmes d’une machine virtuelle Linux classique en connectant le disque du système d’exploitation à une machine virtuelle de récupération
 

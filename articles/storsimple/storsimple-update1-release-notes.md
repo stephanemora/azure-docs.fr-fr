@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057959"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061807"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Notes de publication Update 1.2 pour votre appareil StorSimple série 8000
 
@@ -54,7 +54,7 @@ Ces fonctionnalités ont tout d'abord été publiées avec Update 1 qui a été
   * La **continuité d’activité**, via la prise en charge de la migration des données existantes des appliances de la série 5000-7000 sur les appliances de la série 8000.
   * **Offres améliorées des fonctionnalités des appliances de la série 8000**, telles que la gestion centralisée et efficace de plusieurs appliances via le service StorSimple Manager, une classe optimisée de matériel et un microprogramme mis à jour, des appliances virtuelles, la mobilité des données ou encore les fonctions de la feuille de route à venir.
     
-    Consultez le [guide de migration](http://www.microsoft.com/download/details.aspx?id=47322) pour en savoir plus sur la migration des données des appareils StorSimple série 5000-7000 vers les appareils de la série 8000. 
+    Consultez le [guide de migration](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) pour en savoir plus sur la migration des données des appareils StorSimple série 5000-7000 vers les appareils de la série 8000. 
 * **Disponibilité sur le portail d’administration de Microsoft Azure** - StorSimple est désormais disponible sur le portail d’administration de Microsoft Azure. Consultez la section relative au [déploiement d’un appareil StorSimple sur le portail d’administration d’Azure](storsimple-deployment-walkthrough-gov.md).
 * **Prise en charge d’autres fournisseurs de services cloud** - Les autres fournisseurs de services cloud pris en charge sont Amazon S3, Amazon S3 with RRS, HP et OpenStack (bêta).
 * **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant des versions logicielles antérieures à Update 1 (Release, 0.1, 0.2 et 0.3) utilisent des versions des API de service de Microsoft Azure Storage antérieures au 17 juillet 2009. Comme indiqué dans l’ [annonce mise à jour du retrait des versions de service de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), ces API seront déconseillées le 1er août 2016. Il est impératif que vous installiez la version StorSimple série 8000 Update 1 avant le 1er août 2016. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
@@ -70,7 +70,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans les mi
 | 2 |Réinitialisation aux paramètres d’usine |Dans certains cas, lorsque vous effectuiez une réinitialisation aux paramètres d’usine, l’appareil StorSimple se bloquait et affichait le message suivant : **Réinitialisation aux paramètres d’usine en cours (phase 8)**. Cela se produisait si vous appuyiez sur les touches CTRL + C lors de l’exécution de l’applet de commande. Ce bogue a été corrigé. |Update 1 |OUI |Non  |
 | 3 |Réinitialisation aux paramètres d’usine |Après l’échec de la réinitialisation aux paramètres d’usine d’un contrôleur double, vous pouviez procéder à l’inscription de l’appareil. Cela entraînait la mise en place d’une configuration système non prise en charge. Dans Update 1, un message d’erreur s’affiche et l’inscription de l’appareil présentant un échec de réinitialisation aux paramètres d’usine est bloquée. |Update 1 |OUI |Non  |
 | 4 |Réinitialisation aux paramètres d’usine |Dans certains cas, des alertes d’incompatibilité illégitimes étaient émises. Les alertes illégitimes d’incompatibilité ne seront plus générées sur les appareils exécutant Update 1. |Update 1 |OUI |Non  |
-| 5. |Réinitialisation aux paramètres d’usine |Si une réinitialisation aux paramètres d’usine a été interrompue avant la fin de l’opération, l’appareil passait en mode de récupération ; vous ne pouviez plus accéder à Windows PowerShell pour StorSimple. Ce bogue a été corrigé. |Update 1 |OUI |Non  |
+| 5 |Réinitialisation aux paramètres d’usine |Si une réinitialisation aux paramètres d’usine a été interrompue avant la fin de l’opération, l’appareil passait en mode de récupération ; vous ne pouviez plus accéder à Windows PowerShell pour StorSimple. Ce bogue a été corrigé. |Update 1 |OUI |Non  |
 | 6. |Récupération d'urgence |Un bogue de récupération d’urgence a été corrigé. Auparavant, la récupération était mise en échec durant la découverte des sauvegardes sur l’appareil cible. |Update 1 |OUI |OUI |
 | 7 |LED de contrôle |Dans certains cas, les LED de contrôle situées à l’arrière de l’appliance n’indiquaient pas le statut approprié. La LED bleue était désactivée. Les LED de DATA 0 et DATA 1 clignotaient, même lorsque ces interfaces n’étaient pas configurées. Ce problème a été corrigé ; les LED de contrôle indiquent désormais le statut correct. |Update 1 |OUI |Non  |
 | 8 |LED de contrôle |Dans certains cas, après avoir appliqué Update 1, le voyant bleu sur le contrôleur actif s'est éteint rendant difficile l'identification du contrôleur actif. Ce problème a été résolu dans cette version du correctif. |Update 1.2 |OUI |Non  |
@@ -88,7 +88,7 @@ Le tableau suivant récapitule les problèmes connus dans cette version.
 | 2 |ID de contrôleur incorrect |Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. |Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. |OUI |Non  |
 | 3 |Comptes de stockage |La suppression du compte de stockage à l’aide du service de stockage n’est pas prise en charge. En effet, cette opération donnerait lieu à une situation dans laquelle il serait impossible de récupérer les données utilisateur. |OUI |OUI | |
 | 4 |Basculement de l’appareil |Le basculement multiple d’un conteneur de volumes d’un même appareil source vers différents appareils cibles n’est pas pris en charge. Si un appareil inactif est basculé vers plusieurs appareils, les conteneurs de volumes du premier appareil basculé perdent la propriété des données. Après un basculement de ce type, les conteneurs de volumes concernés apparaissent ou se comportent différemment lorsque vous les affichez dans le portail Azure Classic. | |OUI |Non  |
-| 5. |Installation |Lors de l’installation de l’adaptateur StorSimple pour SharePoint, vous devez fournir une adresse IP d’appareil pour que l’installation s’effectue correctement. | |OUI |Non  |
+| 5 |Installation |Lors de l’installation de l’adaptateur StorSimple pour SharePoint, vous devez fournir une adresse IP d’appareil pour que l’installation s’effectue correctement. | |OUI |Non  |
 | 6. |Proxy web |Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. |Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](storsimple-configure-web-proxy.md). |OUI |Non  |
 | 7 |Proxy web |Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | |OUI |Non  |
 | 8 |Latence de cloud élevée et charge de travail d’E/S élevée |Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». |Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. |OUI |Non  |

@@ -1,6 +1,6 @@
 ---
 title: Utilisation de l’émulateur de stockage Azure pour le développement et le test | Microsoft Docs
-description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’authentification des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande.
+description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’autorisation des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305104"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291934"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -81,14 +81,14 @@ Pour plus d’informations sur ces commandes, consultez la section [Référence 
 > Vous pouvez utiliser [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour gérer vos instances SQL Server, y compris l’installation de LocalDB. Dans la boîte de dialogue **Se connecter au serveur** de SMSS, spécifiez `(localdb)\MSSQLLocalDb` dans le champ **Nom du serveur :** pour vous connecter à l’instance LocalDB.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Authentification des demandes auprès de l’émulateur de stockage
-Une fois l’émulateur de stockage installé et démarré, vous pouvez tester votre code sur celui-ci. Comme avec le Stockage Azure dans le cloud, chaque demande que vous effectuez auprès de l’émulateur de stockage doit être authentifiée, sauf s’il s’agit d’une demande anonyme. Vous pouvez authentifier les demandes auprès de l’émulateur de stockage à l’aide de l’authentification par clé partagée ou d’une signature d’accès partagé (SAP).
+Une fois l’émulateur de stockage installé et démarré, vous pouvez tester votre code sur celui-ci. Comme avec le Stockage Azure dans le cloud, chaque demande que vous effectuez auprès de l’émulateur de stockage doit être autorisée, sauf s’il s’agit d’une demande anonyme. Vous pouvez autoriser les demandes auprès de l’émulateur de stockage à l’aide de l’authentification par clé partagée ou d’une signature d’accès partagé (SAP).
 
-### <a name="authenticate-with-shared-key-credentials"></a>S’authentifier à l’aide d’informations d’identification de clé partagée
+### <a name="authorize-with-shared-key-credentials"></a>Autorisation à l’aide d’informations d’identification de clé partagée
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Pour plus d’informations sur les chaînes de connexion, consultez [Configuration des chaînes de connexion Stockage Azure](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>S’authentifier à l’aide d’une signature d’accès partagé
+### <a name="authorize-with-a-shared-access-signature"></a>Autorisation à l’aide d’une signature d’accès partagé
 Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque Xamarin, prennent uniquement en charge l’authentification par jeton de signature d’accès partagé (SAP). Vous pouvez créer le jeton SAP à l’aide d’un outil tel que [l’Explorateur de stockage](http://storageexplorer.com/) ou une autre application qui prend en charge l’authentification avec clé partagée.
 
 Vous pouvez également générer un jeton SAP à l’aide d’Azure PowerShell. L’exemple suivant génère un jeton SAP avec des autorisations complètes sur un conteneur de blobs :
@@ -204,12 +204,23 @@ Les différences suivantes s’appliquent au stockage de tables dans l’émulat
 Le stockage de files d’attente dans l’émulateur ne présente aucune différence spécifique.
 
 ## <a name="storage-emulator-release-notes"></a>Notes de publication de l’émulateur de stockage
+
+### <a name="version-55"></a>Version 5.5
+* L’émulateur de stockage prend maintenant en charge la version 2017-11-09 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* La prise en charge a été ajoutée pour la propriété **Créé** de l’objet blob, qui retourne l’heure de création de l’objet blob.
+
+### <a name="version-54"></a>Version 5.4
+Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez avoir des réservations de port, utilisez l’option *-reserveports* de la commande **init** afin de les spécifier.
+
+### <a name="version-53"></a>Version 5.3
+L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+
 ### <a name="version-52"></a>Version 5.2
 * L’émulateur de stockage prend maintenant en charge la version 2017-04-17 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 * Correction d’un bogue impliquant le mauvais encodage des valeurs de propriété de table.
 
 ### <a name="version-51"></a>Version 5.1
-* Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
+Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
 
 ### <a name="version-50"></a>Version 5.0
 * Le programme d’installation de l’émulateur de stockage ne vérifie plus s’il existe déjà des installations de MSSQL et de .NET Framework.

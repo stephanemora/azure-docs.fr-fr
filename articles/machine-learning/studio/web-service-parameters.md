@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 91b3c9df8a7fd0e1abb79c21b1e1d833e57c24d5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835924"
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Utilisation des paramètres de service Web Azure Machine Learning
 Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
@@ -44,8 +46,7 @@ La documentation pour le service Web fournit à l'utilisateur du service Web d
 > 
 
 ## <a name="example"></a>Exemples
-Par exemple, supposons que nous avons une expérience avec un module [Exporter les données][writer] qui envoie des informations vers le stockage blob Azure.
- Nous allons définir un paramètre de service Web nommé « Chemin d'accès d'objet blob » qui permet à l'utilisateur de service Web de modifier le chemin d'accès pour le stockage d'objets blob lors de l’accès au service.
+Par exemple, supposons que nous avons une expérience avec un module [Exporter les données][writer] qui envoie des informations vers le stockage blob Azure. Nous allons définir un paramètre de service Web nommé « Chemin d'accès d'objet blob » qui permet à l'utilisateur de service Web de modifier le chemin d'accès pour le stockage d'objets blob lors de l’accès au service.
 
 1. Dans Machine Learning Studio, cliquez sur le module [Exporter les données][writer] pour le sélectionner. Ses propriétés sont affichées dans le volet Propriétés à droite du canevas de l'expérience.
 2. Spécification du type de stockage :

@@ -1,13 +1,13 @@
 ---
-title: "Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure | Documents Microsoft"
-description: "Haute disponibilité multi-SID pour des instances SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure"
+title: Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure | Documents Microsoft
+description: Haute disponibilité multi-SID pour des instances SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657211"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -215,7 +216,7 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 
 Pour plus d’informations sur les limites de l’équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » dans[Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Vous avez déjà configuré un cluster WSFC à utiliser pour une instance SAP ASCS/SCS à l’aide du **partage de fichiers**, comme illustré dans ce diagramme.
 
@@ -399,22 +400,22 @@ Cliquez avec le bouton droit sur le groupe de clusters SOFS **saoglobal2**, puis
 _**Figure 6 :** Démarrez l’Assistant « Ajouter un partage de fichiers »_
 
 <br>
-![Figure 7 : «  Choisissez Partage SMB – Rapide »][sap-ha-guide-figure-8018]
+![Figure 7 : Sélectionnez « Partage SMB – Rapide »][sap-ha-guide-figure-8018]
 
-_**Figure 7 :** «  Choisissez Partage SMB – Rapide »_
+_**Figure 7 :** Sélectionnez « Partage SMB – Rapide »_
 
 <br>
-![Figure 8 : Choisissez « sapglobalhost2 » et spécifiez le chemin d’accès sur Volume2][sap-ha-guide-figure-8019]
+![Figure 8 : Sélectionnez « sapglobalhost2 » et spécifiez le chemin sur Volume2][sap-ha-guide-figure-8019]
 
 _**Figure 8 :** Choisissez « sapglobalhost2 » et spécifiez le chemin d’accès sur Volume2_
 
 <br>
-![Figure 9 : Définissez « sapmnt » comme nom de partage de fichiers][sap-ha-guide-figure-8020]
+![Figure 9 : Définissez « sapmnt » comme nom de partage de fichiers][sap-ha-guide-figure-8020]
 
 _**Figure 9 :** Définissez « sapmnt » comme nom de partage de fichiers_
 
 <br>
-![Figure 10 : Désactivez tous les paramètres][sap-ha-guide-figure-8021]
+![Figure 10 : Désactivez tous les paramètres][sap-ha-guide-figure-8021]
 
 _**Figure 10 :** Désactivez tous les paramètres_
 
@@ -428,12 +429,12 @@ Affectez des autorisations de *Contrôle total* aux fichiers et au partage sapmn
 _**Figure 11 :** Assignez les autorisations de contrôle total aux comptes de groupes d’utilisateurs et d’ordinateurs_
 
 <br>
-![Figure 12 : Sélectionnez « Créer »][sap-ha-guide-figure-8023]
+![Figure 12 : Sélectionnez « Créer »][sap-ha-guide-figure-8023]
 
 _**Figure 12 :** Sélectionnez « Créer »_
 
 <br>
-![Figure 13 : Le deuxième sapmnt lié à l’hôte sapglobal2 et au Volume2 est créé][sap-ha-guide-figure-8024]
+![Figure 13 : Le deuxième sapmnt lié à l’hôte sapglobal2 et au Volume2 est créé][sap-ha-guide-figure-8024]
 
 _**Figure 13 :** Le deuxième sapmnt lié à l’hôte sapglobal2 et au Volume2 est créé_
 

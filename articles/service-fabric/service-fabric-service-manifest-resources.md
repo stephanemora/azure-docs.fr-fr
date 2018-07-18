@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701440"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -105,7 +106,10 @@ Le protocole HTTPS assure l'authentification du serveur et est également utilis
 > [!NOTE]
 > Il est impossible de modifier le protocole d’un service lors de la mise à niveau de l’application. En effet, il s’agit d’une modification avec rupture.
 > 
-> 
+
+> [!WARNING] 
+> Lorsque vous utilisez HTTPS, n’utilisez pas le même port ni le même certificat pour les différentes instances de service (indépendantes de l’application) déployées sur le même nœud. La mise à niveau de deux services différents utilisant le même port dans différentes instances d’application aboutit à un échec. Pour plus d’informations, consultez [Mise à niveau de plusieurs applications avec des points de terminaison HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous devez fournir l’empreinte numérique de votre certificat. EndpointRef est une référence à EndpointResource dans ServiceManifest, pour lequel vous définissez le protocole HTTPS. Vous pouvez ajouter plusieurs EndpointCertificate.  
 
@@ -154,7 +158,7 @@ Pour les clusters Linux, le **MY** stocke par défaut dans le dossier **/var/lib
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Écraser des points de terminaison dans ServiceManifest.xml
 
-Dans ServiceManifest, ajoutez une section ResourceOverrides, qui sera la sœur de la section ConfigOverrides. Vous pouvez y spécifier le remplacement de la section Points de terminaison dans la section Ressources spécifiée dans le manifeste de service. Le remplacement des points de terminaison est pris en charge dans le runtime 5.7.217/SDK 2.7.217 et versions supérieures.
+Dans ApplicationManifest, ajoutez une section ResourceOverrides qui sera la sœur de la section ConfigOverrides. Vous pouvez y spécifier le remplacement de la section Endpoints dans la section des ressources spécifiée dans le manifeste de service. Le remplacement des points de terminaison est pris en charge dans le runtime 5.7.217/SDK 2.7.217 et versions supérieures.
 
 Pour pouvoir remplacer EndPoint dans ServiceManifest à l’aide d’ApplicationParameters, modifiez ainsi ApplicationManifest :
 
@@ -188,7 +192,7 @@ Dans Parameters, ajoutez le code ci-dessous :
   </Parameters>
 ```
 
-Lors du déploiement de l’application, vous pouvez à présent passer ces valeurs comme ApplicationParameters, par exemple :
+Lors du déploiement de l’application, vous pouvez passer ces valeurs en tant que ApplicationParameters.  Par exemple : 
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

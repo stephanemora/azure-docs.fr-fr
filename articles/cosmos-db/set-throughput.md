@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: 777655d8976990396b2c78a5b6d977a92b1a2335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614075"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285771"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB et de base de données
 
@@ -177,7 +177,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 Azure Cosmos DB fonctionne sur un modèle de réservation de débit. Autrement dit, vous êtes facturé pour la quantité de débit *réservée*, quelle que soit la quantité activement *utilisée*. À mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire le nombre de RU réservées par le biais des SDK ou à l’aide du [portail Azure](https://portal.azure.com).
 
-Chaque conteneur, ou ensemble de conteneurs, est mappé à une ressource `Offer` dans Azure Cosmos DB, qui contient des métadonnées sur le débit provisionné. Vous pouvez modifier le débit alloué pour un conteneur en recherchant la ressource de l’offre correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’un conteneur pour passer à 5 000 unités de requête par seconde à l’aide du Kit SDK .NET :
+Chaque conteneur, ou ensemble de conteneurs, est mappé à une ressource `Offer` dans Azure Cosmos DB, qui contient des métadonnées sur le débit provisionné. Vous pouvez modifier le débit alloué pour un conteneur en recherchant la ressource de l’offre correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’un conteneur pour passer à 5 000 unités de requête par seconde à l’aide du Kit SDK .NET. Après avoir modifié le débit, vous devez actualiser les fenêtres de portail Azure existants de manière à afficher la modification. 
 
 ```csharp
 // Fetch the resource to be updated

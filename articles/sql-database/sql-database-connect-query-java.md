@@ -11,18 +11,17 @@ ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: andrela
 ms.openlocfilehash: e19006d177777b18e1665ec5039f9c28f7e54df5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363670"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704638"
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Utilisation de Java pour interroger une base de données SQL Azure
 
 Ce didacticiel de démarrage rapide montre comment utiliser [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 

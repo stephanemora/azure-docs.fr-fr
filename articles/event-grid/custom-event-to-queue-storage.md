@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/09/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 49349967abb59967b8c7d33bf9537d1e2df30925
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 18ca639dae006e310a7f03f7300f2203b9de4f1d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300830"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867740"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 
@@ -34,6 +34,8 @@ L’exemple suivant crée un groupe de ressources nommé *gridResourceGroup* à 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
 ```
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
@@ -115,7 +117,7 @@ Accédez au Stockage File d’attente dans le portail et notez que Event Grid a 
 ![Afficher les messages](./media/custom-event-to-queue-storage/messages.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
 
 ```azurecli-interactive

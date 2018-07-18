@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644720"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
@@ -73,9 +74,9 @@ L’application présente les lieux qui hébergent des événements.  Les lieux 
 
 1. Ouvrez la page d’événements pour chacun des trois clients dans des onglets de navigateur distincts :
 
-    - http://events.contosoconcerthall.&lt;utilisateur&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;utilisateur&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;utilisateur&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
     (Dans chaque URL, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement.)
 

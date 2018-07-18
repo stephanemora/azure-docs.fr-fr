@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836481"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055469"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guide de la solution Vehicle Telemetry Analytics : découverte approfondie de la solution
 Ce menu contient des liens vers les sections de ce manuel : 
@@ -35,7 +35,7 @@ La solution utilise deux sources de données différentes :
 * Jeu de données de diagnostic et de signaux des véhicules simulés
 * Catalogue de véhicules
 
-Un simulateur de télématique des véhicules est intégré à cette solution, comme indiqué dans la capture d’écran ci-dessous. Ce simulateur émet des informations de diagnostic et des signaux qui correspondent à l’état du véhicule et au schéma de conduite à un moment donné dans le temps. Pour télécharger la solution Vehicle Telematics Simulator Visual Studio afin de la personnaliser en fonction de vos besoins, accédez à la page web [Simulateur de télématique des véhicules](http://go.microsoft.com/fwlink/?LinkId=717075). Le catalogue de véhicules contient un jeu de données de référence qui mappe les numéros d’identification des véhicules (VIN, Vehicle Identification Numbers) aux modèles.
+Un simulateur de télématique des véhicules est intégré à cette solution, comme indiqué dans la capture d’écran ci-dessous. Ce simulateur émet des informations de diagnostic et des signaux qui correspondent à l’état du véhicule et au schéma de conduite à un moment donné dans le temps.  Le catalogue de véhicules contient un jeu de données de référence qui mappe les numéros d’identification des véhicules (VIN, Vehicle Identification Numbers) aux modèles. Remarque : Le jeu de données de la solution Visual Studio de simulation de télématique des véhicules n’est plus disponible. 
 
 ![Simulateur de télématique des véhicules](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -363,7 +363,7 @@ Une application est incluse dans le cadre de la solution pour configurer le mod�
 
 Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez intégrer une application métier avec le flux d’analytique en temps réel. Ces scénarios incluent les alertes, les notifications et la messagerie.
 
-Pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations, consultez la page web de [téléchargement de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078). 
+Remarque : Les données de la solution Visual Studio RealtimeDashboardApp ne sont plus disponibles.
 
 #### <a name="execute-the-real-time-dashboard-application"></a>**Exécuter l’application de tableau de bord en temps réel**
 1. Effectuez l’extraction de RealtimeDashboardApp et enregistrez-la localement.
@@ -669,10 +669,9 @@ Ce document explore de façon détaillée la solution Vehicle Telemetry Analytic
 
 ### <a name="references"></a>Références
 
-* [Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK Azure Event Hubs pour l’ingestion de flux](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Fonctionnalités de déplacement de données d’Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Activité .NET Azure Data Factory](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Fonctionnalités de déplacement de données d’Azure Data Factory](../../data-factory/copy-activity-overview.md)
+* [Activité .NET Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Solution Visual Studio d’activité .NET Azure Data Factory utilisée pour la préparation des exemples de données](http://go.microsoft.com/fwlink/?LinkId=717077) 

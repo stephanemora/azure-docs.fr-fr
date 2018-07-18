@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240222"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959380"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Mise à l’échelle du cache Azure Redis
 Le Cache Redis Azure offre différents types de cache, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -154,7 +154,7 @@ Si les caches standard et premium ont un contrat SLA garantissant une disponibil
 * Les caches **de base** sont hors connexion pendant les opérations de mise à l’échelle vers une taille différente. Les caches de base restent disponibles lors de la mise à l’échelle du niveau **de base** vers le niveau **standard**, mais peuvent rencontrer un petit spot de connexion. Si un spot de connexion se produit, les clients Redis doivent être en mesure de rétablir leur connexion instantanément.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Limitations de la mise à l’échelle avec la géoréplication
+### <a name="scaling-limitations-with-geo-replication"></a>Limitations de la mise à l’échelle avec la géoréplication
 
 Si vous ajoutez un lien de géoréplication entre deux caches, vous pourrez plus lancer une opération de mise à l’échelle ni modifier le nombre de partitions d’un cluster. Il vous faudra supprimer le lien du cache pour pouvoir émettre ces commandes. Pour plus d’informations, consultez la page [Configurer la géoréplication](cache-how-to-geo-replication.md).
 

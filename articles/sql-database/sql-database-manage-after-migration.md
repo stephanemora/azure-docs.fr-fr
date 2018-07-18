@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650109"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061642"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -31,7 +31,6 @@ Cet article présente certaines des principales caractéristiques d’Azure SQL 
 - Sécurité et conformité
 - Surveillance et maintenance de bases de données intelligentes
 - Déplacement des données
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuité d’activité et récupération d’urgence (BCDR)
 Les possibilités de continuité d’activité et de récupération d’urgence vous permettent de poursuivre votre activité, comme à l’accoutumée, en cas de sinistre. Un sinistre peut correspondre à un événement au niveau de la base de données (par exemple, une personne supprime par erreur une table essentielle) ou à un événement au niveau du centre de données (catastrophe naturelle dans la région, comme un tsunami par exemple). 
@@ -171,7 +170,7 @@ Express Route vous permet également de doubler la limite de bande passante que 
 - [Flux de travail](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Est-ce que SQL Database est conforme aux exigences réglementaires et comment cela peut-il répondre aux exigences de conformité de mon organisation ?
-SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour voir quels sont les derniers points de conformité respectés, visitez [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) et recherchez les points de conformité importants pour votre organisation. Ainsi, vous pourrez déterminer si SQL Database fait partie des services Azure conformes. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
+SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour voir quels sont les derniers points de conformité respectés, visitez [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) et recherchez les points de conformité importants pour votre organisation. Ainsi, vous pourrez déterminer si SQL Database fait partie des services Azure conformes. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Surveillance et maintenance de bases de données intelligentes après la migration
 
@@ -235,7 +234,7 @@ SQL Database propose plusieurs niveaux de service : De base, Standard et Premiu
 
 Pour vérifier la pertinence de votre niveau de performance, vous pouvez surveiller votre consommation des ressources de requête et de base de données de l’une des manières mentionnées ci-dessus dans « Comment faire pour surveiller les performances et l’utilisation des ressources dans SQL Database ? ». Si vous trouvez que vos requêtes/bases de données flirtent constamment avec les limites d’UC/mémoire, envisagez de passer à un niveau de performance supérieur. De même, si vous remarquez que, même pendant vos heures de pointe, vous n’utilisez pas tant que ça les ressources, envisagez de passer à un niveau de performance inférieur à votre niveau actuel. 
 
-Si vous utilisez un modèle d’application SaaS ou un scénario de consolidation de bases de données, envisagez d’utiliser un pool élastique pour optimiser les coûts. Un pool élastique est un excellent moyen pour consolider des bases de données et optimiser les coûts. Pour en savoir plus sur la gestion de plusieurs bases de données à l’aide d’un pool élastique, consultez : [Gérer des pools et des bases de données](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+Si vous utilisez un modèle d’application SaaS ou un scénario de consolidation de bases de données, envisagez d’utiliser un pool élastique pour optimiser les coûts. Un pool élastique est un excellent moyen pour consolider des bases de données et optimiser les coûts. Pour en savoir plus sur la gestion de plusieurs bases de données à l’aide d’un pool élastique, consultez : [Gérer des pools et des bases de données](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>À quelle fréquence ai-je besoin d’exécuter les vérifications de l’intégrité de ma base de données ?
 SQL Database utilise des techniques intelligentes pour gérer certaines classes d’altération des données automatiquement et sans perte de données. Ces techniques sont intégrées au service et exploitées par lui au moment opportun. Régulièrement, vos sauvegardes de base de données sont testées sur le service en effectuant leur restauration et en exécutant DBCC CHECKDB. SQL Database traite les problèmes de façon proactive le cas échéant. La [réparation de page automatique](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) est exploitée pour corriger les pages endommagées ou présentant des problèmes d’intégrité des données. Les pages de base de données sont toujours vérifiées avec le paramètre CHECKSUM par défaut qui vérifie l’intégrité de la page. SQL Database surveille et examine l’intégrité des données de votre base de données de manière proactive et, si des problèmes surgissent, les traite avec la priorité la plus élevée. De plus, vous pouvez éventuellement choisir d’exécuter vos propres vérifications d’intégrité à votre convenance.  Pour plus d’informations, consultez [Intégrité des données dans SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).

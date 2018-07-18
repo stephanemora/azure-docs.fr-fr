@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411496"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635066"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI
 
@@ -23,7 +23,6 @@ ms.locfileid: "31411496"
 Les serveurs Azure Database pour PostgreSQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur Azure Database pour PostgreSQL et une base de données](quickstart-create-server-database-azure-cli.md)
 
@@ -33,32 +32,6 @@ Pour utiliser ce guide pratique, il vous faut :
 
 > [!IMPORTANT]
 > Ce guide de procédures requiert l’utilisation de la version 2.0 Azure CLI ou version ultérieure. Pour vérifier la version, à l’invite de commande de l’interface Azure CLI, entrez `az --version`. Pour installer ou mettre à niveau l’interface Azure CLI, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Ajouter l’extension
-Ajoutez l’extension de gestion Azure Database pour PostgreSQL mise à jour à l’aide de la commande suivante :
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Vérifiez que vous avez installé la version d’extension appropriée. 
-```azurecli-interactive
-az extension list
-```
-
-Le retour JSON doit inclure les éléments suivants : 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Si la version 0.0.5 n’est pas renvoyée, exécutez la commande suivante pour mettre à jour l’extension : 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Définir la configuration de sauvegarde
 

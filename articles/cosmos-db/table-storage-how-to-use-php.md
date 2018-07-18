@@ -1,27 +1,25 @@
 ---
 title: Utilisation de l’API du service de Table de Stockage Azure ou de l’API Table d’Azure Cosmos DB à partir de code PHP | Microsoft Docs
-description: Découvrez comment utiliser l’API du service de Table à partir de code PHP pour créer, supprimer, insérer et interroger une table.
+description: Stockez des données structurées dans le cloud à l’aide du stockage Azure Table ou de l’API Azure Cosmos DB Table.
 services: cosmos-db
-documentationcenter: php
 author: SnehaGunda
 manager: kfile
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19d475c16b672b960b417391b4c3a6efe27f6cd6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797938"
 ---
-# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Utilisation de l’API du service de Table de Stockage Azure ou de l’API Table d’Azure Cosmos DB à partir de code PHP
+# <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Utilisation de l’API du service de Table de Stockage Azure ou de l’API Azure Cosmos DB Table à partir de code PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide explique comment accomplir des tâches courantes à l’aide de l’API du service de Table de Stockage Azure et de l’API Table d’Azure Cosmos DB. Les exemples sont écrits en PHP et utilisent la [bibliothèque de client PHP pour le service de Table de Stockage Azure][download]. Les tâches couvertes incluent **la création et la suppression d’une table**, ainsi que **l’insertion, la suppression et l’interrogation d’entités dans une table**. Pour plus d'informations sur le service de Table Azure, consultez la section [Étapes suivantes](#next-steps) .

@@ -17,18 +17,17 @@ ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7049a4b5159687ab928cda7ddc6b1a35959529ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187155"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972105"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Haute disponibilité de SAP HANA pour les machines virtuelles Azure
 
 Vous pouvez utiliser de nombreuses fonctionnalités Azure pour déployer des bases de données stratégiques comme SAP HANA dans des machines virtuelles Azure. Cet article fournit des conseils sur la façon de bénéficier d’une certaine disponibilité pour les instances SAP HANA qui sont hébergées dans des machines virtuelles Azure. L’article décrit plusieurs scénarios que vous pouvez implémenter en utilisant l’infrastructure Azure pour augmenter la disponibilité de SAP HANA sur Azure. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet article suppose que vous maîtrisiez certains concepts de base d’IaaS (Infrastructure as a Service) dans Azure, notamment : 
 

@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640259"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -32,7 +33,6 @@ Vous pouvez essayer la recherche cognitive dans un service Recherche Azure cré�
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [« Qu’est-ce que la recherche cognitive ? »](cognitive-search-concept-intro.md) Présente l’architecture d’enrichissement et ses composants. 
 
@@ -55,7 +55,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Pour Emplacement, choisissez **Sud-Centre des États-Unis** ou **Europe de l’Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
 
-1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour terminer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
+1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
 
   Un service gratuit est limité à 3 index, à une taille maximale d’objet blob de 16 Mo et à 2 minutes d’indexation, ce qui est insuffisant pour exercer toutes les fonctionnalités de recherche cognitive. Pour passer en revue les limites des différents niveaux, consultez [Limites du service](search-limits-quotas-capacity.md).
 
@@ -96,6 +96,8 @@ L’un des avantages liés à l’utilisation de l’**Assistant Importer des do
 ### <a name="step-2-add-cognitive-skills"></a>Étape 2 : Ajouter des compétences cognitives
 
 Ensuite, ajoutez des étapes d’enrichissement au pipeline d’indexation. Le portail vous donne des compétences cognitives prédéfinies pour l’analyse d’image et de texte. Dans le portail, un ensemble de compétences s’exécute sur un champ source unique. Cela peut sembler être une cible de petite taille, mais pour les objets BLOB Azure le champ `content` contient la plupart du document de l’objet blob (par exemple, un document Word ou un jeu PowerPoint). Par conséquent, ce champ est une entrée idéale, car tous les contenus d’un objet blob s’y trouvent.
+
+Parfois, vous souhaitez extraire la représentation textuelle de fichiers qui sont composés principalement d’images numérisées, comme un fichier PDF généré par un scanneur. Recherche Azure peut extraire automatiquement le contenu à partir d’images incorporées dans le document. Pour ce faire, sélectionnez l’option **Enable OCR and merge all text into merged_content field**. Cette opération crée automatiquement un champ `merged_content` qui contient à la fois le texte extrait du document, ainsi que la représentation textuelle des images incorporées dans le document. Lorsque vous sélectionnez cette option le `Source data field` sera défini sur `merged_content`.
 
 Dans **Ajouter des compétences cognitives**, choisissez les compétences qui effectuent le traitement en langage naturel. Pour ce guide démarrage rapide, choisissez la reconnaissance d’entité pour les personnes, les organisations et les emplacements.
 

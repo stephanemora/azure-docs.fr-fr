@@ -4,17 +4,17 @@ description: Liste des services qui prennent en charge l’identité du service 
 services: active-directory
 author: daveba
 ms.author: daveba
-ms.date: 03/28/2018
-ms.topic: reference
+ms.date: 06/27/2018
+ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 2d896b11ae94355eb2bdcfa8bc3a647f96fd8caf
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cdef4cf16fc688b61f367a77267be821ee84bf56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723760"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902008"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Services qui prennent en charge l’identité du service administré 
 
@@ -27,8 +27,8 @@ Les services Azure suivants prennent en charge l’identité du service administ
 | de diffusion en continu | Statut | Date | Configuration | Obtention d’un jeton |
 | ------- | ------ | ---- | --------- | ----------- |
 | Machines virtuelles Azure | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[interface de ligne de commande Azure](qs-configure-cli-windows-vm.md)<br>[Modèles Microsoft Azure Resource Manager](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure App Service | Disponible | Juin 2018 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[interface de ligne de commande Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell)  |
+| Azure Functions | Disponible | Juin 2018 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[interface de ligne de commande Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell) |
 | Azure Data Factory V2 | VERSION PRÉLIMINAIRE | Novembre 2017 | [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Foundation](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
 

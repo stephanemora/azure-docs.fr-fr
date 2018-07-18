@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934788"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306471"
 ---
 # <a name="import-a-function-app-as-an-api"></a>Importer une application de fonction en tant qu’API
 
@@ -32,7 +32,6 @@ Dans cet article, vous apprendrez comment :
 > * Tester l’API dans le portail des développeurs
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Vérifiez que votre abonnement contient une application de fonction. Pour plus d’informations, consultez [Créer une application de fonction](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).

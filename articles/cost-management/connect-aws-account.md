@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297326"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connecter un compte Amazon Web Services
 
@@ -33,7 +34,7 @@ Les sections suivantes vous guident lors de la création d’un rôle IAM en lec
 
 La première étape consiste à obtenir la phrase secrète de connexion unique à partir du portail Azure Cost Management. Il est utilisé dans AWS comme **ID externe**.
 
-1. Ouvrez le portail Cloudyn à partir du Portail Azure, ou accédez à [https://azure.cloudyn.com](https://azure.cloudyn.com) et connectez-vous.
+1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à [https://azure.cloudyn.com](https://azure.cloudyn.com) et connectez-vous.
 2. Cliquez sur le symbole de roue dentée, puis sélectionnez **Cloud Accounts** (Comptes cloud).
 3. Dans Gestion de comptes, sélectionnez l’onglet **Comptes AWS**, puis cliquez sur **Ajouter un nouveau +**.
 4. Dans la boîte de dialogue **Add AWS Account** (Ajouter un compte AWS), copiez la valeur **External ID** (ID externe) et enregistrez-la pour la procédure de création du rôle AWS décrite à la section suivante. L’ID externe est propre à votre compte. Dans l’image ci-après, l’exemple d’ID externe est _Contoso_ suivi d’un nombre. Votre ID est différent.  
@@ -54,7 +55,7 @@ La première étape consiste à obtenir la phrase secrète de connexion unique �
 
 ### <a name="configure-aws-iam-role-access-in-cost-management"></a>Configurer l’accès en fonction du rôle AWS IAM dans Cost Management
 
-1. Ouvrez le portail Cloudyn à partir du Portail Azure, ou accédez à https://azure.cloudyn.com/ et connectez-vous.
+1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à https://azure.cloudyn.com/ et connectez-vous.
 2. Cliquez sur le symbole de roue dentée, puis sélectionnez **Cloud Accounts** (Comptes cloud).
 3. Dans Gestion de comptes, sélectionnez l’onglet **Comptes AWS**, puis cliquez sur **Ajouter un nouveau +**.
 4. Dans **Nom de compte**, saisissez un nom pour le compte.
@@ -91,7 +92,7 @@ Les sections suivantes vous guident lors de la création d’un utilisateur en l
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configurer l’accès en fonction de l’utilisateur AWS IAM dans Cost Management
 
-1. Ouvrez le portail Cloudyn à partir du portail Azure, ou accédez à https://azure.cloudyn.com/ et connectez-vous.
+1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à https://azure.cloudyn.com/ et connectez-vous.
 2. Cliquez sur le symbole de roue dentée, puis sélectionnez **Cloud Accounts** (Comptes cloud).
 3. Dans Gestion de comptes, sélectionnez l’onglet **Comptes AWS**, puis cliquez sur **Ajouter un nouveau +**.
 4. Sous **Nom de compte**, tapez un nom de compte.
@@ -107,7 +108,7 @@ Cost Management commence la collecte des données et le remplissage des rapports
 
 Suivez la procédure ci-après pour obtenir votre ARN de rôle AWS. L’ARN de rôle vous permet d’accorder des autorisations de lecture à un compartiment de facturation.
 
-1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com, puis sélectionnez **Services** (Services).
+1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com, puis sélectionnez **Services**.
 2. Dans la zone de recherche de service, tapez *IAM*, puis sélectionnez cette option.
 3. Dans le menu de gauche, sélectionnez **Roles** (Rôles).
 4. Dans la liste des rôles, sélectionnez le rôle que vous avez créé pour l’accès Cloudyn.
@@ -117,7 +118,7 @@ Suivez la procédure ci-après pour obtenir votre ARN de rôle AWS. L’ARN de r
 
 Vous créez un compartiment S3 pour stocker les informations de facturation détaillée.
 
-1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com, puis sélectionnez **Services** (Services).
+1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com, puis sélectionnez **Services**.
 2. Dans la zone de recherche de service, tapez *S3*, puis sélectionnez **S3**.
 3. Dans la page Amazon S3, cliquez sur **Create bucket** (Créer un compartiment).
 4. Dans l’Assistant de création d’un compartiment, choisissez un nom de compartiment et une région, puis cliquez sur **Next** (Suivant).  

@@ -11,16 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 69a27a2a75eb2a08a93b8b70648733673eac36db
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260044"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548126"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Exigences en matière d’abonnement d’Azure AD Privileged Identity Management
 
@@ -37,7 +38,7 @@ Si vous ne savez pas si votre organisation dispose d’un abonnement d’évalua
 2. Entrez `Connect-MsolService` pour vous authentifier en tant qu’utilisateur de votre locataire.
 3. Entrez `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Cette commande récupère la liste des abonnements dans votre locataire. Si aucune ligne n’est renvoyée, vous devez obtenir une version d’évaluation d’Azure AD Premium P2, acheter un abonnement Azure AD Premium P2 ou un abonnement ESM E5 pour pouvoir utiliser Azure AD Privileged Identity Management.  Pour obtenir une version d’évaluation et commencer à utiliser Azure AD Privileged Identity Management, lisez [Prise en main d’Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Cette commande récupère la liste des abonnements dans votre locataire. Si aucune ligne n’est renvoyée, vous devez obtenir une version d’évaluation d’Azure AD Premium P2, acheter un abonnement Azure AD Premium P2 ou un abonnement ESM E5 pour pouvoir utiliser Azure AD Privileged Identity Management.  Pour obtenir une version d’évaluation et commencer à utiliser Azure AD Privileged Identity Management, lisez [Prise en main d’Azure AD Privileged Identity Management](pim-getting-started.md).
 
 Si cette commande renvoie une ligne dans laquelle le SkuPartNumber est « AAD_PREMIUM_P2 » ou « EMSPREMIUM » et IsTrial est « True », cela signifie qu’une version d’évaluation d’Azure AD Premium P2 est présente dans le locataire.  Si l’état de l’abonnement n’est pas activé et si vous n’avez pas acheté d’abonnement Azure AD Premium P2 ou EMS E5, vous devez acheter un abonnement Azure AD Premium P2 ou EMS E5 pour continuer à utiliser Azure AD Privileged Identity Management.
 
@@ -60,5 +61,5 @@ Lorsqu’un abonnement Azure AD Premium P2 ou EMS E5 arrive à expiration, ou qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main d’Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Rôles dans Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Prise en main d’Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Rôles dans Azure AD Privileged Identity Management](pim-roles.md)

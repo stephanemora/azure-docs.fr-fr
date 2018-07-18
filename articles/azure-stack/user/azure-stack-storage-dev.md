@@ -1,20 +1,20 @@
 ---
-title: Bien démarrer avec les outils de développement du stockage Azure Stack
+title: Bien démarrer avec les outils de développement du stockage Azure Stack | Microsoft Docs
 description: Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 07/03/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 40f256b7a2be5a5a1d642983fa6ce018ee602ac2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198933"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441710"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack
 
@@ -24,12 +24,12 @@ L’infrastructure Microsoft Azure Stack fournit un ensemble de services de stoc
 
 Utilisez cet article comme un guide de démarrage concernant l’utilisation des outils de développement du stockage Azure Stack. Des informations plus détaillées et des exemples de code sont disponibles dans les didacticiels correspondants du Stockage Azure.
 
->[!NOTE]
->Le stockage Azure Stack et le stockage Azure présentent quelques différences connues, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Le stockage Azure Stack et le stockage Azure présentent quelques différences connues, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliothèques clientes Azure
 
-Les versions prises d’API REST prises en charge pour le stockage Azure Stack sont : 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 pour la mise à jour 1802 ou versions plus récentes, et 2015-04-05 pour les versions précédentes. Les points de terminaison Azure Stack n’ont pas de parité complète avec la dernière version de l’API REST du stockage Azure. Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version compatible avec l’API REST.
+Les versions d’API REST prises en charge pour le stockage Azure Stack sont : 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 pour la mise à jour 1802 ou versions plus récentes, et 2015-04-05 pour les versions précédentes. Les points de terminaison Azure Stack n’ont pas de parité complète avec la dernière version de l’API REST du stockage Azure. Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version compatible avec l’API REST.
 
 ### <a name="1802-update-or-newer-versions"></a>Mise à jour 1802 ou plus récente
 
@@ -210,4 +210,4 @@ Les didacticiels du stockage Table Azure suivants sont applicables à Azure Stac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Introduction à Stockage Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introduction au stockage Microsoft Azure](../../storage/common/storage-introduction.md)

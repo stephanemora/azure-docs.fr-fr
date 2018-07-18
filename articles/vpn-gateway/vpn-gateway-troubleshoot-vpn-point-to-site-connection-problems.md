@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 0db2291b53c4fe7d2d0894a4c266ed60f78219de
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072230"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857328"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
 
@@ -45,7 +45,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 2. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Lieu |
+    | Certificat | Emplacement |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
@@ -93,7 +93,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Lieu |
+    | Certificat | Emplacement |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
@@ -305,11 +305,11 @@ Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gatewa
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erreur : « La fonction de révocation n'a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
 
 ### <a name="causes"></a>Causes
-Ce message d’erreur se produit si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.cr.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
+Ce message d’erreur se produit si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.crl.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
 
 ### <a name="solution"></a>Solution
 
-Vérifiez les paramètres du serveur proxy, assurez-vous que le client peut accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.cr.
+Vérifiez les paramètres du serveur proxy, assurez-vous que le client peut accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.crl.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erreur du client VPN : La connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. (Erreur 812)
 

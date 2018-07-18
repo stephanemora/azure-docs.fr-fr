@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179059"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446603"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Se connecter à HDInsight (Hadoop) à l’aide de SSH
 
@@ -32,7 +32,7 @@ HDInsight peut utiliser Linux (Ubuntu) comme système d’exploitation pour les 
 
 | Adresse | Port | Se connecte au... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nœud de périmètre (R Server sur HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nœud de périphérie (ML Services sur HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nœud de périmètre (n’importe quel autre type de cluster, si un nœud de périmètre existe) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nœud principal primaire |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nœud principal secondaire |
@@ -137,7 +137,19 @@ Pour plus d’informations sur la modification du mot de passe du compte utilisa
 
 ## <a id="domainjoined"></a>Authentification : HDInsight joint à un domaine
 
-Si vous utilisez un __cluster HDInsight joint à un domaine__, vous devez utiliser la commande `kinit` après vous être connecté via SSH. Cette commande vous invite à renseigner un utilisateur de domaine et un mot de passe, et authentifie votre session auprès du domaine Active Directory Azure associé au cluster.
+Si vous utilisez un __cluster HDInsight joint à un domaine__, vous devez utiliser la commande `kinit` après vous être connecté avec un utilisateur local SSH. Cette commande vous invite à renseigner un utilisateur de domaine et un mot de passe, et authentifie votre session auprès du domaine Active Directory Azure associé au cluster.
+
+Vous pouvez également activer l’authentification Kerberos sur chaque nœud joint à un domaine (par exemple un nœud principal ou un nœud de périphérie) pour que SSH puisse utiliser le compte de domaine. Pour cela, éditez le fichier de configuration de sshd :
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+décommentez et changez `KerberosAuthentication` en `yes`
+
+```bash
+sudo service sshd restart
+```
+
+À tout moment, pour vérifier si l’authentification Kerberos a réussi ou non, utilisez la commande `klist`.
 
 Pour plus d’informations, consultez la section [Configurer des clusters HDInsight joints à un domaine (version préliminaire)](./domain-joined/apache-domain-joined-configure.md).
 

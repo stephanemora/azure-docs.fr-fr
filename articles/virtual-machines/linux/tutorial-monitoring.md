@@ -3,7 +3,7 @@ title: 'Didacticiel : surveiller et mettre à jour des machines virtuelles Linux
 description: Avec ce didacticiel, vous allez apprendre à surveiller les diagnostics de démarrage et les métriques de performances, et à gérer les mises à jour de package sur une machine virtuelle Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
-ms.author: iainfou
+ms.date: 06/06/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5773d2f6634d1de9674351ff30a15b488bdd672
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597461"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -39,17 +40,17 @@ Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement,
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Créer une machine virtuelle
 
-Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus*.
+Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Créez maintenant une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVM* :
+Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée une machine virtuelle nommée *myVM* et génère des clés SSH si elles n’existent pas déjà dans *~/.ssh/* :
 
 ```azurecli-interactive
 az vm create \
@@ -64,7 +65,7 @@ az vm create \
 
 Au démarrage des machines virtuelles Linux, l’extension Diagnostics de démarrage capture la sortie du démarrage et la stocke dans le stockage Azure. Ces données peuvent être utilisées pour résoudre les problèmes de démarrage des machines virtuelles. Les diagnostics de démarrage ne sont pas activés automatiquement quand vous créez une machine virtuelle Linux à l’aide d’Azure CLI.
 
-Avant d’activer les diagnostics de démarrage, vous devez créer un compte de stockage pour stocker les journaux de démarrage. Les comptes de stockage doivent avoir un nom global unique, comprenant entre 3 et 24 caractères, et contenant seulement des chiffres et des lettres minuscules. Créez un compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). Dans cet exemple, une chaîne aléatoire est utilisée pour créer un nom de compte de stockage unique.
+Avant d’activer les diagnostics de démarrage, vous devez créer un compte de stockage pour stocker les journaux de démarrage. Les comptes de stockage doivent avoir un nom global unique, comprenant entre 3 et 24 caractères, et contenant seulement des chiffres et des lettres minuscules. Créez un compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create). Dans cet exemple, une chaîne aléatoire est utilisée pour créer un nom de compte de stockage unique.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -82,7 +83,7 @@ Lors de l’activation des diagnostics de démarrage, l’URI vers le conteneur 
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Activez maintenant les diagnostics de démarrage avec la commande [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). La valeur de `--storage` est l’URI de l’objet blob collecté à l’étape précédente.
+Activez maintenant les diagnostics de démarrage avec la commande [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). La valeur de `--storage` est l’URI de l’objet blob collecté à l’étape précédente.
 
 ```azurecli-interactive
 az vm boot-diagnostics enable \
@@ -93,19 +94,19 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Afficher les diagnostics de démarrage
 
-Quand les diagnostics de démarrage sont activés, chaque fois que vous arrêtez et que vous démarrez la machine virtuelle, des informations sur le processus de démarrage sont écrites dans un fichier journal. Pour cet exemple, désallouez d’abord la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#az_vm_deallocate) comme suit :
+Quand les diagnostics de démarrage sont activés, chaque fois que vous arrêtez et que vous démarrez la machine virtuelle, des informations sur le processus de démarrage sont écrites dans un fichier journal. Pour cet exemple, désallouez d’abord la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#az-vm-deallocate) comme suit :
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Démarrez maintenant la machine virtuelle avec la commande [az vm start]( /cli/azure/vm#az_vm_stop) comme suit :
+Démarrez maintenant la machine virtuelle avec la commande [az vm start]( /cli/azure/vm#az-vm-stop) comme suit :
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Vous pouvez obtenir les données des diagnostics de démarrage pour *myVM* avec la commande [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) comme suit :
+Vous pouvez obtenir les données des diagnostics de démarrage pour *myVM* avec la commande [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) comme suit :
 
 ```azurecli-interactive
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -115,24 +116,18 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 Une machine virtuelle Linux a un hôte dédié dans Azure qui interagit avec elle. Les métriques sont automatiquement collectées pour l’hôte et peuvent être visualisées dans le portail Azure comme suit :
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
-1. Pour voir comment la machine virtuelle hôte fonctionne, cliquez sur **Métriques** dans le panneau de la machine virtuelle, puis sélectionnez une des métriques de *[hôte]* sous **Métriques disponibles**.
+1. Dans le portail Azure, sélectionnez **Groupes de ressources**, choisissez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Pour voir comment la machine virtuelle hôte fonctionne, sélectionnez **Métriques** dans la fenêtre de la machine virtuelle, puis sélectionnez une des métriques de l’*[hôte]* sous **Métriques disponibles**.
 
     ![Afficher les métriques de l’hôte](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>Installer l’extension Diagnostics
 
-> [!IMPORTANT]
-> Ce document décrit la version 2.3 de l’extension de diagnostic Linux, qui est déconseillée. La version 2.3 sera prise en charge jusqu’au 30 juin 2018.
->
-> La version 3.0 de l’extension de diagnostic Linux peut être activée à la place. Pour plus d’informations, consultez [la documentation](./diagnostic-extension.md).
-
 Les métriques de base de l’hôte sont disponibles, mais pour voir des métriques plus précises et spécifiques à la machine virtuelle, vous devez installer l’extension Diagnostics Azure sur la machine virtuelle. L’extension Diagnostics Azure permet de récupérer des données supplémentaires de surveillance et de diagnostic auprès de la machine virtuelle. Vous pouvez voir ces métriques de performances et créer des alertes basées sur le fonctionnement de la machine virtuelle. L’extension Diagnostics est installée via le portail Azure comme suit :
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroup** puis sélectionnez **myVM** dans la liste des ressources.
-1. Cliquez sur **Paramètres de diagnostic**. La liste montre que les *Diagnostics de démarrage* sont déjà activés depuis la section précédente. Cliquez sur la case à cocher *Métriques de base*.
-1. Dans la section *Compte de stockage*, recherchez et sélectionnez le compte *mydiagdata[1234]* créé dans la section précédente.
-1. Cliquez sur le bouton **Enregistrer** .
+1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Sélectionnez **Paramètres de diagnostic**. Dans le menu déroulant *Sélectionner un compte de stockage*, si ce n’est pas déjà fait, choisissez le compte *mydiagdata [1234]* créé dans la section précédente.
+1. Cliquez sur le bouton **Activer la surveillance d’invités**.
 
     ![Afficher les métriques de diagnostic](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -140,8 +135,8 @@ Les métriques de base de l’hôte sont disponibles, mais pour voir des métriq
 
 Vous pouvez afficher les métriques de la machine virtuelle de la même façon que vous avez affiché le mesures de la machine virtuelle hôte :
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroup** puis sélectionnez **myVM** dans la liste des ressources.
-1. Pour voir comment la machine virtuelle fonctionne, cliquez sur **Métriques** dans le panneau de la machine virtuelle puis sélectionnez une des métriques de diagnostic sous **Métriques disponibles**.
+1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Pour voir comment la machine virtuelle fonctionne, cliquez sur **Métriques** dans la fenêtre de la machine virtuelle puis sélectionnez une des métriques de diagnostic *[Guest]* sous **Métriques disponibles**.
 
     ![Afficher les métriques de la machine virtuelle](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
@@ -151,8 +146,8 @@ Vous pouvez créer des alertes en fonction de métriques de performances spécif
 
 L’exemple suivant crée une alerte pour l’utilisation moyenne de l’UC.
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroup** puis sélectionnez **myVM** dans la liste des ressources.
-2. Cliquez sur **Règles d’alerte** dans le panneau de la machine virtuelle puis cliquez sur **Ajouter une alerte Métrique** dans la partie supérieure du panneau des alertes.
+1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+2. Sélectionnez **Alertes (classique)**, puis choisissez **Ajouter une alerte métrique (classique)** en haut de la fenêtre d’alerte.
 3. Spécifiez un **Nom** pour votre alerte, comme *myAlertRule*
 4. Pour déclencher une alerte quand le pourcentage d’UC dépasse 1,0 pendant cinq minutes, laissez toutes les autres valeurs par défaut sélectionnées.
 5. Si vous le souhaitez, cochez la case *Envoyer un e-mail aux propriétaires, aux contributeurs et aux lecteurs* pour envoyer la notification par e-mail. L’action par défaut est de présenter une notification dans le portail.
@@ -171,7 +166,7 @@ Activer la gestion des mises à jour pour votre machine virtuelle :
 
 1. Sur le côté gauche de l’écran, sélectionnez **Machines virtuelles**.
 2. Sélectionnez une machine virtuelle dans la liste.
-3. Dans l’écran de la machine virtuelle, dans la section **Opérations**, cliquez sur **Gestion des mises à jour**. L’écran **Activer la gestion des mises à jour** s’ouvre.
+3. Dans l’écran de la machine virtuelle, dans la section **Opérations**, sélectionnez **Gestion des mises à jour**. L’écran **Activer la gestion des mises à jour** s’ouvre.
 
 Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle.
 La validation inclut la vérification de l’existence d’un espace de travail Log Analytics et d’un compte Automation lié, et si la solution est dans l’espace de travail.
@@ -183,7 +178,7 @@ Pour effectuer une action supplémentaire sur les machines virtuelles qui néces
 Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un runbook Worker hybride Automation.
 Cet agent est utilisé pour communiquer avec la machine virtuelle et pour obtenir des informations sur l’état des mises à jour.
 
-Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
+Choisissez l’espace de travail Log Analytics et le compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
 Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
 
@@ -191,7 +186,7 @@ Si l’intégration n’identifie pas l’un des prérequis suivants, il est aut
 * [Automation](../../automation/automation-offering-get-started.md)
 * Un [worker runbook hybride](../../automation/automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
 
-L’écran **Gestion des mises à jour** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
+L’écran **Gestion des mises à jour** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et le compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
 
 ![Activer la solution de gestion des mises à jour](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -207,7 +202,7 @@ Une fois la **gestion des mises à jour** activée, l’écran **Gestion des mis
 
 Pour installer les mises à jour, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
-Planifier un nouveau déploiement de mises à jour pour la machine virtuelle en cliquant sur **Planifier le déploiement de la mise à jour** en haut de l’écran **Gestion des mises à jour**. Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
+Pour planifier un nouveau déploiement de mises à jour pour la machine virtuelle, sélectionnez **Planifier le déploiement de la mise à jour** en haut de l’écran **Gestion des mises à jour**. Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
 * **Nom** : spécifiez un nom unique pour identifier le déploiement de mises à jour.
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Les types de classification sont les suivants :
@@ -218,13 +213,13 @@ Planifier un nouveau déploiement de mises à jour pour la machine virtuelle en 
   ![Écran Paramètres de planification des mises à jour](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
 * **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle, ou spécifier un moment différent.
-  Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Cliquez sur l’option Périodique sous Périodicité pour définir une planification périodique.
+  Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Pour définir une planification périodique, sélectionnez l’option Périodique sous Périodicité.
 
   ![Écran Paramètres de planification des mises à jour](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
 * **Fenêtre de maintenance (en minutes)**  : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Cela permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
-Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer** ; vous revenez ensuite au tableau de bord des états.
+Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer**. Vous revenez ensuite au tableau de bord des états.
 Notez que le tableau **Planifié** montre la planification de déploiement que vous avez créée.
 
 > [!WARNING]
@@ -235,7 +230,7 @@ Notez que le tableau **Planifié** montre la planification de déploiement que v
 Une fois que le déploiement planifié démarre, vous pouvez voir l’état de ce déploiement sous l’onglet **Déploiements des mises à jour** dans l’écran **Gestion des mises à jour**.
 S’il est en cours d’exécution, son état est **En cours d’exécution**. Une fois le déploiement terminé, s’il est réussi, l’état passe à **Réussi**.
 S’il existe un échec avec une ou plusieurs mises à jour dans le déploiement, l’état est **Échec partiel**.
-Cliquez sur le déploiement des mises à jour terminé pour voir le tableau de bord pour ce déploiement de mises à jour.
+Sélectionnez le déploiement des mises à jour terminé pour voir le tableau de bord dédié à ce déploiement de mises à jour.
 
 ![Tableau de bord des états de déploiement des mises à jour pour un déploiement spécifique](./media/tutorial-monitoring/manage-updates-view-results.png)
 
@@ -246,11 +241,11 @@ Dans le tableau de droite se trouve une répartition détaillée de chaque mise 
 * **Réussi** : la mise à jour a réussi
 * **Échec** : la mise à jour a échoué
 
-Cliquez sur **Tous les journaux** pour voir toutes les entrées de journal créées par le déploiement.
+Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux**.
 
 Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 
-Cliquez sur **Erreurs** pour afficher les informations détaillées sur les erreurs du déploiement.
+Pour afficher les informations détaillées sur les erreurs du déploiement, sélectionnez **Erreurs**.
 
 ## <a name="monitor-changes-and-inventory"></a>Surveiller les modifications et l’inventaire
 
@@ -262,9 +257,9 @@ Activez la gestion des modifications et de l’inventaire pour votre machine vir
 
 1. Sur le côté gauche de l’écran, sélectionnez **Machines virtuelles**.
 2. Sélectionnez une machine virtuelle dans la liste.
-3. Sur l’écran de la machine virtuelle, dans la section **Opérations**, cliquez sur **Inventaire** ou **Suivi des modifications**. L’écran **Enable Change Tracking and Inventory** (Activer le suivi des modifications et inventaire) s’ouvre.
+3. Sur l’écran de la machine virtuelle, dans la section **Opérations**, sélectionnez **Inventaire** ou **Suivi des modifications**. L’écran **Enable Change Tracking and Inventory** (Activer le suivi des modifications et inventaire) s’ouvre.
 
-Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés. Même si les solutions sont distinctes dans le menu, elles forment une même solution. Le fait d’en activer une active les deux pour votre machine virtuelle.
+Configurez l’emplacement, l’espace de travail Log Analytics et le compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés. Même si les solutions sont distinctes dans le menu, elles forment une même solution. Le fait d’en activer une active les deux pour votre machine virtuelle.
 
 ![Activer le suivi des modifications et de l’inventaire](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -317,7 +312,7 @@ Après quelques minutes, la nouvelle machine virtuelle s’affiche dans l’espa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré, examiné et géré les mises à jour pour une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez configuré, examiné et géré les mises à jour pour une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Activer les diagnostics de démarrage sur la machine virtuelle

@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 49429dd4db4c33f16fce39a932f387e2145da250
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0580d8ac864bf8ac5017985c96bfe7469a7c2276
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017586"
 ---
 # <a name="billing-tags-policy-initiative"></a>Initiative de la stratégie de facturation en fonction d’étiquettes
 
@@ -63,20 +64,18 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Après avoir attribué les stratégies, vous pouvez déclencher une mise à jour sur toutes les ressources existantes pour appliquer les stratégies de balise que vous avez ajoutées. Le script suivant conserve toutes les autres balises existant sur les ressources :
 
 ```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+$resources = Get-AzureRmResource -ResourceGroupName 'ExampleGroup'
 
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+foreach ($r in $resources) {
+    try {
+        Set-AzureRmResource -Tags ($a = if ($r.Tags -eq $NULL) { @{} } else {$r.Tags}) -ResourceId $r.ResourceId -Force -UsePatchSemantics
     }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
+    catch {
+        Write-Host $r.ResourceId + "can't be updated"
     }
 }
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous pouvez trouver d’autres exemples de modèles Azure Policy dans [Modèles pour Azure Policy](../json-samples.md).
+- Retrouvez d’autres exemples dans [Exemples Azure Policy](../json-samples.md).

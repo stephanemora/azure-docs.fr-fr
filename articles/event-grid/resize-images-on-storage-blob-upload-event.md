@@ -9,20 +9,21 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/20/2017
+ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295947"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
 [Azure Event Grid](overview.md) est un service d’événement pour le cloud. Event Grid permet de créer des abonnements aux événements qui sont déclenchés par les services Azure ou des ressources tierces.  
 
-Ce didacticiel constitue la deuxième partie d’une série de didacticiels sur le stockage. Il développe le [didacticiel précédent sur le stockage][previous-tutorial] en y ajoutant la génération automatique de miniatures sans serveur à l’aide d’Azure Event Grid et d’Azure Functions. Event Grid permet à [Azure Functions](..\azure-functions\functions-overview.md) de répondre aux événements de [Stockage Blob Azure](..\storage\blobs\storage-blobs-introduction.md) et de générer les miniatures d’images chargées. Un abonnement est créé pour l’événement de création de Stockage Blob. Lorsqu’un objet blob est ajouté à un conteneur de stockage d’objets blob, un point de terminaison de fonction est appelé. Les données passées à la liaison de fonction à partir d’Event Grid sont utilisées pour accéder à l’objet blob et pour générer l’image miniature. 
+Ce didacticiel constitue la deuxième partie d’une série de didacticiels sur le stockage. Il développe le [didacticiel précédent sur le stockage][previous-tutorial] en y ajoutant la génération automatique de miniatures sans serveur à l’aide d’Azure Event Grid et d’Azure Functions. Event Grid permet à [Azure Functions](..\azure-functions\functions-overview.md) de répondre aux événements de [Stockage Blob Azure](..\storage\blobs\storage-blobs-introduction.md) et de générer les miniatures d’images chargées. Un abonnement est créé pour l’événement de création de Stockage Blob. Lorsqu’un objet blob est ajouté à un conteneur de stockage d’objets blob, un point de terminaison de fonction est appelé. Les données passées à la liaison de fonction à partir d’Event Grid sont utilisées pour accéder à l’objet blob et pour générer l’image miniature.
 
 Pour ajouter la fonctionnalité de redimensionnement à une application existante de chargement d’images, utilisez Azure CLI et le portail Azure.
 
@@ -37,16 +38,15 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel :
 
-+ Vous devez avoir suivi entièrement le didacticiel précédent sur Stockage Blob intitulé [Charger des données d’image dans le cloud avec Stockage Azure][previous-tutorial]. 
+Vous devez avoir suivi entièrement le didacticiel précédent sur Stockage Blob intitulé [Charger des données d’image dans le cloud avec Stockage Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0.14 ou ultérieure est indispensable pour poursuivre le didacticiel décrit dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0.14 ou ultérieure est indispensable pour poursuivre le didacticiel décrit dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 Si vous n’utilisez pas Cloud Shell, vous devez d’abord vous connecter à l’aide de `az login`.
 
@@ -98,7 +98,9 @@ Vous pouvez désormais déployer un projet de code de fonction dans cette applic
 
 ## <a name="deploy-the-function-code"></a>Déployer le code de fonction 
 
-La fonction C# qui effectue le redimensionnement de l’image est disponible dans ce [dépôt GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Déployez ce projet de code de fonction dans l’application de fonction à l’aide de la commande [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
+
+Le redimensionnement du script d’exemple C# (.csx) est disponible sur [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Déployez ce projet de code de fonction dans l’application de fonction à l’aide de la commande [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
 
 Dans la commande suivante, `<function_app>` est le nom de l’application de fonction que vous avez créée précédemment.
 
@@ -107,6 +109,19 @@ az functionapp deployment source config --name <function_app> \
 --resource-group myResourceGroup --branch master --manual-integration \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+La fonction d’exemple de redimensionnement Node.js est disponible sur [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Déployez ce projet de code de fonction dans l’application de fonction à l’aide de la commande [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+
+
+Dans la commande suivante, `<function_app>` est le nom de l’application de fonction que vous avez créée précédemment.
+
+```azurecli-interactive
+az functionapp deployment source config --name <function_app> \
+--resource-group myResourceGroup --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+---
 
 La fonction de redimensionnement d’image est déclenchée par les requêtes HTTP qui lui sont envoyées à partir du service Event Grid. Vous indiquez à Event Grid que vous souhaitez obtenir ces notifications à l’URL de votre fonction en créant un abonnement d’événement. Pour ce didacticiel, vous vous abonnez à des événements créés par des objets blob.
 

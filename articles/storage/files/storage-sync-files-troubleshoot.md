@@ -4,22 +4,21 @@ description: Découvrez comment résoudre les problèmes courants avec Azure Fil
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea05c29bb40b595ad32304df55a79a9cf82acc18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213263"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738436"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -30,6 +29,9 @@ Cet article est destiné à vous aider à dépanner et à résoudre les problèm
 2. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
+
+## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Je rencontre un problème avec Azure File Sync sur mon serveur (synchronisation, hiérarchisation cloud, etc.). Dois-je supprimer et recréer mon point de terminaison de serveur ?
+[!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="storage-sync-service-object-management"></a>Gestion d’un objet de service de synchronisation de stockage
 Si vous déplacez des ressources d’un abonnement à un autre, les ressources de synchronisation de fichiers (service de synchronisation de stockage) sont bloquées et ne peuvent être déplacées. 
@@ -155,7 +157,7 @@ Si la synchronisation échoue sur un serveur :
     2. Vérifiez que le service Azure File Sync est en cours d’exécution sur le serveur. Pour cela, ouvrez le composant logiciel enfichable MMC des services et vérifiez que le service Storage Sync Agent (FileSyncSvc) est en cours d’exécution.
 
 <a id="replica-not-ready"></a>**La synchronisation échoue, avec cette erreur : « 0x80c8300f - Le réplica n’est pas prêt à effectuer l’opération requise »**  
-Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. La tâche de détection qui recherche les modifications dans le partage de fichiers Azure est planifiée pour s’exécuter une fois toutes les 24 heures.  La durée d’exécution dépend de la taille de l’espace de noms dans le partage de fichiers Azure.  Cette erreur doit en principe disparaître, une fois la tâche terminée.
+Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. La tâche de détection de changement qui recherche les changements dans le partage de fichiers Azure est planifiée une fois toutes les 24 heures.  La durée d’exécution dépend de la taille de l’espace de noms dans le partage de fichiers Azure.  Cette erreur doit en principe disparaître, une fois la tâche terminée.
 
 
     > [!NOTE]

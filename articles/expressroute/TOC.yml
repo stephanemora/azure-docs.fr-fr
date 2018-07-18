@@ -29,8 +29,7 @@
           href: expressroute-locations.md
     - name: À propos des passerelles de réseau virtuel pour ExpressRoute
       href: expressroute-about-virtual-network-gateways.md
-    - name: |
-        Prérequis
+    - name: Prérequis
       href: expressroute-prerequisites.md
     - name: Flux de travail
       href: expressroute-workflows.md
@@ -90,6 +89,8 @@
       href: expressroute-howto-move-arm.md
     - name: Migrer les réseaux virtuels associés du déploiement classique vers Resource Manager
       href: expressroute-migration-classic-resource-manager.md
+    - name: Créer une passerelle de réseau virtuel redondante dans une zone dans les zones de disponibilité Azure
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Configurer un routeur pour ExpressRoute
       items:
         - name: Configurer un routeur

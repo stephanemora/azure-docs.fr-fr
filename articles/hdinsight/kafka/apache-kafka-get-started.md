@@ -1,11 +1,10 @@
 ---
-title: Démarrer avec Apache Kafka – Guide de démarrage rapide Azure HDInsight | Microsoft Docs
+title: Démarrer avec Apache Kafka – Démarrage rapide Azure HDInsight | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Apache Kafka sur Azure HDInsight à l’aide du Portail Azure. Vous découvrirez également les rubriques, les abonnés et les consommateurs Kafka.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
@@ -13,17 +12,18 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342151"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guide de démarrage rapide : Créer un cluster Kafka sur HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Kafka sur HDInsight
 
-Kafka est une plateforme open source et distribuée de diffusion en continu. Elle est souvent utilisée comme répartiteur de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement. 
+Kafka est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement. 
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide du Portail Azure. Il vous expliquera également comment utiliser les utilitaires inclus pour envoyer et recevoir des messages avec Kafka.
 
@@ -36,12 +36,11 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 * Un client SSH. Les étapes décrites dans ce document utilisent le protocole SSH pour se connecter au cluster.
 
-    La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Sous Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
+    La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Dans Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
 
     * Utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Il fournit la commande `ssh` et peut être configuré pour utiliser Bash ou PowerShell comme environnement shell.
 
@@ -58,7 +57,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **+ Créer une ressource**, **Données + Analytique**, puis **HDInsight**.
    
-    ![Création d'un cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![Création d’un cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 
 2. Dans **Informations de base**, entrez ou sélectionnez les informations suivantes :
 
@@ -76,7 +75,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
     | Paramètre | Valeur |
     | --- | --- |
     | Type du cluster | Kafka |
-    | Version | Kafka 0.10.0 (HDI 3.6) |
+    | Version | Kafka 1.0.0 (HDI 3.6) |
 
     Utilisez le bouton **Sélectionner** pour enregistrer les paramètres de type de cluster et revenir à __Informations de base__.
 
@@ -90,10 +89,10 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
     | Mot de passe de connexion au cluster | Mot de passe de connexion permettant d’accéder aux services web ou aux API REST hébergés sur le cluster. |
     | Nom d’utilisateur SSH (Secure Shell) | Information de connexion permettant d’accéder au cluster suivant le protocole SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster. |
     | Groupe de ressources | Groupe de ressources dans lequel le cluster sera créé. |
-    | Lieu | Région Azure dans laquelle le cluster sera créé. |
+    | Emplacement | Région Azure dans laquelle le cluster sera créé. |
 
     > [!TIP]
-    > Chaque région Azure (emplacement) fournit des _domaines d’erreur_. Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les ordinateurs virtuels et les disques gérés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
+    > Chaque région Azure (emplacement) fournit des _domaines d’erreur_. Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les machines virtuelles et les disques managés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
     >
     > Pour garantir la haute disponibilité des données, sélectionnez une région (emplacement) comportant __trois domaines d’erreur__. Pour plus d’informations sur le nombre de domaines d’erreur dans une région, consultez le document [Disponibilité des machines virtuelles Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
@@ -101,7 +100,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
 
     Utilisez le bouton __Suivant__ pour terminer la configuration de base.
 
-5. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage.
+5. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Définir les paramètres de compte de stockage pour HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 
@@ -113,7 +112,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
     > Pour garantir la disponibilité de Kafka sur HDInsight, choisissez un __nombre de nœuds de travail__ supérieur ou égal à 3. La valeur par défaut est 4.
     
     > [!TIP]
-    > L’entrée relative aux **disques par nœud Worker** configure l’extensibilité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Kafka utilise [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque géré peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (répartiteurs Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
+    > L’entrée relative aux **disques par nœud Worker** configure l’extensibilité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Kafka utilise [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
     ![Définir la taille du cluster Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
@@ -162,9 +161,9 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Obtention des informations sur Zookeeper et l’hôte du répartiteur
+## <a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Zookeeper et Broker
 
-Si vous utilisez Kafka, vous devez connaître les hôtes *ZooKeeper* et *répartiteur*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
+Si vous utilisez Kafka, vous devez connaître les hôtes *ZooKeeper* et *Broker*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
 
 Dans cette section, vous allez récupérer les informations sur l’hôte grâce à l’API REST Ambari sur le cluster.
 
@@ -183,12 +182,15 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
     À l’invite, entrez le nom du cluster Kafka.
 
 3. Pour définir une variable d’environnement avec les informations d’hôte Zookeeper, utilisez la commande suivante :
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    À l’invite, entrez le mot de passe du compte de connexion au cluster (et non du compte SSH).
+    > [!TIP]
+    > Cette commande interroge directement le service Ambari sur le nœud principal du cluster. Vous pouvez également accéder à ambari à l’aide de l’adresse publique de `https://$CLUSTERNAME.azurehdinsight.net:80/`. Certaines configurations réseau peuvent empêcher l’accès à l’adresse publique. Par exemple, vous pouvez utiliser les groupes de sécurité réseau (NSG) pour restreindre l’accès à HDInsight dans un réseau virtuel.
+
+    Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster (pas du compte SSH).
 
     > [!NOTE]
     > Cette commande récupère tous les hôtes ZooKeeper et retourne uniquement les deux premières entrées, ce qui assure une redondance au cas où l’un des hôtes serait inaccessible.
@@ -199,17 +201,17 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
      echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     ```
 
-    Cette commande renvoie des informations semblables au texte suivant :
+    Cette commande retourne des informations semblables au texte suivant :
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Pour définir une variable d’environnement avec les informations d’hôte de répartiteur Kafka, utilisez la commande suivante :
+5. Pour définir une variable d’environnement avec les informations de l’hôte broker Kafka, utilisez la commande suivante :
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    À l’invite, entrez le mot de passe du compte de connexion au cluster (et non du compte SSH).
+    Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster (pas du compte SSH).
 
 6. Pour vérifier que la variable d’environnement est correctement définie, utilisez la commande suivante :
 
@@ -217,7 +219,7 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
-    Cette commande renvoie des informations semblables au texte suivant :
+    Cette commande retourne des informations semblables au texte suivant :
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
@@ -282,7 +284,7 @@ Pour plus d’informations sur les commandes disponibles avec l’utilitaire `ka
 
 ## <a name="produce-and-consume-records"></a>Produire et consommer des enregistrements
 
-Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont produits par des *producteurs*, et utilisés par des *consommateurs*. Les producteurs et les consommateurs communiquent avec le service *répartiteur Kafka*. Chacun des nœuds de travail de votre cluster HDInsight est un hôte de type répartiteur Kafka.
+Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont produits par des *producteurs* et utilisés par des *consommateurs*. Les producteurs et les consommateurs communiquent avec le service *broker Kafka*. Chacun des nœuds de travail de votre cluster HDInsight est un hôte broker Kafka.
 
 Pour stocker les enregistrements dans la rubrique test créée précédemment, puis les lire à l’aide d’un consommateur, procédez comme suit :
 

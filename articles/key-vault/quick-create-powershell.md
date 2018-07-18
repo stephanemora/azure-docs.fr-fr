@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
 ms.openlocfilehash: e7aa675e849fb8c4dac0bfb5a1ae44dd16ca25e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068294"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539202"
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Démarrage rapide : créer un coffre de clés Azure Key Vault à l’aide de PowerShell
 
@@ -90,7 +90,7 @@ Pour afficher sous forme de texte brut la valeur contenue dans le secret :
 
 Vous venez de créer un coffre de clés, d’y stocker un secret et de récupérer ce dernier.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
  D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 

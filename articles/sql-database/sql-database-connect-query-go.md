@@ -12,18 +12,17 @@ ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: v-daveng
 ms.openlocfilehash: 3585a47e0823a765bd59b28f4b399aed7c5fcae3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791067"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618827"
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>Utiliser Go pour interroger une base de données Azure SQL
 
 Ce guide de démarrage rapide montre comment utiliser [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) pour se connecter à une base de données Azure. Les instructions Transact-SQL permettant d’interroger et de modifier des données sont également présentées.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 

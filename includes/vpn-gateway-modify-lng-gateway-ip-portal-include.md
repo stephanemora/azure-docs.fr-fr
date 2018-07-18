@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198092"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329550"
 ---
 ### <a name="gwipnoconnection"></a> Pour modifier l’adresse IP de la passerelle de réseau local - sans connexion de passerelle
 
@@ -23,7 +23,7 @@ Utilisez l’exemple fourni pour modifier une passerelle de réseau local sans c
 2. Dans la zone **Adresse IP**, modifiez l’adresse IP.
 3. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
-### <a name="gwipwithconnection"></a>Pour modifier l’adresse IP de la passerelle de réseau local - avec une connexion de passerelle existante
+### <a name="gwipwithconnection"></a>Pour modifier l’adresse IP de la passerelle de réseau local - avec une connexion de passerelle existante
 
 Pour modifier une passerelle de réseau local qui dispose d’une connexion, vous devez d’abord supprimer la connexion. Une fois la connexion supprimée, vous pouvez modifier l’adresse IP de la passerelle et recréer une connexion. Vous pouvez également modifier les préfixes d’adresse en même temps. Cela entraînera une interruption de votre connexion VPN. Lorsque vous modifiez l’adresse IP de la passerelle, vous n’avez pas besoin de supprimer la passerelle VPN. Vous devez uniquement supprimer la connexion.
  

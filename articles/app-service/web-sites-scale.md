@@ -1,8 +1,8 @@
 ---
-title: "Montée en puissance d’une application dans Azure | Microsoft Docs"
-description: "Découvrez comment activer la montée en puissance d’une application dans Azure App Service pour ajouter des capacités et des fonctionnalités."
+title: Montée en puissance d’une application dans Azure | Microsoft Docs
+description: Découvrez comment activer la montée en puissance d’une application dans Azure App Service pour ajouter des capacités et des fonctionnalités.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 01c20e7f43c11a077d3870ee32c1d8be98a95696
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306431"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Montée en puissance d’une application dans Azure
 
@@ -50,7 +51,7 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 2. Dans la page de votre application App Service, cliquez sur **Tous les paramètres**, puis sur **Monter en puissance**.
    
     ![Accédez à la montée en puissance pour votre application Azure.][ChooseWHP]
-3. Choisissez votre niveau, puis cliquez sur **Sélectionner**.
+3. Choisissez votre niveau, puis cliquez sur **Appliquer**.
    
     Dans l’onglet **Notifications**, la mention **RÉUSSITTE** clignote en vert une fois l’opération terminée.
 
@@ -97,7 +98,7 @@ Pour un tableau des limites, quotas et contraintes du service, ainsi que des fon
   
     [Tailles des machines virtuelles et de Service cloud pour Microsoft Azure][vmsizes]
   
-* Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, voir [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)(Meilleures pratiques : Azure App Service Web Apps).
+* Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, voir [Best Practices: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/)(Meilleures pratiques : Azure App Service Web Apps).
 * Pour visionner des vidéos concernant la mise à l’échelle des applications App Service, consultez les ressources suivantes :
   
   * [Quand mettre à l’échelle Sites Web Azure - avec Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
@@ -107,7 +108,7 @@ Pour un tableau des limites, quotas et contraintes du service, ainsi que des fon
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->

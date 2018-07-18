@@ -1,24 +1,19 @@
 ---
 title: Glossaire Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : glossaire des termes courants relatifs à Azure IoT Hub.'
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960489"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -48,7 +43,7 @@ Des kits _service SDK_ sont disponibles pour plusieurs langages et permettent de
 ## <a name="azure-portal"></a>Portail Azure
 Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et de gérer l’ensemble de vos ressources Azure. Son contenu est organisé à l’aide de _panneaux_.
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
@@ -113,9 +108,6 @@ Les données d’appareil font référence aux données stockées pour chaque ap
 ## <a name="device-explorer"></a>Explorateur d’appareils
 [L’Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) est un outil s’exécutant sur Windows, qui vous permet de gérer vos appareils dans le [registre des identités](#identity-registry). Cet outil peut également échanger des messages avec vos appareils.
 
-## <a name="device-identities-rest-api"></a>API REST des identités des appareils
-L’[API REST des identités des appareils](https://docs.microsoft.com/rest/api/iothub/iothubresource) vous permet de gérer vos appareils inscrits dans le [registre des identités](#identity-registry) à l’aide d’une API REST. En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels concernant IoT Hub.
-
 ## <a name="device-identity"></a>Identité d’appareil
 L’identité d’appareil est l’identificateur unique attribué à chaque appareil inscrit dans le [registre des identités](#identity-registry).
 
@@ -128,8 +120,8 @@ La gestion des appareils couvre le cycle de vie complet associé à la gestion d
 ## <a name="device-management-patterns"></a>Modèle de gestion des appareils
 [Hub IoT](#iot-hub) permet d’effectuer les opérations courantes de gestion des appareils, dont le redémarrage, les réinitialisations aux paramètres d’usine et les mises à jour de microprogramme.
 
-## <a name="device-messaging-rest-api"></a>API REST de messagerie des appareils
-Vous pouvez utiliser l’[API REST de messagerie des appareils](https://docs.microsoft.com/rest/api/iothub/httpruntime) d’un appareil pour envoyer des messages appareil-à-cloud à un IoT Hub et recevoir des messages [cloud-à-appareil](#cloud-to-device) d’un hub IoT. En règle générale, vous devez utiliser l’un des kits [device SDK](#azure-iot-device-sdks) comme indiqué dans les didacticiels sur IoT Hub.
+## <a name="device-rest-api"></a>API REST d’appareil
+Vous pouvez utiliser [l’API REST d’appareil](https://docs.microsoft.com/rest/api/iothub/device/device) d’un appareil pour envoyer des messages appareil-à-cloud à un hub IoT et recevoir des messages [cloud-à-appareil](#cloud-to-device) d’un hub IoT. En règle générale, vous devez utiliser l’un des kits [device SDK](#azure-iot-device-sdks) comme indiqué dans les didacticiels sur IoT Hub.
 
 ## <a name="device-provisioning"></a>Approvisionnement des appareils
 L’approvisionnement des appareils est le processus d’ajout des [données d’appareil](#device-data) initiales aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au [registre des identités](#identity-registry) d’IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution.
@@ -141,10 +133,7 @@ Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON 
 À l’image d’un jumeau d’appareil, un jumeau de module est un document JSON contenant des informations d’état de module telles que des métadonnées, des configurations et des conditions. IoT Hub conserve un jumeau de module pour chaque identité de module que vous provisionnez sous une identité d’appareil dans votre hub IoT. Les jumeaux de module vous permettent de synchroniser des conditions de module et des configurations entre le module et le backend de la solution. Vous pouvez interroger des jumeaux de module pour localiser des modules spécifiques et déterminer l’état d’opérations longues.
 
 ## <a name="twin-queries"></a>Requêtes de jumeaux
-Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser ce même langage de requête IoT Hub pour extraire des informations sur des [travaux](#job) en cours d’exécution dans votre hub IoT.
-
-## <a name="device-twin-rest-api"></a>API REST Jumeau d’appareil
-Vous pouvez utiliser [l’API REST Jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) à partir du back-end de la solution pour gérer vos jumeaux d’appareil. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), et d’appeler des [méthodes directes](#direct-method). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels sur IoT Hub.
+Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser le même langage de requête IoT Hub pour récupérer des informations sur l’exécution de [](#job) dans votre hub IoT.
 
 ## <a name="twin-synchronization"></a>Synchronisation des jumeaux
 Une synchronisation de jumeau utilise les [propriétés souhaitées](#desired-properties) de vos jumeaux d’appareil ou jumeaux de module pour configurer vos appareils ou modules et extraire de ceux-ci des [propriétés signalées](#reported-properties) à stocker dans le jumeau.
@@ -185,22 +174,19 @@ IoT Hub est un service Azure entièrement géré qui permet des communications b
 Les [métriques IoT Hub](iot-hub-metrics.md) fournissent des données sur l’état des hubs IoT dans votre [abonnement Azure](#subscription). Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les métriques IoT Hub peuvent vous aider à voir l’état de votre hub IoT et à examiner des problèmes constituant des causes premières sans devoir contacter le support Azure.
 
 ## <a name="iot-hub-query-language"></a>Langage de requête IoT Hub
-Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un langage similaire à SQL, qui vous permet d’interroger vos [travaux](#job) et jumeaux d’appareil.
+Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un langage similaire à SQL, qui vous permet d’interroger vos [](#job) et jumeaux d’appareil.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>API REST de fournisseur de ressources IoT Hub
-L’[API REST de fournisseur de ressources IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) vous permet de gérer les hubs IoT dans votre [abonnement Azure](#subscription) en effectuant des opérations telles que la création, la mise à jour et la suppression de hubs.
+## <a name="iot-hub-resource-rest-api"></a>API REST de ressource IoT Hub
+[L’API REST de ressource IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) vous permet de gérer les hubs IoT dans votre [abonnement Azure](#subscription) en effectuant des opérations telles que la création, la mise à jour et la suppression de hubs.
 
 ## <a name="iot-solution-accelerators"></a>Accélérateurs de solution IoT
-Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure dans des solutions. Ces solutions vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, consultez [Présentation des accélérateurs de solution Azure IoT](../iot-suite/iot-suite-overview.md).
+Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure dans des solutions. Ces solutions vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, consultez [Présentation des accélérateurs de solution Azure IoT](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md).
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Extension IoT pour Azure CLI 2.0
 [L’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) est un outil de ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.
 
 ## <a name="job"></a>Travail
-Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide-jobs.md) pour planifier et suivre des activités sur un ensemble d’appareils inscrits auprès de votre IoT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). [IoT Hub](#iot-hub) utilise également des travaux pour [importer dans et exporter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) à partir du [registre des identités](#identity-registry).
-
-## <a name="jobs-rest-api"></a>API REST Travaux
-L’[API REST Travaux](https://docs.microsoft.com/rest/api/iothub/jobapi) vous permet de gérer les [travaux](#job) en cours d’exécution dans votre hub IoT.
+Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide-jobs.md) pour planifier et suivre des activités sur un ensemble d’appareils inscrits auprès de votre IoT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). [IoT Hub](#iot-hub) utilise également des travaux pour [importer dans et exporter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) depuis le [registre des identités](#identity-registry).
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) est l’un des protocoles de messagerie qu’[IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
@@ -237,6 +223,9 @@ Vous pouvez configurer des [règles de routage](iot-hub-devguide-messages-read-c
 
 ## <a name="sasl-plain"></a>SAPL PLAIN
 SAPL PLAIN est un protocole que le protocole [AMQP](#advanced-message-queue-protocol) utilise pour transférer des jetons de sécurité.
+
+## <a name="service-rest-api"></a>API REST du service
+Vous pouvez utiliser [l’API REST du service](https://docs.microsoft.com/rest/api/iothub/service/service) à partir du backend de la solution pour gérer vos appareils. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), d’appeler des [méthodes directes](#direct-method) et de planifier des [travaux](#job). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels sur IoT Hub.
 
 ## <a name="shared-access-signature"></a>Signature d’accès partagé
 Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Une authentification par SAP comporte deux composants : une _stratégie d’accès partagé_ et une _signature d’accès partagé_ (souvent appelée jeton). Un appareil utilise une SAP pour s’authentifier auprès d’un hub IoT. Les [applications principales](#back-end-app) utilisent également une SAP pour s’authentifier auprès des points de terminaison visibles par le service sur un hub IoT. En règle générale, vous incluez le jeton SAP dans la [chaîne de connexion](#connection-string) qu’une application utilise pour établir une connexion à un hub IoT.

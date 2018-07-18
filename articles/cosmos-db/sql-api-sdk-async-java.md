@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 4b12652783c94d132a5c1f4d4aa352d4e2318edf
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797666"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300677"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -53,6 +53,16 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Remplacement de la dépendance org.json par jackson pour des raisons de performance et de licences ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Suppression de la classe déconseillée OfferV2.
+* Ajout d’une méthode d’accesseur à la classe Offre pour le contenu de débit.
+* Modification de toutes les méthodes dans Document/Ressource renvoyant des types org.json afin qu’elles renvoient un type d’objet jackson.
+* Modification de la méthode des classes getObject(.) pour l’extension de JsonSerializable afin de renvoyer un type ObjectNode jackson.
+* Modification de la méthode getCollection(.) pour renvoyer Collection d’ObjectNode.
+* Suppression des constructeurse de sous-classes JsonSerializable avec org.json.JSONObject arg.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) utilise maintenant deux espaces pour l’indentation.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * Ajout de la prise en charge de la stratégie d’index unique.
 * Ajout de la possibilité de limiter la taille du jeton de continuation de réponse dans les options de flux.
@@ -89,6 +99,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |20 juin 2018|--- |
 | [1.0.2](#1.0.2) |18 mai 2018|--- |
 | [1.0.1](#1.0.1) |20 avril 2018|--- |
 | [1.0.0](#1.0.0) |27 février 2018|--- |

@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: quickstart
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ea6b85803fdc5c768a23bf770b3646cc6add36b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711890"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447249"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -104,4 +104,4 @@ Dans ce démarrage rapide, vous avez utilisé un exemple d’application ASP.NET
 L’étape suivante consiste à créer votre propre locataire Azure AD B2C et à configurer l’exemple pour qu’il s’exécute avec votre locataire. 
 
 > [!div class="nextstepaction"]
-> [Créer un locataire Azure Active Directory B2C dans le portail Azure](active-directory-b2c-get-started.md)
+> [Créer un locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)

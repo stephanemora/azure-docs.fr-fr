@@ -3,7 +3,7 @@ title: Réinitialisation du mot de passe ou de la configuration Bureau à distan
 description: Découvrez comment réinitialiser un mot de passe de compte ou des services Bureau à distance sur une machine virtuelle Windows créée avec le modèle de déploiement Classic à l’aide du portail Azure ou d’Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 516cb740f9acad19dac77db0239341b42a2b27fe
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917647"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931376"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows créée avec le modèle de déploiement Classic
 > [!IMPORTANT]

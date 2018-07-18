@@ -3,17 +3,17 @@ title: Bibliothèques clientes requises pour la connexion à Azure Analysis Serv
 description: Décrit les bibliothèques clientes requises pour que les applications clientes et les outils se connectent à Azure Analysis Services
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6c92bdd2461a0f1147f15b5c1134c189c55a37c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b8ac9437b2859480b96ff5b46b34518dcc0883
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193306"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447266"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliothèques clientes pour la connexion à Azure Analysis Services
 
@@ -23,10 +23,10 @@ Les bibliothèques clientes sont nécessaires pour que les applications clientes
 
 |Download  |Version du produit  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.395      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.395      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.4     |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.4     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.492      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.492      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.1.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.1.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO et ADOMD (packages NuGet)
 
@@ -34,8 +34,8 @@ Les bibliothèques clientes AMO et ADOMD sont disponibles sous forme de packages
 
 |Package  | Version du produit  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.1.0.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.1.0.0      |
 
 Les assemblys de package NuGet AssemblyVersion respectent la gestion sémantique de version suivante : MAJEURE.MINEURE.CORRECTIF. Les références NuGet chargent la version attendue, même s’il existe une version différente dans le Global Assembly Cache (résultant de l’installation MSI). Le numéro de correctif est incrémenté à chaque version. Les versions AMO et ADOMD sont constamment synchronisées.
 
@@ -73,7 +73,7 @@ Les bibliothèques clientes pour les connexions clientes sont différentes des f
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  Accédez à C:\Program Files\Microsoft Analysis Services\AS OLEDB\. Si vous avez plusieurs dossiers, choisissez le numéro le plus élevé.
+1.  Accédez à `C:\Program Files\Microsoft Analysis Services\AS OLEDB\` Si vous avez plusieurs dossiers, choisissez le numéro le plus élevé.
   
 2.  Cliquez avec le bouton droit sur **msolap.dll** > **Propriétés** > **Détails**. Si le nom de fichier est msolap140.dll, la dll est plus ancienne que la version la plus récente et doit donc être mise à niveau.
     

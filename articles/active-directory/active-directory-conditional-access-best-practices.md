@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723658"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232048"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -31,7 +31,7 @@ Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-director
 - ce que vous devez savoir ; 
 - ce que vous devez éviter lors de la configuration des stratégies d’accès conditionnel. 
 
-Cet article repose sur l’hypothèse que vous vous êtes familiarisé avec les concepts et la terminologie décrits dans l’article [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Cet article part du principe que vous connaissez les concepts et la terminologie décrits dans [Présentation de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 
 
@@ -154,4 +154,4 @@ Pour plus d’informations, consultez [Migrer les stratégies classiques dans le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+Pour savoir comment configurer une stratégie d’accès conditionnel, voir [Exiger l’authentification multifacteur (MFA) pour certaines applications disposant d’un accès conditionnel Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).

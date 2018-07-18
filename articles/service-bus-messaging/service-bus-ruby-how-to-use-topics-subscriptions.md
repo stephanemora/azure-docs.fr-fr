@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 4a4c9949843b16ae6be2f516de4fd1e3f7415959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044924"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38712963"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Utilisation des rubriques et abonnements Service Bus avec Ruby
  
@@ -119,7 +119,7 @@ L’exemple suivant montre comment envoyer cinq messages de test à `test-topic`
 end
 ```
 
-Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
 
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
 La méthode `receive_subscription_message()` de l’objet **Azure::ServiceBusService** permet de recevoir les messages associés à un abonnement. Par défaut, les messages sont lus et verrouillés sans être supprimés de l’abonnement. Il est possible de lire et de supprimer le message de l’abonnement en définissant l’option `peek_lock` sur **false**.

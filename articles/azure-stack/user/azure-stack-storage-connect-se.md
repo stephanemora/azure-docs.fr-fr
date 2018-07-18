@@ -1,6 +1,6 @@
 ---
-title: Connecter l’Explorateur Stockage à un compte de stockage ou abonnement Azure Stack | Microsoft Docs
-description: Découvrez comment connecter l’Explorateur Stockage à un abonnement Azure Stack
+title: Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack | Microsoft Docs
+description: Découvrez comment connecter l’Explorateur de stockage à un abonnement Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,32 +10,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196375"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714899"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur Stockage à un compte de stockage ou abonnement Azure Stack
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Dans cet article, vous allez découvrir comment vous connecter à vos comptes de stockage et abonnements Azure Stack à l’aide de l’Explorateur Stockage. L’Explorateur Stockage Azure est une application autonome qui vous permet d’utiliser facilement les données de stockage Azure Stack sur Windows, macOS et Linux.
+Dans cet article, vous allez découvrir comment vous connecter à vos comptes de stockage et abonnements Azure Stack à l’aide de l’Explorateur de stockage. L’Explorateur  de stockage Azure est une application autonome qui vous permet d’utiliser facilement les données de stockage Azure Stack sur Windows, macOS et Linux.
 
->[!NOTE]
->Il existe plusieurs outils qui permettent de déplacer des données vers et à partir du stockage Azure Stack. Pour plus d’informations, consultez [Outils de transfert de données pour le stockage Azure Stack](azure-stack-storage-transfer.md).
+> [!NOTE]  
+> Il existe plusieurs outils qui permettent de déplacer des données vers et à partir du stockage Azure Stack. Pour plus d’informations, consultez [Outils de transfert de données pour le stockage Azure Stack](azure-stack-storage-transfer.md).
 
-Si vous ne l’avez pas encore fait, [téléchargez l’Explorateur Stockage](http://www.storageexplorer.com/) et installez-le.
+Si vous ne l’avez pas encore fait, [téléchargez l’Explorateur de stockage](http://www.storageexplorer.com/) et installez-le.
 
-Une fois que vous êtes connecté à votre compte de stockage ou abonnement Azure Stack, vous pouvez consulter les [articles sur l’Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pour utiliser vos données Azure Stack. 
+Une fois que vous êtes connecté à votre compte de stockage ou abonnement Azure Stack, vous pouvez consulter les [articles sur l’Explorateur de stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pour utiliser vos données Azure Stack. 
 
 ## <a name="prepare-for-connecting-to-azure-stack"></a>Se préparer à la connexion à Azure Stack
 
-Vous avez besoin d’un accès direct à Azure Stack ou à une connexion VPN pour que l’Explorateur Stockage puisse accéder à l’abonnement Azure Stack. Pour savoir comment configurer une connexion VPN à Azure Stack, consultez [Connect to Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) (Se connecter à Azure Stack).
+Vous avez besoin d’un accès direct à Azure Stack ou à une connexion VPN pour que l’Explorateur de stockage puisse accéder à l’abonnement Azure Stack. Pour savoir comment configurer une connexion VPN à Azure Stack, consultez [Connect to Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) (Se connecter à Azure Stack).
 
 Pour le Kit de développement Azure Stack, vous devez exporter le certificat racine d’autorité Azure Stack.
 
@@ -53,30 +53,30 @@ Pour le Kit de développement Azure Stack, vous devez exporter le certificat rac
 
     Le certificat exporté sera utilisé à l’étape suivante.
 
-5. Démarrez l’Explorateur Stockage et, si vous voyez la boîte de dialogue **Connexion au stockage Azure**, cliquez sur Annuler.
+5. Démarrez l’Explorateur de stockage et, si vous voyez la boîte de dialogue **Connexion au stockage Azure**, cliquez sur Annuler.
 
 6. Dans le menu **Modifier**, pointez sur **Certificats SSL**, puis sélectionnez **Importer les certificats**. Utilisez la boîte de dialogue du sélecteur de fichier pour rechercher et ouvrir le certificat que vous avez exporté à l’étape précédente.
 
-    Après avoir importé le certificat, vous êtes invité à redémarrer l’Explorateur Stockage.
+    Après avoir importé le certificat, vous êtes invité à redémarrer l’Explorateur de stockage.
 
-    ![Importer le certificat dans l’Explorateur Stockage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+    ![Importer le certificat dans l’Explorateur de stockage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Après le redémarrage de l’Explorateur Stockage, sélectionnez le menu **Modifier** et vérifiez si l’option **Cibler Azure Stack** est sélectionnée. Si elle ne l’est pas, sélectionnez **Cibler Azure Stack**, puis redémarrez l’Explorateur Stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack.
+7. Après le redémarrage de l’Explorateur de stockage, sélectionnez le menu **Modifier** et vérifiez si l’option **Cibler Azure Stack** est sélectionnée. Si elle ne l’est pas, sélectionnez **Cibler Azure Stack**, puis redémarrez l’Explorateur de stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack.
 
     ![S’assurer que l’option Target Azure Stack (Cibler Azure Stack) est sélectionnée](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Connexion à un abonnement Azure Stack
 
-Pour connecter l’Explorateur Stockage à un abonnement Azure Stack, procédez comme suit.
+Pour connecter l’Explorateur de stockage à un abonnement Azure Stack, procédez comme suit.
 
-1. Dans le volet gauche de l’Explorateur Stockage, sélectionnez **Gérer les comptes**. 
+1. Dans le volet gauche de l’Explorateur de stockage, sélectionnez **Gérer les comptes**. 
     Tous les abonnements Microsoft auxquels vous êtes connecté s’affichent.
 
 2. Pour vous connecter à l’abonnement Azure Stack, sélectionnez **Ajouter un compte**.
 
     ![Ajouter un compte Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Dans la boîte de dialogue Se connecter au Stockage Azure, sous **Environnement Azure**, sélectionnez **Azure** ou **Azure - Chine**, selon le compte Azure Stack utilisé. Pour vous connecter au compte Azure Stack associé à au moins un abonnement Azure Stack actif, sélectionnez **Connexion**.
+3. Dans la boîte de dialogue Se connecter au stockage Azure, sous **Environnement Azure**, sélectionnez **Azure** ou **Azure - Chine**, selon le compte Azure Stack utilisé, puis sélectionnez **Se connecter** pour vous connecter à l’aide du compte Azure Stack associé à au moins un abonnement Azure Stack actif.
 
     ![Se connecter au Stockage Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -92,7 +92,7 @@ Pour connecter l’Explorateur Stockage à un abonnement Azure Stack, procédez 
 
 Vous pouvez également vous connecter à un compte de stockage Azure Stack à l’aide du nom de compte de stockage et de la paire de clés.
 
-1. Dans le volet gauche de l’Explorateur Stockage, sélectionnez Gérer les comptes. Tous les comptes Microsoft auxquels vous êtes connecté sont affichés.
+1. Dans le volet gauche de l’Explorateur de stockage, sélectionnez Gérer les comptes. Tous les comptes Microsoft auxquels vous êtes connecté sont affichés.
 
     ![Ajouter un compte](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
 
@@ -115,6 +115,6 @@ Vous pouvez également vous connecter à un compte de stockage Azure Stack à l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Prise en main de l’Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Prise en main de l’Explorateur de stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md)
-* Pour en savoir plus sur le stockage Azure, consultez [Présentation du stockage Microsoft Azure](../../storage/common/storage-introduction.md)
+* Pour en savoir plus sur le stockage Azure, consultez la rubrique [Présentation du stockage Microsoft Azure](../../storage/common/storage-introduction.md).

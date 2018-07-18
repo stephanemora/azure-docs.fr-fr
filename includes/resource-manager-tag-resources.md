@@ -1,31 +1,73 @@
-1. Pour afficher les balises pour une ressource ou un groupe de ressources, sélectionnez l’icône **Balises**. 
+---
+title: Fichier Include
+description: Fichier Include
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34675334"
+---
+1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune mot clé, cette liste est vide.
    
-     ![Sélectionner des balises dans les panneaux de ressources et de groupe de ressources](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Vous voyez les balises existantes pour la ressource. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide. 
+     ![Afficher les mots clés d’une ressource ou d’un groupe de ressources](./media/resource-manager-tag-resources/view-tags.png)
+1. Pour ajouter un mot clé, sélectionnez **Cliquez ici pour ajouter des mots clés**.
 
-     ![Afficher les balises existantes des panneaux de ressources et de groupe de ressources](./media/resource-manager-tag-resources/existing-tags.png)
-3. Pour ajouter une balise, tapez un nom et une valeur ou sélectionnez-en dans le menu déroulant. Sélectionnez **Enregistrer**.
-
-     ![Ajouter une balise](./media/resource-manager-tag-resources/tag-resources.png)
-3. Pour afficher toutes les ressources ayant une valeur de balise, sélectionnez **>** (**Plus de services**) et saisissez le mot **Balises** dans la zone de texte de filtre. Sélectionnez **Balises** parmi les options disponibles.
+1. Donnez un nom et une valeur. Sélectionnez **+** pour ajouter le mot clé.
    
-     ![Rechercher des balises via le hub Parcourir](./media/resource-manager-tag-resources/browse-tags.png)
-4. Un résumé des balises de vos abonnements s’affiche.
+     ![Ajouter un mot clé](./media/resource-manager-tag-resources/add-tag.png)
+1. Continuez à ajouter les mots clés dont vous avez besoin. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
    
-     ![Afficher toutes les balises](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Sélectionnez l’une de ces balises pour afficher les ressources et les groupes de ressources associés à cette balise.
+     ![Enregistrer les mots clés](./media/resource-manager-tag-resources/save-tags.png)
+1. Les mots clés sont maintenant affichés dans la vue d’ensemble.
    
-     ![Afficher les ressources balisées](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Sélectionnez **Épingler le panneau au tableau de bord** pour y accéder rapidement.
+     ![Afficher les mots clés](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Pour ajouter ou supprimer un mot clé, sélectionnez **modifier**.
    
-     ![Épingler des balises au tableau de bord](./media/resource-manager-tag-resources/pin-tag.png)
-7. Vous pouvez sélectionner la balise épinglée sur le tableau de bord pour afficher les ressources associées à cette balise.
+1. Pour supprimer un mot clé, sélectionnez l’icône de la Corbeille. Sélectionnez ensuite **Enregistrer**.
 
-     ![Épingler des balises au tableau de bord](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Supprimer un mot clé](./media/resource-manager-tag-resources/delete-tag.png)
 
 
-Pour attribuer des balises en bloc à plusieurs ressources :
-1. Dans l’une des listes de ressources (par exemple, Toutes les ressources, vue d’ensemble Groupe de ressources) :
-2. Cochez la case à côté des ressources auxquelles vous souhaitez attribuer une balise.
-3. Sélectionnez l’option Attribuer des balises.
-4. Ajoutez des noms et des valeurs, puis sélectionnez Attribuer.
+Pour attribuer des mots clés en bloc à plusieurs ressources :
+
+1. Dans une liste de ressources, cochez la case en regard des ressources auxquelles vous souhaitez attribuer le mot clé.
+
+     ![Sélectionner plusieurs ressources](./media/resource-manager-tag-resources/select-multiple-resources.png)
+
+1. Sélectionnez **Attribuer des mots clés**.
+
+     ![Attribuer des mots clés](./media/resource-manager-tag-resources/assign-tags.png)
+
+1. Après chaque nom et valeur, sélectionnez **+**. Lorsque vous avez terminé, sélectionnez **Attribuer**.
+
+     ![Sélectionner Attribuer](./media/resource-manager-tag-resources/select-assign.png)
+
+Pour afficher toutes les ressources ayant un mot clé :
+
+1. Sélectionnez **Tous les services**, puis **Mots clés**.
+
+     ![Rechercher par mot clé](./media/resource-manager-tag-resources/find-tags.png)
+
+1. Sélectionnez le mot clé pour afficher les ressources associées.
+
+     ![Sélectionner le mot clé](./media/resource-manager-tag-resources/select-tag.png)
+
+1. Toutes les ressources associées à ce mot clé sont affichées.
+
+     ![Afficher les ressources par mot clé](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+
+1. Pour un accès rapide, épinglez la vue au tableau de bord.
+
+     ![Épingler au tableau de bord](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+
+1. La vue est disponible à partir du tableau de bord.
+
+     ![Tableau de bord](./media/resource-manager-tag-resources/dashboard.png)

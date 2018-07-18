@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885266"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752919"
 ---
 # <a name="management-solutions-in-azure"></a>Solutions de gestion dans Azure
 Les solutions de gestion tirent profit des services disponibles dans Azure pour offrir des informations supplémentaires sur le fonctionnement d’une application ou d’un service spécifiques. Cet article fournit un bref aperçu des solutions de gestion dans Azure et détaille l’utilisation et l’installation de ces dernières.
@@ -52,21 +52,17 @@ Cliquez sur le nom d’une solution pour ouvrir la page de résumé de cette der
 ![Propriétés d’une solution](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>Rechercher des solutions de gestion
-Vous pouvez parcourir et installer les solutions de gestion proposées par Microsoft et par ses partenaires à partir de la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace). Effectuez une [recherche portant sur les *solutions de gestion*](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) pour filtrer les solutions, puis cliquez sur l’un des résultats pour plus de détails.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>Installer une solution de gestion
+Les solutions de gestion proposées par Microsoft et par ses partenaires sont disponibles dans la [Place de marché Azure](https://azuremarketplace.microsoft.com). Vous pouvez rechercher des solutions disponibles et les installer à l’aide de la procédure suivante.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Installer une solution de gestion à partir de la Place de marché Microsoft Azure
-Pour localiser et démarrer l’installation d’une solution de gestion, vous pouvez utiliser l’une des méthodes ci-après.
+1. Dans la [liste des solutions de votre abonnement](#list-installed-management-solutions), cliquez sur **Ajouter**. 
+1. À droite de **Solutions de gestion**, cliquez sur **Plus**. 
+1. Recherchez la solution de gestion qui vous intéresse et lisez sa description.
+1. Cliquez sur **Créer** pour démarrer le processus d’installation.
+1. Lorsque le processus d’installation démarre, vous êtes invité à fournir la configuration requise qui varie selon chaque solution. Toutes les solutions requièrent la sélection d’un espace de travail Log Analytics dans lequel elles seront installées et où leurs données seront collectées. 
 
-- Dans la [Place de marché Microsoft Azure](#find-management-solutions), cliquez sur le lien **Obtenir maintenant** sous une solution de gestion.
-- Dans la [liste des solutions de votre abonnement](#list-installed-management-solutions), cliquez sur **Ajouter**. À droite de **Solutions de gestion**, cliquez sur **Plus**. Recherchez la solution de gestion qui vous intéresse, puis cliquez sur **Créer**.
-- Dans le Portail Azure, sélectionnez **Créer une ressource** > **Surveillance + gestion** > **Afficher tout**. À droite de **Solutions de gestion**, cliquez sur **Plus**. Recherchez la solution de gestion qui vous intéresse, puis cliquez sur **Créer**.
-
-Lorsque le processus d’installation démarre, vous êtes invité à fournir la configuration requise qui varie selon chaque solution. Toutes les solutions requièrent la sélection d’un espace de travail Log Analytics dans lequel elles seront installées et où leurs données seront collectées. En outre, vous devrez peut-être [spécifier un compte Automation](#log-analytics-workspace-and-automation-account) si la solution l’exige.
+![Installer une solution](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Installer une solution proposée par la communauté
 Les membres de la communauté peuvent soumettre des solutions de gestion aux modèles de démarrage rapide Azure. Vous pouvez installer ces solutions directement ou en télécharger les modèles à des fins d’installation ultérieure.

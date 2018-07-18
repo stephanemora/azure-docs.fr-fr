@@ -16,16 +16,16 @@ ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24526551"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477922"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Il s’agit du premier article de la série de didacticiels sur le déploiement nécessaire pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI à l’aide du modèle Resource Manager. Cet article décrit la préparation nécessaire pour créer et configurer votre service StorSimple Device Manager avant la configuration d'un tableau virtuel. Cet article contient également des liens vers une liste de vérification de la configuration du déploiement ainsi que la configuration requise.
 
@@ -55,7 +55,7 @@ La liste de contrôle de la configuration présente les informations dont vous a
 * Téléchargez la [liste de vérification de la configuration du serveur de fichiers StorSimple Virtual Array](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Téléchargez la [liste de vérification de la configuration du serveur iSCSI StorSimple Virtual Array](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Vous trouverez ici les conditions préalables à la configuration de votre service StorSimple Device Manager, de votre instance StorSimple Virtual Array et du réseau de votre centre de données.
 
@@ -69,7 +69,7 @@ Avant de commencer, assurez-vous que :
 
 ### <a name="for-the-storsimple-virtual-array"></a>Pour StorSimple Virtual Array
 
-Avant de déployer un tableau virtuel, assurez-vous de remplir les conditions suivantes :
+Avant de déployer un tableau virtuel, assurez-vous que :
 
 * Vous avez accès à un système hôte exécutant Hyper-V sur Windows Server 2008 R2 ou une version ultérieure, ou VMware (ESXi 5.0, 5.5 ou 6.0) permettant de configurer un appareil.
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre tableau virtuel :
@@ -152,7 +152,7 @@ Procédez comme suit dans le [portail Azure](https://ms.portal.azure.com/) sur l
 
 1. Accédez au service Device Manager, sélectionnez-le et double-cliquez. Cette opération provoque l’ouverture du panneau **Vue d’ensemble**.
 2. Sélectionnez **Informations d’identification du compte de stockage** dans la section **Configuration**.
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
 4. Dans le panneau **Ajouter un compte de stockage**, procédez comme suit :
    
     1. Pour **Abonnement**, sélectionnez **Actuel**.
@@ -161,7 +161,7 @@ Procédez comme suit dans le [portail Azure](https://ms.portal.azure.com/) sur l
    
     3. Sélectionnez **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud. Sélectionnez **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
-    4. Cliquez sur **Ajouter**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
+    4. Cliquez sur **Add**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
    
      ![Ajouter une information d’identification de compte de stockage existant](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

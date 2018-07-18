@@ -3,22 +3,24 @@ title: Se connecter à Azure Analysis Services avec Excel | Microsoft Docs
 description: Découvrez comment vous connecter à un serveur Azure Analysis Services à l’aide d’Excel.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ab749b4610f57e19ad1af0fc74d41340d7555b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 807496584acb3f93fccd3495de005792b769b37f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192987"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442988"
 ---
 # <a name="connect-with-excel"></a>Connexion avec Excel
 
-Une fois que vous avez créé un serveur et que vous y avez déployé un modèle tabulaire, les clients peuvent s’y connecter et commencer à explorer les données.
+Une fois que vous avez créé un serveur et que vous y avez déployé un modèle tabulaire, les clients peuvent s’y connecter et commencer à explorer les données. 
 
+## <a name="before-you-begin"></a>Avant de commencer
+Le compte avec lequel vous vous connectez doit appartenir à un rôle de base de données de model disposant au moins des autorisations de lecture. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Se connecter dans Excel
 
@@ -31,7 +33,7 @@ La connexion à un serveur dans Excel est prise en charge grâce à la fonction 
 2. Dans l’Assistant de connexion de données, dans **Nom du serveur**, entrez le nom du serveur avec le protocole et l’URI. Par exemple, asazure://westcentralus.asazure.windows.net/advworks. Ensuite, dans **Informations d’identification d’ouverture de session**, sélectionnez **Utiliser le nom d’utilisateur et le mot de passe suivants**, puis tapez le nom d’utilisateur professionnel, par exemple nancy@adventureworks.com, et le mot de passe.
 
     > [!IMPORTANT]
-    > Si vous vous connectez avec un compte Microsoft, Live ID, Yahoo, Gmail, etc., ou si vous devez vous connecter en utilisant l’authentification multifacteur, laissez le champ de mot de passe vide. Vous êtes invité à saisir un mot de passe après avoir cliqué sur Suivant.
+    > Si vous vous connectez avec un compte Microsoft, Live ID, Yahoo, Gmail, etc., ou si vous devez vous connecter en utilisant l’authentification multifacteur, laissez le champ de mot de passe vide. Vous êtes invité à saisir un mot de passe après avoir cliqué sur Suivant. 
 
     ![Se connecter à partir de l’ouverture de session Excel](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

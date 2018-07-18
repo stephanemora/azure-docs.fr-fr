@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824166"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291914"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :
@@ -57,7 +57,7 @@ En fonction des réponses apportées aux questions de la section [Déterminer le
 >
 
 ## <a name="define-content-management-options"></a>Définir les options de gestion de contenu
-L’un des avantages de l’utilisation d’Azure AD pour gérer une infrastructure d’identités hybrides est que le processus est entièrement transparent du point de vue de l’utilisateur final. L’utilisateur tente d’accéder à une ressource partagée, la ressource requiert l’authentification, l’utilisateur doit envoyer une demande d’authentification à Azure AD afin d’obtenir le jeton et d’accéder à la ressource. Ce processus se déroule intégralement en arrière-plan, sans intervention de l’utilisateur. Il est également possible d’accorder l’autorisation à un [groupe](active-directory-manage-groups.md#getting-started-with-access-management) d’utilisateurs pour lui permettre d’effectuer certaines actions communes.
+L’un des avantages de l’utilisation d’Azure AD pour gérer une infrastructure d’identités hybrides est que le processus est entièrement transparent du point de vue de l’utilisateur final. L’utilisateur tente d’accéder à une ressource partagée, la ressource requiert l’authentification, l’utilisateur doit envoyer une demande d’authentification à Azure AD afin d’obtenir le jeton et d’accéder à la ressource. Ce processus se déroule intégralement en arrière-plan, sans intervention de l’utilisateur. Il est également possible d’accorder l’autorisation à un [groupe](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) d’utilisateurs pour lui permettre d’effectuer certaines actions communes.
 
 Les organisations préoccupées par la confidentialité des données requièrent généralement la classification des données pour leur solution. Si leur infrastructure locale actuelle est déjà utilisée par la classification des données, il est possible d’utiliser Azure AD comme référentiel principal pour l’identité de l’utilisateur. Le [kit de classification des données](https://msdn.microsoft.com/library/Hh204743.aspx) pour Windows Server 2012 R2 est un outil commun utilisé en local pour la classification des données. Cet outil peut aider à identifier, classer et protéger les données sur les serveurs de fichiers dans votre cloud privé. Il est également possible d’utiliser la [classification automatique des fichiers](https://technet.microsoft.com/library/hh831672.aspx) dans Windows Server 2012 pour accomplir cette tâche.
 
@@ -131,12 +131,12 @@ Chaque interaction du schéma présenté dans la Figure X représente un scéna
 
   3. Accès conditionnel pour les applications Office 365 avec Microsoft Intune : les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information à accéder aux services sur les appareils conformes. Pour plus d’informations, consultez la rubrique [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md).
 
-  4. Accès conditionnel pour les applications SaaS : [cette fonctionnalité](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
+  4. Accès conditionnel pour les applications SaaS : [cette fonctionnalité](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
 
 Étant donné que les options de contrôle d’accès utilisent une approche multicouche, la comparaison entre ces options n’est pas pertinente pour cette tâche. Assurez-vous que vous exploitez toutes les options disponibles pour chaque scénario dont vous devez contrôler l’accès à vos ressources.
 
 ## <a name="define-incident-response-options"></a>Définir les options de réponse aux incidents
-Azure AD peut aider le service informatique à identifier les risques de sécurité potentiels dans l’environnement en surveillant l’activité de l’utilisateur. Le service informatique peut utiliser les rapports d’accès et d’utilisation Azure AD pour obtenir une visibilité complète sur l’intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur informatique est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.  [L’abonnement Azure AD Premium](active-directory-get-started-premium.md) intègre un ensemble de rapports de sécurité qui peuvent permettre au service informatique d’obtenir ces informations. Les [rapports Azure AD](active-directory-view-access-usage-reports.md) sont classés comme suit :
+Azure AD peut aider le service informatique à identifier les risques de sécurité potentiels dans l’environnement en surveillant l’activité de l’utilisateur. Le service informatique peut utiliser les rapports d’accès et d’utilisation Azure AD pour obtenir une visibilité complète sur l’intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur informatique est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.  [L’abonnement Azure AD Premium](fundamentals/active-directory-get-started-premium.md) intègre un ensemble de rapports de sécurité qui peuvent permettre au service informatique d’obtenir ces informations. Les [rapports Azure AD](active-directory-view-access-usage-reports.md) sont classés comme suit :
 
 * **Rapports d’anomalies** : contiennent des événements de connexion qui se sont avérés anormaux. L’objectif est de vous faire part de ces activités et de vous permettre de déterminer si un événement est suspect.
 * **Rapports d’application intégrée**: fournissent des indications sur l’utilisation des applications du cloud au sein de votre société. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
@@ -145,9 +145,9 @@ Azure AD peut aider le service informatique à identifier les risques de sécuri
 * **Journaux d’activité**: contiennent un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
 
 > [!TIP]
-> Autre rapport pouvant également aider l’équipe de réponse aux incidents à travailler sur un dossier : le rapport [Utilisateur avec des informations d’identification volées](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) . Ce rapport couvre toutes les correspondances entre la liste d’informations d’identification volées et votre locataire.
+> Autre rapport pouvant également aider l’équipe de réponse aux incidents à travailler sur un dossier : le rapport [Utilisateur avec des informations d’identification volées](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) . Ce rapport couvre toutes les correspondances entre la liste d’informations d’identification volées et votre locataire.
 >
->
+
 
 Les autres rapports intégrés importants dans Azure AD qui peuvent être utilisés durant une investigation de réponse aux incidents sont les suivants :
 

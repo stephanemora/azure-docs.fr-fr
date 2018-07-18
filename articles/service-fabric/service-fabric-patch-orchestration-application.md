@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970715"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -57,7 +58,6 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de Windows Update pour chaque nœud.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -317,6 +317,10 @@ R. Le temps dont l’application d’orchestration des correctifs a besoin dépe
 Q. **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 
 R. Certaines mises à jour de produits apparaissent uniquement dans leur historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
+
+Q. **L’application d’orchestration des correctifs peut-elle être utilisée pour corriger mon cluster de développement (cluster à un nœud) ?**
+
+R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 

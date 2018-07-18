@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902902"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure
 
@@ -39,15 +40,15 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
      "hmdt": 44
    }
    ```
-2. Connectez-vous au portail Azure.  
+2. Connectez-vous au [Portail Azure](https://portal.azure.com/).  
 
-3. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Dans la page de travail du compte de stockage, définissez le paramètre **Nom** sur « myasastorageaccount », le paramètre **Emplacement** sur « Ouest des États-Unis 2 », le paramètre **Groupe de ressources** sur « MyRG » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
+3. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Sur la page de travail du compte de stockage, définissez le paramètre **Nom** sur « asaquickstartstorage », le paramètre **Emplacement** sur « Ouest des États-Unis 2 », le paramètre **Groupe de ressources** sur « asaquickstart-resourcegroup » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
 
    ![Créer un compte de stockage](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
 4. À partir de la page **Toutes les ressources**, recherchez le compte de stockage que vous avez créé à l’étape précédente. Ouvrez la page **Vue d’ensemble**, puis la vignette **Objets blob**.  
 
-5. À partir de la page **Service blob**, sélectionnez **Conteneur**, saisissez un **nom** pour votre conteneur, tel que *conteneur1*, définissez le paramètre **Niveau d’accès public** sur Blob (anonymous read access for blobs only) [Blob (accès en lecture anonyme pour les objets blob uniquement)] et sélectionnez **OK**.  
+5. À partir de la page **Service blob**, sélectionnez **Conteneur**, saisissez un **nom** pour votre conteneur, tel que *conteneur1*, définissez le paramètre **Niveau d’accès public** sur Privé (aucun accès anonyme) et sélectionnez **OK**.  
 
    ![Créez un conteneur.](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
@@ -67,10 +68,10 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
-   |Nom du travail   |  myJob   |   Saisissez un nom pour identifier votre travail Stream Analytics. Le nom d’un travail Stream Analytics peut contenir uniquement des caractères alphanumériques, des traits d’union et des traits de soulignement, et doit avoir entre 3 et 63 caractères. |
+   |Nom du travail   |  myasajob   |   Saisissez un nom pour identifier votre travail Stream Analytics. Le nom d’un travail Stream Analytics peut contenir uniquement des caractères alphanumériques, des traits d’union et des traits de soulignement, et doit avoir entre 3 et 63 caractères. |
    |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour ce travail. |
-   |Groupe de ressources   |   myResourceGroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
-   |Lieu  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre travail Stream Analytics. Utilisez l’emplacement le plus proche de vos utilisateurs pour bénéficier de meilleures performances et réduire les coûts de transfert de données. |
+   |Groupe de ressources   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
+   |Emplacement  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre travail Stream Analytics. Utilisez l’emplacement le plus proche de vos utilisateurs pour bénéficier de meilleures performances et réduire les coûts de transfert de données. |
    |Unités de diffusion en continu  | 1  |   Les unités de streaming sont les ressources de calcul requises pour exécuter un travail. Par défaut, cette valeur est définie sur 1. Pour en savoir plus sur la mise à l’échelle des unités de streaming, consultez l’article [Understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) (Présentation et réglage des unités de streaming).   |
    |Environnement d’hébergement  |  Cloud  |   Les travaux Stream Analytics peuvent être déployés dans le cloud ou sur des appareils Edge. L’option Cloud vous permet de déployer votre travail dans le cloud Azure, et l’option Edge sur un appareil IoT Edge. |
 
@@ -115,8 +116,9 @@ Dans cette section, vous allez configurer le stockage Blob comme entrée pour le
    |---------|---------|---------|
    |Alias de sortie |   BlobOutput   |   Saisissez un nom pour identifier la sortie du travail. |
    |Abonnement  |  \<Votre abonnement\>  |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
-   |Compte de stockage |  myasastorageaccount |   Sélectionnez ou saisissez le nom du compte de stockage. Les noms de compte de stockage sont automatiquement détectés s’ils sont créés dans le même abonnement.       |
-   |Conteneur |   conteneur2  |  Créez un nouveau conteneur dans le même compte de stockage que vous avez utilisé pour l’entrée.   |
+   |Compte de stockage |  asaquickstartstorage |   Sélectionnez ou saisissez le nom du compte de stockage. Les noms de compte de stockage sont automatiquement détectés s’ils sont créés dans le même abonnement.       |
+   |Conteneur |   conteneur1  |  Sélectionnez un conteneur existant que vous avez créé dans votre compte de stockage.   |
+   |Modèle de chemin d’accès |   sortie  |  Entrez un nom qui servira de chemin d’accès au sein de votre conteneur existant pour la sortie.   |
 
 4. Conservez les valeurs par défaut pour les autres options et sélectionnez **Enregistrer** pour enregistrer les paramètres.  
 
@@ -153,11 +155,11 @@ Dans cette section, vous allez configurer le stockage Blob comme entrée pour le
 
    ![Démarrage du travail](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Après quelques minutes, dans le portail, recherchez le compte de stockage et le conteneur que vous avez configuré en tant que sortie pour le travail. Vous pouvez maintenant voir le fichier de sortie dans le conteneur. La première fois, le travail prend quelques minutes à démarrer. Une fois qu’il a démarré, il continuera à s’exécuter tant que des données arrivent.  
+3. Après quelques minutes, dans le portail, recherchez le compte de stockage et le conteneur que vous avez configuré en tant que sortie pour le travail. Sélectionnez le chemin de sortie. Vous pouvez maintenant voir le fichier de sortie dans le conteneur. La première fois, le travail prend quelques minutes à démarrer. Une fois qu’il a démarré, il continuera à s’exécuter tant que des données arrivent.  
 
    ![Sortie transformée](./media/stream-analytics-quick-create-portal/transformed-output.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
 

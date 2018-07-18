@@ -10,22 +10,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046545"
 ---
-# <a name="monitor-data-factories-using-azure-monitor"></a>Surveiller les fabriques de données à l’aide d’Azure Monitor  
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
-Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Les journaux de diagnostic Azure sont des journaux émis par une ressource qui fournissent des informations riches et fréquentes sur le fonctionnement de cette ressource. Data Factory génère les journaux de diagnostic dans Azure Monitor. 
+Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Les journaux de diagnostic Azure sont des journaux émis par une ressource qui fournissent des informations riches et fréquentes sur le fonctionnement de cette ressource. Data Factory génère les journaux de diagnostic dans Azure Monitor.
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la page [Surveiller et gérer les pipelines dans Data Factory version 1](v1/data-factory-monitor-manage-pipelines.md).
+## <a name="persist-data-factory-data"></a>Conserver les données de Data Factory
+La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Si vous voulez conserver les données d’exécution du pipeline pour plus de 45 jours, avec Azure Monitor, vous pouvez non seulement router les journaux de diagnostic pour analyse, mais aussi les conserver dans un compte de stockage : ainsi, vous disposez des informations de la fabrique pour une durée choisie.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
@@ -100,15 +101,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
             ]
     },
     "location": ""
-} 
+}
 ```
 
 | Propriété | type | Description |
 | --- | --- | --- |
 | storageAccountId |Chaîne | ID de ressource du compte de stockage dans lequel vous voulez ajouter les journaux de diagnostic. |
-| serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle présente le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
+| serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
 | workspaceId | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. Actuellement, cette propriété est vide. |
-|Mesures| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. | 
+|Mesures| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. |
 | journaux| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
 | category| Chaîne| Tableau de catégories de journal et leurs stratégies de rétention. |
 | timeGrain | Chaîne | Granularité des métriques capturées au format de durée ISO 8601. Elle doit être de PT1M (une minute).|
@@ -230,14 +231,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Plus d’informations ici](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[Plus d’informations ici](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>Schéma des journaux et des événements
 
 ### <a name="activity-run-logs-attributes"></a>Attributs des journaux d’exécution d’activité
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -251,7 +252,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:" 
+   "properties:"
        {
           "Input": "{
               "source": {
@@ -293,7 +294,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="pipeline-run-logs-attributes"></a>Attributs des journaux d’exécution de pipeline
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -306,7 +307,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "start":"",
    "end":"",
    "status":"",
-   "properties": 
+   "properties":
     {
       "Parameters": {
         "<parameter1Name>": "<parameter1Value>"
@@ -339,7 +340,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="trigger-run-logs-attributes"></a>Attributs des journaux d’exécution de déclencheur
 
 ```json
-{ 
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -361,7 +362,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
       },
       "SystemParameters": {}
     }
-} 
+}
 
 ```
 
@@ -381,13 +382,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Chaîne | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Chaîne | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
 
-## <a name="metrics"></a>Mesures
+## <a name="metrics"></a>Métriques
 
-Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
+Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les métriques (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces métriques pour l’analyse et le dépannage.
 
 ADFV2 émet les métriques suivantes :
 
-| **Mesure**           | **Nom d’affichage de la métrique**         | **Unité** | **Type d’agrégation** | **Description**                                       |
+| **Métrique**           | **Nom d’affichage de la métrique**         | **Unité** | **Type d’agrégation** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Métriques d’exécutions de pipeline ayant abouti | Count    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
 | PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Count    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
@@ -396,7 +397,7 @@ ADFV2 émet les métriques suivantes :
 | TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Count    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
 | TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
 
-Pour accéder aux métriques, suivez les instructions de l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Pour accéder aux métriques, suivez les instructions de l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>Alertes
 
@@ -444,4 +445,4 @@ Vous pouvez également vous connecter au portail Azure et cliquer sur **Surveill
     ![Groupe d’actions, écran 4 sur 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant . 
+Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant .

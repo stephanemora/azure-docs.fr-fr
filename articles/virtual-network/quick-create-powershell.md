@@ -18,11 +18,11 @@ ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: b8b67b235b54fb5bde738ed5cc1605e08d182a69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31604029"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688083"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Démarrage rapide : Créer un réseau virtuel à l’aide de PowerShell
 
@@ -146,7 +146,7 @@ Vous recevez des réponses de *myVm1*, car vous autorisez ICMP via le pare-feu W
 
 Fermez la connexion Bureau à distance sur *myVm2*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour le supprimer et toutes les ressources qu’il contient :
 

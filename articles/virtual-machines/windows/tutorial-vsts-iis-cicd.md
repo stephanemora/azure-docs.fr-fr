@@ -3,7 +3,7 @@ title: Tutoriel - Création d’un pipeline CI/CD dans Azure avec Team Services 
 description: Dans ce tutoriel, découvrez comment créer un pipeline Visual Studio Team Services pour une intégration et une livraison continues permettant de déployer une application web vers IIS sur une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b23cec90573c4be73a73daf0bc0e793da012585c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192218"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932090"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Tutoriel : création d’un pipeline d’intégration continue avec Visual Studio Team Services et IIS
 Pour automatiser les phases de création, de test et de déploiement du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD à l’aide de Visual Studio Team Services et d’une machine virtuelle Windows (VM) dans Azure qui exécute IIS. Vous allez apprendre à effectuer les actions suivantes :
@@ -34,7 +34,7 @@ Pour automatiser les phases de création, de test et de déploiement du dévelop
 > * Créer une définition de version pour publier les nouveaux packages de déploiement web sur IIS
 > * test du pipeline CI/CD
 
-Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Ce tutoriel exige la version 5.7.0 ou une version ultérieure du module Azure PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Création d’un projet dans Team Services
@@ -222,7 +222,7 @@ Votre application web s’exécutant sur IIS, testez à présent l’ensemble du
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé une application web ASP.NET dans Team Services et configuré des définitions de build et de mise en production pour déployer de nouveaux packages de déploiement web sur IIS lors de la validation de chaque code. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez créé une application web ASP.NET dans Team Services et configuré des définitions de build et de mise en production pour déployer de nouveaux packages de déploiement web sur IIS lors de la validation de chaque code. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Publier une application web ASP.NET dans un projet Team Services

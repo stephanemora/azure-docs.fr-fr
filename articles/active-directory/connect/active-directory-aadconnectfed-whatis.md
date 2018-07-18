@@ -3,7 +3,7 @@ title: Fédération avec Azure AD Connect | Microsoft Docs
 description: Cette page centralise toute la documentation portant sur les opérations AD FS avec Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.component: hybrid
-ms.author: anandy
-ms.openlocfilehash: 6c14b673bd9664aad54ea8002175999470661e34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: ce6b889d23959e9d04b95ec2bc5847340b596448
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593851"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915834"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 Azure Active Directory (Azure AD) Connect vous permet de configurer la fédération avec Active Directory Federation Services (AD FS) et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. En utilisant l’option de fédération AD FS, vous pouvez déployer un nouveau service AD FS ou spécifier une installation existante dans une batterie de serveurs Windows Server 2012 R2.

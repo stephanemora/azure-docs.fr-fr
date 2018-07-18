@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
 ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896453"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680832"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -35,7 +35,6 @@ Les connexions hybrides requièrent un composant client et un composant serveur.
 4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 

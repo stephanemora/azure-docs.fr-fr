@@ -6,20 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 40f35cde2b55da0763f6ee65b065f5dd8a55b9c6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894636"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918303"
 ---
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
 
 ## <a name="prerequisites"></a>Prérequis
-
 1. Avant de procéder à un basculement, effectuez un [test de basculement](site-recovery-test-failover-to-azure.md) pour vous vérifier que tout fonctionne comme prévu.
 1. Avant le basculement, [préparez le réseau](site-recovery-network-design.md) au niveau de l’emplacement cible.  
 

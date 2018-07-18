@@ -1,31 +1,25 @@
 ---
 title: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance | Microsoft Docs
 description: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: a65f2a90aedf5aa50016a6c5e5019094f202bf55
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627652"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
 
 Voir aussi le [FAQ](iot-accelerators-faq.md) général.
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Combien coûte l’approvisionnement de la nouvelle solution de surveillance à distance ?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Combien coûte le provisionnement de la nouvelle solution de surveillance à distance ?
 
 Le nouvel accélérateur de solution propose deux options de déploiement :
 
@@ -49,6 +43,6 @@ Pour plus d’informations, consultez [Upgrade map key to see devices on a dynam
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
 * [Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-explore.md)
-* [Présentation de l’accélérateur de solution de maintenance prédictive](../iot-suite/iot-suite-predictive-overview.md)
+* [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
 * [Présentation de l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-overview.md)
-* [Sécurisation de l’Internet des objets de bout en bout](../iot-suite/securing-iot-ground-up.md)
+* [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)

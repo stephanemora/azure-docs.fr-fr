@@ -1,23 +1,30 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307564"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063695"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prépayer les machines virtuelles avec Azure Reserved VM Instances
 
-Prépayez les machines virtuelles et réalisez des économies avec Azure Reserved Virtual Machine Instances. Pour plus d’informations, consultez [Offre des instances de machines virtuelles réservées Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Prépayez les machines virtuelles et réalisez des économies avec Azure Reserved Virtual Machine Instances. Pour plus d’informations, consultez [Offre Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 Vous pouvez acheter une instance réservée Azure sur le [portail Azure](https://portal.azure.com). Pour acheter une instance réservée :
 -   Vous devez avoir un rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
 -   Pour les abonnements Entreprise, les achats d’instance réservée doivent être activés dans le [portal EA](https://ea.azure.com).
 -   Pour le programme CSP, seuls les agents administrateurs ou les agents commerciaux peuvent acheter les instances réservées.
 
-## <a name="buy-a-reserved-instance"></a>Acheter une instance réservée
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+[!IMPORTANT]
+Vous devez utiliser une des méthodes décrites ci-dessous pour identifier la taille de machine virtuelle correcte pour un achat de réservation.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Déterminer la bonne taille de machine virtuelle avant l’achat
+1. Consultez le champ AdditionalInfo dans votre fichier d’utilisation ou l’API d’utilisation pour déterminer la taille correcte de la machine virtuelle pour un achat de réservation. N’utilisez pas les valeurs des champs de sous-catégorie du compteur ou de produit, car ces champs ne distinguent pas les versions S et non S d’une machine virtuelle.
+2. Vous pouvez également obtenir des informations précises sur la taille d’une machine virtuelle à l’aide de PowerShell, d’Azure Resource Manager ou des détails de la machine virtuelle dans le portail Azure.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Acheter une instance de machine virtuelle réservée
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez **Ajouter** pour acheter une nouvelle instance réservée.
 4. Renseignez les champs obligatoires. Les instances de machines virtuelles en cours d’exécution qui correspondent aux attributs que vous sélectionnez se qualifient pour bénéficier de la remise sur les instances réservées. Le nombre réel de vos instances de machines virtuelles qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
@@ -43,13 +50,13 @@ Vous pouvez acheter une instance réservée Azure sur le [portail Azure](https:/
 ## <a name="next-steps"></a>Étapes suivantes 
 La remise sur l’instance réservée est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de l’instance réservée. Vous pouvez mettre à jour l’étendue de l’instance réservée par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API. 
 
-Pour savoir comment gérer une instance réservée, consultez [Gérer des instances réservées Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Pour savoir comment gérer une instance réservée, consultez [Gérer des instances réservées dans Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Pour plus d’informations sur les instances réservées Azure, consultez les articles suivants :
+Pour plus d’informations sur les instances réservées Azure, consultez les articles suivants :
 
-- [Réaliser des économies sur les machines virtuelles avec les instances réservées](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Gérer des instances réservées Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Présentation d’Azure Reserved VM Instances](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gérer des instances réservées dans Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Comprendre comment la remise de l’offre d’instance réservée est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les instances réservées](../articles/billing/billing-reserved-instance-windows-software-costs.md)

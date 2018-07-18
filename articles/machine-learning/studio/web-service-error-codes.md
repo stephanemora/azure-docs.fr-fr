@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836087"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Codes d’erreur de l’API REST Azure Machine Learning
  
@@ -35,33 +37,33 @@ Cette classe d’erreurs indique qu’un des arguments fournis est non valide. I
 | ---------- |--------------|
 | BadParameterValue | La valeur de paramètre fournie ne satisfait pas la règle de paramètre |
 | BadSubscriptionId | L’ID d’abonnement utilisé pour la notation n’est pas celui de la ressource |
-| BadVersionCall | La paramètre non valide de version a été transmis durant l’appel d’API : {0}. Consultez la page d’aide de l’API afin de transmettre la version appropriée, puis réessayez. |
-| BatchJobInputsNotSpecified | Les entrées requises suivantes n’ont pas été spécifiées avec la requête : {0}. Vérifiez que l’ensemble des données d’entrées sont spécifiées, puis réessayez. |
-| BatchJobInputsTooManySpecified | Le nombre d’entrées spécifiées dans la requête était supérieur à la valeur définie dans le service. Liste des entrées acceptées : {0}. Vérifiez que toutes les données d’entrée sont spécifiées correctement, puis réessayez. |
-| BlobNameTooLong | Le chemin d’accès au stockage Blob Azure fourni pour les résultats de diagnostics est trop long : {0}. Raccourcissez le chemin d’accès, puis réessayez. |
-| BlobNotFound | Impossible d’accéder au stockage Blob Azure fourni : {0}.  Message d’erreur Azure : {1}. |
+| BadVersionCall | Un paramètre de version non valide a été transmis pendant l’appel d’API : {0}. Consultez la page d’aide de l’API afin de transmettre la version appropriée, puis réessayez. |
+| BatchJobInputsNotSpecified | Les entrées requises suivantes n’ont pas été spécifiées avec la requête : {0}. Vérifiez que l’ensemble des données d’entrées sont spécifiées, puis réessayez. |
+| BatchJobInputsTooManySpecified | Le nombre d’entrées spécifiées dans la requête était supérieur à la valeur définie dans le service. Liste des entrées acceptées : {0}. Vérifiez que toutes les données d’entrée sont spécifiées correctement, puis réessayez. |
+| BlobNameTooLong | Le chemin d’accès au stockage Blob Azure fourni pour les résultats de diagnostics est trop long : {0}. Raccourcissez le chemin d’accès, puis réessayez. |
+| BlobNotFound | Impossible d’accéder au stockage Blob Azure fourni : {0}.  Message d’erreur Azure : {1}. |
 | ContainerIsEmpty | Aucun nom de conteneur de stockage Azure n’a été fourni. Fournissez un nom de conteneur valide, puis réessayez. |
 | ContainerSegmentInvalid | Nom du conteneur non valide. Fournissez un nom de conteneur valide, puis réessayez. |
-| ContainerValidationFailed | La validation du conteneur d’objets blob a été mises en échec avec cette erreur : {0}. |
+| ContainerValidationFailed | La validation du conteneur d’objets blob a échoué et renvoyé une erreur : {0}. |
 | DataTypeNotSupported | Le type de données fourni n’est pas pris en charge. Fournissez un type de données valide, puis réessayez. |
 | DuplicateInputInBatchCall | La requête de lots n’est pas valide. Il n’est pas possible de spécifier simultanément des entrées simples et multiples. Supprimez l’un de ces éléments de la requête, puis réessayez. |
-| ExpiryTimeInThePast | Le délai d’expiration fourni correspond à une heure antérieure : {0}. FOurnissez une heure d’expiration postérieure en heure UTC, puis réessayez. Pour rendre l’expiration non valide, définissez l’heure d’expiration sur NULL. |
+| ExpiryTimeInThePast | Le délai d’expiration fourni fait partie du passé : {0}. FOurnissez une heure d’expiration postérieure en heure UTC, puis réessayez. Pour rendre l’expiration non valide, définissez l’heure d’expiration sur NULL. |
 | IncompleteSettings | Les paramètres de diagnostic sont incomplets. |
 | InputBlobRelativeLocationInvalid | Aucun nom d’objet blob de stockage Azure fourni. Fournissez un nom d’objet blob valide, puis réessayez. |
-| InvalidBlob | Spécification blob non valide pour l’objet blob : {0}. Assurez-vous du caractère approprié de cette spécification de chaîne de connexion/chemin d’accès relatif ou jeton SAS, puis réessayez. |
-| InvalidBlobConnectionString | La chaîne de connexion spécifiée pour l’un des objets blob d’entrée/de sortie n’est pas valide : {0}. Corrigez ce problème, puis réessayez. |
-| InvalidBlobExtension | La référence d’objet blob : {0} présente une extension de fichier manquante ou non valide. Les extensions de fichier prises en charge pour ce type de sortie sont les suivantes : "{1}". |
-| InvalidInputNames | Invalidité des noms d’entrée de service spécifiés dans la requête : {0}. Mappez les données d’entrée sur les entrées appropriées de service, puis réessayez. |
-| InvalidOutputOverrideName | Nom de remplacement de sortie non valide : {0}. Ce service ne présente aucun nœud de sortie portant ce nom. Communiquez un nom approprié de nœud de sortie de remplacement (contenu sensible à la casse). |
-| InvalidQueryParameter | Paramètre de requête non valide '{0}'. {1} |
+| InvalidBlob | Spécification blob pour objet blob non valide : {0}. Assurez-vous du caractère approprié de cette spécification de chaîne de connexion/chemin d’accès relatif ou jeton SAS, puis réessayez. |
+| InvalidBlobConnectionString | La chaîne de connexion indiquée pour l’un des objets blob d’entrée/de sortie n’est pas valide : {0}. Corrigez ce problème, puis réessayez. |
+| InvalidBlobExtension | La référence d’objet blob {0} présente une extension de fichier manquante ou non valide. Les extensions de fichier prises en charge pour ce type de sortie sont les suivantes : « {1} ». |
+| InvalidInputNames | Les noms d’entrée de service indiqués dans la requête ne sont pas valides : {0}. Mappez les données d’entrée sur les entrées appropriées de service, puis réessayez. |
+| InvalidOutputOverrideName | Le nom de remplacement de sortie {0} n’est pas valide. Ce service ne présente aucun nœud de sortie portant ce nom. Communiquez un nom approprié de nœud de sortie de remplacement (contenu sensible à la casse). |
+| InvalidQueryParameter | Le paramètre de requête « {0} » n’est pas valide. {1} |
 | MissingInputBlobInformation | Informations manquantes sur l’objet blob de stockage Azure. Fournissez une chaîne de connexion valide et un chemin d’accès relatif ou un URI, puis réessayez. |
 | MissingJobId | Aucun ID de travail fourni. Un ID de travail est renvoyé lors de la première soumission d’un travail. Vérifiez qu’il s’agit de l’ID de travail approprié, puis réessayez. |
 | MissingKeys | Aucune clé fournie, ou les clés primaire ou secondaire ne sont pas fournies. |
 | MissingModelPackage | Aucun ID de package de modèle ou package de modèle fourni. Fournissez un ID de package de modèle ou un package de modèle valide, puis réessayez. |
-| MissingOutputOverrideSpecification | La demande ne contient pas la spécification d’objets blob pour le remplacement de sortie {0}. Spécifiez un emplacement valide d’objet blob avec la requête, ou supprimez la spécification de sortie si aucun remplacement d’emplacement n’est souhaité. |
+| MissingOutputOverrideSpecification | La requête ne contient pas la spécification d’objets blob pour le remplacement de sortie {0}. Spécifiez un emplacement valide d’objet blob avec la requête, ou supprimez la spécification de sortie si aucun remplacement d’emplacement n’est souhaité. |
 | MissingRequestInput | Le service web attend une entrée, mais aucune entrée n’a été fournie. Vérifiez que les entrées valides sont fournies en fonction des ports d’entrées publiés dans le modèle, puis réessayez. |
 | MissingRequiredGlobalParameters | Les paramètres requis de service web ne sont pas tous fournis. Vérifiez que les paramètres attendus pour les modules sont corrects, puis réessayez. |
-| MissingRequiredOutputOverrides | Lors de l’appel d’un point de terminaison de service chiffré, il est obligatoire de transmettre les remplacements de l’ensemble des sorties de service. Remplacements manquants à cet horodatage pour ces sorties : {0} |
+| MissingRequiredOutputOverrides | Lors de l’appel d’un point de terminaison de service chiffré, il est obligatoire de transmettre les remplacements de l’ensemble des sorties de service. Les remplacements pour ces sorties et à cet horodatage sont manquants : {0} |
 | MissingWebServiceGroupId | Aucun ID de groupe de service web fourni. Fournissez un ID valide de groupe de service web, puis réessayez. |
 | MissingWebServiceId | Aucun ID de service web fourni. Fournissez un ID valide de service web, puis réessayez. |
 | MissingWebServicePackage | Aucun package de service web fourni. Fournissez un package valide de service web, puis réessayez. |
@@ -73,10 +75,10 @@ Cette classe d’erreurs indique qu’un des arguments fournis est non valide. I
 | UnexpectedParameter | Paramètres inattendus requis. Vérifiez que tous les noms de paramètres sont correctement orthographiés, que seuls les paramètres attendus sont transmis, puis réessayez. |
 | UnknownError | Erreur inconnue. |
 | UserParameterInvalid | {0} |
-| WebServiceConcurrentRequestRequirementInvalid | Impossible de modifier la configuration requise des requêtes simultanées pour le service web {0}. |
+| WebServiceConcurrentRequestRequirementInvalid | Impossible de modifier la configuration requise des requêtes simultanées pour le service web {0}. |
 | WebServiceIdInvalid | L’ID de service web fourni n’est pas valide. L’ID du service web doit être une valeur GUID valide. |
-| WebServiceTooManyConcurrentRequestRequirement | Impossible de définir la configuration requise des requêtes simultanées sur plus de {0}. |
-| WebServiceTypeInvalid | Le type du service web fourni n’est pas valide. Vérifiez que le type du service web fourni est correct, puis réessayez. Types valides de service web : {0}. |
+| WebServiceTooManyConcurrentRequestRequirement | Impossible de définir sur plus de {0} la configuration requise des requêtes simultanées. |
+| WebServiceTypeInvalid | Le type du service web fourni n’est pas valide. Vérifiez que le type du service web fourni est correct, puis réessayez. Types valides de service web : {0}. |
  
 ## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (code d’état HTTP : 400)
  
@@ -85,7 +87,7 @@ L’argument utilisateur fourni n’est pas valide.
 | Code d'erreur | Message utilisateur |
 | ---------- |--------------|
 | InputMismatchError | Les données d’entrée ne correspondent pas au schéma du port d’entrée. |
-| InputParseError | L’analyse du vecteur d’entrée a été mise en échec.  Vérifiez que le vecteur d’entrée présente le nombre approprié de colonnes et de types de données.  Informations supplémentaires : {0}. |
+| InputParseError | L’analyse du vecteur d’entrée a été mise en échec.  Vérifiez que le vecteur d’entrée présente le nombre approprié de colonnes et de types de données.  Informations supplémentaires : {0}. |
 | MissingRequiredGlobalParameters | Les paramètres attendus par le service web sont manquants. Vérifiez que les paramètres requis attendus par le service web sont corrects, puis réessayez. |
 | UnexpectedParameter | Vérifiez que seuls les paramètres requis attendus par le service web sont transmis, puis réessayez. |
 | UserParameterInvalid | {0} |
@@ -116,9 +118,9 @@ Le package du service web n’est pas valide. Vérifiez que le package du servic
  
 | Code d'erreur | Message utilisateur |
 | ---------- |--------------|
-| FormatError | Le package du service web est mal formé. Détails : {0} |
-| RuntimesError | Le graphique du package de service web n’est pas valide. Détails : {0} |
-| ValidationError | Le graphique du package de service web n’est pas valide. Détails : {0} |
+| FormatError | Le package du service web est mal formé. Détails : {0} |
+| RuntimesError | Le graphique du package de service web n’est pas valide. Détails : {0} |
+| ValidationError | Le graphique du package de service web n’est pas valide. Détails : {0} |
  
 ## <a name="unauthorized-http-status-code-401"></a>Unauthorized (code d'état HTTP : 401)
  
@@ -178,12 +180,12 @@ L’exécution a rencontré une erreur interne.
 | ClusterConfigBlobMisconfigured |  |
 | ContainerProcessTerminatedWithSystemError | Le processus du conteneur s’est arrêté avec une erreur système. |
 | ContainerProcessTerminatedWithUnknownError | Le processus du conteneur s’est arrêté avec une erreur inconnue. |
-| ContainerValidationFailed | La validation du conteneur d’objets blob a été mises en échec avec cette erreur : {0}. |
+| ContainerValidationFailed | La validation du conteneur d’objets blob a échoué et renvoyé une erreur : {0}. |
 | DeleteWebServiceResourceFailed |  |
 | ExceptionDeserializationError |  |
 | FailedGettingApiDocument |  |
 | FailedStoringWebService |  |
-| InvalidMemoryConfiguration | InvalidMemoryConfiguration, ConfigValue: {0} |
+| InvalidMemoryConfiguration | InvalidMemoryConfiguration, ConfigValue : {0} |
 | InvalidResourceCacheConfiguration |  |
 | InvalidResourceDownloadConfiguration |  |
 | InvalidWebServiceResources |  |
@@ -193,11 +195,11 @@ L’exécution a rencontré une erreur interne.
 | ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
 | OutputConversionFailed |  |
-| PortDataTypeNotSupported | L’ID de port ={0} présente un type de données non pris en charge : {1}. |
+| PortDataTypeNotSupported | L’ID de port ={0} présente un type de données non pris en charge : {1}. |
 | ResourceDownload |  |
 | ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
-| SwaggerGeneration | Le génération de l’interface utilisateur Swagger a échoué, Details: {0} |
+| SwaggerGeneration | La génération de l’interface utilisateur Swagger a échoué. Détails : {0} |
 | UnexpectedScoreStatus |  |
 | UnknownBackendErrorResponse |  |
 | UnknownError |  |
@@ -205,7 +207,7 @@ L’exécution a rencontré une erreur interne.
 | UnknownModuleError |  |
 | UpdateWebServiceResourceFailed |  |
 | WebServiceGroupNotFound |  |
-| WebServicePackageInvalid | InvalidWebServicePackage, Details : {0} |
+| WebServicePackageInvalid | InvalidWebServicePackage, Détails : {0} |
 | WorkerAuthorizationFailed |  |
 | WorkerUnreachable |  |
  
@@ -225,7 +227,7 @@ Le package du service web n’est pas valide. Vérifiez que le package web four
  
 | Code d'erreur | Message utilisateur |
 | ---------- |--------------|
-| ModuleError | Le graphique du package de service web n’est pas valide. Détails : {0} |
+| ModuleError | Le graphique du package de service web n’est pas valide. Détails : {0} |
  
 ## <a name="initializingcontainers-http-status-code-503"></a>InitializingContainers (code d’état HTTP : 503)
  

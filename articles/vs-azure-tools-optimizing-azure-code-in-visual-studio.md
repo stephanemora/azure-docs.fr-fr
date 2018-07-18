@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23452398"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937555"
 ---
 # <a name="optimizing-your-azure-code"></a>Optimisation de votre code Azure
 Quand vous programmez des applications qui utilisent Microsoft Azure, nous vous recommandons de suivre certaines pratiques de codage pour éviter des problèmes relatifs à l’évolutivité, au comportement et à la performance dans un environnement cloud. Microsoft fournit un outil Azure Code Analysis, qui reconnaît et identifie plusieurs des problèmes couramment rencontrés et qui vous aide à les résoudre. Vous pouvez télécharger l'outil dans Visual Studio via NuGet.
@@ -99,7 +99,7 @@ Utilisez la signature d’accès partagé (SAP) pour l’authentification. Le se
 Pensez à partager vos idées et vos commentaires sur la page [Commentaires d’analyse du code Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Motif
-Pour une sécurité renforcée, Azure Active Directory remplace l’authentification du service de contrôle d’accès (ACS) par l’authentification de signature d’accès partagé (SAP). Consultez [Azure Active Directory est le futur d’ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) pour des informations sur le plan de transition.
+Pour une sécurité renforcée, Azure Active Directory remplace l’authentification du service de contrôle d’accès (ACS) par l’authentification de signature d’accès partagé (SAP). Consultez [Azure Active Directory est le futur d’ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) pour des informations sur le plan de transition.
 
 ### <a name="solution"></a>Solution
 Utilisez l’authentification de signature d’accès partagé dans vos applications. L’exemple suivant montre comment utiliser un jeton de signature d’accès partagé pour accéder à un espace de noms ou à une entité Service Bus.

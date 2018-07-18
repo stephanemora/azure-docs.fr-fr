@@ -12,19 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193761"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592311"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation d’objets avec la synchronisation Azure AD Connect
-Ce document explique comment résoudre les problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes.
+Cet article explique les étapes de résolution des problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes. Pour voir le fonctionnement de la résolution des problèmes dans Azure Active Directory (Azure AD) Connect, regardez [cette courte vidéo](https://aka.ms/AADCTSVideo).
 
 ## <a name="troubleshooting-task"></a>Tâche de résolution des problèmes
-Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version 1.1.749.0 ou ultérieure, utilisez la tâche de résolution des problèmes disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. Pour les versions antérieures, corrigez les problèmes manuellement en suivant la procédure décrite [ici](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Dans le cas d’un déploiement d’Azure AD Connect version 1.1.749.0 ou ultérieure, utilisez la tâche de résolution des problèmes disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. Pour les versions antérieures, corrigez les problèmes manuellement en suivant la procédure décrite [ici](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Exécuter la tâche de résolution des problèmes de l’Assistant
 Pour exécuter la tâche de résolution des problèmes de l’Assistant, procédez comme suit :

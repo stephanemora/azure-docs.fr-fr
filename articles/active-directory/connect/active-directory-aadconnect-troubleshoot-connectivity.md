@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593011"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295394"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -47,7 +47,7 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | mscrl.microsoft.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.verisign.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.entrust.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats pour MFA. |
-| \**.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
+| \*.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilisé pour MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
@@ -174,7 +174,7 @@ L’authentification a réussi, mais Azure AD PowerShell a un problème d’auth
 L’authentification a réussi. Vous n’êtes pas administrateur global.
 
 ### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
-L’authentification a réussi. Privileged Identity Management a été activé et vous n’êtes actuellement pas administrateur global. Pour plus d’informations, consultez [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+L’authentification a réussi. Privileged Identity Management a été activé et vous n’êtes actuellement pas administrateur global. Pour plus d’informations, consultez [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 ### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
 L’authentification a réussi. Impossible de récupérer les informations de société à partir d’Azure AD.

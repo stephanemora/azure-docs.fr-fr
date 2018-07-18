@@ -1,5 +1,5 @@
 ﻿---
-title: Connectez Active Directory à Azure Active Directory. | Microsoft Docs
+title: Connectez Active Directory à Azure Active Directory. | Microsoft Docs
 description: Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune pour les applications Office 365, Azure et SaaS intégrées à Azure AD.
 keywords: introduction à Azure AD Connect, présentation d’Azure AD Connect, qu’est-ce qu’Azure AD Connect, installation d’active directory
 services: active-directory
@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d866a6b068e9f6b8a46e53d60653d55e35a2ffd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f56ac74c62334ef64fca45a6430a539e3c4c372c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594021"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442534"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Intégrer des répertoires locaux à Azure Active Directory
 Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. Cette rubrique vous guide dans les étapes de planification, de déploiement et opérationnelles. Elle comporte un ensemble de liens vers les rubriques associées à cette zone.
@@ -33,8 +33,9 @@ Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cel
 
 > 
 > - La synchronisation des utilisateurs à Azure AD est une **fonctionnalité gratuite**, et il n’est pas nécessaire de disposer d’un abonnement payant.
->- Les utilisateurs synchronisés **ne reçoivent *aucune* licence automatiquement**. Les administrateurs gardent le contrôle total sur l’attribution des licences. 
+> - Les utilisateurs synchronisés **ne reçoivent *aucune* licence automatiquement**. Les administrateurs gardent le contrôle total sur l’attribution des licences. 
 > - Microsoft recommande aux administrateurs informatiques de synchroniser tous les utilisateurs. Non seulement cela débloque les utilisateurs pour accéder à toute ressource intégrée Azure AD, mais cela permet aux administrateurs informatiques de visualiser de façon beaucoup plus large les applications auxquelles leurs utilisateurs accèdent. 
+> - Microsoft recommande fortement de ne pas synchroniser les utilisateurs avec les rôles d’administrateur dans AAD.
 
 ![Qu’est-ce qu’Azure AD Connect ?](media/active-directory-aadconnect/arch.png)
 
@@ -95,15 +96,15 @@ Il peut également être judicieux de se préparer aux préoccupations [opérati
 ## <a name="configure-sync-features"></a>Configuration des fonctionnalités de synchronisation
 Azure AD Connect est doté de plusieurs fonctionnalités que vous pouvez activer ou qui sont activées par défaut. Certaines fonctionnalités peuvent parfois nécessiter une configuration supplémentaire dans des topologies et scénarios spécifiques.
 
-[Filtrage](active-directory-aadconnectsync-configure-filtering.md) est utilisé lorsque vous souhaitez limiter le nombre d’objets synchronisés sur Azure AD. Par défaut, tous les utilisateurs, contacts, groupes et ordinateurs Windows 10 sont synchronisés. Vous pouvez modifier le filtrage en fonction des domaines, des unités d’organisation ou des attributs.
+[filtrage](active-directory-aadconnectsync-configure-filtering.md) est utilisé lorsque vous souhaitez limiter le nombre d’objets synchronisés sur Azure AD. Par défaut, tous les utilisateurs, contacts, groupes et ordinateurs Windows 10 sont synchronisés. Vous pouvez modifier le filtrage en fonction des domaines, des unités d’organisation ou des attributs.
 
 La [synchronisation de hachage du mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synchronise le hachage du mot de passe dans Active Directory sur Azure AD. Cela permet à l’utilisateur final d’utiliser le même mot de passe en local et dans le cloud, mais uniquement de le gérer dans un seul emplacement. Dans la mesure où cela utilise votre Active Directory local en tant qu’autorité, vous pourrez également utiliser votre propre stratégie de mot de passe.
 
-[Écriture différée du mot de passe](../authentication/quickstart-sspr.md) permettra à vos utilisateurs de modifier et de réinitialiser leurs mots de passe dans le cloud et d’appliquer votre stratégie de mot de passe locale.
+[écriture différée du mot de passe](../authentication/quickstart-sspr.md) permettra à vos utilisateurs de modifier et de réinitialiser leurs mots de passe dans le cloud et d’appliquer votre stratégie de mot de passe locale.
 
 [L’écriture différée d’appareils](active-directory-aadconnect-feature-device-writeback.md) autorise un appareil inscrit dans Azure AD à bénéficier de l’écriture différée dans Active Directory en local afin de pouvoir être utilisé pour l’accès conditionnel.
 
-La fonctionnalité de [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) est activée par défaut et protège votre répertoire du cloud d’un grand nombre de suppressions en même temps. Par défaut, elle permet 500 suppressions par exécution. Vous pouvez modifier ce paramètre en fonction de la taille de votre organisation.
+La fonctionnalité de [prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) est activée par défaut et protège votre répertoire du cloud d’un grand nombre de suppressions en même temps. Par défaut, elle permet 500 suppressions par exécution. Vous pouvez modifier ce paramètre en fonction de la taille de votre organisation.
 
 La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) est activée par défaut pour une installation rapide des paramètres. Elle garantit qu’Azure AD Connect est toujours à jour avec la dernière version.
 
@@ -114,7 +115,7 @@ La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-up
 |Synchronisation de hachage de mot de passe | [Azure AD Connect Sync : implémenter la synchronisation de hachage du mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |Réécriture du mot de passe | [Prise en main de la gestion de mot de passe](../authentication/quickstart-sspr.md)|
 |L’écriture différée d’appareils | [Activation de l’écriture différée des appareils dans Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
-|Prévention des suppressions accidentelles | [Azure AD Connect Sync : Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
+|prévention des suppressions accidentelles | [Azure AD Connect Sync : Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Mise à jour automatique | [Azure AD Connect : Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Personnaliser Azure AD Connect Sync

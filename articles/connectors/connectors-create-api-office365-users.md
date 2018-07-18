@@ -1,25 +1,22 @@
 ---
-title: Ajouter le connecteur Office 365 Users à des applications logiques | Microsoft Docs
-description: Vue d’ensemble du connecteur Office 365 Users avec les paramètres de l’API REST
-services: ''
-documentationcenter: ''
+title: Se connecter à Office 365 Outlook Users - Azure Logic Apps | Microsoft Docs
+description: Gérer les profils utilisateur avec les API REST Office 365 Users et Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: f030ac07dc1615c435c1a110836d7a03ab8a8546
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295606"
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Prise en main du connecteur Office 365 Users
 Connexion à Office 365 Users pour obtenir des profils, rechercher des utilisateurs, et plus encore. Avec Office 365 Users, vous pouvez :

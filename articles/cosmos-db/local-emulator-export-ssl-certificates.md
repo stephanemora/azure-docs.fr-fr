@@ -1,6 +1,6 @@
 ---
 title: Exporter les certificats de l’émulateur Azure Cosmos DB | Microsoft Docs
-description: Lors du développement des langages et des runtimes qui n’utilisent pas le magasin de certificats Windows, vous devrez exporter et gérer les certificats SSL. Cet article vous fournit des instructions pas à pas.
+description: Lors du développement des langages et des runtimes qui n’utilisent pas le magasin de certificats Windows, vous devrez exporter et gérer les certificats SSL. Cet article vous fournit des instructions pas à pas.
 services: cosmos-db
 keywords: Émulateur Azure Cosmos DB
 author: voellm
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611804"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082099"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
@@ -25,7 +25,7 @@ ms.locfileid: "34611804"
 
 L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement, notamment pour l’utilisation des connexions SSL. Cet article vous explique comment exporter les certificats SSL pour une utilisation dans les langages et les runtimes qui ne s’intègrent pas avec le magasin de certificats Windows, comme Java, qui utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python, qui utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html) et Node.js qui utilise [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Pour en savoir plus sur l’émulateur, consultez l’article [Utilisation de l’émulateur Azure Cosmos DB pour le développement et le test](./local-emulator.md).
 
-Ce didacticiel décrit les tâches suivantes :
+Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Rotation des certificats
@@ -34,9 +34,9 @@ Ce didacticiel décrit les tâches suivantes :
 
 ## <a name="certification-rotation"></a>Rotation de certification
 
-Les certificats de l’émulateur local Azure Cosmos DB sont générés lors de la première exécution de l’émulateur. Il existe deux certificats. L’un des deux est utilisé pour connecter l’émulateur local, l’autre pour gérer les clés secrètes au sein de l’émulateur. Le certificat à exporter est le certificat de connexion présentant le nom convivial DocumentDBEmulatorCertificate.
+Les certificats de l’émulateur local Azure Cosmos DB sont générés lors de la première exécution de l’émulateur. Il existe deux certificats. L’un des deux est utilisé pour connecter l’émulateur local, l’autre pour gérer les clés secrètes au sein de l’émulateur. Le certificat à exporter est le certificat de connexion présentant le nom convivial DocumentDBEmulatorCertificate.
 
-Pour régénérer les certificats, cliquez sur **Réinitialiser les données** dans l’émulateur Azure Cosmos DB exécuté dans la barre Windows, tel que représenté ci-dessous. Si vous régénérez les certificats et les avez installés dans le magasin de certificats Java ou les utilisez ailleurs, vous devez les mettre à jour pour maintenir la connexion de votre application à l’émulateur local.
+Pour régénérer les certificats, cliquez sur **Réinitialiser les données** dans l’émulateur Azure Cosmos DB exécuté dans la barre Windows, tel que représenté ci-dessous. Si vous régénérez les certificats et les avez installés dans le magasin de certificats Java ou les utilisez ailleurs, vous devez les mettre à jour pour maintenir la connexion de votre application à l’émulateur local.
 
 ![Réinitialiser les données de l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 
@@ -44,7 +44,7 @@ Pour régénérer les certificats, cliquez sur **Réinitialiser les données** d
 
 1. Démarrez le gestionnaire de certificats Windows en exécutant certlm.msc, puis accédez au dossier Personnel > Certificats et ouvrez le certificat portant le nom convivial **DocumentDbEmulatorCertificate**.
 
-    ![Étape 1 - Exporter dans l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
+    ![Étape 1 - Exporter dans l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
 2. Cliquez sur **Détails**, puis sur **OK**.
 
@@ -84,22 +84,22 @@ Une fois que le certificat SSL « Azure Cosmos DBEmulatorCertificate » est i
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Comment utiliser le certificat en python
 
-Par défaut, le [SDK Python (version 2.0.0 ou ultérieure)](sql-api-sdk-python.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la documentation des [wrappers de socket Python](https://docs.python.org/2/library/ssl.html).
+Par défaut, le [SDK Python (version 2.0.0 ou ultérieure)](sql-api-sdk-python.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la documentation des [wrappers de socket Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Comment utiliser le certificat en Node.js
 
-Par défaut, le [SDK Node.js (version 1.10.1 ou ultérieure)](sql-api-sdk-node.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la [documentation Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Par défaut, le [SDK Node.js (version 1.10.1 ou ultérieure)](sql-api-sdk-node.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la [documentation Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez :
+Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > * Rotation des certificats
-> * Exportation du certificat SSL
+> * Exporté le certificat SSL
 > * Apprentissage de l’utilisation du certificat dans Java, Python et Node.js
 
-Vous pouvez maintenant passer au didacticiel Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB.
+Pour plus d’informations sur Azure Cosmos DB, vous pouvez maintenant passer à la section Concepts. 
 
 > [!div class="nextstepaction"]
-> [Créer une fonction Azure Function avec une entrée Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Niveaux de cohérence des données paramétrables dans Azure Cosmos DB](../cosmos-db/consistency-levels.md)

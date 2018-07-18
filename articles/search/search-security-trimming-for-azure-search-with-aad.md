@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796531"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856162"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory
 
 Cet article explique comment utiliser les identités de sécurité Azure Active Directory (AAD) avec des filtres dans la Recherche Azure pour tronquer les résultats de recherche en fonction de l’appartenance à des groupes d’utilisateurs.
 
-Cet article décrit les tâches suivantes :
+Cet article décrit les tâches suivantes :
 > [!div class="checklist"]
 - Créer des utilisateurs et des groupes AAD
 - Associer l’utilisateur au groupe que vous avez créé
@@ -31,7 +31,6 @@ Cet article décrit les tâches suivantes :
 > Dans cet article, les exemples d’extraits de code sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Votre index dans Recherche Azure doit avoir un [champ de sécurité](search-security-trimming-for-azure-search.md) pour stocker la liste des identités de groupe disposant d’un accès en lecture pour le document. Ce cas d’usage implique une correspondance exacte entre un élément sécurisable (par exemple l’application d’un établissement scolaire) et un champ de sécurité spécifiant qui a accès à cet élément (personnel en charge des admissions).
 
@@ -139,7 +138,7 @@ Pour filtrer les documents renvoyés dans les résultats de la recherche en fonc
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Étape 1 : Récupérer les identificateurs de groupe de l’utilisateur
 
-Si les groupes de l’utilisateur n’ont pas encore été mis en cache, ou si le cache a expiré, exécutez la demande [groupes](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups).
+Si les groupes de l’utilisateur n’ont pas encore été mis en cache, ou si le cache a expiré, exécutez la demande [groupes](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups).
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

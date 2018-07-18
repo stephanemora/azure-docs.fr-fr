@@ -4,27 +4,28 @@ description: Vue d’ensemble architectural du déploiement de SAP HANA sur Azur
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063678"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure
 
 ## <a name="what-is-sap-hana-on-azure-large-instances"></a>Qu’est-ce que SAP HANA sur Azure (grandes instances) ?
 
-SAP HANA sur Azure (grandes instances) est une solution Azure unique. En plus de fournir des machines virtuelles à des fins de déploiement et d’exécution de SAP HANA, Azure vous offre la possibilité d’exécuter et de déployer SAP HANA sur des serveurs nus qui vous sont dédiés. La solution SAP HANA sur Azure (grandes instances) s’appuie sur un matériel nu de type serveur/hôte non partagé, qui vous est assigné. Le matériel de serveur est incorporé dans des tampons plus volumineux qui contiennent l’infrastructure de calcul/serveur, de réseau et de stockage. En tant que combinaison, il s’agit d’une intégration de centre de données adaptée (TDI) à HANA certifiée. SAP HANA sur Azure (grandes instances) propose différentes références SKU ou tailles de serveurs. Les unités peuvent avoir 72 UC et 768 Go de mémoire et aller jusqu’à 960 UC et 20 To de mémoire.
+SAP HANA sur Azure (grandes instances) est une solution Azure unique. En plus de fournir des machines virtuelles à des fins de déploiement et d’exécution de SAP HANA, Azure vous offre la possibilité d’exécuter et de déployer SAP HANA sur des serveurs nus qui vous sont dédiés. La solution SAP HANA sur Azure (grandes instances) s’appuie sur un matériel nu de type serveur/hôte non partagé, qui vous est assigné. Le matériel de serveur est incorporé dans des tampons plus volumineux qui contiennent l’infrastructure de calcul/serveur, de réseau et de stockage. En tant que combinaison, il s’agit d’une intégration de centre de données adaptée (TDI) à HANA certifiée. SAP HANA sur Azure (grandes instances) propose différentes références SKU ou tailles de serveurs. Les unités peuvent disposer de 36 cœurs de processeur Intel et de 768 Go de mémoire, et aller jusqu’à 480 cœurs de processeur Intel avec 24 To de mémoire.
 
 L’isolation du client dans le tampon d’infrastructure s’effectue dans le cadre des abonnés, de la manière suivante :
 
@@ -67,8 +68,8 @@ Plusieurs définitions communes sont largement utilisées dans ce guide sur l’
    Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. Il s’agit du scénario classique dans lequel la plupart des ressources SAP sont déployées. Pour plus d’informations, consultez [Planifier et concevoir pour la passerelle VPN Azure](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Créer un réseau virtuel avec une connexion de site à site à l’aide du Portail Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Abonné** : un client déployé dans le tampon de grande instance HANA est isolé dans un *abonné.* Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et compute assignées aux différents abonnés ne peuvent pas se voir ni communiquer entre elles sur le niveau de tampon de grande instance HANA. Un client peut opter pour des déploiements dans plusieurs locataires. Même dans ce cas, aucune communication n’est établie entre les locataires sur le niveau de tampon de grande instance HANA.
 - **Catégorie de référence SKU** : pour la grande instance HANA, les deux catégories suivantes de références SKU sont proposées :
-    - **Classe de type I** : S72, S72m, S144, S144m, S192 et S192m
-    - **Classe de type II** : S384, S384m, S384xm, S576m, S768m et S960m
+    - **Classe de type I** : S72, S72m, S144, S144m, S192, S192m et S192xm
+    - **Classe de type II** : S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m
 
 
 De nombreuses ressources supplémentaires sont disponibles sur le déploiement d’une charge de travail SAP dans le cloud. Si vous planifiez un déploiement de SAP HANA dans Azure, vous devez être expérimenté, connaitre les principes d’Azure IaaS et le déploiement des charges de travail SAP sur Azure IaaS. Avant de continuer, consultez [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations. 
@@ -79,9 +80,9 @@ Outre la certification NetWeaver, SAP requiert une certification spéciale pour 
 
 La Remarque SAP principale sur NetWeaver, et dans une certaine mesure sur la certification SAP HANA, est [Remarque SAP n° 1928533 - Applications SAP sur Azure : types de machines virtuelles Azure et produits pris en charge](https://launchpad.support.sap.com/#/notes/1928533).
 
-La [Remarque SAP n° 2316233 - SAP HANA sur Microsoft Azure (grandes instances)](https://launchpad.support.sap.com/#/notes/2316233/E) est également importante. Elle aborde la solution décrite dans ce guide. En outre, vous pouvez exécuter SAP HANA dans le type de machine virtuelle GS5 d’Azure. Les informations relatives à cette situation sont disponibles sur [le site Web SAP](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+Vous trouvez les enregistrements de certification pour les unités SAP HANA sur Azure (grandes instances) sur le site [Plateformes IaaS certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
-La solution SAP HANA sur Azure (grandes instances) à laquelle il est fait référence dans la Remarque SAP n° 2316233 fournit aux clients SAP et Microsoft la possibilité de déployer les ressources volumineuses SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA ou d’autres charges de travail SAP HANA dans Azure. La solution est basée sur le tampon matériel dédié et certifié SAP-HANA ([SAP HANA Tailored Datacenter Integration – TDI](https://scn.sap.com/docs/DOC-63140)). Si vous exécutez une solution TDI configurée de SAP HANA, toutes les applications SAP HANA (tels que SAP Business Suite sur SAP HANA, SAP BW sur SAP HANA, S4/HANA et BW4/HANA) fonctionne sur l’infrastructure matérielle.
+Les types SAP HANA sur Azure (grandes instances), auxquels il est fait référence sur le site Plateformes IaaS certifiées SAP HANA, fournit aux clients SAP et Microsoft la possibilité de déployer d’importantes ressources SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA ou d’autres charges de travail SAP HANA dans Azure. La solution est basée sur le tampon matériel dédié et certifié SAP-HANA ([SAP HANA Tailored Datacenter Integration – TDI](https://scn.sap.com/docs/DOC-63140)). Si vous exécutez une solution TDI configurée de SAP HANA, toutes les applications SAP HANA (tels que SAP Business Suite sur SAP HANA, SAP BW sur SAP HANA, S4/HANA et BW4/HANA) fonctionne sur l’infrastructure matérielle.
 
 Par rapport à SAP HANA en cours d’exécution dans des machines virtuelles, cette solution offre un avantage. Elle fournit des volumes de grande capacité mémoire. Pour activer cette solution, vous devez comprendre les aspects clés suivants :
 
@@ -131,7 +132,9 @@ Comme avec les machines virtuelles, SAP HANA sur Azure (grandes instances) est p
 
 Tout comme vous avez le choix entre différents types de machines virtuelles avec des machines virtuelles Azure, vous pouvez choisir parmi différentes références SKU de la grande instance HANA adaptées aux divers types de charges de travail de SAP HANA. SAP applique la mémoire aux rapports de socket de processeur pour différentes charges de travail en fonction des générations de processeurs Intel. Le tableau qui suit affiche les types de références SKU proposées.
 
-À compter de juillet 2017, SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations dans les régions Azure des États-Unis de l’Ouest et de l’Est, de l’Australie de l’Est et du Sud-Est, d’Europe de l'Ouest et d’Europe du Nord.
+Le service SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations pour les régions Azure des USA Ouest et Est, de l’Australie Est et Sud-Est, de l’Europe Ouest et Nord, du Japon Est et Ouest.
+
+Liste des [Références SKU certifiées SAP HANA des grandes instances HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) telles que :
 
 | Solution SAP | UC | Mémoire | Stockage | Disponibilité |
 | --- | --- | --- | --- | --- |
@@ -148,16 +151,33 @@ Tout comme vous avez le choix entre différents types de machines virtuelles ave
 |---| SAP HANA sur Azure S768m<br /> - 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  16,0 To |  36 To | Disponible |
 |---| SAP HANA sur Azure S960m<br /> - 20 x processeurs Intel® Xeon® E7-8890 v4<br /> 480 cœurs et 960 threads d’UC |  20,0 To |  46 To | Disponible |
 
+
+Sous SAP HANA TDIv5, SAP permet un redimensionnement personnalisé et des projets spécifiques au client qui peuvent déboucher sur des configurations de serveur qui ne sont pas répertoriées comme certifiées dans :
+
+- [Appliances certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
+- [Plateformes IaaS certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+
+Dans bien des cas, ces configurations de serveur propres au client comportent plus de mémoire que les unités de serveur certifiées pour SAP. Lorsqu’ils travaillent avec SAP, les clients ont bien la possibilité de recourir au support technique SAP pour faire certifier leurs configurations de serveur aux tailles spécifiques du client. Dans Azure, les références SKU standard des grandes instances HANA suivantes sont disponibles, et affichées dans les tarifs Microsoft pour de tels projets TDIv5 de redimensionnement propre au client.
+
+
+| Référence SKU d’origine qui peut être <br /> étendue dans la mémoire | UC | Mémoire | Stockage | Disponibilité |
+| --- | --- | --- | --- | --- |
+| S192m peut être étendue à | SAP HANA sur Azure S192xm<br /> - 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC |  6,0 To |  16 TO | Disponible |
+| S384xm peut être étendue à | SAP HANA sur Azure S384xxm<br /> - 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  12,0 To |  28 To | Disponible |
+| S576m peut être étendue à | SAP HANA sur Azure S576xm<br /> - 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  18,0 To |  41 To | Disponible |
+| S768m peut être étendue à | SAP HANA sur Azure S768xm<br /> - 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  24,0 To |  56 To | Disponible |
+
 - Cœurs d’unité centrale = somme des cœurs d’UC non multithreads dérivée de la somme des processeurs de l’unité de serveur.
-- Threads d’UC = somme des threads de calcul fournis par les cœurs d’UC multithreads dérivée de la somme des processeurs de l’unité de serveur. Toutes les unités sont configurées par défaut pour utiliser la technologie Hyper-Threading.
+- Threads d’UC = somme des threads de calcul fournis par les cœurs d’UC multithreads dérivée de la somme des processeurs de l’unité de serveur. La plupart des unités sont configurées par défaut pour utiliser la technologie Hyper-Threading.
+- D’après les recommandations du fournisseur, S768xm et S960m ne sont pas configurées en vue d’utiliser la technologie Hyper-Threading pour l’exécution de SAP HANA.
 
 
 Les configurations spécifiques choisies dépendent de la charge de travail, des ressources d’UC et de la mémoire souhaitée. La charge de travail OLTP est en mesure d’utiliser des références SKU optimisées pour les charges de travail OLAP. 
 
-La base matérielle de toutes les offres est certifiée TDI SAP HANA. Deux classes de matériel différentes divisent les références SKU comme suit :
+La base matérielle des offres, à l’exception des unités pour les projets de redimensionnement spécifique au client, est certifiée SAP HANA TDI. Deux classes de matériel différentes divisent les références SKU comme suit :
 
-- S72, S72m, S144, S144m, S192 et S192m, nommées références SKU de « classe de type I ».
-- S384, S384m, S384xm, S576m, S768m et S960m, nommées références SKU de « classe de type II ».
+- S72, S72m, S144, S144m, S192, S192m et S192xm, nommées références SKU de « classe de type I ».
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m, nommées références SKU de « classe de type II ».
 
 Un tampon de grande instance HANA complet n’est pas exclusivement alloué à l’utilisation d’un client unique. Cela s’applique également aux racks de ressources de calcul et de stockage connectés par le biais d’une structure réseau déployée dans Azure. L’infrastructure de grande instance HANA, par exemple Azure, déploie plusieurs &quot;abonnés&quot; client isolés les uns des autres selon les trois niveaux suivants :
 
@@ -292,7 +312,7 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
    > Le système d’exploitation livré par Microsoft n’est pas enregistré avec SUSE. Il n’est pas connecté à une instance de l’outil de gestion des abonnements.
 
 - L’outil de gestion des abonnements SUSE Linux déployé dans Azure sur une machine virtuelle. Cet outil offre la capacité pour SAP HANA sur Azure (grandes instances) d’être inscrit et respectivement mis à jour par SUSE. (Il n’existe aucun accès à internet dans le centre de données de la grande instance HANA.) 
-- Licences pour Red Hat Enterprise Linux 6.7 ou 7.2 pour SAP HANA.
+- Licences pour Red Hat Enterprise Linux 6.7 ou 7.x pour SAP HANA.
 
    > [!NOTE]
    > Le système d’exploitation livré par Microsoft n’est pas enregistré avec Red Hat. Il n’est pas connecté à une instance de l’outil de gestion des abonnements Red Hat.
@@ -337,17 +357,21 @@ La grande instance HANA de classe Type I est livrée avec quatre fois le volume
 
 Consultez le tableau suivant pour connaître l’allocation de stockage. La table indique la capacité approximative des différents volumes fournis avec les diverses unités de grande instance HANA.
 
-| Référence SKU de grande instance HANA | hana/data | hana/log | hana/shared | hana/log/backup |
+| Référence SKU de grande instance HANA | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1 280 Go | 512 Go | 768 Go | 512 Go |
 | S72m | 3 328 Go | 768 Go |1 280 Go | 768 Go |
 | S192 | 4 608 Go | 1 024 Go | 1 536 Go | 1 024 Go |
 | S192m | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
+| S192xm |  11 520 Go |  1 536 Go |  1 792 Go |  1 536 Go |
 | S384 | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
 | S384m | 12 000 Go | 2 050 Go | 2 050 Go | 2 040 Go |
 | S384xm | 16 000 Go | 2 050 Go | 2 050 Go | 2 040 Go |
+| S384xxm |  20 000 Go | 3 100 Go | 2 050 Go | 3 100 Go |
 | S576m | 20 000 Go | 3 100 Go | 2 050 Go | 3 100 Go |
+| S576xm | 31 744 Go | 4 096 Go | 2 048 Go | 4 096 Go |
 | S768m | 28 000 Go | 3 100 Go | 2 050 Go | 3 100 Go |
+| S768xm | 40 960 Go | 6 144 Go | 4 096 Go | 6 144 Go |
 | S960m | 36 000 Go | 4 100 Go | 2 050 Go | 4 100 Go |
 
 
@@ -369,6 +393,8 @@ Ces tailles sont des volumes approximatifs qui peuvent varier légèrement en fo
 Vous aurez peut-être besoin de plus de stockage. Vous pouvez ajouter du stockage par l’achat de stockage supplémentaire en unités de 1 To. Ce stockage supplémentaire peut être ajouté en tant que volume supplémentaire. Il peut également être utilisé pour étendre un ou plusieurs volumes existants. Il n’est pas possible de réduire la taille des volumes tels qu’ils ont été déployés à l’origine et documentés principalement dans le ou les tables ci-dessus. Il est également impossible de modifier les noms des volumes ou les noms des montages. Les volumes de stockage, comme décrit précédemment, sont joints aux unités de grande instance HANA en tant que volumes NFS4.
 
 Vous pouvez utiliser des captures instantanées de stockage à des fins de récupération d’urgence, de restauration et de sauvegarde. Pour plus de détails, consultez [Haute disponibilité et récupération d’urgence SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour connaître les détails de la disposition du stockage de votre scénario.
 
 ### <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 Le stockage utilisé pour la grande instance HANA permet un chiffrement transparent des données lorsqu’elles sont stockées sur les disques. Lorsqu’une unité de grande instance HANA est déployée, vous pouvez activer ce type de chiffrement. Vous pouvez également modifier les volumes chiffrés après le déploiement. Le passage d’un volume non chiffré à un volume chiffré est transparent et ne requiert aucun temps d’arrêt. 
@@ -472,9 +498,7 @@ Pour une architecture réseau plus évolutive :
 
 ![Déployer la couche Application SAP sur plusieurs réseaux virtuels](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-La figure montre la couche Application SAP ou des composants, déployés sur plusieurs réseaux virtuels. Cette configuration a introduit la surcharge de latence inévitable qui s’est produite pendant la communication entre les applications hébergées dans ces réseaux virtuels. Par défaut, le trafic réseau entre les machines virtuelles situées dans différents réseaux virtuels passe par les routeurs de périphérie d’entreprise dans cette configuration. Depuis septembre 2016, ce routage peut être optimisé. 
-
-La méthode d’optimisation et de réduction de la latence de communication entre deux réseaux virtuels consiste à homologuer des réseaux virtuels dans la même région. Cette méthode fonctionne même si ces réseaux virtuels sont dans des abonnements différents. Grâce à l’homologation des réseaux virtuels, la communication entre des machines virtuelles de deux réseaux virtuels différents peut utiliser le réseau Azure principal pour communiquer directement entre elles. La latence s’affiche comme si les machines virtuelles étaient dans le même réseau virtuel. Le trafic d’adressage des plages d’adresses IP connectées via la passerelle du réseau virtuel Azure est acheminé via la passerelle de réseau virtuel individuelle du réseau virtuel. 
+La figure montre la couche Application SAP ou des composants, déployés sur plusieurs réseaux virtuels. Cette configuration a introduit la surcharge de latence inévitable qui s’est produite pendant la communication entre les applications hébergées dans ces réseaux virtuels. Par défaut, le trafic réseau entre les machines virtuelles situées dans différents réseaux virtuels passe par les routeurs de périphérie d’entreprise dans cette configuration. La méthode d’optimisation et de réduction de la latence de communication entre deux réseaux virtuels consiste à homologuer des réseaux virtuels dans la même région. Cette méthode fonctionne même si ces réseaux virtuels sont dans des abonnements différents. Grâce à l’homologation des réseaux virtuels, la communication entre des machines virtuelles de deux réseaux virtuels différents peut utiliser le réseau Azure principal pour communiquer directement entre elles. La latence s’affiche comme si les machines virtuelles étaient dans le même réseau virtuel. Le trafic d’adressage des plages d’adresses IP connectées via la passerelle du réseau virtuel Azure est acheminé via la passerelle de réseau virtuel individuelle du réseau virtuel. 
 
 Pour plus d’informations sur l’homologation du réseau virtuel, consultez [Homologation de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 

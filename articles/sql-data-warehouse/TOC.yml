@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Notes de publication
   items:
+    - name: Juin 2018
+      href: release-notes-june-2018.md
     - name: Mai 2018
       href: release-notes-may-2018.md
     - name: "Avril\_2018"
@@ -49,8 +51,6 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: Sauvegarde et restauration
           href: backup-and-restore.md
-        - name: Audit
-          href: sql-data-warehouse-auditing-overview.md
         - name: Limites de capacité
           href: sql-data-warehouse-service-capacity-limits.md
         - name: 'Maintenance '
@@ -61,8 +61,24 @@
       items:
         - name: Vue d'ensemble
           href: sql-data-warehouse-overview-manage-security.md
+        - name: Contrôle d’accès
+          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Règles de pare-feu
+          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Règles de réseau virtuel de pare-feu
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Authentification
-          href: sql-data-warehouse-authentication.md
+          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: "Azure\_AD"
+          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Connexions et utilisateurs
+          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Authentification multifacteur
+          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Audit
+          href: sql-data-warehouse-auditing-overview.md
+        - name: Sécurité au niveau des colonnes
+          href: column-level-security.md
     - name: Migrer vers SQL Data Warehouse
       items:
         - name: Vue d'ensemble
@@ -179,6 +195,12 @@
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Sécurité
       items:
+        - name: "Configurer l’authentification Azure\_AD"
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Accès conditionnel
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Règles de réseau virtuel par PowerShell
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Activer le chiffrement - portail
           href: sql-data-warehouse-encryption-tde.md
         - name: Activer le chiffrement - T-SQL

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 3b9a7d998e7153318b21adcada7c143b428e591f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724772"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085570"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -976,7 +976,7 @@ Les webhooks vous permettent de réagir à événements dans l’élément Micro
 - Une [liaison d’entrée d’abonnement webhook Microsoft Graph](#webhook-input) permet de répertorier les abonnements existants et éventuellement de les actualiser.
 - Une [liaison de sortie d’abonnement webhook Microsoft Graph](#webhook-output) permet de créer ou supprimer des abonnements webhook.
 
-Les liaisons proprement dites ne nécessitent pas d’autorisations Azure AD, mais vous devez demander des autorisations appropriées pour le type de ressource auquel vous souhaitez réagir. Pour la liste des autorisations nécessaires pour chaque type de ressource, voir [Autorisations](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Les liaisons proprement dites ne nécessitent pas d’autorisations Azure AD, mais vous devez demander des autorisations appropriées pour le type de ressource auquel vous souhaitez réagir. Pour la liste des autorisations nécessaires pour chaque type de ressource, voir [Autorisations](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
 Pour plus d’informations sur les webhooks, consultez [Utilisation de webhooks dans Microsoft Graph].
 

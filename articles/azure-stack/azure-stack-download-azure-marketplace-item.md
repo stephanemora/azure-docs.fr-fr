@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258791"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604530"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -40,7 +40,6 @@ Consultez [Éléments Place de marché Azure pour Azure Stack](azure-stack-marke
 Si Azure Stack se connecte à internet, vous pouvez utiliser le portail d’administration pour télécharger des éléments de la Place de marché.
 
 ### <a name="prerequisites"></a>Prérequis
-
 Votre déploiement Azure Stack doit être connecté à internet et être [inscrit auprès d’Azure](azure-stack-register.md).
 
 ### <a name="use-the-portal-to-download-marketplace-items"></a>Utiliser le portail pour télécharger les éléments de la Place de marché  
@@ -81,14 +80,13 @@ Ce scénario comporte deux parties :
 
 
 ### <a name="prerequisites"></a>Prérequis
-
 - Votre déploiement Azure Stack doit être [inscrit auprès d’Azure](azure-stack-register.md).  
 
 - L’ordinateur qui possède une connexion internet doit disposer du **module PowerShell pour Azure Stack version 1.2.11** ou une version ultérieure. S’il est déjà présent, [installez des modules PowerShell spécifiques à Azure Stack](azure-stack-powershell-install.md).  
 
 - Pour activer l’importation d’un élément de la Place de marché téléchargé, l’[environnement PowerShell pour l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md) doit être configuré.  
 
-- Vous devez disposer d’un compte de stockage dans Azure Stack disposant d’un conteneur accessible publiquement (qui est un objet blob de stockage). Vous utilisez le conteneur comme un stockage temporaire pour les fichiers de la galerie des éléments de la Place de marché. Si vous n’êtes pas familiarisé avec les comptes de stockage et les conteneurs, consultez [Travailler avec des objets blob - portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) dans la documentation Azure.
+- Vous devez disposer d’un [compte de stockage](azure-stack-manage-storage-accounts.md) dans Azure Stack disposant d’un conteneur accessible publiquement (qui est un objet blob de stockage). Vous utilisez le conteneur comme un stockage temporaire pour les fichiers de la galerie des éléments de la Place de marché. Si vous n’êtes pas familiarisé avec les comptes de stockage et les conteneurs, consultez [Travailler avec des objets blob - portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) dans la documentation Azure.
 
 - L’outil de syndication Place de marché est téléchargé lors de la première procédure. 
 

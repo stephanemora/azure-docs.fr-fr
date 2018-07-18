@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
 ms.openlocfilehash: 2dabaf5650619ed2ec8d73c88deec136c25e544e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795497"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310269"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB : Créer une base de données de graphes à l’aide de PHP et du portail Azure
 
@@ -32,7 +32,7 @@ Par ailleurs :
 * [PHP](http://php.net/) 5.6 ou version plus récente
 * [Composer](https://getcomposer.org/download/)
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 Pour être en mesure de créer une base de données de graphiques, vous devez avoir préalablement créé un compte de base de données (Graphique) Gremlin avec Azure Cosmos DB.
 
@@ -58,7 +58,7 @@ Pour être en mesure de créer une base de données de graphiques, vous devez av
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-php-getting-started.git

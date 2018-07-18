@@ -17,11 +17,11 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 83e751cc0c5b6c53d409dc61556a6bcdbed2415a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283005"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467807"
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Créer une fonction déclenchée par un webhook générique
 
@@ -29,8 +29,7 @@ Azure Functions vous permet d’exécuter votre code dans un environnement sans 
 
 ![Fonction déclenchée par un webhook générique dans le portail Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour suivre ce didacticiel :
 
@@ -159,7 +158,7 @@ Vous pouvez maintenant tester la fonction en créant un nouveau groupe de ressou
 
 3. (Facultatif) Revenez en arrière et supprimez le groupe de ressources que vous avez créé. Notez que cette activité ne déclenche pas la fonction. Ceci est dû au fait que les opérations de suppression sont filtrées par l’alerte. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

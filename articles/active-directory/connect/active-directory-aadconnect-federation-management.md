@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect - Gestion et personnalisation d’AD FS | Microsoft Docs"
-description: "Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et PowerShell."
-keywords: "AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnalisation d’AD FS, réparer l’approbation, O365, fédération, partie de confiance"
+title: Azure AD Connect - Gestion et personnalisation d’AD FS | Microsoft Docs
+description: Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et PowerShell.
+keywords: AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnalisation d’AD FS, réparer l’approbation, O365, fédération, partie de confiance
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916994"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -223,7 +225,7 @@ Par ailleurs, utiliser **add** à la place de **issue** évite d’ajouter un pr
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Cette règle définit un indicateur temporaire **idflag** dont la valeur est **useguid** si aucun ID **ms-ds-concistencyguid** n’est renseigné pour l’utilisateur. Il y a une logique à cela : AD FS n’autorise pas les revendications vides. Ainsi, lorsque vous ajoutez les revendications http://contoso.com/ws/2016/02/identity/claims/objectguid et http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid dans la règle 1, vous vous retrouvez avec une revendication **msdsconsistencyguid** uniquement si la valeur est indiquée pour l’utilisateur. Si elle n’est pas indiquée, AD FS voit que sa valeur sera vide et le supprime immédiatement. Tous les objets auront un **objectGuid**. Donc, cette revendication sera toujours là après l’exécution de la règle 1.
+Cette règle définit un indicateur temporaire **idflag** dont la valeur est **useguid** si aucun ID **ms-ds-concistencyguid** n’est renseigné pour l’utilisateur. Il y a une logique à cela : AD FS n’autorise pas les revendications vides. De ce fait, lorsque vous ajoutez des revendications http://contoso.com/ws/2016/02/identity/claims/objectguid et http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid dans la règle 1, vous vous retrouvez avec une revendication **msdsconsistencyguid** uniquement si la valeur est renseignée pour l’utilisateur. Si elle n’est pas indiquée, AD FS voit que sa valeur sera vide et le supprime immédiatement. Tous les objets auront un **objectGuid**. Donc, cette revendication sera toujours là après l’exécution de la règle 1.
 
 **Règle 3 : émettre ms-ds-consistencyguid comme ID non modifiable s’il est présent**
 
@@ -244,31 +246,8 @@ Dans cette règle, vous vérifiez simplement l’indicateur temporaire **idflag*
 > L’ordre de ces règles est important.
 
 ### <a name="sso-with-a-subdomain-upn"></a>Authentification unique avec un UPN de sous-domaine
-Vous pouvez ajouter plusieurs domaines à fédérer à l’aide d’Azure AD Connect, comme indiqué dans [Ajout d’un domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain). Vous devez modifier la revendication de nom d’utilisateur principal (UPN) pour faire correspondre l’ID de l’émetteur au domaine racine et non au sous-domaine, car le domaine racine fédéré englobe également l’enfant.
 
-Par défaut, la règle de revendication pour l’ID de l’émetteur est définie telle quelle :
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Revendication de l’ID d’émetteur par défaut](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-La règle par défaut prend simplement le suffixe UPN et l’utilise dans la revendication de l’ID de l’émetteur. Par exemple, John est un utilisateur de sub.contoso.com et contoso.com est fédéré à Azure AD. John entre john@sub.contoso.com en tant que nom d’utilisateur lors de la connexion à Azure AD. La règle de revendication de l’ID de l’émetteur par défaut dans AD FS le traite alors de la manière suivante :
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valeur de revendication :**  http://sub.contoso.com/adfs/services/trust/
-
-Pour n’avoir que le domaine racine dans la valeur de revendication de l’émetteur, modifiez la règle de revendication de la manière suivante :
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Vous pouvez ajouter plusieurs domaines à fédérer à l’aide d’Azure AD Connect, comme indiqué dans [Ajout d’un domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect version 1.1.553.0 et ultérieures crée automatiquement la règle de revendication issuerID appropriée. Si vous ne pouvez pas utiliser Azure AD Connect version 1.1.553.0 ou ultérieures, il est recommandé d’utiliser l’outil [Règles de revendication Azure AD RPT](https://aka.ms/aadrptclaimrules) afin de générer et de définir les règles de revendication appropriées pour l’approbation de partie de confiance Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [options de connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).

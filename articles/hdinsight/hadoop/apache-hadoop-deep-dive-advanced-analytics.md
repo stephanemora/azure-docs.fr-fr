@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400671"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048469"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -61,7 +61,7 @@ Une fois que vous avez sélectionné l’algorithme le mieux adapté, vous devez
 HDInsight dispose de plusieurs options Machine Learning pour un flux de travail d’analytique avancée :
 
 * [Machine Learning et Spark](#machine-learning-and-spark)
-* [R et R Server](#r-and-r-server)
+* [R et ML Services](#r-and-r-server)
 * [Azure Machine Learning et Hive](#azure-machine-learning-and-hive)
 * [Spark et apprentissage profond](#spark-and-deep-learning)
 
@@ -75,9 +75,9 @@ Il existe trois bibliothèques Machine Learning scalables qui apportent des fonc
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML est un package plus récent qui fournit une API de niveau supérieur reposant sur les trames de données Spark pour construire des pipelines ML.
 * [**MMLSpark**](https://github.com/Azure/mmlspark) - La bibliothèque Machine Learning de Microsoft pour Apache Spark (MMLSpark) est conçue pour améliorer la productivité des chercheurs de données sur Spark, pour accroître le taux d’expérimentation et pour tirer parti de techniques Machine Learning de pointe, notamment l’apprentissage profond, sur les jeux de données très volumineux. La bibliothèque MMLSpark simplifie les tâches de modélisation courantes pour générer des modèles dans PySpark. 
 
-### <a name="r-and-r-server"></a>R et R Server
+### <a name="r-and-ml-services"></a>R et ML Services
 
-Au sein de HDInsight, vous pouvez créer un cluster HDInsight avec [R Server](../r-server/r-server-overview.md) prêt à être utilisé avec les modèles et jeux de données très volumineux. Cette nouvelle fonctionnalité fournit aux chercheurs de données et aux statisticiens une interface R familière et scalable à la demande via HDInsight, sans les tâches fastidieuses de maintenance et de configuration de cluster.
+Dans le cadre de HDInsight, vous pouvez créer un cluster HDInsight avec [ML Services](../r-server/r-server-overview.md) prêt à être utilisé avec des modèles et des jeux de données volumineux. Cette nouvelle fonctionnalité fournit aux chercheurs de données et aux statisticiens une interface R familière et scalable à la demande via HDInsight, sans les tâches fastidieuses de maintenance et de configuration de cluster.
 
 ### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning et Hive
 

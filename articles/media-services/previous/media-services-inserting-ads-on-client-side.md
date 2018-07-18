@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 57cb06fcee029f72dd1cf81ef086985fdda3f45f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783858"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903045"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
 Cet article contient des informations sur l’insertion de différents types de publicité du côté client.
@@ -276,7 +276,7 @@ L’exemple suivant illustre un fichier VMAP qui spécifie des événements de s
     </vmap:VMAP>
 ```
 
-Pour plus d’informations sur l’élément <**TrackingEvents**> et ses enfants, consultez http://iab.org/VMAP.pdf
+Pour plus d’informations sur l’élément <**TrackingEvents**> et ses enfants, consultez http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Utilisation d’un fichier MAST (Media Abstract Sequencing Template)
 Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le moment où une publicité doit être affichée. L’exemple suivant illustre un fichier MAST qui contient des déclencheurs pour une publicité de début de bande, mi-bande et de fin de bande.

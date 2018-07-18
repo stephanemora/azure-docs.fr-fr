@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
 ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778240"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452411"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Didacticiel : envoyer des notifications à des utilisateurs spécifiques à l’aide de Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -31,7 +31,7 @@ Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer de
 > [!NOTE]
 > Le code complet de ce didacticiel est disponible sur [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
 
-Dans ce didacticiel, vous effectuez les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Création du projet WebAPI
@@ -40,11 +40,10 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 > * Envoyer des notifications depuis le serveur principal WebAPI
 > * Publication du nouveau serveur principal WebAPI
 > * Mise à jour du code pour le projet client
-> * Test de l'application
+> * Test de l’application
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Ce didacticiel s’appuie sur le hub de notification et un projet Visual Studio que vous avez créé dans le [didacticiel : envoyer des notifications vers des applications de plateforme Windows universelle à l’aide d’Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Par conséquent, terminez-le avant de démarrer ce didacticiel. 
 
 > [!NOTE]
@@ -127,7 +126,7 @@ Dans cette section, vous mettez à jour le code dans le projet terminé au cours
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-12. Dans **MainPage.xaml.cs** pour le projet **WindowsApp**, ajoutez le membre suivant à la classe `MainPage`. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
+12. Dans **MainPage.xaml.cs** pour le projet **WindowsApp**, ajoutez le membre suivant à la classe `MainPage`. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
     
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -336,10 +335,10 @@ Dans cette section, vous mettez à jour le code dans le projet terminé au cours
     ![][15]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à envoyer des notifications Push à des utilisateurs spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications basées sur l’emplacement, passez au didacticiel suivant : 
+Dans ce tutoriel, vous avez appris à envoyer des notifications Push à des utilisateurs spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications basées sur l’emplacement, passez au tutoriel suivant : 
 
 > [!div class="nextstepaction"]
->[Notifications push en fonction de la localisation](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Notifications Push en fonction de la localisation](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png

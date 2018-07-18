@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ccdeb2e57d8e2f8fc7ad2fa5e76726b90c0c8a50
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911979"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936817"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0
-Cet article indique comment charger un disque dur virtuel dans un compte de stockage Azure avec Azure CLI 2.0 et comment créer des machines virtuelles Linux à partir de ce disque personnalisé. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.
+Cet article indique comment charger un disque dur virtuel dans un compte de stockage Azure avec Azure CLI 2.0 et comment créer des machines virtuelles Linux à partir de ce disque personnalisé. Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.
 
 Cette rubrique utilise des comptes de stockage pour les disques durs virtuels finaux, mais vous pouvez également effectuer ces étapes avec [des disques gérés](upload-vhd.md). 
 

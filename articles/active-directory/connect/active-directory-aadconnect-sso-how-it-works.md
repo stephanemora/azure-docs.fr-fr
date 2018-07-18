@@ -4,7 +4,7 @@ description: Cet article décrit le fonctionnement de la fonctionnalité d’aut
 services: active-directory
 keywords: Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918252"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : immersion technique
 
@@ -50,7 +52,7 @@ Une fois la configuration terminée, l’authentification unique transparente fo
 
 Le flux de connexion dans un navigateur web est le suivant :
 
-1. Un utilisateur tente d’accéder à une application web (par exemple, Outlook Web App : https://outlook.office365.com/owa/) à partir d’un appareil d’entreprise joint à un domaine du réseau de l’entreprise.
+1. Un utilisateur tente d’accéder à une application web (par exemple, Outlook Web App - https://outlook.office365.com/owa/)) à partir d’un appareil d’entreprise joint à un domaine du réseau de l’entreprise.
 2. Si l’utilisateur n’est pas déjà connecté, il est redirigé vers la page de connexion Azure AD.
 3. L’utilisateur tape son nom d’utilisateur dans la page de connexion Azure AD.
 

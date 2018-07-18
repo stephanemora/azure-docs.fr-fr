@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307615"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666007"
 ---
-## <a name="view-device-telemetry"></a>Afficher la télémétrie d’appareil
+## <a name="view-device-telemetry"></a>Voir la télémétrie de vos appareils
 
-Vous pouvez afficher les données de télémétrie envoyées à partir de votre périphérique sur la page **Périphériques** dans la solution.
+Vous pouvez voir les données de télémétrie envoyées à partir de votre appareil dans la page **Appareils** de la solution.
 
-1. Sélectionnez le périphérique que vous avez configuré dans la liste des périphériques sur la page **Périphériques**. Un panneau affiche des informations sur votre périphérique, y compris un tracé de la télémétrie du périphérique :
+1. Sélectionnez l’appareil que vous avez configuré dans la liste des appareils de la page **Appareils**. Un panneau affiche des informations sur votre appareil, notamment un tracé de la télémétrie de l’appareil :
 
-    ![Consultez les détails du périphérique](media/iot-suite-visualize-connecting/devicesdetail.png)
+    ![Voir les détails de l’appareil](media/iot-suite-visualize-connecting/devicesdetail.png)
 
 1. Choisissez **Pression** pour modifier l’affichage des données de télémétrie :
 
-    ![Télémétrie les données de télémétrie de la pression](media/iot-suite-visualize-connecting/devicespressure.png)
+    ![Voir les données de télémétrie de la pression](media/iot-suite-visualize-connecting/devicespressure.png)
 
-1. Pour afficher les informations de diagnostic relatives à votre périphérique, faites défiler la liste jusqu'à **Diagnostics** :
+1. Pour afficher les informations de diagnostic relatives à votre appareil, faites défiler la liste jusqu'à **Diagnostics** :
 
-    ![Afficher les diagnostics du périphérique](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+    ![Voir les diagnostics de l’appareil](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
 
-## <a name="act-on-your-device"></a>Agir sur votre périphérique
+## <a name="act-on-your-device"></a>Agir sur votre appareil
 
-Pour appeler des méthodes sur vos périphériques, utilisez la page **Périphériques** dans la solution de surveillance à distance. Par exemple, dans la solution de surveillance à distance les périphériques **Condenseur** mettent en œuvre une méthode **FirmwareUpdate**.
+Pour appeler des méthodes sur vos appareils, utilisez la page **Appareils** dans la solution Monitoring à distance. Par exemple, dans la solution Monitoring à distance, les appareils **Condenseur** implémentent une méthode **FirmwareUpdate**.
 
-1. Choisissez **Périphériques** pour accéder à la page **Périphériques** dans la solution.
+1. Choisissez **Appareils** pour accéder à la page **Appareils** dans la solution.
 
-1. Sélectionnez le périphérique que vous avez configuré dans la liste des périphériques sur la page **Périphériques** :
+1. Sélectionnez l’appareil que vous avez configuré dans la liste des appareils de la page **Appareils** :
 
-    ![Sélectionnez votre périphérique physique](media/iot-suite-visualize-connecting/devicesselect.png)
+    ![Sélectionner votre appareil physique](media/iot-suite-visualize-connecting/devicesselect.png)
 
 1. Pour afficher une liste des méthodes que vous pouvez appeler sur votre appareil, choisissez **Travaux**, puis **Run method** (Exécuter une méthode). Pour planifier un travail à exécuter sur plusieurs appareils, vous pouvez sélectionner plusieurs appareils dans la liste. Le volet **Travaux** affiche les types de méthodes communes à tous les appareils que vous avez sélectionnés.
 
@@ -58,4 +58,4 @@ Pour appeler des méthodes sur vos périphériques, utilisez la page **Périphé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’article [Personnaliser l’accélérateur de solution de surveillance à distance](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) décrit quelques méthodes permettant de personnaliser l’accélérateur de solution.
+L’article [Personnaliser l’accélérateur de la solution Monitoring à distance](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) décrit quelques méthodes permettant de personnaliser l’accélérateur de solution.

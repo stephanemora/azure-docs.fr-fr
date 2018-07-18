@@ -17,11 +17,11 @@ ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30284099"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586872"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -42,7 +42,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Envoyer un courrier électronique en fonction de la réponse de la fonction.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 + Un compte [Twitter](https://twitter.com/) actif. 
 + Un compte [Outlook.com](https://outlook.com/) (pour l’envoi de notifications).
@@ -273,7 +272,7 @@ Pour désactiver l’application logique, cliquez sur **Vue d’ensemble**, puis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez une ressource API Cognitive Services.

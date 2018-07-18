@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
 ms.openlocfilehash: 714f5f2d4aa1635da8aa62139be5c80e7761ae27
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602888"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38486738"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -134,7 +134,7 @@ Si votre modèle inclut un paramètre utilisant le même nom que l’un des para
 
 ## <a name="test-a-template-deployment"></a>Tester le déploiement d’un modèle
 
-Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment).  
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `

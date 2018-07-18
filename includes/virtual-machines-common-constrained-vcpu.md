@@ -1,5 +1,20 @@
-
-
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: eaf490979167ea5cbfe5846e62444526310452f8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269542"
+---
 Certaines charges de travail de base de données, comme SQL Server ou Oracle, nécessitent une mémoire, un espace de stockage et une bande passante d’E/S élevés, mais pas forcément un grand nombre de cœurs. De nombreuses charges de travail de base de données ne nécessitent pas une utilisation intensive du processeur. Azure offre certaines tailles de machine virtuelle pour lesquelles vous pouvez limiter le nombre de processeurs virtuels par machine virtuelle afin de réduire le coût des licences logicielles, tout en conservant une mémoire, un espace de stockage et une bande passante d’E/S identiques.
 
 Le nombre de processeurs virtuels peut être réduit à la moitié ou au quart de la taille d’origine de la machine virtuelle. Pour faciliter leur identification, ces nouvelles tailles de machine virtuelle ont un suffixe qui indique le nombre de processeurs virtuels actifs.
@@ -11,6 +26,12 @@ Les frais de licence facturés pour SQL Server ou Oracle sont limités au nouvea
 
 | NOM                | Processeurs virtuels | Spécifications           |
 |---------------------|------|-----------------|
+| Standard_M8-2ms     | 2    | Identique à M8ms    |
+| Standard_M8-4ms     | 4    | Identique à M8ms    |
+| Standard_M16-4ms    | 4    | Identique à M16ms   |
+| Standard_M16-8ms    | 8    | Identique à M16ms   |
+| Standard_M32-8ms    | 8    | Identique à M32ms   |
+| Standard_M32-16ms   | 16   | Identique à M32ms   |
 | Standard_M64-32ms   | 32   | Identique à M64ms   |
 | Standard_M64-16ms   | 16   | Identique à M64ms   |
 | Standard_M128-64ms  | 64   | Identique à M128ms  |

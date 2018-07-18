@@ -1,23 +1,21 @@
 ---
-title: Guide de programmabilité U-SQL pour Azure Data Lake | Microsoft Docs
-description: Découvrez l’ensemble de services dans Azure Data Lake qui vous permettent de créer une plateforme Big Data basée sur le cloud.
+title: Guide de programmabilité U-SQL pour Azure Data Lake
+description: Découvrez l’ensemble de services dans Azure Data Lake Analytics qui vous permettent de créer une plateforme Big Data basée sur le cloud.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/30/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
+ms.topic: conceptual
+ms.date: 06/30/2017
+ms.openlocfilehash: 9ebbecc22acf4be007672f3b52d30f0fec32a47d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623670"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
 
@@ -1070,11 +1068,11 @@ UDO est généralement appelé explicitement dans un script U-SQL dans le cadre 
 ## <a name="use-user-defined-extractors"></a>Utiliser des extracteurs définis par l’utilisateur
 U-SQL vous permet d’importer des données externes en utilisant une instruction EXTRACT. Une instruction EXTRACT peut utiliser des extracteurs UDO intégrés :  
 
-* *Extractors.Text()* : produit une extraction à partir de fichiers texte délimités de codages différents.
+* *Extractors.Text()*  : produit une extraction à partir de fichiers texte délimités de codages différents.
 
-* *Extractors.Csv()* : produit une extraction à partir de fichiers de valeurs séparées par des virgules (CSV) de codages différents.
+* *Extractors.Csv()*  : produit une extraction à partir de fichiers de valeurs séparées par des virgules (CSV) de codages différents.
 
-* *Extractors.Tsv()* : produit une extraction à partir de fichiers de valeurs séparées par des tabulations (TSV) de codages différents.
+* *Extractors.Tsv()*  : produit une extraction à partir de fichiers de valeurs séparées par des tabulations (TSV) de codages différents.
 
 Il peut être utile de développer un extracteur personnalisé. C’est le cas lors de l’importation de données si vous souhaitez effectuer l’une des tâches suivantes :
 
@@ -1222,9 +1220,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Utiliser des générateurs de sortie définis par l’utilisateur
 Le générateur de sortie défini par l’utilisateur est un autre UDO U-SQL qui vous permet d’étendre les fonctionnalités U-SQL intégrées. Comme pour l’extracteur, il existe plusieurs générateurs de sortie intégrés.
 
-* *Outputters.Text()* : écrit des données dans des fichiers texte délimités de codages différents.
-* *Outputters.Csv()* : écrit des données dans des fichiers de valeurs séparées par des virgules (CSV) de codages différents.
-* *Outputters.Tsv()* : écrit des données dans des fichiers de valeur séparées par des tabulations (TSV) de codages différents.
+* *Outputters.Text()*  : écrit des données dans des fichiers texte délimités de codages différents.
+* *Outputters.Csv()*  : écrit des données dans des fichiers de valeurs séparées par des virgules (CSV) de codages différents.
+* *Outputters.Tsv()*  : écrit des données dans des fichiers de valeur séparées par des tabulations (TSV) de codages différents.
 
 Un générateur de sortie personnalisé vous permet d’écrire des données dans un format défini personnalisé. Cela peut être utile pour les tâches suivantes :
 

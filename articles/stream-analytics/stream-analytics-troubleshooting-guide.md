@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850444"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guide de dépannage pour Azure Stream Analytics
 
@@ -41,6 +42,7 @@ Pour résoudre plus efficacement les problèmes liés à votre travail Stream An
 
 5.  Éliminez les pièges les plus courants, comme par exemple :
     - Une clause [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) dans la requête a filtré l’ensemble des événements, ce qui empêche la génération des sorties.
+    - Une fonction [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) échoue, ce qui provoque l’échec du travail. Pour éviter les échecs de conversion de type, utilisez plutôt [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics).
     - Lorsque vous utilisez des fonctions de fenêtre, attendez la durée totale de la fenêtre pour obtenir une sortie.
     - L’horodatage des événements est antérieur à l’heure de début du travail, provoquant l’abandon des événements.
 

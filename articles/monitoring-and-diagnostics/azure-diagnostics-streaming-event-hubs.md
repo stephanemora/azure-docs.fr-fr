@@ -1,24 +1,20 @@
 ---
-title: "Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs | Microsoft Docs"
-description: "Configuration de bout en bout d’Azure Diagnostics avec Event Hubs, y compris des conseils relatifs aux scénarios courants."
-services: event-hubs
-documentationcenter: na
+title: Diffuser des données Azure Diagnostics en continu à Event Hubs
+description: Configuration de bout en bout d’Azure Diagnostics avec Event Hubs, y compris des conseils relatifs aux scénarios courants.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267711"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs
 Azure Diagnostics propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Azure Storage. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -38,14 +34,14 @@ Cet article vous montre la procédure complète de configuration de diagnostics 
 * Comment afficher les données de flux Event Hubs
 * Comment résoudre les problèmes de connexion  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 La réception par Event Hubs de données provenant d’Azure Diagnostics est prise en charge dans Services cloud, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
 * Extension Azure Diagnostics 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )
 * [Visual Studio 2013 ou une version ultérieure](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Configurations existantes d’Azure Diagnostics dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
   * Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-  * Windows PowerShell : [Activer les diagnostics dans Services cloud Azure à l’aide de PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
+  * Windows PowerShell : [Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion d’Azure Diagnostics au récepteur Event Hubs
@@ -507,7 +503,7 @@ Les paramètres équivalents JSON pour les machines virtuelles sont les suivants
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Vue d'ensemble d’Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](../event-hubs/event-hubs-create.md)
 * [FAQ sur les hubs d'événements](../event-hubs/event-hubs-faq.md)
 

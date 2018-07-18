@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293032"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
 
@@ -42,7 +43,6 @@ Ce diagramme explique le flux quand un utilisateur tente d’accéder à une app
 8. L’application envoie la réponse au connecteur, qui est ensuite retournée au service de proxy d’application et enfin à l’utilisateur.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer avec l’authentification unique pour les applications IWA, assurez-vous que votre environnement est prêt à l’aide des configurations et paramètres suivants :
 
 * Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -85,7 +85,23 @@ Le Sharepointserviceaccount peut être le compte de la machine SPS ou un compte 
 
 
 ## <a name="sso-for-non-windows-apps"></a>Authentification unique pour les applications non Windows
-Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec le répertoire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. Plusieurs protocoles définissent la manière d’envoyer ces demandes. La plupart des serveurs non Windows supposent qu’il s’agit de Negotiate/SPNego, qui est maintenant pris en charge sur le proxy d’application Azure AD.
+
+Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec le répertoire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. 
+
+Plusieurs protocoles définissent la manière d’envoyer ces demandes. La plupart des serveurs non Windows s’attendent à négocier avec SPNEGO. Ce protocole est pris en charge sur le proxy d’application Azure AD, mais il est désactivé par défaut. Un serveur peut être configuré pour SPNEGO ou KCD standard, mais pas les deux.
+
+Si vous configurez un ordinateur connecteur pour SPNEGO, assurez-vous que tous les autres connecteurs de ce groupe Connecteur sont également configurés avec SPNEGO. Les applications qui attendent KCD standard doivent être routées via d’autres connecteurs non configurés pour SPNEGO.
+ 
+
+Pour activer SPNEGO :
+
+1. Ouvrez une invite de commandes en tant qu’administrateur.
+2. Dans l’invite de commandes, exécutez les commandes suivantes sur les serveurs du connecteur nécessitant SPNEGO.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Pour plus d’informations sur Kerberos, consultez la page [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tout ce que vous voulez savoir sur Kerberos Constrained Delegation (KCD)).
 
@@ -125,7 +141,7 @@ Toutefois, dans certains cas, la demande est correctement envoyée à l’applic
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment configurer une application de proxy d’application pour utiliser la délégation Kerberos contrainte ?](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Résoudre les problèmes rencontrés avec le proxy d’application](../active-directory-application-proxy-troubleshoot.md)
+* [Résoudre les problèmes rencontrés avec le proxy d’application](application-proxy-troubleshoot.md)
 
 
 Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

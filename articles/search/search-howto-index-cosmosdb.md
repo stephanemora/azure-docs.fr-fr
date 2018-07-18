@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777489"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640334"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
 
@@ -46,7 +46,6 @@ La prise en charge d’API supplémentaires arrivera prochainement. Pour nous ai
 * [Prise en charge de la source de données API Apache Cassandra](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 En plus d’un compte Cosmos DB, vous devez disposer d’un [service Recherche Azure](search-create-service-portal.md). 
 
@@ -98,7 +97,7 @@ Le corps de la requête contient la définition de la source de données, qui do
 * **type** : doit être `documentdb`.
 * **credentials**:
   
-  * **connectionString**: obligatoire. Spécifiez les informations de connexion à votre base de données Azure Cosmos DB dans le format suivant : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Pour les collections MongoDB, ajoutez **ApiKind=MongoDB** à la chaîne de connexion : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  * **connectionString**: obligatoire. Spécifiez les informations de connexion à votre base de données Azure Cosmos DB selon le format suivant : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **container**:
   
   * **name**: obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.

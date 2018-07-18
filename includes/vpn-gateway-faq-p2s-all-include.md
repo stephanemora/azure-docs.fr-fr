@@ -5,14 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38727527"
 ---
 ### <a name="supportedclientos"></a>Quels systèmes d’exploitation client puis-je utiliser avec une connexion point à site ?
 
@@ -20,7 +21,6 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 
 * Windows 7 (32 bits et 64 bits)
 * Windows Server 2008 R2 (64 bits uniquement)
-* Windows 8 (32 bits et 64 bits)
 * Windows 8.1 (32 bits et 64 bits)
 * Windows Server 2012 (64 bits uniquement)
 * Windows Server 2012 R2 (64 bits uniquement)
@@ -28,6 +28,12 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 * Windows 10
 * Mac OS X version 10.11 (El Capitan)
 * Mac OS X version 10.12 (Sierra)
+* Linux (StrongSwan)
+* iOS
+
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
@@ -87,7 +93,7 @@ Lorsque vous configurez SSTP et IKEv2 dans un environnement mixte (composé d’
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>À part Windows et Mac, quelles autres plateformes sont prises en charge par Azure pour le réseau VPN P2S ?
 
-Azure prend en charge uniquement Windows et Mac pour le réseau VPN P2S.
+Azure prend en charge Windows, Mac et Linux pour les VPN de point à site (P2S).
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>J’ai déjà une passerelle VPN Azure déployée. Puis-je activer RADIUS et/ou le réseau VPN IKEv2 sur celle-ci ?
 

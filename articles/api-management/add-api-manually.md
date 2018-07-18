@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934980"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307446"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement 
 
@@ -29,7 +29,6 @@ Si vous souhaitez importer une API existante, consultez la section [Rubriques co
 Dans cet article, nous créons une API vide et spécifions [httpbin.org](http://httpbin.org) (un service de test public) en tant qu’API de serveur principal.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 

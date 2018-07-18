@@ -7,21 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776394"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113603"
 ---
 # <a name="api-versions-in-azure-search"></a>Versions d’API dans Azure Search
-Azure Search déploie régulièrement des mises à jour de fonctionnalités. Parfois, ces mises à jour nous obligent à publier une nouvelle version de notre API pour maintenir la compatibilité descendante. La publication d’une nouvelle version vous permet de contrôler quand et comment intégrer les mises à jour du service de recherche dans votre code.
+Azure Search déploie régulièrement des mises à jour de fonctionnalités. Parfois, ces mises à jour requièrent une nouvelle version de l’API pour maintenir la compatibilité descendante. La publication d’une nouvelle version vous permet de contrôler quand et comment intégrer les mises à jour du service de recherche dans votre code.
 
-En règle générale, nous tentons de publier de nouvelles versions uniquement lorsque cela est nécessaire, car certains efforts peuvent être requis pour mettre à niveau votre code afin d’utiliser une nouvelle version de l’API. Nous publions uniquement une nouvelle version si nous devons modifier certains aspects de l’API d’une manière qui interrompt la compatibilité descendante. Cela peut se produire en raison de correctifs de fonctionnalités existantes ou en raison de nouvelles fonctionnalités qui modifient la surface d’exposition des API existantes.
+En règle générale, l’équipe Recherche Azure publie de nouvelles versions uniquement lorsque cela est nécessaire, car certains efforts peuvent être requis pour mettre à niveau votre code afin d’utiliser une nouvelle version de l’API. Une nouvelle version est requise uniquement si certains aspects de l’API ont changé d’une manière qui interrompt la compatibilité descendante. Ces changements peuvent se produire en raison de correctifs de fonctionnalités existantes ou en raison de nouvelles fonctionnalités qui modifient la surface d’exposition des API existantes.
 
-Nous suivons la même règle pour les mises à jour du Kit de développement logiciel (SDK). Le Kit de développement logiciel (SDK) de la Recherche Azure suit les règles de [gestion sémantique de version](http://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Nous publions une nouvelle version du Kit de développement logiciel (SDK) uniquement en cas de modifications qui interrompent la compatibilité descendante. Pour les mises à jour de fonctionnalités sans rupture, nous incrémenterons la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
+La même règle s’applique pour les mises à jour du Kit de développement logiciel (SDK). Le Kit de développement logiciel (SDK) de la Recherche Azure suit les règles de [gestion sémantique de version](http://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Une nouvelle version majeure du Kit de développement logiciel (SDK) est publiée uniquement en cas de modifications qui interrompent la compatibilité descendante. Les mises à jour de fonctionnalités sans rupture incrémentent la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
 
 > [!NOTE]
 > Votre instance de service Recherche Azure prend en charge plusieurs versions de l’API REST, y compris la plus récente. Vous pouvez continuer à utiliser une version lorsqu’elle n’est pas la plus récente, mais nous vous recommandons de migrer votre code pour utiliser la dernière version. Lorsque vous utilisez l’API REST, vous devez spécifier la version de l’API dans chaque requête via le paramètre « api-version » (Version de l’API). Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, la version du Kit de développement logiciel (SDK) que vous utilisez détermine la version correspondante de l’API REST. Si vous utilisez un Kit de développement logiciel (SDK) plus ancien, vous pouvez continuer à exécuter ce code sans changement, même si le service est mis à niveau pour prendre en charge une version plus récente de l’API.
@@ -33,13 +33,12 @@ Vous trouverez ci-dessous un instantané des versions actuelles de toutes les in
 | --- | --- | --- |
 | [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) |5.0 |Mise à la disposition générale en avril 2018 |
 | [Version préliminaire du Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk-preview) |4.0.1-preview |Préversion, publiée en mai 2017 |
-| [API REST du service](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Mise à la disposition générale |
-| [API REST du service 2016-09-01-Preview](search-api-2016-09-01-preview.md) |2016-09-01-Preview |VERSION PRÉLIMINAIRE |
+| [API REST du service](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Mise à la disposition générale |
 | [API REST du service 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |VERSION PRÉLIMINAIRE |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Mise à la disposition générale |
 | [l’API REST de gestion ;](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Mise à la disposition générale |
 
-Pour les API REST, il est nécessaire d’inclure la version d’API ( `api-version` ) sur chaque appel. Cela permet de cibler facilement une version spécifique, par exemple une API en version préliminaire. L’exemple suivant montre la manière dont le paramètre `api-version` est spécifié :
+Pour les API REST, il est nécessaire d’inclure la version d’API ( `api-version` ) sur chaque appel. L’utilisation de `api-version` permet de cibler facilement une version spécifique, par exemple une API en préversion. L’exemple suivant montre la manière dont le paramètre `api-version` est spécifié :
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
@@ -48,14 +47,14 @@ Pour les API REST, il est nécessaire d’inclure la version d’API ( `api-vers
 >
 > L’API REST Service et l’API REST Gestion sont contrôlées indépendamment l’une de l’autre. Toute ressemblance dans les numéros de version est une coïncidence.
 
-Les API mises à la disposition générale peuvent être utilisées en production et sont soumises aux contrats SLA Azure. Les versions préliminaires offrent les fonctionnalités expérimentales qui ne sont pas toujours migrées vers la version mise à la disposition générale. **Nous vous conseillons vivement d’utiliser des API en version préliminaire dans les applications de production.**
+Les API mises à la disposition générale peuvent être utilisées en production et sont soumises aux contrats SLA Azure. Les versions préliminaires offrent les fonctionnalités expérimentales qui ne sont pas toujours migrées vers la version mise à la disposition générale. **Nous vous conseillons vivement d’éviter d’utiliser des API en préversion dans les applications de production.**
 
 ## <a name="about-preview-and-generally-available-versions"></a>À propos des versions préliminaires et mises à la disposition générale
 Azure Search publie toujours les fonctionnalités expérimentales par le biais de l’API REST, puis par le biais des versions préliminaires du Kit de développement logiciel (SDK) .NET.
 
-Il se peut que les fonctionnalités en version préliminaire ne soient pas migrées vers une version mise à la disposition générale. Alors que les fonctionnalités d’une version mise à la disposition générale sont considérées comme stables et peu susceptibles de changer (à l’exception de légères améliorations et de petits correctifs avec une compatibilité descendante), les fonctionnalités en version préliminaire sont disponibles pour les tests et l’expérimentation, le but étant de recueillir des commentaires sur la conception et l’implémentation.
+Les fonctionnalités en préversion sont disponibles pour le test et l’expérimentation en vue de recueillir des commentaires sur la conception et la mise en œuvre de la fonctionnalité. Ainsi, les fonctionnalités en préversion peuvent changer au fil du temps, voire de manière à empêcher la compatibilité descendante. Ce comportement diffère de celui des fonctionnalités dans la version à disposition générale, qui sont stables et peu susceptibles de changer à l’exception d’améliorations et de correctifs peu importants pour la compatibilité descendante. En outre, les fonctionnalités en préversion ne sont pas toujours intégrées à une version à disposition générale.
 
-Toutefois, comme les fonctionnalités en version préliminaire sont susceptibles d’être modifiées, nous vous recommandons de ne pas écrire un code de production dépendant de ces versions. Si vous utilisez une version préliminaire antérieure, nous vous recommandons de migrer vers la version mise à la disposition générale.
+C’est pour ces raisons que nous vous recommandons de ne pas écrire un code de production dépendant des préversions. Si vous utilisez une préversion antérieure, nous vous recommandons de migrer vers la version mise à la disposition générale.
 
 Pour le Kit de développement logiciel (SDK) .NET, des conseils sur la migration du code sont disponibles à la page [Mise à niveau du Kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration.md).
 

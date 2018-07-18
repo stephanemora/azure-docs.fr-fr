@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777060"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597742"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Didacticiel : envoyer des notifications vers des applications de plateforme Windows universelle à l’aide d’Azure Notification Hubs
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous créez un hub de notification pour envoyer des notific
 > [!NOTE]
 > Vous pouvez trouver le code complet de ce didacticiel sur [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-Dans ce didacticiel, vous effectuez les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une application dans Windows Store
@@ -41,7 +41,6 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 - **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) ou version ultérieure.
 - [Outils de développement d’applications UWP installés](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)

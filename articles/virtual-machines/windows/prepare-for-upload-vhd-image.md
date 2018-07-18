@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 038a9be813367d130dd8bb02b24879d1e2e573b5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d7ee7050f430efea64d9988adf4f5a603128de2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072247"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053447"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 Avant de charger une machine virtuelle Windows locale sur Microsoft Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge uniquement les machines virtuelles de génération 1 au format de fichier de disque dur virtuel (VHD) avec une taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. Vous pouvez convertir une machine virtuelle génération 1, du système de fichiers VHDX vers un disque VHD, et d’un disque à expansion dynamique à un disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez la page [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -153,21 +153,21 @@ Assurez-vous que les paramètres suivants sont configurés correctement pour la 
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" 1 -Type DWord
      ```
 
-5. Définissez la valeur keep-alive ：
+5. Définissez la valeur persistante :
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" 1 -Type DWord
     ```
-6. Reconnectez-vous ：
+6. Reconnectez-vous :
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" 0 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" 0 -Type DWord
     ```
-7. Limitez le nombre de connexions simultanées ：
+7. Limitez le nombre de connexions simultanées :
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" 4294967295 -Type DWord
@@ -367,7 +367,7 @@ Si, au lieu de cela, vous souhaitez uniquement créer une machine virtuelle à p
 Pour plus d’informations sur la création d’une machine virtuelle à partir d’un disque spécialisé, consultez les pages :
 
 - [Créer une machine virtuelle à partir d’un disque spécialisé](create-vm-specialized.md)
-- [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](https://azure.microsoft.com/resources/templates/201-vm-specialized-vhd/)
+- [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Si vous souhaitez créer une image généralisée, vous devez exécuter sysprep. Pour plus d’informations sur Sysprep, consultez la page [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx). 
 

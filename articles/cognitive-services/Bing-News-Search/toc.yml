@@ -1,0 +1,91 @@
+- name: Documentation Recherche d’actualités Bing
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que Recherche d’actualités Bing\_?"
+      href: search-the-web.md
+- name: Démarrages rapides de l’API REST
+  expanded: true
+  items:
+    - name: Prise en main
+      href: quickstart.md
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java.md
+    - name: Node.js
+      href: nodejs.md
+    - name: PHP
+      href: php.md
+    - name: Python
+      href: python.md
+    - name: Ruby
+      href: ruby.md
+- name: Démarrages rapides du kit de développement logiciel (SDK)
+  items:
+    - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
+      href: sdk.md
+    - name: 'Démarrage rapide C# du SDK Recherche d’actualités'
+      href: news-search-sdk-quickstart.md
+    - name: Démarrage rapide Node.js du SDK Recherche d’actualités
+      href: news-search-sdk-node-quickstart.md
+    - name: Démarrage rapide Python du SDK Recherche d’actualités
+      href: news-sdk-python-quickstart.md
+    - name: Démarrage rapide Java du SDK Recherche d’actualités
+      href: news-sdk-java-quickstart.md
+- name: Didacticiels
+  items:
+    - name: Application web à page unique
+      href: tutorial-bing-news-search-single-page-app.md
+    - name: Application web à page unique (code source)
+      href: tutorial-bing-news-search-single-page-app-source.md
+- name: Exemples
+  items:
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
+- name: Procédures
+  items:
+    - name: Conditions d’utilisation et d’affichage
+      href: UseAndDisplayRequirements.md
+    - name: Gérer la mise en surbrillance des correspondances
+      href: hit-highlighting.md
+    - name: Nouveautés de la page
+      href: paging-news.md
+    - name: Redimensionner et rogner les miniatures
+      href: resize-and-crop-thumbnails.md
+    - name: Mettre à niveau de v5 vers v7
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)
+      items:
+        - name: Utiliser le service connecté Recherche d’actualités Bing
+          href: vs-bing-news-search-connected-service.md
+- name: Informations de référence
+  items:
+    - name: API Recherche d’actualités Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: API Recherche d’actualités Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+- name: Ressources
+  items:
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Base de connaissances
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obtenir la clé API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: "Essayez\_!"
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Points de terminaison Recherche d’actualités Bing
+      href: endpoint-news.md
+    - name: Marchés et pays pris en charge
+      href: supported-countries-markets.md
+    - name: Analytique pour l’API Recherche d’actualités Bing
+      href: bing-news-stats.md

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611736"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317284"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Prise en charge du pare-feu Azure Cosmos DB
 Pour sécuriser les données stockées dans un compte de base de données Azure Cosmos DB, Azure Cosmos DB assure la prise en charge d’un [modèle d’autorisation](https://msdn.microsoft.com/library/azure/dn783368.aspx) basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. Outre le modèle d’autorisations basé sur un secret, Azure Cosmos DB prend désormais en charge les contrôles d’accès basés sur une stratégie IP pour la prise en charge du pare-feu entrant. Ce modèle est semblable aux règles de pare-feu d’un système de base de données classique et renforce la sécurité du compte de base de données Azure Cosmos DB. Avec ce modèle, vous pouvez désormais configurer un compte de base de données Azure Cosmos DB pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux ressources Azure Cosmos DB à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
@@ -32,7 +32,7 @@ Par défaut, un compte de base de données Azure Cosmos DB est accessible depu
 ## <a id="configure-ip-policy"></a> Configuration de la stratégie de contrôle d’accès IP
 La stratégie de contrôle d’accès IP peut être définie sur le Portail Azure ou par programme avec [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) ou [l’API REST](/rest/api/cosmos-db/) en mettant à jour la propriété **ipRangeFilter**. 
 
-Pour définir la stratégie de contrôle d’accès IP sur le Portail Azure, accédez à la page du compte Azure Cosmos DB, cliquez sur **Pare-feu** dans le menu de navigation, puis remplacez la valeur **Autoriser l’accès à partir de** par **Réseaux sélectionnés**, puis cliquez sur **Enregistrer**. 
+Pour définir la stratégie de contrôle d’accès IP sur le Portail Azure, accédez à la page du compte Azure Cosmos DB, cliquez sur **Pare-feu et réseaux virtuels** dans le menu de navigation, remplacez la valeur **Autoriser l’accès à partir de** par **Réseaux sélectionnés**, puis cliquez sur **Enregistrer**. 
 
 ![Capture d’écran montrant comment ouvrir la page Pare-feu sur le Portail Azure](./media/firewall-support/azure-portal-firewall.png)
 
@@ -56,10 +56,10 @@ L’accès au Portail Azure est activé par défaut lorsque vous modifiez le par
 
 ![Capture d’écran montrant comment activer l’accès au Portail Azure](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-other-azure-paas-services"></a>Connexions à partir d’autres services Azure PaaS 
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Connexions à partir de centres de données Azure ou de services PaaS Azure internationaux
 Dans Azure, les services PaaS tels qu’Azure Stream Analytics, Azure Functions et Azure App Service sont utilisés conjointement avec Azure Cosmos DB. Pour autoriser l’accès au compte de base de données Azure Cosmos DB à partir de ces services dont les adresses IP ne sont pas facilement utilisables, ajoutez l’adresse IP 0.0.0.0 à la liste autorisée des adresses IP associées à votre compte de base de données Azure Cosmos DB par programmation. 
 
-L’accès aux autres services Azure est activé par défaut lorsque vous modifiez le paramètre du Pare-feu par **Réseaux sélectionnés** dans le Portail Azure. 
+L’accès aux connexions à partir de centres de données Azure internationaux est activé par défaut lorsque vous modifiez le paramètre du Pare-feu par **Réseaux sélectionnés** dans le Portail Azure. 
 
 ![Capture d’écran montrant comment ouvrir la page Pare-feu sur le Portail Azure](./media/firewall-support/enable-azure-services.png)
 
@@ -88,11 +88,28 @@ Lorsque vous ajoutez des instances de machine virtuelle supplémentaires au grou
 ## <a name="connections-from-the-internet"></a>Connexions à partir d’Internet
 Lorsque vous accédez à un compte de base de données Azure Cosmos DB à partir d’un ordinateur sur Internet, l’adresse IP ou la plage d’adresses IP de l’ordinateur doit être ajoutée à la liste d’adresses IP autorisées pour le compte de base de données Azure Cosmos DB. 
 
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>Utilisation d’un modèle Azure Resource Manager pour configurer le contrôle d’accès IP
+
+Ajoutez le JSON suivant à votre modèle pour configurer le contrôle d’accès IP. Un modèle Resource Manager pour un compte aura un attribut ipRangeFilter composé d’une liste de plages d’adresses IP qui devrait être sur une liste verte.
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
+
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Dépannage de la stratégie de contrôle d’accès IP
 ### <a name="portal-operations"></a>Opérations du portail
 En activant une stratégie de contrôle d’accès IP pour votre compte de base de données Azure Cosmos DB, tous les accès à votre compte de base de données Azure Cosmos DB à partir d’ordinateurs ne figurant pas sur la liste de plages d’adresses IP autorisées sont bloqués. Par conséquent, si vous souhaitez autoriser les opérations de plan de données du portail, par exemple, la navigation dans les collections et l’interrogation des documents, vous devez autoriser explicitement l’accès au Portail Azure sur la page **Pare-feu** du portail. 
-
-![Capture d’écran montrant comment activer l’accès au portail Azure](./media/firewall-support/azure-portal-firewall.png)
 
 ### <a name="sdk--rest-api"></a>Kit de développement logiciel (SDK) et API REST
 Pour des raisons de sécurité, l’accès via le Kit de développement logiciel (SDK) ou l’API REST à partir d’ordinateurs ne figurant pas dans la liste autorisée renverra une réponse générique 404 Introuvable, ainsi que des détails supplémentaires. Consultez la liste des adresses IP autorisées qui est configurée pour votre compte de base de données Azure Cosmos DB, afin de vérifier que la configuration de la stratégie appropriée est appliquée à votre compte de base de données Azure Cosmos DB.

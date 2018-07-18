@@ -16,11 +16,11 @@ ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902307"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317747"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
@@ -40,7 +40,7 @@ Vous pouvez suivre les étapes de ce didacticiel sur macOS, Linux, Windows.
 ## <a name="prerequisites"></a>Prérequis
 
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Installer Git](https://git-scm.com/).
 * [Installer .NET CoreNET](https://www.microsoft.com/net/core/).
@@ -53,7 +53,7 @@ Cette étape consiste à configurer le projet ASP.NET Core local. App Service pr
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel : 
+Exécutez la commande suivante pour cloner l’exemple de référentiel : 
 
 ```bash
 git clone https://github.com/Azure-Samples/dotnet-core-api
@@ -61,7 +61,7 @@ git clone https://github.com/Azure-Samples/dotnet-core-api
 
 Ce référentiel contient une application créée en fonction du didacticiel suivant : [Pages d’aide d’API web ASP.NET Core à l’aide de Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Elle utilise un générateur de Swagger pour traiter l’[interface utilisateur Swagger](https://swagger.io/swagger-ui/) et le point de terminaison JSON de Swagger.
 
-### <a name="run-the-application"></a>Exécution de l'application
+### <a name="run-the-application"></a>Exécution de l’application
 
 Exécutez la commande suivante pour installer les packages requis, migrer les bases de données et démarrer l’application.
 

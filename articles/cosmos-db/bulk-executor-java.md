@@ -1,6 +1,6 @@
 ---
-title: Utilisation de la bibliothèque Java BulkExecutor pour effectuer des opérations en bloc dans Azure Cosmos DB | Microsoft Docs
-description: Utilisez la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour en bloc des documents vers des collections Azure Cosmos DB.
+title: Utilisation de la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc dans Azure Cosmos DB | Microsoft Docs
+description: Utilisez la bibliothèque Java de l’exécuteur en bloc d’Azure Cosmos DB pour importer et mettre à jour en bloc des documents vers des collections Azure Cosmos DB.
 keywords: Exécuteur en bloc Java
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610240"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300711"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java BulkExecutor pour effectuer des opérations en bloc dans Azure Cosmos DB
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
-Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents Azure Cosmos DB. Pour en savoir plus sur la bibliothèque BulkExecutor et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous allez créer une application Java qui génère des documents aléatoires qui sont ensuite importés en bloc dans une collection Azure Cosmos DB. Après l’importation, vous mettrez à jour en bloc certaines propriétés d’un document. 
+Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous allez créer une application Java qui génère des documents aléatoires qui sont ensuite importés en bloc dans une collection Azure Cosmos DB. Après l’importation, vous mettrez à jour en bloc certaines propriétés d’un document. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -197,7 +197,7 @@ Vous pouvez mettre à jour des documents existants à l’aide de l’API BulkUp
 
 ## <a name="performance-tips"></a>Conseils sur les performances 
 
-Pour bénéficier de meilleures performances lors de l’utilisation de la bibliothèque BulkExecutor, considérez les points suivants :
+Pour bénéficier de meilleures performances lors de l’utilisation de la bibliothèque de l’exécuteur en bloc, considérez les points suivants :
 
 * Pour de meilleures performances, exécutez votre application à partir d’une machine virtuelle Azure qui se trouve dans la région d’écriture du compte Cosmos DB.  
 * Pour atteindre un débit plus élevé :  
@@ -211,6 +211,6 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
 
     
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les packages maven et les notes de publication de la bibliothèque BulkExecutor Java, consultez les [détails sur le SDK BulkExecutor](sql-api-sdk-bulk-executor-java.md).
+* Pour en savoir plus sur les packages maven et les notes de publication de la bibliothèque Java de l’exécuteur en bloc, consultez les [détails sur le SDK BulkExecutor](sql-api-sdk-bulk-executor-java.md).
 
 

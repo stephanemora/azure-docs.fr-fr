@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33869000"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37444240"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -26,7 +26,7 @@ Après le déploiement, de nombreuses organisations souhaitent savoir comment ou
 Les questions suivantes peuvent trouver réponse dans les rapports qui existent dans le [portail Azure] (https://portal.azure.com/):
 
 > [!NOTE]
-> Vous devez être [un administrateur global](../active-directory-assign-admin-roles-azure-portal.md) et vous devez vous abonner pour que ces données soient collectées pour votre organisation. Pour vous abonner, vous devez consulter l’onglet **Rapports** ou les journaux d’audit au moins une fois. Tant que cela n’est pas fait, les données ne sont pas collectées pour votre organisation.
+> Vous devez être [un administrateur global](../users-groups-roles/directory-assign-admin-roles.md) et vous devez vous abonner pour que ces données soient collectées pour votre organisation. Pour vous abonner, vous devez consulter l’onglet **Rapports** ou les journaux d’audit au moins une fois. Tant que cela n’est pas fait, les données ne sont pas collectées pour votre organisation.
 >
 
 * Combien de personnes se sont inscrites pour la réinitialisation des mots de passe ?
@@ -54,25 +54,6 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 6. Pour filtrer cette vue et afficher uniquement les événements associés à la réinitialisation de mot de passe, sélectionnez le bouton **Filtrer** en haut du volet.
 7. Dans le menu **Filtrer**, sélectionnez la liste déroulante **Catégorie** et changez pour le type de catégorie **Gestion des mots de passe en libre-service**.
 8. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Comment récupérer les événements de gestion des mots de passe à partir de l’API de rapports et d’événements Azure AD
-
-L’API de rapports et d’événements Azure AD prend désormais en charge la récupération de toutes les informations incluses dans les rapports de réinitialisation de mot de passe et d’inscription de réinitialisation de mot de passe. En utilisant cette API, vous pouvez télécharger les événements de réinitialisation de mot de passe individuels et les événements d’inscription de réinitialisation de mot de passe, et les intégrer à la technologie de création de rapports de votre choix.
-
-> [!IMPORTANT]
-> Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu’à *75 000 événements individuels* des types [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) et [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L’API couvre les 30 derniers jours.
-> 
-> Si vous avez besoin de récupérer ou de stocker des données au-delà de cette période, nous vous suggérons de les conserver dans une base de données externe à l’aide de l’API pour interroger les deltas résultants. Nous vous recommandons de commencer à récupérer ces données lorsque vous commencez à utiliser SSPR dans votre organisation. Conservez-les en externe, puis continuez à suivre les deltas à partir de ce stade.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Prise en main de l’API de création de rapports
-
-Pour accéder à ces données, vous devrez écrire une petite application ou un petit script permettant de les extraire de nos serveurs. Pour plus d’informations, consultez [Prise en main de l’API de création de rapports Azure AD](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Lorsque votre script est opérationnel, vous souhaiterez examiner les événements de réinitialisation et d’inscription de mots de passe que vous pouvez récupérer pour répondre à vos scénarios :
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) : répertorie les colonnes disponibles pour les événements de réinitialisation de mot de passe.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) : répertorie les colonnes disponibles pour les événements d’inscription de réinitialisation de mot de passe.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 

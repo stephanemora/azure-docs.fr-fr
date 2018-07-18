@@ -249,15 +249,10 @@
           href: apache-hbase-replication.md
         - name: Configurer la sauvegarde et de réplication pour HBase et Phoenix
           href: apache-hbase-backup-replication.md
-    - name: Surveillance à l’aide d’OMS
+    - name: Surveillance à l’aide de Log Analytics
       items:
         - name: Utiliser Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Surveiller HBase avec OMS
-          href: apache-hbase-monitor-with-oms.md
-        - name: Tableaux de bord spécifiques au cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Utiliser des requêtes avec Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -271,7 +266,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.hdinsight
     - name: .NET (Hadoop)
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'
@@ -343,6 +338,10 @@
     - name: Notes de publication
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notes de publication archivées
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenir de l'aide sur le forum

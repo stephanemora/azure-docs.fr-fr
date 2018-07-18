@@ -7,16 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 3e7436c4b69a27931238ea80304231394074ffe3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831092"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906325"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Persistance des changements et utilisation de fichiers volumineux
 Le service Azure Machine Learning - Expérimentation vous permet de configurer des cibles d’exécution variées. Certaines cibles sont locales, comme un ordinateur local ou un conteneur Docker sur un ordinateur local. D’autres sont distantes, comme un conteneur Docker sur un ordinateur distant ou un cluster HDInsight. Pour plus d’informations, consultez [Présentation du service d’exécution d’expérience Azure Machine Learning](experimentation-service-configuration.md). 
@@ -83,12 +83,12 @@ Voici un exemple de code Python montrant comment utiliser ce dossier de partage 
 import os
 
 # write to the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'wb') as f:
-    f.write(“Hello World”)
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "w") as f1:
+    f1.write(“Hello World”)
 
 # read from the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
-    text = file.read()
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "r") as f2:
+    text = f2.read()
 ```
 
 Pour obtenir un exemple plus complet, consultez le fichier *iris_sklearn_shared_folder.py* dans l’exemple de projet _Classifying Iris_.
@@ -162,6 +162,7 @@ Une approche consiste à utiliser le stockage blob Azure à partir de votre code
 
 ```python
 from azure.storage.blob import BlockBlobService
+from azure.storage.blob.models import PublicAccess
 import glob
 import os
 
@@ -172,7 +173,7 @@ CONTAINER_NAME = "<container name>"
 blob_service = BlockBlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
 
 ## Create a new container if necessary, or use an existing one
-my_service.create_container(CONTAINER_NAME, fail_on_exist=False, public_access=PublicAccess.Container)
+blob_service.create_container(CONTAINER_NAME, fail_on_exist=False, public_access=PublicAccess.Container)
 
 # df is a pandas DataFrame
 df.to_csv('mydata.csv', sep='\t', index=False)

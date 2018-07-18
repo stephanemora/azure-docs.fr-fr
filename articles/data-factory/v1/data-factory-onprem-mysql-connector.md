@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046882"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-onprem-mysql-connector.md)
-> * [Version 2 - Préversion](../connector-mysql.md)
+> * [Version 1](data-factory-onprem-mysql-connector.md)
+> * [Version 2 (version actuelle)](../connector-mysql.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur MySQL dans V2](../connector-mysql.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [Connecteur MySQL dans V2](../connector-mysql.md).
 
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’une base de données MySQL locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
@@ -34,7 +35,6 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 Vous pouvez copier et coller les données d’un magasin de données MySQL local dans tout magasin de données récepteur pris en charge. Consultez le tableau [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, Data Factory prend uniquement en charge le déplacement de données d’un magasin de données MySQL vers d’autres magasins de données, mais non l’inverse. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Le service Data Factory prend en charge la connexion à des sources MySQL locales à l'aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle.
 
 Une passerelle est requise même si la base de données MySQL est hébergée sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
@@ -43,7 +43,7 @@ Une passerelle est requise même si la base de données MySQL est hébergée sur
 > Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## <a name="supported-versions-and-installation"></a>Versions prises en charge et installation
-Pour que la passerelle de gestion des données puisse se connecter à la base de données MySQL, vous devez installer le [connecteur MySQL/Net pour Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version 6.6.5 ou ultérieure) sur le même système que la passerelle de gestion des données. Ce pilote 32 bits est compatible avec la passerelle de gestion des données 64 bits. MySQL version 5.1 et ultérieures est pris en charge.
+Pour que la passerelle de gestion des données puisse se connecter à la base de données MySQL, vous devez installer le [connecteur MySQL/Net pour Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version comprise entre 6.6.5 et 6.10.7) sur le même système que la passerelle de gestion des données. Ce pilote 32 bits est compatible avec la passerelle de gestion des données 64 bits. MySQL version 5.1 et ultérieures est pris en charge.
 
 > [!TIP]
 > Si vous rencontrez l’erreur « Échec de l'authentification, car le site distant a fermé le flux de transport. », envisagez de mettre à niveau le connecteur MySQL/Net vers une version supérieure.
@@ -70,7 +70,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |Le type de propriété doit être défini sur : **OnPremisesMySql** |OUI |
-| server |Nom du serveur MySQL. |OUI |
+| serveur |Nom du serveur MySQL. |OUI |
 | database |Nom de la base de données MySQL. |OUI |
 | schema |Nom du schéma dans la base de données. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |

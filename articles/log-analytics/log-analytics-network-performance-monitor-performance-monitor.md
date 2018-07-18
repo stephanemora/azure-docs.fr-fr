@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 65497548d0b8066627be25520c28d39491918d09
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 3d51399edbb9679d1cf7b62b075ba34aa5ede42f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241443"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131336"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyseur de performances
 
@@ -66,7 +67,7 @@ Créez des règles de surveillance selon votre logique métier. Par exemple, vou
 Pour créer des règles de surveillance personnalisées :
 
 1. Sélectionnez **Ajouter une règle** sous l’onglet **Surveiller**, puis entrez le nom et la description de la règle.
-2. Sélectionnez la paire de liens réseau ou sous-réseau à surveiller dans les listes. 
+2. Sélectionnez la paire de liaisons réseau ou sous-réseau à surveiller dans les listes. 
 3. Sélectionnez le réseau qui contient les sous-réseaux souhaités dans la liste déroulante de réseaux. Sélectionnez ensuite les sous-réseaux dans la liste déroulante de sous-réseaux correspondante. Si vous souhaitez surveiller tous les sous-réseaux dans un lien réseau, sélectionnez **Tous les sous-réseaux**. Sélectionnez de la même manière les autres sous-réseaux souhaités. Pour exclure la surveillance de liens de sous-réseau spécifiques dans les sélections effectuées, sélectionnez **Ajouter une exception**. 
 4. Choisissez entre le protocole ICMP et le protocole TCP pour exécuter des transactions synthétiques. 
 5. Si vous ne souhaitez pas créer d’événements d’intégrité pour les éléments que vous avez sélectionnés, désactivez l’option **Activer la surveillance de l’intégrité sur les liens couverts par cette règle**. 
@@ -129,7 +130,7 @@ Tous les chemins entre les deux nœuds sélectionnés sont représentés dans la
 
  ![Tableau de bord de topologie avec carte topologique](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
 
-Vous pouvez consulter les pertes, la latence et le nombre de sauts de chaque chemin dans le volet **Actions**. Utilisez la barre de défilement pour afficher les détails des chemins non sains. Utilisez les filtres pour sélectionner les chemins avec le tronçon non sain afin de tracer uniquement la topologie des chemins sélectionnés. Pour effectuer un zoom avant ou arrière sur la carte topologique, utilisez la roulette de votre souris. 
+Vous pouvez consulter les pertes, la latence et le nombre de sauts de chaque chemin dans le volet **Actions**. Utilisez la barre de défilement pour afficher les détails des chemins non sains. Utilisez les filtres pour sélectionner les chemins d’accès avec le saut défectueux afin de tracer uniquement la topologie des chemins d’accès sélectionnés. Pour effectuer un zoom avant ou arrière sur la carte topologique, utilisez la roulette de votre souris. 
 
 Dans l’image suivante, la cause racine des zones à problème dans la section spécifique du réseau est représentée par un point rouge sur les chemins et tronçons. Sélectionnez un nœud dans la carte topologique pour révéler les propriétés du nœud, notamment son nom de domaine complet et son adresse IP. La sélection d’un tronçon affiche son adresse IP. 
  

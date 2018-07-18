@@ -1,29 +1,25 @@
 ---
-title: Boucles - Tableaux de traitement ou actions répétées - Azure Logic Apps | Microsoft Docs
-description: Tableaux de traitement avec des boucles « Foreach » ou des actions répétées jusqu’à remplir des conditions spécifiques dans des applications logiques
+title: Ajouter des boucles qui répètent des actions ou des tableaux de processus – Azure Logic Apps | Microsoft Docs
+description: Comment créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 services: logic-apps
-keywords: Boucles « Foreach »
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298183"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Boucles : tableaux de traitement ou actions répétées jusqu’à remplir une condition
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
-Pour itérer sur des tableaux dans votre application logique, vous pouvez utiliser une [boucle « Foreach »](#foreach-loop) ou une [boucle « Foreach » séquentielle](#sequential-foreach-loop). Les cycles d’une bouche « Foreach » standard s’exécutent en parallèle, tandis que des cycles d’une bouche « Foreach » séquentielle s’exécutent un à la fois. Pour connaître le nombre maximal d’éléments de tableau que des boucles « Foreach » peuvent traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+Pour itérer via des tableaux dans votre application logique, vous pouvez utiliser une [boucle « Foreach »](#foreach-loop) ou une [boucle « Foreach » séquentielle](#sequential-foreach-loop). Les itérations d’une boucle « Foreach » standard s’exécutent en parallèle, tandis que les itérations d’une bouche « Foreach » séquentielle s’exécutent l’une après l’autre. Pour connaître le nombre maximal d’éléments de tableau que des boucles « Foreach » peuvent traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -31,7 +27,6 @@ Pour itérer sur des tableaux dans votre application logique, vous pouvez utilis
 Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un statut ait changé, utilisez une [boucle « Until »](#until-loop). Votre application logique réalise toutes les actions dans la boucle puis vérifie la condition à la dernière étape. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître le nombre maximal de boucles « Until » dans une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 

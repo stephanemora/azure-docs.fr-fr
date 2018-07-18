@@ -16,11 +16,11 @@ ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 4bb6f12781666792aad31789a59d752dd5a822de
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205711"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307185"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutoriel : Créer une application web PHP et MySQL dans Azure
 
@@ -46,8 +46,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Installez Git](https://git-scm.com/)
 * [Installez PHP 5.6.4 ou version ultérieure](http://php.net/downloads.php)
@@ -94,7 +93,7 @@ Dans cette étape, vous allez créer un exemple d’application Laravel, configu
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel :
+Exécutez la commande suivante pour cloner l’exemple de référentiel :
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -619,7 +618,7 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure

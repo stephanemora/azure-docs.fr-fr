@@ -1,26 +1,21 @@
 ---
-title: Restaurer un disque de machine virtuelle avec Sauvegarde Azure | Microsoft Docs
+title: Restaurer un disque de machine virtuelle avec Sauvegarde Azure
 description: Découvrez comment restaurer un disque et créer une machine virtuelle récupérée dans Azure avec le service Sauvegarde et Recovery Services.
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 4/17/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: f2b82725362517d12dd4e7df7b2bb083fa107253
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 47f0b43ae074314ffb1727508bb534fdd79c1f7d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607114"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurer un disque et créer une machine virtuelle récupérée dans Azure
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer une machine virtuelle entière à l’aide de l’interface de ligne de commande. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -38,7 +33,6 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de machine virtuelle et le processus de récupération, vous créez une machine virtuelle à partir d’un disque à un point de récupération. Si vous avez besoin d’une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
 

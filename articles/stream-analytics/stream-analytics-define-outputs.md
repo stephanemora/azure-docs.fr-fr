@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: e14c4671669bc00e52c84c821a5229d26b2ba1c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211369"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701715"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les différents types de sorties disponibles pour un travail Azure Stream Analytics. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. Vous pouvez utiliser ces données pour aller plus loin dans l’analyse marketing et l’entreposage de vos données. 
@@ -28,6 +28,8 @@ Certains types de sorties prennent en charge le [partitionnement](#partitioning)
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Data Lake Store vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. Stream Analytics doit être autorisé à accéder à Data Lake Store.
+
+La sortie Azure Data Lake Store de Stream Analytics n’est pas disponible dans les régions Azure - Chine (21Vianet) et Azure - Allemagne (T-Systems International).
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Autoriser un compte Azure Data Lake Store
 
@@ -45,7 +47,7 @@ Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft
 | --- | --- |
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de la requête vers Data Lake Store. | 
 | Nom du compte | Nom du compte de stockage Data Lake Storage où vous envoyez votre sortie. Vous accédez à la liste déroulante des comptes Data Lake Store disponibles dans votre abonnement. |
-| Modèle de préfixe de chemin d’accès | Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. Vous pouvez spécifier une ou plusieurs instances des variables {date} et {time}.</br><ul><li>Exemple 1 : dossier1/journaux/{date}/{heure}</li><li>Exemple 2 : dossier1/journaux/{date}</li></ul>Si le modèle de chemin d’accès du fichier ne se termine pas par le caractère « / », le dernier modèle du chemin d’accès du fichier est traité comme préfixe de nom de fichier. </br></br>De nouveaux fichiers sont créés dans les cas de figure suivants :<ul><li>modification du schéma de sortie ;</li><li>redémarrage externe ou interne d’un travail.</li></ul> |
+| Modèle de préfixe de chemin d’accès | Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. Vous pouvez spécifier une ou plusieurs instances des variables {date} et {time}.</br><ul><li>Exemple 1 : dossier1/journaux/{date}/{heure}</li><li>Exemple 2 : dossier1/journaux/{date}</li></ul><br>L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.</br><br>Si le modèle de chemin d’accès du fichier ne se termine pas par le caractère « / », le dernier modèle du chemin d’accès du fichier est traité comme préfixe de nom de fichier. </br></br>De nouveaux fichiers sont créés dans les cas de figure suivants :<ul><li>modification du schéma de sortie ;</li><li>redémarrage externe ou interne d’un travail.</li></ul> |
 | Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : JJ/MM/AAAA |
 |Format de l’heure | facultatif. Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge.| 
@@ -87,7 +89,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Compte de stockage | Nom du compte de stockage où vous envoyez votre sortie. |
 | Clé du compte de stockage | Clé secrète associée au compte de stockage. |
 | Conteneur de stockage | Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob. |
-| Modèle de chemin d’accès | facultatif. Modèle de chemin d’accès au fichier utilisé pour écrire vos blobs dans le conteneur spécifié. </br></br> Dans le modèle de chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances des variables Date/Heure pour spécifier la fréquence d’écriture des objets blob : </br> {date}, {time} </br> </br>Si vous êtes inscrit pour la [préversion](https://aka.ms/ASAPreview), vous pouvez également spécifier un nom {field} personnalisé à partir de vos données d’événement, en fonction duquel les objets blob seront partitionnés ; le nom du champ est alors une chaîne de caractères alphanumériques pouvant comporter des espaces, des tirets et des traits de soulignement. Voici les restrictions qui s’appliquent aux champs personnalisés : <ul><li>non-respect de la casse (pas de différence entre « ID » et « id » de colonne) ;</li><li>impossibilité d’utiliser des champs imbriqués (utiliser un alias dans la requête du travail pour « aplatir » le champ) ;</li><li>impossibilité d’utiliser des expressions comme nom de champ.</li></ul>Exemples : <ul><li>Exemple 1 : cluster1/logs/{date}/{time}</li><li>Exemple 2 : cluster1/logs/{date}</li><li>Exemple 3 (préversion) : cluster1/{client_id}/{date}/{time}</li><li>Exemple 4 (préversion) : cluster1/{myField} où la requête est : SELECT data.myField AS myField FROM Input;</li></ul><BR> La procédure d’affection de noms respecte la convention suivante : </br> {Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension </br></br> Exemples de fichier de sortie : </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Modèle de chemin d’accès | facultatif. Modèle de chemin d’accès au fichier utilisé pour écrire vos blobs dans le conteneur spécifié. </br></br> Dans le modèle de chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances des variables Date/Heure pour spécifier la fréquence d’écriture des objets blob : </br> {date}, {time} </br> </br>Si vous êtes inscrit pour la [préversion](https://aka.ms/ASAPreview), vous pouvez également spécifier un nom {field} personnalisé à partir de vos données d’événement, en fonction duquel les objets blob seront partitionnés ; le nom du champ est alors une chaîne de caractères alphanumériques pouvant comporter des espaces, des tirets et des traits de soulignement. Voici les restrictions qui s’appliquent aux champs personnalisés : <ul><li>Non-respect de la casse (pas de différence entre « ID » et « id » de colonne)</li><li>Impossibilité d’utiliser des champs imbriqués (utiliser un alias dans la requête du travail pour « aplatir » le champ)</li><li>Impossibilité d’utiliser des expressions comme nom de champ</li></ul>Exemples : <ul><li>Exemple 1 : cluster1/logs/{date}/{time}</li><li>Exemple 2 : cluster1/logs/{date}</li><li>Exemple 3 (préversion) : cluster1/{client_id}/{date}/{time}</li><li>Exemple 4 (préversion) : cluster1/{myField} où la requête est : SELECT data.myField AS myField FROM Input;</li></ul><br>L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.</br><BR> La procédure d’affection de noms respecte la convention suivante : </br> {Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension </br></br> Exemples de fichier de sortie : </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : JJ/MM/AAAA |
 | Format de l’heure | facultatif. Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie.  JSON, CSV et Avro sont pris en charge.
@@ -104,7 +106,7 @@ Lorsque vous utilisez le stockage d’objets blob en tant que sortie, un fichier
 * si un fichier ou un conteneur du compte de stockage est supprimé par l’utilisateur ;  
 * si la sortie fait l’objet d’une segmentation temporelle via le modèle de préfixe de chemin d’accès, un nouvel objet blob est utilisé lorsque la requête passe à l’heure suivante.
 * si la sortie est partitionnée par un champ personnalisée, un nouvel objet blob est créé par clé de partition s’il n’y en a pas ;
-*   si la sortie est partitionnée par un champ personnalisé et que la cardinalité des clés de partition est supérieure à 8 000, un nouvel objet blob est créé par clé de partition.
+* si la sortie est partitionnée par un champ personnalisé et que la cardinalité des clés de partition est supérieure à 8 000, un nouvel objet blob est créé par clé de partition.
 
 ## <a name="event-hub"></a>Event Hub
 Le service [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un ingesteur d’événements de publication/abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde. Un hub d’événements peut être utilisé en tant que sortie lorsque la sortie d’un travail Stream Analytics correspond à l’entrée d’un autre travail de diffusion.
@@ -114,8 +116,8 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
-| Espace de noms Event Hub |Conteneur pour un ensemble d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Event Hub. |
-| Nom de l’Event Hub | Nom de votre sortie Event Hub. |
+| Espace de noms Event Hub |Conteneur pour un ensemble d’entités de messagerie. En créant un hub d’événements, vous avez également créé un espace de noms Event Hub. |
+| Nom du hub d’événements | Nom de votre sortie Event Hub. |
 | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configuration du hub d’événements. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | Clé de stratégie Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Event Hub. |
 | Colonne de clé de partition [facultatif] | Cette colonne contient la clé de partition pour la sortie du hub d’événements. |
@@ -126,6 +128,8 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
+
+La sortie Power BI de Stream Analytics n’est pas disponible dans les régions Azure - Chine (21Vianet) et Azure - Allemagne (T-Systems International).
 
 ### <a name="authorize-a-power-bi-account"></a>Autorisation d’un compte Power BI
 1. Lorsque Power BI est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser un utilisateur Power BI existant ou à créer un compte Power BI.  
@@ -248,6 +252,8 @@ Le nombre de partitions est [basé sur la référence Service Bus et sa taille](
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données multimodèle distribué à l’échelle mondiale, qui offre une mise à l’échelle élastique et sans limite dans le monde entier, des requêtes enrichies et une indexation automatique sur les modèles de données indépendants des schémas, la garantie d’une latence faible et des contrats de niveau de service complets de haut niveau. Pour en savoir plus sur les options de collection Cosmos DB pour Stream Analytics, consultez l’article [Stream Analytics avec une sortie Cosmos DB](stream-analytics-documentdb-output.md).
 
+La sortie Azure Cosmos DB de Stream Analytics n’est pas disponible dans les régions Azure - Chine (21Vianet) et Azure - Allemagne (T-Systems International).
+
 > [!Note]
 > Pour le moment, Azure Stream Analytics prend uniquement en charge la connexion à CosmosDB à l’aide de **l’API SQL**.
 > Les autres API Azure Cosmos DB ne sont pas encore prises en charge. Si vous pointez Azure Stream Analytics vers les comptes Azure Cosmos DB créés avec d'autres API, les données risquent de ne pas être correctement stockées. 
@@ -267,6 +273,8 @@ Le tableau suivant décrit les propriétés de création d’une sortie Azure Co
 
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande sans explicitement configurer ou gérer l’infrastructure. Grâce à ce service, vous pouvez implémenter le code qui est déclenché par les événements qui se produisent dans Azure ou des services tiers.  Comme Azure Functions peut répondre à des déclencheurs, il constitue l’outil de sortie logique pour Azure Stream Analytics. Cet adaptateur de sortie permet aux utilisateurs de connecter Stream Analytics à Azure Functions et d’exécuter un script ou un fragment de code en réaction à différents événements.
+
+La sortie Azure Functions de Stream Analytics n’est pas disponible dans les régions Azure - Chine (21Vianet) et Azure - Allemagne (T-Systems International).
 
 Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. Le nouvel adaptateur de sortie Azure Stream Analytics est disponible, avec les propriétés configurables suivantes :
 

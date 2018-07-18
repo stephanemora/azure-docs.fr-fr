@@ -15,13 +15,14 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7e7304b259931c5196a4865383cf0b4ace4c4398
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109764"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
 
 Ce didacticiel est la troisième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
 
@@ -36,23 +37,25 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Obtenir la version du cluster
 > * Définir la version du cluster
 
-Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle ;
+> * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * Mettre à niveau le runtime d’un cluster
-> * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
+> * [Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce didacticiel :
-- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
-- Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
-- Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md). 
+Avant de commencer ce tutoriel :
+
+* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
+* Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
+* Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
+
 Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
@@ -98,7 +101,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > La mise à niveau du runtime du cluster peut prendre beaucoup de temps. PowerShell est bloqué pendant l’exécution de la mise à niveau. Vous pouvez utiliser une autre session PowerShell pour vérifier l’état de la mise à niveau.
 
-Vous pouvez surveiller l’état de la mise à niveau avec PowerShell ou l’interface CLI `sfctl`.
+Vous pouvez surveiller l’état de la mise à niveau avec PowerShell ou Azure Service Fabric CLI (sfctl).
 
 Tout d’abord, connectez-vous au cluster avec le certificat SSL créé dans la première partie du didacticiel. Utilisez l’applet de commande `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
 
@@ -192,14 +195,15 @@ sfctl cluster upgrade-status
 }
 ```
 
-## <a name="conclusion"></a>Conclusion
-Dans ce didacticiel, vous avez appris à :
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Obtenir la version du runtime du cluster
 > * Mettre à niveau le runtime du cluster
 > * Surveiller la mise à niveau
 
-Ensuite, passez au didacticiel suivant pour apprendre à déployer la Gestion des API avec un cluster Service Fabric.
+Ensuite, passez au didacticiel suivant pour apprendre à déployer la Gestion des API avec un cluster Service Fabric.
 > [!div class="nextstepaction"]
-> [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
+> [Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)

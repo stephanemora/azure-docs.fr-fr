@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795072"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095670"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB : Importer des données Cassandra
 
-Ce didacticiel fournit des instructions sur l’importation de données Cassandra dans Azure Cosmos DB à l’aide de la commande COPY du langage de requête Cassandra (CQL). 
+Ce tutoriel fournit des instructions sur l’importation de données Cassandra dans Azure Cosmos DB à l’aide de la commande COPY du langage de requête Cassandra (CQL). 
 
-Ce didacticiel décrit les tâches suivantes :
+Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Récupération de votre chaîne de connexion
@@ -33,7 +33,7 @@ Ce didacticiel décrit les tâches suivantes :
 
 * Installez [Apache Cassandra](http://cassandra.apache.org/download/) et vérifiez plus particulièrement que *cqlsh* est présent.
 * Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous configurez pour vos tables. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le [portail Azure](https://portal.azure.com), consultez [Définir le débit des conteneurs Azure Cosmos DB](set-throughput.md).
-* Activez SSL : Azure Cosmos DB obéit à des normes et à des exigences strictes en matière de sécurité. Veillez à activer SSL lorsque vous interagissez avec votre compte. Lorsque vous utilisez CQL avec SSH, vous pouvez fournir des informations sur SSL. 
+* Activez SSL : Azure Cosmos DB obéit à des normes et à des exigences strictes en matière de sécurité. Veillez à activer SSL lorsque vous interagissez avec votre compte. Lorsque vous utilisez CQL avec SSH, vous pouvez fournir des informations sur SSL. 
 
 ## <a name="find-your-connection-string"></a>Rechercher votre chaîne de connexion
 
@@ -47,7 +47,7 @@ Ce didacticiel décrit les tâches suivantes :
 
 ## <a name="use-cqlsh-copy"></a>Utiliser cqlsh COPY
 
-Pour importer des données Cassandra dans Azure Cosmos DB à utiliser avec l’API Cassandra, suivez les instructions ci-dessous :
+Pour importer des données Cassandra dans Azure Cosmos DB à utiliser avec l’API Cassandra, suivez les instructions ci-dessous :
 
 1. Connectez-vous à cqhsh en utilisant les informations de connexion à partir du portail.
 2. Utilisez la [commande CQL COPY](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) pour copier des données locales sur le point de terminaison d’API Apache Cassandra. Vérifiez que la source et la cible se trouvent dans le même centre de données afin de réduire les problèmes de latence.
@@ -57,7 +57,7 @@ Pour importer des données Cassandra dans Azure Cosmos DB à utiliser avec l’A
 1. Créez au préalable votre table et mettez-la à l’échelle :
     * Par défaut, Azure Cosmos DB configure une nouvelle table d’API Cassandra avec 1 000 unités de requête par seconde (RU/s) (la création basée sur CQL est configurée sur 400 RU/s). Avant de commencer la migration à l’aide de cqlsh, créez au préalable toutes vos tables à partir du [portail Azure](https://portal.azure.com) ou de cqlsh. 
 
-    * Dans le [portail Azure](https://portal.azure.com), augmentez le débit de vos tables du débit par défaut (400 ou 1 000 RU/s) à 10 000 RU/s pour la durée de la migration. Si le débit est plus élevé, vous pouvez éviter la limitation et procéder à une migration plus rapide. Avec une facturation à l’heure dans Azure Cosmos DB, vous pouvez réduire immédiatement le débit à l’issue de la migration afin de réduire les coûts.
+    * Dans le [portail Azure](https://portal.azure.com), augmentez le débit de vos tables du débit par défaut (400 ou 1 000 RU/s) à 10 000 RU/s pour la durée de la migration. Si le débit est plus élevé, vous pouvez éviter la limitation de débit et procéder à une migration plus rapide. Avec une facturation à l’heure dans Azure Cosmos DB, vous pouvez réduire immédiatement le débit à l’issue de la migration afin de réduire les coûts.
 
 2. Déterminez les frais de RU pour une opération. Pour cela, utilisez le Kit de développement logiciel (SDK) d’API Cassandra Azure Cosmos DB de votre choix. Cet exemple montre la version .NET pour obtenir les frais de RU. 
 
@@ -90,7 +90,7 @@ Pour les données résidant dans un cluster existant dans des machines virtuelle
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris comment effectuer les tâches suivantes :
+Dans ce tutoriel, vous avez appris comment effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Récupération de votre chaîne de connexion

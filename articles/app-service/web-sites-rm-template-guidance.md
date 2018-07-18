@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc816bb6e95d2800d79124dfac60b55e88eaa500
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807320"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -58,19 +59,20 @@ Déployez des ressources dans l’ordre suivant :
 
 En règle générale, votre solution inclut uniquement une partie de ces ressources et niveaux. Pour les niveaux manquants, mappez les ressources de niveau inférieur sur le niveau immédiatement supérieur.
 
-L’exemple suivant montre une partie d’un modèle. La valeur de configuration de la chaîne de connexion dépend de l’extension MSDeploy. L’extension MSDeploy dépend de l’application web et de la base de données.
+L’exemple suivant montre une partie d’un modèle. La valeur de configuration de la chaîne de connexion dépend de l’extension MSDeploy. L’extension MSDeploy dépend de l’application web et de la base de données. 
 
 ```json
 {
-    "name": "[parameters('name')]",
-    "type": "Microsoft.Web/sites",
+    "name": "[parameters('appName')]",
+    "type": "Microsoft.Web/Sites",
+    ...
     "resources": [
       {
           "name": "MSDeploy",
           "type": "Extensions",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
-            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'))]",
+            "[concat('Microsoft.Sql/servers/', parameters('dbServerName'), '/databases/', parameters('dbName'))]",
           ],
           ...
       },
@@ -78,13 +80,15 @@ L’exemple suivant montre une partie d’un modèle. La valeur de configuration
           "name": "connectionstrings",
           "type": "config",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'), '/Extensions/MSDeploy')]"
           ],
           ...
       }
     ]
 }
 ```
+
+Pour un exemple prêt à exécuter incluant le code ci-dessus, consultez le modèle [Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple) (Créer une application web Umbraco simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Rechercher des informations sur les erreurs MSDeploy
 

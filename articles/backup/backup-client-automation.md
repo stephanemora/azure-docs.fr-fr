@@ -1,29 +1,24 @@
 ---
-title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure | Microsoft Docs
+title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Découvrez comment déployer et gérer Sauvegarde Azure à l’aide de PowerShell
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 61bb58b2cf0d76f662144cb1911a6521394e92b6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 5/24/2018
+ms.author: saurse
+ms.openlocfilehash: f69975fc30dfdfbcdd801bcdb552e8b4be948607
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38584338"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 Cet article décrit comment utiliser PowerShell pour configurer Sauvegarde Azure sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 
-## <a name="install-azure-powershell"></a>Installation d'Azure PowerShell
+## <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Cet article se concentre sur les applets de commande PowerShell d’Azure Resource Manager (ARM) et MS Sauvegarde en ligne qui vous permettent d’utiliser un coffre Recovery Services dans un groupe de ressources.
@@ -145,7 +140,7 @@ Cette applet de commande, ainsi que d’autres utilisées pour la sauvegarde, pr
 Le programme d’installation de l’agent ne met pas à jour la variable $Env:PSModulePath. Cela signifie que le chargement automatique du module échoue. Pour résoudre ce problème, vous pouvez effectuer les étapes suivantes :
 
 ```
-PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 ```
 
 En guise d’alternative, vous pouvez charger manuellement le module dans votre script comme suit :
@@ -159,8 +154,8 @@ Une fois que vous avez chargé les applets de commande de Sauvegarde en ligne, v
 
 
 ```
-PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+
+PS C:\> Start-OBRegistration -VaultCredentials $credsfilename.FilePath -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault

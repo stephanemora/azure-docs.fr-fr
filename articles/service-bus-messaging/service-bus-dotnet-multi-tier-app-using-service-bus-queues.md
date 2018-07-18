@@ -1,24 +1,21 @@
 ---
-title: "Application multiniveau .NET utilisant Azure Service Bus | Microsoft Docs"
-description: "Un didacticiel .NET qui vous permet de développer dans Azure une application multiniveau qui utilise les files d’attente de Service Bus pour communiquer entre les différents niveaux."
+title: Application multiniveau .NET utilisant Azure Service Bus | Microsoft Docs
+description: Un didacticiel .NET qui vous permet de développer dans Azure une application multiniveau qui utilise les files d’attente de Service Bus pour communiquer entre les différents niveaux.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611230"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
 
@@ -58,25 +55,19 @@ Ce mécanisme de communication présente plusieurs avantages par rapport à la m
 
 Les sections qui suivent présentent le code de mise en œuvre de cette architecture.
 
-## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
-Avant de commencer à développer votre application Azure, procurez-vous les outils et configurez votre environnement de développement.
-
-1. Installez le Kit de développement logiciel (SDK) Azure pour .NET depuis la page des [téléchargements SDK](https://azure.microsoft.com/downloads/).
-2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de [Visual Studio](http://www.visualstudio.com). Les étapes de ce didacticiel utilisent Visual Studio 2015, mais elles fonctionnent également avec Visual Studio 2017.
-3. Lorsque vous êtes invité à exécuter ou à enregistrer le programme d’installation, cliquez sur **Exécuter**.
-4. Dans **Web Platform Installer**, cliquez sur **Installer**, puis poursuivez l’installation.
-5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio.
-
 ## <a name="create-a-namespace"></a>Créer un espace de noms
-L’étape suivante consiste à créer un *espace de noms* et à obtenir une [clé de signature d’accès partagé (SAP)](service-bus-sas.md) pour ce dernier. Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison du nom de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
+
+La première étape consiste à créer un *espace de noms* et à obtenir une [clé de signature d’accès partagé (SAP)](service-bus-sas.md) pour ce dernier. Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison du nom de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Création d'un rôle web
+
 Dans cette section, vous générez le composant frontal de votre application. Tout d’abord, vous créez les pages affichées par votre application.
 Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’attente Service Bus et d’afficher les informations d’état de la file d’attente.
 
 ### <a name="create-the-project"></a>Création du projet
+
 1. Lancez Visual Studio avec des privilèges d’administrateur : cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**. L’émulateur de calcul Azure, présenté plus loin dans cet article , nécessite que Visual Studio soit démarré avec les privilèges d’administrateur.
    
    Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
@@ -324,7 +315,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 4. Dans la boîte de dialogue **Ajouter un nouveau projet de rôle**, cliquez sur **Rôle de travail avec file d’attente Service Bus**.
    
    ![][23]
-5. Dans la boîte de dialogue **Nom**, saisissez le nom de projet **OrderProcessingRole**. Cliquez ensuite sur **Add**.
+5. Dans la boîte de dialogue **Nom**, saisissez le nom de projet **OrderProcessingRole**. Cliquez ensuite sur **Ajouter**.
 6. Copiez la chaîne de connexion que vous avez obtenue à l’étape 9 de la section « Création d’un espace de noms Service Bus » dans le Presse-papiers.
 7. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur l’élément **OrderProcessingRole**, créé à l’étape 5 (assurez-vous de bien cliquer avec le bouton droit sur **OrderProcessingRole** sous **Rôles**, et pas dans la classe). Cliquez ensuite sur **Propriétés**.
 8. Sous l’onglet **Paramètres** de la boîte de dialogue **Propriétés**, cliquez dans la zone **Valeur** de l’élément **Microsoft.ServiceBus.ConnectionString**, puis collez la valeur du point de terminaison que vous avez copiée à l’étape 6.

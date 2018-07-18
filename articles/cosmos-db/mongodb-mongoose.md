@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: rogirdh
 ms.openlocfilehash: 3c2a1299bec954a1b00b3315113c0967171b0001
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795864"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543948"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB : Utilisation de l’infrastructure Mongoose avec Azure Cosmos DB
 
 Ce didacticiel montre comment utiliser l’[infrastructure Mongoose](http://mongoosejs.com/) lors du stockage de données dans Azure Cosmos DB. Dans cette procédure pas à pas, nous utilisons l’API MongoDB pour Azure Cosmos DB. Pour ceux d’entre vous qui ne connaissent pas Mongoose, il s’agit d’une infrastructure de modélisation d’objet pour MongoDB dans Node.js qui offre une solution simple basée sur un schéma pour modéliser vos données d’application.
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -297,7 +297,7 @@ Nous créons ici un modèle d’objet de base, définissons une clé de différe
 
 Comme vous pouvez le constater, il est très simple d’utiliser des discriminateurs Mongoose. Si votre application utilise l’infrastructure Mongoose, ce didacticiel vous permet de préparer votre application sur l’API MongoDB dans Azure Cosmos DB sans nécessiter trop de modifications.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

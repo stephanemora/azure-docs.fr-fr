@@ -1,40 +1,40 @@
 ---
-title: 'Stockage Azure Stack : différences et points à prendre en compte'
+title: 'Stockage Azure Stack : différences et considérations | Microsoft Docs'
 description: Découvrez les différences entre le stockage Azure Stack et le stockage Azure, ainsi que les points à prendre en compte quand vous déployez Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197808"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604458"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : différences et points à prendre en compte
+# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack: différences et considérations
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Le stockage Azure Stack est l’ensemble des services cloud de stockage fournis dans Microsoft Azure Stack. Le stockage Azure Stack fournit des fonctionnalités de gestion des objets blob, des tables, des files d’attente et des comptes avec une sémantique Azure cohérente.
 
-Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure Stack et Azure, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
+Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure global et Azure Stack, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
 
 ## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
 
 | Fonctionnalité | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
-|Azure Storage Service Encryption pour les données au repos|Chiffrement AES 256 bits|Chiffrement AES 128 bits BitLocker
+|Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits|Chiffrement AES 128 bits BitLocker
 |Type de compte de stockage|Comptes de stockage à usage général et comptes de stockage d’objets blob Azure|À usage général uniquement.
 |Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant dans une zone|Stockage localement redondant.
 |Stockage Premium|Entièrement pris en charge|Peut être approvisionné, mais sans limite ni garantie de performances.

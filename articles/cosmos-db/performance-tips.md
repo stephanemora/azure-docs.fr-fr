@@ -5,21 +5,17 @@ keywords: comment améliorer les performances de base de données
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360204"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715018"
 ---
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
@@ -41,27 +37,28 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Il existe deux paramètres de configuration essentiels pour la stratégie de connexion client : le *mode* de connexion et le [*protocole* de connexion](#connection-protocol).  Les deux modes disponibles sont :
 
-   1. Mode passerelle (par défaut)
+   * Mode passerelle (par défaut)
       
-      Le mode passerelle est pris en charge sur toutes les plateformes de kit de développement logiciel (SDK) et est l’option configurée par défaut. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Étant donné que le mode direct implique moins de tronçons réseaux, les performances sont meilleures.
+     Le mode passerelle est pris en charge sur toutes les plateformes de kit de développement logiciel (SDK) et est l’option configurée par défaut. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Étant donné que le mode direct implique moins de tronçons réseaux, les performances sont meilleures.
 
-   2. Mode direct
+   * Mode direct
 
-     Le mode direct prend en charge la connectivité via les protocoles TCP et HTTPS. À l’heure actuelle, le mode direct est pris en charge dans .NET Standard 2.0 pour la plateforme Windows uniquement.
-      
-<a id="use-tcp"></a>
-2. **Stratégie de connexion : utilisation du protocole TCP**
+     Le mode direct prend en charge la connectivité via les protocoles TCP et HTTPS. À l’heure actuelle, le mode direct est pris en charge dans .NET Standard 2.0 pour la plateforme Windows uniquement. Lorsque vous utilisez le mode direct, deux options de protocole sont disponibles :
 
-    Lorsque vous utilisez le mode direct, deux options de protocole sont disponibles :
+    * TCP
+    * HTTPS
 
-   * TCP
-   * HTTPS
+    Lorsque vous utilisez le mode Passerelle, Azure Cosmos DB utilise le port 443 et l’API MongoDB utilise les ports 10250, 10255 et 10256. Le port 10250 est mappé par défaut à une instance Mongodb sans géo-réplication et les ports 10255/10256 sont mappés à l’instance Mongodb avec la fonctionnalité de géo-réplication. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vérifier que la plage de ports comprise entre 10000 et 20000 est ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible. Le tableau suivant montre les modes de connexion disponibles pour les différentes API et l’utilisateur de ports de service pour chaque API :
 
-     Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Direct TCP et HTTPS SSL utilisent tous deux SSL pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
+    |Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
+    |---------|---------|---------|---------|
+    |Passerelle  |   HTTPS    |  Tous les kits SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Directement    |    HTTPS     |  Kit SDK .Net et Java    |    SQL(443)   |
+    |Directement    |     TCP    |  Kit de développement logiciel (SDK) .Net    | Ports dans la plage de 10 000 à 20 000 |
 
-     Lors de l’utilisation de TCP en mode passerelle, le port TCP 443 est le port d’Azure Cosmos DB et le port 10255 est le port de l’API MongoDB. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vérifier que la plage de ports comprise entre 10000 et 20000 est ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible.
+    Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Direct TCP et HTTPS SSL utilisent tous deux SSL pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
 
-     Le mode connectivité est configuré lors de la construction de l’instance DocumentClient avec le paramètre ConnectionPolicy. Si le mode direct est utilisé, le protocole peut également être défini dans le paramètre ConnectionPolicy.
+    Le mode connectivité est configuré lors de la construction de l’instance DocumentClient avec le paramètre ConnectionPolicy. Si le mode direct est utilisé, le protocole peut également être défini dans le paramètre ConnectionPolicy.
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -78,19 +75,19 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     ![Illustration de la stratégie de connexion Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
-3. **Appel d’OpenAsync pour éviter la latence de démarrage lors de la première requête**
+2. **Appel d’OpenAsync pour éviter la latence de démarrage lors de la première requête**
 
     Par défaut, la première requête a une latence plus élevée, car elle doit extraire la table de routage d’adresses. Pour éviter cette latence de démarrage lors de la première requête, vous devez appeler OpenAsync() une seule fois lors de l’initialisation, comme indiqué ci-après.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Colocalisation des clients dans la même région Azure pour les performances**
+3. **Colocalisation des clients dans la même région Azure pour les performances**
 
     Dans la mesure du possible, placez toutes les applications appelant Azure Cosmos DB dans la même région que la base de données Azure Cosmos DB. Pour une comparaison approximative, les appels à Azure Cosmos DB dans la même région s’effectuent en 1 à 2 ms, mais la latence entre les côtes Ouest et Est des États-Unis est supérieure à 50 ms. Cette latence peut probablement varier d’une requête à l’autre, en fonction de l’itinéraire utilisé par la requête lorsqu’elle passe du client à la limite du centre de données Azure. Pour obtenir la latence la plus faible possible, l’application appelante doit être située dans la même région Azure que le point de terminaison Azure Cosmos DB configuré. Pour obtenir la liste des régions disponibles, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
 
     ![Illustration de la stratégie de connexion Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **Augmentation du nombre de threads/tâches**
+4. **Augmentation du nombre de threads/tâches**
 
     Étant donné que les appels à Azure Cosmos DB sont effectués sur le réseau, vous devrez peut-être modifier le degré de parallélisme de vos requêtes, afin que l’application cliente attende très peu de temps entre les requêtes. Par exemple, si vous utilisez la [bibliothèque parallèle de tâches](https://msdn.microsoft.com//library/dd460717.aspx) .NET, créez plusieurs centaines de tâches de lecture ou d’écriture dans Azure Cosmos DB.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365142"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051523"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
@@ -69,7 +69,7 @@ Vous pouvez prendre plusieurs précautions pour sécuriser la base de données. 
 
 Une solution consiste à chiffrer les données sensibles dans la base de données et à protéger les clés qui sont utilisées pour chiffrer les données avec un certificat. Cette solution empêche toute personne ne possédant pas les clés d’utiliser les données, mais ce type de protection doit être planifié.
 
-Pour résoudre ce problème, SQL Server et SQL Database prennent en charge la fonctionnalité [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). Celle-ci chiffre les fichiers de données SQL Server et SQL Database, au cours d’une phase appelée chiffrement des données au repos.
+Pour résoudre ce problème, SQL Server et SQL Database prennent en charge la fonctionnalité [TDE (Transparent Data Encryption)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Celle-ci chiffre les fichiers de données SQL Server et SQL Database, au cours d’une phase appelée chiffrement des données au repos.
 
 Ce chiffrement transparent des données vous protège contre le risque d’activités malveillantes. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application.  
 

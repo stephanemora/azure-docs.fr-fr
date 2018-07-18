@@ -1,32 +1,28 @@
 ---
-title: Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics | Microsoft Docs
-description: 'Découvrez comment utiliser l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics. '
+title: Utiliser l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics
+description: Cet article explique comment utiliser l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623228"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Utilisation de l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utiliser l’Explorateur de travaux et la Vue des travaux pour Azure Data Lake Analytics
 Le service Azure Data Lake Analytics archive les travaux soumis dans un [magasin de requêtes](#query-store). Dans cet article, vous allez apprendre à utiliser l’Explorateur de travaux et la Vue des travaux dans Azure Data Lake Tools pour Visual Studio pour trouver les informations d’historique des travaux. 
 
 Par défaut, le service Data Lake Analytics archive les travaux des 30 derniers jours. La période d’expiration peut être configurée à partir du portail Azure en définissant la stratégie d’expiration personnalisée. Vous ne pourrez plus accéder aux informations des travaux après l’expiration. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Voir [Data Lake Tools for Visual Studio - Composants requis](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Ouverture de l’Explorateur de travaux

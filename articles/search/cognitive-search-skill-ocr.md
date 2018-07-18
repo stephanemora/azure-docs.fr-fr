@@ -4,8 +4,6 @@ description: Extrayez le texte de fichiers image dans un pipeline d’enrichisse
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640368"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055460"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
 
@@ -38,7 +36,7 @@ Les paramètres respectent la casse.
 | Nom du paramètre     | Description |
 |--------------------|-------------|
 | detectOrientation | Active la détection automatique de l’orientation de l’image. <br/> Valeurs valides : true, false.|
-|defaultLanguageCode |  Code de langue du texte d’entrée. Les langues prises en charge sont les suivantes : `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Si le code de langue n’est pas spécifié ou est Null, la langue est détectée automatiquement.|
+|defaultLanguageCode | <p>  Code de langue du texte d’entrée. Les langages pris en charge incluent : <br/> zh-Hans (chinois simplifié) <br/> zh-Hant (chinois traditionnel) <br/>cs (tchèque) <br/>da (danois) <br/>nl (néerlandais) <br/>en (anglais) <br/>fi (finnois)  <br/>fr (français) <br/>  de (allemand) <br/>el (grec) <br/> hu (hongrois) <br/> it (italien) <br/>  ja (japonais) <br/> ko (coréen) <br/> nb (norvégien) <br/>   pl (polonais) <br/> pt (portugais) <br/>  ru (russe) <br/>  es (espagnol) <br/>  sv (suédois) <br/>  tr (turc) <br/> ar (arabe) <br/> ro (roumain) <br/> sr-Cyrl (serbe cyrillique) <br/> sr-Latn (serbe latin) <br/>  sk (slovaque) <br/>  unk (inconnu) <br/><br/> Si le code de langue n’est pas spécifié ou est Null, la langue est détectée automatiquement. </p> |
 | textExtractionAlgorithm | « printed » (imprimé) ou « handwritten » (manuscrit). L’algorithme OCR de reconnaissance de texte « handwritten » est actuellement en préversion et n’est pris en charge qu’en anglais. |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence

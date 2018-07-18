@@ -23,7 +23,7 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 
 1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio (SSMS). Si vous n’avez pas SQL Server Management Studio, vous pouvez le télécharger [ici](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez l’adresse IP ou le nom DNS complet de la machine virtuelle (déterminé lors de la tâche précédente). Vous pouvez également ajouter une virgule et indiquer le port TCP du serveur SQL. Par exemple, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez l’adresse IP ou le nom DNS complet de la machine virtuelle (déterminé lors de la tâche précédente). Vous pouvez également ajouter une virgule et indiquer le port TCP du serveur SQL. Par exemple : `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 

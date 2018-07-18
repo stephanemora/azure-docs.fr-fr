@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de Ruby | Microsoft Docs
-description: Dans le cadre de ce Démarrage rapide, vous créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Ruby, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
+description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Ruby, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
 ms.openlocfilehash: 7ef74fe59400ff38a96e7b1b652393eef60eac81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415628"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606624"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Ruby
 
@@ -22,8 +22,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser Ruby pour charger,
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce démarrage rapide : 
+Pour suivre ce guide de démarrage rapide : 
 * Installer [Ruby](https://www.ruby-lang.org/en/downloads/)
 * Installez la [bibliothèque Stockage Azure pour Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) à l’aide du package rubygem. 
 
@@ -81,7 +80,7 @@ Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](
 
 Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle touche pour terminer la démonstration et supprimer les fichiers de test. Maintenant que vous avez compris l’exemple, ouvrez le fichier example.rb pour examiner le code. 
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
 
@@ -172,7 +171,7 @@ blob, content = blob_client.get_blob(container_name,local_file_name)
 File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **delete\_container()**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **delete\_blob()** pour supprimer ces fichiers.
 
 ```ruby

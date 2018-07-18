@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864653"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855522"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 
-Pour que la réinitialisation du mot de passe Azure Active Directory (Azure AD) fonctionne, vous *devez disposer d’au moins une licence affectée dans votre organisation*. Nous n’appliquons pas de licence par utilisateur lors de l’expérience de réinitialisation du mot de passe. Une licence appropriée est requise si un utilisateur bénéficie directement ou indirectement d’une fonctionnalité couverte par cette licence.
+Pour que la réinitialisation du mot de passe Azure Active Directory (Azure AD) fonctionne, vous *devez disposer d’au moins une licence affectée dans votre organisation* pour cet utilisateur. Une licence appropriée est requise si un utilisateur bénéficie directement ou indirectement d’une fonctionnalité couverte par cette licence.
 
 * **Utilisateurs du cloud uniquement** : n’importe quelle référence Office 365 payante ou Azure AD Basic
 * Utilisateurs **cloud** ou **locaux** : Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licences requises pour la réécriture du mot de passe
+## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour la réécriture du mot de passe
+
+**Réinitialisation/modification/déverrouillage de mot de passe libre-service avec écriture différée locale est une fonctionnalité Premium d’Azure AD**. Pour plus d’informations sur les licences, consultez la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l’une des licences suivantes soit attribué sur votre locataire :
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 ou A3
+* Enterprise Mobility + Security E5 ou A5
+* Microsoft 365 E3 ou A3
+* Microsoft 365 E5 ou A5
 * Microsoft 365 F1
 
 > [!WARNING]
@@ -49,7 +51,7 @@ Vous trouverez des informations de licence supplémentaires, notamment les prix,
 
 ## <a name="enable-group-or-user-based-licensing"></a>Activer les licences utilisateur ou groupe
 
-Azure AD prend désormais en charge les licences basées sur des groupes. Les administrateurs peuvent attribuer des licences en bloc à un groupe d’utilisateurs, plutôt que de les attribuer une à la fois. Pour plus d’informations, consultez [Affecter, vérifier et résoudre les problèmes de licences](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Azure AD prend désormais en charge les licences basées sur des groupes. Les administrateurs peuvent attribuer des licences en bloc à un groupe d’utilisateurs, plutôt que de les attribuer une à la fois. Pour plus d’informations, consultez [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Vous pouvez effectuer l’attribution de licences dans la section **Utilisateur** > **Profil** > **Paramètres** du portail Azure. *Quand vous attribuez une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement de l’annuaire.*
 

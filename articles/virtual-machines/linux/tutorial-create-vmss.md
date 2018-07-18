@@ -3,7 +3,7 @@ title: 'Didacticiel : créer un groupe de machines virtuelles identiques pour Li
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure CLI 2.0 pour créer et déployer une application hautement disponible sur les machines virtuelles Linux à l’aide d’un groupe de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/15/2017
-ms.author: iainfou
+ms.date: 06/01/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 741cabd37a5a508257f0307dfec25b5bb2d25153
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932668"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Didacticiel : créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Linux avec Azure CLI 2.0
 
@@ -36,7 +37,7 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Vue d’ensemble des groupes identiques
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Les machines virtuelles d’un groupe identique sont réparties entre les domaines d’erreur logique et de mise à jour, dans un ou plusieurs *groupes de placement*. Ces groupes contiennent des machines virtuelles configurées de manière similaire, semblables à des [groupes à haute disponibilité](tutorial-availability-sets.md).
@@ -49,7 +50,7 @@ Les groupes identiques prennent en charge jusqu’à 1 000 machines virtuelles 
 ## <a name="create-an-app-to-scale"></a>Créer une application à mettre à l’échelle
 À des fins de production, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md) qui inclut votre application installée et configurée. Pour ce didacticiel, nous allons personnaliser les machines virtuelles au premier démarrage pour voir fonctionner un groupe identique rapidement.
 
-Dans le didacticiel précédent, vous avez appris à [personnaliser une machine virtuelle Linux au premier démarrage](tutorial-automate-vm-deployment.md) avec cloud-init. Vous pouvez utiliser le même fichier de configuration cloud-init pour installer NGINX et exécuter une simple application Node.js « Hello World ». 
+Dans le didacticiel précédent, vous avez appris à [personnaliser une machine virtuelle Linux au premier démarrage](tutorial-automate-vm-deployment.md) avec cloud-init. Vous pouvez utiliser le même fichier de configuration cloud-init pour installer NGINX et exécuter une simple application Node.js « Hello World ».
 
 Dans l’interpréteur de commandes actuel, créez un fichier nommé *cloud-init.txt* et collez la configuration suivante. Par exemple, créez le fichier dans l’interpréteur de commandes Cloud et non sur votre ordinateur local. Entrez `sensible-editor cloud-init.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
 
@@ -97,15 +98,15 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
-Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupScaleSet* à l’emplacement *eastus*:
+Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupScaleSet* à l’emplacement *eastus*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique nommé *myScaleSet*, utilise le fichier cloud-init pour personnaliser la machine virtuelle et génère des clés SSH si elles n’existent pas :
+Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#az-vmss-create). L’exemple suivant crée un groupe identique nommé *myScaleSet*, utilise le fichier cloud-init pour personnaliser la machine virtuelle et génère des clés SSH si elles n’existent pas :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -122,9 +123,9 @@ La création et la configuration des l’ensemble des ressources et des machines
 ## <a name="allow-web-traffic"></a>Autoriser le trafic web
 Un équilibrage de charge a été créé automatiquement dans le cadre du groupe de machines virtuelles identiques. L’équilibrage de charge répartit le trafic sur un ensemble de machines virtuelles définies à l’aide de règles d’équilibrage de charge. Vous trouverez plus d’informations sur les concepts de l’équilibrage de charge et la configuration dans le didacticiel suivant, intitulé [Équilibrage de charge des machines virtuelles dans Azure](tutorial-load-balancer.md).
 
-Pour autoriser le trafic à atteindre l’application web, créez une règle avec [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). L’exemple suivant crée une règle nommée *myLoadBalancerRuleWeb* :
+Pour autoriser le trafic à atteindre l’application web, créez une règle avec [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). L’exemple suivant crée une règle nommée *myLoadBalancerRuleWeb* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb rule create \
   --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
@@ -137,9 +138,9 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Test de l'application
-Pour voir votre application Node.js sur le web, obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). L’exemple suivant obtient l’adresse IP pour *myScaleSetLBPublicIP* qui a été créée dans le cadre du groupe identique :
+Pour voir votre application Node.js sur le web, obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). L’exemple suivant obtient l’adresse IP pour *myScaleSetLBPublicIP* qui a été créée dans le cadre du groupe identique :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
@@ -158,9 +159,9 @@ Pour voir le groupe identique en action, vous pouvez forcer l’actualisation de
 Tout au long du cycle de vie du groupe identique, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Azure CLI 2.0 offre un moyen rapide pour effectuer ces tâches. Voici quelques tâches courantes.
 
 ### <a name="view-vms-in-a-scale-set"></a>Afficher les machines virtuelles d’un groupe identique
-Pour afficher une liste des machines virtuelles exécutées dans votre groupe identique, utilisez [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) comme suit :
+Pour afficher une liste des machines virtuelles exécutées dans votre groupe identique, utilisez [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) comme suit :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss list-instances \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -169,7 +170,7 @@ az vmss list-instances \
 
 Le résultat ressemble à l’exemple suivant :
 
-```azurecli-interactive 
+```bash
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
@@ -177,10 +178,10 @@ Le résultat ressemble à l’exemple suivant :
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Augmenter ou diminuer les instances de machines virtuelles
-Pour afficher le nombre d’instances présentes dans un groupe identique, utilisez [az vmss show](/cli/azure/vmss#az_vmss_show) et interrogez *sku.capacity* :
+### <a name="manually-increase-or-decrease-vm-instances"></a>Augmenter ou diminuer manuellement les instances de machines virtuelles
+Pour afficher le nombre d’instances présentes dans un groupe identique, utilisez [az vmss show](/cli/azure/vmss#az-vmss-show) et interrogez *sku.capacity* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -188,93 +189,19 @@ az vmss show \
     --output table
 ```
 
-Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#az_vmss_scale). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *3* :
+Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#az-vmss-scale). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *3* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
     --new-capacity 3
 ```
 
-
-### <a name="configure-autoscale-rules"></a>Configurer des règles de mise à l’échelle automatique
-Au lieu d’adapter manuellement le nombre d’instances présentes dans votre groupe identique, vous pouvez définir des règles de mise à l’échelle automatique. Ces règles surveillent les instances présentes dans votre groupe identique et répondent en conséquence en fonction des métriques et des seuils que vous définissez. L’exemple suivant augmente le nombre d’instances d’une unité dès que la charge moyenne du processeur dépasse 60 % sur une période de 5 minutes. Si la charge moyenne du processeur descend ensuite en dessous de 30 % sur une période de 5 minutes, le nombre d’instances diminue d’une unité. Votre ID d’abonnement sert à générer les URI de ressources pour les différents composants d’un groupe identique. Pour créer ces règles avec la commande [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create), copiez et collez le profil de la commande de mise à l’échelle automatique :
-
-```azurecli-interactive 
-sub=$(az account show --query id -o tsv)
-
-az monitor autoscale-settings create \
-    --resource-group myResourceGroupScaleSet \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "East US",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "Auto created scale condition",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "eastus",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "eastus",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
-    }'
-```
-
-Pour réutiliser le profil de mise à l’échelle automatique, vous pouvez créer un fichier JSON (JavaScript Object Notation) et le passer à `az monitor autoscale-settings create` en utilisant le paramètre `--parameters @autoscale.json`. Pour plus d’informations de conception sur l’utilisation de la mise à l’échelle automatique, consultez [Meilleures pratiques relatives à la mise à l’échelle automatique](/azure/architecture/best-practices/auto-scaling).
-
-
 ### <a name="get-connection-info"></a>Obtenir des informations de connexion
-Pour obtenir des informations de connexion sur les machines virtuelles dans vos groupes identiques, utilisez [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Cette commande renvoie l’adresse IP publique et le port pour chaque machine virtuelle pour vous permettre de vous connecter avec SSH :
+Pour obtenir des informations de connexion sur les machines virtuelles dans vos groupes identiques, utilisez [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info). Cette commande renvoie l’adresse IP publique et le port pour chaque machine virtuelle pour vous permettre de vous connecter avec SSH :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss list-instance-connection-info \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet
@@ -285,9 +212,9 @@ az vmss list-instance-connection-info \
 Vous pouvez créer et utiliser des disques de données avec des groupes identiques. Dans un tutoriel précédent, vous avez appris comment [gérer des disques Azure](tutorial-manage-disks.md). Ce tutoriel inclut également une description des meilleures pratiques et des améliorations des performances pour créer des applications sur des disques de données plutôt que sur le disque du système d’exploitation.
 
 ### <a name="create-scale-set-with-data-disks"></a>Créer un groupe identique avec des disques de données
-Pour créer un groupe identique et y rattacher des disques de données, ajoutez le paramètre `--data-disk-sizes-gb` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique avec des disques de données de *50* Go associés à chaque instance :
+Pour créer un groupe identique et y rattacher des disques de données, ajoutez le paramètre `--data-disk-sizes-gb` à la commande [az vmss create](/cli/azure/vmss#az-vmss-create). L’exemple suivant crée un groupe identique avec des disques de données de *50* Go associés à chaque instance :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss create \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetDisks \
@@ -302,9 +229,9 @@ az vmss create \
 Lorsque les instances sont supprimées d’un groupe identique, les disques de données associés sont également supprimés.
 
 ### <a name="add-data-disks"></a>Ajouter des disques de données
-Pour ajouter un disque de données à des instances de votre groupe identique, utilisez [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). L’exemple suivant ajoute un disque de données de *50* Go chaque instance :
+Pour ajouter un disque de données à des instances de votre groupe identique, utilisez [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). L’exemple suivant ajoute un disque de données de *50* Go chaque instance :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss disk attach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -313,9 +240,9 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Détacher des disques de données
-Pour supprimer un disque de données dans des instances de votre groupe identique, utilisez [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). L’exemple suivant supprime le disque de données au numéro d’unité logique *2* de chaque instance :
+Pour supprimer un disque de données dans des instances de votre groupe identique, utilisez [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach). L’exemple suivant supprime le disque de données au numéro d’unité logique *2* de chaque instance :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss disk detach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \

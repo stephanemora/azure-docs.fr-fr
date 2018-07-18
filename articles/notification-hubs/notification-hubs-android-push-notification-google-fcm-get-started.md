@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777771"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232792"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Didacticiel : notifications Push vers des appareils Android à l’aide de Azure Notification Hubs et de Google Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -33,7 +33,7 @@ Ce didacticiel montre comment utiliser Azure Notification Hubs et Cloud Messagin
 
 Le code complet de ce didacticiel peut être téléchargé depuis GitHub [ici](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
 
-Dans ce didacticiel, vous effectuez les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer un projet Android Studio.
@@ -43,7 +43,6 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 > * Tester l'application. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/free/).
 
 * En plus du compte Azure actif mentionné ci-dessus, ce didacticiel requiert la dernière version d’ [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
@@ -533,4 +532,4 @@ Dans ce didacticiel, vous avez utilisé Firebase Cloud Messaging pour envoyer de
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com

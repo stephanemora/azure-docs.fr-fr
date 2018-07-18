@@ -1,30 +1,30 @@
 ---
-title: Personnalisation de l’interface utilisateur (IU) - Azure AD B2C | Documents Microsoft
-description: Une rubrique sur les fonctionnalités de personnalisation de l’interface utilisateur (UI) dans Azure Active Directory B2C
+title: Personnalisation de l’interface utilisateur dans Azure Active Directory B2C | Microsoft Docs
+description: Une rubrique sur les fonctionnalités de personnalisation de l’interface utilisateur (IU) dans Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447051"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C
 
 L’expérience utilisateur est primordiale dans une application orientée client.  Développez votre base clients en créant des expériences utilisateur avec l’apparence de votre marque. Azure Active Directory B2C (Azure AD B2C) vous permet de personnaliser les pages d’inscription, de connexion, de modification du profil et de réinitialisation du mot de passe avec le contrôle pixel-perfect.
 
 > [!NOTE]
-> La fonctionnalité de personnalisation de l’interface utilisateur de page décrite dans cet article ne s’applique pas à la stratégie d’authentification uniquement, à sa page de réinitialisation du mot de passe qui l’accompagne ni aux e-mails de vérification.  Ces fonctionnalités utilisent la [fonctionnalité de marque de société](../active-directory/customize-branding.md) à la place.
+> La fonctionnalité de personnalisation de l’interface utilisateur de page décrite dans cet article ne s’applique pas à la stratégie d’authentification uniquement, à sa page de réinitialisation du mot de passe qui l’accompagne ni aux e-mails de vérification.  Ces fonctionnalités utilisent la [fonctionnalité de marque de société](../active-directory/fundamentals/customize-branding.md) à la place.
 >
-> De même, si un utilisateur lance une stratégie de modification de profil *avant* de se connecter, il est redirigé vers une page qui peut être personnalisée avec la [fonctionnalité de personnalisation d’entreprise](../active-directory/customize-branding.md).
+> De même, si un utilisateur lance une stratégie de modification de profil *avant* de se connecter, il est redirigé vers une page qui peut être personnalisée avec la [fonctionnalité de personnalisation d’entreprise](../active-directory/fundamentals/customize-branding.md).
 
 Cet article aborde les thèmes suivants :
 

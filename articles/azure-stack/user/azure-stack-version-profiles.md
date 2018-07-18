@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258207"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604435"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gérer les profils de version des API dans Azure Stack
 
@@ -37,7 +37,7 @@ Cette rubrique vous aide à :
 ## <a name="summary-of-api-profiles"></a>Résumé des profils d’API
 
 - Les profils d’API représentent un ensemble de fournisseurs de ressources Azure et leurs versions d’API.
-- Les profils d’API ont été créés pour les développeurs, afin qu’ils puissent générer des modèles utilisables sur plusieurs clouds Azure. Les profils sont conçus pour répondre aux besoins en offrant une interface compatible et stable.
+- Les profils d’API ont été créés pour que vous puissiez générer des modèles utilisables sur plusieurs clouds Azure. Les profils sont conçus pour répondre à vos besoins en vous offrant une interface compatible et stable.
 - La mise en production des profils intervient quatre fois par an.
 - Trois conventions d’appellation des profils sont utilisées :
     - **le plus récent**  
@@ -67,17 +67,11 @@ Plutôt que d’effectuer des recherches sur chaque fournisseur de ressources et
 
 Les profils d’API fonctionnent avec des outils qui utilisent Azure Resource Manager, par exemple PowerShell, Azure CLI, le code fourni dans le SDK et Microsoft Visual Studio. Les outils et les SDK peuvent utiliser des profils pour lire la version des modules et des bibliothèques à inclure au moment de créer une application.
 
-**Scénario de développement pour l’utilisation d’un profil**  
-Supposons que vous utilisez PowerShell pour créer :
+Par exemple, si vous utilisez PowerShell pour créer un compte de stockage à l’aide du fournisseur de ressources **Microsoft.Storage** (qui prend en charge la version d’API 2016-03-30) et une machine virtuelle à l’aide du fournisseur de ressources Microsoft.Compute (qui utilise la version d’API 2015-12-01), vous devez rechercher quel module PowerShell prend en charge 2016-03-30 pour Storage et quel module prend en charge 2015-02-01 pour Compute, puis les installer. Pour vous éviter de procéder ainsi, vous pouvez utiliser un profil. Utilisez la cmdlet **Install-Profile *nom du profil***. PowerShell charge alors la bonne version des modules.
 
-* Un compte de stockage qui utilise le fournisseur de ressources **Microsoft.Storage**, lequel prend en charge la version d’API 2016-03-30.
-* Une machine virtuelle qui utilise le fournisseur de ressources **Microsoft.Compute**, lequel prend en charge la version d’API 2015-12-01.
+De même, lorsque vous utilisez le SDK Python pour générer une application basée sur Python, vous pouvez spécifier le profil. Le SDK charge les modules correspondant aux fournisseurs de ressources que vous avez spécifiés dans votre script.
 
-Au lieu de rechercher et d’installer les modules PowerShell qui prennent en charge les versions d’API dont vous avez besoin pour le stockage et le calcul, vous pouvez utiliser un profil. Utilisez l’applet de commande **Install-Profile *nom_profil***. PowerShell charge alors la version appropriée des modules.
-
-De même, si vous utilisez le SDK Python pour générer une application basée sur Python, vous pouvez utiliser un profil. Le SDK charge les modules appropriés pour les fournisseurs de ressources que vous avez spécifiés dans votre script.
-
-En tant que développeur, vous pouvez ainsi vous concentrer sur l’écriture de votre solution. Vous pouvez utiliser un profil, en sachant que votre code fonctionnera sur tous les clouds qui prennent en charge ce profil.
+En tant que développeur, vous pouvez ainsi vous concentrer sur l’écriture de votre solution. Au lieu de rechercher les versions d’API, le fournisseur de ressources et le type de cloud qui fonctionnent ensemble, utilisez un profil. Vous avez ainsi l’assurance que votre code fonctionne dans tous les clouds qui prennent en charge ce profil.
 
 ## <a name="api-profile-code-samples"></a>Exemples de code de profil d’API
 
@@ -90,7 +84,9 @@ Vous pouvez mettre à jour la configuration de votre environnement pour utiliser
 - **GO**  
 Dans le SDK GO, un profil est une combinaison de différents types de ressources dans différentes versions provenant de différents services. Les profils sont disponibles sous les profils/chemin d’accès, leur version étant au format **YYYY-MM-DD**. Pour plus d’informations, consultez [Utiliser des profils de version d’API pour GO](azure-stack-version-profiles-go.md).
 - **Ruby**  
-Le kit SDK Ruby pour le Gestionnaire des ressources Azure Stack fournit des outils pour vous aider à créer et gérer votre infrastructure. Les fournisseurs de ressources du SDK incluent le calcul, les réseaux virtuels et le stockage avec le langage Ruby. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Ruby](azure-stack-version-profiles-ruby.md)
+Le Kit de développement logiciel (SDK) Ruby pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Les fournisseurs de ressources du SDK incluent le calcul, les réseaux virtuels et le stockage avec le langage Ruby. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Ruby](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- Le Kit de développement logiciel (SDK) Python prend en charge les profils de version d’API pour cibler différentes plateformes de cloud telles qu’Azure Stack et Azure globale. Vous pouvez utiliser des profils d’API dans la création de solutions pour un cloud hybride. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

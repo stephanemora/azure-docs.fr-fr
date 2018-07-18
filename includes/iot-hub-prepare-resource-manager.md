@@ -33,7 +33,8 @@ Les étapes suivantes montrent comment configurer l’authentification par mot d
    * **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier dans votre application.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Prenez note de l’ **ApplicationId** de l’application que vous avez créée. Vous en aurez besoin ultérieurement.
 5. Créez un principal de service à l’aide de la commande suivante, en remplaçant **{MyApplicationId}** par **l’ApplicationId** de l’étape précédente :

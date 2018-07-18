@@ -5,20 +5,17 @@ keywords: odbc, pilote odbc
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725089"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -123,7 +120,7 @@ Les étapes suivantes créent un schéma pour les données d’une ou plusieurs 
 Vous pouvez interroger Azure Cosmos DB à partir de SQL Server Management Studio (SSMS) en configurant une connexion à un serveur lié.
 
 1. Créez une source de données système, nommée par exemple `SDS Name`, en suivant les instructions de [l’étape 2](#connect).
-2. [Installez SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [Installez SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et connectez-vous au serveur. 
 3. Dans l’éditeur de requête SSMS, créez un objet de serveur lié `DEMOCOSMOS` pour la source de données avec les commandes suivantes. Remplacez `DEMOCOSMOS` par le nom de votre serveur lié, et `SDS Name` par le nom de votre source de données système.
 
     ```sql

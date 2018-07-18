@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 70dd61758b30c1c7a89374e708fe37c1443d3a2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303145"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904303"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Didacticiel : Utiliser une identité Managed Service Identity de machine virtuelle Linux pour accéder à Azure Data Lake Store
 
@@ -35,7 +35,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour accéder à Azure Data Lake Store
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -183,12 +182,9 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 
 Félicitations ! Vous avez été authentifié auprès du système de fichiers de Data Lake Store à l’aide de la MSI d’une machine virtuelle Linux.
 
-## <a name="related-content"></a>Contenu connexe
+## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Data Lake Store utilise Azure Resource Manager pour les opérations de gestion.  Pour plus d’informations sur l’utilisation d’une MSI pour l’authentification auprès de Resource Manager, consultez l’article [Utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder au Gestionnaire des ressources](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- En savoir plus sur l’[Authentification auprès de Data Lake Store à l’aide de Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- En savoir plus sur les [Opérations de système de fichiers sur Azure Data Lake Store à l’aide d’une API REST](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) ou les [API de système de fichiers WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- En savoir plus sur le [Contrôle d’accès dans Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Dans ce didacticiel, vous avez appris à utiliser une MSI pour une machine virtuelle Linux afin d’accéder à Azure Data Lake Store. Pour en savoir plus sur Azure Data Lake Store, consultez :
 
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

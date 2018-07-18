@@ -11,15 +11,15 @@ ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166104"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959020"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analyser des données Twitter avec Hive et Hadoop sur HDInsight
 
@@ -32,7 +32,7 @@ Découvrez comment utiliser Apache Hive pour traiter des données Twitter. Une l
 
 ## <a name="get-the-data"></a>Obtenir les données
 
-Twitter vous permet de récupérer les [données de chaque tweet](https://dev.twitter.com/docs/platform-objects/tweets) sous la forme d’un document JavaScript Object Notation (JSON) via une API REST. [OAuth](http://oauth.net) est requis pour l'authentification de l'API.
+Twitter vous permet de récupérer les données de chaque tweet sous la forme d’un document JavaScript Object Notation (JSON) via une API REST. [OAuth](http://oauth.net) est requis pour l'authentification de l'API.
 
 ### <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
@@ -337,5 +337,4 @@ Vous avez appris à transformer un jeu de données JSON non structuré en une ta
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

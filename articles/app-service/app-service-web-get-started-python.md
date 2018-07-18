@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 6256ffe9f616ec35f97f792545c72dbb25b3efa6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28979362"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38318321"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Créer une application web Python dans Azure
 
@@ -34,7 +34,7 @@ Vous pouvez suivre les étapes de ce didacticiel en utilisant un ordinateur Mac,
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
 * <a href="https://www.python.org/downloads/" target="_blank">Installez Python</a>
@@ -190,7 +190,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)

@@ -1,6 +1,6 @@
 ---
-title: Using IDENTITY to create surrogate keys - Azure SQL Data Warehouse| Microsoft Docs
-description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Data Warehouse.
+title: Utilisation de la propriété IDENTITY pour créer des clés de substitution - Azure SQL Data Warehouse | Microsoft Docs
+description: Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg-msft
@@ -17,13 +17,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
 ms.locfileid: "31526982"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Using IDENTITY to create surrogate keys in Azure SQL Data Warehouse
-Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Data Warehouse.
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilisation de la propriété IDENTITY pour créer des clés de substitution dans Azure SQL Data Warehouse
+Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.
 
-## <a name="what-is-a-surrogate-key"></a>What is a surrogate key?
-A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
+## <a name="what-is-a-surrogate-key"></a>Qu’est-ce qu’une clé de substitution ?
+Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
 
-## <a name="creating-a-table-with-an-identity-column"></a>Creating a table with an IDENTITY column
+## <a name="creating-a-table-with-an-identity-column"></a>Création d’une table avec une colonne IDENTITY
 La propriété IDENTITY est conçue pour augmenter la taille des instances sur toutes les distributions de l’entrepôt de données sans affecter les performances de chargement. Par conséquent, l’implémentation d’IDENTITY est adaptée pour atteindre ces objectifs. 
 
 Vous pouvez définir une table ayant la propriété IDENTITY lorsque vous créez la table à l’aide d’une syntaxe similaire à l’instruction suivante :
@@ -42,7 +42,7 @@ WITH
 
 Vous pouvez ensuite utiliser `INSERT..SELECT` pour remplir la table.
 
-This remainder of this section highlights the nuances of the implementation to help you understand them more fully.  
+Le reste de cette section met en évidence les nuances de l’implémentation pour vous aider à mieux les comprendre.  
 
 ### <a name="allocation-of-values"></a>Allocation de valeurs
 La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont alloués, ce qui reflète le comportement de SQL Server et d’Azure SQL Database. Toutefois, dans Azure SQL Data Warehouse, l’absence de garantie est plus marquée. 
@@ -89,7 +89,7 @@ Si l’une de ces conditions est vraie, la colonne est créée comme étant NOT 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 CREATE TABLE AS SELECT (CTAS) suit le même comportement SQL Server que celui documenté pour SELECT..INTO. Toutefois, vous ne pouvez pas spécifier de propriété IDENTITY dans la définition de la colonne de la partie `CREATE TABLE` de l’instruction. Vous ne pouvez pas non plus utiliser la fonction IDENTITY dans la partie `SELECT` de l’instruction CTAS. Pour remplir une table, vous devez utiliser `CREATE TABLE` pour définir la table suivie de l’instruction `INSERT..SELECT`.
 
-## <a name="explicitly-inserting-values-into-an-identity-column"></a>Explicitly inserting values into an IDENTITY column 
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Insérer explicitement des valeurs dans une colonne IDENTITY 
 SQL Data Warehouse prend en charge la syntaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Vous pouvez utiliser cette syntaxe pour insérer explicitement des valeurs dans la colonne IDENTITY.
 
 Nombreux sont les modélisateurs de données à aimer utiliser des valeurs négatives prédéfinies pour certaines lignes dans leurs dimensions. Un exemple est la ligne -1 ou « membre inconnu ». 
@@ -148,16 +148,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> It's not possible to use CREATE TABLE AS SELEC` currently when loading data into a table with an IDENTITY column.
+> Actuellement, il n’est pas possible d’utiliser CREATE TABLE AS SELEC lors du chargement des données dans une table comportant une colonne IDENTITY.
 > 
 
-For more information on loading data, see <bpt id="p1">[</bpt>Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse<ept id="p1">](design-elt-data-loading.md)</ept> and  <bpt id="p2">[</bpt>Loading best practices<ept id="p2">](guidance-for-loading-data.md)</ept>.
+Pour plus d’informations sur le chargement de données, consultez [Conception de processus ELT pour Azure SQL Data Warehouse](design-elt-data-loading.md) et [Meilleures pratiques de chargement](guidance-for-loading-data.md).
 
 
 ## <a name="system-views"></a>Vues système
-You can use the <bpt id="p1">[</bpt>sys.identity_columns<ept id="p1">](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql)</ept> catalog view to identify a column that has the IDENTITY property.
+Vous pouvez utiliser la vue de catalogue [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) pour identifier une colonne qui comporte la propriété IDENTITY.
 
-To help you better understand the database schema, this example shows how to integrate sys.identity_column` with other system catalog views:
+Pour vous aider à mieux comprendre la structure de la base de données, cet exemple montre comment intégrer sys.identity_column à d’autres vues du catalogue système :
 
 ```sql
 SELECT  sm.name
@@ -178,10 +178,10 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Limites
-The IDENTITY property can't be used:
-- When the column data type is not INT or BIGINT
-- When the column is also the distribution key
-- When the table is an external table 
+La propriété IDENTITY ne peut pas être utilisée :
+- Lorsque le type de données de colonne n’est pas INT ou BIGINT
+- Lorsque la colonne est également la clé de distribution
+- Lorsque la table est une table externe 
 
 Les fonctions associées suivantes ne sont pas prises en charge dans SQL Data Warehouse :
 
@@ -229,5 +229,5 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* To learn more about developing tables, see the [Table overview][Overview].  
+* Pour en savoir plus sur le développement des tables, consultez la [Vue d’ensemble de la table][Vue d’ensemble].  
 

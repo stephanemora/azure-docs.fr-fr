@@ -16,6 +16,8 @@
   items:
     - name: Ajouter Azure CDN à une application web
       href: cdn-add-to-web-app.md
+    - name: Accéder aux blobs à l’aide d’un domaine personnalisé via HTTPS
+      href: cdn-storage-custom-domain-https.md
     - name: Ajouter un domaine personnalisé
       href: cdn-map-content-to-custom-domain.md
     - name: Configurer le protocole HTTPS pour un domaine personnalisé
@@ -34,6 +36,10 @@
       href: cdn-china-delivery.md
     - name: Assistance HTTP/2
       href: cdn-http2.md
+    - name: Extraire la liste des POP Verizon
+      href: cdn-pop-list-api.md
+    - name: Passer de Standard Verizon à Premium Verizon
+      href: cdn-migrate.md
 - name: Procédures
   items:
     - name: Optimiser le contenu
@@ -85,6 +91,8 @@
           href: cdn-resource-health.md
         - name: Remplacer le comportement à l’aide de règles
           href: cdn-rules-engine.md
+        - name: "Utiliser Traffic\_Manager"
+          href: cdn-traffic-manager.md
     - name: Analyser
       href: cdn-log-analysis.md
       items:

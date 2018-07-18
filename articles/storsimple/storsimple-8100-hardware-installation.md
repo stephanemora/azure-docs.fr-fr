@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743464"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701940"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
 ## <a name="overview"></a>Vue d'ensemble
@@ -157,7 +157,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8100-device"></a>Branchement des câbles de votre appareil StorSimple 8100
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8100.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer le câblage de votre appareil, vous devez disposer des éléments suivants :
 
 * Votre appareil de stockage, complètement déballé et monté en rack.
@@ -246,6 +246,6 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 Votre appareil est désormais branché à l’alimentation, au réseau et au port série. L’étape suivante consiste à configurer le logiciel et à déployer votre appareil.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

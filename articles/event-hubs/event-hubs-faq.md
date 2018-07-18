@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235309"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -30,7 +26,7 @@ Le niveau Standard d’Azure Event Hubs fournit des fonctionnalités supérieure
 * Rétention plus longue des événements
 * Connexions réparties supplémentaires, avec frais supplémentaires pour le dépassement du nombre inclus
 * Plus d’un seul groupe de consommateurs
-* [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Capture](event-hubs-capture-overview.md)
 
 Pour plus d’informations sur les niveaux tarifaires, notamment pour Event Hubs Dedicated, consultez la rubrique [Informations tarifaires pour Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -58,9 +54,10 @@ La fonctionnalité de [majoration automatique](event-hubs-auto-inflate.md) vous 
 Oui, à condition que la totalité des concentrateurs d’événements se trouve dans le même espace de noms.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Quelle est la période de rétention maximale pour les événements ?
-Le niveau Standard des hubs d'événements prend actuellement en charge une période de rétention maximale de 7 jours. Notez que les concentrateurs d’événements ne sont pas destinés à servir de magasin de données permanent. Les périodes de rétention supérieures à 24 heures sont destinées aux scénarios dans lesquels il est utile de pouvoir reproduire un flux d'événements sur les mêmes systèmes ; par exemple, pour tester ou vérifier un nouveau modèle d’apprentissage de machine sur des données existantes. Si vous avez besoin que la rétention des messages dure plus de 7 jours, activez [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dans votre hub d’événements pour en extraire les données et les transférer vers le compte de stockage ou le compte Azure Data Lake Service de votre choix. L’activation de Capture est facturée en fonction de votre unité de débit achetée.
+Le niveau Standard des hubs d'événements prend actuellement en charge une période de rétention maximale de 7 jours. Notez que les concentrateurs d’événements ne sont pas destinés à servir de magasin de données permanent. Les périodes de rétention supérieures à 24 heures sont destinées aux scénarios dans lesquels il est utile de pouvoir reproduire un flux d'événements sur les mêmes systèmes ; par exemple, pour tester ou vérifier un nouveau modèle d’apprentissage de machine sur des données existantes. Si vous avez besoin que la rétention des messages dure plus de 7 jours, activez [Event Hubs Capture](event-hubs-capture-overview.md) dans votre hub d’événements pour en extraire les données et les transférer vers le compte de stockage ou le compte Azure Data Lake Service de votre choix. L’activation de Capture est facturée en fonction des unités de débit achetées.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Où Azure Event Hubs est-il disponible ?
+
 Azure Event Hubs est disponible dans toutes les régions Azure prises en charge. Pour obtenir une liste, visitez la page [Régions Azure](https://azure.microsoft.com/regions/).  
 
 ## <a name="best-practices"></a>Meilleures pratiques
@@ -101,22 +98,27 @@ Capture utilise un compte de stockage que vous fournissez lorsqu’il est activ�
 ## <a name="quotas"></a>Quotas
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Y a-t-il des quotas associés aux Event Hubs ?
+
 Pour obtenir la liste de tous les quotas d’Event Hubs, consultez la page [quotas](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Quelles sont les exceptions générées par Event Hubs et les actions recommandées ?
+
 Pour obtenir la liste des exceptions Event Hubs potentielles, consultez la page [Vue d’ensemble des exceptions](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Journaux de diagnostic
+
 Event Hubs prend en charge deux types de [journaux de diagnostics](event-hubs-diagnostic-logs.md) (journaux d’erreurs Capture et journaux des opérations), qui sont tous deux représentés en json et peuvent être activés via le portail Azure.
 
 ### <a name="support-and-sla"></a>Prise en charge et contrats SLA
+
 Un support technique pour les hubs d'événements est disponible via les [forums de la communauté](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). La gestion de la facturation et des abonnements est fournie gratuitement.
 
 Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) .
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)

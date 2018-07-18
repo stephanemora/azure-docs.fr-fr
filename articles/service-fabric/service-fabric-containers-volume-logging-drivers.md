@@ -12,13 +12,14 @@ ms.devlang: other
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/30/2018
+ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: 2d98cff1a5869091aa81097bbb34da6e525a2ad5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969603"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Pilote de volume Azure Files pour Service Fabric (version préliminaire)
 Le plug-in de volume Azure Files est un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) pour les conteneurs Docker. Ce plug-in de volume Docker est fourni sous la forme d’une application Service Fabric qui peut être déployée sur des clusters Service Fabric. Il vise à fournir des volumes basés sur Azure Files aux autres applications de conteneur Service Fabric qui sont déployées sur le cluster.
@@ -28,20 +29,21 @@ Le plug-in de volume Azure Files est un [plug-in de volume Docker](https://docs.
 >
 
 ## <a name="prerequisites"></a>Prérequis
+* La version Windows du plug-in de volume Azure Files fonctionne sur [Windows Server version 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) ou des systèmes d’exploitation plus récents uniquement. La version Linux du plug-in de volume Azure Files fonctionne sur toutes les versions de système d’exploitation prises en charge par Service Fabric.
 
-* La version Windows du plug-in de volume Azure Files fonctionne sur [Windows Server version 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) ou des systèmes d’exploitation plus récents uniquement. La version Linux du plug-in de volume Azure Files fonctionne sur toutes les versions de système d’exploitation prises en charge par Service Fabric.
+* Le plug-in du volume Azure Files fonctionne uniquement sur Service Fabric version 6.2 ou version plus récente.
 
-* Suivez les instructions de la [documentation Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share) pour créer un partage de fichiers pour l’application de conteneur Service Fabric à utiliser en tant que volume.
+* Suivez les instructions de la [documentation Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) pour créer un partage de fichiers pour l’application de conteneur Service Fabric à utiliser en tant que volume.
 
-* Vous devrez avoir installé [Powershell avec le module Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli).
+* Vous devrez avoir installé [Powershell avec le module Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli).
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Déployer l’application Azure Files pour Service Fabric
 
-L’application Service Fabric qui fournit les volumes pour vos conteneurs peut être téléchargée à partir du [lien](https://aka.ms/sfvolume) suivant. L’application peut être déployée sur le cluster via [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) ou des [API FabricClient](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+L’application Service Fabric qui fournit les volumes pour vos conteneurs peut être téléchargée à partir du [lien](https://aka.ms/sfvolume) suivant. L’application peut être déployée sur le cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) ou des [API FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
-1. À l’aide de la ligne de commande, basculez vers le répertoire racine du package d’application téléchargé. 
+1. À l’aide de la ligne de commande, basculez vers le répertoire racine du package d’application téléchargé.
 
-    ```powershell 
+    ```powershell
     cd .\AzureFilesVolume\
     ```
 
@@ -82,7 +84,7 @@ L’application Service Fabric qui fournit les volumes pour vos conteneurs peut 
 
 > [!NOTE]
 
-> Windows Server 2016 Datacenter ne prend pas en charge le mappage de montages SMB à des conteneurs ([cette fonctionnalité est uniquement prise en charge sur Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Cette contrainte empêche le mappage de volume réseau et les pilotes de volume Azure Files sur les versions antérieures à 1709. 
+> Windows Server 2016 Datacenter ne prend pas en charge le mappage de montages SMB à des conteneurs ([cette fonctionnalité est uniquement prise en charge sur Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Cette contrainte empêche le mappage de volume réseau et les pilotes de volume Azure Files sur les versions antérieures à 1709.
 >   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>Déployer l’application sur un cluster de développement local
@@ -110,7 +112,7 @@ L’extrait de code suivant montre comment spécifier un volume basé sur Azure 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
      <Policies>
-       <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
+       <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
             <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
             <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
@@ -131,9 +133,9 @@ L’extrait de code suivant montre comment spécifier un volume basé sur Azure 
 
 Le nom du pilote du plug-in de volume Azure Files est **sfazurefile**. Cette valeur est définie pour l’attribut **Pilote** de l’élément **Volume** dans le manifeste de l’application.
 
-Dans l’élément **Volume** de l’extrait de code ci-dessus, le plug-in de volume Azure Files requiert les balises suivantes : 
-- **Source** - Désigne le dossier source qui peut être un dossier de la machine virtuelle qui héberge les conteneurs ou un magasin distant persistant
-- **Destination** - Cette balise correspond à l’emplacement auquel est mappé la **Source** dans le conteneur en cours d’exécution. Ainsi, la destination ne peut pas être un emplacement qui existe déjà dans votre conteneur.
+Dans l’élément **Volume** de l’extrait de code ci-dessus, le plug-in de volume Azure Files requiert les balises suivantes :
+- **Source** : il s’agit du nom du volume. L’utilisateur peut choisir n’importe quel nom pour son volume.
+- **Destination** : cette balise correspond à l’emplacement auquel est mappé le volume dans le conteneur en cours d’exécution. Ainsi, la destination ne peut pas être un emplacement qui existe déjà dans votre conteneur.
 
 Comme indiqué dans les éléments **DriverOption** de l’extrait de code ci-dessus, le plug-in de volume Azure Files prend en charge les options de pilote suivantes :
 
@@ -141,10 +143,10 @@ Comme indiqué dans les éléments **DriverOption** de l’extrait de code ci-de
 - **storageAccountName** - Nom du compte de stockage Azure qui contient le partage de fichiers Azure Files
 - **storageAccountKey** - Clé d’accès du compte de stockage Azure qui contient le partage de fichiers Azure Files
 
-Toutes les options de pilote ci-dessus sont requises. 
+Toutes les options de pilote ci-dessus sont requises.
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>À l’aide de votre propre pilote de volume ou de journalisation
-Service Fabric permet également l’utilisation de vos propres pilotes de volume ou de journalisation personnalisés. Si le pilote de volume/journalisation Docker n’est pas installé sur le cluster, vous pouvez l’installer manuellement à l’aide des protocoles RDP/SSH. Vous pouvez effectuer l’installation avec ces protocoles par le biais d’un [script de démarrage de groupe de machines virtuelles identiques](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou d’un [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Service Fabric permet également l’utilisation de vos propres pilotes de [volume](https://docs.docker.com/engine/extend/plugins_volume/) ou de [journalisation](https://docs.docker.com/engine/admin/logging/overview/) personnalisés. Si le pilote de volume/journalisation Docker n’est pas installé sur le cluster, vous pouvez l’installer manuellement à l’aide des protocoles RDP/SSH. Vous pouvez effectuer l’installation avec ces protocoles par le biais d’un [script de démarrage de groupe de machines virtuelles identiques](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou d’un [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Voici un exemple de script permettant d’installer le [pilote de volume Docker pour Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) :
 
@@ -156,10 +158,10 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-Dans vos applications, pour utiliser le pilote de volume ou de journalisation que vous avez installé, vous devez spécifier les valeurs appropriées dans les éléments **Volume** et **LogConfig** sous **ContainerHostPolicies** dans votre manifeste de l’application. 
+Dans vos applications, pour utiliser le pilote de volume ou de journalisation que vous avez installé, vous devez spécifier les valeurs appropriées dans les éléments **Volume** et **LogConfig** sous **ContainerHostPolicies** dans votre manifeste de l’application.
 
 ```xml
-<ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
+<ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
     <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
     <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
     <LogConfig Driver="[YOUR_LOG_DRIVER]" >
@@ -173,8 +175,18 @@ Dans vos applications, pour utiliser le pilote de volume ou de journalisation qu
 </ContainerHostPolicies>
 ```
 
+Quand vous spécifiez un plug-in de volume, Service Fabric crée automatiquement le volume à l’aide des paramètres spécifiés. La balise **Source** pour l’élément **Volume** est le nom du volume, et la balise **Driver** spécifie le plug-in de pilote de volume. La balise **Destination** correspond à l’emplacement auquel est mappé la **Source** dans le conteneur en cours d’exécution. Ainsi, la destination ne peut pas être un emplacement qui existe déjà dans votre conteneur. Vous pouvez spécifier les options à l’aide de la balise **DriverOption** comme suit :
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+Les paramètres d’application sont pris en charge pour les volumes comme indiqué dans l’extrait de code de manifeste précédent (recherchez `MyStorageVar` pour obtenir un exemple d’utilisation).
+
+Si un pilote de journalisation Docker est spécifié, vous devez déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster. Vous pouvez utiliser la balise **DriverOption** pour spécifier des options pour le pilote de journal.
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour voir des exemples de conteneur, y compris le pilote de volume, consultez les [exemples de conteneur Service Fabric](https://github.com/Azure-Samples/service-fabric-containers).
 * Pour déployer des conteneurs sur un cluster Service Fabric, consultez l’article [Déployer un conteneur sur Service Fabric](service-fabric-deploy-container.md).
-
-

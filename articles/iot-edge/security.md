@@ -8,23 +8,20 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631426"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030578"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Sécurisation d’Azure IoT Edge - préversion
+# <a name="securing-azure-iot-edge"></a>Sécurisation d’Azure IoT Edge
 
 La sécurisation de la périphérie intelligente (Intelligent Edge) est nécessaire si vous voulez avoir une confiance totale dans le fonctionnement d’une solution IoT de bout en bout. Azure IoT Edge est conçu pour une sécurité extensible à différents profils de risque et scénarios de déploiement, et offre la même protection que tous les autres services Azure.
 
 Azure IoT Edge s’exécute sur différents matériels, prend en charge Linux et Windows, et est applicable à différents scénarios de déploiement.  Le risque évalué dépend de nombreuses considérations, notamment la propriété de la solution, la géographie du déploiement, la sensibilité des données, la confidentialité, la verticalité des applications et les conditions de réglementation.  Plutôt que d’offrir des solutions concrètes à des scénarios spécifiques, il est logique de concevoir une infrastructure de sécurité extensible basée sur des principes concrets et conçus pour la mise à l’échelle. 
  
 Cet article fournit une vue d’ensemble de l’infrastructure de sécurité. Pour plus d’informations, consultez [Securing the intelligent edge (Sécurisation de la périphérie intelligente)][lnk-edge-blog].
-
->[!NOTE]
->L’infrastructure de sécurité décrite ci-dessous est en cours d’ajout au produit, et sera disponible lors du lancement de la disponibilité générale d’Azure IoT Edge. Le produit est actuellement en préversion publique, version conçue pour le développement et le prototypage de solutions Edge, et non pour des déploiements de production complets nécessitant toute l’infrastructure de sécurité.   
 
 ## <a name="standards"></a>Standards
 

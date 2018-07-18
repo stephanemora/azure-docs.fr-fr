@@ -3,7 +3,7 @@ title: Gérer des groupes de machines virtuelles identiques à l’aide d’Azur
 description: Des applets de commande Azure PowerShell communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: iainfou
-ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 05/29/2018
+ms.author: cynthn
+ms.openlocfilehash: a300e2f2febab8436f8d52b71955b3614bd10605
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38707440"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gérer un groupe de machines virtuelles identique à l’aide d’Azure PowerShell
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des applets de commande Azure PowerShell courantes qui vous permettent d’effectuer ces tâches.
@@ -36,7 +37,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Afficher les machines virtuelles d’un groupe identique
-Pour afficher une liste d’instances de machine virtuelle dans un groupe identique, utilisez [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). L’exemple suivant répertorie toutes les instances de machine virtuelle dans le groupe identique nommé *myScaleSet* et dans le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs pour ces noms :
+Pour afficher une liste d’instances de machine virtuelle dans un groupe identique, utilisez [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). L’exemple suivant répertorie toutes les instances de machine virtuelle dans le groupe identique nommé *myScaleSet* et dans le groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -60,7 +61,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
 Il faut quelques minutes pour mettre à jour de la capacité de votre groupe identique. Si vous réduisez la capacité d’un groupe identique, les machines virtuelles dont les ID d’instance sont les plus élevés sont supprimées en premier.
@@ -69,7 +70,7 @@ Il faut quelques minutes pour mettre à jour de la capacité de votre groupe ide
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrêter et démarrer des machines virtuelles dans un groupe identique
 Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. Pour arrêter plusieurs machines virtuelles, séparez chaque ID d’instance par une virgule.
 
-L’exemple suivant arrête l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant arrête l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```powershell
 Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -81,27 +82,27 @@ Par défaut, les machines virtuelles arrêtées sont libérées et n’entraîne
 ### <a name="start-vms-in-a-scale-set"></a>Démarrer les machines virtuelles d’un groupe identique
 Pour démarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont démarrées. Pour démarrer plusieurs machines virtuelles, séparez chaque ID d’instance par une virgule.
 
-L’exemple suivant démarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant démarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```powershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
-## <a name="restart-vms-in-a-scale-set"></a>Redémarrer les machines virtuelles d’un groupe identique
+## <a name="restart-vms-in-a-scale-set"></a>Redémarrer des machines virtuelles dans un groupe identique
 Pour redémarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont redémarrées. Pour redémarrer plusieurs machines virtuelles, séparez chaque ID d’instance par une virgule.
 
-L’exemple suivant redémarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant redémarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```powershell
 Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
-## <a name="remove-vms-from-a-scale-set"></a>Supprimer des machines virtuelles à partir d’un groupe identique
+## <a name="remove-vms-from-a-scale-set"></a>Supprimer des machines virtuelles d’un groupe identique
 Pour supprimer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Remove-AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à supprimer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont supprimées. Pour supprimer plusieurs machines virtuelles, séparez chaque ID d’instance par une virgule.
 
-L’exemple suivant supprime l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant supprime l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```powershell
 Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"

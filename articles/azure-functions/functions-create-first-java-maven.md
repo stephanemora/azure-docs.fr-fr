@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: df3c64938cfc5835fd9eb2f0bbed0135b611347f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341519"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Créer votre première fonction dans Azure avec Java et Maven (aperçu)
 
@@ -32,7 +33,6 @@ Ce démarrage rapide vous guide dans la création d’un projet de fonction [san
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour développer une application de fonction avec Java, les éléments suivants doivent être installés :
 
 -  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
@@ -44,23 +44,9 @@ Pour développer une application de fonction avec Java, les éléments suivants 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installer Azure Functions Core Tools
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) fournit un environnement de développement local pour l’écriture, l’exécution et le débogage des fonctions Azure Functions. 
+Azure Functions Core Tools fournit un environnement de développement local pour l’écriture, l’exécution et le débogage des fonctions Azure Functions depuis le terminal ou une invite de commandes. 
 
-Pour procéder à l’installation, consultez la section [Installing](https://github.com/azure/azure-functions-core-tools#installing) (Installation) du projet Azure Functions Core Tools pour connaître les instructions spécifiques à votre système d’exploitation.
-
-Vous pouvez également l’installer manuellement avec [npm](https://www.npmjs.com/), y compris avec [Node.js](https://nodejs.org/), après avoir installé les éléments requis suivants :
-
--  La version la plus récente de [.NET Core](https://www.microsoft.com/net/core).
--  [Node.js](https://nodejs.org/download/) version 8.6 ou ultérieure.
-
-Pour procéder à une installation basée sur npm, exécutez :
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> Si vous avez des difficultés pour installer Azure Functions Core Tools version 2.0, consultez [Runtime de la version 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
+Installez la [version 2 de Core Tools](functions-run-local.md#v2) sur votre ordinateur local avant de continuer.
 
 ## <a name="generate-a-new-functions-project"></a>Générer un nouveau projet Functions
 
@@ -128,7 +114,7 @@ public class Function {
 Accédez au dossier du projet nouvellement créé, puis générez et exécutez la fonction avec Maven :
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -186,7 +172,7 @@ Quand le déploiement est terminé, vous voyez l’URL que vous pouvez utiliser 
 Testez l’application de fonction en cours d’exécution sur Azure avec `cURL`. Vous devez modifier l’URL de l’exemple ci-dessous pour qu’elle corresponde à l’URL déployée de votre application de fonction à l’étape précédente.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output

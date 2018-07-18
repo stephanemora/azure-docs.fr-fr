@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301748"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901226"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutoriel : Utiliser Managed Service Identity sur une machine virtuelle Windows pour accéder au stockage Azure via une clé d’accès
 
@@ -34,7 +34,6 @@ Ce didacticiel vous montre comment activer une identité MSI (Managed Service Id
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer les clés d’accès de stockage à partir du Gestionnaire des ressources 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -197,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="related-content"></a>Contenu connexe
+Dans ce tutoriel, vous avez appris à créer une identité de service managée pour accéder au stockage Azure à l’aide d’une clé d’accès.  Pour en savoir plus sur les clés d’accès du stockage Azure, consultez :
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Pour savoir comment suivre ce didacticiel en utilisant des informations d’identification de stockage SAP, consultez [Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows pour accéder au stockage Azure à l’aide d’informations d’identification SAP](tutorial-windows-vm-access-storage-sas.md).
-- Pour plus d’informations sur la fonctionnalité SAP des comptes de stockage Azure, consultez :
-  - [Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Construction d’un service SAP](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
-
+> [!div class="nextstepaction"]
+>[Gérer vos clés d’accès de stockage](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

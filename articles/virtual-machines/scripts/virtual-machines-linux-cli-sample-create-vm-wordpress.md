@@ -3,7 +3,7 @@ title: Exemple de script Azure CLI - Création d’une machine virtuelle Linux
 description: Exemple de script Azure CLI - Création d’une machine virtuelle Linux avec WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 76b113167690d04af73cce9ffc208090b9c2328f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c543c2357dd31bb06a19c7d53284c65a7ca7299
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653363"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928122"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Créer une machine virtuelle avec Wordpress
 
-Ce script crée une machine virtuelle, puis utilise l’extension du script personnalisé de machine virtuelle Azure pour installer WordPress. Une fois que vous avez exécuté le script, vous pouvez accéder au site de configuration de WordPress à l’adresse `http://<public IP of VM>/wordpress`. 
+Ce script crée une machine virtuelle, puis utilise l’extension du script personnalisé de machine virtuelle Azure pour installer WordPress. Une fois que vous avez exécuté le script, vous pouvez accéder au site de configuration de WordPress à l’adresse `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,11 +35,11 @@ Ce script crée une machine virtuelle, puis utilise l’extension du script pers
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

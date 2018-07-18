@@ -3,18 +3,18 @@ title: Présentation d’Azure IoT Hub | Microsoft Docs
 description: En savoir plus sur Azure IoT Hub. Ce service IoT est conçu pour l’ingestion de données évolutive, la gestion des appareils et la sécurité.
 author: nberdy
 ms.author: nberdy
-ms.date: 04/27/2018
+ms.date: 07/04/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 1d3df8f1f65d02502c11c6d6ef431292efea64e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632354"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860154"
 ---
 # <a name="what-is-azure-iot-hub"></a>Qu’est-ce qu’Azure IoT Hub ?
 
@@ -42,7 +42,7 @@ IoT Hub vous offre un canal de communication sécurisé pour que vos appareils e
 
 ## <a name="route-device-data"></a>Acheminer les données d’appareil
 
-La fonctionnalité de routage de messages intégrée vous offre la possibilité de configurer la distribution ramifiée automatique de messages en fonction de règles :
+La fonctionnalité de routage de messages intégrée vous offre la possibilité de configurer la distribution ramifiée automatique de messages en fonction de règles :
 
 * Utilisez le routage des messages pour contrôler où votre concentrateur envoie les données de télémétrie de l’appareil.
 * Aucuns frais supplémentaires ne sont appliqués pour acheminer les messages vers plusieurs points de terminaison.
@@ -108,4 +108,4 @@ Chaque abonnement Azure a des limites de quota par défaut pour empêcher tout a
 
 Pour tester une solution IoT de bout en bout, consultez les démarrages rapides relatifs à IoT Hub :
 
-* [Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un IoT Hub](iot-hub-get-started.md)
+* [Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un IoT Hub](quickstart-send-telemetry-node.md)

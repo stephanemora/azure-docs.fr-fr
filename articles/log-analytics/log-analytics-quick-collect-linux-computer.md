@@ -3,7 +3,7 @@ title: Collecter des données à partir d’ordinateurs Linux locaux avec Azure 
 description: Découvrez comment déployer l’agent Log Analytics pour Linux et activez la collecte de données à partir de ce système d’exploitation avec Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,16 +15,18 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 30bb21ebd6b19f4cc52e364039b9be8a9a7695e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: na
+ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127167"
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Collecter des données à partir d’un ordinateur Linux hébergé dans votre environnement
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel et d’autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
 
-Afin de comprendre le réseau et la configuration requise pour le déploiement de l’agent Linux, consultez la section traitant de la [configuration requise pour le système d’exploitation Linux](log-analytics-concept-hybrid.md#prerequisites).
+Pour comprendre la configuration prise en charge, consultez la page [Prise en charge des systèmes d’exploitation Linux](log-analytics-concept-hybrid.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

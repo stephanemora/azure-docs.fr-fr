@@ -2,33 +2,31 @@
 title: Didacticiel Kubernetes sur Azure - Mettre à jour l’application
 description: Didacticiel AKS - Mettre à jour une application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934054"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100968"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à jour une application dans Azure Kubernetes Service (AKS)
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Cette mise à jour se fait alors étape par étape, afin que seulement une partie du déploiement soit mise à jour simultanément. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement.
 
-Dans ce didacticiel (le sixième d’une série de huit), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
+Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
 
 > [!div class="checklist"]
 > * Mise à jour du code de l’application frontale
 > * Création d’une image conteneur mise à jour
 > * Envoi (push) de l’image conteneur à Azure Container Registry
 > * Déploiement de l’image conteneur mise à jour
-
-Dans les didacticiels suivants, Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

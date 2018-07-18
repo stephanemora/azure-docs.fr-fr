@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260360"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -32,7 +34,7 @@ Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des i
 La première tâche concerne la détermination des besoins métier de l’entreprise.  Cette opération peut être très étendue et vous risquez de vous éloigner des objectifs si vous n’êtes pas prudent.  Commencez par faire simple, mais prévoyez systématiquement une conception qui prendra en charge et facilitera les modifications ultérieures.  Qu’il s’agisse d’une conception simple ou très complexe, Azure Active Directory est la plateforme Microsoft Identity qui prend en charge Office 365, Microsoft Online Services et les applications cloud.
 
 ## <a name="define-an-integration-strategy"></a>Définir une stratégie d’intégration
-Microsoft possède trois scénarios principaux d’intégration : identités cloud, identités synchronisées et identités fédérées.  Vous devez prévoir d’adopter l’une de ces stratégies d’intégration.  La stratégie que vous choisissez peut varier et les éléments à considérer à l’heure d’en choisir une peuvent inclure le type d’expérience utilisateur que vous souhaitez proposer, le fait de disposer de l’infrastructure existante déjà en place et la rentabilité.  
+Microsoft possède trois scénarios principaux d’intégration : identités cloud, identités synchronisées et identités fédérées.  Vous devez prévoir d’adopter l’une de ces stratégies d’intégration.  La stratégie choisie peut varier. Il peut y avoir différents éléments à considérer : le type d’expérience utilisateur que vous souhaitez proposer, la présence ou non d’une infrastructure existante et la rentabilité notamment.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ Le tableau ci-après vous aide à déterminer les avantages et inconvénients de
 
 | Stratégie | Avantages | Inconvénients |
 | --- | --- | --- |
-| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer localement - Aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
+| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer en local. Pas de matériel supplémentaire requis.<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
 | **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
 | **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
@@ -119,7 +121,7 @@ Lorsque vous définissez une stratégie de synchronisation, la topologie qui est
 
 Scénario de forêts multiples
 
-La topologie Azure AD unique de forêts multiples doit être prise en considération si les éléments suivants sont vrais :
+La topologie Azure AD unique à plusieurs forêts doit être envisagée si les éléments suivants sont vrais :
 
 * Les utilisateurs ont 1 identité uniquement dans toutes les forêts ; la section relative à l’identification unique des utilisateurs ci-dessous décrit cela plus en détail.
 * L’utilisateur s’authentifie à la forêt dans laquelle se trouve son identité.
@@ -149,7 +151,7 @@ Il est possible et pris en charge de connecter une instance locale d’Active Di
 
 **Scénario de filtrage d’une forêt unique**
 
-Pour ce faire, les éléments suivants doivent se vérifier :
+Pour cela, les éléments suivants doivent se vérifier :
 
 * Les serveurs de synchronisation Azure AD Connect doivent être configurés pour le filtrage et ils ont donc chacun un ensemble d’objets mutuellement exclusifs.  Cela est possible, par exemple, en délimitant l’étendue de chaque serveur à un domaine ou à une unité d’organisation spécifique.
 * Un domaine DNS ne peut être inscrit que dans un seul répertoire Azure AD. Les UPN des utilisateurs d’Active Directory local doivent utiliser des espaces de noms distincts.

@@ -1,24 +1,26 @@
 ---
-title: "Conception d’identités hybrides : exigences en matière de gestion de contenu Azure | Microsoft Docs"
-description: "Fournit un aperçu de la façon de déterminer les besoins de gestion de contenu de votre entreprise. Généralement, lorsqu'un utilisateur a son propre appareil, il a peut-être également plusieurs informations d'identification qu’il utilisera en alternance en fonction de l'application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d'identification personnelles et celui créé avec des informations d'identification d’entreprise. Votre solution d'identité doit être en mesure d'interagir avec les services du cloud pour fournir une expérience transparente à l'utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données."
-documentationcenter: 
+title: 'Conception d’identités hybrides : exigences en matière de gestion de contenu Azure | Microsoft Docs'
+description: Fournit un aperçu de la façon de déterminer les besoins de gestion de contenu de votre entreprise. Généralement, lorsqu'un utilisateur a son propre appareil, il a peut-être également plusieurs informations d'identification qu’il utilisera en alternance en fonction de l'application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d'identification personnelles et celui créé avec des informations d'identification d’entreprise. Votre solution d'identité doit être en mesure d'interagir avec les services du cloud pour fournir une expérience transparente à l'utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b414a1e93d5a0f4be5be82011482b492fd9ce378
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800791"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de gestion de contenu pour votre solution d'identité hybride
 La compréhension des exigences de gestion de contenu pour votre entreprise peut affecter directement votre décision quant à la solution identité hybride à utiliser. Avec la prolifération des appareils multiples et la possibilité pour les utilisateurs d'apporter leurs appareils ([BYOD](https://aka.ms/byodcg)), la société doit protéger ses données, mais elle doit également préserver la confidentialité de l'utilisateur. Généralement, lorsqu'un utilisateur a son propre appareil, il a peut-être également plusieurs informations d'identification qu’il utilisera en alternance en fonction de l'application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d'identification personnelles et celui créé avec des informations d'identification d’entreprise. Votre solution d'identité doit être en mesure d'interagir avec les services du cloud pour fournir une expérience transparente à l'utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données. 
@@ -43,7 +45,7 @@ En général, les exigences de gestion de contenu exploitent votre système de g
 Lors de la planification de votre solution d'identité hybride, veillez à ce que les questions suivantes soient traitées en fonction des besoins de votre organisation :
 
 * Votre entreprise a-t-elle mis en place des contrôles de sécurité pour la confidentialité des données ?
-  * Si oui, ces contrôles de sécurité pourront-ils être intégrés dans la solution d'identité hybride que vous vous apprêtez à adopter ?
+  * Si oui, les contrôles de sécurité pourront-ils être intégrés dans la solution d'identité hybride que vous vous apprêtez à adopter ?
 * Votre entreprise utilise-t-elle la classification des données ?
   * Si oui, la solution actuelle pourra-t-elle être intégrée dans la solution d'identité hybride que vous vous apprêtez à adopter ?
 * Votre entreprise a-t-elle actuellement une solution contre la fuite de données ? 

@@ -2,18 +2,19 @@
 title: Guide de démarrage rapide - Création de cluster Kubernetes dans le portail Azure
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans ACS avec le portail Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344472"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -27,11 +28,9 @@ Ce guide de démarrage rapide suppose une compréhension élémentaire des conce
 
 Connectez-vous au portail Azure sur http://portal.azure.com.
 
-
-
 ## <a name="create-aks-cluster"></a>Créer un cluster ACS
 
-Choisissez **Créer une ressource** > recherchez **Kubernetes** > sélectionnez **Azure Kubernetes Service (préversion)** > **Créer**.
+Choisissez **Créer une ressource** > sélectionnez **Service Kubernetes**.
 
 Suivez les étapes sous chaque en-tête du formulaire Créer un cluster AKS.
 
@@ -40,16 +39,16 @@ Suivez les étapes sous chaque en-tête du formulaire Créer un cluster AKS.
 - **AUTHENTIFICATION** : utilisez un principal du service existant ou créez-en un nouveau. Si vous utilisez un nom de principal du service existant, indiquez l’ID client et la clé secrète associés.
 - **ÉCHELLE** : sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé. Sélectionnez également le nombre de nœuds à déployer dans le cluster. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
 
-Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
+Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
 
 ![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-1.png)
 
-Configurez les options de mise en réseau suivantes :
+Configurez les options de mise en réseau suivantes :
 
 - **Routage des applications HTTP** : configure un contrôleur d’entrée intégré en activant la création automatique de noms DNS publics. Pour plus d’informations sur le routage HTTP, voir [DNS et routage HTTP AKS][http-routing].
 - **Configuration réseau** : choisissez entre la configuration réseau de base, à l’aide du plug-in [kubenet][kubenet] de Kubernetes, ou la configuration réseau avancée, avec [Azure CNI][azure-cni]. Pour plus d’informations sur les options de mise en réseau, voir [Vue d’ensemble de la mise en réseau AKS][aks-network].
 
-Sélectionnez **Suivant : Monitoring** lorsque vous avez terminé.
+Sélectionnez **Suivant : Monitoring** lorsque vous avez terminé.
 
 ![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-2.png)
 
@@ -96,7 +95,7 @@ aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
 aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
 ```
 
-## <a name="run-the-application"></a>Exécution de l'application
+## <a name="run-the-application"></a>Exécution de l’application
 
 Les fichiers manifestes Kubernetes définissent un état souhaité pour un cluster, et en particulier les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Parmi eux figurent deux [déploiements Kubernetes][kubernetes-deployment] : un pour la composante frontale d’Azure Vote, l’autre pour une instance Redis. En outre, deux [services Kubernetes][kubernetes-service] sont créés, un service interne pour l’instance Redis et un service externe pour l’accès à l’application Azure Vote à partir d’Internet.
 
@@ -163,10 +162,10 @@ spec:
     app: azure-vote-front
 ```
 
-Utilisez la commande [kubectl create][kubectl-create] pour exécuter l’application.
+Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter l’application.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Output:
@@ -178,7 +177,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Test de l'application
+## <a name="test-the-application"></a>Test de l’application
 
 Lorsque l’application s’exécute, un [service Kubernetes][kubernetes-service] est créé pour exposer l’application à Internet. L’exécution de ce processus peut prendre plusieurs minutes.
 
@@ -235,16 +234,16 @@ Dans ce guide de démarrage rapide, les images de conteneur, créées au préala
 
 Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs.
 
-Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au didacticiel sur le cluster Kubernetes.
+Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Didacticiel ACS][aks-tutorial]
+> [Tutoriel ACS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -254,7 +253,7 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

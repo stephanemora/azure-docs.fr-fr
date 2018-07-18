@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639025"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
@@ -141,7 +142,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
 
 5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)**. Les résultats sont à présent différents, comme l’illustre l’image suivante :
 
-    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault .png)
+    ![Détails de l’erreur moniteur](./media/connection-monitor/vm-monitor-fault.png)
 
     Vous pouvez voir que la colonne d’état contient un point d’exclamation rouge pour l’interface réseau **myvm2529**.
 

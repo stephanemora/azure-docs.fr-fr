@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114959"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -26,7 +27,7 @@ L’environnement ASE (App Service Environment) est un déploiement d’Azure Ap
 
 L’environnement ASE a de nombreuses dépendances externes, décrites dans ce document sur [l’architecture réseau de l’environnement App Service][network]. Normalement, tout le trafic de dépendance sortant de l’ASE doit passer par l’adresse IP virtuelle qui est configurée avec l’ASE. Si vous modifiez le routage du trafic vers ou depuis l’ASE sans tenir compte des informations ci-dessous, votre ASE cessera de fonctionner.
 
-Dans un réseau virtuel Azure, le routage repose sur la correspondance de préfixe la plus longue. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
+Dans un réseau virtuel Azure, le routage repose sur la correspondance de préfixe la plus longue. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
 
 * Itinéraire défini par l’utilisateur (UDR)
 * Itinéraire BGP (lorsque ExpressRoute est utilisé)
@@ -37,6 +38,7 @@ Pour en savoir plus sur le routage dans un réseau virtuel, consultez [Itinérai
 Si vous souhaitez acheminer le trafic sortant de votre environnement ASE vers une autre destination que directement vers Internet, vous pouvez choisir parmi les options suivantes :
 
 * Autoriser votre ASE à avoir un accès direct à Internet
+* Configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP
 * Configurer votre sous-réseau ASE pour qu’il utilise des points de terminaison de service vers Azure SQL et Stockage Azure
 * Ajouter vos propres adresses IP au pare-feu Azure SQL de l’ASE
 
@@ -58,8 +60,22 @@ Si le réseau achemine déjà du trafic en local, vous devez alors créer le sou
 
 ![Accès direct à Internet][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP ## 
+
+Vous pouvez configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP.  Lorsque cela est configuré, l’ASE sera en mesure d’accéder à ses dépendances sans problème.  Toutefois, vous devrez créer des UDR pour permettre à vos applications d’accéder aux ressources locales.
+
+Pour configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP :
+
+* créez un UDR et affectez-le à votre sous-réseau ASE si vous n’en n’avez pas encore.
+* Dans le portail Azure, ouvrez l’interface utilisateur pour la table de routage affectée à votre sous-réseau ASE.  Sélectionnez une configuration.  Désactivez la propagation des itinéraires BGP.  Cliquez sur Enregistrer. La documentation sur la mise hors tension se trouve dans le document [Créer une table de routage][routetable].
+
+Après cela, il se peut qu’il ne soit plus possible d’accéder à vos applications en local. Pour résoudre ce problème, modifiez l’UDR affecté à votre sous-réseau ASE et ajoutez des itinéraires pour vos plages d’adresses locales. Le type de tronçon suivant doit être défini sur Passerelle de réseau virtuel. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configurer votre ASE avec des points de terminaison de service ##
+
+ > [!NOTE]
+   > Les points de terminaison de service avec SQL ne fonctionnent pas avec ASE dans les régions du gouvernement des États-Unis.  Les informations suivantes sont uniquement valides dans les régions publiques Azure.  
 
 Pour acheminer tout le trafic sortant à partir de votre ASE, à l’exception de celui qui est acheminé vers Azure SQL et Stockage Azure, procédez comme suit :
 
@@ -87,9 +103,9 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
 2. Activer des points de terminaison de service avec Stockage Azure pour votre sous-réseau ASE
 
-3. Recherchez les adresses qui seront utilisés pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
+3. Recherchez les adresses qui seront utilisées pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
 
-4. _Pour définir les adresses de sortie dans un environnement App Service existant :_ accédez à resource.azure.com, puis à Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose comme ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
+4. _Pour définir les adresses de sortie dans un environnement App Service existant :_ accédez à resource.azure.com, puis à Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
@@ -141,3 +157,4 @@ Outre la simple interruption de la communication, vous pouvez nuire à votre ASE
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

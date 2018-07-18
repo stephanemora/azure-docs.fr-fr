@@ -1,21 +1,21 @@
 ---
-title: Authentification, abonnement, réinitialisation de mot de passe ASP.NET, Azure Active Directory B2C
+title: Authentification, abonnement et réinitialisation de mot de passe dans Azure Active Directory B2C | Microsoft Docs
 description: Comment créer une application web avec inscription/connexion, modification du profil et réinitialisation du mot de passe à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710404"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Créer une application web ASP.NET avec inscription, connexion, modification du profil et réinitialisation du mot de passe Azure Active Directory B2C
 
@@ -27,7 +27,6 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Créer une stratégie d’inscription/de connexion d’utilisateur, de modification du profil et de réinitialisation du mot de passe pour votre application web
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/).
 - Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.

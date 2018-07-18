@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
 ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799547"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696563"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)
 
@@ -31,7 +31,6 @@ Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios coura
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 

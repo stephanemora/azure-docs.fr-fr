@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012622"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726218"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement
 
@@ -90,7 +90,7 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. Créez un groupe de ressources et un réseau virtuel (Resource Manager). Vous pouvez utiliser l’interface CLI 1.0 ou 2.0 ([installer](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). Dans ce didacticiel, l’interface CLI 2.0 est utilisée pour créer le réseau virtuel (Resource Manager), étant donné que la version 2.0 doit être utilisée pour créer l’homologation. Exécutez le script CLI Batch suivant à partir de votre ordinateur local avec CLI 2.0.4 ou version ultérieure installé. Pour en savoir plus les options d’exécution de scripts CLI Bash sur un client Windows, consultez [Utilisation de l’interface de ligne de commande Azure sur Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez également exécuter le script à l’aide d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton **Try it** dans le script qui suit, ce qui appelle un Cloud Shell vous permettant de vous connecter à votre compte Azure. Pour exécuter le script, cliquez sur le bouton **Copier**, collez le contenu dans votre Cloud Shell, puis appuyez sur `Enter`.
+5. Créez un groupe de ressources et un réseau virtuel (Resource Manager). Vous pouvez utiliser l’interface CLI 1.0 ou 2.0 ([installer](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). Dans ce didacticiel, l’interface CLI 2.0 est utilisée pour créer le réseau virtuel (Resource Manager), étant donné que la version 2.0 doit être utilisée pour créer l’homologation. Exécutez le script CLI Batch suivant à partir de votre ordinateur local avec CLI 2.0.4 ou version ultérieure installé. Pour en savoir plus les options d’exécution de scripts CLI Bash sur un client Windows, consultez [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows). Vous pouvez également exécuter le script à l’aide d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton **Try it** dans le script qui suit, ce qui appelle un Cloud Shell vous permettant de vous connecter à votre compte Azure. Pour exécuter le script, cliquez sur le bouton **Copier**, collez le contenu dans votre Cloud Shell, puis appuyez sur `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash

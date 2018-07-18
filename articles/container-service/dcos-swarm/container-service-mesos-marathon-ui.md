@@ -2,19 +2,19 @@
 title: Gérer le cluster DC/OS Azure avec l’interface utilisateur Marathon
 description: Déployez des conteneurs dans un cluster Azure Container Service à l’aide de l’interface utilisateur web Marathon.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166981"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903079"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gérer un cluster de contrôleur de domaine/système d’exploitation Azure Container Service via l’interface utilisateur web Marathon
 
@@ -24,7 +24,6 @@ Bien qu’il existe des frameworks pour de nombreuses charges de travail courant
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 
 * [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)

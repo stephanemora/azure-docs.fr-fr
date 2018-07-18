@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160019"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860018"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -47,7 +47,6 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 * utiliser le service de File d'attente Azure pour la communication entre tiers.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
 Vous pouvez exécuter l’application localement sans abonnement Azure, mais il vous en faut un pour déployer l’application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -104,7 +103,7 @@ Vous avez exécuté l'application intégralement sur l'ordinateur local, sans co
 
 Dans la section suivante, vous allez configurer la solution pour utiliser les ressources de cloud Azure pour les files d'attente, les objets blob et la base de données d'application lorsqu'elle est exécutée dans le cloud. Si vous souhaitiez continuer à l’exécuter localement, mais utiliser des ressources de stockage cloud et de base de données, vous pourriez le faire. Il suffit de définir des chaînes de connexion, ce que nous allez apprendre à faire.
 
-## <a name="deploy-the-application-to-azure"></a>Déploiement de l'application dans Azure
+## <a name="deploy-the-application-to-azure"></a>Déploiement de l’application dans Azure
 Pour exécuter l'application dans le cloud, procédez comme suit :
 
 * Créez un service cloud Azure.
@@ -179,7 +178,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
     Lorsque le service cloud et le compte de stockage se trouvent dans des centres de données différents (différentes régions), la latence augmente et la bande passante en dehors du centre de données vous est facturée, alors qu'elle est gratuite dans un centre de données.
 
-    Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Cliquez sur **Créer**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -292,7 +291,7 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    Les paramètres par défaut sous l'onglet **Advanced** conviennent pour ce didacticiel. Pour plus d'informations sur l'onglet avancé, consultez la rubrique [Assistant Publication d'application Azure](http://msdn.microsoft.com/library/hh535756.aspx).
+    Les paramètres par défaut sous l'onglet **Advanced** conviennent pour ce didacticiel. Pour plus d'informations sur l'onglet avancé, consultez la rubrique [Assistant Publication d'application Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. À l’étape **Résumé**, cliquez sur **Publier**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)

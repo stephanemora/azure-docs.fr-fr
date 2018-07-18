@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360085"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939918"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -57,7 +57,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client :
 
   * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
-  * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. Le service doit activer la possibilité de déplacer des ressources. Cet article répertorie les services permettant de déplacer des ressources et les services qui ne le permettent pas.
 3. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource.
@@ -93,6 +93,10 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sur le groupe de ressources source.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** sur le groupe de ressources de destination.
 
+5. Avant de déplacer les ressources, vérifiez les quotas d’abonnement pour l’abonnement vers lequel vous souhaitez déplacer les ressources. Si le déplacement des ressources signifie que l’abonnement dépassera ses limites, vous devez vérifier si vous pouvez demander une augmentation du quota. Pour connaître la liste des limites et savoir comment demander une augmentation, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+
+5. Quand c’est possible, divisez les grands déplacements en opérations de déplacement distinctes. Resource Manager met immédiatement en échec les tentatives de déplacement de plus de 800 ressources en une seule opération. Cependant, un déplacement de moins de 800 ressources peut également échouer en raison d’un dépassement du délai d’expiration.
+
 ## <a name="when-to-call-support"></a>Quand appeler le support technique
 
 Vous pouvez déplacer la plupart des ressources via les opérations en libre-service présentées dans cet article. Utilisez les opérations en libre-service pour :
@@ -113,6 +117,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Applications App Service (applications web) : consultez [Limitations d’App Service](#app-service-limitations)
 * App Service Certificates
 * Application Insights
+* Analysis Services
 * Automatisation
 * Azure Cosmos DB
 * Azure Relay
@@ -123,7 +128,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory : la version V1 peut être déplacée, mais le déplacement de la version V2 (préversion) n’est pas pris en charge.
+* Data Factory : la version V1 peut être déplacée, mais le déplacement de la version V2 (préversion) n’est pas pris en charge
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -151,9 +156,10 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Stockage
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Stream Analytics - Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
-* Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure SQL Data Warehouse. 
+* Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure SQL Data Warehouse.
+* Time Series Insights
 * Traffic Manager
-* Machines virtuelles : les machines virtuelles avec des disques gérés ne peuvent pas être déplacées. Voir [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
+* Machines virtuelles : les machines virtuelles avec des disques managés ne peuvent pas être déplacées. Voir [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Groupes identiques de machines virtuelles : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Réseaux virtuels : consultez [Limitations relatives aux réseaux virtuels](#virtual-networks-limitations)
@@ -172,6 +178,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Azure Migrate
 * BizTalk Services
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
+* Service de conteneur
 * Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
 * ExpressRoute
@@ -187,7 +194,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 
 ## <a name="virtual-machines-limitations"></a>Limitations relatives aux machines virtuelles
 
-Les disques gérés ne prennent pas en charge le déplacement. Cette restriction signifie également que plusieurs ressources associées ne peuvent pas être déplacées. Vous ne pouvez pas déplacer les éléments suivants :
+Les disques managés ne prennent pas en charge le déplacement. Cette restriction signifie également que plusieurs ressources associées ne peuvent pas être déplacées. Vous ne pouvez pas déplacer :
 
 * Disques gérés
 * Machines virtuelles avec des disques gérés
@@ -375,7 +382,7 @@ Dans **Notifications**, vous voyez que l’opération de déplacement est en cou
 
 ![afficher l’état du déplacement](./media/resource-group-move-resources/show-status.png)
 
-Lorsqu’elle est terminée, vous êtes informé du résultat.
+Lorsque l’opération est terminée, vous êtes informé du résultat.
 
 ![afficher les résultats du déplacement](./media/resource-group-move-resources/show-result.png)
 

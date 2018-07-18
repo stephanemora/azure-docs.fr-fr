@@ -3,7 +3,7 @@ title: Utiliser une machine virtuelle de dépannage Linux avec Azure CLI 2.0 |
 description: Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0.
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
+authors: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
-ms.author: iainfou
-ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: cynthn
+ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271484"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931393"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0
-Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure CLI 2.0 pour connecter votre disque dur virtuel à une autre machine virtuelle Linux afin de corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure CLI 2.0 pour connecter votre disque dur virtuel à une autre machine virtuelle Linux afin de corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. 
 
 
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
@@ -167,7 +167,7 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
 ## <a name="create-vm-from-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
 Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). Le véritable modèle JSON se trouve sur le lien suivant :
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 Le modèle déploie une machine virtuelle à l’aide de l’URI du disque dur virtuel, à partir de la commande précédente. Déployez ensuite le modèle avec la commande [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Indiquez l’URI de votre disque dur virtuel d’origine, puis spécifiez le type de système d’exploitation, la taille de la machine virtuelle et son nom, comme suit :
 

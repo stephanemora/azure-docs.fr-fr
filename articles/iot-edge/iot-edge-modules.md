@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630834"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029088"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Présentation des modules Azure IoT Edge - préversion
+# <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
 Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de *modules*. Les modules Azure IoT Edge sont la plus petite unité de calcul gérée par IoT Edge. Ils peuvent contenir des services Azure (par exemple Azure Stream Analytics) ou votre propre code spécifique à la solution. Pour comprendre comment les modules sont développés, déployés et gérés, considérez les quatre éléments conceptuels qui composent un module :
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>Fonctionnalités hors ligne
+
+Azure IoT Edge prend en charge les opérations hors connexion sur vos appareils IoT Edge. Ces fonctionnalités étant limitées pour le moment, des scénarios supplémentaires sont en cours de développement. 
+
+Les modules IoT Edge peuvent être hors connexion pendant de longues périodes, sous réserve que les conditions suivantes soient remplies : 
+
+* **La durée de vie (TTL) des messages n’est pas arrivée à expiration**. La valeur par défaut de la durée de vie des messages est de deux heures, mais elle peut être augmentée ou diminuée dans la configuration du Store et des transferts dans les paramètres du hub IoT Edge. 
+* **Les modules n’ont pas besoin de se réauthentifier auprès du hub IoT Edge en mode hors connexion**. Les modules ne peuvent s’authentifier qu’auprès des hubs Edge qui ont une connexion active à un hub IoT. Les modules doivent se réauthentifier s’ils sont redémarrés pour une raison quelconque. Les modules peuvent toujours envoyer des messages au hub Edge après l’expiration de leur jeton SAP. Quand la connectivité est rétablie, le hub Edge demande un nouveau jeton au module et le valide auprès du hub IoT. En cas de réussite, le hub Edge transfère les messages de module qu’il a stockés, même les messages qui ont été envoyés alors que le jeton du module avait expiré. 
+* **Le module qui a envoyé les messages en mode hors connexion est toujours opérationnel quand la connectivité est rétablie**. Au moment de la reconnexion à IoT Hub, le hub Edge doit valider un nouveau jeton de module (si le précédent est arrivé à expiration) pour pouvoir transférer les messages de module. Si le module n’est pas en mesure de fournir un nouveau jeton, le hub Edge ne peut pas agir sur les messages stockés du module. 
+* **Le hub Edge dispose d’un espace disque pour stocker les messages**. Par défaut, les messages sont stockés dans le système de fichiers du conteneur du hub Edge. Si vous préférez, vous pouvez utiliser une option de configuration qui permet de spécifier un volume monté sur lequel stocker les messages. Dans les deux cas, un espace doit être disponible pour stocker les messages en vue de leur remise différée à IoT Hub.  
 
 ## <a name="next-steps"></a>Étapes suivantes
  - [Présentation du runtime Azure IoT Edge et de son architecture][lnk-runtime]

@@ -17,11 +17,11 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 05ad567e407a6506222acdb66ab38c4cfab76e4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282570"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602550"
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Créer une fonction déclenchée par un webhook GitHub
 
@@ -30,7 +30,6 @@ Apprenez à créer une fonction qui est déclenchée par une demande webhook HTT
 ![Fonction webhook GitHub déclenchée dans le Portail Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 + Un compte GitHub avec au moins un projet.
 + Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -105,7 +104,7 @@ Ensuite, vous créez le webhook dans votre référentiel GitHub.
 
      ![Afficher le commentaire textuel dans les journaux.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

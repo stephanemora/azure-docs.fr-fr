@@ -1,13 +1,14 @@
 ---
-title: "Microsoft Graph pour Azure Active Directory Identity Protection | Microsoft Docs"
-description: "Découvrez comment interroger Microsoft Graph pour obtenir une liste d’événements à risque et des informations associées à partir d’Azure Active Directory."
+title: Microsoft Graph pour Azure Active Directory Identity Protection | Microsoft Docs
+description: Découvrez comment interroger Microsoft Graph pour obtenir une liste d’événements à risque et des informations associées à partir d’Azure Active Directory.
 services: active-directory
-keywords: "azure active directory identity protection, événement à risque, vulnérabilité, stratégie de sécurité, Microsoft Graph"
-documentationcenter: 
+keywords: azure active directory identity protection, événement à risque, vulnérabilité, stratégie de sécurité, Microsoft Graph
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c59285fbb2c81e5e20d28171abfe806bd51122
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713199"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 Microsoft Graph est le point de terminaison d’API unifiée de Microsoft et accueille également les API [d’Azure Active Directory Identity Protection](active-directory-identityprotection.md). La première API, **identityRiskEvents**, vous permet d’interroger Microsoft Graph pour obtenir une liste [d’événements à risque](active-directory-identityprotection-risk-events-types.md) et des informations associées. Cet article vous permet de vous familiariser avec l’interrogation de cette API. Pour des informations détaillées ainsi qu’un accès à l’explorateur de Graph, consultez le [site de Microsoft Graph](https://graph.microsoft.io/).
@@ -156,7 +158,7 @@ Pour l’authentification, envoyez une demande POST à `https://login.microsoft.
 
 - grant_type : « **client_informationsidentification** »
 
--  resource: “**https://graph.microsoft.com**”
+-  resource : « **https://graph.microsoft.com** »
 
 - client_id : \<votre ID client\>
 

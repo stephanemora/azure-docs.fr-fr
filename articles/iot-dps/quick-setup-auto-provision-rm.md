@@ -3,18 +3,18 @@ title: Configurer Device Provisioning à l’aide d’un modèle Azure Resource 
 description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle'
 author: bryanla
 ms.author: bryanla
-ms.date: 02/26/2018
+ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4ce906e903b4825e698d02cbf8cb2d18581df468
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630287"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36219694"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
@@ -153,7 +153,8 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
                 "iotHubs": [
                     {
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]"
+                        "location": "[parameters('hubLocation')]",
+                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                     }
                 ]
             },
@@ -221,7 +222,8 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
                    "iotHubs": [
                        {
                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]"
+                           "location": "[parameters('hubLocation')]",
+                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                        }
                    ]
                },

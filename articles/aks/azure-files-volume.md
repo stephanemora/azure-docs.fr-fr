@@ -2,19 +2,19 @@
 title: Utiliser Azure Files avec AKS
 description: Utiliser des disques Azure avec AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e0e62d37fbcc8f296deaee8e0f6658c0f72321ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0479e4d80b7490db170255d47ef3190bb744d2d8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934612"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901491"
 ---
 # <a name="volumes-with-azure-files"></a>Volumes avec fichiers Azure
 
@@ -52,7 +52,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 # Echo storage account name and key
 echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
-echo Storgae account key: $STORAGE_KEY
+echo Storage account key: $STORAGE_KEY
 ```
 
 ## <a name="create-kubernetes-secret"></a>Créer une clé secrète Kubernetes

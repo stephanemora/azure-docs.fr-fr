@@ -18,6 +18,7 @@
 ### [Mettre à niveau à partir d’une version antérieure](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Effectuer l’installation à l’aide d’une base de données ADSync existante](active-directory-aadconnect-existing-database.md)
 ### [Effectuer l’installation à l’aide d’autorisations administrateur déléguées SQL](active-directory-aadconnect-sql-delegation.md)
+### [Déplacer la base de données Azure AD Connect vers un serveur SQL distant](active-directory-aadconnect-move-db.md)
 
 # Procédures
 ## Planifier et concevoir
@@ -46,7 +47,6 @@
 ##### [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Comment cela fonctionne-t-il ?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Mise à niveau des agents d’évaluation](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
-##### [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Forum Aux Questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Résolution des problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Présentation approfondie de Sécurité](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)

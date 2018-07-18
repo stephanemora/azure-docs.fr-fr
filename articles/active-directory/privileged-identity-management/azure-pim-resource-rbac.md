@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: f8eb574a98294b2858edd2ae36293c2857a50403
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261030"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528618"
 ---
 # <a name="pim-for-azure-resources"></a>PIM pour les ressources Azure
 
@@ -59,7 +59,7 @@ Mes rôles contiennent une liste de vos attributions de rôles actives et éligi
 
 ## <a name="activate-roles"></a>Activer des rôles
 
-L’activation de rôles pour les ressources Azure introduit une nouvelle expérience permettant aux membres du rôle éligible de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique au sein d’un délai maximal (configuré par les administrateurs). En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md).
+L’activation de rôles pour les ressources Azure introduit une nouvelle expérience permettant aux membres du rôle éligible de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique au sein d’un délai maximal (configuré par les administrateurs). En savoir plus sur [l’activation de rôles de Azure AD](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -156,7 +156,7 @@ Sélectionnez Revoir à partir de la barre d’action pour afficher les révisio
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[En savoir plus sur les révisions d’accès](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[En savoir plus sur les révisions d’accès](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Les révisions sont uniquement prises en charge pour les types de ressource d’abonnement à un instant donné.
@@ -196,5 +196,5 @@ Sélectionnez Mes rôles à partir du menu de navigation de gauche et choisissez
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md)
-- En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- En savoir plus sur [l’activation de rôles de Azure AD](pim-how-to-activate-role.md)
 - [Flux de travail d’approbation PIM](azure-ad-pim-approval-workflow.md)

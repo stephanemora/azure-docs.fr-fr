@@ -8,25 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713998"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestion des appareils avec le portail Azure
 
 
 La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. 
 
-Cette rubrique :
+Cet article :
 
 - Suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
 
@@ -185,10 +187,17 @@ Vous pouvez utiliser un ID d’appareil pour vérifier les informations d’ID d
 
 ### <a name="view-or-copy-bitlocker-keys"></a>Afficher ou copier des clés BitLocker
 
-Si vous êtes administrateur, vous pouvez afficher et copier les clés BitLocker pour permettre aux utilisateurs de récupérer leur lecteur chiffré. Ces clés sont uniquement disponibles pour les appareils Windows chiffrés dont les clés sont stockées dans Azure AD. Vous pouvez copier ces clés lorsque vous accédez aux informations de l’appareil.
+Vous pouvez afficher et copier les clés BitLocker pour permettre aux utilisateurs de récupérer leur lecteur chiffré. Ces clés sont uniquement disponibles pour les appareils Windows chiffrés dont les clés sont stockées dans Azure AD. Vous pouvez copier ces clés lorsque vous accédez aux informations de l’appareil.
  
 ![Afficher les clés BitLocker](./media/device-management-azure-portal/36.png)
 
+Pour afficher ou copier les clés BitLocker, vous devez être le propriétaire de l’appareil ou un utilisateur possédant au moins l’un des rôles suivants attribués :
+
+- Administrateurs généraux
+- Administrateurs de support technique
+- Administrateurs de la sécurité
+- Lecteurs Sécurité
+- Administrateurs du service Intune
 
 
 ## <a name="audit-logs"></a>Journaux d’audit

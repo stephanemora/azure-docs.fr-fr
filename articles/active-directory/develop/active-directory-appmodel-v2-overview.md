@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1c91c1ed8358f58ab7a4d9a697ec2d7933c4f137
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155338"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316736"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Utilisateurs de compte de connexion Microsoft et Azure Active Directory dans une application unique
 Auparavant, les développeurs d’application qui souhaitaient prendre en charge à la fois les comptes Microsoft personnels et les comptes professionnels d’Azure Active Directory devait opérer une intégration à deux systèmes distincts. Le point de terminaison Azure Active Directory (Azure AD) v2.0 introduit une nouvelle version d’API d’authentification qui simplifie ce processus. Le point de terminaison Azure AD v2.0 permet une connexion à partir de ces deux types de compte à l’aide d’une intégration unique. Les applications qui utilisent le point de terminaison Azure AD v2.0 peuvent également consommer les API REST à partir de [l’API Microsoft Graph](https://graph.microsoft.io) à l’aide d’un des deux types de compte.

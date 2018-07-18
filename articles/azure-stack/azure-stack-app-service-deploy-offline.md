@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359898"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604282"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
@@ -82,6 +82,12 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
     1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
         - Indiquez votre compte Administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
     2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
+    
+    > [!NOTE]
+    > App Service peut uniquement être déployé sur **l’abonnement Fournisseur par défaut** pour l’instant.  Dans une prochaine mise à jour, App Service se déploiera sur le nouvel abonnement À l’usage introduit dans Azure Stack 1804, et tous les déploiements existants seront également migrés vers ce nouvel abonnement.
+    >
+    >
+    
     3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
     4. Cliquez sur **Suivant**.
 
@@ -97,12 +103,12 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     ![Programme d’installation App Service][5]
 
-9. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+9. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites ou \\\10.0.0.1\websites
 
-> [!NOTE]
-> Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au partage de fichiers et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations du partage de fichiers et continuez si elles sont correctes.
->
->
+    > [!NOTE]
+    > Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au partage de fichiers et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations du partage de fichiers et continuez si elles sont correctes.
+    >
+    >
 
    ![Programme d’installation App Service][8]
 
@@ -129,10 +135,10 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
 12. Entrez les détails SQL Server de l’instance de serveur utilisée pour héberger les bases de données du fournisseur de ressources App Service, puis cliquez sur **Suivant**. Le programme d’installation valide les propriétés de connexion SQL. Vous **devez** entrer l’adresse IP interne ou le nom de domaine complet comme nom de serveur SQL Server.
 
-> [!NOTE]
-> Le programme d’installation tente de tester la connectivité au serveur SQL Server avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au serveur SQL Server et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations SQL Server et continuez si elles sont correctes.
->
->
+    > [!NOTE]
+    > Le programme d’installation tente de tester la connectivité au serveur SQL Server avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au serveur SQL Server et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations SQL Server et continuez si elles sont correctes.
+    >
+    >
    
    ![Programme d’installation App Service][12]
 

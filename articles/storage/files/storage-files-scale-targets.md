@@ -1,10 +1,10 @@
 ---
-title: "Objectifs de performance et d’extensibilité d'Azure Files | Microsoft Docs"
-description: "Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Files, y compris la capacité, le taux de demandes et les limites de bande passante entrante et sortante."
+title: Objectifs de performance et d’extensibilité d'Azure Files | Microsoft Docs
+description: Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Files, y compris la capacité, le taux de demandes et les limites de bande passante entrante et sortante.
 services: storage
 documentationcenter: na
 author: wmgries
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.service: storage
 ms.devlang: na
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 381e96a0a777415b916e4093fe55aa0d355782a1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: beb3e5caf8c8dce9b2ea06bbd0a2ea5a4e05a714
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738072"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync (préversion).
@@ -32,7 +33,7 @@ La ressource parente d’un partage de fichiers Azure est un compte de stockage 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> L’utilisation d'un compte de stockage à partir d’autres services de stockage affecte les partages de fichiers Azure dans votre compte de stockage. Par exemple, si vous atteignez la capacité de compte de stockage maximale avec un stockage Azure Blob, vous ne pourrez plus créer des fichiers sur votre partage de fichiers Azure même si sa taille est inférieure à la taille maximale de partage.
+> L’utilisation d’un compte de stockage provenant d’autres services de stockage affecte les partages de fichiers Azure dans votre compte de stockage. Par exemple, si vous atteignez la capacité de compte de stockage maximale avec un stockage Blob Azure, vous ne pouvez plus créer de fichiers sur votre partage de fichiers Azure, même si sa taille est inférieure à la taille maximale de partage.
 
 ## <a name="azure-files-scale-targets"></a>Objectifs de mise à l’échelle Azure Files
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
@@ -41,6 +42,49 @@ La ressource parente d’un partage de fichiers Azure est un compte de stockage 
 Avec Azure File Sync, nous nous sommes efforcés de proposer un usage illimité, mais cela n’est pas toujours possible. Le tableau ci-dessous indique les limites de nos tests et les limites matérielles de nos objectifs :
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+### <a name="azure-file-sync-performance-metrics"></a>Métriques de performances Azure File Sync
+Comme l’agent Azure File Sync s’exécute sur une machine Windows Server qui se connecte aux partages de fichiers Azure, les performances de synchronisation dépendent de plusieurs facteurs dans votre infrastructure : la configuration de Windows Server et des disques sous-jacents, la bande passante réseau entre le serveur et le stockage Azure, la taille de fichier, la taille totale du jeu de données et l’activité sur le jeu de données. Comme Azure File Sync fonctionne au niveau du fichier, les caractéristiques de performances d’une solution Azure File Sync est exprimée de façon optimale en nombre d’objets (fichiers et répertoires) traités par seconde. 
+ 
+Pour Azure File Sync, les performances sont essentielles dans deux phases :
+1. **Provisionnement initial unique** : Pour optimiser les performances au moment du provisionnement initial, consultez [Intégrer Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) pour plus d’informations sur un déploiement optimal.
+2. **Synchronisation continue** : Une fois que les données sont initialement provisionnées dans les partages de fichiers Azure, Azure File Sync synchronise plusieurs points de terminaison.
+
+Pour vous aider à planifier votre déploiement pour chacune des phases, voici les résultats observés durant le test interne sur un système avec une configuration
+| Configuration système |  |
+|-|-|
+| UC | 64 cœurs virtuels avec cache L3 64 MiB |
+| Mémoire | 128 Go |
+| Disque | Disques SAS avec RAID 10 et cache protégé par batterie |
+| Réseau | Réseau 1 Gbit/s |
+| Charge de travail | Serveur de fichiers à usage général|
+
+| Provisionnement initial unique  |  |
+|-|-|
+| Nombre d’objets | 10 millions d’objets | 
+| Taille du jeu de données| ~4 TiB |
+| Taille de fichier moyenne | ~500 KiB (plus gros fichier : 100 GiB) |
+| Débit de chargement | 15 objets par seconde |
+| Débit de téléchargement d’espace de noms* | 350 objets par seconde |
+ 
+*Quand un point de terminaison de serveur est créé, l’agent Azure File Sync ne télécharge pas le contenu du fichier. Il synchronise d’abord l’espace de noms complet, puis déclenche un rappel en arrière-plan pour télécharger les fichiers dans leur intégralité ou, si la hiérarchisation cloud est activée, sur la stratégie de hiérarchisation de cloud définie sur le point de terminaison.
+
+| Synchronisation continue  |   |
+|-|--|
+| Nombre d’objets synchronisés| 125 000 objets (variation ~1 %) | 
+| Taille du jeu de données| 50 GiB |
+| Taille de fichier moyenne | ~500 KiB (plus gros fichier : 100 GiB) |
+| Débit de chargement | 20 objets par seconde |
+| Débit de téléchargement complet* | 30 objets par seconde |
+ 
+Si la hiérarchisation cloud est activée, vous devez avoir de meilleures performances, car seules certaines données de fichier sont téléchargées. Azure File Sync télécharge uniquement les données des fichiers mis en cache quand elles changent sur un point de terminaison. Pour les fichiers hiérarchisés ou nouvellement créés, l’agent ne télécharge pas les données de fichier et, à la place, synchronise uniquement l’espace de noms sur tous les points de terminaison de serveur. L’agent prend également en charge les téléchargements partiels de fichiers hiérarchisés à mesure qu’ils sont consultés par l’utilisateur. 
+ 
+> [!Note]  
+> Les nombres ci-dessus ne sont pas une indication des performances que vous allez rencontrer. Les performances réelles dépendent de plusieurs facteurs comme indiqué au début de cette section.
+
+En règle générale pour votre déploiement, gardez ces quelques points à l’esprit :
+- Le débit d’objets est proportionnel au nombre de groupes de synchronisation sur le serveur. Si vous fractionnez les données en plusieurs groupes de synchronisation sur un serveur, vous obtenez un meilleur débit qui est également limité par le serveur et le réseau.
+- Le débit d’objets est inversement proportionnel au débit de MiB par seconde. Pour les plus petits fichiers, le débit est plus élevé en termes de nombre d’objets traités par seconde, mais inférieur en termes de MiB par seconde. À l’inverse, pour les plus gros fichiers, moins d’objets sont traités par seconde, mais le débit de MiB par seconde est supérieur. Le débit de MiB par seconde est limité par les objectifs d’échelle d’Azure Files. 
 
 ## <a name="see-also"></a>Voir aussi
 - [Planification d’un déploiement Azure Files](storage-files-planning.md)

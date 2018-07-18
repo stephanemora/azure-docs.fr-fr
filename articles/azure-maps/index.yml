@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/07/2018
   ms.author: philmea
-  ms.openlocfilehash: 2d7820649a4b1123a78d70a720ae58a0e1898407
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.openlocfilehash: 9e9f0020ce52a5bd75e15ab333ed367244016e11
+  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34600100"
+  ms.lasthandoff: 06/22/2018
+  ms.locfileid: "36317518"
 abstract:
   description: Azure Maps dote les développeurs de tous les secteurs de puissantes fonctionnalités géospatiales, avec des données de mappage actualisées nécessaires pour fournir un contexte géographique aux applications mobiles et web. Ce service est un jeu d’API REST conforme à l’API Azure One et s’accompagne d’un contrôle JavaScript web permettant un développement aisé, flexible et portable sur plusieurs supports.
 sections:
@@ -51,4 +51,4 @@ sections:
     - title: JavaScript
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Commandes de la carte</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/renderservice">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/routeservice">Service d’itinéraire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/searchservice">Service de recherche</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezoneservice">Service de fuseau horaire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/trafficservice">Traffic Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Gestion de compte Maps</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Service d’itinéraire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Service de recherche</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Service de fuseau horaire</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Gestion de compte Maps</a></p>

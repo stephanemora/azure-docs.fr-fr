@@ -3,7 +3,7 @@ title: Exemple de script Azure CLI - Installation d’IIS | Microsoft Docs
 description: Exemple de script Azure CLI - Installation d’IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
-ms.author: nepeters
-ms.openlocfilehash: 691c04d002b345b532bc5d5a37ce7d8f1dcab124
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cynthn
+ms.openlocfilehash: b6685aebc23cd50729fd39304b6330ff947a5ba8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654264"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932821"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Créer rapidement une machine virtuelle avec l’interface Azure CLI
 
@@ -34,11 +34,11 @@ Ce script crée une machine virtuelle Azure exécutant Windows Server 2016, pui
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

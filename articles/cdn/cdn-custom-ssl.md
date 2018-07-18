@@ -12,28 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258430"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342223"
 ---
-# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Azure CDN
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
 > [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible avec les produits **Azure CDN Standard fourni par Akamai**. Pour comparer les fonctionnalités du CDN, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-features.md).
+> Cette fonctionnalité n’est pas disponible avec les produits **Azure CDN Standard fourni par Akamai**. Pour une comparaison des fonctionnalités d’Azure Content Delivery Network (CDN), consultez [Comparaison des fonctionnalités d’Azure CDN](cdn-features.md).
 
-Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à un point de terminaison Azure Content Delivery Network (CDN). En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement SSL lors de l’envoi sur Internet. HTTPS assure la confiance et l’authentification, mais protège également vos applications web contre les attaques. 
+Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à un point de terminaison Azure CDN. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web via HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
 Azure CDN prend en charge HTTPS sur le nom d’hôte d’un point de terminaison CDN par défaut. Par exemple, si vous créez un point de terminaison CDN (tel que https:\//contoso.azureedge.net), HTTPS est automatiquement activé.  
 
 Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisée :
 
-- Aucun coût supplémentaire : l’acquisition ou le renouvellement de certificat n’entraîne aucun coût supplémentaire, tout comme le trafic HTTPS. Vous payez uniquement pour l’acheminement des Go du CDN.
+- Aucun coût supplémentaire : l’acquisition ou le renouvellement de certificat n’entraîne aucun coût supplémentaire, tout comme le trafic HTTPS. Vous payez uniquement pour l’acheminement des Go du CDN.
 
 - Activation simple : l’approvisionnement en un clic est disponible à partir du [portail Azure](https://portal.azure.com). Vous pouvez également utiliser l’API REST ou d’autres outils de développeur pour activer la fonctionnalité.
 
@@ -48,7 +48,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > - désactiver le protocole HTTPS sur votre domaine personnalisé.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez la page[Prise en main d’Azure CDN](cdn-create-new-endpoint.md).
 
@@ -95,7 +94,7 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 > Cette option n’est disponible qu’avec les profils **Azure CDN Standard fournis par Microsoft**. 
 >
  
-Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure CDN utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires.
+Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure CDN utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires. Lorsque vous créez votre certificat SSL, vous devez le créer avec une autorité de certification autorisée (CA). Autrement, si vous utilisez une autorité de certification non autorisée, votre demande sera rejetée. Pour obtenir la liste des autorités de certification autorisées, consultez [Autorités de certification autorisées pour l’activation de protocole HTTPS personnalisé sur Azure CDN](cdn-troubleshoot-allowed-ca.md).
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Préparer votre compte et votre certificat Azure Key Vault
  
@@ -109,7 +108,7 @@ Inscrivez Azure CDN comme application dans Azure Active Directory via PowerShell
 
 1. Si nécessaire, installez [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) dans PowerShell sur votre ordinateur local.
 
-2. Dans PowerShell, exécutez la commande suivante :
+2. Dans PowerShell, exécutez la commande suivante :
 
      `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
@@ -124,9 +123,9 @@ Accordez l’autorisation d’Azure CDN pour accéder aux certificats (secrets) 
 
     ![Créer une stratégie d’accès](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![Paramètres de stratégie d’accès](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. Dans **Sélectionner principal**, recherchez **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, puis choisissez **Microsoft.Azure.Cdn**. Cliquez sur **Sélectionner**.
 
-2. Dans **Sélectionner le principal**, effectuez une recherche, puis sélectionnez **Azure CDN**.
+    ![Paramètres de stratégie d’accès](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. Dans **Autorisations du secret**, sélectionnez **Obtenir** pour autoriser CDN à obtenir et répertorier les certificats. 
 
@@ -178,7 +177,7 @@ Votre enregistrement CNAME doit être au format suivant, où *Nom* est le nom de
 
 Pour plus d’informations sur les enregistrements CNAME, consultez [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records) (Créer l’enregistrement DNS CNAME).
 
-Si le format de votre enregistrement CNAME est correct, DigiCert vérifie automatiquement le nom de votre domaine personnalisé et l’ajoute au certificat de noms SAN (Subject Alternative Names). DigiCert ne vous envoie pas de courrier électronique de vérification, et vous ne devez pas approuver votre requête. Le certificat est valide pendant un an et est automatiquement renouvelé avant son expiration. Passez à [En attente de la propagation](#wait-for-propagation). 
+Si le format de votre enregistrement CNAME est correct, DigiCert vérifie automatiquement le nom de votre domaine personnalisé et crée un certificat dédié pour votre nom de domaine. DigiCert ne vous envoie pas de courrier électronique de vérification, et vous ne devez pas approuver votre requête. Le certificat est valide pendant un an et est automatiquement renouvelé avant son expiration. Passez à [En attente de la propagation](#wait-for-propagation). 
 
 La validation automatique prend généralement quelques minutes. Si vous ne voyez pas votre domaine validé dans l’heure, ouvrez un ticket de support.
 
@@ -201,25 +200,25 @@ webmaster@&lt;votre-nom-de-domaine.com&gt;
 hostmaster@&lt;votre-nom-de-domaine.com&gt;  
 postmaster@&lt;votre-nom-de-domaine.com&gt;  
 
-Au bout de quelques minutes, vous devriez recevoir un e-mail similaire à celui de l’exemple suivant et vous demandant d’approuver la requête. Si vous utilisez un filtre de courrier indésirable, ajoutez admin@digicert.com à sa liste verte. Si vous ne recevez pas d’e-mail dans les 24 heures, contactez le support Microsoft.
+Au bout de quelques minutes, vous devriez recevoir un e-mail similaire à celui de l’exemple suivant et vous demandant d’approuver la requête. Si vous utilisez un filtre de courrier indésirable, ajoutez admin@digicert.com à sa liste verte. Si vous ne recevez pas d’e-mail dans les 24 heures, contactez le support Microsoft.
     
 ![E-mail de validation du domaine](./media/cdn-custom-ssl/domain-validation-email.png)
 
-Lorsque vous cliquez sur le lien d’approbation, vous êtes dirigé vers le formulaire d’approbation en ligne suivant : 
+Lorsque vous cliquez sur le lien d’approbation, vous êtes dirigé vers le formulaire d’approbation en ligne suivant : 
     
 ![Formulaire de validation du domaine](./media/cdn-custom-ssl/domain-validation-form.png)
 
-Suivez les instructions du formulaire ; deux options de vérification vous sont proposées :
+Suivez les instructions du formulaire ; deux options de vérification vous sont proposées :
 
 - Vous pouvez approuver toutes les commandes futures passées par l’intermédiaire du même compte pour le même domaine racine, par exemple contoso.com. Nous vous recommandons cette approche si vous prévoyez d’ajouter des domaines personnalisés pour le même domaine racine.
 
 - Vous pouvez approuver uniquement le nom d’hôte spécifique utilisé dans cette requête. L’approbation supplémentaire est nécessaire pour les demandes suivantes.
 
-Après l’approbation, DigiCert ajoute votre nom de domaine personnalisé au certificat SAN. Le certificat est valide pendant un an et est automatiquement renouvelé avant son expiration.
+Après l’approbation, DigiCert termine la création du certificat pour votre nom de domaine personnalisé. Le certificat est valide pendant un an et est automatiquement renouvelé avant son expiration.
 
 ## <a name="wait-for-propagation"></a>En attente de la propagation
 
-Une fois le nom de domaine validé, l’activation de la fonctionnalité HTTPS sur un domaine personnalisé peut prendre jusqu’à 6 à 8 heures. Quand le processus est terminé, l’état HTTPS personnalisé est défini sur **Activé** dans le portail Azure, et les quatre étapes de l’opération sont marquées comme terminées dans la boîte de dialogue Domaine personnalisé. Votre domaine personnalisé est désormais prêt à utiliser HTTPS.
+Une fois le nom de domaine validé, l’activation de la fonctionnalité HTTPS sur un domaine personnalisé peut prendre jusqu’à 6 à 8 heures. Quand le processus est terminé, l’état HTTPS personnalisé est défini sur **Activé** dans le portail Azure, et les quatre étapes de l’opération sont marquées comme terminées dans la boîte de dialogue Domaine personnalisé. Votre domaine personnalisé est désormais prêt à utiliser HTTPS.
 
 ![Boîte de dialogue de l’activation de HTTPS](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
@@ -229,10 +228,10 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 
 | Étape de l’opération | Détails de la sous-étape de l’opération | 
 | --- | --- |
-| 1 Soumission de la requête | Envoi de la requête |
+| 1 Soumission de la requête | Envoi de la requête |
 | | Votre requête HTTPS est en cours de soumission. |
 | | Votre requête HTTPS a été correctement envoyée. |
-| 2 Validation du domaine | Le domaine est automatiquement validé si l’enregistrement CNAME est mappé au point de terminaison CDN. Sinon, une demande de vérification est envoyée à l’adresse de messagerie répertoriée dans l’enregistrement de l’inscription de votre domaine (inscrit WHOIS). Vérifiez le domaine dès que possible. |
+| 2 Validation du domaine | Le domaine est automatiquement validé si l’enregistrement CNAME est mappé au point de terminaison CDN. Sinon, une demande de vérification est envoyée à l’adresse de messagerie répertoriée dans l’enregistrement de l’inscription de votre domaine (inscrit WHOIS). Vérifiez le domaine dès que possible. |
 | | La propriété du domaine a été correctement validée. |
 | | La requête de validation de la propriété du domaine a expiré ( le client n’a probablement pas répondu dans les 6 jours). Le protocole HTTPS n’est pas activé sur votre domaine. * |
 | | La requête de validation de la propriété du domaine a été rejetée par le client. Le protocole HTTPS n’est pas activé sur votre domaine. * |
@@ -287,19 +286,19 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-1. *Qui est le fournisseur de certificats et quel est le type de certificat utilisé ?*
+1. *Qui est le fournisseur de certificats et quel est le type de certificat utilisé ?*
 
-    Avec **Azure CDN fourni par Verizon**, un certificat SAN (Subject Alternative Names) fourni par DigiCert est utilisé. Un certificat SAN peut sécuriser plusieurs noms de domaine complets avec un certificat. Avec **Azure CDN Standard fourni par Microsoft**, un seul certificat fourni par DigiCert est utilisé.
+    Pour **Azure CDN de Verizon** et **Azure CDN de Microsoft**, un certificat dédié/unique fourni par Digicert est utilisé pour votre domaine personnalisé. 
 
-2. Utilisez-vous le protocole TLS/SSL SNI ou basé sur IP ?
+2. *Utilisez-vous TLS/SSL SNI ou un protocole IP ?*
 
-    **Azure CDN fourni par Verizon** utilise le protocole TLS/SSL basé sur IP. **Azure CDN Standard fourni par Microsoft** utilise le protocole TLS/SSL SNI.
+    **Azure CDN de Verizon** et **Azure CDN Standard de Microsoft** utilisent tous deux TLS/SSL SNI.
 
-3. *Que se passe-t-il si je ne reçois pas l’e-mail de vérification de domaine de DigiCert ?*
+3. *Que se passe-t-il si je ne reçois pas l’e-mail de vérification de domaine de DigiCert ?*
 
     Si vous avez une entrée CNAME pour votre domaine personnalisé qui pointe directement vers le nom d’hôte de votre point de terminaison (et si vous n’utilisez pas le nom de sous-domaine cdnverify), vous ne recevrez pas de courrier électronique de vérification du domaine. La validation se fait automatiquement. Autrement, si vous n’avez pas d’entrée CNAME et si vous n’avez pas reçu d’e-mail dans les 24 heures, contactez le support Microsoft.
 
-4. *Un certificat SAN est-il moins sécurisé qu’un certificat dédié ?*
+4. *Un certificat SAN est-il moins sécurisé qu’un certificat dédié ?*
     
     Un certificat SAN suit les mêmes normes de sécurité et de chiffrement qu’un certificat dédié. Tous les certificats SSL émis utilisent la norme SHA-256 pour une sécurité améliorée du serveur.
 
@@ -311,20 +310,24 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 
     Non, un enregistrement CAA n’est pas requis. Toutefois, si vous en avez un, il doit inclure DigiCert en tant qu’autorité de certification valide.
 
+7. *À compter du 20 juin 2018, Azure CDN de Verizon utilise un certificat dédié avec TLS/SSL SNI par défaut. Que deviennent mes domaines personnalisés qui utilisent un certificat SAN (Subject Alternative Names) et TLS/SSL basé sur IP ?*
+
+    Vos domaines existants seront progressivement migrés vers un certificat unique dans les mois à venir si Microsoft constate que seules des demandes de clients SNI sont effectuées dans votre application. Si Microsoft détecte que certaines demandes de clients non-SNI sont effectuées dans votre application, vos domaines resteront dans le certificat SAN avec TLS/SSL basé sur IP. Dans tous les cas, il n’y aura aucune interruption de votre service ou dans la prise en charge des demandes de vos clients, que ces demandes soient SNI ou non.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> - activer le protocole HTTPS sur votre domaine personnalisé ;
-> - utiliser un certificat géré par le CDN ; 
-> - utiliser votre propre certificat ;
-> - valider le domaine ;
-> - désactiver le protocole HTTPS sur votre domaine personnalisé.
+> - Activer le protocole HTTPS sur votre domaine personnalisé.
+> - Utiliser un certificat géré par le CDN. 
+> - Utiliser votre propre certificat.
+> - Valider le domaine.
+> - Désactiver le protocole HTTPS sur votre domaine personnalisé.
 
-Passez au didacticiel suivant pour apprendre à configurer HTTPS sur votre point de terminaison CDN.
+Passez au tutoriel suivant pour apprendre à configurer HTTPS sur votre point de terminaison CDN.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)
+> [Tutoriel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)
 

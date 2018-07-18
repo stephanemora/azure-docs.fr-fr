@@ -1,32 +1,29 @@
 ---
 title: Schéma d’appareil dans la solution de surveillance à distance - Azure | Microsoft Docs
 description: Cet article décrit le schéma JSON qui définit un appareil simulé dans la solution de surveillance à distance.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627431"
 ---
 # <a name="understand-the-device-model-schema"></a>Comprendre le schéma de modèle d’appareil
 
-Vous pouvez utiliser des appareils simulés dans la solution de surveillance à distance pour en tester le comportement. Lorsque vous déployez la solution de surveillance à distance, une collection d’appareils simulés est provisionnée automatiquement. Vous pouvez personnaliser les appareils simulés existants ou créer les vôtres.
+Vous pouvez utiliser des appareils simulés dans la solution de surveillance à distance pour en tester le comportement. Quand vous déployez la solution de surveillance à distance, une collection d’appareils simulés est provisionnée automatiquement. Vous pouvez personnaliser les appareils simulés existants ou créer les vôtres.
 
 Cet article décrit le schéma de modèle d’appareil qui spécifie les fonctionnalités et le comportement d’un appareil simulé. Le modèle d’appareil est stocké dans un fichier JSON.
 
 Les articles suivants sont associées à l’article en cours :
 
-* [Implémenter le comportement de modèle d’appareil](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) décrit les fichiers JavaScript que vous utilisez pour implémenter le comportement d’un appareil simulé.
+* [Implémenter le comportement de modèle d’appareil](iot-accelerators-remote-monitoring-device-behavior.md) décrit les fichiers JavaScript que vous utilisez pour implémenter le comportement d’un appareil simulé.
 * [Créer un appareil simulé](iot-accelerators-remote-monitoring-test.md) réunit toutes les instructions et vous montre comment déployer un nouveau type d’appareil simulé dans votre solution.
 
 Dans cet article, vous apprendrez comment :
@@ -208,7 +205,7 @@ Un appareil simulé peut répondre aux méthodes cloud-à-appareil appelées à 
 * Définit les méthodes auxquelles l’appareil simulé peut répondre.
 * Identifie le fichier JavaScript qui contient la logique à exécuter.
 
-L’appareil simulé envoie la liste des méthodes qu'il prend en charge à la solution de surveillance à distance.
+L’appareil simulé envoie la liste des méthodes qu’il prend en charge à la solution de surveillance à distance.
 
 Pour plus d’informations sur le fichier JavaScript qui implémente le comportement de l’appareil, consultez [Comprendre le comportement du modèle d’appareil](iot-accelerators-remote-monitoring-device-behavior.md).
 

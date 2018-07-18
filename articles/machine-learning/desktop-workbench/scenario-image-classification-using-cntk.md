@@ -8,16 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850169"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35636852"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
 
@@ -236,7 +236,8 @@ Azure Machine Learning Workbench stocke l’historique de chaque exécution sur 
 Dans la première capture d’écran, l’affinement du réseau de neurones profond conduit à de meilleures précisions que l’apprentissage de la machine à vecteurs de support pour toutes les classes. La deuxième capture d’écran montre toutes les métriques qui font l’objet d’un suivi, ainsi que le classifieur. Ce suivi est effectué dans le script `5_evaluate.py` via l’appel de l’enregistreur d’événements d’Azure Machine Learning Workbench. De plus, le script enregistre également la courbe ROC et la matrice de confusion dans le dossier *outputs*. Ce dossier *outputs* est spécial dans la mesure où son contenu est également suivi par la fonctionnalité d’historique de Workbench. Ainsi, vous pouvez accéder aux fichiers de sortie à tout moment, indépendamment du fait que les copies locales aient été remplacées ou non.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>

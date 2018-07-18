@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606951"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598388"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installer le serveur de sauvegarde Azure v2
 
@@ -47,15 +47,15 @@ Pour mettre à niveau le serveur de sauvegarde v1 vers le serveur de sauvegarde 
 
 3. Dans l’Assistant d’installation du serveur de sauvegarde Microsoft Azure, sous **Installer**, sélectionnez **Serveur Sauvegarde Microsoft Azure**.
 
-  ![Programme d’installation - Sélectionner l’installation](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![Programme d’installation - Sélectionner l’installation](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. Dans la page **Bienvenue**, lisez les avertissements, puis sélectionnez **Suivant**.
 
-  ![Programme d’installation - Page Bienvenue](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![Programme d’installation - Page Bienvenue](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. L’Assistant d’installation effectue des vérifications préalables pour s’assurer que votre environnement peut être mis à niveau. Dans la page **Vérifications des conditions requises**, sélectionnez **Vérifier**.
 
-  ![Programme d’installation - Page Vérifications des conditions requises](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![Programme d’installation - Page Vérifications des conditions requises](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. Votre environnement doit passer les vérifications des conditions requises avec succès. Si votre environnement échoue à ces vérifications, notez les problèmes et corrigez-les. Ensuite, sélectionnez **Revérifier**. Une fois les vérifications des conditions requises passées avec succès, sélectionnez **Suivant**.
 
@@ -63,11 +63,11 @@ Pour mettre à niveau le serveur de sauvegarde v1 vers le serveur de sauvegarde 
 
 7. Dans la page **Paramètres SQL**, sélectionnez l’option appropriée pour votre installation de SQL, puis choisissez **Vérifier et installer**.
 
-  ![Programme d’installation - Page Paramètres SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![Programme d’installation - Page Paramètres SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   Les vérifications peuvent prendre quelques minutes. Une fois les vérifications terminées, cliquez sur **Suivant**.
 
-  ![Programme d’installation - Bouton Vérifier et installer de la page Paramètres SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![Programme d’installation - Bouton Vérifier et installer de la page Paramètres SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. Dans la page **Paramètres d’installation**, apportez les modifications requises à l’emplacement d’installation du serveur de sauvegarde ou à l’emplacement de la zone temporaire. Sélectionnez **Suivant**.
 

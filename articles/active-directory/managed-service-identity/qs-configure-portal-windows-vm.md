@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 62b8504f5c10f338539d263bb231cf96eb405ba6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930338"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901355"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurer l’identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure
 
@@ -34,8 +34,7 @@ Dans cet article, vous allez apprendre à activer et désactiver l’identité a
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md).
+- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md).
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Identité de service gérée lors de la création d’une machine virtuelle Azure

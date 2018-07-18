@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795558"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Prise en main d’Application Insights avec Java dans Eclipse
 Le Kit de développement logiciel (SDK) Application Insights envoie la télémétrie de votre application web Java afin que vous puissiez en analyser les performances et l’utilisation. Le plug-in Eclipse pour Application Insights installe automatiquement le Kit de développement logiciel (SDK) dans votre projet pour pouvoir bénéficier de la télémétrie de base, plus une API avec laquelle vous pouvez écrire des éléments de télémétrie personnalisés.   
 
 ## <a name="prerequisites"></a>Prérequis
-
 Actuellement, le plug-in fonctionne pour les projets Web dynamiques dans Eclipse.
 ([Ajout d’Application Insights à d’autres types de projets Java][java].)
 
@@ -33,6 +33,8 @@ Vous devez disposer des éléments suivants :
 * Un abonnement à [Microsoft Azure](https://azure.microsoft.com/).
 * [IDE Eclipse pour développeurs Java EE](http://www.eclipse.org/downloads/), Indigo ou version ultérieure.
 * Windows 7 ou version ultérieure ou Windows Server 2008 ou version ultérieure
+
+Si vous préférez l’infrastructure Spring, consultez le guide [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) (guide de configuration de l’application d’initialiseur Spring Boot afin d’utiliser Application Insights)
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>Installer le Kit de développement logiciel (SDK) sur Eclipse (opération unique)
 Vous ne devez effectuer cette opération qu’une seule fois par machine. Cette étape installe un kit de ressources qui peut ensuite ajouter le Kit de développement logiciel (SDK) pour chaque projet web dynamique.

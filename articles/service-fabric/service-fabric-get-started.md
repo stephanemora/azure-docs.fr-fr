@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 05/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd70636a40ac08fb4b47c6ea53ae3c702d271ea8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f128947cf3ac0a2afab23d41f101c1b0d7624397
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204897"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641949"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -32,7 +32,6 @@ ms.locfileid: "34204897"
 Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre machine de développement Windows, installez le runtime, le Kit de développement logiciel (SDK) et les outils Service Fabric. Vous devez également [activer l’exécution des scripts Windows PowerShell](#enable-powershell-script-execution) inclus dans le Kit de développement logiciel (SDK).
 
 ## <a name="prerequisites"></a>Prérequis
-
 ### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
@@ -65,8 +64,8 @@ Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
 * [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
 Les versions actuelles sont les suivantes :
-* Outils et Kit de développement logiciel (SDK) Service Fabric 3.1.274
-* Runtime Service Fabric 6.2.274
+* Outils et Kit de développement logiciel (SDK) Service Fabric 3.1.283
+* Runtime Service Fabric 6.2.283
 * Outils Service Fabric pour Visual Studio 2015 2.1.20180510.2
 * Visual Studio 2017 15.7 inclut les outils Service Fabric pour Visual Studio 2.1.20180423.1 
 

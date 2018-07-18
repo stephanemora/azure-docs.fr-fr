@@ -12,21 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/20/2018
-ms.author: TomSh
+ms.date: 06/07/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235744"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration avec la journalisation Azure Diagnostics et le transfert des événements Windows
 
-Azure Log Integration fournit aux clients une alternative quand un connecteur [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) n’est pas disponible auprès de leur fournisseur SIEM (Security Incident and Event Management). Azure Log Integration met les journaux Azure à la disposition de votre SIEM pour que vous puissiez créer un tableau de bord de sécurité unifié pour toutes vos ressources.
 
-> [!NOTE]
-> Pour plus d’informations sur Azure Monitor, consultez [Bien démarrer avec Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). Pour plus d’informations sur l’état d’un connecteur Azure Monitor, contactez votre fournisseur SIEM.
+>[!IMPORTANT]
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog seront désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+
+Nous vous conseillons d’utiliser Azure Log Integration uniquement si un connecteur [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) n’est pas disponible auprès de votre fournisseur SIEM (Security Incident and Event Management).
+
+Azure Log Integration met les journaux Azure à la disposition de votre SIEM pour que vous puissiez créer un tableau de bord de sécurité unifié pour toutes vos ressources.
+Pour plus d’informations sur l’état d’un connecteur Azure Monitor, contactez votre fournisseur SIEM.
 
 > [!IMPORTANT]
 > Si vous êtes principalement intéressé par la collecte des journaux de machine virtuelle, la plupart des fournisseurs SIEM intègrent cette option à leur solution. L’utilisation du connecteur du fournisseur SIEM doit toujours être l’alternative privilégiée.
@@ -43,7 +48,6 @@ Un ordinateur physique peut s’exécuter localement ou sur un site d’héberge
 La machine physique ou virtuelle qui exécute le service d’intégration des journaux Azure nécessite une connexion réseau avec le cloud public Azure. Cet article fournit des détails sur la configuration requise.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Au minimum, l’installation d’Azure Log Integration nécessite les éléments suivants :
 
@@ -119,7 +123,7 @@ Une fois l’installation de base effectuée, vous êtes prêt à passer aux ét
   > [!NOTE]
   > Vous ne recevez pas de confirmation quand la commande aboutit. 
 
-4. Pour pouvoir surveiller un système, vous avez besoin du nom du compte de stockage utilisé pour Azure Diagnostics. Dans le portail Azure, accédez à **Machines virtuelles**. Recherchez la machine virtuelle que vous surveillez. Dans la section **Propriétés**, sélectionnez **Paramètres de diagnostic**.  Ensuite, sélectionnez **Agent**. Notez le nom du compte de stockage spécifié. Vous avez besoin de ce nom de compte pour une étape ultérieure.
+4. Pour pouvoir surveiller un système, vous avez besoin du nom du compte de stockage utilisé pour Azure Diagnostics. Dans le portail Azure, accédez à **Machines virtuelles**. Recherchez une machine virtuelle Windows à surveiller. Dans la section **Propriétés**, sélectionnez **Paramètres de diagnostic**.  Ensuite, sélectionnez **Agent**. Notez le nom du compte de stockage spécifié. Vous avez besoin de ce nom de compte pour une étape ultérieure.
 
   ![Capture d’écran du volet Paramètres des diagnostics Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -135,14 +139,14 @@ Une fois l’installation de base effectuée, vous êtes prêt à passer aux ét
   4. Connectez-vous à Azure.
   5. Vérifiez que vous pouvez voir le compte de stockage que vous avez configuré pour Azure Diagnostics : 
 
-    ![Capture d’écran des comptes de stockage dans l’Explorateur Stockage](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Capture d’écran des comptes de stockage dans l’Explorateur Stockage](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. Certaines options s’affichent sous les comptes de stockage. Sous **Tables**, vous devez voir une table nommée **WADWindowsEventLogsTable**.
 
   Si le monitoring n’a pas été activé à la création de la machine virtuelle, vous pouvez l’activer, comme indiqué précédemment.
 
 
-## <a name="integrate-azure-diagnostics-logging"></a>Intégrer la journalisation Azure Diagnostics
+## <a name="integrate-windows-vm-logs"></a>Intégration des journaux des machines virtuelles Windows
 
 Dans cette étape, vous configurez la machine exécutant le service Azure Log Integration pour qu’elle se connecte au compte de stockage qui contient les fichiers journaux.
 
@@ -179,7 +183,7 @@ Pour obtenir la clé de stockage, suivez ces étapes :
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Exemple : 
+  Exemple :
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -208,8 +212,37 @@ Si vous rencontrez des problèmes pendant l’installation et la configuration, 
 
 Une autre option de support est le [Forum MSDN Azure Log Integration](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). Dans le forum MSDN, la communauté peut fournir du support en répondant aux questions et en partageant des conseils et astuces sur la façon d’utiliser au mieux Azure Log Integration. L’équipe Azure Log Integration surveille également ce forum. Elle apporte son aide chaque fois qu’elle le peut.
 
+## <a name="integrate-azure-activity-logs"></a>Intégration des journaux d’activité Azure
+
+Le journal d’activité Azure est un journal d’abonnement qui fournit un aperçu de tous les événements relatifs aux abonnements qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Les alertes Azure Security Center sont également inclus dans ce journal.
+> [!NOTE]
+> Avant d’effectuer les étapes décrites dans cet article, vous devez lire l’article [Bien démarrer](security-azure-log-integration-get-started.md) et effectuez les étapes qui y sont citées.
+
+### <a name="steps-to-integrate-azure-activity-logs"></a>Procédure d’intégration des journaux d’activité Azure
+
+1. Ouvrez l’invite de commandes et exécutez la commande suivante : ```cd c:\Program Files\Microsoft Azure Log Integration```
+2. Exécutez cette commande : ```azlog createazureid```
+
+    Cette commande vous invite à entrer votre nom d’utilisateur Azure. La commande crée ensuite un principal du service Azure Active Directory dans les locataires Azure AD qui hébergent les abonnements Azure dans lesquels l’utilisateur connecté est un administrateur, un coadministrateur ou un propriétaire. La commande échoue si l’utilisateur connecté est seulement un utilisateur invité dans le locataire Azure AD. L’authentification à Azure s’effectue avec Azure AD. La création d’un principal du service pour l’intégration de journaux Azure crée l’identité Azure AD qui aura un accès en lecture aux abonnements Azure.
+3.  Exécutez la commande suivante pour autoriser le principal de service Azure Log Integration créé à l’étape précédente à lire le journal d'activité de l’abonnement. Vous devez être propriétaire de l’abonnement pour exécuter la commande.
+
+    ```Azlog.exe authorize subscriptionId``` Exemple :
+
+```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+4.  Vérifiez les dossiers suivants pour confirmer que les fichiers JSON de journaux d’audit Azure Active Directory y sont créés :
+    - C:\Users\azlog\AzureResourceManagerJson
+    - C:\Users\azlog\AzureResourceManagerJsonLD
+
+> [!NOTE]
+> Pour obtenir des instructions précises sur l’ajout des informations de vos fichiers JSON dans votre système de gestion des événements et des informations de sécurité (SIEM), contactez votre fournisseur SIEM.
+
+L’aide de la Communauté est disponible via le [forum MSDN d’intégration des journaux Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Ce forum permet aux membres de la communauté de l’intégration des journaux Azure de s’entraider, grâce à des questions, des réponses, des conseils et des astuces. En outre, l’équipe d’intégration des journaux Azure supervise ce forum et apporte son aide quand cela est possible.
+
+Vous pouvez également ouvrir une [demande de support](../azure-supportability/how-to-create-azure-support-request.md). Pour ce faire, sélectionnez Intégration du journal comme service pour lequel vous demandez de l’aide.
+
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur Azure Log Integration, consultez les articles suivants :
+
+Pour en savoir plus sur Azure Log Integration, consultez les articles suivants : avant d’effectuer les étapes décrites dans cet article, vous devez lire l’article Bien démarrer et effectuer les étapes qui y sont citées.
 
 * [Azure Log Integration pour les journaux Azure](https://www.microsoft.com/download/details.aspx?id=53324). Le Centre de téléchargement donne des informations, la configuration système requise et des instructions d’installation pour Azure Log Integration.
 * [Présentation d’Azure Log Integration](security-azure-log-integration-overview.md). Cet article présente Azure Log Integration, ses principales fonctionnalités et son fonctionnement.

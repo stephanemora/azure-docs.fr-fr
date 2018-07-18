@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036394"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302231"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
 
 Les captures de paquets contiennent des données réseau qui vous permettent d’effectuer des analyses réseau et une inspection approfondie des paquets. Il existe de nombreux outils open source que vous pouvez utiliser pour analyser des captures de paquets et obtenir des informations sur le réseau. L’un de ces outils est CapAnalysis, un outil de visualisation de capture de paquets open source. La visualisation des données de capture de paquets est un moyen efficace de trouver des informations sur les modèles et anomalies au sein de votre réseau. Les visualisations fournissent également un moyen de partager ces informations d’une manière facilement consommable.
 
-Network Watcher d’Azure vous donne les moyens de capturer ces données précieuses en vous permettant d’effectuer des captures de paquets sur le réseau. Dans cet article, nous vous indiquons la procédure pour visualiser et exploiter les informations issues des captures de paquets en utilisant CapAnalysis avec Network Watcher.
+Network Watcher d’Azure vous donne les moyens de capturer des données en vous permettant d’effectuer des captures de paquets sur le réseau. Cet article indique la procédure pour visualiser et exploiter les informations issues des captures de paquets en utilisant CapAnalysis avec Network Watcher.
 
 ## <a name="scenario"></a>Scénario
 
@@ -38,18 +38,18 @@ Vous disposez d’une application web simple déployée sur une machine virtuell
 ### <a name="install-capanalysis"></a>Installation de CapAnalysis
 
 Pour installer CapAnalysis sur une machine virtuelle, vous pouvez consulter les instructions officielles ici https://www.capanalysis.net/ca/how-to-install-capanalysis.
-Pour accéder à CapAnalysis à distance, nous devons ouvrir le port 9877 sur votre machine virtuelle en ajoutant une nouvelle règle de sécurité entrante. Pour plus d’informations sur la création de règles dans les groupes de sécurité réseau, reportez-vous à [Création de règles dans un NSG existant](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Une fois la règle correctement ajoutée, vous devez pouvoir accéder à CapAnalysis à partir de `http://<PublicIP>:9877`
+Pour accéder à CapAnalysis à distance, vous devez ouvrir le port 9877 sur votre machine virtuelle en ajoutant une nouvelle règle de sécurité entrante. Pour plus d’informations sur la création de règles dans les groupes de sécurité réseau, reportez-vous à [Création de règles dans un NSG existant](../virtual-network/manage-network-security-group.md#create-a-security-rule). Une fois la règle correctement ajoutée, vous devez pouvoir accéder à CapAnalysis à partir de `http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Utilisation d’Azure Network Watcher pour démarrer une session de capture de paquets
 
-Network Watcher vous permet de capturer les paquets pour suivre le trafic entrant et sortant d’une machine virtuelle. Vous pouvez vous reporter aux instructions de l’article [Manage packet captures with Network Watcher](network-watcher-packet-capture-manage-portal.md) (Gérer les captures de paquets avec Network Watcher) pour démarrer une session de capture de paquets. Cette capture de paquets peut être stockée dans un objet blob de stockage accessible par CapAnalysis.
+Network Watcher vous permet de capturer les paquets pour suivre le trafic entrant et sortant d’une machine virtuelle. Vous pouvez vous reporter aux instructions de l’article [Manage packet captures with Network Watcher](network-watcher-packet-capture-manage-portal.md) (Gérer les captures de paquets avec Network Watcher) pour démarrer une session de capture de paquets. Une capture de paquets peut être stockée dans un objet blob de stockage accessible par CapAnalysis.
 
 ### <a name="upload-a-packet-capture-to-capanalysis"></a>Chargement d’une capture de paquets vers CapAnalysis
 Vous pouvez directement charger une capture de paquets effectuée par Network Watcher à l’aide de l’onglet « Importer à partir d’une URL » en fournissant un lien vers l’objet blob de stockage contenant la capture de paquets.
 
-Lorsque vous fournissez un lien vers CapAnalysis, veillez à ajouter un jeton SAP à l’URL de l’objet blob de stockage.  Pour ce faire, accédez à la signature d’accès partagé à partir du compte de stockage, désignez les autorisations accordées et appuyez sur le bouton Générer une signature d’accès partagé pour créer un jeton. Vous pouvez ensuite ajouter ce jeton SAP à l’URL de l’objet blob de stockage de la capture de paquets.
+Lorsque vous fournissez un lien vers CapAnalysis, veillez à ajouter un jeton SAP à l’URL de l’objet blob de stockage.  Pour ce faire, accédez à la signature d’accès partagé à partir du compte de stockage, désignez les autorisations accordées et appuyez sur le bouton Générer une signature d’accès partagé pour créer un jeton. Vous pouvez ensuite ajouter le jeton SAP à l’URL de l’objet blob de stockage de la capture de paquets.
 
-L’URL doit ressembler à ceci : http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+L’URL obtenue se présente comme suit : http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>Analyse des captures de paquets
@@ -86,7 +86,7 @@ CapAnalysis propose différentes options pour visualiser la capture de paquets. 
 
     ![filtres][11]
 
-    Visitez [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) pour en savoir plus sur l’ensemble des fonctionnalités de CapAnalysis.
+    Visitez [ https://www.capanalysis.net/ca/#about ](https://www.capanalysis.net/ca/#about) pour en savoir plus sur toutes les fonctionnalités de CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusion
 
@@ -96,8 +96,8 @@ La fonctionnalité de capture de paquets de Network Watcher vous permet de captu
 
 Pour en savoir plus sur les journaux de flux NSG, consultez l’article sur les [journaux de flux NSG](network-watcher-nsg-flow-logging-overview.md).
 
-Découvrez comment visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI en consultant la page [Visualizing Network Security Group flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualisation des journaux de flux de groupe de sécurité réseau avec Power BI).
-<!--Image references-->
+Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+<!--Image references--> (Visualiser les journaux de flux NSG avec Power BI)
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

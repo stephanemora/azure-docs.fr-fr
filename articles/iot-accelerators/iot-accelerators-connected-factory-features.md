@@ -1,29 +1,23 @@
 ---
 title: Fonctionnalités de la solution Usine connectée - Azure | Microsoft Docs
 description: Vue d’ensemble des fonctionnalités de la solution préconfigurée Usine connectée.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 7ee86a59e7c47406ea1a890f1a9d1eb2ed4ad772
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626494"
 ---
-# <a name="what-is-azure-iot-suite-connected-factory"></a>Présentation de la solution Usine connectée d’Azure IoT Suite
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>Qu’est-ce que l’accélérateur de solution IoT Usine connectée ?
 
-Usine connectée est une implémentation de l’architecture de référence de Microsoft Azure Industrial IoT, sous la forme d’une solution open source. Vous pouvez l’utiliser comme point de départ pour un produit commercial. Vous pouvez déployer une version prédéfinie de la solution Usine connectée dans votre abonnement Azure à partir d’[Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF).
+Usine connectée est une implémentation de l’architecture de référence de Microsoft Azure Industrial IoT, sous la forme d’une solution open source. Vous pouvez l’utiliser comme point de départ pour un produit commercial. Vous pouvez déployer une version prédéfinie de la solution Usine connectée dans votre abonnement Azure à partir des [accélérateurs de solution Azure IoT Suite](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Tableau de bord de la solution Usine connectée](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -64,7 +58,7 @@ Usine connectée propose les fonctionnalités suivantes :
 
 ## <a name="customizability"></a>Possibilités de personnalisation
 
-- [Personnalisez](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) la solution en fonction de vos besoins professionnels.
+- Personnalisez la solution en fonction de vos besoins professionnels.
 - Code source complet de la solution disponible sur GitHub. Consultez le dépôt sur la [solution préconfigurée Usine connectée](https://github.com/Azure/azure-iot-connected-factory).
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592260"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291964"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect : considérations spéciales relatives aux instances
 Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD et Office 365. Mais il existe également d’autres instances, qui ont des exigences différentes en matière d’URL et autres considérations spéciales.
@@ -31,15 +31,13 @@ Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD
 | URL à ouvrir dans le serveur proxy |
 | --- |
 | \*.microsoftonline.de |
-| \**.windows.net |
+| \*.windows.net |
 | + Listes de révocation de certificat |
 
 Quand vous vous connectez à votre locataire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
 
 Fonctionnalités actuellement absentes de Microsoft Cloud Allemagne :
 
-* **Azure AD Connect Health** n’est pas disponible.
-* Les **mises à jour automatiques** ne sont pas disponibles.
 * L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 
@@ -50,10 +48,10 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 
 | URL à ouvrir dans le serveur proxy |
 | --- |
-| \**.microsoftonline.com |
+| \*.microsoftonline.com |
 | \*.microsoftonline.us |
 | \*.windows.net (requis pour la détection automatique d'un locataire de gouvernement Azure AD) |
-| \**.gov.us.microsoftonline.com |
+| \*.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
 > [!NOTE]
@@ -61,8 +59,6 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 
 Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
 
-* **Azure AD Connect Health** n’est pas disponible.
-* Les **mises à jour automatiques** ne sont pas disponibles.
 * L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 

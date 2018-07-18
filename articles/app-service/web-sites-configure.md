@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293714"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
 
-Cet article explique comment configurer une application web à l’aide du [portail Azure].
+Cet article explique comment configurer une application web à l’aide du [Portail Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>Paramètres de l’application
-1. Sur le [portail Azure], ouvrez le panneau de l’application Web.
+1. Sur le [Portail Azure], ouvrez le panneau de l’application Web.
 3. Cliquez sur **Paramètres de l’application**.
 
 ![Paramètres de l’application][configure01]
@@ -45,7 +46,7 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
 <a name="platform"></a>
-**Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
+**Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le niveau De base ou Standard. Les niveaux Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -55,6 +56,13 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 **Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des WebJobs en continu ou après déclenchement par une expression CRON, activez l’option **Toujours actif**. Sinon, ils risquent de ne pas s’exécuter de façon fiable.
 
 **Version de pipeline gérée**. Définit le [mode pipeline]d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
+
+**Version HTTP**. Utilisez la version **2.0** pour activer la prise en charge du protocole [HTTPS/2](https://wikipedia.org/wiki/HTTP/2). 
+
+> [!NOTE]
+> Les navigateurs les plus récents prennent en charge le protocole HTTP/2 sur TLS uniquement, alors que le trafic non chiffré continue d’utiliser HTTP/1.1. Pour vous assurer que les navigateurs clients se connectent à votre application par HTTP/2, [achetez un certificat de service d’application](web-sites-purchase-ssl-web-site.md) pour le domaine personnalisé de votre application ou [liez un certificat tiers](app-service-web-tutorial-custom-ssl.md).
+
+**Affinité ARR**. Dans une application montée en charge en plusieurs instances de machine virtuelle, les cookies Affinité ARR garantissent l’acheminement du client vers la même instance pour la durée de vie de la session. Pour améliorer les performances des applications sans état, définissez cette option sur **Off**.   
 
 **Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application web en production automatiquement lorsque vous enverrez une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
 
@@ -66,6 +74,8 @@ Cette section contient des paires nom/valeur qui seront chargées par votre appl
 
 * Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
 * Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING_. Elles contiennent toutes les deux la même valeur.
+
+Une fois stockés, les paramètres d’application sont toujours chiffrés (chiffrement au repos).
 
 ### <a name="connection-strings"></a>Chaînes de connexion
 Chaînes de connexion des ressources liées. 
@@ -80,6 +90,8 @@ Pour les applications PHP, Python, Java et Node, ces paramètres sont disponible
 * Personnalisé : `CUSTOMCONNSTR_`
 
 Par exemple, si une chaîne de connexion MySql se nomme `connectionstring1`, elle est accessible par le biais de la variable d’environnement `MYSQLCONNSTR_connectionString1`.
+
+Une fois stockées, les chaînes de connexion sont toujours chiffrées (chiffrement au repos).
 
 ### <a name="default-documents"></a>Documents par défaut
 Le document par défaut est la page web qui s’affiche à l’URL racine pour un site web.  Le premier fichier correspondant dans la liste est utilisé. 
@@ -163,7 +175,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./app-service-web-tutorial-custom-ssl.md

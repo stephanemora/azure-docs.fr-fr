@@ -3,7 +3,7 @@ title: Création d’un environnement Linux complet à l’aide de l’interface
 description: Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface de ligne de commande Azure 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
-ms.author: iainfou
-ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910762"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932327"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Créer un environnement Linux complet à l’aide de l’interface Azure CLI 1.0
 Dans cet article, nous créons un réseau simple avec un équilibreur de charge et deux machines virtuelles à des fins de développement et de calcul simple. Nous suivons ce processus, commande par commande, jusqu’à ce que vous disposiez de deux machines virtuelles Linux sécurisées opérationnelles, auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement via Internet. Vous pourrez ensuite créer des réseaux et des environnements plus complexes.
@@ -285,7 +285,7 @@ Les groupes de ressources Azure sont des entités de déploiement logiques qui c
 azure group create --name myResourceGroup --location westeurope
 ```
 
-Output:
+Sortie :
 
 ```azurecli                        
 info:    Executing command group create
@@ -328,7 +328,7 @@ Pour examiner notre groupe de ressources à l’aide de la commande `azure group
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -372,7 +372,7 @@ Vous pouvez alors visualiser facilement vos informations de stockage :
 azure storage container list
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network vnet create
@@ -414,7 +414,7 @@ Là encore, nous allons utiliser l’option --json de `azure group show` et de `
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -482,7 +482,7 @@ info:    network vnet subnet create command OK
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ L’adresse IP publique étant également une ressource de niveau supérieur, vo
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -625,7 +625,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
   --name myLoadBalancer
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network lb create
@@ -649,7 +649,7 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
   --name myFrontEndPool
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
@@ -689,7 +689,7 @@ Nous pouvons vérifier la façon dont notre équilibreur de charge apparaît ave
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -1002,7 +1002,7 @@ Vous pouvez visualiser les détails de la ressource en examinant directement cet
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {

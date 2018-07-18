@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314046"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293619"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -36,7 +36,7 @@ La passerelle Application Gateway permet de surveiller l’intégrité des membr
 Le rapport d’intégrité du serveur principal reflète les résultats de la sonde d’intégrité de la passerelle Application Gateway sur les instances de serveur principal. Si la détection réussit et que le trafic peut être orienté vers le serveur principal, ce dernier est considéré comme intègre. Sinon, il est considéré comme défaillant.
 
 > [!IMPORTANT]
-> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau (NSG), ouvrez les plages de ports 65503-65534 sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Ces ports sont requis pour permettre à l’API relative à l’intégrité du serveur principal de fonctionner correctement.
+> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau (NSG), ouvrez les plages de ports 65503-65534 sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Affichage de l’intégrité du serveur principal via le portail

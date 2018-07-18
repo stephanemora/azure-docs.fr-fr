@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df1bb64d0d753ae1853a2212c7c89d2e1613b8bc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363292"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657313"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installer l’agent de machine virtuelle Azure en mode hors connexion 
 
@@ -109,7 +109,7 @@ Procédez comme suit pour installer l’agent de machine virtuelle en mode hors 
 
 Si vous avez créé la machine virtuelle à l’aide du modèle de déploiement Gestionnaire des ressources, vous avez terminé.
 
-### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Utiliser la propriété ProvisionGuestAgent pour les machines virtuelles créées avec Azure Resource Manager
+### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Utiliser la propriété ProvisionGuestAgent pour les machines virtuelles classiques
 
 Si vous avez créé la machine virtuelle à l’aide du modèle classique, utilisez le module Azure PowerShell pour mettre à jour la propriété **ProvisionGuestAgent**. La propriété informe Azure que la machine virtuelle a l’agent de machine virtuelle installé.
 

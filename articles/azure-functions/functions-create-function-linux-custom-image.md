@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488697"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Créer une fonction sur Linux en utilisant une image personnalisée (préversion)
 
@@ -39,12 +40,11 @@ Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Li
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Git](https://git-scm.com/downloads)
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) actif
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Un [compte Docker Hub](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -146,7 +146,7 @@ Vous pouvez désormais utiliser cette image comme source de déploiement pour un
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0.21 ou ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0.21 ou ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -217,7 +217,7 @@ Vous pouvez désormais tester vos fonctions qui s’exécutent sur Linux dans Az
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une image personnalisée à l’aide de Docker
@@ -227,7 +227,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Déployer une application de fonction à partir de Docker Hub
 > * Ajouter des paramètres d’application à l’application de fonction
 
-Découvrez plus en détail le développement local d’Azure Functions avec les principaux outils d’Azure Functions.
+Découvrez comment activer la fonctionnalité d’intégration continue intégrée au cœur de la plateforme App Service. Vous pouvez configurer votre application de fonction de telle sorte que le conteneur soit redéployé lorsque vous mettez à jour votre image dans Hub Docker.
 
 > [!div class="nextstepaction"] 
-> [Coder et tester Azure Functions localement](functions-run-local.md)
+> [Déploiement continu avec Web App pour conteneurs](../app-service/containers/app-service-linux-ci-cd.md)

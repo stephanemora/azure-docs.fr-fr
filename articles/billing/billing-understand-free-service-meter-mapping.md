@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3019fe5f8b44eaa32d4ab309f296d6b4574df1d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201043"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061368"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Comprendre le service gratuit de mappage des compteurs
 
@@ -34,11 +34,11 @@ Chaque service Azure émet des informations d’utilisation basées sur des comp
 | Machine virtuelle B1S - Adresses IP publiques  | Heure pour l’adresse IP - Adresses IP publiques | Heure pour l'adresse IP - Gratuit | ae56b367-2708-4454-a3d9-2be7b2364ea1
 | CosmosDB | Stockage (Go) - Cosmos DB | Stockage (Go) - Gratuit | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
 | CosmosDB | 100 unités de requête (heures) - Cosmos DB | 100 unités de requête (heures) - Gratuit | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
-| Stockage de fichiers | E/S standard - Fichiers (Go) - Localement redondant | E/S standard - Fichiers (Go) - Gratuit | a7f2aa67-b9a2-4593-a413-6ec86d6c8e5b
-| Stockage de fichiers | E/S standard - Unités opération Lecture de fichier (10 000) | E/S standard - Unités opération Lecture de fichier (10 000) - Gratuit | 6207404d-3389-4d20-9087-cc078ddc3fd9
-| Stockage de fichiers | E/S standard - Unités opération Écriture de fichier (10 000) | E/S standard - Unités opération Écriture de fichier (10 000) - Gratuit | 223d8004-d29a-46cf-b4f4-d2d34b12548b
-| Stockage de fichiers | E/S standard - Unités opération Protocole de fichier (10 000) | E/S standard - Unités opération Protocole de fichier (10 000) - Gratuit | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
-| Stockage de fichiers | E/S standard - Unités opération Liste fichier (10 000) | E/S standard - Unités opération Liste fichier (10 000) - Gratuit | e8ae79ad-c2ab-4d82-b226-dd3c33dfd40c
+| Stockage Fichier | E/S standard - Fichiers (Go) - Localement redondant | E/S standard - Fichiers (Go) - Gratuit | a7f2aa67-b9a2-4593-a413-6ec86d6c8e5b
+| Stockage Fichier | E/S standard - Unités opération Lecture de fichier (10 000) | E/S standard - Unités opération Lecture de fichier (10 000) - Gratuit | 6207404d-3389-4d20-9087-cc078ddc3fd9
+| Stockage Fichier | E/S standard - Unités opération Écriture de fichier (10 000) | E/S standard - Unités opération Écriture de fichier (10 000) - Gratuit | 223d8004-d29a-46cf-b4f4-d2d34b12548b
+| Stockage Fichier | E/S standard - Unités opération Protocole de fichier (10 000) | E/S standard - Unités opération Protocole de fichier (10 000) - Gratuit | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
+| Stockage Fichier | E/S standard - Unités opération Liste fichier (10 000) | E/S standard - Unités opération Liste fichier (10 000) - Gratuit | e8ae79ad-c2ab-4d82-b226-dd3c33dfd40c
 | Stockage d'objets blob de blocs chaud | E/S standard - Opérations Lecture d’objet blob de blocs chaud (10 000) | E/S standard - Opérations Lecture d’objet blob de blocs chaud (10 000) - Gratuit |fd7cfa1e-026e-4be1-871b-1c2386e8902e
 | Stockage d'objets blob de blocs chaud | E/S standard - Objet blob de blocs chaud (Go) - Localement redondant | E/S standard - Objet blob de blocs chaud (Go) - Gratuit | 67a3a3fd-826f-42c1-8843-bffa14f0da13
 | Stockage d'objets blob de blocs chaud | E/S standard - Opérations Écriture d’objet blob de blocs chaud (10 000) | E/S standard - Opérations Écriture d’objet blob de blocs chaud (10 000) - Gratuit | b34bbb76-edce-4c2d-a288-81a2db1fea53

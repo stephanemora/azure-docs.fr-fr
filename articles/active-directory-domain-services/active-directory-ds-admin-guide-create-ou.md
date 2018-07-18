@@ -8,22 +8,24 @@ manager: mtillman
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 49123a47d90970d1a99276521b5aa1d516f509ab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 15bd837149b9856897eb83f86052a26b24a21fb0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587587"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334307"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
 Les domaines gérés par les services de domaine Azure Active Directory incluent deux conteneurs intégrés, appelés « Ordinateurs AADDC » et « Utilisateurs AADDC », respectivement. Le conteneur « Ordinateurs AADDC » inclut des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine géré. Le conteneur « Utilisateurs AADDC » comprend les utilisateurs et les groupes du client Azure AD. Parfois, il peut être nécessaire de créer des comptes de service sur le domaine géré, afin de déployer des charges de travail. Pour cela, vous pouvez créer une unité d’organisation (UO) personnalisée dans le domaine géré, puis générer des comptes de service dans cette UO. Cet article vous explique comment créer une UO dans votre domaine géré.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :

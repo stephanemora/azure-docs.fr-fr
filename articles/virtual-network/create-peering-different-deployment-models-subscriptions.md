@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 045b433fdea2cfb97f3002fbe692ea8e4988fbb4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012915"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726412"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -107,7 +107,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. Les étapes restantes doivent être effectuées à l’aide d’un interpréteur de commandes Bash avec Azure CLI 2.0.4 ou version ultérieure [installé](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), ou à l’aide d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton **Try it** dans les scripts qui suivent, ce qui ouvre un Cloud Shell qui vous connecte à votre compte Azure. Pour en savoir plus les options d’exécution de scripts CLI Bash sur un client Windows, consultez [Utilisation de l’interface de ligne de commande Azure sur Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+5. Les étapes restantes doivent être effectuées à l’aide d’un interpréteur de commandes Bash avec Azure CLI 2.0.4 ou version ultérieure [installé](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), ou à l’aide d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton **Try it** dans les scripts qui suivent, ce qui ouvre un Cloud Shell qui vous connecte à votre compte Azure. Pour en savoir plus sur l’exécution de scripts CLI Bash sur un client Windows, consultez [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows). 
 6. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-Id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Copiez le script modifié, collez-le dans votre session CLI 2.0, puis appuyez sur `Enter`. 
 
     ```azurecli-interactive

@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 57d4a3767d0ad02f136686d95703817055566c33
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cbb56ce6befaaa6a5d38cc6afbad0ba6db259711
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303385"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901600"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Didacticiel : Utiliser une identité Managed Service Identity de machine virtuelle Linux pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -36,7 +36,6 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -255,10 +254,7 @@ Réponse :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Pour savoir comment suivre ce didacticiel en utilisant une clé de compte de stockage, voir [Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure](tutorial-linux-vm-access-storage.md).
-- Pour plus d’informations sur la fonctionnalité de SAP de compte de Stockage Azure, voir :
-  - [Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Construction d’un service SAP](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+Dans ce tutoriel, vous avez appris à utiliser une identité de service managée sur une machine virtuelle Linux pour accéder au stockage Azure à l’aide des informations d’identification SAP.  Pour en savoir plus sur le Stockage Azure SAP, consultez :
 
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

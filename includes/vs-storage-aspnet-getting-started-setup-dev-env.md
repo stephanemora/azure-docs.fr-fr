@@ -22,7 +22,7 @@ Cette section explique les étapes à effectuer pour configurer l’environnemen
 
 2. Dans le menu contextuel, sélectionnez **Ajouter** > **Service connecté**.
 
-1. Dans la boîte de dialogue **Services connectés**, sélectionnez **Stockage cloud avec le Stockage Azure**, puis sélectionnez **Configurer**.
+1. Dans la boîte de dialogue **Services connectés**, sélectionnez **Stockage cloud avec Stockage Azure**.
 
     ![Capture d’écran de la boîte de dialogue Services connectés](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
@@ -31,5 +31,5 @@ Cette section explique les étapes à effectuer pour configurer l’environnemen
 > [!TIP]
 > Pour apprendre à créer un compte de stockage avec le [portail Azure](https://portal.azure.com), consultez [Créez un compte de stockage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 >
-> Vous pouvez également créer un compte de stockage Azure avec [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md) ou [Azure Cloud Shell](../articles/cloud-shell/overview.md).
+> Il est également possible de créer un compte de stockage Azure avec [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md) ou [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 

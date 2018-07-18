@@ -4,7 +4,7 @@ description: Cet article présente l’authentification directe Azure Active Dir
 services: active-directory
 keywords: qu’est-ce que l’authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592158"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917276"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -49,7 +49,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - *Sécuriser*
   - Les mots de passe locaux ne sont jamais stockés dans le cloud sous quelque forme que ce soit.
   - L’agent établit uniquement les connexions sortantes depuis votre réseau. Il n’est donc pas nécessaire d’installer l’agent dans un réseau de périmètre, également appelé DMZ.
-  - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA) et en [filtrant des attaques de mot de passe par recherche exhaustive](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA) et en [filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
 - *Hautement disponible*
   - Il est possible d’installer des agents supplémentaires sur plusieurs serveurs locaux pour assurer la haute disponibilité des requêtes de connexion.
 
@@ -64,12 +64,12 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - Elle peut être activée via [Azure AD Connect](active-directory-aadconnect.md).
 - Elle utilise un agent local léger qui écoute et répond aux requêtes de validation du mot de passe.
 - L’installation de plusieurs agents fournit une haute disponibilité des requêtes de connexion.
-- Elle permet de [protéger](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) vos comptes locaux contre les attaques de mot de passe par recherche exhaustive dans le cloud.
+- Elle permet de [protéger](../authentication/howto-password-smart-lockout.md) vos comptes locaux contre les attaques de mot de passe par recherche exhaustive dans le cloud.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Verrouillage intelligent**](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Questions fréquentes (FAQ)**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.

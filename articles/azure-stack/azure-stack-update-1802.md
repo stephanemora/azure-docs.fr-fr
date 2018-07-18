@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936668"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757255"
 ---
 # <a name="azure-stack-1802-update"></a>Mise à jour 1802 d’Azure Stack
 
@@ -37,11 +37,10 @@ Le numéro de build de mise à jour d’Azure Stack 1802 est **20180302.1**.
 
 ## <a name="before-you-begin"></a>Avant de commencer    
 > [!IMPORTANT]    
-> Ne tentez pas de créer des machines virtuelles pendant l’installation de cette mise à jour. Pour plus d’informations sur la gestion des mises à jour, consultez [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates) (Vue d’ensemble de la gestion des mises à jour dans Azure Stack).
+> Ne tentez pas de créer des machines virtuelles pendant l’installation de cette mise à jour. Pour plus d’informations sur la gestion des mises à jour, consultez [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates) (Vue d’ensemble de la gestion des mises à jour dans Azure Stack).
 
 
 ### <a name="prerequisites"></a>Prérequis
-
 - Installez la [mise à jour 1712](azure-stack-update-1712.md) d’Azure Stack avant d’appliquer la mise à jour 1802 d’Azure Stack.    
 
 - Installez le **correctif logiciel AzS - 1.0.180312.1 - Build 20180222.2** avant d’appliquer la mise à jour 1802 d’Azure Stack. Ce correctif logiciel met à jour Windows Defender et est disponible lorsque vous téléchargez des mises à jour pour Azure Stack.
@@ -81,7 +80,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 
 - **Infrastructure backup** s’affiche maintenant dans la vignette Fournisseurs de ressources, et des alertes de sauvegarde sont activées. Pour plus d’informations sur le service Infrastructure Backup, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).
 
-- **Mettez à jour vers la cmdlet *Test-AzureStack***  pour améliorer les diagnostics de stockage. Pour plus d’informations sur cette cmdlet, consultez [Exécuter un test de validation pour Azure Stack](azure-stack-diagnostic-test.md).
+- **Mettez à jour vers la cmdlet *Test-AzureStack* pour** améliorer les diagnostics de stockage. Pour plus d’informations sur cette cmdlet, consultez [Exécuter un test de validation pour Azure Stack](azure-stack-diagnostic-test.md).
 
 - **Améliorations du contrôle d’accès en fonction du rôle** : vous pouvez maintenant utiliser le contrôle d’accès en fonction du rôle pour déléguer des autorisations à des groupes d’utilisateurs universels lorsqu’Azure Stack est déployé avec AD FS. Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez [Gérer le contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md).
 
@@ -109,6 +108,9 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 Les éléments suivants sont des problèmes connus après l’installation pour la build **20180302.1**
 
 #### <a name="portal"></a>Portail
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solution de contournement : Pour résoudre ce problème après avoir installé cette mise à jour, utilisez l’étape 3 de la procédure [Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) afin de réinitialiser le propriétaire de l’abonnement Fournisseur par défaut.   
+
 - La possibilité [d’ouvrir une nouvelle demande de support dans la liste déroulante](azure-stack-manage-portals.md#quick-access-to-help-and-support) à partir du portail administrateur n’est pas disponible. À la place, utilisez le lien suivant :     
     - Pour les systèmes Azure Stack intégrés, utilisez https://aka.ms/newsupportrequest.
 
@@ -117,8 +119,6 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
 - Il se peut qu’il ne soit pas possible d’afficher les ressources de calcul ou de stockage sur le portail d’administration. Ce problème est dû au fait qu’une erreur s’est produite pendant l’installation de la mise à jour, et que celle-ci a été, à tort, signalée comme réussie. Si ce problème se produit, contactez les services de support technique Microsoft pour obtenir de l’aide.
 
 - Il se peut qu’un tableau de bord vide s’affiche sur le portail. Pour récupérer le tableau de bord, sélectionnez l’icône d’engrenage dans l’angle supérieur droit du portail, puis choisissez **Restaurer les paramètres par défaut**.
-
-- Quand vous affichez les propriétés d’une ressource ou d’un groupe de ressources, le bouton **Déplacer** est désactivé. Il s’agit du comportement attendu. Le déplacement de ressources ou de groupes de ressources entre des groupes de ressources ou des abonnements n’est pas pris en charge actuellement.
 
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 
@@ -141,7 +141,22 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
 
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
-Il n’y a aucun problème connu après la mise à jour vers 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alerte 1 :
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+
+  Alerte 2 :
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+
+  Ces deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement dans le temps.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Les utilisateurs ont la possibilité de parcourir entièrement le marketplace, et peuvent voir des éléments administratifs, tels que des plans et des offres, qui ne sont pas fonctionnels pour eux.
@@ -159,7 +174,7 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
 
 - Lorsque vous créez un groupe à haute disponibilité dans le portail en accédant à **Nouveau** > **Compute** > **Groupe à haute disponibilité**, vous pouvez uniquement créer un groupe à haute disponibilité avec un domaine d’erreur et un domaine de mise à jour de 1. Pour contourner ce problème, lors de la création d’une nouvelle machine virtuelle, créez le groupe à haute disponibilité à l’aide de PowerShell, CLI, ou depuis le portail.
 
-- Lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack, le portail affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de la série DS. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
+- Quand vous créez des machines virtuelles sur le portail utilisateur Azure Stack, ce dernier affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de série D. Toutes les machines virtuelles de série D prises en charge peuvent prendre en charge autant de disques de données que la configuration Azure.
 
 - Lorsqu’une image de machine virtuelle ne peut pas être créée, un élément ayant échoué que vous ne pouvez pas supprimer peut être ajouté au panneau Compute des images de machine virtuelle.
 
@@ -264,6 +279,7 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
 
 - Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Après la mise à jour vers Azure Stack 1802, vous pouvez continuer à utiliser les fournisseurs de ressources SQL et MySQL que vous avez déployés précédemment.  Nous vous recommandons de mettre à jour SQL et MySQL lorsqu’une nouvelle version est disponible. Comme Azure Stack, appliquez de façon séquentielle les mises à jour aux fournisseurs de ressources SQL et MySQL.  Par exemple, si vous utilisez la version 1710, commencez par appliquer la version 1711, puis la 1712 et ensuite mettez à jour vers la 1802.      
@@ -280,6 +296,8 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Téléchargement des outils Azure Stack à partir de GitHub
 - Quand vous utilisez l’applet de commande PowerShell *invoke-webrequest* pour télécharger les outils Azure Stack à partir de Github, une erreur s’affiche :     

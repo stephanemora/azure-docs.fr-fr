@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722777"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Didacticiel 2 : Classifier Iris - Générer un modèle
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
@@ -34,7 +36,6 @@ Ce didacticiel est **le deuxième d’une série de trois**. Dans cette partie d
 Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
@@ -513,7 +514,7 @@ Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Déc
    >[!NOTE]
    >Lorsque vous effectuez une exécution sur un cluster HDInsight distant, vous pouvez également afficher les détails de l’exécution du travail YARN (Yet Another Resource Negotiator) à l’adresse `https://<your_cluster_name>.azurehdinsight.net/yarnui` à l’aide du compte d’utilisateur `admin`.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

@@ -14,43 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ce5555068ac4a9160657b5c2f204172c828bea50
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a9853bb8a298daab265b70b99db68de276c77048
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779206"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018070"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Démarrage rapide : créer un cluster Kafka dans HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guide de démarrage rapide : Créer un cluster Kafka sur HDInsight
 
-Kafka est une plateforme de streaming distribuée, open source. Elle est souvent utilisée comme répartiteur de messages, car elle fournit des fonctionnalités similaires à une file d’attente de messages de publication/d’abonnement. 
+Kafka est une plateforme open source et distribuée de diffusion en continu. Elle est souvent utilisée comme répartiteur de messages, car elle fournit des fonctionnalités similaires à une file d’attente de messages de publication/d’abonnement. 
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide d’Azure PowerShell. Vous apprendrez également à utiliser les utilitaires inclus pour envoyer et recevoir des messages à l’aide de Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 > [!IMPORTANT]
-> L’API Kafka est accessible uniquement par les ressources à l’intérieur du même réseau virtuel. Dans ce guide de démarrage rapide, vous accédez au cluster directement à l’aide de SSH. Pour connecter à d’autres services, réseaux ou machines virtuelles à Kafka, vous devez tout d’abord créer un réseau virtuel, puis créer les ressources au sein du réseau.
+> L’API Kafka n’est accessible qu’aux ressources se trouvant dans le même réseau virtuel. Dans ce guide de démarrage rapide, vous accéderez directement au cluster suivant le protocole SSH. Pour connecter d’autres services, réseaux ou machines virtuelles à Kafka, vous devez tout d’abord créer un réseau virtuel, puis créer les ressources au sein du réseau.
 >
 > Pour plus d’informations, consultez le document [Se connecter à Kafka à l’aide d’un réseau virtuel](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 * Azure PowerShell. Pour plus d’informations, consultez le document [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-* Un client SSH. Les étapes décrites dans ce document utilisent SSH pour se connecter au cluster.
+* Un client SSH. Les étapes décrites dans ce document utilisent le protocole SSH pour se connecter au cluster.
 
-    La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Sur Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
+    La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Sous Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
 
-    * Utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Le shell cloud fournit la commande `ssh` et peut être configuré pour utiliser Bash ou PowerShell comme environnement du shell.
+    * Utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Il fournit la commande `ssh` et peut être configuré pour utiliser Bash ou PowerShell comme environnement shell.
 
-    * [Installez le sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10). Les distributions Linux disponibles via Microsoft Store fournissent la commande `ssh`.
+    * [Installez le sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10). Les distributions Linux disponibles sur Microsoft Store fournissent la commande `ssh`.
 
     > [!IMPORTANT]
-    > Les étapes décrites dans ce document supposent que vous utilisez un des clients SSH mentionnés ci-dessus. Si vous utilisez un autre client SSH et que vous rencontrez des problèmes, consultez la documentation de votre client SSH.
+    > Les étapes décrites dans ce document supposent que vous utilisez l’un des clients SSH mentionnés ci-dessus. Si vous utilisez un autre client SSH et que vous rencontrez des problèmes, consultez la documentation de votre client SSH.
     >
     > Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -106,6 +105,7 @@ New-AzureStorageContainer -Name $containerName -Context $storageContext
 Créez un cluster Kafka sur le cluster HDInsight avec [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
+# Create a Kafka 1.0 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
     -UserName "admin"
@@ -117,6 +117,9 @@ $clusterType="Kafka"
 $clusterOS="Linux"
 $disksPerNode=2
 
+$kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$kafkaConfig.Add("kafka", "1.0")
+
 New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
@@ -125,8 +128,9 @@ New-AzureRmHDInsightCluster `
         -ClusterType $clusterType `
         -OSType $clusterOS `
         -Version $clusterVersion `
+        -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
-        -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $storageKey `
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials `
@@ -137,9 +141,9 @@ New-AzureRmHDInsightCluster `
 > La création du cluster HDInsight peut prendre jusqu’à 20 minutes.
 
 > [!TIP]
-> Le paramètre `-DisksPerWorkerNode` configure l’évolutivité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles dans le cluster pour stocker les données. Kafka fait une utilisation intensive des E/S, c’est pourquoi le service [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) est utilisé pour fournir un haut débit et davantage de stockage à chaque nœud. 
+> Le paramètre `-DisksPerWorkerNode` configure l’évolutivité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles dans le cluster pour stocker les données. En raison de son utilisation intensive des E/S, Kafka utilise [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. 
 >
-> Le type de disque géré peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (répartiteurs Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard. Vous pouvez définir le type de machine virtuelle à l’aide du paramètre `-WorkerNodeSize`. Pour plus d’informations sur les paramètres, consultez la documentation [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+> Le type de disque géré peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (répartiteurs Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard. Vous pouvez définir le type de machine virtuelle à l’aide du paramètre `-WorkerNodeSize`. Pour plus d’informations sur les paramètres, consultez la documentation [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 
 > [!IMPORTANT]
@@ -149,17 +153,17 @@ New-AzureRmHDInsightCluster `
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 
-1. Pour vous connecter au nœud principal du cluster Kafka principal, utilisez la commande suivante. Remplacez `sshuser` par le nom d’utilisateur SSH. Remplacer `mykafka` par le nom de votre cluster Kafka
+1. Pour vous connecter au nœud principal primaire du cluster Kafka, utilisez la commande suivante. Remplacez `sshuser` par le nom d’utilisateur SSH. Remplacez `mykafka` par le nom de votre cluster Kafka.
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. Lorsque vous vous connectez pour la première fois au cluster, votre client SSH peut afficher un message d’avertissement, indiquant que l’authenticité de l’hôte ne peut pas être établie. À l’invite, tapez __oui__, puis appuyez sur __Entrée__ pour ajouter l’hôte à la liste de serveurs approuvés de votre client SSH.
+2. Lors de votre première connexion au cluster, il est possible que votre client SSH affiche un message d’avertissement, indiquant que l’authenticité de l’hôte n’a pas pu être établie. À l’invite, tapez __yes__, puis appuyez sur __Entrée__ pour ajouter l’hôte à la liste de serveurs approuvés de votre client SSH.
 
 3. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
 
-Une fois que vous êtes connecté, des informations similaires au texte suivant s’affichent :
+Une fois la connexion établie, des informations de ce type s’affichent :
 
 ```text
 Authorized uses only. All activity may be monitored and reported.
@@ -185,11 +189,11 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a id="getkafkainfo"></a>Obtention des informations sur Zookeeper et l’hôte du répartiteur
 
-Lorsque vous utilisez Kafka, vous devez connaître les hôtes *Zookeeper* et du *répartiteur*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
+Si vous utilisez Kafka, vous devez connaître les hôtes *ZooKeeper* et *répartiteur*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
 
-Dans cette section, vous obtenez les informations sur l’hôte à partir de l’API REST Ambari sur le cluster.
+Dans cette section, vous allez récupérer les informations sur l’hôte grâce à l’API REST Ambari sur le cluster.
 
-1. À partir de la connexion SSH avec le cluster, utilisez la commande suivante pour installer l’utilitaire `jq`. Cet utilitaire est utilisé pour analyser des documents JSON et est utile lors de la récupération des informations sur l’hôte :
+1. À partir de la connexion SSH au cluster, utilisez la commande suivante pour installer l’utilitaire `jq`. Il permet d’analyser des documents JSON, ce qui est utile pour récupérer les informations sur l’hôte :
    
     ```bash
     sudo apt -y install jq
@@ -201,7 +205,7 @@ Dans cette section, vous obtenez les informations sur l’hôte à partir de l�
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```
 
-    Lorsque vous y êtes invité, entrez le nom du cluster Kafka.
+    À l’invite, entrez le nom du cluster Kafka.
 
 3. Pour définir une variable d’environnement avec les informations d’hôte Zookeeper, utilisez la commande suivante :
 
@@ -212,7 +216,7 @@ Dans cette section, vous obtenez les informations sur l’hôte à partir de l�
     Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster (pas du compte SSH).
 
     > [!NOTE]
-    > Cette commande récupère tous les hôtes Zookeeper, puis retourne uniquement les deux premières entrées. Ceci vous offre une redondance au cas où l’un des hôtes est inaccessible.
+    > Cette commande récupère tous les hôtes ZooKeeper et retourne uniquement les deux premières entrées, ce qui assure une redondance au cas où l’un des hôtes serait inaccessible.
 
 4. Pour vérifier que la variable d’environnement est correctement définie, utilisez la commande suivante :
 
@@ -254,35 +258,35 @@ Kafka stocke les flux de données dans des *rubriques*. Vous pouvez utiliser l�
 
     Cette commande se connecte à Zookeeper par le biais des informations d’hôte stockées dans `$KAFKAZKHOSTS`. Elle crée ensuite une rubrique Kafka nommée **test**. 
 
-    * Les données stockées dans cette rubrique sont partitionnées en huit partitions.
+    * Les données stockées dans cette rubrique sont partitionnées sur huit partitions.
 
-    * Chaque partition est répliquée sur trois nœuds worker du cluster.
+    * Chaque partition est répliquée sur trois nœuds de travail du cluster.
 
         > [!IMPORTANT]
-        > Si vous avez créé le cluster dans une région Azure qui fournit trois domaines d’erreur, utilisez un facteur de réplication de 3. Sinon, utilisez un facteur de réplication de 4.
+        > Si vous avez créé le cluster dans une région Azure comportant trois domaines d’erreur, utilisez un facteur de réplication de trois. Sinon, utilisez un facteur de réplication de quatre.
         
-        Dans les régions avec trois domaines d’erreur, un facteur de réplication de 3 permet de répartir les réplicas entre les domaines d’erreur. Dans les régions avec deux domaines d’erreur, un facteur de réplication de quatre répartit uniformément les réplicas entre les domaines.
+        Dans les régions comportant trois domaines d’erreur, un facteur de réplication de trois permet de répartir les réplicas entre les domaines d’erreur. Dans celles qui comptent deux domaines d’erreur, un facteur de réplication de quatre répartit uniformément les réplicas entre les domaines.
         
         Pour plus d’informations sur le nombre de domaines d’erreur dans une région, consultez le document [Disponibilité des machines virtuelles Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
         > [!IMPORTANT] 
         > Kafka n’est pas informé des domaines d’erreur Azure. Lors de la création de réplicas de partitions pour les rubriques, il ne peut pas distribuer les réplicas correctement pour la haute disponibilité.
 
-        Pour garantir une haute disponibilité, utilisez l’[outil de rééquilibrage de partitions de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Cet outil doit être exécuté à partir d’une connexion SSH pour le nœud principal de votre cluster Kafka.
+        Pour garantir une haute disponibilité, utilisez l’[outil de rééquilibrage de partitions de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Cet outil doit être exécuté à partir d’une connexion SSH au nœud principal du cluster Kafka.
 
-        Pour garantir la haute disponibilité de vos données Kafka, vous devez rééquilibrer les réplicas de partition de votre rubrique lorsque :
+        Pour garantir la haute disponibilité de vos données Kafka, rééquilibrez les réplicas de partition de votre rubrique lorsque :
 
         * Vous créez une rubrique ou une partition
 
         * Vous mettez à l’échelle un cluster
 
-* **Pour répertorier les rubriques**, utilisez la commande suivante :
+* **Pour lister les rubriques**, utilisez la commande suivante :
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
     ```
 
-    Cette commande répertorie les rubriques disponibles sur le cluster Kafka.
+    Cette commande liste les rubriques disponibles sur le cluster Kafka.
 
 * **Pour supprimer une rubrique**, utilisez la commande suivante :
 
@@ -293,7 +297,7 @@ Kafka stocke les flux de données dans des *rubriques*. Vous pouvez utiliser l�
     Cette commande supprime la rubrique nommée `topicname`.
 
     > [!WARNING]
-    > Si vous supprimez la rubrique `test` créée précédemment, alors vous devez la recréer. Elle sera utilisée ultérieurement dans ce document.
+    > Si vous supprimez la rubrique `test` créée précédemment, vous devrez la recréer. Elle sera utilisée ultérieurement dans ce document.
 
 Pour plus d’informations sur les commandes disponibles avec l’utilitaire `kafka-topics.sh`, utilisez la commande suivante :
 
@@ -303,11 +307,11 @@ Pour plus d’informations sur les commandes disponibles avec l’utilitaire `ka
 
 ## <a name="produce-and-consume-records"></a>Produire et consommer des enregistrements
 
-Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont produits par des *producteurs*, et utilisés par des *consommateurs*. Les producteurs et les consommateurs communiquent avec le service *répartiteur (broker) de Kafka*. Chaque nœud worker dans votre cluster HDInsight est un hôte de répartiteur Kafka.
+Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont produits par des *producteurs*, et utilisés par des *consommateurs*. Les producteurs et les consommateurs communiquent avec le service *répartiteur Kafka*. Chacun des nœuds de travail de votre cluster HDInsight est un hôte de type répartiteur Kafka.
 
 Pour stocker les enregistrements dans la rubrique test créée précédemment, puis les lire à l’aide d’un consommateur, procédez comme suit :
 
-1. Pour écrire des enregistrements dans la rubrique, vous devez utiliser l’utilitaire `kafka-console-producer.sh` à partir de la connexion SSH :
+1. Pour écrire des enregistrements dans la rubrique, utilisez l’utilitaire `kafka-console-producer.sh` à partir de la connexion SSH :
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
@@ -317,7 +321,7 @@ Pour stocker les enregistrements dans la rubrique test créée précédemment, p
 
 2. Saisissez un message texte sur la ligne vide et appuyez sur Entrée. Entrez quelques messages de cette manière, puis utilisez **Ctrl + C** pour revenir à l’invite de commandes normale. Chaque ligne est envoyée en tant qu’enregistrement distinct vers la rubrique Kafka.
 
-3. Pour lire des enregistrements à partir de la rubrique, vous devez utiliser l’utilitaire `kafka-console-consumer.sh` à partir de la connexion SSH :
+3. Pour lire des enregistrements de la rubrique, utilisez l’utilitaire `kafka-console-consumer.sh` à partir de la connexion SSH :
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -348,4 +352,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Utilisation d’Apache Spark avec Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Utiliser Apache Spark avec Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

@@ -6,14 +6,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 58ea2e7c387137f974425464ef2c9d17f438ba7c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071857"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916800"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la réplication VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
 
@@ -24,7 +24,6 @@ Avec [Azure Site Recovery](site-recovery-overview.md), en tant que partenaires, 
 Cet article décrit comment un partenaire peut créer et gérer des abonnements de locataires par le biais du fournisseur de solutions cloud, dans le cadre d’un scénario de réplication VMware multilocataire.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour configurer la réplication VMware, vous avez besoin d’effectuer les opérations suivantes :
 

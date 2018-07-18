@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666906"
 ---
 ## <a name="create-a-module-identity"></a>Création d’un module d’identité
 
@@ -43,7 +44,16 @@ Dans cette section, vous allez créer une application console .NET qui crée une
     const string moduleID = "myFirstModule";
     ```
 
-5. Ajoutez les méthodes suivantes à la classe **Program** :
+5. Ajoutez le code suivant à la classe **Main**.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. Ajoutez les méthodes suivantes à la classe **Program** :
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ Dans cette section, vous allez créer une application console .NET qui crée une
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Exécutez cette application et notez la clé de l’appareil et la clé du module.
+7. Exécutez cette application et notez la clé de l’appareil et la clé du module.
 
 > [!NOTE]
 > Le registre des identités IoT Hub stocke uniquement les identités des appareils et des modules pour permettre un accès sécurisé à IoT Hub. Le registre des identités stocke les ID et les clés d’appareil à utiliser en tant qu’informations d’identification de sécurité. Il stocke également un indicateur activé/désactivé pour chaque appareil pouvant être utilisé pour désactiver l’accès de cet appareil. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Il n’y a aucun indicateur d’activation/désactivation pour les identités de module. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity].

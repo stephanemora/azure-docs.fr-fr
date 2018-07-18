@@ -3,29 +3,30 @@ title: Récupérer les résultats d’une révision d’accès Azure AD | Micros
 description: Procédure de récupération des résultats des révisions d’accès Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: 96676c3ec6d96fd6c6f78aa2dbed8cf4d0a6718d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233112"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295298"
 ---
 # <a name="retrieve-access-review-results"></a>Récupérer les résultats d’une révision d’accès
 
-Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application.  Un utilisateur disposant du rôle **Administrateur général**, **Administrateur de la sécurité** ou **Lecteur Sécurité** peut également lire les résultats d’une révision d’accès.  Pour assigner des utilisateurs à l’un de ces rôles, un Administrateur de rôle privilégié peut utiliser Azure AD Privileged Identity Management (PIM) afin de définir un utilisateur comme éligible à l’activation du rôle, ou un Administrateur général peut [assigner un utilisateur au rôle](active-directory-users-assign-role-azure-portal.md) de façon permanente.
+Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application.  Un utilisateur disposant du rôle **Administrateur général**, **Administrateur des comptes d’utilisateur** , **Administrateur de la sécurité** ou **Lecteur Sécurité** peut également lire les résultats d’une révision d’accès.  Pour assigner des utilisateurs à l’un de ces rôles, un Administrateur de rôle privilégié peut utiliser Azure AD Privileged Identity Management (PIM) afin de définir un utilisateur comme éligible à l’activation du rôle, ou un Administrateur général peut [assigner un utilisateur au rôle](fundamentals/active-directory-users-assign-role-azure-portal.md) de façon permanente.
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Localisation d’une révision d’accès
 
@@ -46,7 +47,7 @@ Pour visualiser les résultats d’une instance terminée d’une révision d’
 
 ## <a name="removing-users-from-an-access-review"></a>Suppression d’utilisateurs d’une révision d’accès
 
-Par défaut, un utilisateur supprimé conserve cet état dans Azure AD pendant 30 jours, au cours desquels il peut être restauré par un administrateur s’il y a lieu.  Au bout de 30 jours, cet utilisateur est définitivement supprimé.  En outre, à l’aide du portail Azure Active Directory, un Administrateur général peut explicitement [supprimer définitivement un utilisateur récemment supprimé](active-directory-users-restore.md) avant que cette période arrive à son terme.  Une fois qu’un utilisateur a été définitivement supprimé, les données le concernant sont par la suite supprimées des révisions d’accès actives.  Les informations d’audit relatives aux utilisateurs supprimés sont conservées dans le journal d’audit.
+Par défaut, un utilisateur supprimé conserve cet état dans Azure AD pendant 30 jours, au cours desquels il peut être restauré par un administrateur s’il y a lieu.  Au bout de 30 jours, cet utilisateur est définitivement supprimé.  En outre, à l’aide du portail Azure Active Directory, un Administrateur général peut explicitement [supprimer définitivement un utilisateur récemment supprimé](fundamentals/active-directory-users-restore.md) avant que cette période arrive à son terme.  Une fois qu’un utilisateur a été définitivement supprimé, les données le concernant sont par la suite supprimées des révisions d’accès actives.  Les informations d’audit relatives aux utilisateurs supprimés sont conservées dans le journal d’audit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -54,6 +55,6 @@ Par défaut, un utilisateur supprimé conserve cet état dans Azure AD pendant 3
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) (Gérer l’accès des invités avec les révisions d’accès Azure AD)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md) (Gérer les programmes et les contrôles pour la révision d’accès Azure AD)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
 
 

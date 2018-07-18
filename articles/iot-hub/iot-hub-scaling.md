@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 23ace9f643596c4519014f370cf0142540724be6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635438"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030435"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -43,7 +43,7 @@ Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau
 | [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | OUI | OUI |
 | [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | OUI |
 | [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | OUI |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | OUI |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | OUI |
 
 IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard. 
 
@@ -53,34 +53,34 @@ La différence de fonctionnalités prises en charge entre les niveaux de base et
 
 | API | Niveau de base | Niveau standard |
 | --- | ---------- | ------------- |
-| [Supprimer un appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | OUI | OUI |
-| [Obtenir un appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | OUI | OUI |
+| [Supprimer un appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | OUI | OUI |
+| [Obtenir un appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | OUI | OUI |
 | Supprimer le module | OUI | OUI |
 | Obtenir le module | OUI | OUI |
-| [Obtenir les statistiques de Registre](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | OUI | OUI |
-| [Obtenir les statistiques de services](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | OUI | OUI |
-| [Placer l’appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | OUI | OUI |
+| [Obtenir les statistiques de Registre](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | OUI | OUI |
+| [Obtenir les statistiques de services](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | OUI | OUI |
+| [Créer ou mettre à jour un appareil](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | OUI | OUI |
 | Placer le module | OUI | OUI |
-| [Interroger les appareils](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | OUI | OUI |
+| [Interroger IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | OUI | OUI |
 | Interroger les modules | OUI | OUI |
-| [Créer l’URI SAS de téléchargement des fichiers](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | OUI | OUI |
-| [Recevoir une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | OUI | OUI |
-| [Envoyer un événement d’appareil](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | OUI | OUI |
+| [Créer l’URI SAS de téléchargement des fichiers](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | OUI | OUI |
+| [Recevoir une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | OUI | OUI |
+| [Envoyer un événement d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | OUI | OUI |
 | Envoyer un événement de module | OUI | OUI |
-| [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | OUI | OUI |
-| [Opération sur l’appareil en bloc](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Oui, à l’exception des fonctionnalités IoT Edge | OUI | 
-| [Purger la file d’attente de commandes](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | OUI |
-| [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | OUI |
+| [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | OUI | OUI |
+| [Opération sur l’appareil en bloc](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Oui, à l’exception des fonctionnalités IoT Edge | OUI | 
+| [Purger la file d’attente de commandes](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | OUI |
+| [Obtenir un jumeau d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | OUI |
 | Obtenir un jumeau de module |   | OUI |
-| [Appeler une méthode d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | OUI |
-| [Mettre à jour le jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | OUI | 
+| [Appeler une méthode d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | OUI |
+| [Mettre à jour le jumeau d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | OUI | 
 | Mettre à jour le jumeau de module |   | OUI | 
-| [Abandonner une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | OUI |
-| [Terminer une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | OUI |
-| [Annuler un travail](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | OUI |
-| [Créer un travail](https://docs.microsoft.com/rest/api/iothub/jobapi/createjob) |   | OUI |
-| [Obtenir un travail](https://docs.microsoft.com/rest/api/iothub/jobapi/getjob) |   | OUI |
-| [Tâches de requête](https://docs.microsoft.com/rest/api/iothub/jobapi/queryjobs) |   | OUI |
+| [Abandonner une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | OUI |
+| [Terminer une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | OUI |
+| [Annuler un travail](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | OUI |
+| [Créer un travail](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | OUI |
+| [Obtenir un travail](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | OUI |
+| [Tâches de requête](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | OUI |
 
 ## <a name="message-throughput"></a>Débit de messages
 

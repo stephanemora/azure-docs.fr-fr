@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c56501deaf4d30374690a112b1ba11eaa9344cdb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 417425a6982ca92e486ccfb578131ebc898a0466
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622361"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046086"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemples
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Exemples PowerShell dans Data Factory version 2](../samples-powershell.md) et [Exemples de code dans la galerie d’exemples de code Azure](https://azure.microsoft.com/resources/samples/?service=data-factory).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Exemples PowerShell dans Data Factory](../samples-powershell.md) et [Exemples de code dans la galerie d’exemples de code Azure](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
 
 ## <a name="samples-on-github"></a>Exemples sur GitHub

@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: bad7e87cb194fb7d8846e7e675881658a1d33b1e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138158"
+---
 Vérifiez que vous avez déjà créé un espace de noms Service Bus, comme illustré [ici][namespace-how-to].
 
 1. Connectez-vous au [portail Azure][azure-portal].

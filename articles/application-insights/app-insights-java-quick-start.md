@@ -10,11 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798438"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -23,7 +24,6 @@ Azure Application Insights vous permet d’analyser facilement la disponibilité
 Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit de développement logiciel (SDK) Application Insights dans un projet web dynamique Java existant.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce démarrage rapide :
 
@@ -34,6 +34,8 @@ Pour effectuer ce démarrage rapide :
 Si vous n’avez pas de projet web dynamique Java, vous pouvez en créer un à l’aide du [guide de démarrage rapide pour la création d’une application web Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+Si vous préférez l’infrastructure Spring, consultez le guide [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) (guide de configuration de l’application d’initialiseur Spring Boot afin d’utiliser Application Insights)
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 

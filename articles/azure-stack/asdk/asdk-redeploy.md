@@ -1,6 +1,6 @@
 ---
 title: Redéployer le Kit de développement Azure Stack (ASDK) | Microsoft Docs
-description: Ce didacticiel vous montre comment réinstaller l’ASDK.
+description: Cet article vous montre comment réinstaller l’ASDK.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850318"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>Didacticiel : Redéployer l’ASDK
-Dans ce didacticiel, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer l’ASDK lorsque vous souhaitez simplement tout reprendre à zéro.
+# <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
+Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer l’ASDK lorsque vous souhaitez simplement tout reprendre à zéro.
 
 > [!IMPORTANT]
 > La mise à niveau de l’ASDK vers une nouvelle version n’est pas prise en charge. Vous devez redéployer l’ASDK sur l’ordinateur hôte du Kit de développement chaque fois que vous souhaitez évaluer une version plus récente d’Azure Stack.
-
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Supprimer l’inscription auprès d’Azure 
-> * Redéployer l’ASDK
 
 ## <a name="remove-azure-registration"></a>Supprimer l’inscription auprès d’Azure 
 Si vous avez précédemment inscrit votre installation ASDK auprès d’Azure, vous devez supprimer la ressource d’inscription avant de redéployer l’ASDK. Réinscrivez l’ASDK pour activer la syndication de Place de marché lorsque vous redéployez l’ASDK. Si vous n’avez pas précédemment inscrit l’ASDK auprès de votre abonnement Azure, vous pouvez ignorer cette section.
@@ -55,7 +50,7 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
 
 Azure Stack doit maintenant avoir été correctement désinscrit de votre abonnement Azure. En outre, le groupe de ressources azurestack créé lorsque vous avez inscrit l’ASDK auprès d’Azure doit également avoir été supprimé.
 
-## <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
+## <a name="deploy-the-asdk"></a>Déployer l’ASDK
 Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme décrit ci-dessous. Les étapes sont diffèrent selon que vous avez utilisé ou non le script du programme d’installation d’Azure Stack (asdk-installer.ps1) pour installer l’ASDK.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Redéployer le Kit de développement Azure Stack à l’aide du script du programme d’installation
@@ -85,7 +80,7 @@ Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme d�
 
 3. Après le redémarrage du Kit de développement dans le système d’exploitation de base, connectez-vous en tant qu’administrateur local. Localisez et supprimez le fichier **C:\CloudBuilder.vhdx** qui a été utilisé lors du déploiement précédent. 
 
-4. Répétez les mêmes étapes que celles que vous avez suivies pour [déployer l’ASDK](asdk-deploy.md) la première fois.
+4. Répétez les mêmes étapes que celles que vous avez suivies pour [déployer l’ASDK](asdk-install.md) la première fois.
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Redéployer le Kit de développement Azure Stack à l’aide du programme d’installation
 Si vous n’avez pas utilisé le script asdk-installer.ps1 pour installer l’ASDK, vous devez reconfigurer manuellement l’ordinateur hôte du Kit de développement avant de redéployer l’ASDK.
@@ -100,16 +95,7 @@ Si vous n’avez pas utilisé le script asdk-installer.ps1 pour installer l’AS
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Supprimer l’inscription auprès d’Azure 
-> * Redéployer l’ASDK
-
-Passez au didacticiel suivant pour apprendre à ajouter un élément marketplace Azure Stack.
-
-> [!div class="nextstepaction"]
-> [Ajouter un élément marketplace Azure Stack](asdk-marketplace-item.md)
+[Tâches de configuration après l’installation du kit ASDK](asdk-post-deploy.md)
 
 
 

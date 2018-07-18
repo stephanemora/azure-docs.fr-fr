@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/30/2018
 ms.author: sethm
 ms.openlocfilehash: 4b4dc5be9697bb96aec658fccbdf13b299e79e9e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311258"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309849"
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Créer un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager
 
@@ -155,9 +155,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs

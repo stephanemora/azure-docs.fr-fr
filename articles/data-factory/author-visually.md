@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265286"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 L’expérience utilisateur Azure Data Factory vous permet de créer et de déployer visuellement des ressources dans votre fabrique de données sans avoir à écrire du code. Vous pouvez glisser-déposer des activités sur le canevas d’un pipeline, effectuer des séries de tests, déboguer de manière itérative, mais aussi déployer et surveiller les exécutions de votre pipeline. Vous pouvez utiliser l’expérience utilisateur pour la création visuelle de deux manières :
@@ -46,8 +47,8 @@ La création avec VSTS Git Integration prend en charge le contrôle du code sour
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurer un référentiel Git VSTS avec Azure Data Factory
 Vous pouvez configurer un référentiel VSTS GIT avec une fabrique de données via deux méthodes.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>Méthode de configuration 1 : page Let’s get started (Prise en main)
+#### <a name="method1"></a> Méthode de configuration 1 : page Let’s get started (Prise en main)
+
 Dans Azure Data Factory, accédez à la page **Let’s get started** (Prise en main). Sélectionnez **Configure Code Repository** (Configurer le référentiel de code) :
 
 ![Configurer un référentiel de code VSTS](media/author-visually/configure-repo.png)
@@ -62,11 +63,11 @@ Le volet affiche les paramètres du référentiel de code VSTS suivants :
 |:--- |:--- |:--- |
 | **Type de référentiel** | Le type de référentiel de code VSTS.<br/>**Remarque** : GitHub n’est actuellement pas pris en charge. | Git Visual Studio Team Services |
 | **Azure Active Directory** | Le nom de votre abonné Azure AD. | <your tenant name> |
-| **Compte Visual Studio Team Services** | Le nouveau de votre compte VSTS. Vous pouvez rechercher le nom de votre compte VSTS à l’adresse `https://{account name}.visualstudio.com`. Vous pouvez vous [connecter à votre compte VSTS](https://www.visualstudio.com/team-services/git/) pour accéder à votre profil Visual Studio et visualiser vos référentiels et projets. | \<le nom de votre compte> |
-| **Nom du projet** | Le nom de votre projet VSTS. Vous pouvez rechercher le nom de votre projet VSTS à l’adresse `https://{account name}.visualstudio.com/{project name}`. | \<le nom de votre projet VSTS> |
-| **RepositoryName** | Le nom de votre référentiel de code VSTS. Les projets VSTS contiennent des référentiels Git pour gérer votre code source, à mesure que votre projet se développe. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le projet. | \<le nom de votre référentiel de code VSTS> |
-| **Branche de collaboration** | Votre branche de collaboration VSTS qui sera utilisée pour la publication. Par défaut, il s’agit de `master`. Modifiez cette valeur au cas où vous souhaitez publier des ressources à partir d’une autre branche. | \<le nom de votre branche de collaboration> |
-| **Dossier racine** | Votre dossier racine de votre branche de collaboration VSTS. | \<le nom de votre dossier racine > |
+| **Compte Visual Studio Team Services** | Le nouveau de votre compte VSTS. Vous pouvez rechercher le nom de votre compte VSTS à l’adresse `https://{account name}.visualstudio.com`. Vous pouvez vous [connecter à votre compte VSTS](https://www.visualstudio.com/team-services/git/) pour accéder à votre profil Visual Studio et visualiser vos référentiels et projets. | <your account name> |
+| **Nom du projet** | Le nom de votre projet VSTS. Vous pouvez rechercher le nom de votre projet VSTS à l’adresse `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | Le nom de votre référentiel de code VSTS. Les projets VSTS contiennent des référentiels Git pour gérer votre code source, à mesure que votre projet se développe. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le projet. | <your VSTS code repository name> |
+| **Branche de collaboration** | Votre branche de collaboration VSTS qui sera utilisée pour la publication. Par défaut, il s’agit de `master`. Modifiez cette valeur au cas où vous souhaitez publier des ressources à partir d’une autre branche. | <your collaboration branch name> |
+| **Dossier racine** | Votre dossier racine de votre branche de collaboration VSTS. | <your root folder name> |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur **Canevas de création** dans un référentiel Git VSTS. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Méthode de configuration 2 : Canevas de création de l’expérience utilisateur
@@ -75,6 +76,14 @@ Dans l’expérience utilisateur Azure Data Factory **Canevas de création**, re
 Un volet de configuration apparaît. Pour plus d’informations sur les paramètres de configuration, consultez les descriptions dans <a href="#method1">Méthode de configuration 1</a>.
 
 ![Configurer les paramètres du référentiel de code pour la création de l’expérience utilisateur](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>Passer à un autre dépôt Git
+
+Pour passer à un autre dépôt Git, recherchez l’icône dans le coin supérieur droit de la page Vue d’ensemble de Data Factory, comme le montre la capture d’écran suivante. Si vous ne voyez pas l’icône, effacez le cache de votre navigateur local. Sélectionnez l’icône pour supprimer l’association au dépôt actuel.
+
+Après avoir supprimé l’association avec le dépôt actuel, vous pouvez configurer vos paramètres Git pour utiliser un autre dépôt. Vous pouvez ensuite importer des ressources Data Factory dans le nouveau dépôt.
+
+![Supprimez l’association au dépôt Git actuel.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>Utiliser le contrôle de version
 Les systèmes de contrôle de version (également appelé _contrôle du code source_) permettent aux développeurs de collaborer sur le code et de suivre les modifications apportées à la base de code. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.

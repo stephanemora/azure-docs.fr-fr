@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019481"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029796"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | Mesures de correction 
 | Produit/Service | Article |
@@ -115,7 +115,7 @@ ms.locfileid: "28019481"
 | **Informations de référence**              | [Appliquer le protocole HTTPS sur Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **Étapes** | <p>Bien qu’Azure active déjà le protocole HTTPS pour les services d’application Azure grâce à un certificat générique pour le domaine *.azurewebsites.net, le domaine n’applique pas le protocole HTTPS. Les visiteurs peuvent toujours accéder à l’application à l’aide du protocole HTTP, ce qui peut compromettre la sécurité de l’application. Par conséquent, le protocole HTTPS doit être appliqué de manière explicite. Les applications ASP.NET MVC doivent utiliser le [filtre RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) qui force une demande HTTP non sécurisée à être renvoyée sur HTTPS.</p><p>Sinon, vous pouvez utiliser le module de réécriture d’URL, qui est inclus avec Azure App Service, pour appliquer le protocole HTTPS. Le module de réécriture d’URL permet aux développeurs de définir des règles qui sont appliquées aux demandes entrantes avant qu’elles ne soient transmises à votre application. Les règles de réécriture d’URL sont définies dans un fichier web.config stocké à la racine de l’application.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 L’exemple suivant contient une règle de réécriture d’URL basique qui force tout le trafic entrant à utiliser le protocole HTTPS.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -135,7 +135,7 @@ L’exemple suivant contient une règle de réécriture d’URL basique qui forc
   </system.webServer>
 </configuration>
 ```
-Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection permanente) lorsque l’utilisateur demande une page utilisant le protocole HTTP. Le code 301 redirige la demande vers la même URL que celle requise par le visiteur, mais remplace la partie HTTP de la demande par HTTPS. Par exemple, HTTP://contoso.com serait redirigé vers HTTPS://contoso.com. 
+Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection permanente) lorsque l’utilisateur demande une page utilisant le protocole HTTP. Le code 301 redirige la demande vers la même URL que celle requise par le visiteur, mais remplace la partie HTTP de la demande par HTTPS. Par exemple, HTTP://contoso.com est redirigé vers HTTPS://contoso.com. 
 
 ## <a id="http-hsts"></a>Activer le protocole HTTP Strict Transport Security (HSTS)
 
@@ -146,7 +146,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [OWASP HTTP Strict Transport Security Cheat Sheet](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) (Aide-mémoire sur HTTP Strict Transport Security par l’OWASP) |
-| **Étapes** | <p>HTTP Strict Transport Security (HSTS) est une amélioration de sécurité à accepter qui est spécifiée par une application web via l’utilisation d’un en-tête de réponse spécial. Une fois qu’un navigateur pris en charge reçoit cet en-tête, ce navigateur empêchera toutes les communications d’être envoyés sur HTTP vers le domaine spécifié et enverra à la place toutes les communications sur HTTPS. Il empêche également les invites HTTPS sur lesquelles cliquer sur les navigateurs.</p><p>Pour implémenter HSTS, l’en-tête de réponse suivant doit être configuré pour un site web de manière globale, dans le code ou dans la configuration. Strict-Transport-Security : max-age = 300 ; includeSubDomains HSTS répond aux menaces suivantes :</p><ul><li>L’utilisateur marque http://example.com avec un signet ou saisit manuellement cette adresse et fait face à un intercepteur : HSTS redirige automatiquement les demandes HTTP vers HTTPS pour le domaine cible.</li><li>L’application web qui est destinée à être purement HTTPS contient par inadvertance des liens HTTP ou traite du contenu sur HTTP : HSTS redirige automatiquement les demandes HTTP vers HTTPS pour le domaine cible.</li><li>Un intercepteur tente d’intercepter le trafic d’un utilisateur victime à l’aide d’un certificat non valide et espère que l’utilisateur acceptera le certificat incorrect : HSTS n’autorise pas un utilisateur à remplacer le message de certificat par un certificat non valide.</li></ul>|
+| **Étapes** | <p>HTTP Strict Transport Security (HSTS) est une amélioration de sécurité à accepter qui est spécifiée par une application web via l’utilisation d’un en-tête de réponse spécial. Une fois qu’un navigateur pris en charge reçoit cet en-tête, ce navigateur empêchera toutes les communications d’être envoyés sur HTTP vers le domaine spécifié et enverra à la place toutes les communications sur HTTPS. Il empêche également les invites HTTPS sur lesquelles cliquer sur les navigateurs.</p><p>Pour implémenter HSTS, l’en-tête de réponse suivant doit être configuré pour un site web de manière globale, dans le code ou dans la configuration. Strict-Transport-Security : max-age = 300 ; includeSubDomains HSTS répond aux menaces suivantes :</p><ul><li>L’utilisateur marque http://example.com avec un signet ou tape manuellement cette adresse et fait face à un intercepteur : HSTS redirige automatiquement les demandes HTTP vers HTTPS pour le domaine cible.</li><li>L’application web qui est destinée à être purement HTTPS contient par inadvertance des liens HTTP ou traite du contenu sur HTTP : HSTS redirige automatiquement les demandes HTTP vers HTTPS pour le domaine cible.</li><li>Un intercepteur tente d’intercepter le trafic d’un utilisateur victime à l’aide d’un certificat non valide et espère que l’utilisateur acceptera le certificat incorrect : HSTS n’autorise pas un utilisateur à remplacer le message de certificat par un certificat non valide.</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Assurer le chiffrement de la connexion SQL Server et la validation des certificats
 
@@ -214,7 +214,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | **Informations de référence**              | [Certificate and Public Key Pinning](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) (Épinglage de clé publique et de certificat) |
 | **Étapes** | <p>L’épinglage de certificat assure une protection contre les interceptions. L’épinglage consiste à associer un hôte à sa clé publique ou à son certificat X509 attendu. Une fois qu’un certificat ou une clé publique est connu ou vu par un hôte, le certificat ou la clé publique est associé ou « épinglé » à l’hôte. </p><p>Par conséquent, lorsqu’un pirate tente une interception de SSL, lors de la liaison SSL, la clé du serveur du pirate sera différente de la clé du certificat épinglé et la demande sera rejetée, empêchant ainsi l’interception. L’épinglage de certificat peut être obtenu en implémentant le délégué `ServerCertificateValidationCallback` de ServicePointManager.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```csharp
 using System;
 using System.Net;
@@ -288,7 +288,7 @@ namespace CertificatePinningExample
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | NET Framework 3 |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Étapes** | La configuration de l’application doit garantir l’utilisation du protocole HTTPS pour tous les accès à des informations sensibles.<ul><li>**EXPLICATION :** si une application gère des informations sensibles et n’utilise pas le chiffrement au niveau du message, elle doit être uniquement autorisée à communiquer sur un canal de transport chiffré.</li><li>**RECOMMANDATIONS :** assurez-vous que le transport HTTP est désactivé et activez le transport HTTPS à la place. Par exemple, remplacez `<httpTransport/>` par la balise `<httpsTransport/>`. Ne comptez pas sur une configuration réseau (pare-feu) pour garantir l’accès à l’application sur un canal sécurisé uniquement. D’un point de vue théorique, l’application ne doit pas dépendre du réseau pour sa sécurité.</li></ul><p>D’un point de vue pratique, les responsables de la sécurisation du réseau ne suivent pas en permanence les exigences de sécurité de l’application à mesure de leur évolution.</p>|
 
 ## <a id="message-protection"></a>WCF : Définir le niveau de protection de sécurité du message sur EncryptAndSign
@@ -302,7 +302,7 @@ namespace CertificatePinningExample
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
 | **Étapes** | <ul><li>**EXPLICATION :** quand le niveau de protection est défini sur la valeur « aucun », la protection des messages est désactivée. La confidentialité et l’intégrité sont obtenues grâce à un niveau approprié de paramétrage.</li><li>**RECOMMANDATIONS :**<ul><li>Quand `Mode=None`, la protection des messages est désactivée.</li><li>Quand `Mode=Sign`, les messages sont signés mais pas chiffrés. Cette valeur doit être utilisée lorsque l’intégrité du message est primordiale.</li><li>Quand `Mode=EncryptAndSign`, les messages sont signés et chiffrés.</li></ul></li></ul><p>Pensez à désactiver le chiffrement et signez uniquement votre message lorsque vous avez simplement besoin de valider l’intégrité des informations, sans vous soucier de la confidentialité. Cela peut être utile pour les opérations ou les contrats de service pour lesquels vous avez besoin de valider l’expéditeur d’origine, mais qu’aucune donnée sensible n’est transmise. Lorsque vous réduisez le niveau de protection, veillez à ce que le message ne contienne pas d’informations d’identification personnelle.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 La configuration du service et de l’opération permettant de signer uniquement le message est indiquée dans les exemples suivants. Exemple de contrat de service de `ProtectionLevel.Sign` : vous trouverez ci-dessous un exemple d’utilisation de ProtectionLevel.Sign au niveau du contrat de service : 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
@@ -312,7 +312,7 @@ public interface IService
   } 
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Exemple de contrat d’opération de `ProtectionLevel.Sign` (pour un contrôle granulaire) : vous trouverez ci-dessous un exemple d’utilisation de `ProtectionLevel.Sign` au niveau du contrant d’opération :
 
 ```
@@ -342,7 +342,7 @@ string GetData(int value);
 | **Informations de référence**              | [Enforcing SSL in a Web API Controller](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) (Application de SSL dans un contrôleur d’API Web) |
 | **Étapes** | Si une application a une liaison HTTP et une liaison HTTPS, les clients peuvent toujours utiliser HTTP pour accéder au site. Pour éviter cela, utilisez un filtre d’action afin de vous assurer que les demandes envoyées aux API protégées sont toujours sur HTTPS.|
 
-### <a name="example"></a>Exemple 
+### <a name="example"></a>Exemples 
 Le code suivant montre un filtre d’authentification d’API web qui recherche SSL : 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute

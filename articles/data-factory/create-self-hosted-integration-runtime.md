@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 6f3259170a1b3fe0bbd33899a74863f5e71a49f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618451"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048786"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory version 1](v1/data-factory-introduction.md).
 
 Un runtime d’intégration autohébergé est capable d’exécuter des activités de copie entre des magasins de données cloud et un magasin de données dans un réseau privé et de répartir des activités de transformation par rapport à des ressources de calcul dans un site local ou un réseau virtuel Azure. Installez les éléments nécessaires au runtime d’intégration autohébergé sur un ordinateur local ou sur une machine virtuelle à l’intérieur d’un réseau privé.  
 

@@ -1,24 +1,25 @@
 ---
-title: "Remplacement du comportement HTTP à l’aide du moteur de règles Azure CDN | Microsoft Docs"
-description: "Le moteur de règles vous permet de personnaliser la manière dont Azure CDN gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP."
+title: Remplacement du comportement HTTP à l’aide du moteur de règles Azure CDN | Microsoft Docs
+description: Le moteur de règles vous permet de personnaliser la manière dont Azure CDN gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: akucer
-editor: 
+manager: cfowler
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261047"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Remplacement du comportement HTTP à l’aide du moteur de règles Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -46,9 +47,10 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
 ## <a name="tutorial"></a>Didacticiel
 1. Dans la page **Profil CDN**, sélectionnez **Gérer**.
    
-    ![Bouton de gestion du profil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Bouton Gérer du profil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
+
 2. Sélectionnez l’onglet **HTTP Large**, puis sélectionnez **Moteur de règles**.
    
     Les options d’une nouvelle règle s’affichent.
@@ -58,7 +60,9 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
    > [!IMPORTANT]
    > L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
    > 
+
 3. Entrez un nom dans la zone de texte **Nom / Description** .
+
 4. Identifiez le type de requêtes auxquelles la règle s’applique. Utilisez la condition de correspondance par défaut, **Toujours**. 
    
    ![Condition de correspondance de règle CDN](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
    > Pour obtenir la liste détaillée des conditions de correspondance, consultez [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Cliquez sur le bouton **+** à côté de **Fonctionnalités** pour ajouter une fonctionnalité.  Dans la liste déroulante située à gauche, sélectionnez **Forcer l'âge maximal interne**.  Dans la zone de texte qui s'affiche, entrez **300**. Conservez les valeurs par défaut restantes.
+
+5. Cliquez sur le bouton **+** à côté de **Fonctionnalités** pour ajouter une fonctionnalité.  Dans la liste déroulante située à gauche, sélectionnez **Forcer l'âge maximal interne**.  Dans la zone de texte qui s'affiche, entrez **300**. Conservez les valeurs par défaut restantes.
    
    ![Fonctionnalité de règle CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,10 +88,11 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
    > Pour obtenir une liste détaillée des fonctionnalités, consultez [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Cliquez sur le bouton **Ajouter** pour enregistrer la nouvelle règle.  La nouvelle règle est en attente d'approbation. Une fois celle-ci approuvée, l’état passe de **XML en attente** à **XML actif**.
+
+6. Sélectionnez **Ajouter** pour enregistrer la nouvelle règle.  La nouvelle règle est en attente d'approbation. Une fois celle-ci approuvée, l’état passe de **XML en attente** à **XML actif**.
    
    > [!IMPORTANT]
-   > Les modifications de règles peuvent prendre jusqu’à 90 minutes avant d’être propagées à travers le CDN.
+   > Les modifications de règles peuvent prendre jusqu’à 10 minutes avant d’être propagées à travers Azure CDN.
    > 
    > 
 

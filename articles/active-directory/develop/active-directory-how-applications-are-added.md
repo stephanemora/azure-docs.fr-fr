@@ -16,20 +16,22 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, lenalepa
+ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156168"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316957"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
+
 Il existe deux représentations des applications dans Azure AD : 
-* Les [objets d’application](active-directory-application-objects.md#application-object) : bien qu’il existe des [exceptions](#notes-and-exceptions), ceux-ci peuvent être considérés comme la définition d’une application.
-* Les [principaux de service](active-directory-application-objects.md#service-principal-object) : ceux-ci peuvent être considérés comme une instance d’une application. En règle générale, les principaux de service référencent un objet d’application, et un objet d’application peut être référencé par plusieurs principaux de service sur plusieurs répertoires.
+* Les [objets d’application](active-directory-application-objects.md#application-object) : bien qu’il existe des [exceptions](#notes-and-exceptions), les objets d’application peuvent être considérés comme la définition d’une application.
+* Les [principaux de service](active-directory-application-objects.md#service-principal-object) : ils peuvent être considérés comme une instance d’une application. En règle générale, les principaux de service référencent un objet d’application, et un objet d’application peut être référencé par plusieurs principaux de service sur plusieurs répertoires.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>À quoi correspondent les objets d’application et d’où viennent-ils ?
-Les [objets d’application](active-directory-application-objects.md#application-object) (que vous pouvez gérer dans le portail Azure via l’expérience [Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)) décrivent l’application à Azure AD et peuvent être considérés comme la définition de l’application. Ils permettent au service de savoir comment émettre des jetons pour l’application, en fonction de ses paramètres. L’objet d’application existe uniquement dans son répertoire de base, même s’il s’agit d’une application mutualisée prenant en charge des principaux de service dans d’autres répertoires. L’objet d’application peut inclure les éléments suivants (ainsi que d’autres informations qui ne sont pas mentionnées ici) :
+Vous pouvez gérer des [objets d’application](active-directory-application-objects.md#application-object) dans le portail Azure via [Inscriptions d’application](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Les objets d’application décrivent l’application à Azure AD et peuvent être considérés comme la définition de l’application. Ils permettent au service de savoir comment émettre des jetons pour l’application, en fonction de ses paramètres. L’objet d’application existe uniquement dans son répertoire de base, même s’il s’agit d’une application mutualisée prenant en charge des principaux de service dans d’autres répertoires. L’objet d’application peut inclure les éléments suivants (ainsi que d’autres informations qui ne sont pas mentionnées ici) :
 * Nom, logo et éditeur
 * URL de réponse
 * Secrets (clés symétriques et/ou asymétriques utilisées pour authentifier l’application)
@@ -43,12 +45,12 @@ Les [objets d’application](active-directory-application-objects.md#application
 Les objets d’application peuvent être créés via plusieurs méthodes, notamment :
 * Via les inscriptions d’application dans le portail Azure
 * Via la création d’une application à l’aide de Visual Studio et la configuration de celle-ci pour utiliser l’authentification Azure AD
-* Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un principal de service)
+* Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (ce qui crée également un principal de service)
 * À l’aide de l’API Graph Microsoft, de l’API Graph Azure AD ou de PowerShell pour créer une application
 * Via beaucoup d’autres méthodes, notamment les différentes expériences de développement dans Azure et les expériences d’explorateur d’API dans tous les centres de développement
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>À quoi correspondent les principaux de service et d’où proviennent-ils ?
-Les [principaux de service](active-directory-application-objects.md#service-principal-object) (que vous pouvez gérer via l’expérience [Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)) gouvernent en fait une application se connectant à Azure AD et peuvent être considérés comme l’instance de l’application dans votre répertoire. Pour toute application donnée, le principal de service peut avoir au maximum un objet d’application (qui est inscrit dans un répertoire de base) et un ou plusieurs objets de principal de service représentant les instances de l’application dans tous les répertoires dans lesquels il agit. 
+Vous pouvez gérer les [principaux de service](active-directory-application-objects.md#service-principal-object) dans le portail Azure via les [ Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Ce sont les principaux de service qui gouvernent une application se connectant à Azure AD, et ils peuvent être considérés comme l’instance de l’application dans votre répertoire. Pour toute application donnée, le principal de service peut avoir au maximum un objet d’application (qui est inscrit dans un répertoire de base) et un ou plusieurs objets de principal de service représentant les instances de l’application dans tous les répertoires dans lesquels il agit. 
 
 Le principal de service peut inclure :
 
@@ -72,7 +74,7 @@ Le principal de service peut inclure :
   * Certains services d’Office 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)
 * Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-* Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique avec mot de passe
+* Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique (SSO) avec mot de passe
 * Par programmation via l’API Graph Azure AD ou PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Quel est le lien entre les objets d’application et les principaux de service ?
@@ -130,7 +132,8 @@ Si vous souhaitez toujours empêcher les utilisateurs de votre répertoire d’i
 * Pour empêcher les utilisateurs de donner leur consentement pour leur propre compte :
   1. Dans le portail Azure, accédez à la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sous Applications d’entreprise.
   2. Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur **Non**. 
-     *Notez que si vous décidez de désactiver le consentement de l’utilisateur, un administrateur devra donner son consentement pour chaque nouvelle application qu’un utilisateur utilisera.*
+      > [!NOTE]
+      > Si vous décidez de désactiver le consentement de l’utilisateur, un administrateur devra donner son consentement pour chaque nouvelle application qu’un utilisateur utilisera.    
 * Pour empêcher les utilisateurs d’inscrire leurs propres applications :
   1. Dans le portail Azure, accédez à la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sous Azure Active Directory
   2. Définissez le paramètre **Les utilisateurs peuvent inscrire des applications** sur **Non**.

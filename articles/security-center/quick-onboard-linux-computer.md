@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
 ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29530164"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630095"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Linux à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources Linux s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Linux.
@@ -72,7 +72,7 @@ Vous pouvez maintenant surveiller vos machines virtuelles Azure et des ordinateu
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Microsoft Azure
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Vous pouvez supprimer l’agent de l’ordinateur Linux une fois que vous n’en avez plus besoin.
 
 Pour supprimer l’agent :
@@ -82,7 +82,7 @@ Pour supprimer l’agent :
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez provisionné l’agent sur un ordinateur Linux. Pour en savoir plus sur l’utilisation de Security Center, passez au didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité de vos ressources.
 
 > [!div class="nextstepaction"]

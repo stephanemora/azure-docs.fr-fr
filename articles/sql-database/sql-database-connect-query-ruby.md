@@ -11,18 +11,17 @@ ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.openlocfilehash: f86c53465636f82cf36d5099699fc9e6efeb55a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794682"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704655"
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Utilisation de Ruby pour interroger une base de données SQL Azure
 
 Ce démarrage rapide montre comment utiliser [Ruby](https://www.ruby-lang.org) pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657585"
 ---
 # <a name="network-security"></a>Sécurité du réseau
 
@@ -138,7 +139,7 @@ Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les rempl
 
 Les groupes de sécurité d’application permettent de configurer la sécurité réseau comme un prolongement naturel de la structure de l’application, et donc de regrouper les machines virtuelles et définir des stratégies de sécurité réseau basés sur ces groupes. Cette fonctionnalité vous permet de réutiliser votre stratégie de sécurité à grande échelle sans maintenance manuelle d’adresses IP explicites. La plateforme gère la complexité des adresses IP explicites et plusieurs ensembles de règles, ce qui vous permet de vous concentrer sur la logique métier.
 
-Vous pouvez spécifier un groupe de sécurité d’application en tant que source et destination dans une règle de sécurité. Une fois que votre stratégie de sécurité est définie, vous pouvez créer des machines virtuelles et attribuer les interfaces réseau sur la machine virtuelle à un groupe de sécurité d’application. La stratégie est appliquée en fonction de l’appartenance de groupe de sécurité d’application de chaque interface réseau sur une machine virtuelle. L’exemple suivant illustre comment vous pouvez utiliser un groupe de sécurité d’application pour tous les serveurs web de votre abonnement :
+Vous pouvez spécifier un groupe de sécurité d’application en tant que source et destination dans une règle de sécurité. Vous ne pouvez pas spécifier plusieurs groupes de sécurité d’application dans la source et la destination. Une fois que votre stratégie de sécurité est définie, vous pouvez créer des machines virtuelles et attribuer les interfaces réseau sur la machine virtuelle à un groupe de sécurité d’application. La stratégie est appliquée en fonction de l’appartenance de groupe de sécurité d’application de chaque interface réseau sur une machine virtuelle. L’exemple suivant illustre comment vous pouvez utiliser un groupe de sécurité d’application pour tous les serveurs web de votre abonnement :
 
 1. Créez un groupe de sécurité d’application nommé *WebServers*.
 2. Créez un groupe de sécurité réseau nommé *MyNSG*.
@@ -152,7 +153,7 @@ Pour en savoir plus sur les limites lors de la création de groupes de sécurit�
 Les groupes de sécurité d’application ont les contraintes suivantes :
 
 -   Toutes les interfaces réseau affectées à un groupe de sécurité d’application doivent exister dans le même réseau virtuel que celui où se trouve la première interface réseau affectée au groupe de sécurité d’application. Par exemple, si la première interface réseau affectée à un groupe de sécurité d’application nommé *ASG1* se trouve dans le réseau virtuel nommé *VNet1*, toutes les interfaces réseau suivantes affectées à*ASG1* doivent exister dans *VNet1*. Vous ne pouvez pas ajouter d’interfaces réseau à partir de différents réseaux virtuels au même groupe de sécurité d’application.
-- Si vous spécifiez des groupes de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si ASG1 contient des interfaces réseau de VNet1 et si ASG2 contient des interfaces réseau de VNet2, vous ne pouvez pas assigner ASG1 en tant que source et ASG2 en tant que destination dans une règle. Toutes les interfaces réseaux doivent se trouver dans VNet1.
+- Si vous spécifiez un groupe de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si ASG1 contient des interfaces réseau de VNet1 et si ASG2 contient des interfaces réseau de VNet2, vous ne pouvez pas assigner ASG1 en tant que source et ASG2 en tant que destination dans une règle. Toutes les interfaces réseau doivent se trouver dans VNet1.
 
 ## <a name="azure-platform-considerations"></a>Considérations relatives à la plateforme Azure
 

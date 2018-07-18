@@ -11,11 +11,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
 ms.openlocfilehash: a3c54fe635fe0f8988c321684a815e9896922587
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634343"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235503"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
 
@@ -78,7 +78,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
 
    ![Ajouter une entrée à un travail Stream Analytics dans Azure](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Ajouter une sortie au travail Stream Analytics
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Ajouter une sortie à la tâche Stream Analytics
 
 1. Sous **Topologie du travail**, cliquez sur **Sorties**.
 1. Dans le volet **Sorties**, cliquez sur **Ajouter**, puis saisissez les informations suivantes :
@@ -98,7 +98,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
 
    ![Ajouter une sortie à un travail Stream Analytics dans Azure](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurer la requête du travail Stream Analytics
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurer la requête de la tâche Stream Analytics
 
 1. Sous **Topologie du travail**, cliquez sur **Requête**.
 1. Remplacez `[YourInputAlias]` par l’alias d’entrée du travail.
@@ -116,7 +116,7 @@ Dans le travail Stream Analytics, cliquez sur **Démarrer** > **Maintenant** > 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Créer et publier un rapport Power BI pour visualiser les données
 
 1. Vérifiez que l’exemple d’application s’exécute correctement sur votre appareil. Si ce n’est pas le cas, vous pouvez consulter les didacticiels sous [Configurer votre appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
-1. Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/en-us/).
+1. Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/en-us/).
 1. Accédez à l’espace de travail de groupe que vous définissez lors de la création de la sortie du travail Stream Analytics.
 1. Cliquez sur **Jeux de données de diffusion en continu**.
 

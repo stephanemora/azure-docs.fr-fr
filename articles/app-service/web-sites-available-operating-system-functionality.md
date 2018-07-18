@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités de système d’exploitation sur Azure App Service"
-description: "Apprenez-en plus sur les fonctionnalités de système d’exploitation disponibles pour les applications web, les backends d’applications mobiles et les applications API sur Azure App Service"
+title: Fonctionnalités de système d’exploitation sur Azure App Service
+description: Apprenez-en plus sur les fonctionnalités de système d’exploitation disponibles pour les applications web, les backends d’applications mobiles et les applications API sur Azure App Service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850152"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications exécutées sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
@@ -49,16 +50,22 @@ Différents lecteurs sont disponibles dans App Service, notamment les lecteurs l
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Lecteurs locaux
-App Service est un service qui s’exécute essentiellement au sommet de l’infrastructure PaaS (Platform as a Service) d’Azure. Par conséquent, les disques locaux « associés » à une machine virtuelle correspondent aux types de lecteurs accessibles à tous les rôles de travail exécutés sous Azure. Il peut s’agir d’un lecteur de système d’exploitation (lecteur D:\), d’un lecteur d’application contenant les fichiers .cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients) ou d’un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle. Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié.
+App Service est un service qui s’exécute essentiellement au sommet de l’infrastructure PaaS (Platform as a Service) d’Azure. Par conséquent, les disques locaux « associés » à une machine virtuelle correspondent aux types de lecteurs accessibles à tous les rôles de travail exécutés sous Azure. notamment :
+
+- Un lecteur de système d’exploitation (lecteur D:\)
+- Un lecteur d’application contenant les fichiers cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients)
+- Un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle 
+
+Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>Lecteurs réseau (partages UNC)
-Pour simplifier le déploiement et la maintenance d’applications, App Service stocke tout le contenu utilisateur sur un ensemble de partages UNC. Ce modèle s'adapte très bien au modèle commun de stockage de contenu utilisé par les environnements d'hébergement Web locaux dotés de plusieurs serveurs à charge équilibrée. 
+Pour simplifier le déploiement et la maintenance d’applications, App Service stocke tout le contenu utilisateur sur un ensemble de partages UNC. Ce modèle s’adapte bien au modèle commun de stockage de contenu utilisé par les environnements d’hébergement web locaux dotés de plusieurs serveurs à charge équilibrée. 
 
 App Service intègre un certain nombre de partages UNC créés dans chaque centre de données. Un certain pourcentage du contenu de l'ensemble des utilisateurs de chaque centre de données est alloué à chacun des partages UNC. En outre, le contenu de tous les fichiers associés à l'abonnement d'un client est systématiquement placé sur le même partage UNC. 
 
-Notez qu'en raison du mode de fonctionnement des services cloud, la machine virtuelle chargée d'héberger un partage UNC changera au fil du temps. Les partages UNC seront en effet associés à différentes machines virtuelles à mesure que celles-ci seront intégrées et écartées lors de l'évolution normale des opérations dans le cloud. C'est la raison pour laquelle les applications ne doivent jamais partir du principe que les informations machine présentes dans un chemin de fichier UNC resteront stables au fil du temps. Elles doivent utiliser le *faux* chemin d’accès absolu **D:\home\site** fourni par App Service. Ce faux chemin d’accès absolu offre une méthode « portable » qui n’est pas propre à l’application ni à l’utilisateur pour faire référence à une application particulière. L’utilisation du chemin **D:\home\site** permet de transférer les fichiers partagés d’une application vers une autre sans avoir à configurer un nouveau chemin d’accès absolu à chaque transfert.
+En raison du mode de fonctionnement des services Azure, la machine virtuelle chargée d’héberger un partage UNC changera au fil du temps. Les partages UNC seront en effet associés à différentes machines virtuelles à mesure que celles-ci seront intégrées et écartées lors de l’évolution normale des opérations Azure. C'est la raison pour laquelle les applications ne doivent jamais partir du principe que les informations machine présentes dans un chemin de fichier UNC resteront stables au fil du temps. Elles doivent utiliser le *faux* chemin d’accès absolu **D:\home\site** fourni par App Service. Ce faux chemin d’accès absolu offre une méthode « portable » qui n’est pas propre à l’application ni à l’utilisateur pour faire référence à une application particulière. L’utilisation du chemin **D:\home\site** permet de transférer les fichiers partagés d’une application vers une autre sans avoir à configurer un nouveau chemin d’accès absolu à chaque transfert.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -69,7 +76,7 @@ Sur les lecteurs locaux associés à la machine virtuelle qui exécute une appli
 
 Deux exemples illustrent la façon dont App Service utilise le stockage local temporaire : le répertoire de fichiers temporaires ASP.NET et le répertoire de fichiers compressés IIS. Le système de compilation ASP.NET utilise le répertoire de fichiers temporaires « Temporary ASP.NET Files » comme emplacement de cache de compilation temporaire. IIS utilise le répertoire de fichiers compressés « IIS Temporary Compressed Files » pour stocker les réponses compressées. Ces deux types d’utilisation de fichiers (et d’autres) sont de nouveau mappés dans App Service sur un stockage local temporaire par application. Ce nouveau mappage préserve les fonctionnalités.
 
-Chaque application dans App Service est exécutée sous une identité de processus de travail à faibles privilèges unique et aléatoire appelée « identité du pool d’applications », comme décrit à la page suivante : [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Le code d'application utilise cette identité pour l'accès en lecture seule de base au lecteur du système d'exploitation (lecteur D:\). Le code d'application peut ainsi dresser la liste les structures de répertoires communes et lire les fichiers communs sur le lecteur du système d'exploitation. Bien que ce niveau d'accès puisse sembler étendu, les mêmes répertoires et fichiers sont accessibles lorsque vous approvisionnez un rôle de travail dans le service hébergé Azure et lisez le contenu du lecteur. 
+Chaque application dans App Service est exécutée sous une identité de processus de travail à faibles privilèges unique et aléatoire appelée « identité du pool d’applications », comme décrit plus en détail ici : [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Le code d'application utilise cette identité pour l'accès en lecture seule de base au lecteur du système d'exploitation (lecteur D:\). Le code d'application peut ainsi dresser la liste les structures de répertoires communes et lire les fichiers communs sur le lecteur du système d'exploitation. Bien que ce niveau d'accès puisse sembler étendu, les mêmes répertoires et fichiers sont accessibles lorsque vous approvisionnez un rôle de travail dans le service hébergé Azure et lisez le contenu du lecteur. 
 
 <a name="multipleinstances"></a>
 
@@ -79,9 +86,9 @@ Le répertoire de base comprend le contenu d’une application, et le code d’a
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Accès réseau
-Le code d'application peut utiliser les protocoles TCP/IP et UDP pour établir des connexions réseau sortantes avec des points de terminaison accessibles par Internet qui exposent des services externes. Les applications peuvent utiliser ces mêmes protocoles pour se connecter aux services Azure, par exemple en établissant des connexions HTTPS à la base de données SQL.
+Le code d’application peut utiliser les protocoles TCP/IP et UDP pour établir des connexions réseau sortantes avec des points de terminaison accessibles par Internet qui exposent des services externes. Les applications peuvent utiliser ces mêmes protocoles pour se connecter aux services Azure, par exemple en établissant des connexions HTTPS à la base de données SQL.
 
-La capacité des applications à établir une connexion de bouclage locale et à écouter sur le socket de bouclage local correspondant est également limitée. Cette fonctionnalité a pour principal objectif d'activer les applications configurées pour écouter sur les sockets de bouclage locaux. Notez que chaque application voit une connexion de bouclage « privée » ; une application « A » ne peut pas écouter sur un socket de bouclage local établi par une application « B ».
+La capacité des applications à établir une connexion de bouclage locale et à écouter sur le socket de bouclage local correspondant est également limitée. Cette fonctionnalité a pour principal objectif d'activer les applications configurées pour écouter sur les sockets de bouclage locaux. Chaque application voit une connexion de bouclage « privée ». Une application « A » ne peut pas écouter sur un socket de bouclage local établi par une application « B ».
 
 Les canaux nommés sont également pris en charge en tant que mécanisme de communication inter-processus (IPC) entre différents processus qui exécutent collectivement une application. Par exemple, le module FastCGI d'IIS utilise des canaux nommés pour coordonner les processus individuels qui exécutent les pages PHP.
 
@@ -103,7 +110,7 @@ Par exemple, les journaux HTTP W3C générés par une application active sont di
 
 De même, les informations de diagnostic en temps réel des applications .NET peuvent être consignées via l’infrastructure de suivi et de diagnostic .NET, avec possibilité de consigner les informations de suivi sur le partage réseau de l’application ou à un emplacement de stockage d’objets blob.
 
-Les éléments de journalisation et de suivi des diagnostics non accessibles aux applications sont les événements ETW Windows et les journaux d'événements Windows communs (par exemple, les journaux d'événements système, d'applications et de sécurité). Dans la mesure où les informations de suivi ETW sont potentiellement visibles sur toute la machine (avec les ACL qui conviennent), l'accès en écriture aux événements ETW est bloqué. Les développeurs peuvent constater que les appels d’API à des événements ETW en lecture et écriture, ainsi qu’aux journaux des événements Windows communs semblent fonctionner, car App Service « simule » les appels pour donner l’impression qu’ils aboutissent. En réalité, le code d'application n'a pas accès à ces données d'événements.
+Les éléments de journalisation et de suivi des diagnostics non accessibles aux applications sont les événements ETW Windows et les journaux d’événements Windows communs (par exemple, les journaux d’événements système, d’applications et de sécurité). Dans la mesure où les informations de suivi ETW sont potentiellement visibles sur toute la machine (avec les ACL qui conviennent), l'accès en écriture aux événements ETW est bloqué. Les développeurs peuvent constater que les appels d’API à des événements ETW en lecture et écriture, ainsi qu’aux journaux des événements Windows communs semblent fonctionner, car App Service « simule » les appels pour donner l’impression qu’ils aboutissent. En réalité, le code d'application n'a pas accès à ces données d'événements.
 
 <a id="RegistryAccess"></a>
 

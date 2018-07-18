@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 408429d0f8697b8b807e386dbcf2eade29938249
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1e87704e7d8cf3c7cc21e537d36f95a97265061b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271689"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903514"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure PowerShell
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure PowerShell pour connecter votre disque dur virtuel à une autre machine virtuelle Windows pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.
@@ -183,7 +183,7 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
 ## <a name="create-vm-from-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
 Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Le véritable modèle JSON se trouve sur le lien suivant :
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 Le modèle déploie une machine virtuelle dans un réseau virtuel existant, à l’aide de l’URL de disque dur virtuel de la commande précédente. L’exemple suivant déploie le modèle du groupe de ressources nommé `myResourceGroup` :
 
@@ -206,10 +206,10 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 ## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation
-1. Arrêtez les machines virtuelles Windows avec disque managé affectées.
-2. [Créez une capture instantanée de disque managé](snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle du disque managé.
+1. Arrêtez la machine virtuelle Windows avec disque managé affectée.
+2. [Créez une capture instantanée de disque managé](snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle avec disque managé.
 3. [Créez un disque managé à partir de la capture instantanée](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attachez le disque managé comme un disque de données de la machine virtuelle](attach-disk-ps.md).
+4. [Attachez le disque managé en tant que disque de données de la machine virtuelle](attach-disk-ps.md).
 5. [Transformez le disque de données de l’étape 4 en disque de système d’exploitation](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

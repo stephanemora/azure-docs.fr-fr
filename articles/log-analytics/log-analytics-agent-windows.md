@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637410"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Connecter des ordinateurs Windows au service Log Analytics dans Azure
 
@@ -33,7 +34,7 @@ L’agent peut être installé à l’aide d’une des méthodes suivantes. La p
 * Script PowerShell.
 * Modèle Resource Manager pour les machines virtuelles exécutant Windows localement dans Azure Stack.  
 
-Pour comprendre la configuration réseau et système nécessaire au déploiement de l’agent Windows, consultez [Prérequis pour les ordinateurs Windows](log-analytics-concept-hybrid.md#prerequisites).
+Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-concept-hybrid.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
 Avant d’installer Microsoft Monitoring Agent pour Windows, vous devez disposer de l’ID et de la clé d’espace de travail pour votre espace de travail Log Analytics.  Quelle que soit la méthode d’installation utilisée, ces informations sont nécessaires pendant l’installation afin que l’agent soit configuré correctement et qu’il puisse communiquer avec Log Analytics dans le cloud Azure Commercial et le cloud du gouvernement des États-Unis.  

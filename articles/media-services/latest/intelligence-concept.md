@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783548"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331518"
 ---
 # <a name="media-intelligence"></a>Intelligence multimédia
 
@@ -87,7 +87,7 @@ Exemple :
 
 |NOM|Description|
 |---|---|
-|id|ID de la ligne OCR.|
+|id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
 |confidence|Degré de confiance de la reconnaissance.|
 |Langage|Langue de l’OCR.|
@@ -181,7 +181,7 @@ Exemple :
 |id|ID du visage.|
 |Nom|Nom du visage. Il peut avoir la valeur 'Unknown #0' ou il peut s’agit d’une célébrité identifiée ou une personne formée par le client.|
 |confidence|Degré de confiance de l’identification du visage.|
-|description|Dans le cas d’une célébrité, sa description (« Satya Nadella est né à...»). |
+|description|Dans le cas d’une célébrité, sa description. |
 |thumbnalId|ID de l’image miniature de ce visage.|
 |knownPersonId|Dans le cas d’une personne connue, son ID interne.|
 |referenceId|Dans le cas d’une célébrité Bing, son ID Bing.|
@@ -223,7 +223,7 @@ Exemple :
 
 |NOM|Description|
 |---|---|
-|id|ID d’étiquette.|
+|id|ID de l’étiquette.|
 |Nom|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
 |Langage|Langue du nom de l’étiquette (si traduction). BCP-47|
 |instances|Liste des intervalles de temps au cours desquels cette étiquette est apparue (une étiquette peut apparaître plusieurs fois). Chaque instance possède un champ de confiance. |
@@ -329,33 +329,6 @@ Exemple :
       ]
     }
   ]
-```
-
-### <a name="audioeffects"></a>audioEffects
-
-|NOM|Description|
-|---|---|
-|id|ID de l’effet audio.|
-|Type|Type d’effet audio (par exemple, applaudissements, discours, silence).|
-|instances|Liste des intervalles de temps au cours desquels cet effet audio est apparu.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

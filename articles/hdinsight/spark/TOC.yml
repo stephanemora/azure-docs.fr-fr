@@ -160,9 +160,6 @@
         - name: Utiliser Hue
           href: ../hdinsight-hadoop-hue-linux.md
           maintainContext: true
-        - name: Utiliser R
-          href: ../hdinsight-hadoop-r-scripts-linux.md
-          maintainContext: true
         - name: Utiliser Solr
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
@@ -394,13 +391,10 @@
         - name: Connecter HDInsight à un réseau local
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Surveillance à l’aide d’OMS
+    - name: Surveillance à l’aide de Log Analytics
       items:
         - name: Utiliser Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Tableaux de bord spécifiques au cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Utiliser des requêtes avec Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -429,6 +423,10 @@
     - name: Notes de publication
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notes de publication archivées
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenir de l'aide sur le forum

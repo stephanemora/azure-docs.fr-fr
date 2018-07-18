@@ -1,39 +1,25 @@
 ---
-title: Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Docs
+title: Vue d’ensemble des mesures dans Microsoft Azure
 description: Vue d’ensemble des mesures et de leur utilisation dans Microsoft Azure
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264217"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
 
 ## <a name="what-are-metrics"></a>Quelles sont les mesures ?
 Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
-
-## <a name="what-can-you-do-with-metrics"></a>Que pouvez-vous faire avec les mesures ?
-Les mesures sont une source précieuse de télémétrie et vous permettent d’effectuer les tâches suivantes :
-
-* **Suivre les performances** de votre ressource (par exemple une machine virtuelle, un site web ou une application logique) en traçant ses mesures sur un graphique de portail et en épinglant ce graphique sur un tableau de bord.
-* **Être averti d’un problème** ayant un impact sur les performances de votre ressource lorsqu’une mesure dépasse un certain seuil.
-* **Configurer des actions automatisées**, telles que la mise à l’échelle automatique d’une ressource ou le déclenchement d’un runbook lorsqu’une mesure dépasse un certain seuil.
-* **Effectuer des analyses avancées** ou créer des rapports sur les tendances de performances ou d’utilisation de vos ressources.
-* **Archiver** l’historique des performances ou d’intégrité de votre ressource **à des fins d’audit/de conformité**.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Quelles sont les caractéristiques des mesures ?
 Les mesures présentent les caractéristiques suivantes :
@@ -43,19 +29,17 @@ Les mesures présentent les caractéristiques suivantes :
 * Vous pouvez accéder à **93 jours d’historique** pour chaque métrique. Vous pouvez consulter rapidement les tendances récentes et mensuelles de performances ou d’intégrité de vos ressources.
 * Certaines métriques peuvent avoir des paires d’attributs nom-valeur appelées **dimensions**. Elles vous permettent de segmenter encore davantage et d’explorer une métrique d’une manière plus explicite.
 
-Vous pouvez également :
+## <a name="what-can-you-do-with-metrics"></a>Que pouvez-vous faire avec les mesures ?
+Les métriques vous permettent d’effectuer les tâches suivantes :
 
-* Configurer une **règle d’alerte qui envoie une notification ou prend une action de façon automatique** pour une mesure lorsque celle-ci dépasse le seuil que vous avez défini. La mise à l’échelle automatique est une action automatique spéciale qui vous permet de faire évoluer votre ressource afin de répondre aux requêtes entrantes ou à la charge sur votre site web ou vos ressources de calcul. Vous pouvez configurer une règle de paramètre de mise à l’échelle automatique sur la base d’une mesure qui dépasse un seuil.
 
-* **Acheminer** tous les métriques vers Application Insights ou Log Analytics pour activer instantanément analyses, recherche et alertes personnalisées sur les données des métriques depuis vos ressources. Vous pouvez également diffuser des mesures vers un hub d’événements, pour les acheminer vers Azure Stream Analytics ou des applications personnalisées pour une analyse en quasi temps réel. Vous pouvez paramétrer la diffusion vers un hub d’événements à l’aide des paramètres de diagnostic.
-
-* **Archiver les mesures dans le stockage** pour les conserver plus longtemps ou les utiliser pour les rapports en mode hors connexion. Vous pouvez acheminer vos mesures de stockage Azure Blob lorsque vous configurez les paramètres de diagnostic pour votre ressource.
-
-* Découvrir facilement, accéder à et **afficher toutes les mesures** via le portail Azure lorsque vous sélectionnez une ressource, et tracer les mesures sur un graphique.
-
-* **Utiliser** les mesures via les nouvelles API REST Azure Monitor.
-
-* **Interroger** les mesures en utilisant les applets de commande PowerShell ou l’API REST multiplateforme.
+- Configurer une **règle d’alerte qui envoie une notification ou prend une action de façon automatique** pour une mesure lorsque celle-ci dépasse le seuil que vous avez défini. Les actions sont contrôlées via des [groupes d’actions](monitoring-action-groups.md). Exemple actions : notifications par e-mail, téléphone et SMS, appeler un webhook, démarrer un runbook et bien plus encore. La **mise à l’échelle automatique** est une action automatisée spéciale qui vous permet de mettre à l’échelle une ressource pour gérer la charge tout en préservant des coûts faibles en cas d’absence de charge. Vous pouvez configurer une règle de paramètre de mise à l’échelle automatique sur la base d’une mesure qui dépasse un seuil.
+- **Acheminez** toutes les métriques vers *Application Insights* ou *Log Analytics* pour activer instantanément analyses, recherche et alertes personnalisées sur les données des métriques depuis vos ressources. Vous pouvez également diffuser des mesures vers un *Event Hub*, pour les acheminer vers Azure Stream Analytics ou des applications personnalisées pour une analyse en quasi temps réel. Vous pouvez paramétrer la diffusion vers un hub d’événements à l’aide des paramètres de diagnostic.
+- **Archivez** l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion.  Vous pouvez acheminer vos mesures de stockage Azure Blob lorsque vous configurez les paramètres de diagnostic pour votre ressource.
+- Utilisez le **portail Azure** pour découvrir, accéder à et afficher toutes les métriques lorsque vous sélectionnez une ressource et tracez les métriques sur un graphique. Vous pouvez suivre les performances de votre ressource (par exemple une machine virtuelle, un site web ou une application logique) en épinglant ce graphique sur votre tableau de bord.  
+- **Effectuer des analyses avancées** ou créer des rapports sur les tendances de performances ou d’utilisation de vos ressources.
+- **Interroger** les mesures en utilisant les applets de commande PowerShell ou l’API REST multiplateforme.
+- **Utiliser** les mesures via les nouvelles API REST Azure Monitor.
 
   ![Acheminement des mesures dans Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
@@ -107,9 +91,9 @@ Vous pouvez accéder au panneau **Paramètres de diagnostic** sous l’onglet **
 Vous pouvez configurer cela au moyen de modèles Resource Manager, de [PowerShell](insights-powershell-samples.md), de [l’interface de ligne de commande Azure](insights-cli-samples.md) ou des [API REST](https://msdn.microsoft.com/library/dn931943.aspx).
 
 > [!NOTE]
-> L’envoi de métriques multidimensionnels par le biais des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
-> *Par exemple* : le métrique « Messages entrants » sur un hub d’événements peut être examiné et représenté sur un niveau par file d’attente. Toutefois, lors de son exportation par le biais des paramètres de diagnostic, le métrique est représenté sous forme de tous les messages entrants dans toutes les files d’attente du hub d’événements.
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 

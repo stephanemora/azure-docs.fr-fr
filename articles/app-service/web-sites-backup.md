@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153580"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751511"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
@@ -38,7 +38,7 @@ App Service peut sauvegarder les informations suivantes dans un compte de stocka
 Les solutions de base de données suivantes sont prises en charge par la fonctionnalité de sauvegarde : 
    - [Base de données SQL](https://azure.microsoft.com/services/sql-database/)
    - [Azure Database pour MySQL (Version préliminaire)](https://azure.microsoft.com/services/mysql)
-   - [Azure Database pour PostgreSQL (Version préliminaire)](https://azure.microsoft.com/services/postgres)
+   - [Azure Database pour PostgreSQL (Version préliminaire)](https://azure.microsoft.com/services/postgresql)
    - [MySQL dans l’application](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

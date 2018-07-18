@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09c85a9badaad45816a9160d09cb3c4a726426e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477656"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Créer une machine virtuelle (classique) avec plusieurs cartes réseau à l’aide de PowerShell
 
@@ -36,7 +37,6 @@ Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs 
 Les étapes suivantes utilisent un groupe de ressources nommé *IaaSStory* pour les serveurs web et un groupe de ressources nommé *IaaSStory-BackEnd* pour les serveurs de base de données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de créer les serveurs de base de données, vous devez créer le groupe de ressources *IaaSStory* avec toutes les ressources nécessaires pour ce scénario. Pour créer ces ressources, exécutez les étapes suivantes. Pour créer un réseau virtuel, suivez les étapes de l’article [Créer un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
@@ -199,4 +199,10 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Étape 5 : configuration du routage au sein du système d’exploitation de la machine virtuelle
 
-Le serveur DHCP Azure affecte une passerelle par défaut à la première (principale) interface réseau associée à la machine virtuelle. Azure n’affecte pas de passerelle par défaut aux interfaces réseau additionnelles (secondaires) associées à la machine virtuelle. Par conséquent, vous ne pouvez pas communiquer avec les ressources hors du sous-réseau dans lequel se trouve, par défaut, une interface réseau secondaire. Toutefois, les interfaces réseau secondaires peuvent communiquer avec des ressources hors de leur sous-réseau. Pour configurer le routage des interfaces réseau secondaires, consultez [Routage au sein du système d’exploitation d’une machine virtuelle avec plusieurs interfaces réseau](virtual-network-network-interface-vm.md).
+Le serveur DHCP Azure affecte une passerelle par défaut à la première (principale) interface réseau associée à la machine virtuelle. Azure n’affecte pas de passerelle par défaut aux interfaces réseau additionnelles (secondaires) associées à la machine virtuelle. Par conséquent, vous ne pouvez pas communiquer avec les ressources hors du sous-réseau dans lequel se trouve, par défaut, une interface réseau secondaire. Toutefois, les interfaces réseau secondaires peuvent communiquer avec des ressources hors de leur sous-réseau. Pour configurer le routage pour les interfaces réseau secondaires, consultez les articles suivants :
+
+- [Configure a Windows VM for multiple NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+) (Configurer une machine virtuelle Windows pour plusieurs cartes réseau)
+
+- [Configure a Linux VM for multiple NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+) (Configurer une machine virtuelle Linux pour plusieurs cartes réseau)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125817"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927687"
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
 
@@ -65,7 +65,7 @@ Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du po
 La cmdlet permettant de réinitialiser une passerelle est **AzureRmVirtualNetworkGateway-Reset**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Resource Manager](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet1GW dans le groupe de ressources TestRG1 :
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
@@ -75,7 +75,7 @@ Quand vous recevez un résultat de retour, vous pouvez supposer que la réinitia
 
 ### <a name="resetclassic"></a>Modèle de déploiement classique
 
-La cmdlet permettant de réinitialiser une passerelle est **Reset-AzureVNetGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Service Management (SM)](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). L’exemple suivant réinitialise la passerelle d’un réseau virtuel appelé « ContosoVNet » :
+La cmdlet permettant de réinitialiser une passerelle est **Reset-AzureVNetGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Service Management (SM)](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). L’exemple suivant réinitialise la passerelle d’un réseau virtuel appelé « ContosoVNet » :
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

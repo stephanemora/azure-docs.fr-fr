@@ -11,11 +11,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
 ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637665"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666872"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning
 
@@ -147,7 +147,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurer la requête du travail Stream Analytics
 
-1. Sous **Topologie du travail**, cliquez sur **Requête**.
+1. Sous **Topologie de la tâche**, cliquez sur **Requête**.
 1. Remplacez le code existant par ce qui suit :
 
    ```sql
@@ -167,7 +167,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 ### <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
 
-Dans le travail Stream Analytics, cliquez sur **Démarrer** > **Maintenant** > **Démarrer**. Une fois le travail lancé, l’état correspondant passe de **Arrêté** à **Exécution**.
+Dans le travail Stream Analytics, cliquez sur **Démarrer** > **Maintenant** > **Démarrer**. Une fois la tâche lancée, l’état correspondant passe de **Arrêté** à **Exécution**.
 
 ![Exécuter la tâche Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 

@@ -3,7 +3,7 @@ title: Log Analytics - FAQ | Microsoft Docs
 description: Réponses aux questions fréquemment posées sur le service Azure Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128528"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -74,18 +76,21 @@ Log Analytics utilise l’heure UTC ; chaque jour commence à minuit UTC. Si l�
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Comment être informé de l’arrêt de la collecte de données ?
 
-R : Suivez les étapes décrites dans [Créer une règle d’alerte](log-analytics-alerts-creating.md#create-an-alert-rule) pour être averti lorsque la collecte de données s’arrête.
+R : Suivez les étapes décrites dans [Créer une nouvelle alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsque la collecte de données s’arrête.
 
 Lorsque vous créez l’alerte d’arrêt de la collecte de données, définissez les valeurs suivantes :
-- **Nom** : *Collecte de données arrêtée*
-- **Gravité** : *Avertissement*
-- **Requête de recherche** sur `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Fenêtre de temps** à *30 minutes*.
-- **Fréquence des alertes** toutes les *dix* minutes.
-- **Générer l’alerte selon** sur *nombre de résultats*
-- **Nombre de résultats** sur *Greater than 0* (Supérieur à 0)
 
-Cette alerte se déclenche lorsque la requête renvoie les résultats uniquement si les pulsations sont absentes pendant plus de 15 minutes.  Utilisez les étapes décrites dans [Ajouter des actions à des règles d’alerte dans Log Analytics](log-analytics-alerts-actions.md) pour configurer une action de messagerie, de webhook ou de runbook pour la règle d’alerte.
+- **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
+- **Critères d’alerte** spécifiez les éléments suivants :
+   - **Nom du signal** sélectionnez **Recherche personnalisée dans les journaux**.
+   - **Requête de recherche** sur `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
+   - **Période de temps** de *30* minutes et **Fréquence d’alerte** toutes les *10* minutes
+- **Définir les détails de l’alerte** spécifiez les éléments suivants :
+   - **Nom** : *Collecte de données arrêtée*
+   - **Gravité** : *Avertissement*
+
+Spécifiez un [groupe d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) existant ou créez-en un nouveau afin que l’alerte de journal corresponde aux critères, vous êtes informé si vous disposez d’une pulsation manquante pendant plus de 15 minutes.
 
 ## <a name="configuration"></a>Configuration
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Puis-je modifier le nom du conteneur Blob ou Table utilisé pour lire sur Azure Diagnostics (WAD) ?
@@ -96,7 +101,7 @@ R. Non, il n’est pas possible pour le moment de lire des tables ou des contene
 
 R. Le service Log Analytics repose sur Azure. Les adresses IP Log Analytics se trouvent dans les [plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration requise](log-analytics-concept-hybrid.md#prerequisites).
+Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration réseau requise](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. J’utilise ExpressRoute pour me connecter à Azure. Mon trafic Log Analytics utilise-t-il ma connexion ExpressRoute ?
 

@@ -1,31 +1,39 @@
 ---
-title: Sécuriser les données et les opérations dans Recherche Azure | Microsoft Docs
-description: La sécurité Recherche Azure est basée sur la conformité SOC 2, le chiffrement, l’authentification ainsi que l’identité et l’accès à travers des ID de sécurité utilisateur et de groupe dans les filtres de Recherche Azure.
+title: Sécurité et confidentialité dans Recherche Azure | Microsoft Docs
+description: Recherche Azure est compatible avec SOC 2, HIPAA et les autres certifications. La connexion et le chiffrement des données, l’authentification ainsi que l’identité et l’accès à travers des ID de sécurité utilisateur et de groupe dans les filtres de Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 7db1b6c6f72f3cea7446b5f96dac7cd6e9b4252d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795797"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285727"
 ---
-# <a name="security-and-controlled-access-in-azure-search"></a>Sécurité et contrôle d’accès dans Recherche Azure
+# <a name="security-and-data-privacy-in-azure-search"></a>Sécurité et confidentialité dans Recherche Azure
 
-Recherche Azure est [conforme à la norme SOC 2](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), avec une architecture de sécurité complète incluant la sécurité physique, les transmissions chiffrées, le stockage chiffré et les dispositifs de protection logiciels à l’échelle de la plateforme. Sur le plan opérationnel, Recherche Azure accepte uniquement les demandes authentifiées. Le cas échéant, vous pouvez ajouter des contrôles d’accès par utilisateur au contenu. Cet article traite de la sécurité au niveau de chaque couche, en se centrant principalement sur la façon dont les données et les opérations sont sécurisées dans Recherche Azure.
+Des fonctions complètes de sécurité et des contrôles d’accès sont intégrés à Recherche Azure pour s’assurer que le contenu privé reste inchangé. Cet article énumère les fonctionnalités de sécurité et la conformité aux normes intégrées à Recherche Azure.
 
-![Diagramme de blocs des couches de sécurité](media/search-security-overview/azsearch-security-diagram.png)
+L’architecture de sécurité de Recherche Azure inclut la sécurité physique, les transmissions chiffrées, le stockage chiffré et la conformité aux normes à l’échelle de la plateforme. Sur le plan opérationnel, Recherche Azure accepte uniquement les demandes authentifiées. Le cas échéant, vous pouvez ajouter des contrôles d’accès par utilisateur au contenu par le biais de filtres de sécurité. Cet article traite de la sécurité au niveau de chaque couche, en se centrant principalement sur la façon dont les données et les opérations sont sécurisées dans Recherche Azure.
 
-## <a name="physical-security"></a>Sécurité physique
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Conformité aux normes : ISO 27001, SOC 2, HIPAA
 
-Les centres de données Microsoft fournissent une sécurité physique de pointe leader du secteur et sont conformes à un ensemble complet de normes et réglementations. Pour plus d’informations, consultez la page sur les [centres de données globaux](https://www.microsoft.com/cloud-platform/global-datacenters) ou regardez une courte vidéo sur la sécurité des centres de données.
+Une liste partielle de la conformité aux normes comprend HIPAA et SOC 2 Type 2 pour les fonctionnalités mises à la disposition générale. Les fonctionnalités de préversion sont certifiées dans le cadre de la disponibilité générale et ne doivent pas être utilisées dans les solutions ayant des exigences spécifiques en termes de normes. La certification de la conformité est documentée dans [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Présentation de la conformité Microsoft Azure) et [Trust Center](https://www.microsoft.com/en-us/trustcenter) (Centre de confidentialité). 
 
-> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
+La certification pour les normes suivantes a été [annoncée en juin 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/).
+
++ [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
++ [Conformité à la norme SOC 2 Type 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Pour accéder au rapport complet sur la conformité d’[Azure et d’Azure Government à SOC 2 de type II](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
++ [HIPAA (Health Insurance Portability and Accountability Act)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
++ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
++ [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 ## <a name="encrypted-transmission-and-storage"></a>Stockage et transmission chiffrés
 
@@ -35,15 +43,14 @@ Le chiffrement s’étend dans tout le pipeline d’indexation : des connexions 
 |----------------|-------------|
 | Chiffrement en transit | Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. |
 | Chiffrement au repos | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.|
-| [Conformité SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Tous les services de recherche sont entièrement conformes à AICPA SOC 2, dans tous les centres de données proposant le service Recherche Azure. Pour accéder au rapport complet sur la conformité d’Azure et d’Azure Government à SOC 2 de type II, consultez le document [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
 Le chiffrement est interne à Recherche Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme. 
 
 Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris les services partagés (gratuits), dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.
 
-## <a name="azure-wide-logical-security"></a>Sécurité logique à l’échelle d’Azure
+## <a name="azure-wide-user-access-controls"></a>Contrôles d’accès utilisateur à l’échelle d’Azure
 
-Plusieurs mécanismes de sécurité sont disponibles dans Azure Stack et, de ce fait, automatiquement disponibles pour les ressources Recherche Azure que vous créez.
+Plusieurs mécanismes de sécurité sont disponibles dans Azure et, de ce fait, automatiquement disponibles pour les ressources Recherche Azure que vous créez.
 
 + [Verrous au niveau des abonnements ou des ressources pour empêcher la suppression](../azure-resource-manager/resource-group-lock-resources.md)
 + [Contrôle d'accès en fonction du rôle (RBAC) pour contrôler l’accès aux informations et aux opérations d’administration](../role-based-access-control/overview.md)
@@ -67,7 +74,7 @@ L’authentification est requise à chaque requête, chaque requête étant comp
 
 Dans Recherche Azure, les index individuels ne sont pas des objets sécurisables. En effet, l’accès aux index est déterminé au niveau de la couche de service (accès en lecture ou en écriture) et du contexte d’une opération.
 
-En cas d’accès de l’utilisateur final, vous pouvez structurer les demandes de requête dans votre application pour établir la connexion à l’aide d’une clé de requête, qui configure toutes les demandes en mode de lecture seule et qui inclut l’index spécifique utilisé par votre application. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
+Pour l’accès de l’utilisateur final, vous pouvez structurer les demandes de requête pour établir la connexion à l’aide d’une clé de requête, qui configure toutes les demandes en mode de lecture seule et qui inclut l’index spécifique utilisé par votre application. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
 
 Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une clé d’administration pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
 
@@ -106,6 +113,12 @@ Le tableau suivant récapitule les opérations autorisées dans Recherche Azure,
 | Interroger des informations système, telles que l’obtention de statistiques, de comptes et de listes d’objets. | Clé d’administration, RBAC sur la ressource (Propriétaire, Collaborateur ou Lecteur) |
 | Gérer les clés d’administration | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
 | Gérer les clés de requête |  Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource  |
+
+## <a name="physical-security"></a>Sécurité physique
+
+Les centres de données Microsoft fournissent une sécurité physique de pointe leader du secteur et sont conformes à un ensemble complet de normes et réglementations. Pour plus d’informations, consultez la page sur les [centres de données globaux](https://www.microsoft.com/cloud-platform/global-datacenters) ou regardez une courte vidéo sur la sécurité des centres de données.
+
+> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
 ## <a name="see-also"></a>Voir aussi

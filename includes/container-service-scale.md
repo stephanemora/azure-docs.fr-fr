@@ -14,7 +14,7 @@ Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Doc
 
 ## <a name="scale-with-the-azure-cli-20"></a>Mise à l’échelle avec la CLI Azure 2.0
 
-Assurez-vous d’avoir [installé](/cli/azure/install-az-cli2) la dernière version de la CLI Azure 2.0 et d’être connecté à un compte Azure (`az login`).
+Assurez-vous d’avoir [installé](/cli/azure/install-az-cli2) la dernière version de l’interface de ligne de commande Azure, Azure CLI 2.0, et d’être connecté à un compte Azure (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Affichage du nombre actuel d’agents
 Pour afficher le nombre d’agents actuellement dans le cluster, exécutez la commande `az acs show`. Elle permet d’afficher la configuration du cluster. Par exemple, la commande suivante affiche la configuration du service de conteneur nommé `containerservice-myACSName` dans le groupe de ressources `myResourceGroup` :

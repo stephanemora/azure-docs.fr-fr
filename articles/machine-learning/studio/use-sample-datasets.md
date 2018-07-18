@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903028"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -145,7 +147,7 @@ Le jeu de données contient des informations complémentaires sur chaque région
 <tr>
   <td>Jeu de données CRM partagé</td>
   <td>
-Ces données proviennent du KDD Cup 2009 Customer Relationship Prediction Challenge (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).
+Ces données proviennent du KDD Cup 2009 Customer Relationship Prediction Challenge (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 Le jeu de données contient 50 000 clients de la société de télécoms française Orange. Chaque client possède 230 caractéristiques rendues anonymes, dont 190 sont numériques et 40 sont catégorielles. Elles sont très fragmentées.
   </td>
@@ -203,7 +205,7 @@ Contient des données météorologiques, par exemple, les indices de températur
 <p></p>
 <b>Recherche associée :</b> Cortez, P., &amp; Morais, A. (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
 <p></p>
-[Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos and J. Machado, « New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence », December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibles sur : <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos et J. Machado, New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Conférence portugaise sur l’intelligence artificielle, décembre, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibles sur : <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -306,7 +308,7 @@ Les qualités d'acier répondent à un standard défini par la SAE et d'autres o
 <p></p>
 <b>Recherche associée :</b> Sterling, D. &amp; Buntine, W. (NA). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
 <p></p>
-Vous trouverez ici un guide utile sur les qualités d’acier : <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Vous trouverez ici un guide utile sur les qualités d’acier : <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -401,7 +403,7 @@ Affectation de rubriques aux articles de presse contenus dans le jeu de données
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">évaluation des performances des étudiants</a>). Les données utilisées correspondent au jeu d’apprentissage Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Jeu de données issu du KDD Cup 2010 Educational Data Mining Challenge. Pour le trouver, accédez à <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> ou <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challenge (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">évaluation des performances des étudiants</a>). Les données utilisées correspondent au jeu d’apprentissage Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Jeu de données issu du KDD Cup 2010 Educational Data Mining Challenge. Pour le trouver, accédez à <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Le jeu de données a été téléchargé et stocké dans le stockage d’objets blob Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) et il contient les fichiers journaux d’un système de tutorat des étudiants. Les caractéristiques fournies incluent l’identifiant du problème avec une description sommaire, l’identifiant de l’étudiant, un horodatage et le nombre de tentatives de résolution du problème avant la réussite. Le jeu de données original comporte 8,9 millions d’enregistrements. Ce jeu de données a été échantillonné pour être réduit aux premières 100 000 lignes. Le jeu de données comporte 23 colonnes séparées par des tabulations de divers types : numérique, catégoriel et horodatage.
   </td>

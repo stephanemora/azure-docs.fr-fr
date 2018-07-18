@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237781"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131126"
 ---
 # <a name="expressroute-manager"></a>ExpressRoute Manager
 
@@ -37,7 +38,7 @@ Pour ouvrir la configuration de Network Performance Monitor, ouvrez la [solution
 ### <a name="configure-network-security-group-rules"></a>Configurer les règles du groupe de sécurité réseau 
 Pour les serveurs se trouvant dans Azure utilisés pour la surveillance via Network Performance Monitor, configurez les règles du groupe de sécurité réseau (NSG) pour autoriser le trafic TCP sur un port utilisé par Network Performance Monitor pour les transactions synthétiques. Par défaut, il s’agit du port 8084. Cette configuration permet à l’agent Operations Management Suite installé sur les machines virtuelles Azure de communiquer avec un agent de surveillance local. 
 
-Pour plus d’informations concernant le groupe de sécurité réseau, consultez  [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Pour plus d’informations sur les Groupes de sécurité réseau, voir  [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Avant de poursuivre, installez l’agent de serveur local et l’agent de serveur Azure, et exécutez le script PowerShell EnableRules.ps1. 
@@ -56,7 +57,7 @@ Pour plus d’informations concernant le groupe de sécurité réseau, consultez
 
     ![Configuration du moniteur ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
- Une fois la détection terminée, les connexions d’appairages privés sont répertoriées dans une table. La surveillance de ces appairages est initialement désactivée. 
+ Une fois la détection terminée, les connexions d’appairages privés sont répertoriées dans une table. L’analyse de ces homologations est initialement à l’état désactivée. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Activer la surveillance des connexions d’appairage ExpressRoute 
 

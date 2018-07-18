@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 40c2cd4ae808ad3f82028f1ddb7a8e0006676e6e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619284"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050863"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
 Cet article vous aide à comprendre ce qu’est l’identité de service de fabrique de données et comment elle fonctionne.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -39,7 +36,7 @@ L’identité de service de fabrique de données présente des avantages pour le
 
 L’identité de service de fabrique de données est générée de la façon suivante :
 
-- Lors de la création d’une fabrique de données grâce au **Portail Azure ou à PowerShell**, l’identité du service est toujours créée automatiquement depuis la préversion publique ADF V2.
+- Lors de la création d’une fabrique de données via le **Portail Azure ou PowerShell**, l’identité du service est toujours créée automatiquement.
 - Lors de la création d’une fabrique de données grâce au **kit de développement logiciel (SDK)**, l’identité du service n’est créée que si vous spécifiez « Identity = new FactoryIdentity() » durant la création de l’objet usine. Consultez l’exemple dans [Démarrage rapide .NET - Créer une fabrique de données](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Lors de la création d’une fabrique de données grâce à l’**API REST**, l’identité du service n’est créée que si vous le spécifiez la section « identity » dans le corps de la requête. Consultez l’exemple dans [Démarrage rapide REST - Créer une fabrique de données](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

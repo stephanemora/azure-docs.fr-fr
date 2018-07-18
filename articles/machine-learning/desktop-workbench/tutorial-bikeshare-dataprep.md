@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723185"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Didacticiel : Préparation de données avancée avec Azure Machine Learning Workbench (données BikeShare)
 Azure Machine Learning (préversion) constitue une solution d’analytique avancée et de science des données de bout en bout intégrée, destinée aux chercheurs de données professionnels pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -33,7 +35,6 @@ Dans ce didacticiel, vous utilisez les services Machine Learning (préversion) p
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Installation locale d’Azure Machine Learning Workbench. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](../service/quickstart-installation.md).
 * Si Azure CLI n’est pas installé, suivez les instructions pour [installer la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -254,7 +255,7 @@ Vous n’avez plus besoin de la colonne __REPORTTYPE__. Cliquez avec le bouton d
    ![Option Supprimer une colonne](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Modifier les types de données et supprimer des erreurs
-1. Appuyer sur Ctrl (Command ⌘ sur Mac) pendant la sélection d’en-têtes de colonne pour sélectionner plusieurs colonnes à la fois. Utilisez cette technique pour sélectionner les en-têtes de colonne suivants :
+1. Sélectionnez Ctrl (commande ⌘ sur Mac) en appuyant sur les en-têtes de colonne pour sélectionner plusieurs colonnes en même temps. Utilisez cette technique pour sélectionner les en-têtes de colonne suivants :
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -453,7 +454,7 @@ Pour la préparation des données, des visualisations utiles, nommées inspecteu
 1. Sélectionnez plusieurs colonnes **start station latitude** et **start station longitude**. Cliquez avec le bouton droit sur l’une des colonnes, puis sélectionnez **Carte**.
 
     > [!TIP]
-    > Pour activer la sélection multiple, maintenez la touche Ctrl (Command ⌘ sur Mac) enfoncée et sélectionnez l’en-tête de chaque colonne.
+    > Pour activer la sélection multiple, maintenez la touche Ctrl (Commande ⌘ sur Mac) enfoncée et sélectionnez l’en-tête de chaque colonne.
 
     ![Visualisation de carte](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -636,7 +637,7 @@ Pour joindre les données météorologiques aux données de trajet, effectuez le
 
     ![Colonne de période](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Pour supprimer les colonnes **Date Hour Range** et **r_Date Hour Range**, appuyez sur Ctrl (Command ⌘ sur Mac) et sélectionnez chaque en-tête de colonne. Cliquez avec le bouton droit et sélectionnez **Supprimer la colonne**.
+3. Pour supprimer les colonnes **Date Plage horaire** et **r_Date Plage horaire**, appuyez sur Ctrl (commande ⌘ sur Mac) et sélectionnez chaque en-tête de colonne. Cliquez avec le bouton droit et sélectionnez **Supprimer la colonne**.
 
 ## <a name="read-data-from-python"></a>Lire les données à partir de Python
 
@@ -831,7 +832,7 @@ Dans les étapes précédentes, vous avez utilisé les sources de données `2017
 3. Pour soumettre un nouveau travail, sélectionnez **Exécuter**. Vérifiez que **hdinsight** est sélectionné. Un travail est envoyé avec la nouvelle configuration. La sortie de ce travail correspond aux données d’apprentissage. Ces données sont créées à l’aide des mêmes étapes de préparation des données que vous avez suivies précédemment. Le travail peut prendre quelques instants pour se terminer.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

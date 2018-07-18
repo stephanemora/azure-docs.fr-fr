@@ -1,34 +1,30 @@
 ---
-title: Résolution des problèmes des diagnostics Azure | Microsoft Docs
+title: Résolution des problèmes d’extension Azure Diagnostics
 description: Résolution des problèmes lors de l'utilisation des diagnostics Azure dans Azure Virtual Machines, Service Fabric ou Cloud Services.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263844"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](azure-diagnostics.md).
 
 ## <a name="logical-components"></a>Composants logiques
-**Lanceur du plug-in Diagnostics (DiagnosticsPluginLauncher.exe)** : lance l’extension Azure Diagnostics. Sert de point d’entrée de processus.
+**Lanceur du plug-in Diagnostics (DiagnosticsPluginLauncher.exe)**  : lance l’extension Azure Diagnostics. Sert de point d’entrée de processus.
 
-**Plug-in Diagnostics (DiagnosticsPlugin.exe)** : configure, exécute et gère la durée de vie de l’agent de surveillance. Il s’agit du principal processus exécuté par le lanceur.
+**Plug-in Diagnostics (DiagnosticsPlugin.exe)**  : configure, exécute et gère la durée de vie de l’agent de surveillance. Il s’agit du principal processus exécuté par le lanceur.
 
-**Agent de surveillance (processus MonAgent\*.exe)** : surveille, collecte et transfère les données des diagnostics.  
+**Agent de surveillance (processus MonAgent\*.exe)**  : surveille, collecte et transfère les données des diagnostics.  
 
 ## <a name="logartifact-paths"></a>Chemins d’accès des journaux/artefacts
 Voici les chemins d’accès de quelques journaux et artefacts importants. Nous nous référons à ces informations dans le reste du document.

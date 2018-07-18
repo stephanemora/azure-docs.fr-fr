@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866889"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099607"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Comment exiger la vérification en deux étapes pour un utilisateur ou un groupe
 
@@ -71,7 +71,7 @@ Pour accéder à la page où vous pouvez afficher et gérer les états des utili
 
 5. Confirmez votre sélection dans la fenêtre contextuelle qui s’ouvre. 
 
-Dès que vous avez activé les utilisateurs, informez-les-en par e-mail. Informez-les qu’ils seront invités à s’inscrire la prochaine fois qu’ils se connectent. Par ailleurs, si votre organisation utilise des applications sans navigateur qui ne prennent pas en charge l’authentification moderne, vos utilisateurs devront créer des mots de passe d’application. Vous pouvez également inclure un lien vers le [guide de l’utilisateur final d’Azure MFA](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) pour les aider à commencer.
+Dès que vous avez activé les utilisateurs, informez-les-en par e-mail. Informez-les qu’ils seront invités à s’inscrire la prochaine fois qu’ils se connectent. Par ailleurs, si votre organisation utilise des applications sans navigateur qui ne prennent pas en charge l’authentification moderne, vos utilisateurs devront créer des mots de passe d’application. Vous pouvez également inclure un lien vers le [guide de l’utilisateur final d’Azure MFA](end-user/current/multi-factor-authentication-end-user.md) pour les aider à commencer.
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 Pour modifier l’état utilisateur avec [Azure AD PowerShell](/powershell/azure/overview), modifiez `$st.State`. Il existe trois états possibles :

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998844"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860076"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migration des solutions EDI BizTalk Server vers BizTalk Services : guide technique
 
@@ -104,7 +104,7 @@ Vous pouvez également consulter un exemple de Sandro Pereira, BizTalk MVP, sur
 ## <a name="orchestrations"></a>Orchestrations
 Si vous avez besoin de migrer le traitement d'orchestration BizTalk Server vers Microsoft Azure, les orchestrations doivent être réécrites, car Microsoft Azure ne prend pas en charge les orchestrations BizTalk Server.  Vous pouvez réécrire la fonctionnalité d'orchestration dans un service Windows Workflow Foundation 4.0 (WF4).  C’est une réécriture complète, car il n'existe actuellement aucune migration des orchestrations BizTalk Server vers WF4. Voici quelques ressources pour Windows Workflow :
 
-* [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics (Intégration d’un service de workflow WCF aux files d’attente et aux rubriques Service Bus)*](https://msdn.microsoft.com/library/azure/hh709041.aspx) par Paolo Salvatori. 
+* [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics (Intégration d’un service de workflow WCF aux files d’attente et aux rubriques Service Bus)*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) par Paolo Salvatori. 
 * [Session *Building apps with Windows Workflow Foundation and Azure (Création d’applications à l’aide de Windows Workflow Foundation et d’Azure)*](http://go.microsoft.com/fwlink/p/?LinkId=237314) de la conférence Build 2011.
 * [*Centre de développement Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) sur MSDN.
 * [*Documentation de Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) sur MSDN.

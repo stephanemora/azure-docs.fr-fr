@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757414"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
 
-## <a name="pricing-tier-maximums"></a>Valeurs maximales des niveaux tarifaires
-Azure Database pour PostgreSQL a plusieurs niveaux tarifaires que vous pouvez choisir pour créer un serveur. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour PostgreSQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Nombre maximal de connexions
+Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant : 
 
-Chaque niveau tarifaire comporte un nombre maximal de connexions et d’unités de calcul ainsi qu’un espace maximal de stockage, comme suit : 
-
-|Niveau de tarification| Génération de calcul| vCore(s)| Nombre maximal de connexions |
-|---|---|---|---|
-|De base| Gen 4| 1| 50 |
-|De base| Gen 4| 2| 100 |
-|De base| Gen 5| 1| 50 |
-|De base| Gen 5| 2| 100 |
-|Usage général| Gen 4| 2| 150|
-|Usage général| Gen 4| 4| 250|
-|Usage général| Gen 4| 8| 480|
-|Usage général| Gen 4| 16| 950|
-|Usage général| Gen 4| 32| 1 500|
-|Usage général| Gen 5| 2| 150|
-|Usage général| Gen 5| 4| 250|
-|Usage général| Gen 5| 8| 480|
-|Usage général| Gen 5| 16| 950|
-|Usage général| Gen 5| 32| 1 500|
-|Mémoire optimisée| Gen 5| 2| 150|
-|Mémoire optimisée| Gen 5| 4| 250|
-|Mémoire optimisée| Gen 5| 8| 480|
-|Mémoire optimisée| Gen 5| 16| 950|
+|**Niveau tarifaire**| **vCore(s)**| **Nombre maximal de connexions** |
+|---|---|---|
+|De base| 1| 50 |
+|De base| 2| 100 |
+|Usage général| 2| 150|
+|Usage général| 4| 250|
+|Usage général| 8| 480|
+|Usage général| 16| 950|
+|Usage général| 32| 1 500|
+|Mémoire optimisée| 2| 150|
+|Mémoire optimisée| 4| 250|
+|Mémoire optimisée| 8| 480|
+|Mémoire optimisée| 16| 950|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already

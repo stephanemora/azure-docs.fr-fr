@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302151"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808058"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Créer une application blockchain dans Azure Blockchain Workbench
 
@@ -30,7 +30,6 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Ajouter des membres à l’application blockchain
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un déploiement Blockchain Workbench. Pour plus d’informations, consultez [Azure Blockchain Workbench deployment](blockchain-workbench-deploy.md) (Déploiement d’Azure Blockchain Workbench) pour plus de détails sur le déploiement.
 * Des utilisateurs Azure Active Directory dans le locataire associé à Blockchain Workbench. Pour plus d’informations, consultez [add Azure AD users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#add-azure-ad-users) (Ajouter des utilisateurs Azure AD dans Azure Blockchain Workbench).
@@ -239,7 +238,7 @@ Ajoutez le pragma de version suivant en haut du fichier de code de contrat intel
 
 ### <a name="base-class"></a>Classe de base
 
-La classe de base **WorkbenchBase** permet à Blockchain Workbench de créer une mise à jour du contrat. La classe de base est requise pour le code de contrat intelligent spécifique Blockchain Workbench. Votre contrat doit hériter de la classe de base **WorkbenchBase**.
+La classe de base **WorkbenchBase** permet à Blockchain Workbench de créer et mettre à jour le contrat. La classe de base est requise pour le code de contrat intelligent spécifique Blockchain Workbench. Votre contrat doit hériter de la classe de base **WorkbenchBase**.
 
 Dans le fichier de code de contrat intelligent `HelloBlockchain.sol`, ajoutez la classe **WorkbenchBase** au début du fichier. 
 
@@ -376,7 +375,7 @@ Avant de quitter la fonction, appelez la fonction `ContractUpdated()`. La foncti
 Pour ajouter une application blockchain à Blockchain Workbench, vous chargez les fichiers de configuration et de contrat intelligent pour définir l’application.
 
 1. Dans un navigateur web, accédez à l’adresse web de Blockchain Workbench. Par exemple, `https://{workbench URL}.azurewebsites.net/`. L’application web est créée lorsque vous déployez Blockchain Workbench. Pour plus d’informations sur la façon de trouver l’adresse web de Blockchain Workbench, consultez [URL Web Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Connectez-vous en tant qu’administrateur Blockchain Workbench. Pour plus d’informations sur la gestion des utilisateurs, consultez [Manage Users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md) (Gérer les utilisateurs dans Azure Blockchain Workbench).
+2. Connectez-vous en tant [qu’administrateur Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Sélectionnez **Applications** > **Nouveau**. Le volet **Nouvelle application** s’affiche.
 4. Sélectionnez **Upload the contract configuration (Charger la configuration du contrat)** > **Parcourir** pour localiser le fichier de configuration **HelloBlockchain.json** que vous avez créé. Le fichier de configuration est automatiquement validé. Sélectionnez le lien **Afficher** pour afficher les erreurs de validation. Corrigez les erreurs de validation avant de déployer l’application.
 5. Sélectionnez **Upload the contract code (Charger le code de contrat)** > **Parcourir** pour localiser le fichier de code de contrat intelligent **HelloBlockchain.sol**. Le fichier de code est automatiquement validé. Sélectionnez le lien **Afficher** pour afficher les erreurs de validation. Corrigez les erreurs de validation avant de déployer l’application.

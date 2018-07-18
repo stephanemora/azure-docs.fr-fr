@@ -1,5 +1,5 @@
 ---
-title: Comprendre votre facture pour Azure
+title: Comprendre votre facture Azure | Microsoft Docs
 description: Apprenez à lire et à comprendre votre utilisation et la facturation de votre abonnement Azure
 services: ''
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204888"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064405"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le portail Azure.
@@ -101,6 +101,40 @@ Si vous [payez par facture](billing-how-to-pay-by-invoice.md), envoyez votre pai
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Comment vérifier le statut d’un paiement effectué par carte de crédit ?
 
 [Créer un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour demander l’état de votre paiement. 
+
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Existe-t-il différents types de clients Azure ? Comment savoir quel type de client je suis ?
+Il existe différents types de clients Azure. Pour mieux comprendre votre tarifs et votre facture, consultez les descriptions des types de clients suivantes.
+
+- **Entreprise** : Les clients Entreprise ont signé un contrat Entreprise avec Azure pour fixer des prix négociés et bénéficier de tarifs personnalisés pour les ressources Azure.
+- **Direct web** : Les clients Direct web n’ont pas signé de contrat personnalisé avec Azure. Ces clients se sont inscrits à Azure via azure.com et s’acquittent des prix publics pour toutes les ressources Azure.
+- **Fournisseur de services de cloud** : Les fournisseurs de services cloud sont généralement des entreprises qui ont été engagées par un client pour créer des solutions sur Azure.
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Pourquoi je ne vois pas le coût de la ressource que j’ai créée dans ma facture ?
+Azure ne facture pas directement en fonction du coût d’une ressource. La facturation est faite à partir d’un ou plusieurs compteurs qui permettent de suivre l’utilisation d’une ressource tout au long de sa durée de vie. Ces compteurs sont ensuite utilisés pour calculer la facture. Vous trouverez plus d’informations sur le système de mesures Azure ci-dessous.
+
+## <a name="how-does-azure-charge-metering-work"></a>Comment fonctionne le système de mesures de facturation Azure ?
+Quand vous créez une ressource Azure, par exemple une machine virtuelle, une ou plusieurs instances de compteur sont également créées. Ces compteurs sont utilisés pour suivre l’utilisation de la ressource au fil du temps. Chaque compteur émet des enregistrements d’utilisation qui sont ensuite utilisés par Azure dans notre système de mesure des coûts pour calculer la facture. 
+
+Par exemple, les compteurs suivants peuvent être créés pour suivre l’utilisation d’une machine virtuelle créée dans Azure :
+
+- Heures de calcul
+- Heures d’adresse IP
+- Transfert de données entrant
+- Transfert de données sortant
+- Disques managés Standard
+- Opérations disque managées Standard
+- E/S standard - Disque
+- E/S standard - Lecture d’objet blob
+- E/S standard - Écriture d’objet blob
+- E/S standard - Suppression d’objet blob
+
+Une fois la machine virtuelle créée, chacun des compteurs ci-dessus commence à émettre des enregistrements d’utilisation. Cette utilisation est ensuite utilisée dans le système de mesures d’Azure, avec le prix du compteur pour déterminer le montant facturé au client.
+
+> [!Note]
+> Les exemples de compteurs ci-dessus peuvent n’être qu’un sous-ensemble des compteurs créés quand une machine virtuelle est créée.
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Quelle est la différence entre Frais internes Azure et Frais de la Place de marché Azure ?
+Les frais internes Azure concernent les ressources qui sont directement développées et offertes par Azure. Les frais de la Place de marché Azure concernent les ressources qui ont été créées par des fournisseurs de logiciels tiers et qui peuvent être utilisées via la Place de marché Azure. Par exemple, un pare-feu Barracuda est une ressource de la Place de marché Azure offerte par un tiers. Tous les frais pour le pare-feu et ses compteurs correspondants apparaissent comme frais de la Place de marché. 
 
 ## <a name="tips-for-cost-management"></a>Conseils pour la gestion des coûts
 - Estimez les coûts en utilisant la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) et la [calculatrice de coût total de possession](https://aka.ms/azure-tco-calculator), et obtenez les [informations de tarification détaillées pour chaque service](https://azure.microsoft.com/pricing/).

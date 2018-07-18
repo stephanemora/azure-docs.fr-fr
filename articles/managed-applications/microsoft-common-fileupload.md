@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059887"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.FileUpload
 Contrôle qui permet à un utilisateur de spécifier un ou plusieurs fichiers à charger.
@@ -50,19 +50,19 @@ Contrôle qui permet à un utilisateur de spécifier un ou plusieurs fichiers à
 ## <a name="remarks"></a>Remarques
 - `constraints.accept` spécifie les types de fichiers qui figurent dans la boîte de dialogue du navigateur. Consultez la [spécification HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) pour connaître les valeurs autorisées. La valeur par défaut est **null**.
 - Si `options.multiple` est défini sur **true**, l’utilisateur est autorisé à sélectionner plusieurs fichiers dans la boîte de dialogue du fichier du navigateur. La valeur par défaut est **false**.
-- Cet élément prend en charge le chargement de fichiers dans deux modes basés sur la valeur de `options.uploadMode`. Si **file** est spécifié, la sortie contient le contenu du fichier sous la forme d’un objet blob. Si **url** est spécifié, le fichier est chargé sur un emplacement temporaire et la sortie contient l’URL de l’objet blob. Les objets blob temporaires sont purgés après 24 heures. La valeur par défaut est **file**.
+- Cet élément prend en charge le chargement de fichiers dans deux modes basés sur la valeur de `options.uploadMode`. Si **file** est spécifié, la sortie a le contenu du fichier sous la forme d’un objet blob. Si **url** est spécifié, le fichier est chargé sur un emplacement temporaire et la sortie a l’URL de l’objet blob. Les objets blob temporaires sont purgés après 24 heures. La valeur par défaut est **file**.
 - La valeur de `options.openMode` détermine la façon dont le fichier est lu. Si le fichier doit être du texte brut, spécifiez **text** ; sinon, spécifiez **binary**. La valeur par défaut est **text**.
 - Si `options.uploadMode` est défini sur **file** et `options.openMode` sur **binary**, la sortie est codée en base64.
 - `options.encoding` spécifie l’encodage à utiliser lors de la lecture du fichier. La valeur par défaut est **UTF-8**et est utilisée uniquement lorsque `options.openMode` est défini sur **text**.
 
 ## <a name="sample-output"></a>Exemple de sortie
-Si options.multiple a la valeur false et options.uploadMode la valeur file, la sortie contient le contenu du fichier sous forme de chaîne JSON :
+Si options.multiple a la valeur false et options.uploadMode la valeur file, la sortie a le contenu du fichier sous forme de chaîne JSON :
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Si options.multiple a la valeur true et options.uploadMode la valeur file, la sortie contient le contenu des fichiers sous forme de tableau JSON :
+Si options.multiple a la valeur true et options.uploadMode la valeur file, la sortie a le contenu des fichiers sous forme de tableau JSON :
 
 ```json
 [
@@ -73,13 +73,13 @@ Si options.multiple a la valeur true et options.uploadMode la valeur file, la so
 ]
 ```
 
-Si options.multiple a la valeur false et options.uploadMode la valeur url, la sortie contient une URL sous forme de chaîne JSON :
+Si options.multiple a la valeur false et options.uploadMode la valeur url, la sortie a une URL sous forme de chaîne JSON :
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Si options.multiple a la valeur true et options.uploadMode la valeur url, la sortie contient une liste d’URL sous forme de tableau JSON :
+Si options.multiple a la valeur true et options.uploadMode la valeur url, la sortie a une liste d’URL sous forme de tableau JSON :
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ad8b69bfe6f3261f00cd33846efc86ce3b198954
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874357"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919690"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle vers Azure
-Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement d’une machine virtuelle vers Azure. Pour résoudre les problèmes, servez-vous des étapes décrites pour chaque condition d’erreur.
 
+Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement d’une machine virtuelle vers Azure. Pour résoudre les problèmes, servez-vous des étapes décrites pour chaque condition d’erreur.
 
 ## <a name="failover-failed-with-error-id-28031"></a>Le basculement a échoué avec l’ID d’erreur 28031
 
@@ -45,6 +45,35 @@ Site Recovery n’a pas pu créer de machine virtuelle classique basculée dans 
 
 * Une des ressources, comme un réseau virtuel, nécessaire à la création de la machine virtuelle n’existe pas. Créez le réseau virtuel, tel que proposé sous les paramètres Calcul et réseau de la machine virtuelle, ou modifiez le paramètre sur un réseau virtuel qui existe déjà et réessayez le basculement.
 
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Impossible de se connecter ou d’établir une liaison RDP ou SSH à la machine virtuelle après son basculement, car le bouton Se connecter est grisé
+
+Si le bouton Se connecter est grisé et que vous n’avez pas établi de connexion ExpressRoute ou réseau privé virtuel de site à site à Azure :
+
+1. Accédez à **Machine virtuelle** > **Réseaux**, cliquez sur le nom de l’interface réseau concernée.  ![interface-réseau](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Accédez à **Configurations d’adresses IP**, puis cliquez sur le champ Nom de la configuration d’adresse IP souhaitée. ![Configurations d’adresses IP](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Pour activer l’adresse IP publique, cliquez sur **Activer**. ![Activer l’adresse IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Cliquez sur **Configurer les paramètres requis** > **Créer**. ![Créer](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Entrez le nom de l’adresse publique, choisissez les options par défaut pour **SKU** et **Affectation**, puis cliquez sur **OK**.
+6. Pour enregistrer les modifications, cliquez sur **Enregistrer**.
+7. Fermez les panneaux et accédez à la section **Vue d’ensemble** de la machine virtuelle pour vous connecter/établir une liaison RDP.
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Impossible de se connecter ou d’établir une liaison RDP ou SSH à la machine virtuelle après son basculement alors que le bouton Se connecter est disponible (non grisé)
+
+Ouvrez **Diagnostics de démarrage** sur votre machine virtuelle pour voir s’il s’est produit certaines des erreurs listées dans cet article.
+
+1. Si la machine virtuelle n’a pas démarré, tentez de basculer vers un point de récupération plus ancien.
+2. Si l’application de la machine virtuelle n’est pas disponible, tentez de basculer vers un point de récupération cohérent au niveau application.
+3. Si la machine virtuelle est jointe au domaine, vérifiez que le contrôleur de domaine fonctionne bien. Pour cela, vous pouvez suivre les étapes ci-dessous.
+    a. Créez une machine virtuelle dans le même réseau.
+
+    b.  Veillez à ce qu’elle puisse être jointe au domaine sur lequel la machine virtuelle devrait apparaître après son basculement.
+
+    c. Si le contrôleur de domaine ne fonctionne **pas** bien, essayez de vous connecter à la machine virtuelle basculée à l’aide d’un compte Administrateur local.
+4. Si vous utilisez un serveur DNS personnalisé, vérifiez qu’il est accessible. Pour cela, vous pouvez suivre les étapes ci-dessous.
+    a. Créez une machine virtuelle dans le même réseau. b. Vérifiez que la machine virtuelle parvient à effectuer la résolution de noms à l’aide du serveur DNS personnalisé.
+
+>[!Note]
+>Tout paramètre autre que les diagnostics de démarrage nécessite l’installation de l’agent de machine virtuelle Azure sur la machine virtuelle avant le basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208258"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017645"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuration de Reliable Actors - KVSActorStateProvider
 Vous pouvez modifier la configuration par défaut de KVSActorStateProvider en modifiant le fichier settings.xml généré dans la racine du package Microsoft Visual Studio sous le dossier Config de l’acteur spécifié.
@@ -34,6 +34,10 @@ Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans
 ## <a name="replicator-security-configuration"></a>Configuration de la sécurité du réplicateur
 Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé pendant la réplication. Un service ne peut donc pas afficher le trafic de réplication d’un autre service, ce qui garantit la sécurité des données rendues hautement disponibles.
 Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
+
+> [!IMPORTANT]
+> Sur les nœuds Linux, les certificats doivent être au format PEM. Pour en savoir plus sur la localisation et la configuration des certificats pour Linux, consultez [Configurer des certificats sur Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="section-name"></a>Nom de la section
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
@@ -50,7 +54,7 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
 | ReplicatorEndpoint |N/A |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Pour en savoir plus sur la définition de ressources de point de terminaison dans le manifeste de service, consultez [Ressources du manifeste de service](service-fabric-service-manifest-resources.md) . |
-| RetryInterval |Secondes |5. |Période après laquelle le réplicateur retransmet un message s'il ne reçoit aucun accusé de réception pour une opération. |
+| RetryInterval |Secondes |5 |Période après laquelle le réplicateur retransmet un message s'il ne reçoit aucun accusé de réception pour une opération. |
 | MaxReplicationMessageSize |Octets |50 Mo |Taille maximale des données de réplication pouvant être transmises dans un même message. |
 | MaxPrimaryReplicationQueueSize |Nombre d'opérations |1 024 |Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 | MaxSecondaryReplicationQueueSize |Nombre d'opérations |2 048 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |

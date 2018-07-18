@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258310"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261183"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
 La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, voir [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
-Si vous disposez d’un environnement Active Directory local et que vous souhaitez lier à Azure AD vos appareils joints à un domaine, vous pouvez y parvenir en configurant simplement des appareils hybrides joints à Azure AD. Cette rubrique vous présente les étapes de cette configuration. 
+Si vous disposez d’un environnement Active Directory local et que vous souhaitez lier à Azure AD vos appareils joints à un domaine, vous pouvez y parvenir en configurant simplement des appareils hybrides joints à Azure AD. Cet article contient les étapes à suivre pour une telle configuration. 
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -56,13 +57,13 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://aka.ms/hybrid/sso).
+- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://aka.ms/hybrid/sso). 
+- L’inscription d’appareils de bas niveau Windows **n’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD.
 - L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les appareils utilisant des profils d’itinérance. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
 
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer à activer des appareils hybrides joints à Azure AD dans votre organisation, vérifiez que :
 
@@ -81,8 +82,7 @@ Assurez-vous que les URL suivantes sont accessibles à partir d’ordinateurs au
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com Autoriser
 - https://device.login.microsoftonline.com
 
 - STS de votre organisation (domaines fédérés)

@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29531670"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059852"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guide de démarrage rapide : Intégrer un abonnement Azure à Security Center Standard
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que le niveau Gratuit offre une sécurité limitée aux seules ressources Azure, le niveau Standard étend ces fonctions aux ressources locales et à d’autres clouds. Security Center Standard aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer Security Center Standard gratuitement pendant 60 jours.
@@ -46,7 +46,7 @@ Pour afficher et filtrer la liste des abonnements, cliquez sur l’élément de 
 Quelques minutes après le premier lancement de Security Center peuvent s’afficher :
 
 - des **Recommandations** pour améliorer la sécurité des abonnements Azure ; si vous cliquez sur la vignette **Recommandations**, une liste hiérarchisée apparaît ;
-- un inventaire de ressources **Calcul**, **Réseau**, **Stockage et données** et **Applications** en cours d’évaluation par Security Center, avec l’état de sécurité de chacune.
+- un inventaire des ressources **Calcul et applications**, **Mise en réseau**, **Sécurité des données** et **Identité et accès** en cours d’évaluation par Security Center, avec l’état de sécurité de chacune.
 
 Pour tirer pleinement parti de Security Center, vous devez suivre les étapes ci-dessous afin de passer au niveau Standard et d’installer Microsoft Monitoring Agent.
 
@@ -107,7 +107,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 > La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez effectué une mise à niveau vers le niveau Standard et approvisionné Microsoft Monitoring Agent pour profiter de fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble de vos charges de travail cloud hybrides. Pour en savoir plus sur Security Center, enchaînez avec le guide de démarrage rapide sur l’intégration d’ordinateurs Windows en local et dans d’autres clouds.
 
 > [!div class="nextstepaction"]

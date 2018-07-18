@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809276"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -25,12 +26,11 @@ Microsoft Azure Media Services (AMS) vous permet de charger, de stocker, d’enc
 
 AMS fonctionne dans plusieurs centres de données à travers le monde. Ces centres de données sont regroupés en régions géographiques, ce qui vous donne une certaine flexibilité dans le choix de l’emplacement où vous créez vos applications. Vous pouvez consulter la [liste de ces régions et leurs emplacements](https://azure.microsoft.com/regions/). 
 
-Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en direct](#live_scenarios) ou [à la demande](#vod_scenarios). Cette rubrique présente également des informations sur la disponibilité des fonctionnalités et services Media Services dans les centres de données.
+Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en direct](#live_scenarios) ou [à la demande](#vod_scenarios). Cette rubrique présente également des informations sur la disponibilité des fonctionnalités et services dans les centres de données.
 
 ## <a name="overview"></a>Vue d'ensemble
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 

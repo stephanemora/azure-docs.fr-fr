@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359877"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796731"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
@@ -331,7 +331,7 @@ Procédez comme suit :
 | AdminArmEndpoint | Obligatoire | Null | Point de terminaison Azure Resource Manager d’administrateur. Par exemple : adminmanagement.local.azurestack.external. |
 | TenantARMEndpoint | Obligatoire | Null | Point de terminaison Azure Resource Manager de locataire. Par exemple : management.local.azurestack.external. |
 | AzureStackAdminCredential | Obligatoire | Null | Informations d’identification de l’administrateur du service Azure AD. |
-| CertificateFilePath | Obligatoire | Null | Chemin d’accès au fichier de certificat d’application d’identité généré précédemment. |
+| CertificateFilePath | Obligatoire | Null | **Chemin complet** du fichier de certificat d’application d’identité généré précédemment. |
 | CertificatePassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Créer une application de services de fédération Active Directory (AD FS)
@@ -365,7 +365,7 @@ Procédez comme suit :
 | AdminArmEndpoint | Obligatoire | Null | Point de terminaison Azure Resource Manager d’administrateur. Par exemple : adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Obligatoire | Null | Point de terminaison privilégié. Par exemple : AzS-ERCS01. |
 | CloudAdminCredential | Obligatoire | Null | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack. Par exemple : Azurestack\CloudAdmin. |
-| CertificateFilePath | Obligatoire | Null | Chemin d’accès au fichier PFX du certificat d’application d’identité. |
+| CertificateFilePath | Obligatoire | Null | **Chemin complet** du fichier PFX du certificat d’application d’identité. |
 | CertificatePassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat. |
 
 ## <a name="next-steps"></a>Étapes suivantes

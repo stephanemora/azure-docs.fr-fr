@@ -1,9 +1,9 @@
 ---
 title: Solutions Oracle sur Microsoft Azure | Microsoft Docs
-description: "Découvrez les configurations prises en charge et les limitations des solutions Oracle sur Microsoft Azure."
+description: Découvrez les configurations prises en charge et les limitations des solutions Oracle sur Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: 
-manager: timlt
+documentationcenter: ''
+manager: jeconnoc
 author: rickstercdn
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: daed709b4b4be87ba75f5539bd31c666b3a37414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656344"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Solutions Oracle et leur déploiement sur Microsoft Azure
 Cet article fournit les informations requises pour déployer correctement différentes solutions Oracle sur Microsoft Azure. Ces solutions sont basées sur des images de machine virtuelle publiées par Oracle sur la Place de marché Microsoft Azure. Pour obtenir la liste des images actuellement disponibles, exécutez la commande suivante :
@@ -89,7 +90,7 @@ Bien qu’une solution de haute disponibilité et récupération d’urgence soi
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-Pour plus d’informations, voir l’article **860340.1** à l'adresse <http://support.oracle.com>.
+Pour plus d’informations, consultez l’article de la Base de connaissances **860340.1** à l’adresse <http://support.oracle.com>.
 
 * **Limitations relatives à l’équilibrage de charge et au clustering dynamique.** Partons du principe que vous souhaitez utiliser un cluster dynamique dans WebLogic Server et l’exposer en tant que point unique de terminaison public avec équilibrage de charge. Cette opération est possible tant que vous utilisez un numéro de port fixe pour chaque serveur géré (et non affecté de manière dynamique à partir d’une plage de valeurs), et que le nombre de serveurs gérés démarrés reste inférieur à celui des machines surveillées par l’administrateur (en d’autres termes, il faut un seul serveur géré par machine virtuelle). Si, suite à votre configuration, le nombre de serveurs WebLogic démarrés est supérieur à celui des machines virtuelles (c’est-à-dire si plusieurs instances de WebLogic Server partagent la même machine virtuelle), une seule de ces instances de serveurs WebLogic peut être liée à un numéro de port donné à la fois ; les autres instances de la machine virtuelle échouent.
 

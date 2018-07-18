@@ -1,4 +1,4 @@
----
+﻿---
 title: Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure | Microsoft Docs
 description: Découvrez comment installer et configurer Terraform pour créer des ressources Azure.
 services: virtual-machines-linux
@@ -24,7 +24,7 @@ ms.locfileid: "29399166"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
  
-Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage simple basé sur des templates](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform pour provisionner des ressources dans Azure. 
+Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage simple basé sur des templates](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform pour provisionner des ressources dans Azure.  
 
 > [!TIP]
 Pour en savoir plus sur l’utilisation de Terraform avec Azure, visitez [Terraform Hub](/azure/terraform). Terraform est installé par défaut dans [Cloud Shell](/azure/terraform/terraform-cloud-shell). Si vous utilisez Cloud Shell, vous pouvez ignorer les sections de ce document sur l’installation et la configuration.

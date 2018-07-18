@@ -4,7 +4,7 @@
 ## [FORUM AUX QUESTIONS](faq-classic.md)
 
 # Prise en main
-## [Créer une machine virtuelle Linux à l’aide du portail Azure](createportal-classic.md)
+## [Créer une machine virtuelle Linux](createportal-classic.md)
 
 # Procédures
 ## Calcul

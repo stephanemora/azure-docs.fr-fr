@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de Python | Microsoft Docs
-description: Dans le cadre de ce Démarrage rapide, vous créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
+description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
@@ -9,11 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 88f148e7ea175e928ee9f35b8728994a738e10da
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b3735380105bca8421e3f1d654425eea465918e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308198"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Python
 
@@ -21,8 +22,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charge
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce démarrage rapide : 
+Pour suivre ce guide de démarrage rapide : 
 * Installez [Python](https://www.python.org/downloads/)
 * Téléchargez et installez le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-sdk-for-python). 
 
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
-L’[exemple d’application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) utilisé dans ce démarrage rapide est une application Python de base.  
+L’[exemple d’application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) utilisé dans ce guide de démarrage rapide est une application Python de base.  
 
 Utilisez [git](https://git-scm.com/) pour télécharger une copie de l’application dans votre environnement de développement. 
 
@@ -53,7 +53,11 @@ block_blob_service = BlockBlobService(account_name='accountname', account_key='a
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 Cet exemple permet de créer un fichier de test dans le dossier « Documents ». L’exemple de programme charge le fichier de test sur Stockage Blob, liste les objets blob du conteneur, puis télécharge le fichier sous un nouveau nom. 
 
-Exécutez l’exemple. La sortie suivante est un exemple de sortie retournée durant l’exécution de l’application :
+Commencez par installer les dépendances en exécutant `pip install` :
+
+    pip install azure-storage
+
+Ensuite, exécutez l’exemple. La sortie suivante est un exemple de sortie retournée durant l’exécution de l’application :
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -137,9 +141,9 @@ Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthod
 ```python
 # List the blobs in the container
 print("\nList blobs in the container")
-    generator = block_blob_service.list_blobs(container_name)
-    for blob in generator:
-        print("\t Blob name: " + blob.name)
+generator = block_blob_service.list_blobs(container_name)
+for blob in generator:
+    print("\t Blob name: " + blob.name)
 ```
 
 ### <a name="download-the-blobs"></a>Télécharger les objets blob
@@ -154,7 +158,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de **delete\_container**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **delete\_blob** pour supprimer ces fichiers.
 
 ```python

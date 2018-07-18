@@ -1,24 +1,19 @@
 ---
-title: "Gestion des sauvegardes de machines virtuelles déployées via le Gestionnaire de ressources | Microsoft Docs"
-description: "Découvrez comment gérer et surveiller les sauvegardes d’une machine virtuelle déployée via Resource Manager"
+title: Gérer les sauvegardes d’une machine virtuelle déployée via Resource Manager
+description: Découvrez comment gérer et surveiller les sauvegardes d’une machine virtuelle déployée via Resource Manager
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465718"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 
@@ -42,10 +37,10 @@ L’ouverture du coffre dans le tableau de bord permet d’initier de nombreuses
 ![Vue complète avec curseur](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Ouvrez un coffre Recovery Services dans le tableau de bord :
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     La liste des archivages de Recovery Services est affichée.
 

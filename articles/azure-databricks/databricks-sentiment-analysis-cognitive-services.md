@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/27/2018
+ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1d6087477a7d99314ced19f5fe29fe81b5acaef4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315396"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308089"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks
 
@@ -49,7 +49,6 @@ Ce didacticiel décrit les tâches suivantes :
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 - Un espace de noms Azure Event Hubs.

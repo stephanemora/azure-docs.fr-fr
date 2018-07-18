@@ -4,32 +4,31 @@ description: Découvrez les éléments à prendre en compte lors de la planifica
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187740"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738477"
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Ajouter/supprimer un point de terminaison de serveur Azure File Sync (préversion)
-La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Un *point de terminaison de serveur* représente un emplacement spécifique sur un *serveur inscrit*, comme un dossier sur un volume de serveur ou la racine du volume. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, F:\sync1 et F:\sync2). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Si vous ajoutez un emplacement de serveur avec un ensemble de fichiers existants comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec tout autre fichier déjà présent sur les autres points de terminaison dans le groupe de synchronisation.
 
 Consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations le déploiement de bout en bout d’Azure File Sync.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour créer un point de terminaison de serveur, vous devez d’abord vérifier que les critères suivants sont remplis : 
 - L’agent de synchronisation de fichiers Azure est installé le serveur et ce dernier a été inscrit. Vous trouverez des instructions pour l’installation de l’agent de synchronisation de fichiers Azure dans l’article [Inscrire/désinscrire un serveur de la synchronisation de fichiers Azure (préversion)](storage-sync-files-server-registration.md). 
 - Vérifiez qu’un service de synchronisation de stockage a été déployé. Consultez [Guide pratique pour déployer la synchronisation de fichiers Azure (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations sur le déploiement d’un service de synchronisation de stockage. 
@@ -45,22 +44,25 @@ Les informations suivantes sont requises sous l’option **Ajouter un point de t
 
 - **Serveur inscrit** : nom du serveur ou du cluster sur lequel créer le point de terminaison de serveur.
 - **Chemin d’accès** : chemin sur le serveur Windows Server à synchroniser en tant qu’élément du groupe de synchronisation.
-- **Hiérarchisation cloud** : commutateur activant ou désactivant la synchronisation cloud, qui permet de hiérarchiser les fichiers rarement ouverts ou utilisés dans Azure Files.
+- **Hiérarchisation cloud** : commutateur pour activer ou désactiver la hiérarchisation cloud. Quand elle est activée, la hiérarchisation cloud *hiérarchise* les fichiers dans vos partages de fichiers Azure. Les partages de fichiers locaux sont alors convertis en cache, plutôt qu’en copie complète du jeu de données, pour vous aider à optimiser l’espace sur votre serveur.
 - **Espace libre du volume** : quantité d’espace libre à réserver sur le volume sur lequel se trouve le point de terminaison de serveur. Par exemple, si l’espace libre du volume est définie sur 50 % sur un volume avec un point de terminaison de serveur unique, environ la moitié de la quantité de données sera hiérarchisée dans Azure Files. Que la hiérarchisation cloud soit activée ou non, le partage de fichiers Azure dispose toujours d’une copie complète des données dans le groupe de synchronisation.
 
 Sélectionnez **Créer** pour ajouter le point de terminaison de serveur. Les fichiers situés dans un espace de noms d’un groupe de synchronisation seront désormais synchronisés. 
 
 ## <a name="remove-a-server-endpoint"></a>Supprimer un point de terminaison de serveur
-Lorsque la hiérarchisation cloud est activée pour un point de terminaison de serveur, elle *hiérarchise* les fichiers dans des partages de fichiers Azure. Cela permet aux partages de fichiers locaux de faire office de cache, au lieu d’effectuer une copie complète du jeu de données, et d’utiliser efficacement l’espace sur le serveur de fichiers. Toutefois, **si un point de terminaison de serveur est supprimé alors que des fichiers hiérarchisés sont toujours localement sur le serveur, ces fichiers deviennent inaccessibles**. Par conséquent, si vous voulez un accès continu aux fichiers sur les partages de fichiers locaux, vous devez rappeler tous les fichiers hiérarchisés dans Azure Files avant de poursuivre la suppression du point de terminaison de serveur. 
+Si vous ne voulez plus utiliser Azure File Sync pour un point de terminaison de serveur donné, vous pouvez supprimer le point de terminaison de serveur. 
 
-Cette opération peut être effectuée avec l’applet de commande PowerShell comme indiqué ci-dessous :
+> [!Warning]  
+> Ne tentez pas de résoudre les problèmes de synchronisation, de hiérarchisation cloud ou tout autre aspect d’Azure File Sync en supprimant et recréant le point de terminaison de serveur, sauf si un ingénieur Microsoft vous le demande explicitement. La suppression d’un point de terminaison de serveur est une opération destructrice, et les fichiers hiérarchisés sur le point de terminaison de serveur ne sont pas « reconnectés » à leur emplacement sur le partage de fichiers Azure après la recréation du point de terminaison de serveur, ce qui entraîne des erreurs de synchronisation. Notez également que les fichiers hiérarchisés qui existent en dehors de l’espace de noms de point de terminaison de serveur risquent d’être définitivement perdus. Les fichiers hiérarchisés peuvent exister dans votre point de terminaison de serveur même si la hiérarchisation cloud n’a jamais été activée.
+
+Pour garantir que tous les fichiers hiérarchisés sont rappelés avant de supprimer le point de terminaison de serveur, désactivez la hiérarchisation cloud sur le point de terminaison de serveur, puis exécutez l’applet de commande PowerShell suivante pour rappeler tous les fichiers hiérarchisés au sein de l’espace de noms de votre point de terminaison de serveur :
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
-> [!Warning]  
+> [!Note]  
 > Si le volume local qui héberge le serveur n’a pas assez d’espace libre pour rappeler toutes les données hiérarchisées, l’applet de commande `Invoke-StorageSyncFileRecall` échoue.  
 
 Pour supprimer le point de terminaison de serveur

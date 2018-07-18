@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: c72f513c7134c556afa5fa5d0b94c17b1142be54
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627414"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Didacticiel : créer une application Scala Maven pour Spark dans HDInsight à l’aide d’IntelliJ
 
@@ -43,10 +44,44 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’ [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IDE Java. Cet article utilise IntelliJ IDEA 18.1.1. Vous pouvez l’installer à partir [d’ici](https://www.jetbrains.com/idea/download/).
+
+## <a name="use-intellij-to-create-application"></a>Utilisez IntelliJ pour créer l’application
+
+1. Démarrez IntelliJ IDEA et créez un projet. Dans la boîte de dialogue **Nouveau projet** , procédez comme suit : 
+
+   a. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)**.
+
+   b. Dans la liste des **outils de génération**, sélectionnez l’une des options suivantes, en fonction de vos besoins :
+
+      * **Maven**, pour la prise en charge de l’Assistant de création de projets Scala
+      * **SBT**, pour gérer les dépendances et la génération du projet Scala
+
+   ![Boîte de dialogue Nouveau projet](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. Sélectionnez **Suivant**.
+
+3. L’assistant de création de projets Scala détecte automatiquement si vous avez installé le plug-in Scala. Sélectionnez **Installer**.
+
+   ![Vérification de l’installation du plug-in Scala](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. Sélectionnez **OK** pour télécharger le plug-in Scala. Suivez les instructions pour redémarrer IntelliJ. 
+
+   ![Boîte de dialogue d’installation du plug-in Scala](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. Dans la fenêtre **Nouveau projet**, procédez comme suit :  
+
+    ![Sélection du kit de développement logiciel (SDK) Spark](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. Entrez un nom de projet et un emplacement.
+
+   b. Dans la liste déroulante **Kit de développement logiciel (SDK) de projet**, sélectionnez **Java 1.8** pour le cluster Spark 2.x ou **Java 1.7** pour le cluster Spark 1.x.
+
+   c. Dans la liste déroulante **Version Spark**, l’assistant de création de projets Scala intègre la version correcte pour le kit de développement logiciel Spark et le kit de développement logiciel Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. La version utilisée dans cet exemple est **Spark 2.0.2 (Scala 2.11.8)**.
+
+6. Sélectionnez **Terminer**.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installer le plug-in Scala pour IntelliJ IDEA
 Pour installer le plug-in Scala, procédez comme suit :
@@ -160,7 +195,6 @@ Pour exécuter l’application sur le cluster, vous pouvez procéder comme suit 
 * **Utilisez Livy pour soumettre une tâche de l'application à distance** au cluster Spark. Les clusters Spark sur HDInsight incluent Livy qui expose des points de terminaison REST permettant d’envoyer à distance des travaux Spark. Pour plus d’informations, consultez [Envoi de travaux Spark à distance en utilisant Livy avec les clusters Spark sur HDInsight](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-step"></a>Étapes suivantes
-
 
 Dans cet article, vous avez appris à créer une application Spark Scala. Passez à l’article suivant pour savoir comment exécuter cette application sur un cluster HDInsight Spark en utilisant Livy.
 

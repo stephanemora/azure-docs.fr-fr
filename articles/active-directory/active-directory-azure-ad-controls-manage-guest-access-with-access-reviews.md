@@ -3,23 +3,24 @@ title: Gérer l’accès invité avec les révisions d’accès Azure AD | Docum
 description: Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec les révisions d’accès Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: dbb139081e1eb84ea64a187b7fec0d9cb159653c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: 452501d5da58d06093f22009c6ecc30e02f581a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235003"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295637"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -29,7 +30,7 @@ Avec Azure Active Directory (Azure AD), vous pouvez facilement mettre en place u
 Vous pouvez également facilement vous assurer que les utilisateurs invités disposent de droits d’accès appropriés. Vous pouvez demander directement aux invités ou bien à un décisionnaire de prendre part à une révision d’accès et de renouveler la certification (ou d’effectuer une « attestation ») pour l’accès invité. Les réviseurs peuvent donner leur avis sur les besoins de chaque utilisateur en matière d’accès continu, en fonction des suggestions d’Azure AD. Lorsqu’une révision d’accès est terminée, vous pouvez effectuer des modifications et supprimer l’accès des invités qui n’en ont plus besoin.
 
 > [!NOTE]
-> Ce document se concentre sur la revue de l’accès des utilisateurs invités. Si vous souhaitez réviser l’accès de tous les utilisateurs, et pas uniquement celui des invités, consultez l’article [Manage user access with access reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) (Gérer l’accès utilisateur à l’aide des révisions d’accès). Si vous voulez examiner l’appartenance d’un utilisateur à un rôle d’administrateur tel que le rôle Administrateur général, consultez [Démarrer une révision d’accès dans Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Ce document se concentre sur la revue de l’accès des utilisateurs invités. Si vous souhaitez réviser l’accès de tous les utilisateurs, et pas uniquement celui des invités, consultez l’article [Manage user access with access reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) (Gérer l’accès utilisateur à l’aide des révisions d’accès). Si vous voulez examiner l’appartenance d’un utilisateur à un rôle d’administrateur tel que le rôle Administrateur général, consultez [Démarrer une révision d’accès dans Azure AD Privileged Identity Management](privileged-identity-management/pim-how-to-start-security-review.md). 
 >
 >
 
@@ -42,7 +43,7 @@ Si vous envisagez de demander aux utilisateurs invités de revoir leur propre ac
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Créer et exécuter une révision d’accès pour des invités
 
-Tout d’abord, activez les révisions d’accès pour qu’elles apparaissent dans les volets d’accès du réviseur. En tant qu’administrateur global, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+Tout d’abord, activez les révisions d’accès pour qu’elles apparaissent dans les volets d’accès du réviseur. En tant qu’administrateur général ou administrateur des comptes d’utilisateur, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
 
 Azure AD permet plusieurs scénarios de revue des utilisateurs invités.
 

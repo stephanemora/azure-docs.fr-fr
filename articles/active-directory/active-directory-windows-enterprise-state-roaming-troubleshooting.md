@@ -17,11 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b5ade0f3a6590832b6717bbb5f91a4d62cdc9e0c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309041"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -79,7 +80,7 @@ Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser l
 **Problème potentiel** : la synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services Active Directory Federation Services et le jeton d’accès de l’appareil expire. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
 
 ### <a name="event-viewer"></a>Observateur d’événements
-Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Vous trouverez les événements sous Observateur d’événements > Journaux des applications et des services > **Microsoft** > **Windows** > **SettingSync** et pour les problèmes liées à l’identité avec la synchronisation **Microsoft** > **Windows** > **Azure AD**.
+Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Vous trouverez les événements sous Observateur d’événements > Journaux des applications et des services > **Microsoft** > **Windows** > **SettingSync** et pour les problèmes liés à l’identité avec la synchronisation **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Problèmes connus
@@ -177,7 +178,7 @@ Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Utilisez le forum [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) pour fournir des commentaires et des suggestions sur la façon d’améliorer Enterprise State Roaming.
+- Utilisez le forum [User Voice](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) pour fournir des commentaires et des suggestions sur la façon d’améliorer Enterprise State Roaming.
 
 - Pour plus d’informations, consultez la [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md). 
 

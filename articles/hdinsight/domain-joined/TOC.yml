@@ -20,6 +20,8 @@
       href: ../spark/apache-spark-intellij-tool-plugin.md
     - name: Utiliser Eclipse pour établir un lien avec un cluster joint à un domaine
       href: ../spark/apache-spark-eclipse-tool-plugin.md
+    - name: Utiliser Oozie dans des clusters joints à un domaine
+      href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Sécurisation des données
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
@@ -37,13 +39,10 @@
     - name: Réplication de cluster HBase dans le réseau virtuel Azure
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Surveillance à l’aide d’OMS
+- name: Surveillance à l’aide de Log Analytics
   items:
     - name: Utiliser Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Tableaux de bord spécifiques au cluster
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Utiliser des requêtes avec Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -55,7 +54,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.hdinsight
     - name: .NET (Hadoop)
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'
@@ -72,6 +71,10 @@
     - name: Notes de publication
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notes de publication archivées
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenir de l'aide sur le forum

@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971264"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Linux dans votre cluster Service Fabric
 
@@ -61,9 +62,9 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Vérifier que vos machines virtuelles Azure exécutent Ubuntu 16.04
 Au moment de la rédaction de ce document, Ubuntu 16.04 (`Xenial Xerus`) est la seule version prise en charge.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>Vérifier que la version du cluster Service Fabric Linux est 6.1.x ou une version ultérieure
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Vérifier que la version du cluster Service Fabric Linux est 6.2.x ou une version ultérieure
 
-L’application d’orchestration des correctifs Linux utilise certaines fonctionnalités du runtime uniquement disponibles dans le runtime Service Fabric 6.1.x et versions ultérieures.
+L’application d’orchestration des correctifs Linux utilise certaines fonctionnalités du runtime uniquement disponibles dans le runtime Service Fabric 6.2.x et les versions ultérieures.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -118,7 +119,9 @@ Pour Ubuntu, les [mises à niveau sans assistance](https://help.ubuntu.com/commu
 
 ## <a name="download-the-app-package"></a>Télécharger le package de l’application
 
-Téléchargez l’application à partir du [lien de téléchargement](https://go.microsoft.com/fwlink/?linkid=867984).
+L’application et les scripts d’installation peuvent être téléchargés à partir de [Lien de l’archive](https://go.microsoft.com/fwlink/?linkid=867984).
+
+L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurer l’application
 
@@ -319,6 +322,10 @@ Q. **Après la mise à niveau, l’application d’orchestration des correctifs 
 
 R. Oui, le nettoyage se produit dans le cadre des étapes post-installation. 
 
+Q. **L’application d’orchestration des correctifs peut-elle être utilisée pour corriger mon cluster de développement (cluster à un nœud) ?**
+
+R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
+
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Un nœud ne se réactive pas
@@ -360,5 +367,8 @@ L’application d’orchestration des correctifs collecte des données de télé
 ### <a name="version-010"></a>Version 0.1.0
 - Préversion privée
 
-### <a name="version-200-latest"></a>Version 2.0.0 (la plus récente)
+### <a name="version-200"></a>Version 2.0.0
 - Version publique
+
+### <a name="version-201-latest"></a>Version 2.0.1 (dernière version)
+- Application recompilée à l’aide de la dernière version du SDK Service Fabric

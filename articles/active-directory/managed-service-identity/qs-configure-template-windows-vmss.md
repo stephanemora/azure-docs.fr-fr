@@ -1,6 +1,6 @@
 ---
-title: Configurer MSI sur un groupe de machines virtuelles identiques Azure à l’aide d’un modèle
-description: Instructions détaillées sur la configuration d’une identité MSI (Managed Service Identity) sur un groupe de machines virtuelles identiques Azure, à l’aide d’un modèle Azure Resource Manager.
+title: Configurer l’identité du service administré sur un groupe de machines virtuelles identiques Azure à l’aide d’un modèle
+description: Instructions détaillées sur la configuration d’une identité du service administré (MSI) sur un groupe de machine virtuelle identique Azure, à l’aide d’un modèle Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,32 +9,31 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: f7c5d063bfb287de9afe808395b951ecb161da69
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930610"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901209"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurer une identité MSI (Managed Service Identity) de groupe de machines virtuelles identiques à l’aide d’un modèle
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed Service Identity fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
+L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
 Dans cet article, vous allez découvrir comment effectuer les opérations Managed Service Identity suivantes sur un groupe de machines virtuelles identiques Azure, à l’aide du modèle de déploiement Azure Resource Manager :
 - Activer et désactiver l’identité attribuée au système sur un groupe de machines virtuelles identiques Azure
-- Ajouter et supprimer une identité attribuée à l’utilisateur sur un groupe de machines virtuelles identiques Azure
+- Ajouter et supprimer une identité attribuée par l’utilisateur sur un groupe de machines virtuelles identiques Azure
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
@@ -128,7 +127,7 @@ Dans cette section, vous allez attribuer une identité attribuée à l’utilisa
 
     }
     ```
-2. (Facultatif) Ajoutez l’entrée suivante sous l’élément `extensionProfile` pour attribuer l’extension d’identité gérée à votre groupe de machines virtuelles identiques. Cette étape est facultative car vous pouvez également utiliser le point de terminaison d’identité Azure IMDS (Instance Metadata Service) pour récupérer des jetons. Utilisez la syntaxe suivante :
+2. (Facultatif) Ajoutez l’entrée suivante sous l’élément `extensionProfile` pour attribuer l’extension d’identité gérée à votre groupe de machines virtuelles identiques. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons. Utilisez la syntaxe suivante :
    
     ```JSON
        "extensionProfile": {

@@ -3,9 +3,17 @@ Une machine virtuelle Azure prend en charge l'attachement d'un certain nombre de
 > [!IMPORTANT]
 > Pour des performances optimales, limitez le nombre de disques fortement utilisés attachés à la machine virtuelle pour éviter les limitations possibles. Si tous les disques attachés ne sont pas fortement utilisés en même temps, la machine virtuelle peut prendre en charge un plus grand nombre de disques.
 
-* **Pour Azure Managed Disks :** la limite des disques managés est exprimée par région et par type de disque. La limite maximale, ainsi que la limite par défaut, s’élèvent à 10 000 disques managés par région et par type de disque pour un abonnement. Par exemple, vous pouvez créer jusqu’à 10 000 disques managés standard et jusqu’à 10 000 disques managés Premium au sein d’un abonnement et d’une région.
+* **Pour Azure Managed Disks :** 
 
-    Les instantanés et les images gérés sont comptabilisés par rapport à la limite de disques managés.
+> | Ressource | Limite par défaut | Limite maximale |
+> | --- | --- | --- |
+> | Disques managés Standard | 10 000 | 50 000 |
+> | Disques managés SSD Standard | 10 000 | 50 000 |
+> | Disques managés Premium | 10 000 | 50 000 |
+> | Instantanés Standard_LRS | 10 000 | 50 000 |
+> | Instantanés Standard_ZRS | 10 000 | 50 000 |
+> | Instantanés Premium_LRS | 10 000 | 50 000 |
+> | Image managée | 10 000 | 50 000 |
 
 * **Pour les comptes de stockage standard :** un compte de stockage standard a un taux de demandes total maximal de 20 000 opérations d'E/S par seconde. Le nombre d'opérations d'E/S par seconde sur l'ensemble de vos disques de machine virtuelle dans un compte de stockage standard ne doit pas dépasser cette limite.
   

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: jroth
 ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071544"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720122"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
 
@@ -125,7 +125,7 @@ Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **N
    > [!TIP]
    > Si vous n’avez pas SQL Server Management Studio, vous pouvez le télécharger [ici](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez l’adresse IP publique de votre machine virtuelle. Ajoutez ensuite une virgule, puis ajoutez le port personnalisé, **1401**, que nous avons spécifié lors de la configuration de la nouvelle machine virtuelle. Par exemple : `11.22.33.444,1401`.
+1. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez l’adresse IP publique de votre machine virtuelle. Ajoutez ensuite une virgule, puis ajoutez le port personnalisé, **1401**, que nous avons spécifié lors de la configuration de la nouvelle machine virtuelle. Par exemple : `11.22.33.444,1401`.
 
 1. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 
@@ -147,7 +147,7 @@ Une fois que vous vous connectez à la machine virtuelle SQL Server, vous pouvez
 
 L’accès à la machine permet de modifier directement les paramètres SQL Server et ceux de la machine en fonction de vos besoins. Par exemple, vous pourriez configurer les paramètres du pare-feu ou modifier les paramètres de configuration SQL Server.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez pas besoin que votre machine virtuelle SQL s’exécute en permanence, vous pouvez éviter les frais inutiles en l’arrêtant lorsque vous ne vous en servez pas. Vous pouvez également supprimer définitivement toutes les ressources associées à la machine virtuelle en effaçant son groupe de ressources dans le portail. Cette opération supprime aussi la machine virtuelle de façon définitive ; il convient donc d’utiliser cette commande avec précaution. Pour plus d’informations, consultez [Gérer les ressources Azure sur le portail](../../../azure-resource-manager/resource-group-portal.md).
 

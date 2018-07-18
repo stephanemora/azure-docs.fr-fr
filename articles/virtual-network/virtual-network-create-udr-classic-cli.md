@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793883"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38678576"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de l'Interface de ligne de commande Azure
 
@@ -99,7 +99,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
     ```
    
-    Output:
+    Sortie :
    
         info:    Executing command network vnet subnet route-table add
         info:    Looking up the subnet "FrontEnd"

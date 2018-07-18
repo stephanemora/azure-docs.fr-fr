@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -120,9 +120,9 @@ L’application SPA créée dans ce guide n’utilise pas directement le jeton d
 #### <a name="getting-a-user-token-interactively"></a>Obtention d’un jeton d’utilisateur de manière interactive
 
 Après la première connexion, il n’est pas souhaitable de demander aux utilisateurs de se réauthentifier chaque fois qu’ils ont besoin d’un jeton pour accéder à une ressource. Par conséquent, *acquireTokenSilent* doit être utilisé pour acquérir des jetons dans la plupart des situations. Il existe cependant des situations dans lesquelles vous devez forcer les utilisateurs à interagir avec le point de terminaison Azure Active Directory v2. Voici quelques exemples de telles situations :
--   Les utilisateurs doivent réentrer leurs informations d’identification, car le mot de passe a expiré.
--   Votre application demande l’accès à une ressource pour laquelle l’utilisateur doit donner son consentement.
--   Une authentification à 2 facteurs est demandée.
+- Les utilisateurs doivent réentrer leurs informations d’identification, car le mot de passe a expiré.
+- Votre application demande l’accès à une ressource pour laquelle l’utilisateur doit donner son consentement.
+- Une authentification à 2 facteurs est demandée.
 
 Le fait d’appeler *acquireTokenRedirect(scope)* entraîne la redirection des utilisateurs vers le point de terminaison Azure Active Directory v2 (ou l’appel de *acquireTokenPopup(scope)* entraîne l’affichage d’une fenêtre contextuelle) avec lequel ils doivent interagir en confirmant leurs informations d’identification, en consentant à ce que l’application accède à la ressource ou en effectuant l’authentification à 2 facteurs.
 
@@ -204,7 +204,7 @@ Ajoutez le code suivant à votre fichier `app.js` :
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

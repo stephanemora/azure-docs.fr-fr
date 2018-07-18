@@ -1,21 +1,21 @@
 ---
-title: Configuration des jetons, des sessions et de l’authentification unique - Azure AD B2C | Microsoft Docs
-description: Configuration du jeton, de la session et de l’authentification unique dans Azure Active Directory B2C
+title: Configuration du jeton, de la session et de l’authentification unique dans Azure Active Directory B2C | Microsoft Docs
+description: Configuration du jeton, de la session et de l’authentification unique dans Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444817"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C : configuration du jeton, de la session et de l’authentification unique
 
@@ -68,10 +68,10 @@ Voici quelques cas d’usage que vous pouvez activer à l’aide de ces proprié
 
 Nous avons apporté des modifications de mise en forme aux revendications importantes dans les jetons de sécurité émis par Azure AD B2C. Cela a été fait pour améliorer la prise en charge du protocole standard et pour une meilleure interopérabilité avec les bibliothèques d’identité tierces. Toutefois, pour éviter d’interrompre les applications existantes, nous avons créé les propriétés suivantes pour permettre aux clients de participer en fonction de leurs besoins :
 
-* **Revendication de l’émetteur (iss)** : identifie le client Azure AD B2C qui a émis le jeton.
+* **Revendication de l’émetteur (iss)**  : identifie le client Azure AD B2C qui a émis le jeton.
   * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/` : il s’agit de la valeur par défaut.
   * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` : cette valeur inclut l’ID pour le client B2C et la stratégie utilisée dans la demande de jeton. Si votre application ou bibliothèque a besoin qu’Azure AD B2C soit conforme à [la spécification OpenId Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), utilisez cette valeur.
-* **Revendication d’objet (obj)** : identifie l’entité, par exemple, l’utilisateur, pour laquelle le jeton indique des informations.
+* **Revendication d’objet (obj)**  : identifie l’entité, par exemple, l’utilisateur, pour laquelle le jeton indique des informations.
   * **ObjectID** : il s’agit de la valeur par défaut. Elle renseigne l’ID d’objet de l’utilisateur du répertoire dans la revendication `sub` du jeton.
   * **Non pris en charge** : uniquement fourni pour la compatibilité descendante, nous vous recommandons de passer à **ObjectID** dès que vous le pouvez.
 * **ID de stratégie représentant la revendication** : identifie le type de revendication dans lequel l’ID de stratégie utilisé dans la demande de jeton est renseigné.

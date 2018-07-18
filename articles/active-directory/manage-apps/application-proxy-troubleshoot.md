@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f3c767da249d10896ef1792ce4a5ed72ba3fa418
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8740557471d1cc528e8b7440984c7a3c624ee693
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302214"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017662"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
@@ -40,8 +40,6 @@ Par exemple, si vous publiez le chemin d’accès https://yourapp/app mais que l
 Si vous modifiez votre chemin d’accès pour inclure le contenu référencé, mais que les utilisateurs doivent quand même accéder à un lien plus détaillé du chemin d’accès, consultez le billet du blog intitulé [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Définir le bon lien pour les applications Application Proxy dans le panneau d’accès Azure AD et le lanceur d’applications Office 365).
 
 ## <a name="connector-errors"></a>Erreurs de connecteur
-
-Utilisez [l’outil de test des ports du connecteur de proxy d’application Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) pour vous assurer que votre connecteur peut joindre le service de proxy d’application. Au minimum, assurez-vous d’avoir coché les États-Unis du Centre et les régions les plus proches de vous. En outre, un nombre plus élevé de coches vertes signifie une résilience accrue. 
 
 Si l’inscription échoue au cours de l’installation de l’assistant Connecteur, il existe deux façons d’afficher la raison de l’échec. Vous pouvez effectuer une recherche dans le journal des événements sous **Journaux des applications et des services\Microsoft\AadApplicationProxy\Connecteur\Admin**, ou exécuter la commande Windows PowerShell suivante :
 

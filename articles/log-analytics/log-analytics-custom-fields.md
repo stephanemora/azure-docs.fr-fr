@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.component: na
+ms.openlocfilehash: 164b071a47c13f7c5586bd287adc41bea54a1198
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030692"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129615"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Champs personnalisés dans Log Analytics
 La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
@@ -138,7 +139,7 @@ Nous pouvons maintenant utiliser le champ personnalisé comme n’importe quelle
 
 ![Regrouper par requête](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 * Surveillez les [fichiers journaux personnalisés](log-analytics-data-sources-custom-logs.md) que vous analysez à l’aide de champs personnalisés.
 

@@ -1,27 +1,23 @@
 ---
 title: Forum Aux Questions (FAQ) sur Azure Service Bus | Microsoft Docs
-description: "Répond à certaines questions fréquemment posées sur Azure Service Bus."
+description: Répond à certaines questions fréquemment posées sur Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109517"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
-Cet article évoque certaines questions fréquemment posées sur Microsoft Azure Service Bus. Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations générales de support et de tarification Azure.
+
+Cet article évoque certaines questions fréquemment posées sur Microsoft Azure Service Bus. Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](https://azure.microsoft.com/en-us/support/faq/) pour obtenir des informations générales de support et de tarification Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Questions générales sur Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
@@ -37,9 +33,11 @@ Une [file d’attente Service Bus](service-bus-queues-topics-subscriptions.md) e
 Une rubrique peut être visualisée comme une file d’attente. En cas d’utilisation de plusieurs abonnements, elle devient un modèle de messagerie plus riche ; plus simplement, il s’agit d’un outil de communication de type un-à-plusieurs. Ce modèle de publication/abonnement (ou *pub/sub*) permet à une application d’envoyer un message à une rubrique avec plusieurs abonnements pour que ce message soit reçu par plusieurs applications.
 
 ### <a name="what-is-a-partitioned-entity"></a>Présentation des entités partitionnées
-Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Les [files d’attente et rubriques partitionnées](service-bus-partitioning.md) sont gérées par plusieurs courtiers de messages et stockées dans plusieurs banques de messagerie. Cela signifie que le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul courtier de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible.
+Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Uniquement prise en charge pour les niveaux de messagerie De base et Standard, une [file d’attente ou une rubrique partitionnée](service-bus-partitioning.md) est gérée par plusieurs répartiteurs de messages et stockée dans plusieurs banques de messagerie. Cette caractéristique signifie que le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul répartiteur de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible.
 
-Notez que le classement n’est pas garanti lors de l’utilisation d’entités partitionnées. Si une partition n’est pas disponible, vous pouvez toujours envoyer et recevoir des messages des autres partitions.
+Le classement n’est pas garanti lors de l’utilisation d’entités partitionnées. Si une partition n’est pas disponible, vous pouvez toujours envoyer et recevoir des messages des autres partitions.
+
+ Les entités partitionnées ne sont plus prises en charge dans la [référence SKU Premium](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Présentation des meilleures pratiques Azure Service Bus
@@ -58,7 +56,7 @@ Cette section répond à certaines questions fréquemment posées sur la tarific
 
 L’article [Tarification et facturation de Service Bus](service-bus-pricing-billing.md) explique les paramètres de facturation dans Service Bus. Pour obtenir des informations spécifiques sur les options de tarification de Service Bus, consultez les [détails sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations générales sur la tarification Azure. 
+Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](https://azure.microsoft.com/en-us/support/faq/) pour obtenir des informations générales sur la tarification Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Quel est le coût de Service Bus ?
 Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [détails de tarification Service Bus][Pricing overview]. Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
@@ -74,9 +72,9 @@ Non, Service Bus ne facture pas le stockage ? Toutefois, il existe un quota lim
 Pour obtenir une liste des limites et des quotas Service Bus, consultez [Vue d’ensemble des quotas Service Bus][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus fixe-t-il des quotas d’utilisation ?
-Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel calculé avec tous les abonnements d’un client. Nous savons que vous pouvez avoir des besoins dépassant ces limites, vous pouvez contacter le service clientèle à tout moment pour que nous puissions déterminer vos besoins et ajuster ces limites en conséquence. Pour Service Bus, le quota d’utilisation agrégée est de 5 milliards de messages par mois.
+Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel calculé avec tous les abonnements d’un client. Si vos besoins dépassent ces limites, vous pouvez contacter le service client à tout moment, afin de nous permettre d’ajuster ces limites en fonction de vos exigences. Pour Service Bus, le quota d’utilisation agrégée est de 5 milliards de messages par mois.
 
-Nous nous réservons le droit de désactiver un compte client ayant dépassé son quota d’utilisation pour un mois donné. Nous envoyons une notification par messagerie électronique pour contacter le client avant d’exécuter une action quelconque. Les clients qui dépassent ces quotas restent responsables de frais de dépassement occasionnés.
+Microsoft se réserve le droit de désactiver un compte client ayant dépassé son quota d’utilisation pour un mois donné. Des notifications par e-mail sont envoyées plusieurs fois pour contacter le client avant de procéder à quoi que ce soit. Les clients qui dépassent ces quotas restent responsables de frais de dépassement occasionnés.
 
 À l’instar d’autres services sur Azure, Service Bus applique un ensemble de quotas spécifiques pour assurer une utilisation juste des ressources. Pour plus d’informations sur ces quotas, consultez la page [Quotas Service Bus][Quotas overview].
 

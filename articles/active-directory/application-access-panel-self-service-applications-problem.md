@@ -3,23 +3,24 @@ title: Problème rencontré lors de l’utilisation de l’accès aux applicatio
 description: Résoudre les problèmes liés à l’accès aux applications en libre-service
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
-ms.openlocfilehash: 6d4044414cfae9a79487d02709aab24998fdef0b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: japere,asteen
+ms.openlocfilehash: cdd554b71cc17019d7818e2b509433df621da84f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29382353"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446824"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problème lié à l’accès aux applications en libre-service
 
@@ -96,5 +97,5 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>étapes suivantes
-[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](users-groups-roles/groups-self-service-management.md)

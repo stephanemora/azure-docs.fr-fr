@@ -2,22 +2,24 @@
 title: Créer une révision d’accès pour les membres d’un groupe ou des utilisateurs ayant accès à une application avec Azure AD| Microsoft Docs
 description: Découvrez comment créer une révision d’accès pour les membres d’un groupe ou des utilisateurs ayant accès à une application.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
-ms.author: billmath
-ms.openlocfilehash: 784a461421420af403a43f944d6f63aef3ccc152
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.component: compliance-reports
+ms.date: 06/21/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 853d8f09a94e46db218553500a50dc4ef1ec3d23
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195605"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448269"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Créer une révision d’accès des membres du groupe ou un accès aux applications avec Azure AD
 
@@ -25,7 +27,7 @@ Les attributions d’accès deviennent « obsolètes » lorsque les utilisateu
 
 ## <a name="create-an-access-review"></a>Créer une révision d’accès
 
-1. En tant qu’administrateur général, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) et sélectionnez **Programmes**.
+1. En tant qu’administrateur général ou administrateur des comptes d’utilisateur, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), puis sélectionnez **Programmes**.
 
 2. Sélectionnez le programme qui contient le contrôle de révision d’accès que vous souhaitez créer. Le **programme par défaut »** est toujours présent, mais vous pouvez aussi créer un autre programme. Par exemple, vous pouvez choisir de disposer d’un programme pour chaque initiative de conformité ou objectif de l’entreprise.
 
@@ -35,9 +37,9 @@ Les attributions d’accès deviennent « obsolètes » lorsque les utilisateu
 
 5. Définissez la date de début. Par défaut, une révision d’accès se produit une seule fois, démarre le jour même de sa création et s’arrête un mois plus tard. Vous pouvez modifier les dates de début et de fin pour que la révision d’accès démarre ultérieurement et dure le nombre de jours souhaité.
 
-6. Pour rendre une révision d’accès récurrente, configurez une fréquence hebdomadaire, mensuelle, trimestrielle ou annuelle, puis utilisez le curseur ou la zone de texte pour définir le nombre de jours que chaque révision d’une série doit rester ouverte pour permettre aux réviseurs d’y ajouter des commentaires. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, afin d’éviter le chevauchement des révisions. 
+6. Pour rendre une révision d’accès récurrente, configurez une fréquence hebdomadaire, mensuelle, trimestrielle ou annuelle, puis utilisez le curseur ou la zone de texte pour définir le nombre de jours que chaque révision de la série récurrente doit être ouverte pour permettre aux réviseurs d’y ajouter des commentaires. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, afin d’éviter le chevauchement des révisions. 
 
-7.  Les séries de révisions d’accès récurrentes peuvent se terminer de trois manières : elles peuvent s’exécuter de façon continue pour démarrer les révisions indéfiniment, s’exécuter jusqu’à une date spécifique, ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. L’administrateur général peut arrêter la série après sa création en modifiant la date définie dans les paramètres.
+7.  Les séries de révisions d’accès récurrentes peuvent se terminer de trois manières : elles peuvent s’exécuter de façon continue pour démarrer les révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur des comptes d’utilisateur, un autre administrateur général ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans les paramètres.
 
 8. Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur les utilisateurs qui ont été assignés à une application. Vous pouvez affiner davantage la révision d’accès pour passer en revue uniquement les utilisateurs invités qui sont membres (ou assignés à l’application) au lieu d’examiner tous les utilisateurs qui sont membres ou qui ont accès à l’application.
 
@@ -49,13 +51,13 @@ Les attributions d’accès deviennent « obsolètes » lorsque les utilisateu
 
 1.  Développez le menu des paramètres de saisie semi-automatique, puis activez l’application automatique des résultats à la ressource. 
 
-2.  Si des utilisateurs n’ont pas fait l’objet d’une révision pendant la période définie, vous pouvez suivre les recommandations du système (si celles-ci sont activées) concernant le refus ou l’approbation de l’accès continu des utilisateurs. Vous pouvez aussi maintenir leur accès tel qu’il est ou le supprimer. Cela n’aura pas d’impact sur les utilisateurs qui ont fait l’objet d’une révision manuelle. Si la décision du réviseur final est de refuser l’accès, l’accès de l’utilisateur sera supprimé.
+2.  Si des utilisateurs n’ont pas fait l’objet d’une révision pendant la période de révision définie, vous pouvez suivre les suggestions du système (si celles-ci sont activées) concernant le refus ou l’approbation de l’accès continu des utilisateurs. Vous pouvez aussi maintenir leur accès tel qu’il est ou le supprimer. Cela n’aura pas d’impact sur les utilisateurs qui ont fait l’objet d’une révision manuelle. Si la décision du réviseur final est de refuser l’accès, l’accès de l’utilisateur sera supprimé.
 
-3.  Pour activer l’option permettant de suivre les recommandations en l’absence d’une réponse des réviseurs, vous devez activer l’affichage des recommandations dans les paramètres avancés.
+3.  Pour activer l’option permettant de suivre les suggestions en l’absence d’une réponse des réviseurs, développez les paramètres avancés, puis activez l’affichage des recommandations.
  
 4.  Enfin, cliquez sur **Démarrer**.
 
-En fonction de vos sélections dans les paramètres de saisie semi-automatique, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état Terminé à divers états intermédiaires, tels que Application en cours, pour arriver enfin à l’état Appliqué. Les utilisateurs dont l’accès est refusé doivent perdre leur appartenance au groupe ou leur affectation d’applications au bout de quelques minutes.
+En fonction de vos sélections dans les paramètres de saisie semi-automatique, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état Terminé à divers états intermédiaires, comme Application en cours, pour arriver enfin à l’état Appliqué. Les utilisateurs dont l’accès est refusé doivent perdre leur appartenance au groupe ou leur affectation d’applications au bout de quelques minutes.
 
 
 ## <a name="manage-the-access-review"></a>Gestion de la révision d’accès
@@ -75,5 +77,3 @@ Lorsqu’une révision d’accès a démarré, Azure AD envoie automatiquement a
 S’il s’agit d’une révision unique, une fois la période de révision d’accès terminée, ou si l’administrateur interrompt la révision d’accès, suivez les étapes décrivant la [réalisation d’une révision d’accès](active-directory-azure-ad-controls-complete-access-review.md) pour voir et appliquer les résultats.  
 
 S’il s’agit d’une série de révisions, accédez à **l’historique des révisions** dans la page de la série de révisions d’accès pour sélectionner une révision d’accès déjà terminée.  Les révisions à venir sont répertoriées sous **Révision prévue**, où vous pouvez modifier la durée de la révision, et ajouter ou supprimer des réviseurs pour chaque révision.
-
-

@@ -1,25 +1,26 @@
 ---
-title: "Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure | Microsoft Docs"
-description: "Découvrez les paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure."
+title: Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure | Microsoft Docs
+description: Découvrez les paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure.
 services: vpn-gateway
-documentationcenter: 
+documentationcenter: ''
 author: chadmath
 manager: cshepard
-editor: 
+editor: ''
 tags: azure-vpn-gateway
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 06/11/2018
 ms.author: delhan
-ms.openlocfilehash: cc45d84ea9a5eb4c2eaefb5a3ac321feb2d896d2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d64830d8664ab65bbd9dbe3bc40eb997007d8910
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267235"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure
 
@@ -32,12 +33,12 @@ Cet article fournit plusieurs suggestions de solution pour les pare-feu ou VPN t
 
 Le tableau suivant répertorie plusieurs périphériques courants et l’aide associée :
 
-|Produit    |Référence                                                |
+|Produit    |Informations de référence                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Solutions suggérées par la communauté pour Cisco ASA sur Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Solutions suggérées par la communauté pour Cisco ISR sur Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Solutions suggérées par la communauté pour Cisco ASR sur Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|SonicWALL |Recherchez **Azure VPN** sur le [site SonicWALL](https://support.sonicwall.com/search) |
+|SonicWALL |Recherchez **Azure VPN** sur le [site SonicWALL](https://www.sonicwall.com/en-us/support) |
 | Point de contrôle    |Recherchez **Azure VPN** sur le [site Checkpoint](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Recherchez **Azure VPN** sur le [site Juniper]( http://www.juniper.net/search/public/)|
 |Barracuda  |[Solutions suggérées par la communauté pour Barracuda sur Azure VPN](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
@@ -45,7 +46,7 @@ Le tableau suivant répertorie plusieurs périphériques courants et l’aide as
 |Palo       |[Solutions suggérées par la communauté pour Palo sur Azure VPN](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN)        |
 |Watchguard |[Solutions suggérées par la communauté pour Watchguard sur Azure VPN](http://watchguardsupport.force.com/SupportSearch#q=Azure%20VPN&t=All&sort=relevancy)  |
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
 
 [Paramètres de passerelle Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
