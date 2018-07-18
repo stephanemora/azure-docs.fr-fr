@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35370744"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Appeler le point de terminaison Recherche personnalisée Bing (Python)
@@ -21,13 +21,13 @@ ms.locfileid: "35370744"
 Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Python pour appeler le point de terminaison Recherche personnalisée Bing. 
 
 ## <a name="prerequisites"></a>Prérequis
-Pour suivre ce guide de démarrage rapide, vous devez avoir :
+Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 - Une instance de recherche personnalisée. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
 
 -  [Python](https://www.python.org/) (déjà installé).
 
-- Un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure. 
+- Un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure. 
 
 ## <a name="run-the-code"></a>Exécuter le code
 

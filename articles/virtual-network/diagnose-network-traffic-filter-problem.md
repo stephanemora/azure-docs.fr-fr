@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
 ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "34757225"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
@@ -32,7 +32,7 @@ Les groupes de sécurité réseau vous permettent de contrôler les types de tra
 
 Vous essayez de vous connecter à une machine virtuelle via le port 80 à partir d’internet, mais la connexion échoue. Pour déterminer la raison pour laquelle le port 80 n’est pas accessible à partir d’internet, vous pouvez afficher les règles de sécurité effectives pour une interface réseau à l’aide du [portail](#diagnose-using-azure-portal) Azure, de [PowerShell](#diagnose-using-powershell), ou de [Azure CLI](#diagnose-using-azure-cli).
 
-Les étapes qui suivent supposent que vous avez une machine virtuelle existante dont les règles de sécurité efficace peuvent être affichées. Si vous n’avez pas une machine virtuelle existante, vous devez tout d’abord déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour effectuer les tâches de cet article. Les exemples de cet article sont prévus pour une machine virtuelle nommée *myVM* avec une interface réseau nommée *myVMVMNic*. L’interface réseau et la machine virtuelle sont dans un groupe de ressources nommé *myResourceGroup*et dans la région *États-Unis*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
+Les étapes qui suivent supposent que vous avez une machine virtuelle existante dont les règles de sécurité efficace peuvent être affichées. Si vous n’avez pas une machine virtuelle existante, vous devez tout d’abord déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour effectuer les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *Est des États-Unis*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnostiquer à l’aide du portail Azure
 
@@ -75,7 +75,7 @@ Bien que les règles de sécurité effectives aient été affichées au moyen de
 
 ## <a name="diagnose-using-powershell"></a>Diagnostiquer à l’aide de PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif libre. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous avez besoin du module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez également exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte qui possède les [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les règles de sécurité effectives pour une interface réseau avec [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). L’exemple suivant obtient les règles de sécurité effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
@@ -105,11 +105,11 @@ NetworkInterfaces
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
 ```
 
-Dans la sortie précédente, le nom d’interface réseau est *myVMVMNic*.
+Dans la précédente sortie, le nom d’interface réseau est *myVMVMNic*.
 
-## <a name="diagnose-using-azure-cli"></a>Diagnostiquer à l’aide de Azure CLI
+## <a name="diagnose-using-azure-cli"></a>Diagnostiquer à l’aide d’Azure CLI
 
-Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Cet article requiert Azure CLI version 2.0.32 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` et vous connecter à Azure avec un compte qui possède les [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les règles de sécurité effectives d’une interface réseau avec [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). L’exemple suivant obtient les règles de sécurité effectives d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
@@ -179,7 +179,7 @@ Après avoir créé la règle, le port 80 autorise le trafic entrant à partir d
 
 Lorsque Azure traite le trafic entrant, il traite les règles dans le groupe de sécurité réseau associé au sous-réseau (s’il existe un groupe de sécurité réseau associé) et il traite ensuite les règles dans le groupe de sécurité réseau associé à l’interface réseau. S’il existe un groupe de sécurité réseau associé à l’interface réseau et au sous-réseau, le port doit être ouvert dans chaque groupe de sécurité réseau, pour que le trafic atteigne la machine virtuelle. Pour faciliter les problèmes d’administration et de communication, nous vous recommandons d’associer un groupe de sécurité réseau à un sous-réseau, plutôt que des interfaces réseau individuelles. Si des machines virtuelles au sein d’un sous-réseau ont besoin de règles de sécurité différentes, vous pouvez rendre les interfaces réseau membres d’un groupe de sécurité d’application (ASG) et spécifier un ASG comme source et destination d’une règle de sécurité. Pour en savoir plus sur les [groupes de sécurité d’application](security-overview.md#application-security-groups).
 
-Si vous rencontrez toujours des problèmes de communication, consultez [Considérations](#considerations) et [Diagnostics supplémentaires](#additional-dignosis).
+Si des problèmes de communication subsistent, consultez [Considérations](#considerations) et [Diagnostic supplémentaire](#additional-dignosis).
 
 ## <a name="considerations"></a>Considérations
 
